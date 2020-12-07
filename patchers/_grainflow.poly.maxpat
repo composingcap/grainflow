@@ -40,6 +40,32 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-85",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 411.5, 295.0, 43.0, 21.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
+					"text" : "out~ 6"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-80",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 329.5, 295.0, 43.0, 21.0 ],
+					"text" : "out~ 5"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-76",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -1044,244 +1070,8 @@
 					"id" : "obj-1",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 4,
-					"outlettype" : [ "signal", "signal", "signal", "signal" ],
-					"patcher" : 					{
-						"fileversion" : 1,
-						"appversion" : 						{
-							"major" : 8,
-							"minor" : 1,
-							"revision" : 8,
-							"architecture" : "x64",
-							"modernui" : 1
-						}
-,
-						"classnamespace" : "dsp.gen",
-						"rect" : [ 629.0, 237.0, 1277.0, 969.0 ],
-						"bglocked" : 0,
-						"openinpresentation" : 0,
-						"default_fontsize" : 10.0,
-						"default_fontface" : 0,
-						"default_fontname" : "Futura Medium",
-						"gridonopen" : 1,
-						"gridsize" : [ 15.0, 15.0 ],
-						"gridsnaponopen" : 1,
-						"objectsnaponopen" : 1,
-						"statusbarvisible" : 2,
-						"toolbarvisible" : 1,
-						"lefttoolbarpinned" : 0,
-						"toptoolbarpinned" : 0,
-						"righttoolbarpinned" : 0,
-						"bottomtoolbarpinned" : 0,
-						"toolbars_unpinned_last_save" : 0,
-						"tallnewobj" : 0,
-						"boxanimatetime" : 200,
-						"enablehscroll" : 1,
-						"enablevscroll" : 1,
-						"devicewidth" : 0.0,
-						"description" : "",
-						"digest" : "",
-						"tags" : "",
-						"style" : "Minimal",
-						"subpatcher_template" : "minimal",
-						"assistshowspatchername" : 0,
-						"boxes" : [ 							{
-								"box" : 								{
-									"id" : "obj-5",
-									"maxclass" : "newobj",
-									"numinlets" : 0,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 986.0, 20.0, 27.0, 21.0 ],
-									"text" : "in 4"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-4",
-									"maxclass" : "newobj",
-									"numinlets" : 0,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 664.333333333333371, 20.0, 27.0, 21.0 ],
-									"text" : "in 3"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-3",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 986.0, 832.0, 35.0, 21.0 ],
-									"text" : "out 4"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-2",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 664.333333333333371, 832.0, 35.0, 21.0 ],
-									"text" : "out 3"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-1",
-									"maxclass" : "newobj",
-									"numinlets" : 0,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 342.666666666666686, 20.0, 27.0, 21.0 ],
-									"text" : "in 2"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-23",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 342.5, 836.0, 35.0, 21.0 ],
-									"text" : "out 2"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"code" : "\r\nrandom(pole){\r\n\t\t\r\n\tif (pole < 0){\r\n\t\treturn (noise()+1)/2*-1;\r\n\t\t}\t\r\n\telse if (pole > 0){\r\n\t\treturn (noise()+1)/2;\r\n\t\t}\r\n\t\r\n\telse {\r\n\t\treturn noise();\r\n\t\t}\r\n\t}\r\n\r\n\r\n\r\nBuffer buf(); //Buffer to read\r\nBuffer travOffsets(); //Buffer of Traversal Offsets\r\nBuffer env(); //Envelope Shape\r\nBuffer env2D(); //2D wavetable of envelopes\r\nBuffer windowOffsets(); //buffer of window offsets\r\nBuffer rates(); // buffer of rates\r\nBuffer glisson2D(); //not a thing yet\r\n\r\n\r\n\r\nParam amp(1.);\r\nParam ampRandom(0.);\r\nParam sampleRateCorrection(1.);\r\n\r\nParam envMode(0); // 0 is standard envelope read, 1 is a lookup from a 2D wavetable\r\nParam windowOffsetMode(0); //0 is algorythmic linear offset, 1 is read from a buffer based on voice with a random offset in ms, 3 is read from a buffer by voice with random effecting the read position from that buffer\r\nParam rateMode(0); // 0 is algorythmic, 1 is lookup with random offset, 2 is lookup with randomized lookup position\r\nParam glissonMode(0);\r\nParam triggerMode(0);\r\n\r\nParam env2DOffset(0);\r\nParam env2DPosition(0);\r\nParam env2DRandom(0);\r\nParam env2DNumber(1);\r\n\r\nParam travGlobalOffset(0); // Global Traversal offset in ms\r\nParam travRandom(0); // Traversal Random in ms\r\nParam travOffset(0); // Traversal offset in ms per voice\r\nParam travMode(0); // 0 is normal, 1 reads from the buffer\r\n\r\nParam windowOffset(0); // Grain offset on phasor per voice\r\nParam windowOffsetRandom(0); //Noise to the grain offset position\r\nParam windowReadBias(0);\r\nParam windowReadBiasRandom(0);\r\n\r\nParam space(0); //The amound of space for each cycle.  Set as a proportion.\r\nParam spaceRandom(0);\r\n\r\nParam rate(1); //playRate\r\nParam rateRandom(0);\r\nParam rateOffset(0);\r\nParam rateQuantizeSemi(0);\r\nParam direction(1);\r\n\r\nParam glisson(0);\r\nParam glissonRandom(0);\r\nParam glisson2DNumber(1);\r\n\r\n\r\nParam randomPole(1); // 0 is biPolar, -1 is neg, +1 is pos\r\nParam phasorRate(1);\r\nParam phasorRateRandom(0);\r\n\r\nParam forceGrainReset(0);\r\n\r\nParam loopMode(1);\r\n\r\nHistory thisEnvMode(0);\r\nHistory startTime(0);\r\nHistory lastGrainProgress(9999999);\r\nHistory grainStage(0);\r\nHistory thisDuration(0);\r\nHistory sampleCounter(0);\r\nHistory thisSpace(0);\r\nHistory windowPortion(1);\r\nHistory playRate(0);\r\nHistory myOffset(0);\r\nHistory myGlisson(0);\r\nHistory myEnv2DOffset(0);\r\nHistory env2DLower(0);\r\nHistory env2DUpper(0);\r\nHistory env2DMix(0);\r\nHistory myReadBias(1);\r\nHistory myPhasorRate(1);\r\nHistory myDirection(1);\r\nHistory myAmp(1);\r\n\r\ntrav = in1;\r\nplayHead = 0;\r\nclock = wrap(in2,0,1);\r\nfm = in3;\r\nam = 1-(in4+1)*0.5;\r\ngrainNoise = 0;\r\n\r\nthisGrain = 0;\r\n\r\nwritePosition = in1*dim(buf);\r\n\r\n\r\ngrainProgress = slide(rate(wrap(clock + myOffset, 0, 1),myPhasorRate), 10,10);\r\n\r\ngrainReset = change(forceGrainReset)!=0;\r\n\r\n\r\nif (lastGrainProgress > grainProgress || grainReset){\r\n\t\r\n\tmyAmp = amp - random(1)*ampRandom;\r\n\t\r\n\tif (!triggerMode){\r\n\tmyPhasorRate= phasorRate+phasorRateRandom*random(randomPole);\r\n\t\r\n\t}\r\n\t\r\n\telse{\t\t\r\n\t\tmyPhasorRate = 1;\r\n\t\t\r\n\t\t}\r\n\tstartTime = 0;\r\n\tif (travMode == 0){\r\n\tstartTime = trav*dim(buf) - fixnan(mstosamps(travRandom*random(1)+travOffset*voice+travGlobalOffset));\r\n\t}\r\n\t\r\n\telse if (travMode == 1){\r\n\tstartTime = trav*dim(buf) + fixnan(mstosamps(peek(travOffsets, voice/voicecount, index=\"phase\")))- fixnan(mstosamps(travRandom*random(1)+travOffset*voice+travGlobalOffset));\t\r\n\t\t}\r\n\t\r\n\telse if (travMode == 2){\r\n\tstartTime = trav*dim(buf) + fixnan(mstosamps(peek(travOffsets, voice/voicecount + fixnan(mstosamps(travRandom*random(1))), index=\"phase\", boundmode=\"wrap\")))-travGlobalOffset;\t\r\n\t\t}\r\n\t\r\n\twindowPortion = 1-clip(space+spaceRandom*random(randomPole),0,1);\r\n\t\r\n\tif (glissonMode == 0){\r\n\t\r\n\tmyGlisson = (glisson+random(randomPole)*glissonRandom);\r\n\t}\r\n\t\r\n\tif (glissonMode == 1){\r\n\t\t//Will be similar to 2D Wt lookup\r\n\t\t\r\n\t\t}\r\n\t\r\n\tif (rateMode == 0){\r\n\t\r\n\tplayRate = rate+rateRandom*random(randomPole)+rateOffset*voice;\r\n\t\r\n\t}\r\n\r\n\t\r\n\telse if (rateMode == 1){\r\n\t\t//Rates per voice;\r\n\t\tplayRate = peek(rates,voice/voicecount, interp = \"none\", index = \"phase\")+rateRandom*random(randomPole);\t\t\r\n\t\t}\r\n\telse if (rateMode == 2){\r\n\t\t//By voice, read point random\r\n\t\tplayRate = peek(rates,floor((voice/voicecount+rateRandom*random(randomPole))*dim(rates)), interp = \"none\", index=\"samples\",boundmode=\"wrap\");\t\t\r\n\t\t}\r\n\t\t\r\n\tif (rateQuantizeSemi > 0){\r\n\t\t\r\n\t\tplayRate = 1+round(playRate-1, 1-pow(2,rateQuantizeSemi/12));\r\n\t\t\r\n\t\t}\r\n\t\t\r\n\t\r\n\tif (direction >= 1){\r\n\t\r\n\tmyDirection = 1;\r\n\t}\r\n\telse if (direction <= -1){\r\n\tmyDirection = -1;\r\n\t}\r\n\telse{\r\n\trandomDirection = noise();\r\n\tif (randomDirection > direction){\r\n\t\tmyDirection = -1;\r\n\t\t}\r\n\telse {\r\n\t\tmyDirection = 1;\r\n\t\t}\r\n\t}\r\n\t\r\n\r\n\r\n\tif (!triggerMode){\r\n\tif (windowOffsetMode == 0){\r\n\t\tmyOffset = windowOffset*voice+windowOffsetRandom*random(randomPole);\r\n\t}\r\n\t\r\n\telse if (windowOffsetMode == 1) {\r\n\t\tmyOffset = mstosamps(peek(windowOffsets,voice/voicecount, interp=\"linear\",index=\"phase\"))+windowOffsetRandom*random(randomPole);\r\n\t\t\r\n\t\t}\r\n\telse if (windowOffsetMode == 2){\r\n\t\r\n\t\tmyOffset = mstosamps(peek(windowOffsets,voice/voicecount+windowOffsetRandom*random(randomPole), interp=\"linear\",index=\"phase\", boundmode=\"wrap\"));\r\n\t\t\r\n\t\t}\r\n\t\t}\r\n\telse{\r\n\t\tmyOffset = 0;\r\n\t\t}\r\n\t\t\r\n\t\r\n\t\tif (windowReadBias != 0 || windowReadBiasRandom != 0){\r\n\t\t\tmyReadBias = pow(2,windowReadBias + random(randomPole)*windowReadBiasRandom);\r\n\t}\r\n\telse {\r\n\t\tmyReadBias = 1;\r\n\t\t}\r\n\t\t\r\n\tif (envMode == 1){\r\n\t\tthisEnvMode = 1;\r\n\t\tmyEnv2DOffset = wrap(env2DOffset*voice + env2DPosition + env2DRandom*random(randomPole), 0,1);\r\n\t\tenv2DLower = floor(myEnv2DOffset*env2DNumber)/env2DNumber;\r\n\t\tenv2DUpper = ceil(myEnv2DOffset*env2DNumber)/env2DNumber; \r\n\t\tenv2DMix =  myEnv2DOffset*env2DNumber%1;\r\n\t\t}\r\n\telse{\r\n\t\tthisEnvMode = 0;\r\n\t\t}\r\n\t\t\t\r\n\tsampleCounter = 0;\t\r\n\t\r\n\t\r\n\t}\r\n\r\n\r\nelse if (grainProgress <= windowPortion){\r\n\twindowProgress = 0;\r\n\tif (myReadBias != 1){\r\n\twindowProgress = fixnan(pow(grainProgress/windowPortion, myReadBias));\r\n\t}\r\n\telse{\r\n\t\twindowProgress = grainProgress/windowPortion;\r\n\t\t}\r\n\t\r\n\twindow = 0;\r\n\tif (thisEnvMode == 0){\t\r\n\twindow = slide(peek(env, windowProgress, index=\"phase\", interp= \"linear\", boundmode=\"wrap\"),100,100);\r\n\t}\r\n\tif (thisEnvMode ==1){\r\n\t\tenv2DProgress = windowProgress/env2DNumber;\r\n\r\n\t\twindowA = peek(env2D, env2DProgress+env2DLower, index=\"phase\");\r\n\t\twindowB = peek(env2D, env2DProgress+env2DUpper, index=\"phase\");\r\n\t\twindow = windowA*(1-env2DMix) + windowB*env2DMix;\r\n\t\t}\r\n\t\t\r\n\t\r\n\r\n\tif (loopMode == 1){\r\n\tthisGrain = peek(buf, startTime+sampleCounter, interp=\"linear\",boundmode=\"wrap\")*window*am;\r\n\t}\r\n\telse{\r\n\t\tthisGrain = peek(buf, startTime+sampleCounter, interp=\"linear\",boundmode=\"clip\")*window*am;\r\n\t\t}\r\n\t\r\n\tplayHead = (startTime+sampleCounter)/dim(buf);\r\n\t\t\t\t\t\t\r\n\tsampleCounter += ((playRate+fm)+myGlisson*windowProgress)*myDirection*sampleRateCorrection;\r\n\r\n\t\r\n\tgrainStage = 1;\r\n\t\r\n\t}\r\n\t\r\nelse{\r\n\tgrainStage = 0;\r\n\tthisGrain = 0;\r\n\tplayHead = -1;\t\r\n\t}\r\n\t\r\n\t\r\n\r\n\r\n\r\nlastGrainProgress = grainProgress;\t\r\n\t\r\n\t\r\n\r\nout1 = thisGrain*myAmp;\r\nout2 = grainStage;\r\nout3 = grainProgress;\r\nout4 = playHead;",
-									"fontface" : 0,
-									"fontname" : "<Monospaced>",
-									"fontsize" : 10.0,
-									"id" : "obj-22",
-									"maxclass" : "codebox",
-									"numinlets" : 4,
-									"numoutlets" : 4,
-									"outlettype" : [ "", "", "", "" ],
-									"patching_rect" : [ 21.0, 64.0, 984.0, 635.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-21",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 21.0, 844.0, 35.0, 21.0 ],
-									"text" : "out 1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-20",
-									"maxclass" : "newobj",
-									"numinlets" : 0,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 21.0, 14.0, 27.0, 21.0 ],
-									"text" : "in 1"
-								}
-
-							}
- ],
-						"lines" : [ 							{
-								"patchline" : 								{
-									"destination" : [ "obj-22", 1 ],
-									"source" : [ "obj-1", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-22", 0 ],
-									"source" : [ "obj-20", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-2", 0 ],
-									"source" : [ "obj-22", 2 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-21", 0 ],
-									"source" : [ "obj-22", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-23", 0 ],
-									"source" : [ "obj-22", 1 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-3", 0 ],
-									"source" : [ "obj-22", 3 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-22", 2 ],
-									"source" : [ "obj-4", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-22", 3 ],
-									"source" : [ "obj-5", 0 ]
-								}
-
-							}
- ],
-						"styles" : [ 							{
-								"name" : "Minimal",
-								"default" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-									"bgfillcolor" : 									{
-										"type" : "color",
-										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
-										"proportion" : 0.39,
-										"autogradient" : 0.0
-									}
-,
-									"fontname" : [ "Futura Medium" ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ]
-								}
-,
-								"parentstyle" : "",
-								"multi" : 0
-							}
- ]
-					}
-,
+					"numoutlets" : 6,
+					"outlettype" : [ "signal", "signal", "signal", "signal", "signal", "signal" ],
 					"patching_rect" : [ 89.0, 233.0, 114.0, 21.0 ],
 					"text" : "gen~ grainflow.voice"
 				}
@@ -1313,6 +1103,20 @@
 				"patchline" : 				{
 					"destination" : [ "obj-43", 0 ],
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-80", 0 ],
+					"source" : [ "obj-1", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-85", 0 ],
+					"source" : [ "obj-1", 5 ]
 				}
 
 			}
@@ -1904,13 +1708,8 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -1923,8 +1722,13 @@
 					}
 ,
 					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontface" : [ 0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
