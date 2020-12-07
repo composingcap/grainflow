@@ -1,5 +1,5 @@
 inlets = 1;
-outlets = 1;
+outlets = 2;
 
 
 var buf = new Buffer("");
@@ -11,11 +11,11 @@ var dim = [];
 var grainPositions = [];
 var grainWindows = [];
 var grainAmps = [];
+var grainStates = [];
 sketch.default2d();
 sketch.glclear();
 
 var waveform = new Sketch();
-waveform.default2d();
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
 
@@ -32,6 +32,7 @@ function set(buffername){
 	bufTask.execute();
 	
 	}
+
 
 
 function drawBuffer(buffername){
@@ -67,9 +68,11 @@ function draw(){
 
 			
 		for (p = 0 ; p < grainPositions.length; p++){
-			glcolor(0.5+0.5*grainPositions.length/p,0,0,0.9)
+			if(grainStates[p] != 0){
+			glcolor(0.5+0.5*p/grainPositions.length,0,0,0.9)
 			moveto(scaleX(grainPositions[p]%1), 1.75*grainAmps[p]-(1.75*0.5) + 0.05/grainPositions.length*p-0.05);
 			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI),0.5), 0, 360);
+					}
 					}		
 		
 		
@@ -80,6 +83,8 @@ function draw(){
 
 function drawWaveform(){
 	waveform = new Sketch(dim[0],dim[1])
+	waveform.default2d();
+	
 	waveform.glclear();
 	waveform.moveto(-dim[0]/2,samples[0],0);
 	waveform.glcolor(0, 0, 0, 1)
@@ -105,6 +110,12 @@ function grainAmp(){
 	
 		
 			}	
+			
+function grainState(){
+	grainStates = arrayfromargs(messagename,arguments);
+	
+		
+			}
 	
 function drawMe(){
 	draw();
@@ -125,3 +136,25 @@ function onresize(w,h){
 	}
 	
 onresize.local = 1;
+
+
+function onclick(x,y,button){
+	outlet(1,["clicking", x/dim[0], 1-y/dim[1], button]);
+	
+	
+	}
+	
+function ondrag(x,y,button){
+	outlet(1,["clicking", x/dim[0], 1-y/dim[1], button]);
+	
+	}
+	
+function ondblclick(x,y,button){
+	
+	outlet(1,["doubleClick", x/dim[0], 1-y/dim[1], button]);
+	}
+	
+function onidle(x,y,button){
+	
+	outlet(1,["mouse", x/dim[0], 1-y/dim[1], button]);
+	}
