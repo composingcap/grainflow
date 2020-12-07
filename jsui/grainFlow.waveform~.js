@@ -14,7 +14,7 @@ var grainAmps = [];
 var grainStates = [];
 sketch.default2d();
 sketch.glclear();
-
+waveFormDrawn = false;
 var waveform = new Sketch();
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
@@ -64,7 +64,9 @@ function draw(){
 	
 	with(sketch){
 		glclear();
-		copypixels(waveform,0,0,0,0,dim[0],dim[1])
+		if (waveFormDrawn){
+		copypixels(waveform,0,0,0,0,dim[0],dim[1]);
+		}
 
 			
 		for (p = 0 ; p < grainPositions.length; p++){
@@ -92,6 +94,8 @@ function drawWaveform(){
 			samp = samples[s];
 			waveform.lineto(scaleX(s/sampCount),samp,0);			
 			}
+			
+	waveFormDrawn = true;
 	
 	} 	
 	
@@ -139,22 +143,32 @@ onresize.local = 1;
 
 
 function onclick(x,y,button){
-	outlet(1,["clicking", x/dim[0], 1-y/dim[1], button]);
+	x = clamp(x/dim[0],0,1);
+	y = clamp(y/dim[1],0,1);
+	outlet(1,["clicking", x, 1-y, button]);
 	
 	
 	}
 	
 function ondrag(x,y,button){
-	outlet(1,["clicking", x/dim[0], 1-y/dim[1], button]);
+	x = clamp(x/dim[0],0,1);
+	y = clamp(y/dim[1],0,1);
+	outlet(1,["clicking", x, 1-y, button]);
 	
 	}
 	
 function ondblclick(x,y,button){
-	
-	outlet(1,["doubleClick", x/dim[0], 1-y/dim[1], button]);
+	x = clamp(x/dim[0],0,1);
+	y = clamp(y/dim[1],0,1);
+	outlet(1,["doubleclick", x, 1-y, button]);
 	}
 	
 function onidle(x,y,button){
-	
-	outlet(1,["mouse", x/dim[0], 1-y/dim[1], button]);
+	x = clamp(x/dim[0],0,1);
+	y = clamp(y/dim[1],0,1);
+	outlet(1,["idle", x, 1-y, button]);
 	}
+	
+function clamp(num, min, max) {
+  return num <= min ? min : num >= max ? max : num;
+}

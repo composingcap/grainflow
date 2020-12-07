@@ -71,7 +71,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 875.0, 510.0, 50.0, 57.0 ],
-					"text" : "mouse 0.51752 0.985185 0"
+					"text" : "clicking 0 0.355556 0"
 				}
 
 			}
@@ -354,7 +354,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 214.0, 306.0, 742.0, 135.0 ]
+					"patching_rect" : [ 206.0, 324.0, 742.0, 135.0 ]
 				}
 
 			}
