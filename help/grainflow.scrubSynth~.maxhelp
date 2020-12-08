@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 328.0, 303.0, 1270.0, 793.0 ],
+		"rect" : [ 100.0, 100.0, 1270.0, 793.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -39,6 +39,21 @@
 		"subpatcher_template" : "minimal",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"border" : 0,
+					"embedstate" : [ [ "bgColor", 1, 1, 1, 0 ], [ "dotVJitter", 10 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_scrubSynthHelp" ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotScale", 5 ], [ "mode", 0 ] ],
+					"filename" : "grainFlow.waveform~.js",
+					"id" : "obj-6",
+					"maxclass" : "jsui",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 217.0, 462.0, 471.0, 126.0 ]
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-54",
 					"maxclass" : "comment",
@@ -196,26 +211,6 @@
 			}
 , 			{
 				"box" : 				{
-					"args" : [ "buf", "_scrubSynthHelp" ],
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"enablehscroll" : 0,
-					"enablevscroll" : 0,
-					"id" : "obj-36",
-					"lockeddragscroll" : 0,
-					"maxclass" : "bpatcher",
-					"name" : "grainflow.bufferView.maxpat",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"offset" : [ 0.0, 0.0 ],
-					"patching_rect" : [ 217.0, 415.0, 315.0, 86.0 ],
-					"viewvisibility" : 1
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-35",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -344,7 +339,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-36", 0 ],
+					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -458,24 +453,31 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "cp.grainFlow~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
-				"patcherrelativepath" : "../../cpDelayNetworks/patchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "cp.grainFlow.poly.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
-				"patcherrelativepath" : "../../cpDelayNetworks/patchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.bufferView.maxpat",
+				"name" : "grainFlow~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "_grainflow.poly.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
+				"patcherrelativepath" : "../patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.voice.gendsp",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
+				"patcherrelativepath" : "../code",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainFlow.waveform~.js",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/jsui",
+				"patcherrelativepath" : "../jsui",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],
@@ -483,13 +485,8 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -501,9 +498,14 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontname" : [ "Futura Medium" ],
+					"fontface" : [ 0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

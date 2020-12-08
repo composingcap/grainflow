@@ -40,15 +40,23 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-86",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 1199.5, 651.0, 74.0, 21.0 ],
+					"text" : "route symbol"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-85",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 411.5, 295.0, 43.0, 21.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "out~ 6"
 				}
 
@@ -60,6 +68,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 329.5, 295.0, 43.0, 21.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "out~ 5"
 				}
 
@@ -83,7 +95,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "" ],
-					"patching_rect" : [ 1111.0, 641.0, 29.5, 21.0 ],
+					"patching_rect" : [ 1088.0, 629.0, 29.5, 21.0 ],
 					"text" : "t b l"
 				}
 
@@ -190,7 +202,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1115.0, 616.0, 64.0, 21.0 ],
+					"patching_rect" : [ 1092.0, 604.0, 64.0, 21.0 ],
 					"text" : "r #0_buf"
 				}
 
@@ -304,10 +316,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 255.5, 289.0, 43.0, 21.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "out~ 4"
 				}
 
@@ -879,10 +887,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 1037.0, 222.0, 35.0, 21.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"text" : "out 1"
 				}
 
@@ -1002,6 +1006,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 617.0, 31.0, 27.0, 21.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "in 1"
 				}
 
@@ -1636,15 +1644,15 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-77", 0 ],
-					"source" : [ "obj-75", 1 ]
+					"destination" : [ "obj-78", 0 ],
+					"source" : [ "obj-75", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-78", 0 ],
-					"source" : [ "obj-75", 0 ]
+					"destination" : [ "obj-86", 0 ],
+					"source" : [ "obj-75", 1 ]
 				}
 
 			}
@@ -1704,23 +1712,19 @@
 				}
 
 			}
- ],
-		"dependency_cache" : [ 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
-				"implicit" : 1
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-77", 0 ],
+					"source" : [ "obj-86", 0 ]
+				}
+
 			}
  ],
-		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -1732,12 +1736,14 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontname" : [ "Futura Medium" ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"fontface" : [ 0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
