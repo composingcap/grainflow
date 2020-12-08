@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1149.0, 402.0, 1206.0, 953.0 ],
+		"rect" : [ 100.0, 100.0, 1206.0, 953.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -88,6 +88,21 @@
 						"assistshowspatchername" : 0,
 						"title" : "Using Buffers",
 						"boxes" : [ 							{
+								"box" : 								{
+									"border" : 0,
+									"embedstate" : [ [ "bgColor", 1, 1, 1, 0 ], [ "dotVJitter", 0 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotScale", 5 ], [ "mode", 0 ] ],
+									"filename" : "grainFlow.waveform~.js",
+									"id" : "obj-1",
+									"maxclass" : "jsui",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 186.5, 586.5, 471.0, 126.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-51",
 									"maxclass" : "message",
@@ -399,7 +414,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 18.0, 10.0, 487.0, 43.0 ],
-									"text" : "cp.grainFlow~ Using Buffers"
+									"text" : "grainFlow~ Using Buffers"
 								}
 
 							}
@@ -470,26 +485,6 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 44.8359375, 437.0, 126.0, 55.0 ],
 									"text" : "Each grain has its own channel.  This is convienent for bussing and panning."
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"args" : [ "bufName", "_help_grainBuf1" ],
-									"bgmode" : 0,
-									"border" : 0,
-									"clickthrough" : 0,
-									"enablehscroll" : 0,
-									"enablevscroll" : 0,
-									"id" : "obj-1",
-									"lockeddragscroll" : 0,
-									"maxclass" : "bpatcher",
-									"name" : "grainflow.bufferView.maxpat",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"offset" : [ 0.0, 0.0 ],
-									"patching_rect" : [ 173.169270833333258, 594.0, 307.8359375, 76.0 ],
-									"viewvisibility" : 1
 								}
 
 							}
@@ -745,13 +740,8 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
@@ -763,9 +753,14 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontname" : [ "Futura Medium" ],
+									"fontface" : [ 0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ]
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -837,6 +832,21 @@
 						"assistshowspatchername" : 0,
 						"title" : "Mutichannel and Voices",
 						"boxes" : [ 							{
+								"box" : 								{
+									"border" : 0,
+									"embedstate" : [ [ "bgColor", 1, 1, 1, 0 ], [ "dotVJitter", 0 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotScale", 5 ], [ "mode", 0 ] ],
+									"filename" : "grainFlow.waveform~.js",
+									"id" : "obj-1",
+									"maxclass" : "jsui",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 186.169270833333258, 476.5, 471.0, 126.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-46",
 									"maxclass" : "newobj",
@@ -914,7 +924,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 18.0, 10.0, 684.0, 43.0 ],
-									"text" : "cp.grainFlow~ Multichannel and Voices"
+									"text" : "grainFlow~ Multichannel and Voices"
 								}
 
 							}
@@ -1138,26 +1148,6 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 44.8359375, 437.0, 126.0, 55.0 ],
 									"text" : "Each grain has its own channel.  This is convienent for bussing and panning."
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"args" : [ "bufName", "_help_grainBuf1" ],
-									"bgmode" : 0,
-									"border" : 0,
-									"clickthrough" : 0,
-									"enablehscroll" : 0,
-									"enablevscroll" : 0,
-									"id" : "obj-1",
-									"lockeddragscroll" : 0,
-									"maxclass" : "bpatcher",
-									"name" : "grainflow.bufferView.maxpat",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"offset" : [ 0.0, 0.0 ],
-									"patching_rect" : [ 268.833333333333258, 468.5, 307.8359375, 76.0 ],
-									"viewvisibility" : 1
 								}
 
 							}
@@ -1402,13 +1392,8 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
@@ -1420,9 +1405,14 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontname" : [ "Futura Medium" ],
+									"fontface" : [ 0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ]
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1463,7 +1453,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1149.0, 428.0, 1206.0, 927.0 ],
+						"rect" : [ 100.0, 126.0, 1206.0, 927.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1494,6 +1484,21 @@
 						"assistshowspatchername" : 0,
 						"title" : "General Usage",
 						"boxes" : [ 							{
+								"box" : 								{
+									"border" : 0,
+									"embedstate" : [ [ "bgColor", 1, 1, 1, 0 ], [ "dotVJitter", 0 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotScale", 5 ], [ "mode", 0 ] ],
+									"filename" : "grainFlow.waveform~.js",
+									"id" : "obj-7",
+									"maxclass" : "jsui",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 724.1640625, 472.5, 407.8359375, 103.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-51",
 									"maxclass" : "newobj",
@@ -1536,7 +1541,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 862.6640625, 508.5, 150.0, 31.0 ],
+									"patching_rect" : [ 904.6640625, 403.0, 150.0, 31.0 ],
 									"text" : "change the sampling buffer with the buf message"
 								}
 
@@ -1548,7 +1553,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 840.41796875, 474.5, 111.0, 21.0 ],
+									"patching_rect" : [ 882.41796875, 369.0, 111.0, 21.0 ],
 									"text" : "buf _help_grainBuf1"
 								}
 
@@ -1559,7 +1564,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 733.6640625, 514.0, 126.0, 21.0 ],
+									"patching_rect" : [ 775.6640625, 408.5, 126.0, 21.0 ],
 									"text" : "s _help_basicGrainFlow"
 								}
 
@@ -1571,7 +1576,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 733.6640625, 474.5, 111.0, 21.0 ],
+									"patching_rect" : [ 775.6640625, 369.0, 111.0, 21.0 ],
 									"text" : "buf _help_grainBuf2"
 								}
 
@@ -2510,26 +2515,6 @@
 							}
 , 							{
 								"box" : 								{
-									"args" : [ "bufName", "_help_grainBuf1" ],
-									"bgmode" : 0,
-									"border" : 0,
-									"clickthrough" : 0,
-									"enablehscroll" : 0,
-									"enablevscroll" : 0,
-									"id" : "obj-1",
-									"lockeddragscroll" : 0,
-									"maxclass" : "bpatcher",
-									"name" : "grainflow.bufferView.maxpat",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"offset" : [ 0.0, 0.0 ],
-									"patching_rect" : [ 737.0, 370.0, 309.6640625, 79.5 ],
-									"viewvisibility" : 1
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-86",
 									"maxclass" : "newobj",
 									"numinlets" : 2,
@@ -2825,7 +2810,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
+									"destination" : [ "obj-7", 0 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -2839,16 +2824,16 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"order" : 1,
+									"destination" : [ "obj-56", 0 ],
+									"order" : 0,
 									"source" : [ "obj-53", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-56", 0 ],
-									"order" : 0,
+									"destination" : [ "obj-7", 0 ],
+									"order" : 1,
 									"source" : [ "obj-53", 0 ]
 								}
 
@@ -2862,16 +2847,16 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"order" : 1,
+									"destination" : [ "obj-56", 0 ],
+									"order" : 0,
 									"source" : [ "obj-58", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-56", 0 ],
-									"order" : 0,
+									"destination" : [ "obj-7", 0 ],
+									"order" : 1,
 									"source" : [ "obj-58", 0 ]
 								}
 
@@ -2999,13 +2984,8 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
@@ -3017,9 +2997,14 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontname" : [ "Futura Medium" ],
+									"fontface" : [ 0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ]
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -3078,10 +3063,10 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.bufferView.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
+				"name" : "grainFlow.waveform~.js",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/jsui",
+				"patcherrelativepath" : "../jsui",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],
@@ -3089,13 +3074,8 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -3107,9 +3087,14 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontname" : [ "Futura Medium" ],
+					"fontface" : [ 0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

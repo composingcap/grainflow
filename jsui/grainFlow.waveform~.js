@@ -4,7 +4,7 @@ outlets = 2;
 
 
 
-var buf = new Buffer("");
+var buffer = new Buffer("");
 var samples = []
 var sampCount = 0;
 var maxSamples = 10000;
@@ -67,6 +67,60 @@ function getattr_dotColor()
 }
 
 
+
+// Dot Color
+
+var dotColor2 = [0.5,0,0,0.9];
+
+declareattribute("dotColorSecondary",			"getattr_dotColorSecondary",			"setattr_dotColorSecondary", 1);
+
+function setattr_dotColorSecondary()
+{
+	dotColor2 = arrayfromargs(arguments);
+
+}
+
+function getattr_dotColorSecondary()
+{
+	return dotColor2;
+}
+
+//Dot Scale
+
+var dotScale = 1;
+
+declareattribute("dotScale",			"getattr_dotScale",			"setattr_dotScale", 1);
+
+function setattr_dotScale(scale)
+{
+	dotScale = scale;
+
+}
+
+function getattr_dotScale()
+{
+	return dotScale;
+}
+
+
+//Dot Y Jitter
+
+
+var dotVJitter = 0;
+
+declareattribute("dotVJitter",			"getattr_dotVJitter",			"setattr_dotVJitter", 1);
+
+function setattr_dotVJitter(scale)
+{
+	dotVJitter = scale;
+
+}
+
+function getattr_dotVJitter()
+{
+	return dotVJitter;
+}
+
 // Background Color
 var bgColor = [1,1,1,0];
 
@@ -115,6 +169,8 @@ function setattr_mode(thismode)
 
 }
 
+function anything(){}
+
 function getattr_mode()
 {
 	return mode;
@@ -139,30 +195,36 @@ function getattr_selectColor()
 
 
 function load_buffer(){
-	buf = new Buffer(buffername);
+	buffer = new Buffer(buffername);
 	var bufTask = new Task(drawBuffer,this, buffername);
 	bufTask.execute();
 	
 	}
 
+	
+function buf(thisbuffername) {
+		setattr_buffername(thisbuffername);
+		}
+
 function set(thisbuffername){
 		setattr_buffername(thisbuffername);
 	}
 
+		
 function drawBuffer(buffername){
 	
 
-	if (maxSamples < buf.framecount()){
-	sampSkip = Math.floor(buf.framecount()/ maxSamples)
+	if (maxSamples < buffer.framecount()){
+	sampSkip = Math.floor(buffer.framecount()/ maxSamples)
 	sampCount = maxSamples
 	}
 	else{
-			sampCount = buf.framecount();
+			sampCount = buffer.framecount();
 			sampSkip = 1;
 		}
 	
 	for (i = 0; i < sampCount; i++){
-		samples[i] = buf.peek(0,i*sampSkip,1)
+		samples[i] = buffer.peek(0,i*sampSkip,1)
 		}
 		
 	drawWaveform();
@@ -223,13 +285,17 @@ function draw(){
 		
 		}
 
-			
+		//Dots 	
 		for (p = 0 ; p < grainPositions.length; p++){
 			if(grainStates[p] != 0){
 			dotColorMod = p/grainPositions.length*0.5;
-			glcolor(dotColor[0]*(0.5+dotColorMod),dotColor[1]*(0.5+dotColorMod),dotColor[2]*(0.5+dotColorMod),dotColor[3]);
-			moveto(scaleX(grainPositions[p]%1), 1.75*grainAmps[p]-(1.75*0.5) + 0.05/grainPositions.length*p-0.05);
-			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI),0.5), 0, 360);
+			dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
+			dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
+			dotB= dotColor[2]*(1-dotColorMod) + dotColor2[2]*(dotColorMod);
+			dotA= dotColor[3]*(1-dotColorMod) + dotColor2[3]*(dotColorMod);
+			glcolor(dotR, dotG, dotB, dotA);
+			moveto(scaleX(grainPositions[p]%1), 1.75*grainAmps[p]-(1.75*0.5) + (0.05/grainPositions.length*p-0.05)*(1+dotVJitter));
+			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI)*dotScale,0.5), 0, 360);
 					}
 					}
 		
@@ -344,6 +410,7 @@ function onclick(x,y,button){
 	
 	}
 	
+
 function ondrag(x,y,button){
 	y = y/dim[1],0,1;
 	x = x/dim[0],0,1;
