@@ -20,6 +20,12 @@ waveFormDrawn = false;
 var waveform = new Sketch();
 var lasty= 0;
 
+var randomNumbers = new Array(1000);
+
+for (var n = 0; n < randomNumbers.length; n++){
+	randomNumbers[n] =Math.random();	
+	
+	}
 
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
@@ -29,6 +35,18 @@ var selectpositionOut = [0,0]
 drawTask = new Task(drawMe, this);
 drawTask.interval=33;
 drawTask.repeat(-1);
+
+
+
+
+
+function loadbang(){
+for (var n = 0; n < randomNumbers.length; n++){
+	randomNumbers[n] =Math.random();	
+	
+	}
+	}
+
 //drawTast.execute();
 
 //Waveform Color
@@ -106,7 +124,7 @@ function getattr_dotScale()
 //Dot Y Jitter
 
 
-var dotVJitter = 0;
+var dotVJitter = 0.1;
 
 declareattribute("dotVJitter",			"getattr_dotVJitter",			"setattr_dotVJitter", 1);
 
@@ -288,14 +306,16 @@ function draw(){
 		//Dots 	
 		for (p = 0 ; p < grainPositions.length; p++){
 			if(grainStates[p] != 0){
-			dotColorMod = p/grainPositions.length*0.5;
-			dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
-			dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
-			dotB= dotColor[2]*(1-dotColorMod) + dotColor2[2]*(dotColorMod);
-			dotA= dotColor[3]*(1-dotColorMod) + dotColor2[3]*(dotColorMod);
-			glcolor(dotR, dotG, dotB, dotA);
-			moveto(scaleX(grainPositions[p]%1), 1.75*grainAmps[p]-(1.75*0.5) + (0.05/grainPositions.length*p-0.05)*(1+dotVJitter));
-			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI)*dotScale,0.5), 0, 360);
+				var rnd1 = randomNumbers[randomNumbers.length-1-p]
+				var rnd2 = randomNumbers[p]
+				dotColorMod = rnd1;
+				dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
+				dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
+				dotB= dotColor[2]*(1-dotColorMod) + dotColor2[2]*(dotColorMod);
+				dotA= dotColor[3]*(1-dotColorMod) + dotColor2[3]*(dotColorMod);
+				glcolor(dotR, dotG, dotB, dotA);
+				moveto(scaleX(grainPositions[p]%1), 1.75*grainAmps[p]-(1.75*0.5) - rnd2*dotVJitter);
+				circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI)*dotScale,0.5), 0, 360);
 					}
 					}
 		
