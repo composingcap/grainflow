@@ -1099,8 +1099,8 @@
 					"numinlets" : 4,
 					"numoutlets" : 5,
 					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 594.0, 275.0, 199.0, 21.0 ],
-					"text" : "_grainflow_mc~ _help_grainBuf1 100"
+					"patching_rect" : [ 594.0, 275.0, 171.0, 21.0 ],
+					"text" : "grainflow~ _help_grainBuf1 100"
 				}
 
 			}
@@ -1503,16 +1503,15 @@
 
 			}
  ],
-		"parameters" : 		{
-			"parameterbanks" : 			{
-
-			}
-,
-			"inherited_shortname" : 1
-		}
-,
 		"dependency_cache" : [ 			{
-				"name" : "_grainflow_mc~.maxpat",
+				"name" : "grainflow~.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
+				"patcherrelativepath" : "../../../patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "_grainflow.poly.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../../../patchers",
 				"type" : "JSON",
