@@ -90,7 +90,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 21.0, 5.0, 771.0, 161.0 ],
+					"patching_rect" : [ 21.0, 5.0, 922.0, 170.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -115,11 +115,69 @@
 			"obj-1::obj-10" : [ "state", "state", 0 ],
 			"obj-1::obj-15" : [ "grainSize", "grainSize", 0 ],
 			"obj-1::obj-20" : [ "samplePosition", "samplePosition", 0 ],
-			"obj-1::obj-22" : [ "volume", "volume", 0 ],
+			"obj-1::obj-22" : [ "grainAmplitude", "grainAmplitude", 0 ],
 			"obj-1::obj-4" : [ "soundfile", "live.drop", 0 ],
+			"obj-1::obj-45" : [ "transposition", "transposition", 0 ],
+			"obj-1::obj-56" : [ "transpositionRandom", "transpositionRandom", 0 ],
+			"obj-1::obj-57" : [ "samplePositionRandom", "samplePositionRandom", 0 ],
+			"obj-1::obj-65" : [ "grainAmplitudeRandom", "grainAmplitudeRandom", 0 ],
+			"obj-1::obj-68" : [ "grainSizeRandom", "grainSizeRandom", 0 ],
+			"obj-1::obj-77" : [ "grainSizeRandom[1]", "grainSizeRandom", 0 ],
 			"obj-1::obj-8" : [ "grainRate", "grainRate", 0 ],
 			"obj-4" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
+
+			}
+,
+			"parameter_overrides" : 			{
+				"obj-1::obj-22" : 				{
+					"parameter_longname" : "grainAmplitude",
+					"parameter_shortname" : "grainAmplitude"
+				}
+,
+				"obj-1::obj-45" : 				{
+					"parameter_initial" : 0,
+					"parameter_longname" : "transposition",
+					"parameter_range" : [ -24.0, 24.0 ],
+					"parameter_shortname" : "transposition",
+					"parameter_unitstyle" : 7
+				}
+,
+				"obj-1::obj-56" : 				{
+					"parameter_linknames" : 1,
+					"parameter_longname" : "transpositionRandom",
+					"parameter_range" : [ 0.0, 24.0 ],
+					"parameter_shortname" : "transpositionRandom"
+				}
+,
+				"obj-1::obj-57" : 				{
+					"parameter_invisible" : 0,
+					"parameter_linknames" : 1,
+					"parameter_longname" : "samplePositionRandom",
+					"parameter_modmode" : 0,
+					"parameter_range" : [ 0.0, 500.0 ],
+					"parameter_shortname" : "samplePositionRandom",
+					"parameter_type" : 0,
+					"parameter_unitstyle" : 2
+				}
+,
+				"obj-1::obj-65" : 				{
+					"parameter_linknames" : 1,
+					"parameter_longname" : "grainAmplitudeRandom",
+					"parameter_shortname" : "grainAmplitudeRandom"
+				}
+,
+				"obj-1::obj-68" : 				{
+					"parameter_initial" : 0,
+					"parameter_longname" : "grainSizeRandom",
+					"parameter_range" : [ 0.0, 100.0 ],
+					"parameter_shortname" : "grainSizeRandom",
+					"parameter_unitstyle" : 5
+				}
+,
+				"obj-1::obj-77" : 				{
+					"parameter_longname" : "grainSizeRandom[1]"
+				}
 
 			}
 ,
@@ -180,12 +238,10 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -196,9 +252,11 @@
 						"autogradient" : 0.0
 					}
 ,
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
