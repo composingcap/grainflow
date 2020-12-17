@@ -7,7 +7,7 @@ outlets = 2;
 var buffer = new Buffer("");
 var samples = []
 var sampCount = 0;
-var maxSamples = 10000;
+var maxSamples = 1920;
 var sampSkip = 50;
 var dim = [];
 var grainPositions = [];
@@ -20,12 +20,6 @@ waveFormDrawn = false;
 var waveform = new Sketch();
 var lasty= 0;
 
-var randomNumbers = new Array(1000);
-
-for (var n = 0; n < randomNumbers.length; n++){
-	randomNumbers[n] =Math.random();	
-	
-	}
 
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
@@ -35,18 +29,6 @@ var selectpositionOut = [0,0]
 drawTask = new Task(drawMe, this);
 drawTask.interval=33;
 drawTask.repeat(-1);
-
-
-
-
-
-function loadbang(){
-for (var n = 0; n < randomNumbers.length; n++){
-	randomNumbers[n] =Math.random();	
-	
-	}
-	}
-
 //drawTast.execute();
 
 //Waveform Color
@@ -124,7 +106,7 @@ function getattr_dotScale()
 //Dot Y Jitter
 
 
-var dotVJitter = 0.1;
+var dotVJitter = 0;
 
 declareattribute("dotVJitter",			"getattr_dotVJitter",			"setattr_dotVJitter", 1);
 
@@ -209,6 +191,37 @@ function setattr_selectColor()
 function getattr_selectColor()
 {
 	return selectColor;
+}
+
+
+
+declareattribute("selection",			"getattr_selection",			"setattr_selection", 1);
+
+function setattr_selection()
+{
+	selectposition = arrayfromargs(arguments);
+	outlet(0, ["selection", selectposition[0], selectposition[1]]);
+
+}
+
+function getattr_selection()
+{
+	return selectposition;
+}
+
+
+declareattribute("maxBufferDrawSamples",			"getattr_maxBufferDrawSamples",			"setattr_maxBufferDrawSamples", 1);
+
+function setattr_maxBufferDrawSamples()
+{
+	maxSamples = arrayfromargs(arguments);
+	load_buffer()
+
+}
+
+function getattr_maxBufferDrawSamples()
+{
+	return maxSamples;
 }
 
 
@@ -306,16 +319,14 @@ function draw(){
 		//Dots 	
 		for (p = 0 ; p < grainPositions.length; p++){
 			if(grainStates[p] != 0){
-				var rnd1 = randomNumbers[randomNumbers.length-1-p]
-				var rnd2 = randomNumbers[p]
-				dotColorMod = rnd1;
-				dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
-				dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
-				dotB= dotColor[2]*(1-dotColorMod) + dotColor2[2]*(dotColorMod);
-				dotA= dotColor[3]*(1-dotColorMod) + dotColor2[3]*(dotColorMod);
-				glcolor(dotR, dotG, dotB, dotA);
-				moveto(scaleX(grainPositions[p]%1), 1.75*grainAmps[p]-(1.75*0.5) - rnd2*dotVJitter);
-				circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI)*dotScale,0.5), 0, 360);
+			dotColorMod = p/grainPositions.length*0.5;
+			dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
+			dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
+			dotB= dotColor[2]*(1-dotColorMod) + dotColor2[2]*(dotColorMod);
+			dotA= dotColor[3]*(1-dotColorMod) + dotColor2[3]*(dotColorMod);
+			glcolor(dotR, dotG, dotB, dotA);
+			moveto(scaleX(grainPositions[p]%1), 1.75*grainAmps[p]-(1.75*0.5) + (0.05/grainPositions.length*p-0.05)*(1+dotVJitter));
+			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI*0.5)*dotScale,0.5), 0, 360);
 					}
 					}
 		
