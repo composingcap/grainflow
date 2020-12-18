@@ -239,7 +239,7 @@
 
 		<method name='rates'>
 			<digest>
-				Sets the rate buffers for travMode 1 and 2
+				Sets the rate buffers for rateMode 1 and 2
 			</digest>
 		</method>
 
@@ -256,7 +256,7 @@
 
 		<method name='env2D'>
 			<digest>
-				A buffer containing a 2D envelope wavetable for envMode 1 
+				A buffer containing a 2D envelope wavetable for envMode 1
 			</digest>
 		</method>
 
