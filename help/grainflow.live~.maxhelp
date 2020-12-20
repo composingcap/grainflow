@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 748.0, 695.0 ],
+		"rect" : [ 143.0, 201.0, 748.0, 932.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -40,12 +40,49 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-14",
+					"linecount" : 3,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 168.0, 439.0, 150.0, 43.0 ],
+					"text" : "Any grainflow~ message can be sent to grainflow.live~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-10",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 75.0, 433.0, 50.0, 21.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 75.0, 461.0, 86.0, 21.0 ],
+					"text" : "travRandom $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-37",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 5.0, 478.0, 143.0, 21.0 ],
+					"patching_rect" : [ 5.0, 549.0, 143.0, 21.0 ],
 					"text" : "grainflow.util.stereoPan 20"
 				}
 
@@ -195,7 +232,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "buffername", "1820_flow_1" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotScale", 5 ], [ "maxBufferDrawSamples", 1920 ], [ "bgColor", 1, 1, 1, 0 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "buffername", "1531_flow_1" ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "selection", 0, 1 ], [ "dotScale", 5 ], [ "maxBufferDrawSamples", 1920 ], [ "bgColor", 1, 1, 1, 0 ], [ "mode", 0 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "dotVJitter", 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -203,7 +240,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 181.0, 471.0, 488.0, 111.0 ]
+					"patching_rect" : [ 181.0, 542.0, 488.0, 111.0 ]
 				}
 
 			}
@@ -228,7 +265,7 @@
 					"numoutlets" : 4,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 5.0, 527.0, 110.0, 115.0 ],
+					"patching_rect" : [ 5.0, 598.0, 110.0, 115.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~[1]",
@@ -349,7 +386,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 5.0, 661.0, 53.0, 21.0 ],
+					"patching_rect" : [ 5.0, 732.0, 53.0, 21.0 ],
 					"text" : "mc.dac~"
 				}
 
@@ -361,7 +398,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 5.0, 432.0, 143.0, 21.0 ],
+					"patching_rect" : [ 5.0, 503.0, 143.0, 21.0 ],
 					"text" : "grainflow.live~ 5000 20"
 				}
 
@@ -387,6 +424,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-37", 0 ],
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
@@ -451,6 +495,13 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
 					"midpoints" : [ 44.5, 279.0, 14.5, 279.0 ],
 					"source" : [ "obj-7", 0 ]
 				}
@@ -509,9 +560,9 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "cp.grainFlow.record~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
-				"patcherrelativepath" : "../../cpDelayNetworks/patchers",
+				"name" : "grainFlow.util.record~.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
+				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -554,13 +605,12 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontname" : [ "Futura Medium" ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -572,8 +622,9 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
