@@ -1526,8 +1526,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 460.5, 627.5, 109.0, 21.0 ],
-									"text" : "gloabaTravOffset $1"
+									"patching_rect" : [ 460.5, 627.5, 106.0, 21.0 ],
+									"text" : "travGlobalOffset $1"
 								}
 
 							}
