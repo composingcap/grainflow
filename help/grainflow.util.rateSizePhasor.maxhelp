@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 202.166666666666629, 101.0, 78.0, 21.0 ],
+					"text" : "loadmess 125"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 12.0, 101.0, 72.0, 21.0 ],
+					"text" : "loadmess 20"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-32",
 					"linecount" : 2,
 					"maxclass" : "comment",
@@ -117,7 +141,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 184.666666666666657, 178.0, 281.0, 19.0 ],
+					"patching_rect" : [ 245.666666666666629, 178.0, 281.0, 19.0 ],
 					"text" : "The argumnent is the maximum number of grains"
 				}
 
@@ -214,7 +238,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 214.666666666666657, 207.0, 150.0, 19.0 ],
+					"patching_rect" : [ 265.166666666666629, 207.0, 150.0, 19.0 ],
 					"text" : "Resultant overlap"
 				}
 
@@ -228,7 +252,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 161.0, 207.0, 50.0, 21.0 ]
+					"patching_rect" : [ 200.0, 207.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -238,8 +262,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 212.666666666666657, 124.0, 64.0, 19.0 ],
-					"text" : "Grain Size"
+					"patching_rect" : [ 251.666666666666657, 124.0, 107.999999999999972, 19.0 ],
+					"text" : "Grain Size (ms)"
 				}
 
 			}
@@ -249,8 +273,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 64.0, 124.0, 71.0, 19.0 ],
-					"text" : "Grain Rate"
+					"patching_rect" : [ 64.0, 124.0, 90.0, 19.0 ],
+					"text" : "Grain Rate (hz)"
 				}
 
 			}
@@ -263,7 +287,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 161.0, 124.0, 50.0, 21.0 ]
+					"patching_rect" : [ 200.0, 124.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -287,8 +311,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 12.0, 178.0, 168.0, 21.0 ],
-					"text" : "grainflow.util.rateSizePhasor 20"
+					"patching_rect" : [ 12.0, 178.0, 207.0, 21.0 ],
+					"text" : "grainflow.util.rateSizePhasor 20 20 125"
 				}
 
 			}
@@ -356,6 +380,20 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-27", 0 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-28", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
  ],
 		"dependency_cache" : [ 			{
 				"name" : "grainflow.util.rateSizePhasor.maxpat",
@@ -372,7 +410,6 @@
 					"fontname" : [ "Futura Medium" ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
@@ -387,6 +424,7 @@
 ,
 					"fontsize" : [ 10.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,

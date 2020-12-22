@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-16",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 195.999999999999943, 300.0, 78.0, 21.0 ],
+					"text" : "loadmess 125"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 46.333333333333336, 306.0, 72.0, 21.0 ],
+					"text" : "loadmess 20"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-15",
 					"linecount" : 2,
 					"maxclass" : "comment",
@@ -293,7 +317,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotScale", 5 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "selection", 0, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "buffername", "1122_flow_1" ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "dotScale", 5 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "buffername", "1019_flow_1" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "mode", 0 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -504,6 +528,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-28", 0 ],
+					"source" : [ "obj-16", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
 					"source" : [ "obj-18", 0 ]
 				}
@@ -564,6 +595,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-24", 1 ],
 					"source" : [ "obj-28", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-27", 0 ],
+					"source" : [ "obj-3", 0 ]
 				}
 
 			}
@@ -704,6 +742,12 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"fontname" : [ "Futura Medium" ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontface" : [ 0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -715,16 +759,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
