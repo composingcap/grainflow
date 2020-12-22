@@ -5,7 +5,7 @@
 
 	<digest>granular harmonizer abstraction using grainflow~</digest>
 	<description>
-		grainflow.harmonize~ is an implementation of grainflow~ designed for harmonization.  Each harmoniozer voice is a 4 grain granulator.
+		grainflow.harmonize~ is an implementation of grainflow~ designed for harmonization.  Each harmonizer voice is a 4 grain granulator.
 	</description>
 
 
