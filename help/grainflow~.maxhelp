@@ -1565,7 +1565,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 827.664062499999886, 181.5, 150.0, 31.0 ],
+									"patching_rect" : [ 846.664062499999886, 164.5, 150.0, 31.0 ],
 									"text" : "Determined how fast the buffer is traversed"
 								}
 
@@ -1577,7 +1577,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 768.0, 87.0, 150.0, 31.0 ],
+									"patching_rect" : [ 768.0, 98.0, 150.0, 31.0 ],
 									"text" : "This input phasor determines grain size"
 								}
 
@@ -1775,8 +1775,21 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 768.0, 198.5, 50.0, 21.0 ]
+									"parameter_enable" : 1,
+									"patching_rect" : [ 787.0, 181.5, 50.0, 21.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_initial" : [ 0.53 ],
+											"parameter_initial_enable" : 1,
+											"parameter_invisible" : 1,
+											"parameter_longname" : "number[5]",
+											"parameter_shortname" : "number[5]",
+											"parameter_type" : 3
+										}
+
+									}
+,
+									"varname" : "number[5]"
 								}
 
 							}
@@ -2077,7 +2090,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 768.0, 221.5, 77.0, 21.0 ],
+									"patching_rect" : [ 787.0, 204.5, 77.0, 21.0 ],
 									"text" : "phasor~ 0.53"
 								}
 
@@ -2370,8 +2383,21 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 713.0, 92.0, 50.0, 21.0 ]
+									"parameter_enable" : 1,
+									"patching_rect" : [ 713.0, 101.0, 50.0, 21.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_initial" : [ 100.0 ],
+											"parameter_initial_enable" : 1,
+											"parameter_invisible" : 1,
+											"parameter_longname" : "number[4]",
+											"parameter_shortname" : "number[4]",
+											"parameter_type" : 3
+										}
+
+									}
+,
+									"varname" : "number[4]"
 								}
 
 							}
@@ -3126,9 +3152,11 @@
  ],
 		"lines" : [  ],
 		"parameters" : 		{
+			"obj-103::obj-102" : [ "number[5]", "number[5]", 0 ],
 			"obj-103::obj-12" : [ "number", "number", 0 ],
 			"obj-103::obj-23" : [ "number[3]", "number[3]", 0 ],
 			"obj-103::obj-27" : [ "number[2]", "number[2]", 0 ],
+			"obj-103::obj-31" : [ "number[4]", "number[4]", 0 ],
 			"obj-103::obj-38" : [ "number[1]", "number[1]", 0 ],
 			"obj-103::obj-9" : [ "mc.live.gain~", "grains", 0 ],
 			"obj-104::obj-9" : [ "mc.live.gain~[1]", "grains", 0 ],
