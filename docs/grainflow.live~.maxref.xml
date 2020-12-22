@@ -114,6 +114,9 @@
 			<digest>Overrides the state for recording without turning off the granulator.  Stopping recoding will freeze the traversal</digest>
 		</method>
 
+				<method name='clear'>
+					<digest>clears the internal buffer</digest>
+				</method>
 
 		<method name='any-grainflow-param'>
 			<digest>below are standard grainflow parameters they will all work unless they are overwritten by an internal parameter</digest>

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 539.0, 187.0, 1270.0, 480.0 ],
+		"rect" : [ 989.0, 358.0, 1270.0, 744.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -153,7 +153,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 273.0, 288.0, 29.5, 21.0 ],
+					"patching_rect" : [ 239.0, 399.0, 29.5, 21.0 ],
 					"text" : "* 0."
 				}
 
@@ -165,7 +165,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 273.0, 312.0, 125.0, 21.0 ],
+					"patching_rect" : [ 239.0, 423.0, 125.0, 21.0 ],
 					"text" : "prepend recordHeadMs"
 				}
 
@@ -177,7 +177,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 109.0, 256.0, 111.0, 21.0 ],
+					"patching_rect" : [ 109.0, 362.0, 111.0, 21.0 ],
 					"text" : "prepend recordHead"
 				}
 
@@ -274,7 +274,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 109.0, 219.0, 62.0, 21.0 ],
+					"patching_rect" : [ 109.0, 325.0, 62.0, 21.0 ],
 					"text" : "snapshot~"
 				}
 
@@ -286,7 +286,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "signal", "signal", "signal" ],
-					"patching_rect" : [ 50.0, 181.0, 137.0, 21.0 ],
+					"patching_rect" : [ 50.0, 204.0, 137.0, 21.0 ],
 					"text" : "gen~ cp.grainFlow.record"
 				}
 
@@ -299,7 +299,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 50.0, 16.0, 30.0, 30.0 ]
 				}
 
@@ -312,7 +312,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 293.0, 30.0, 30.0 ]
+					"patching_rect" : [ 50.0, 399.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -324,7 +324,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 109.0, 325.0, 30.0, 30.0 ]
+					"patching_rect" : [ 109.0, 431.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -550,9 +550,6 @@
 				"name" : "Minimal",
 				"default" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -569,7 +566,10 @@
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : [ 0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontsize" : [ 10.0 ]
 				}
 ,
 				"parentstyle" : "",
