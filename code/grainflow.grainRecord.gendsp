@@ -1,0 +1,163 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 8,
+			"minor" : 1,
+			"revision" : 8,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 665.0, 784.0, 1294.0, 480.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 10.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Futura Medium",
+		"gridonopen" : 1,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "Minimal",
+		"subpatcher_template" : "minimal",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 683.0, 500.0, 35.0, 21.0 ],
+					"text" : "out 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 675.0, 30.0, 27.0, 21.0 ],
+					"text" : "in 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "Param trav(1);\r\nParam ngrains(4);\r\nParam rec(0);\r\nParam travRandom(0);\r\nParam overdub(0);\r\nBuffer buf();\r\n\r\nData travPos(100);\r\nData lastWindowPosition(100);\r\nData grainInitFlag(100);\r\n\r\nHistory baseTravPos(0);\r\n\r\ninput = in1;\r\n\r\ngrainclock = in2;\r\n\r\nif (rec==1){\r\n\t\r\n\tbaseTravPos = wrap(baseTravPos+(1/trav)/(dim(buf)),0,1);\r\n\tbaseTravSamp = floor(dim(buf)*baseTravPos);\r\n\r\n\tpoke(buf, 0, baseTravSamp, 0, overdub);\r\n\t\r\n\r\n\t\r\n\tfor (g = 0 ; g  < ngrains; g+=1){\r\n\t\tmyLastWindowPosition = peek(lastWindowPosition,g);\r\n\t\tmyWindowPosition = wrap(grainclock+g/ngrains,0,1);\r\n\t\t\r\n\t\tif (myWindowPosition - myLastWindowPosition < 0){\r\n\t\t\tpoke(grainInitFlag,1,g);\r\n\t\t\tmyTravPos = baseTravSamp-(mstosamps(noise()*travRandom));\r\n\t\t\tpoke(travPos, myTravPos ,g);\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t\r\n\t\tmyGrainInitFlag = peek(grainInitFlag,g);\r\n\t\tif (myGrainInitFlag == 1){\r\n\t\t\tgrainEnv = sin(myWindowPosition*pi);\r\n\t\t\tgrainRec = input*grainEnv*(0.5); \r\n\t\t\tmyTravPos = peek(travPos,g);\r\n\t\t\tpoke(buf, grainRec, myTravPos, 0, 1, boundmode=\"wrap\", overdubmode=\"accum\");\r\n\t\t\tpoke(travPos,myTravPos+1,g);\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t}\r\n\t\t\tpoke(lastWindowPosition, myWindowPosition, g);\r\n\t\t\r\n\t\t}\r\n\t\r\n\r\n}\r\n\r\n\r\nout1 =wrap(baseTravPos-vectorsize/dim(buf),0,1);\r\nout2 =wrap(baseTravPos-((vectorsize+mstosamps(travRandom))/dim(buf)),0,1);\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 10.0,
+					"id" : "obj-5",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 24.0, 79.0, 678.0, 388.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 24.0, 34.0, 27.0, 21.0 ],
+					"text" : "in 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 24.0, 488.0, 35.0, 21.0 ],
+					"text" : "out 1"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 1 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-5", 1 ]
+				}
+
+			}
+ ],
+		"styles" : [ 			{
+				"name" : "Minimal",
+				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"bgfillcolor" : 					{
+						"type" : "color",
+						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+						"angle" : 270.0,
+						"proportion" : 0.39,
+						"autogradient" : 0.0
+					}
+,
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ]
+				}
+,
+				"parentstyle" : "",
+				"multi" : 0
+			}
+ ],
+		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
+	}
+
+}
