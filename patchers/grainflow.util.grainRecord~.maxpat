@@ -40,6 +40,19 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"comment" : "",
+					"id" : "obj-24",
+					"index" : 2,
+					"maxclass" : "inlet",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 181.0, 9.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-23",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -141,7 +154,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 405.0, 173.0, 114.0, 21.0 ],
+					"patching_rect" : [ 262.0, 256.0, 114.0, 21.0 ],
 					"text" : "qmetro 33 @active 1"
 				}
 
@@ -153,7 +166,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 239.0, 399.0, 29.5, 21.0 ],
+					"patching_rect" : [ 392.0, 403.0, 29.5, 21.0 ],
 					"text" : "* 0."
 				}
 
@@ -165,7 +178,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 239.0, 423.0, 125.0, 21.0 ],
+					"patching_rect" : [ 392.0, 427.0, 125.0, 21.0 ],
 					"text" : "prepend recordHeadMs"
 				}
 
@@ -177,7 +190,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 109.0, 362.0, 111.0, 21.0 ],
+					"patching_rect" : [ 262.0, 366.0, 111.0, 21.0 ],
 					"text" : "prepend recordHead"
 				}
 
@@ -274,7 +287,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 109.0, 325.0, 62.0, 21.0 ],
+					"patching_rect" : [ 262.0, 329.0, 62.0, 21.0 ],
 					"text" : "snapshot~"
 				}
 
@@ -283,11 +296,11 @@
 				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "signal", "signal", "signal" ],
-					"patching_rect" : [ 50.0, 204.0, 122.0, 21.0 ],
-					"text" : "gen~ grainFlow.record"
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "signal", "signal" ],
+					"patching_rect" : [ 50.0, 204.0, 150.0, 21.0 ],
+					"text" : "gen~ grainFlow.grainRecord"
 				}
 
 			}
@@ -312,7 +325,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 399.0, 30.0, 30.0 ]
+					"patching_rect" : [ 181.0, 329.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -324,7 +337,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 109.0, 431.0, 30.0, 30.0 ]
+					"patching_rect" : [ 262.0, 435.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -443,14 +456,23 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-4", 1 ],
+					"source" : [ "obj-24", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
-					"source" : [ "obj-4", 0 ]
+					"order" : 1,
+					"source" : [ "obj-4", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-45", 0 ],
+					"order" : 0,
 					"source" : [ "obj-4", 1 ]
 				}
 
