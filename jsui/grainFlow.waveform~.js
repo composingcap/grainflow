@@ -19,7 +19,7 @@ sketch.glclear();
 waveFormDrawn = false;
 var waveform = new Sketch();
 var lasty= 0;
-
+var clickPos= [0,1];
 
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
@@ -120,6 +120,42 @@ function getattr_dotVJitter()
 {
 	return dotVJitter;
 }
+
+// Tri Show
+
+var showTriangles = false;
+
+declareattribute("showTriangles",			"getattr_showTriangles",			"setattr_showTriangles", 1);
+
+function setattr_showTriangles(state)
+{
+	showTriangles = state;
+
+}
+
+function getattr_showTriangles()
+{
+	return showTriangles;
+}
+
+
+// Tri Color
+
+var triangleColor = [1,1,1,1];
+
+declareattribute("triangleColor",			"getattr_triangleColor",			"setattr_triangleColor", 1);
+
+function setattr_triangleColor()
+{
+	triangleColor = arrayfromargs(arguments);
+
+}
+
+function getattr_triangleColor()
+{
+	return triangleColor;
+}
+
 
 // Background Color
 var bgColor = [1,1,1,0];
@@ -329,8 +365,13 @@ function draw(){
 			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI*0.5)*dotScale,0.5), 0, 360);
 					}
 					}
-		
-		
+					
+		if (showTriangles){
+		glcolor(triangleColor[0],triangleColor[1],triangleColor[2],triangleColor[3]);
+		tri(scaleX(clickPos[0]), -0.9,0, scaleX(clickPos[0])-0.1,-1,0,scaleX(clickPos[0])+0.1,-1,0);
+		ypos = (clickPos[1]*2)-1;
+		tri(scaleX(0)+0.1, ypos,0, scaleX(0),ypos-0.1,0,scaleX(0),ypos+0.1,0);
+		}
 		
 		}
 	
@@ -389,6 +430,12 @@ function drawMe(){
 
 	}
 	
+function clearGrains(){
+	grainPositions = [];
+	
+	
+	}
+	
 
 
 			
@@ -435,6 +482,7 @@ function onclick(x,y,button){
 	x = wrap(x,0,1);
 	y = clamp(y,0,1);
 	outlet(1,["clicking", x, 1-y, button]);
+	clickPos = [x, 1-y];
 	
 	
 	
@@ -482,6 +530,7 @@ function ondrag(x,y,button){
 	x = wrap(x,0,1);
 	y = clamp(y,0,1);
 	outlet(1,["clicking", x, 1-y, button]);
+	clickPos = [x, 1-y];
 	
 	}
 	
