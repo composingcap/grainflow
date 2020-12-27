@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.randomRangeList' module="max" category="grainflow, MSP Proccessing">
+
+	<digest>Generates a random list of n elements between two numbers</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="bang">
+			<digest>
+				Triggers a list
+			</digest>
+		</inlet>
+
+		<inlet id="1" type="int">
+			<digest>
+				members in the list
+			</digest>
+		</inlet>
+
+		<inlet id="2" type="float">
+			<digest>
+				min value
+			</digest>
+		</inlet>
+
+		<inlet id="3" type="float">
+			<digest>
+				max value
+			</digest>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>
+			Random list
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+		<objarg name="list-length" optional="0" type="int">
+			<digest>length of the random list</digest>
+		</objarg>
+		<objarg name="min" optional="0" type="float">
+
+		</objarg>
+		<objarg name="max" optional="0" type="float">
+
+		</objarg>
+
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+	</seealsolist>
+
+
+</c74object>

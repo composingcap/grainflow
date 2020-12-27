@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.grainRecord~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Record grains of an incoming signal to a buffer.</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="signal">
+			<digest>
+				Signal to record
+
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+		<inlet id="1" type="signal">
+					<digest>
+						grain clock
+
+					</digest>
+					<description>
+Grains will be scheduled based on this clock in accordance to the windowOffset and space paramters. windowOffset tells the granulator how much each voice should offset as a percentage of the phasor size.  If there are two grains and the windowOffset is 0.5 then one grain will start when hte pohasor is 0 and the other will start when the phasor reaches 0.5. Space determined the size of the grain in relation to the phasor.  If space is 0 the grain will take up the entire length of the phasor.  If it is 0.5 it will take up half of the length.
+					</description>
+				</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="signal">
+			<digest>
+			record head
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="1" type="list">
+			<digest>
+			record head
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+		<objarg name="buffername" optional="0" type="symbol">
+			<digest>The name of the buffer the granulate</digest>
+		</objarg>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="int">
+			<digest>
+				state of the the recoding
+			</digest>
+			<description>
+
+			</description>
+		</method>
+		<method name="travRandom">
+			<digest>
+				travRandom will allow grainRecord to record non-linearly. In ms.
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+	<method name="ngrains">
+		<digest>
+			The number of grains to be recorded
+		</digest>
+		<description>
+
+		</description>
+	</method>
+		<method name="overdub">
+			<digest>
+				the amount the previous values in the buffer are mixed into the newly recorded value
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.util.record~' />
+	</seealsolist>
+
+
+</c74object>

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.record~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>simple recording tool that outputs an accurate phasor linked to record time</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="signal">
+			<digest>
+				Signal to record
+
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="signal">
+			<digest>
+			record head
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="1" type="list">
+			<digest>
+			record head
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+		<objarg name="buffername" optional="0" type="symbol">
+			<digest>The name of the buffer the granulate</digest>
+		</objarg>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="int">
+			<digest>
+				state of the the recoding
+			</digest>
+			<description>
+
+			</description>
+		</method>
+		<method name="freeze">
+			<digest>
+				freezes the record head output
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+		<method name="overdub">
+			<digest>
+				the amount the previous values in the buffer are mixed into the newly recorded value
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.util.grainRecord~' />
+	</seealsolist>
+
+
+</c74object>

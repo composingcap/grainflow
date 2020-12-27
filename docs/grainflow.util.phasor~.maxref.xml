@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.phasor~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>An easy to adust phasor for granulation</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="float">
+			<digest>
+				Rate of the phasor in hz
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+		<inlet id="1" type="float">
+			<digest>
+				low boundary
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+		<inlet id="1" type="float">
+			<digest>
+				high boundary
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="signal">
+			<digest>
+			Phasor signal
+			</digest>
+			<description>
+			</description>
+		</outlet>
+
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+		<objarg name="initial frequency" optional="0" type="int">
+			<digest>Inital frequency of the phasor</digest>
+		</objarg>
+
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="mode">
+			<digest>Phasor wraping mode- mode are fold and wrap</digest>
+		</method>
+		<method name="reset">
+			<digest>Resets the phasor to 0</digest>
+		</method>
+		<method name="set">
+			<digest>sets the phasor to a certain value</digest>
+		</method>
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.live~' />
+	</seealsolist>
+
+
+</c74object>

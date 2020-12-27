@@ -198,11 +198,11 @@
 				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "newobj",
-					"numinlets" : 3,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 51.0, 100.0, 95.0, 21.0 ],
-					"text" : "route reset mode"
+					"numinlets" : 4,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 51.0, 100.0, 114.0, 21.0 ],
+					"text" : "route reset mode set"
 				}
 
 			}
@@ -220,7 +220,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "frequency",
 					"id" : "obj-62",
 					"index" : 1,
 					"maxclass" : "inlet",
@@ -233,7 +233,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "low bound",
 					"id" : "obj-63",
 					"index" : 2,
 					"maxclass" : "inlet",
@@ -246,7 +246,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "high bound",
 					"id" : "obj-64",
 					"index" : 3,
 					"maxclass" : "inlet",
@@ -266,6 +266,18 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 51.0, 569.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 215.0, 423.0, 50.0, 21.0 ],
+					"text" : "set $1"
 				}
 
 			}
@@ -410,7 +422,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
-					"midpoints" : [ 98.5, 404.0, 140.5, 404.0 ],
+					"midpoints" : [ 92.166666666666671, 404.0, 140.5, 404.0 ],
 					"source" : [ "obj-7", 1 ]
 				}
 
@@ -418,6 +430,13 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-49", 1 ],
+					"source" : [ "obj-7", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
 					"source" : [ "obj-7", 2 ]
 				}
 
@@ -429,12 +448,21 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-28", 0 ],
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
  ],
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontname" : [ "Futura Medium" ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -447,11 +475,9 @@
 					}
 ,
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 10.0 ]
+					"fontface" : [ 0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

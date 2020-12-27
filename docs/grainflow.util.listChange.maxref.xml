@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.listChange' module="max" category="grainflow, MSP Proccessing">
+
+	<digest>detects changes in lists</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="list">
+			<digest>
+				List to check for changes from the last list
+
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>
+			list of changes. 0 is no change 1 is a change in a positive direction, -1 is a change in a negitive dirrection
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="1" type="list">
+			<digest>
+			indices of changed members.  Signs are applied to signifiy the dirrection of the change.
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="list">
+			<digest>
+				List to check for changes from the last list
+
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+	</seealsolist>
+
+
+</c74object>

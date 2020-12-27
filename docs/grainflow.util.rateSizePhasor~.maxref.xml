@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.rateSizePhasor~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>A utility that translates grain rate and grain size to the phasor overlap model used in grain flow for grain scheduling</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="float">
+			<digest>
+				Grain Rate
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+		<inlet id="1" type="float">
+			<digest>
+				grain size ms
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="signal/list">
+			<digest>
+			Grain clock and messages for grainflow
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="1" type="float">
+			<digest>
+		 overlap
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+		<objarg name="number-of-grains" optional="0" type="int">
+			<digest>The maximum number of grains.</digest>
+		</objarg>
+		<objarg name="grain-rate" optional="0" type="int">
+			<digest>in hz</digest>
+		</objarg>
+		<objarg name="grain-size" optional="0" type="int">
+			<digest>in ms</digest>
+		</objarg>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.live~' />
+	</seealsolist>
+
+
+</c74object>
