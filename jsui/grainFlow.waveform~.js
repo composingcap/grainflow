@@ -219,6 +219,9 @@ declareattribute("mode",			"getattr_mode",			"setattr_mode", 1);
 function setattr_mode(thismode)
 {
 	mode = thismode;
+	if (mode > 0){
+		outlet(0, ["selection", selectposition[0], selectposition[1]]);
+		}
 
 }
 
@@ -245,6 +248,8 @@ function getattr_selectColor()
 {
 	return selectColor;
 }
+
+
 
 
 
