@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 131.0, 236.0, 1039.0, 890.0 ],
+		"rect" : [ 100.0, 100.0, 1039.0, 890.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -81,7 +81,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 72.5, 440.0, 209.0, 31.0 ],
-					"presentation_linecount" : 5,
 					"text" : "Most grainflow parameters will work in conjunction with the synth"
 				}
 
@@ -141,7 +140,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 354.5, 353.0, 47.0, 21.0 ],
-					"presentation_linecount" : 2,
 					"text" : "amp $1"
 				}
 
@@ -191,8 +189,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 752.5, 484.0, 149.0, 43.0 ],
-					"presentation_linecount" : 3,
+					"patching_rect" : [ 752.5, 484.0, 153.0, 43.0 ],
 					"text" : "Without update, they will update in accordance to the autoUpdate state"
 				}
 
@@ -298,7 +295,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 532.0, 54.0, 54.0, 21.0 ],
+					"patching_rect" : [ 531.0, 45.0, 54.0, 21.0 ],
 					"text" : "loadbang"
 				}
 
@@ -310,8 +307,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 532.0, 88.0, 242.0, 21.0 ],
-					"text" : "buffername _gflowSynthHelp, showTriangles 1"
+					"patching_rect" : [ 531.0, 79.0, 468.0, 21.0 ],
+					"text" : "buffername _gflowSynthHelp, showTriangles 1, bgColor 1 1 1 1, triangleColor 0.2 0.2 0.2 1"
 				}
 
 			}
@@ -322,8 +319,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 384.0, 241.0, 442.0, 31.0 ],
-					"text" : "The grainflow.waveform~.js jsui script allows a user to use a waveform as an xy pad to select postion and volume"
+					"patching_rect" : [ 384.0, 236.0, 442.0, 31.0 ],
+					"text" : "The grainflow.waveform~ jsui script allows a user to use a waveform as an xy pad to select postion and volume"
 				}
 
 			}
@@ -467,9 +464,7 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"fontface" : [ 0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -480,12 +475,14 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontsize" : [ 10.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Futura Medium" ]
 								}
 ,
 								"parentstyle" : "",
@@ -518,7 +515,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 384.0, 98.0, 106.0, 21.0 ],
+					"patching_rect" : [ 384.0, 89.0, 106.0, 21.0 ],
 					"text" : "r __gf.helpsynthgui"
 				}
 
@@ -597,7 +594,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "maxBufferDrawSamples", 1920 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "triangleColor", 0, 0, 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_gflowSynthHelp" ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "mode", 0 ], [ "selection", 0, 1 ] ],
+					"embedstate" : [ [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "triangleColor", 0.2, 0.2, 0.2, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selection", 0, 1 ], [ "showTriangles", 1 ], [ "dotScale", 1 ], [ "mode", 0 ], [ "buffername", "_gflowSynthHelp" ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-26",
 					"maxclass" : "jsui",
@@ -605,7 +602,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 384.0, 124.5, 487.0, 112.0 ]
+					"patching_rect" : [ 384.0, 118.0, 487.0, 112.0 ]
 				}
 
 			}
@@ -1018,9 +1015,7 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -1032,13 +1027,15 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
+					"fontsize" : [ 10.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ]
 				}
 ,
 				"parentstyle" : "",

@@ -156,6 +156,23 @@ function getattr_triangleColor()
 	return triangleColor;
 }
 
+//Tri outline
+
+var triangleOutColor = [1,1,1,1];
+
+declareattribute("triangleOutColor",			"getattr_triangleOutColor",			"setattr_triangleOutColor", 1);
+
+function setattr_triangleOutColor()
+{
+	triangleOutColor = arrayfromargs(arguments);
+
+}
+
+function getattr_triangleOutColor()
+{
+	return triangleOutColor;
+}
+
 
 // Background Color
 var bgColor = [1,1,1,0];
@@ -367,11 +384,19 @@ function draw(){
 					}
 					
 		if (showTriangles){
+		
 		glcolor(triangleColor[0],triangleColor[1],triangleColor[2],triangleColor[3]);
 		tri(scaleX(clickPos[0]), -0.9,0, scaleX(clickPos[0])-0.1,-1,0,scaleX(clickPos[0])+0.1,-1,0);
+		
 		ypos = (clickPos[1]*2)-1;
 		tri(scaleX(0)+0.1, ypos,0, scaleX(0),ypos-0.1,0,scaleX(0),ypos+0.1,0);
-		}
+	    
+		glcolor(triangleOutColor[0],triangleOutColor[1],triangleOutColor[2],triangleOutColor[3]);
+
+		frametri(scaleX(0)+0.1, ypos,0, scaleX(0),ypos-0.1,0,scaleX(0),ypos+0.1,0);
+		frametri(scaleX(clickPos[0]), -0.9,0, scaleX(clickPos[0])-0.1,-1,0,scaleX(clickPos[0])+0.1,-1,0);
+
+}
 		
 		}
 	
