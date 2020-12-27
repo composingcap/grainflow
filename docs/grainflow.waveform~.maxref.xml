@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.waveform~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Display for grainflow</digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+<objarg name="buffername" optional="0" type="symbol">
+	<digest>Buffer to display</digest>
+</objarg>
+
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+
+
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+
+	</seealsolist>
+
+
+</c74object>
