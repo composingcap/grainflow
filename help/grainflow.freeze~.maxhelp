@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1278.0, 406.0, 1392.0, 782.0 ],
+		"rect" : [ 100.0, 100.0, 1392.0, 929.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -40,13 +40,23 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 15.0, 50.0, 447.0, 19.0 ],
+					"text" : "grainflow.freeze is designed to freeze a moment in time for the duration of a midinote"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-51",
 					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 634.0, 410.0, 150.0, 43.0 ],
-					"presentation_linecount" : 3,
+					"patching_rect" : [ 633.0, 438.0, 150.0, 43.0 ],
 					"text" : "The time it take for the freeze to reach its freeze depth"
 				}
 
@@ -60,7 +70,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 576.0, 421.0, 50.0, 21.0 ],
+					"patching_rect" : [ 575.0, 449.0, 50.0, 21.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 500 ],
@@ -84,8 +94,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 576.0, 458.0, 117.0, 21.0 ],
-					"presentation_linecount" : 2,
+					"patching_rect" : [ 575.0, 486.0, 117.0, 21.0 ],
 					"text" : "freezeExpandTime $1"
 				}
 
@@ -96,7 +105,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 576.0, 486.0, 92.0, 21.0 ],
+					"patching_rect" : [ 575.0, 514.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -108,7 +117,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 628.0, 297.5, 150.0, 43.0 ],
+					"patching_rect" : [ 627.0, 325.5, 150.0, 43.0 ],
 					"text" : "The maximum distance in ms the freeze will span after the freezeExpandTime"
 				}
 
@@ -122,7 +131,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 571.0, 306.0, 50.0, 21.0 ],
+					"patching_rect" : [ 570.0, 334.0, 50.0, 21.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
@@ -146,7 +155,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 571.0, 343.0, 86.0, 21.0 ],
+					"patching_rect" : [ 570.0, 371.0, 86.0, 21.0 ],
 					"text" : "freezeDepth $1"
 				}
 
@@ -157,7 +166,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 571.0, 382.0, 92.0, 21.0 ],
+					"patching_rect" : [ 570.0, 410.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -168,7 +177,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 56.0, 353.0, 150.0, 19.0 ],
+					"patching_rect" : [ 55.0, 381.0, 150.0, 19.0 ],
 					"text" : "View the internal buffer"
 				}
 
@@ -179,7 +188,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 15.0, 386.0, 92.0, 21.0 ],
+					"patching_rect" : [ 14.0, 414.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -466,7 +475,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 334.0, 297.5, 205.0, 64.0 ],
+					"patching_rect" : [ 333.0, 325.5, 205.0, 64.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -478,7 +487,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 438.0, 193.0, 150.0, 55.0 ],
+					"patching_rect" : [ 437.0, 221.0, 153.0, 55.0 ],
 					"text" : "Midi notes are used to mark voices.  The velocity will translate to loudness but pitch does not matter"
 				}
 
@@ -492,7 +501,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 15.0, 254.0, 50.0, 21.0 ]
+					"patching_rect" : [ 14.0, 282.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -503,7 +512,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 15.0, 291.0, 106.0, 21.0 ],
+					"patching_rect" : [ 14.0, 319.0, 106.0, 21.0 ],
 					"text" : "travGlobalOffset $1"
 				}
 
@@ -515,8 +524,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 128.0, 237.0, 150.0, 104.0 ],
-					"presentation_linecount" : 8,
+					"patching_rect" : [ 127.0, 265.0, 150.0, 104.0 ],
 					"text" : "most grainflow messages will work with the freeze.\nThese will not work as they are used by the freeze: \nstate \nforceGrainReset travRandom\nrate"
 				}
 
@@ -527,7 +535,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 15.0, 320.0, 92.0, 21.0 ],
+					"patching_rect" : [ 14.0, 348.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -539,8 +547,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 91.0, 153.0, 150.0, 31.0 ],
-					"presentation_linecount" : 2,
+					"patching_rect" : [ 90.0, 181.0, 150.0, 31.0 ],
 					"text" : "transpose qill apply a transposition to new voices"
 				}
 
@@ -552,7 +559,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 53.0, 82.5, 150.0, 31.0 ],
+					"patching_rect" : [ 52.0, 110.5, 150.0, 31.0 ],
 					"text" : "1 will start recording, 0 will stop it"
 				}
 
@@ -563,7 +570,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 15.0, 123.0, 92.0, 21.0 ],
+					"patching_rect" : [ 14.0, 151.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -575,7 +582,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 15.0, 509.0, 91.0, 21.0 ],
+					"patching_rect" : [ 14.0, 537.0, 91.0, 21.0 ],
 					"text" : "r __gfhelpfreeze"
 				}
 
@@ -586,7 +593,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 334.0, 425.0, 92.0, 21.0 ],
+					"patching_rect" : [ 333.0, 453.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -598,7 +605,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 334.0, 392.0, 75.0, 21.0 ],
+					"patching_rect" : [ 333.0, 420.0, 75.0, 21.0 ],
 					"text" : "prepend adsr"
 				}
 
@@ -609,7 +616,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 15.0, 217.0, 92.0, 21.0 ],
+					"patching_rect" : [ 14.0, 245.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -620,7 +627,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 334.0, 227.0, 92.0, 21.0 ],
+					"patching_rect" : [ 333.0, 255.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -632,7 +639,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 334.0, 190.0, 29.5, 21.0 ],
+					"patching_rect" : [ 333.0, 218.0, 29.5, 21.0 ],
 					"text" : "join"
 				}
 
@@ -647,7 +654,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 334.0, 123.0, 336.0, 53.0 ]
+					"patching_rect" : [ 333.0, 151.0, 336.0, 53.0 ]
 				}
 
 			}
@@ -658,7 +665,7 @@
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 18.5, 719.0, 45.0, 45.0 ]
+					"patching_rect" : [ 17.5, 747.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -683,7 +690,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 15.0, 153.0, 50.0, 21.0 ]
+					"patching_rect" : [ 14.0, 181.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -694,7 +701,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 15.0, 184.0, 74.0, 21.0 ],
+					"patching_rect" : [ 14.0, 212.0, 74.0, 21.0 ],
 					"text" : "transpose $1"
 				}
 
@@ -706,7 +713,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "int", "int" ],
-					"patching_rect" : [ 334.0, 78.0, 40.0, 21.0 ],
+					"patching_rect" : [ 333.0, 106.0, 40.0, 21.0 ],
 					"text" : "notein"
 				}
 
@@ -718,7 +725,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 15.0, 353.0, 33.0, 21.0 ],
+					"patching_rect" : [ 14.0, 381.0, 33.0, 21.0 ],
 					"text" : "open"
 				}
 
@@ -753,7 +760,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 18.5, 465.0, 150.0, 30.0 ],
+					"patching_rect" : [ 17.5, 493.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -767,7 +774,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 18.5, 661.0, 157.0, 21.0 ],
+					"patching_rect" : [ 17.5, 689.0, 157.0, 21.0 ],
 					"text" : "mc.mixdown~ 1 @autogain 1"
 				}
 
@@ -779,7 +786,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 61.5, 554.0, 67.0, 21.0 ],
+					"patching_rect" : [ 60.5, 582.0, 67.0, 21.0 ],
 					"text" : "phasor~ 10"
 				}
 
@@ -792,7 +799,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 15.0, 89.5, 24.0, 24.0 ],
+					"patching_rect" : [ 14.0, 117.5, 24.0, 24.0 ],
 					"uncheckedcolor" : [ 0.847058823529412, 0.847058823529412, 0.847058823529412, 1.0 ]
 				}
 
@@ -804,7 +811,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 18.5, 616.0, 148.0, 21.0 ],
+					"patching_rect" : [ 17.5, 644.0, 148.0, 21.0 ],
 					"text" : "grainflow.freeze~ 100000 8"
 				}
 
@@ -1025,15 +1032,15 @@
 			}
 , 			{
 				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
+				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "cp.grainFlow.record.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/code",
-				"patcherrelativepath" : "../../cpDelayNetworks/code",
+				"name" : "grainflow.record.gendsp",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
+				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
@@ -1048,6 +1055,14 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1058,15 +1073,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
