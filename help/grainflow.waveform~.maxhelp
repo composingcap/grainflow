@@ -1464,8 +1464,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 641.5, 376.0, 127.0, 21.0 ],
-					"text" : "grainflow.util.stereoPan"
+					"patching_rect" : [ 641.5, 376.0, 151.0, 21.0 ],
+					"text" : "grainflow.util.stereoPan~ 25"
 				}
 
 			}
@@ -1934,7 +1934,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.util.stereoPan.maxpat",
+				"name" : "grainflow.util.stereoPan~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",

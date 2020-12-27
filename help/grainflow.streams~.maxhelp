@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 85.0, 1270.0, 1313.0 ],
+		"rect" : [ 123.0, 150.0, 965.0, 915.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -40,8 +40,56 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-17",
+					"linecount" : 5,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 108.333333333333371, 342.0, 150.0, 67.0 ],
+					"text" : "The stream message followed by a grainflow message wil send that message to the grainflow stream"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-15",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 471.000000000000114, 307.0, 290.0, 31.0 ],
+					"text" : "This sets the grainclock as a multichannel signal for each stream"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"linecount" : 3,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 230.333333333333371, 417.0, 160.0, 43.0 ],
+					"presentation_linecount" : 3,
+					"text" : "This sets the traversal for each stream using an mc signal"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-12",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 172.333333333333371, 207.0, 160.0, 19.0 ],
+					"text" : "The length of each stream"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1000 ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0.1 ], [ "mode", 0 ], [ "buffername", "_help-stream-buf" ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 2 ], [ "maxBufferDrawSamples", 1000 ], [ "dotScale", 10 ], [ "buffername", "_help-stream-buf" ], [ "mode", 0 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-11",
 					"maxclass" : "jsui",
@@ -49,14 +97,14 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 418.333333333333371, 1178.0, 393.0, 113.0 ]
+					"patching_rect" : [ 366.333333333333371, 850.0, 489.0, 36.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1000 ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0.1 ], [ "mode", 0 ], [ "buffername", "_help-stream-buf" ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 2 ], [ "maxBufferDrawSamples", 1000 ], [ "dotScale", 10 ], [ "buffername", "_help-stream-buf" ], [ "mode", 0 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-10",
 					"maxclass" : "jsui",
@@ -64,14 +112,14 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 405.333333333333371, 1060.0, 393.0, 113.0 ]
+					"patching_rect" : [ 366.333333333333371, 803.0, 489.0, 36.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1000 ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0.1 ], [ "mode", 0 ], [ "buffername", "_help-stream-buf" ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 2 ], [ "maxBufferDrawSamples", 1000 ], [ "dotScale", 10 ], [ "buffername", "_help-stream-buf" ], [ "mode", 0 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-9",
 					"maxclass" : "jsui",
@@ -79,14 +127,14 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 388.333333333333371, 929.0, 393.0, 113.0 ]
+					"patching_rect" : [ 366.333333333333371, 756.0, 489.0, 36.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1000 ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0.1 ], [ "mode", 0 ], [ "buffername", "_help-stream-buf" ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 2 ], [ "maxBufferDrawSamples", 1000 ], [ "dotScale", 10 ], [ "buffername", "_help-stream-buf" ], [ "mode", 0 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-8",
 					"maxclass" : "jsui",
@@ -94,14 +142,14 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 379.333333333333371, 806.0, 393.0, 113.0 ]
+					"patching_rect" : [ 366.333333333333371, 711.0, 489.0, 36.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1000 ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0.1 ], [ "mode", 0 ], [ "buffername", "_help-stream-buf" ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 2 ], [ "maxBufferDrawSamples", 1000 ], [ "dotScale", 10 ], [ "buffername", "_help-stream-buf" ], [ "mode", 0 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-3",
 					"maxclass" : "jsui",
@@ -109,7 +157,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 366.333333333333371, 668.0, 393.0, 113.0 ]
+					"patching_rect" : [ 366.333333333333371, 668.0, 489.0, 36.0 ]
 				}
 
 			}
@@ -122,7 +170,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 167.0, 211.0, 50.0, 21.0 ]
+					"patching_rect" : [ 122.0, 207.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -135,7 +183,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 167.0, 174.0, 50.0, 21.0 ]
+					"patching_rect" : [ 49.0, 133.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -179,7 +227,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 39.0, 133.0, 160.0, 19.0 ],
+					"patching_rect" : [ 110.0, 133.0, 160.0, 19.0 ],
 					"text" : "Start Triggering grain streams"
 				}
 
@@ -190,7 +238,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 256.0, 341.0, 150.0, 19.0 ],
+					"patching_rect" : [ 541.0, 380.0, 150.0, 19.0 ],
 					"text" : "Control rate"
 				}
 
@@ -201,7 +249,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 260.0, 399.0, 150.0, 19.0 ],
+					"patching_rect" : [ 552.0, 417.0, 150.0, 19.0 ],
 					"text" : "Try it at signal rate"
 				}
 
@@ -213,7 +261,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 172.333333333333371, 314.0, 54.0, 21.0 ],
+					"patching_rect" : [ 464.333333333333371, 343.0, 54.0, 21.0 ],
 					"text" : "loadbang"
 				}
 
@@ -225,7 +273,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 231.0, 506.0, 77.0, 21.0 ],
+					"patching_rect" : [ 234.333333333333343, 463.0, 77.0, 21.0 ],
 					"text" : "phasor~ 0.05"
 				}
 
@@ -261,7 +309,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 231.0, 540.0, 73.0, 21.0 ],
+					"patching_rect" : [ 234.333333333333343, 504.0, 73.0, 21.0 ],
 					"text" : "mc.sah~ 0.9"
 				}
 
@@ -273,7 +321,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 172.333333333333371, 399.0, 90.0, 21.0 ],
+					"patching_rect" : [ 464.333333333333371, 417.0, 90.0, 21.0 ],
 					"text" : "deviate 100 250"
 				}
 
@@ -440,8 +488,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 172.333333333333371, 341.0, 78.0, 21.0 ],
-					"text" : "deviate 10 15"
+					"patching_rect" : [ 464.333333333333371, 380.0, 65.0, 21.0 ],
+					"text" : "deviate 1 5"
 				}
 
 			}
@@ -452,7 +500,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 172.333333333333371, 472.0, 122.0, 21.0 ],
+					"patching_rect" : [ 464.333333333333371, 463.5, 122.0, 21.0 ],
 					"text" : "mc.phasor~ @chans 5"
 				}
 
@@ -472,11 +520,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-6",
+					"linecount" : 4,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 60.0, 319.0, 19.0 ],
-					"text" : "Control streams of grains without the loss of channels!"
+					"patching_rect" : [ 13.0, 60.0, 553.0, 55.0 ],
+					"text" : "Control streams of grains without the loss of channels!  grainflow.stream is a shortcut to allow users to easily interface with multiple instances of grainflow with each grain being output as its own channel. A signals vecotr of delay will be added due to the use of sends and receives in a poly~. The example below is a stutter effect."
 				}
 
 			}
@@ -488,7 +537,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 13.0, 9.0, 427.0, 43.0 ],
-					"text" : "grainFlow.stream~"
+					"text" : "grainFlow.streams~"
 				}
 
 			}
@@ -499,7 +548,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 13.0, 81.0, 186.0, 21.0 ],
+					"patching_rect" : [ 568.0, 528.0, 186.0, 21.0 ],
 					"text" : "buffer~ _help-stream-buf anton.aif"
 				}
 
@@ -569,6 +618,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 473.833333333333371, 546.0, 177.833333333333343, 546.0 ],
 					"source" : [ "obj-25", 0 ]
 				}
 
@@ -728,7 +778,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-73", 1 ],
-					"midpoints" : [ 58.0, 530.25, 294.5, 530.25 ],
+					"midpoints" : [ 58.0, 490.25, 297.833333333333371, 490.25 ],
 					"source" : [ "obj-74", 0 ]
 				}
 
@@ -763,9 +813,9 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "_cp.grainFlow.streamR~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
-				"patcherrelativepath" : "../../cpDelayNetworks/patchers",
+				"name" : "_grainFlow.streamR~.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
+				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -809,12 +859,15 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontname" : [ "Futura Medium" ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
+					"fontsize" : [ 10.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -826,10 +879,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

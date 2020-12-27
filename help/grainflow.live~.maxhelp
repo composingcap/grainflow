@@ -211,8 +211,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 5.0, 623.0, 143.0, 21.0 ],
-					"text" : "grainflow.util.stereoPan 20"
+					"patching_rect" : [ 5.0, 623.0, 151.0, 21.0 ],
+					"text" : "grainflow.util.stereoPan~ 20"
 				}
 
 			}
@@ -295,8 +295,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 46.333333333333336, 371.0, 168.0, 21.0 ],
-					"text" : "grainflow.util.rateSizePhasor 20"
+					"patching_rect" : [ 46.333333333333336, 371.0, 176.0, 21.0 ],
+					"text" : "grainflow.util.rateSizePhasor~ 20"
 				}
 
 			}
@@ -361,7 +361,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 0 ], [ "maxBufferDrawSamples", 1920 ], [ "dotScale", 5 ], [ "buffername", "1271_flow_1" ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 0 ], [ "maxBufferDrawSamples", 1920 ], [ "dotScale", 5 ], [ "buffername", "2434_flow_1" ], [ "mode", 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -756,14 +756,14 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.util.rateSizePhasor.maxpat",
+				"name" : "grainflow.util.rateSizePhasor~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.util.stereoPan.maxpat",
+				"name" : "grainflow.util.stereoPan~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
