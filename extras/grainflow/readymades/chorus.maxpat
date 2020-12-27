@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 86.0, 91.0, 947.0, 480.0 ],
+		"rect" : [ 86.0, 91.0, 640.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -40,36 +40,11 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 109.0, 38.0, 29.5, 21.0 ],
-					"text" : "join"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-4",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "int", "int", "int" ],
-					"patching_rect" : [ 109.0, 6.0, 40.0, 21.0 ],
-					"text" : "notein"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-3",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"maxclass" : "mc.ezdac~",
+					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 20.0, 281.0, 34.0, 21.0 ],
-					"text" : "dac~"
+					"patching_rect" : [ 31.0, 227.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -80,7 +55,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
-					"patching_rect" : [ 20.0, 19.0, 34.0, 21.0 ],
+					"patching_rect" : [ 31.0, 14.0, 34.0, 21.0 ],
 					"text" : "adc~"
 				}
 
@@ -95,12 +70,12 @@
 					"id" : "obj-1",
 					"lockeddragscroll" : 0,
 					"maxclass" : "bpatcher",
-					"name" : "grainflow.readymade.harmonize~.maxpat",
+					"name" : "grainflow.readymade.chorus~.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 20.0, 71.0, 628.0, 149.0 ],
+					"patching_rect" : [ 31.0, 82.0, 280.0, 123.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -108,17 +83,15 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 1 ],
-					"order" : 0,
+					"destination" : [ "obj-3", 0 ],
 					"source" : [ "obj-1", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"order" : 1,
-					"source" : [ "obj-1", 0 ]
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-2", 1 ]
 				}
 
 			}
@@ -129,62 +102,11 @@
 				}
 
 			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-5", 1 ],
-					"source" : [ "obj-4", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-5", 0 ],
-					"source" : [ "obj-4", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"source" : [ "obj-5", 0 ]
-				}
-
-			}
  ],
 		"parameters" : 		{
-			"obj-1::obj-32" : [ "pitchJitter", "timeJitter", 0 ],
-			"obj-1::obj-38" : [ "grainsize", "grainsize", 0 ],
-			"obj-1::obj-45" : [ "timeJitter", "timeJitter", 0 ],
+			"obj-1::obj-2" : [ "Chorus", "Chorus", 0 ],
+			"obj-1::obj-3" : [ "State", "live.text", 0 ],
 			"parameterbanks" : 			{
-
-			}
-,
-			"parameter_overrides" : 			{
-				"obj-1::obj-32" : 				{
-					"parameter_longname" : "pitchJitter",
-					"parameter_range" : [ 0.0, 6.0 ],
-					"parameter_unitstyle" : 1
-				}
-,
-				"obj-1::obj-38" : 				{
-					"parameter_exponent" : 2.0,
-					"parameter_initial" : 125,
-					"parameter_initial_enable" : 1,
-					"parameter_linknames" : 1,
-					"parameter_longname" : "grainsize",
-					"parameter_range" : [ 50.0, 1000.0 ],
-					"parameter_shortname" : "grainsize",
-					"parameter_unitstyle" : 2
-				}
-,
-				"obj-1::obj-45" : 				{
-					"parameter_exponent" : 1.0,
-					"parameter_initial" : 0,
-					"parameter_longname" : "timeJitter",
-					"parameter_range" : [ 0.0, 100.0 ],
-					"parameter_shortname" : "timeJitter",
-					"parameter_unitstyle" : 5
-				}
 
 			}
 ,
@@ -192,42 +114,28 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "grainflow.readymade.harmonize~.maxpat",
+				"name" : "grainflow.readymade.chorus~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/readymades",
 				"patcherrelativepath" : "../../../patchers/readymades",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.harmonize~.maxpat",
+				"name" : "grainflow.chorus~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../../../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "cp.grainFlow.record~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
-				"patcherrelativepath" : "../../../../cpDelayNetworks/patchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "cp.grainFlow.record.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/code",
-				"patcherrelativepath" : "../../../../cpDelayNetworks/code",
-				"type" : "gDSP",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "_grainflow.harmVoice.maxpat",
+				"name" : "grainFlow.live~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../../../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow~.maxpat",
+				"name" : "grainFlow~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../../../patchers",
 				"type" : "JSON",
@@ -242,6 +150,20 @@
 			}
 , 			{
 				"name" : "grainflow.voice.gendsp",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
+				"patcherrelativepath" : "../../../code",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.util.record~.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
+				"patcherrelativepath" : "../../../patchers/util",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.record.gendsp",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
 				"patcherrelativepath" : "../../../code",
 				"type" : "gDSP",
