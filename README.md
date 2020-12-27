@@ -1,4 +1,4 @@
-<img src="/icon.png" width="250" />
+<img style="float: left;" src="/icon.png" width="250"  />
 
 
 Grainflow is a suite of sample accurate signal driven granular tools built in Max MSP that utilize the multichannel capabilities of Max 8
