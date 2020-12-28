@@ -22,3 +22,6 @@ To install, place this package folding in the Max 8 Packages directory.
 * Chorus
 * Grain Delay
 * Infinite Sustain
+
+
+Thank you to [Patrick Reed](https://github.com/patpatcodeattack) and [J. Andrew Smith](https://github.com/Jasmithcomposer) for taking the time to both test and give valuble feedback.
