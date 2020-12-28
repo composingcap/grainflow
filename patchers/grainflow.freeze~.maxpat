@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1609.0, 166.0, 1138.0, 1202.0 ],
+		"rect" : [ 802.0, 117.0, 1138.0, 1202.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -155,7 +155,6 @@
 						"style" : "Minimal",
 						"subpatcher_template" : "minimal",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-6",
@@ -1019,7 +1018,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 346.0, 538.0, 351.0, 21.0 ],
+					"patching_rect" : [ 345.333333333333314, 531.0, 351.0, 21.0 ],
 					"text" : "mc.poly~ _grainflow.poly.freezer #2 @args #0_flow_1 4 @target 0"
 				}
 
