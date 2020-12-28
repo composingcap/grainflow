@@ -19,4 +19,6 @@ To install, place this package folding in the Max 8 Packages dirrectory.
 * Granular reverb
 * Harmonization
 * Scrubbing
+* Chorus
+* Grain Delay
 * Infinite Sustain
