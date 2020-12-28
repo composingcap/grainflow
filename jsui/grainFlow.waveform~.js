@@ -383,7 +383,7 @@ function draw(){
 			dotB= dotColor[2]*(1-dotColorMod) + dotColor2[2]*(dotColorMod);
 			dotA= dotColor[3]*(1-dotColorMod) + dotColor2[3]*(dotColorMod);
 			glcolor(dotR, dotG, dotB, dotA);
-			moveto(scaleX(grainPositions[p]%1), 1.75*grainAmps[p]-(1.75*0.5) + (0.05/grainPositions.length*p-0.05)*(1+dotVJitter));
+			moveto(scaleX(wrap(grainPositions[p],0,1)), 1.75*grainAmps[p]-(1.75*0.5) + (0.05/grainPositions.length*p-0.05)*(1+dotVJitter));
 			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI*0.5)*dotScale,0.5), 0, 360);
 					}
 					}

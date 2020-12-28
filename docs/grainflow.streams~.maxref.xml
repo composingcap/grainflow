@@ -103,6 +103,9 @@
 <method name='stream' type="list" size="1">
 	<digest>Each message is assigned to a stream in the format stream number message-name message-values</digest>
 </method>
+<method name='deviate' type="list" size="1">
+	<digest>The deviate message will deviate any grainflow parameter from a center point similar to mc deviate</digest>
+</method>
 <method name='---grainflow-messages---' type="list" size="1">
 	<digest>All grainflow messages can be used</digest>
 </method>
