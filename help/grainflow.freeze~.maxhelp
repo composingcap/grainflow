@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 586.0, 133.0, 786.0, 929.0 ],
+		"rect" : [ 100.0, 100.0, 786.0, 929.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -39,6 +39,18 @@
 		"subpatcher_template" : "minimal",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"linecount" : 7,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 182.0, 622.0, 150.0, 92.0 ],
+					"text" : "The freeze can last the duration of the freeze buffer in this case 600000 ms. If it does over the duration the buffer loops and the freeze will be overwritten."
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "comment",
@@ -786,7 +798,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 66.5, 591.0, 67.0, 21.0 ],
+					"patching_rect" : [ 60.5, 595.0, 67.0, 21.0 ],
 					"text" : "phasor~ 10"
 				}
 

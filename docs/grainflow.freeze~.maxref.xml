@@ -69,7 +69,7 @@
 
 	<objarglist>
 <objarg name="buffer-time" optional="0" type="float">
-	<digest>The length of the interal buffer</digest>
+	<digest>The length of the interal buffer.  The freeze can last as long as the duration of this buffer. If it does over the duration the buffer loops and the freeze will be overwritten.</digest>
 </objarg>
 <objarg name="freeze-voices" optional="0" type="int">
 	<digest>Number of freeze voices</digest>
