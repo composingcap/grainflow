@@ -127,7 +127,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1157.0, 213.0, 640.0, 480.0 ],
+						"rect" : [ 1157.0, 250.0, 640.0, 443.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -651,7 +651,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 6,
 					"outlettype" : [ "signal", "bang", "int", "float", "", "list" ],
-					"patching_rect" : [ 161.0, 94.5, 71.5, 21.0 ],
+					"patching_rect" : [ 161.0, 89.5, 71.5, 21.0 ],
 					"text" : "typeroute~"
 				}
 
