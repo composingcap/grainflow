@@ -3,7 +3,7 @@
 
 Grainflow is a suite of sample accurate signal driven granular tools built in Max MSP that utilize the multichannel capabilities of Max 8
 
-To install, place this package folding in the Max 8 Packages dirrectory. 
+To install, place this package folding in the Max 8 Packages directory. 
 
 ## Grainflow includes tools for:
 * Soundfile granulation 
