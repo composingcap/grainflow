@@ -40,18 +40,6 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-13",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 249.0, 613.0, 33.0, 21.0 ],
-					"text" : "open"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -524,8 +512,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 14.0, 319.0, 106.0, 21.0 ],
-					"text" : "travGlobalOffset $1"
+					"patching_rect" : [ 14.0, 319.0, 134.0, 21.0 ],
+					"text" : "windowOffsetRandom $1"
 				}
 
 			}
@@ -536,7 +524,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 127.0, 265.0, 150.0, 104.0 ],
+					"patching_rect" : [ 158.0, 265.0, 150.0, 104.0 ],
 					"text" : "most grainflow messages will work with the freeze.\nThese will not work as they are used by the freeze: \nstate \nforceGrainReset travRandom\nrate"
 				}
 
