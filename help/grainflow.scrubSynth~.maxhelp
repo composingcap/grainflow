@@ -41,7 +41,7 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "triangleColor", 1, 1, 1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 5 ], [ "maxBufferDrawSamples", 1920 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "buffername", "_scrubSynthHelp" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "dotVJitter", 0.1 ], [ "showTriangles", 0 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_scrubSynthHelp" ], [ "dotVJitter", 0.1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 0 ], [ "dotScale", 5 ], [ "triangleColor", 1, 1, 1, 1 ], [ "mode", 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-6",
 					"maxclass" : "jsui",
@@ -49,7 +49,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 217.0, 467.0, 471.0, 126.0 ]
+					"patching_rect" : [ 223.0, 454.0, 471.0, 126.0 ]
 				}
 
 			}
@@ -85,8 +85,21 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 211.0, 322.0, 50.0, 21.0 ]
+					"parameter_enable" : 1,
+					"patching_rect" : [ 223.0, 320.0, 50.0, 21.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 0.25 ],
+							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 1,
+							"parameter_longname" : "number",
+							"parameter_shortname" : "number",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"varname" : "number"
 				}
 
 			}
@@ -98,8 +111,21 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 116.25, 271.0, 50.0, 21.0 ]
+					"parameter_enable" : 1,
+					"patching_rect" : [ 171.25, 266.0, 50.0, 21.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 2.0 ],
+							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 1,
+							"parameter_longname" : "number[1]",
+							"parameter_shortname" : "number[1]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"varname" : "number[1]"
 				}
 
 			}
@@ -109,7 +135,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 288.5, 348.0, 150.0, 19.0 ],
+					"patching_rect" : [ 276.5, 320.0, 150.0, 19.0 ],
 					"text" : "FM mod depth"
 				}
 
@@ -120,7 +146,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 160.5, 299.0, 150.0, 19.0 ],
+					"patching_rect" : [ 227.5, 266.0, 150.0, 19.0 ],
 					"text" : "FM index"
 				}
 
@@ -132,7 +158,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 140.5, 218.0, 150.0, 31.0 ],
+					"patching_rect" : [ 172.5, 225.0, 150.0, 31.0 ],
 					"text" : "Factor from grain phasor frequency to traversal"
 				}
 
@@ -144,7 +170,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 101.5, 180.0, 150.0, 31.0 ],
+					"patching_rect" : [ 119.25, 183.0, 150.0, 31.0 ],
 					"text" : "small offset from phasor frequency to traversal"
 				}
 
@@ -155,7 +181,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 65.0, 152.0, 150.0, 19.0 ],
+					"patching_rect" : [ 69.0, 151.0, 150.0, 19.0 ],
 					"text" : "Grain Phasor Frequency "
 				}
 
@@ -168,8 +194,21 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 49.0, 179.0, 50.0, 21.0 ]
+					"parameter_enable" : 1,
+					"patching_rect" : [ 66.75, 182.0, 50.0, 21.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 1,
+							"parameter_longname" : "number[3]",
+							"parameter_shortname" : "number[3]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"varname" : "number[3]"
 				}
 
 			}
@@ -181,8 +220,21 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 11.0, 152.0, 50.0, 21.0 ]
+					"parameter_enable" : 1,
+					"patching_rect" : [ 15.0, 151.0, 50.0, 21.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 100.0 ],
+							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 1,
+							"parameter_longname" : "number[4]",
+							"parameter_shortname" : "number[4]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"varname" : "number[4]"
 				}
 
 			}
@@ -193,7 +245,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 48.75, 299.0, 51.0, 21.0 ],
+					"patching_rect" : [ 66.75, 306.0, 51.0, 21.0 ],
 					"text" : "sig~ 0.5"
 				}
 
@@ -205,7 +257,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 11.0, 264.0, 53.0, 21.0 ],
+					"patching_rect" : [ 15.0, 266.0, 53.0, 21.0 ],
 					"text" : "sig~ 100"
 				}
 
@@ -217,7 +269,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 116.25, 299.0, 41.0, 21.0 ],
+					"patching_rect" : [ 171.25, 294.0, 41.0, 21.0 ],
 					"text" : "sig~ 2"
 				}
 
@@ -229,7 +281,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 211.0, 346.0, 57.0, 21.0 ],
+					"patching_rect" : [ 223.0, 348.0, 57.0, 21.0 ],
 					"text" : "sig~ 0.25"
 				}
 
@@ -242,8 +294,21 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 87.0, 218.0, 50.0, 21.0 ]
+					"parameter_enable" : 1,
+					"patching_rect" : [ 119.0, 225.0, 50.0, 21.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 1,
+							"parameter_longname" : "number[2]",
+							"parameter_shortname" : "number[2]",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"varname" : "number[2]"
 				}
 
 			}
@@ -254,7 +319,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 87.0, 244.0, 51.0, 21.0 ],
+					"patching_rect" : [ 119.0, 251.0, 51.0, 21.0 ],
 					"text" : "sig~ 0.5"
 				}
 
@@ -427,6 +492,19 @@
 
 			}
  ],
+		"parameters" : 		{
+			"obj-40" : [ "number[4]", "number[4]", 0 ],
+			"obj-41" : [ "number[3]", "number[3]", 0 ],
+			"obj-49" : [ "number[1]", "number[1]", 0 ],
+			"obj-50" : [ "number", "number", 0 ],
+			"obj-9" : [ "number[2]", "number[2]", 0 ],
+			"parameterbanks" : 			{
+
+			}
+,
+			"inherited_shortname" : 1
+		}
+,
 		"dependency_cache" : [ 			{
 				"name" : "grainflow.scrubSynth~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
@@ -467,12 +545,12 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontname" : [ "Futura Medium" ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -485,9 +563,9 @@
 					}
 ,
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"fontsize" : [ 10.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

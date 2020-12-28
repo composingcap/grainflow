@@ -113,7 +113,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 195.999999999999943, 300.0, 78.0, 21.0 ],
+					"patching_rect" : [ 203.333333333333343, 302.0, 78.0, 21.0 ],
 					"text" : "loadmess 125"
 				}
 
@@ -222,7 +222,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 244.0, 399.0, 150.0, 19.0 ],
+					"patching_rect" : [ 252.0, 402.5, 150.0, 19.0 ],
 					"text" : "Resultant overlap"
 				}
 
@@ -236,7 +236,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 195.333333333333343, 399.0, 50.0, 21.0 ]
+					"patching_rect" : [ 203.333333333333343, 402.5, 50.0, 21.0 ]
 				}
 
 			}
@@ -246,7 +246,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 247.0, 335.0, 64.0, 19.0 ],
+					"patching_rect" : [ 255.0, 335.0, 64.0, 19.0 ],
 					"text" : "Grain Size"
 				}
 
@@ -271,7 +271,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 195.333333333333343, 335.0, 50.0, 21.0 ]
+					"patching_rect" : [ 203.333333333333343, 335.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -361,7 +361,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 0 ], [ "maxBufferDrawSamples", 1920 ], [ "dotScale", 5 ], [ "buffername", "2434_flow_1" ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "1608_flow_1" ], [ "dotVJitter", 0 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 0 ], [ "dotScale", 5 ], [ "triangleColor", 1, 1, 1, 1 ], [ "mode", 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -369,7 +369,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 181.0, 542.0, 488.0, 111.0 ]
+					"patching_rect" : [ 129.0, 672.0, 488.0, 111.0 ]
 				}
 
 			}
@@ -536,7 +536,7 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
-					"order" : 0,
+					"order" : 1,
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -544,7 +544,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-37", 1 ],
-					"order" : 1,
+					"order" : 0,
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -774,15 +774,12 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontname" : [ "Futura Medium" ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : [ 0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -794,7 +791,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
