@@ -57,7 +57,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 197.5, 696.5, 304.0, 31.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Detects changes within a list - good for identifying grain changes"
 				}
 
@@ -81,7 +80,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 197.5, 624.0, 304.0, 31.0 ],
-					"presentation_linecount" : 2,
 					"text" : "A phasor that can wrap at differetn loop points in various ways."
 				}
 
@@ -94,7 +92,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 197.5, 590.5, 304.0, 31.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Ouputs parameters and a grainclock to interact woith grainflow using grain size and grain rate"
 				}
 
@@ -129,7 +126,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 197.5, 487.5, 304.0, 31.0 ],
-					"presentation_linecount" : 2,
 					"text" : "A simple recoreding tool that hyas an arcurate position output that can be used as a traversal phasor"
 				}
 
@@ -142,7 +138,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 149.0, 398.166666666666629, 300.0, 31.0 ],
-					"presentation_linecount" : 2,
 					"text" : "An interface to allow for easy control of multiple intances of grainflow"
 				}
 
@@ -479,7 +474,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 15.0, 369.768518518518476, 119.0, 24.0 ],
+					"patching_rect" : [ 15.0, 369.768518518518476, 129.0, 26.398148148148152 ],
 					"text" : "grainflow.scrubSynth~"
 				}
 
@@ -638,7 +633,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-34", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 74.5, 434.768518518518476, 498.5, 434.768518518518476, 498.5, 150.166666666666515, 280.5, 150.166666666666515 ],
+					"midpoints" : [ 79.5, 434.768518518518476, 498.5, 434.768518518518476, 498.5, 150.166666666666515, 280.5, 150.166666666666515 ],
 					"source" : [ "obj-19", 1 ]
 				}
 
