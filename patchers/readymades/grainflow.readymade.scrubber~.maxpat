@@ -69,7 +69,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1457.5, 606.5, 134.0, 21.0 ],
-					"presentation_linecount" : 2,
 					"text" : "windowOffsetRandom $1"
 				}
 
@@ -553,8 +552,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 362.0, 707.0, 149.0, 21.0 ],
-					"text" : "grainflow.util.stereoPan 100"
+					"patching_rect" : [ 362.0, 707.0, 157.0, 21.0 ],
+					"text" : "grainflow.util.stereoPan~ 100"
 				}
 
 			}
@@ -989,9 +988,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 361.0, 589.5, 204.0, 21.0 ],
+					"patching_rect" : [ 361.0, 589.5, 183.0, 21.0 ],
 					"style" : "Minimal",
-					"text" : "grainflow.util.rateSizePhasor 100"
+					"text" : "grainflow.util.rateSizePhasor~ 100"
 				}
 
 			}
@@ -1097,8 +1096,8 @@
 					"id" : "obj-7",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 5,
-					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"numoutlets" : 7,
+					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 361.0, 662.5, 216.0, 21.0 ],
 					"style" : "Minimal",
 					"text" : "grainflow~ ---grainflow 100"
@@ -1161,7 +1160,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "buffername", "---grainflow" ], [ "dotColorSecondary", 0.1, 1, 0.1, 0.9 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "dotColor", 0.392, 1, 0.663, 1 ], [ "selection", 0, 1 ], [ "dotVJitter", 0 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ] ],
+					"embedstate" : [ [ "dotColorSecondary", 0.1, 1, 0.1, 0.9 ], [ "dotScale", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "---grainflow" ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "showTriangles", 0 ], [ "dotColor", 0.392, 1, 0.663, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "mode", 0 ], [ "bgColor", 1, 1, 1, 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-3",
 					"maxclass" : "jsui",
@@ -1581,7 +1580,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
-					"midpoints" : [ 419.75, 698.611113250255585, 52.0, 698.611113250255585, 52.0, 115.5, 123.0, 115.5 ],
+					"midpoints" : [ 403.333333333333314, 698.611113250255585, 52.0, 698.611113250255585, 52.0, 115.5, 123.0, 115.5 ],
 					"source" : [ "obj-7", 1 ]
 				}
 
@@ -1646,11 +1645,14 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"fontname" : [ "Futura Medium" ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"fontface" : [ 0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1661,11 +1663,8 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
