@@ -53,12 +53,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-157",
-					"linecount" : 5,
+					"linecount" : 6,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 576.0, 599.0, 150.0, 67.0 ],
-					"text" : "Set the maximum number of samples displayed in the waveform.  This can help is the schuduler is having trouble"
+					"patching_rect" : [ 497.0, 530.0, 150.0, 79.0 ],
+					"text" : "Set the maximum number of samples displayed in the waveform.  This can help if the schuduler is having trouble drawing the waveform."
 				}
 
 			}
@@ -79,7 +79,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 90.0, 868.0, 150.0, 19.0 ],
+					"patching_rect" : [ 72.0, 870.5, 150.0, 19.0 ],
 					"text" : "Show guiding triangles"
 				}
 
@@ -102,7 +102,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 125.0, 754.0, 150.0, 19.0 ],
+					"patching_rect" : [ 101.0, 725.5, 150.0, 19.0 ],
 					"text" : "Set dot scale"
 				}
 
@@ -172,8 +172,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 19.0, 75.0, 428.0, 43.0 ],
-					"text" : "grainflow.waveform is a jsui gui that visualizes grains to aid in designing sounds. grainflow.waveform~ has vaerious visual custimizations as well as performance optimization features."
+					"patching_rect" : [ 13.0, 59.0, 428.0, 43.0 ],
+					"text" : "grainflow.waveform is a jsui gui that visualizes grains to aid in designing sounds. grainflow.waveform~ has various visual custimizations as well as performance optimization features."
 				}
 
 			}
@@ -766,11 +766,6 @@
 								"name" : "Minimal",
 								"default" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -781,9 +776,14 @@
 										"autogradient" : 0.0
 									}
 ,
+									"fontname" : [ "Futura Medium" ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontface" : [ 0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1056,11 +1056,6 @@
 												"name" : "Minimal",
 												"default" : 												{
 													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontface" : [ 0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1071,9 +1066,14 @@
 														"autogradient" : 0.0
 													}
 ,
+													"fontname" : [ "Futura Medium" ],
 													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontface" : [ 0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontsize" : [ 10.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -1153,8 +1153,8 @@
 									"id" : "obj-66",
 									"maxclass" : "newobj",
 									"numinlets" : 3,
-									"numoutlets" : 1,
-									"outlettype" : [ "signal" ],
+									"numoutlets" : 2,
+									"outlettype" : [ "signal", "signal" ],
 									"patching_rect" : [ 583.0, 289.0, 129.0, 21.0 ],
 									"text" : "grainflow.util.phasor~ 1"
 								}
@@ -1367,11 +1367,6 @@
 								"name" : "Minimal",
 								"default" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1382,9 +1377,14 @@
 										"autogradient" : 0.0
 									}
 ,
+									"fontname" : [ "Futura Medium" ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontface" : [ 0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1636,7 +1636,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "selectColor", 0, 0, 0, 0.5 ], [ "triangleOutColor", 1, 0.21875, 0.8046875, 1 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "triangleColor", 0.25, 0.82421875, 1, 1 ], [ "dotColorSecondary", 1, 0, 0.421875, 1 ], [ "dotColor", 0.73046875, 1, 0.25, 1 ], [ "buffername", "_gf.wf.help" ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0, 0.625, 0.4052734375, 1 ], [ "dotScale", 1 ], [ "selection", 0.578571428571429, 0.25 ], [ "showTriangles", 1 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "selection", 0.578571428571429, 0.25 ], [ "buffername", "_gf.wf.help" ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 0.21875, 0.8046875, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 1 ], [ "waveformColor", 0, 0.625, 0.4052734375, 1 ], [ "selectColor", 0, 0, 0, 0.5 ], [ "dotColor", 0.73046875, 1, 0.25, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColorSecondary", 1, 0, 0.421875, 1 ], [ "dotScale", 1 ], [ "mode", 0 ], [ "triangleColor", 0.25, 0.82421875, 1, 1 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -1967,17 +1967,19 @@
 				"type" : "JSON",
 				"implicit" : 1
 			}
+, 			{
+				"name" : "grainflow.sahPhasor.gendsp",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
+				"patcherrelativepath" : "../code",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
  ],
 		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1988,9 +1990,14 @@
 						"autogradient" : 0.0
 					}
 ,
+					"fontname" : [ "Futura Medium" ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

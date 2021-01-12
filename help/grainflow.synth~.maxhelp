@@ -40,6 +40,340 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 186.0, 665.0, 92.0, 21.0 ],
+					"text" : "s __gf.helpsynth"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-63",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 186.0, 628.0, 75.0, 21.0 ],
+					"text" : "prepend adsr"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgmode" : 0,
+					"border" : 0,
+					"clickthrough" : 0,
+					"embed" : 1,
+					"enablehscroll" : 0,
+					"enablevscroll" : 0,
+					"id" : "obj-6",
+					"lockeddragscroll" : 0,
+					"maxclass" : "bpatcher",
+					"name" : "ADSRControl.maxpat",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"offset" : [ 0.0, 0.0 ],
+					"outlettype" : [ "" ],
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 8,
+							"minor" : 1,
+							"revision" : 8,
+							"architecture" : "x64",
+							"modernui" : 1
+						}
+,
+						"classnamespace" : "box",
+						"rect" : [ 1419.0, 728.0, 640.0, 631.0 ],
+						"bglocked" : 0,
+						"openinpresentation" : 0,
+						"default_fontsize" : 12.0,
+						"default_fontface" : 0,
+						"default_fontname" : "Arial",
+						"gridonopen" : 1,
+						"gridsize" : [ 15.0, 15.0 ],
+						"gridsnaponopen" : 1,
+						"objectsnaponopen" : 1,
+						"statusbarvisible" : 2,
+						"toolbarvisible" : 1,
+						"lefttoolbarpinned" : 0,
+						"toptoolbarpinned" : 0,
+						"righttoolbarpinned" : 0,
+						"bottomtoolbarpinned" : 0,
+						"toolbars_unpinned_last_save" : 0,
+						"tallnewobj" : 0,
+						"boxanimatetime" : 200,
+						"enablehscroll" : 1,
+						"enablevscroll" : 1,
+						"devicewidth" : 0.0,
+						"description" : "",
+						"digest" : "",
+						"tags" : "",
+						"style" : "",
+						"subpatcher_template" : "",
+						"assistshowspatchername" : 0,
+						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-3",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"patching_rect" : [ 201.0, 92.0, 58.0, 22.0 ],
+									"text" : "loadbang"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 215.0, 235.0, 69.0, 22.0 ],
+									"save" : [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
+									"text" : "thispatcher"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"comment" : "",
+									"id" : "obj-1",
+									"index" : 1,
+									"maxclass" : "inlet",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 215.0, 194.0, 30.0, 30.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"comment" : "",
+									"id" : "obj-40",
+									"index" : 1,
+									"maxclass" : "outlet",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 7.0, 189.0, 30.0, 30.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-39",
+									"maxclass" : "newobj",
+									"numinlets" : 4,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 7.0, 150.0, 110.0, 22.0 ],
+									"text" : "pak 500. 0. 1. 500."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-38",
+									"maxclass" : "live.dial",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "float" ],
+									"parameter_enable" : 1,
+									"patching_rect" : [ 145.0, 5.0, 44.0, 48.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_initial" : [ 500 ],
+											"parameter_initial_enable" : 1,
+											"parameter_linknames" : 1,
+											"parameter_longname" : "R",
+											"parameter_mmax" : 5000.0,
+											"parameter_mmin" : 10.0,
+											"parameter_shortname" : "R",
+											"parameter_type" : 0,
+											"parameter_unitstyle" : 0
+										}
+
+									}
+,
+									"varname" : "R"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-37",
+									"maxclass" : "live.dial",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "float" ],
+									"parameter_enable" : 1,
+									"patching_rect" : [ 99.0, 5.0, 44.0, 48.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_initial" : [ 1 ],
+											"parameter_initial_enable" : 1,
+											"parameter_linknames" : 1,
+											"parameter_longname" : "S",
+											"parameter_mmax" : 1.0,
+											"parameter_shortname" : "S",
+											"parameter_type" : 0,
+											"parameter_unitstyle" : 1
+										}
+
+									}
+,
+									"varname" : "S"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-36",
+									"maxclass" : "live.dial",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "float" ],
+									"parameter_enable" : 1,
+									"patching_rect" : [ 53.0, 5.0, 44.0, 48.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_linknames" : 1,
+											"parameter_longname" : "D",
+											"parameter_mmax" : 1000.0,
+											"parameter_shortname" : "D",
+											"parameter_type" : 0,
+											"parameter_unitstyle" : 0
+										}
+
+									}
+,
+									"varname" : "D"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-35",
+									"maxclass" : "live.dial",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "float" ],
+									"parameter_enable" : 1,
+									"patching_rect" : [ 7.0, 5.0, 44.0, 48.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_initial" : [ 500 ],
+											"parameter_initial_enable" : 1,
+											"parameter_linknames" : 1,
+											"parameter_longname" : "A",
+											"parameter_mmax" : 5000.0,
+											"parameter_mmin" : 10.0,
+											"parameter_shortname" : "A",
+											"parameter_type" : 0,
+											"parameter_unitstyle" : 0
+										}
+
+									}
+,
+									"varname" : "A"
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-2", 0 ],
+									"source" : [ "obj-1", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-39", 0 ],
+									"source" : [ "obj-3", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-39", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-35", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-39", 1 ],
+									"hidden" : 1,
+									"source" : [ "obj-36", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-39", 2 ],
+									"hidden" : 1,
+									"source" : [ "obj-37", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-39", 3 ],
+									"hidden" : 1,
+									"source" : [ "obj-38", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-40", 0 ],
+									"source" : [ "obj-39", 0 ]
+								}
+
+							}
+ ]
+					}
+,
+					"patching_rect" : [ 186.0, 558.0, 205.0, 68.0 ],
+					"viewvisibility" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 313.5, 623.0, 151.0, 31.0 ],
+					"text" : "adsr message will set the voice envelope"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 26.5, 294.0, 78.0, 21.0 ],
+					"text" : "loadmess 150"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-95",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -92,7 +426,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 88.5, 298.0, 101.0, 31.0 ],
+					"patching_rect" : [ 91.5, 326.0, 101.0, 31.0 ],
 					"text" : "Sets the size of each grain in ms"
 				}
 
@@ -103,7 +437,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 23.5, 363.0, 92.0, 21.0 ],
+					"patching_rect" : [ 26.5, 391.0, 92.0, 21.0 ],
 					"text" : "s __gf.helpsynth"
 				}
 
@@ -464,7 +798,7 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -475,14 +809,14 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontface" : [ 0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ]
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -594,7 +928,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "triangleColor", 0.2, 0.2, 0.2, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selection", 0, 1 ], [ "showTriangles", 1 ], [ "dotScale", 1 ], [ "mode", 0 ], [ "buffername", "_gflowSynthHelp" ] ],
+					"embedstate" : [ [ "selection", 0, 1 ], [ "buffername", "_gflowSynthHelp" ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "mode", 0 ], [ "triangleColor", 0.2, 0.2, 0.2, 1 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-26",
 					"maxclass" : "jsui",
@@ -655,11 +989,12 @@
 					"format" : 6,
 					"id" : "obj-14",
 					"maxclass" : "flonum",
+					"minimum" : 0.0,
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 23.5, 298.0, 57.0, 21.0 ]
+					"patching_rect" : [ 26.5, 326.0, 57.0, 21.0 ]
 				}
 
 			}
@@ -670,7 +1005,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 23.5, 325.0, 63.0, 21.0 ],
+					"patching_rect" : [ 26.5, 353.0, 63.0, 21.0 ],
 					"text" : "period $1"
 				}
 
@@ -756,7 +1091,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 230.0, 722.0, 183.0, 21.0 ],
+					"patching_rect" : [ 231.5, 716.0, 183.0, 21.0 ],
 					"text" : "buffer~ _gflowSynthHelp anton.aif"
 				}
 
@@ -841,6 +1176,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-14", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-70", 0 ],
 					"source" : [ "obj-50", 0 ]
 				}
@@ -850,6 +1192,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-50", 0 ],
 					"source" : [ "obj-52", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-63", 0 ],
+					"source" : [ "obj-6", 0 ]
 				}
 
 			}
@@ -873,6 +1222,13 @@
 					"destination" : [ "obj-84", 0 ],
 					"midpoints" : [ 910.5, 279.5, 364.0, 279.5 ],
 					"source" : [ "obj-62", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-63", 0 ]
 				}
 
 			}
@@ -968,6 +1324,18 @@
 
 			}
  ],
+		"parameters" : 		{
+			"obj-6::obj-35" : [ "A", "A", 0 ],
+			"obj-6::obj-36" : [ "D", "D", 0 ],
+			"obj-6::obj-37" : [ "S", "S", 0 ],
+			"obj-6::obj-38" : [ "R", "R", 0 ],
+			"parameterbanks" : 			{
+
+			}
+,
+			"inherited_shortname" : 1
+		}
+,
 		"dependency_cache" : [ 			{
 				"name" : "grainflow.synth~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
@@ -1015,7 +1383,8 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -1027,15 +1396,14 @@
 						"autogradient" : 0.0
 					}
 ,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontface" : [ 0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
