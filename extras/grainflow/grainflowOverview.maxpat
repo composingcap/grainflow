@@ -80,7 +80,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 197.5, 624.0, 304.0, 31.0 ],
-					"text" : "A phasor that can wrap at differetn loop points in various ways."
+					"text" : "A phasor that can wrap at different loop points in various ways"
 				}
 
 			}
@@ -92,7 +92,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 197.5, 590.5, 304.0, 31.0 ],
-					"text" : "Ouputs parameters and a grainclock to interact woith grainflow using grain size and grain rate"
+					"text" : "Outputs parameters and a grainclock to interact with grainflow using grain size and grain rate"
 				}
 
 			}
@@ -126,7 +126,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 197.5, 487.5, 304.0, 31.0 ],
-					"text" : "A simple recoreding tool that hyas an arcurate position output that can be used as a traversal phasor"
+					"text" : "A simple recording tool that has an accurate position output that can be used as a traversal phasor"
 				}
 
 			}
@@ -138,7 +138,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 149.0, 398.166666666666629, 300.0, 31.0 ],
-					"text" : "An interface to allow for easy control of multiple intances of grainflow"
+					"text" : "An interface to allow for easy control of multiple instances of grainflow"
 				}
 
 			}
@@ -149,7 +149,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 149.0, 372.268518518518476, 300.0, 19.0 ],
-					"text" : "A wavelet-like synthisizer created through granulation"
+					"text" : "A wavelet-like synthesizer created through granulation"
 				}
 
 			}
@@ -541,7 +541,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 5.0, 63.0, 640.0, 31.0 ],
-					"text" : "Grainflow is a powerful and flexible sample accurate granular engine.  Grainflow can be used for granular sampling, synthisis, delay, reverb and many other creative and non-standard applications."
+					"text" : "Grainflow is a powerful and flexible sample accurate granular engine.  Grainflow can be used for granular sampling, synthesis, delay, reverb and many other creative and non-standard applications."
 				}
 
 			}
@@ -560,12 +560,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-7",
-					"linecount" : 2,
+					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 113.0, 464.0, 31.0 ],
-					"text" : "Everything in this package is built on top of this grainflow~.  Each of these implentations can be seen as a tool or an examples of how to use grainflow~ for many purposes."
+					"patching_rect" : [ 149.0, 113.0, 464.0, 43.0 ],
+					"text" : "Everything in this package is built on top of this grainflow~.  Each of these implementations can be seen as a tool or an example of how to use grainflow~ for many purposes."
 				}
 
 			}
@@ -756,10 +756,11 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -770,11 +771,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

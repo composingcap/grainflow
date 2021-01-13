@@ -451,7 +451,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 646.0, 410.0, 151.0, 31.0 ],
+					"patching_rect" : [ 642.0, 416.0, 151.0, 31.0 ],
 					"text" : "adsr message will set the voice envelope"
 				}
 
@@ -490,43 +490,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 692.5, 530.0, 86.0, 21.0 ],
 					"text" : "travRandom $1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-70",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 613.5, 627.0, 49.0, 21.0 ],
-					"text" : "pcontrol"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-69",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 613.5, 602.0, 74.0, 21.0 ],
-					"text" : "prepend help"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-64",
-					"maxclass" : "textbutton",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "int" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 573.0, 575.0, 100.0, 20.0 ],
-					"text" : "grainflow~"
 				}
 
 			}
@@ -618,7 +581,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 394.0, 575.0, 152.0, 55.0 ],
+					"patching_rect" : [ 388.0, 586.0, 152.0, 55.0 ],
 					"text" : "Any message you can send grainflow~ can overwrite settings in the harmonizer (except for rate)"
 				}
 
@@ -709,7 +672,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 809.0, 247.0, 150.0, 79.0 ],
-					"text" : "Smaller grains sizes can and should be used with higher notes.  This will improve latancy. (less time will need to pass for there to be enough buffer)"
+					"text" : "Smaller grains sizes can and should be used with higher notes.  This will improve latency. (less time will need to pass for there to be enough buffer)"
 				}
 
 			}
@@ -779,7 +742,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 892.0, 71.0, 150.0, 31.0 ],
+					"patching_rect" : [ 881.0, 71.0, 150.0, 31.0 ],
 					"text" : "Additional Latency in ms.  Useful for vibrato"
 				}
 
@@ -1326,6 +1289,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-35", 0 ],
+					"midpoints" : [ 702.0, 579.0, 279.5, 579.0 ],
 					"source" : [ "obj-44", 0 ]
 				}
 
@@ -1368,6 +1332,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-35", 0 ],
+					"midpoints" : [ 279.5, 579.0, 279.5, 579.0 ],
 					"source" : [ "obj-54", 0 ]
 				}
 
@@ -1382,6 +1347,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-35", 0 ],
+					"midpoints" : [ 443.5, 579.0, 279.5, 579.0 ],
 					"source" : [ "obj-56", 0 ]
 				}
 
@@ -1396,6 +1362,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-35", 0 ],
+					"midpoints" : [ 582.5, 579.0, 279.5, 579.0 ],
 					"source" : [ "obj-58", 0 ]
 				}
 
@@ -1411,13 +1378,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
 					"source" : [ "obj-63", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-69", 0 ],
-					"source" : [ "obj-64", 1 ]
 				}
 
 			}
@@ -1439,13 +1399,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-20", 0 ],
 					"source" : [ "obj-68", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-70", 0 ],
-					"source" : [ "obj-69", 0 ]
 				}
 
 			}
@@ -1546,8 +1499,6 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -1559,14 +1510,16 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontname" : [ "Futura Medium" ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ]
 				}
 ,
 				"parentstyle" : "",

@@ -138,12 +138,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-42",
-					"linecount" : 4,
+					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 88.0, 337.0, 153.0, 55.0 ],
-					"text" : "Outputs a safe place to play grains based on the recordhead and random reaversal"
+					"patching_rect" : [ 88.0, 337.0, 153.0, 43.0 ],
+					"text" : "Outputs a safe place to play grains based on the record head and random traversal"
 				}
 
 			}
@@ -203,7 +203,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 287.833333333333314, 215.0, 72.0, 21.0 ],
+					"patching_rect" : [ 287.833333333333314, 210.5, 72.0, 21.0 ],
 					"text" : "loadmess 10"
 				}
 
@@ -217,18 +217,19 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 287.833333333333314, 252.0, 50.0, 21.0 ]
+					"patching_rect" : [ 287.833333333333314, 238.0, 50.0, 21.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"id" : "obj-31",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 361.0, 282.0, 150.0, 31.0 ],
+					"patching_rect" : [ 362.0, 263.0, 150.0, 31.0 ],
 					"text" : "This phasor acts as the grainclock"
 				}
 
@@ -275,7 +276,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 34.833333333333314, 111.0, 150.0, 19.0 ],
+					"patching_rect" : [ 38.833333333333314, 102.5, 150.0, 19.0 ],
 					"text" : "State of the recorder"
 				}
 
@@ -287,8 +288,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 9.0, 53.0, 551.0, 31.0 ],
-					"text" : "Record grains of an incoming signal to a buffer.  This adds delay, but can be used to create the illusion of more grains without adding a lot of proccessing load"
+					"patching_rect" : [ 9.0, 53.0, 432.0, 31.0 ],
+					"text" : "Record grains of an incoming signal to a buffer.  This adds delay, but can be used to create the illusion of more grains without adding a lot of processing load"
 				}
 
 			}
@@ -347,7 +348,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 287.833333333333314, 282.0, 67.0, 21.0 ],
+					"patching_rect" : [ 287.833333333333314, 268.0, 67.0, 21.0 ],
 					"text" : "phasor~ 10"
 				}
 
@@ -409,7 +410,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 9.0, 100.0, 24.0, 24.0 ]
+					"patching_rect" : [ 9.0, 100.0, 24.0, 24.0 ],
+					"uncheckedcolor" : [ 0.482352941176471, 0.482352941176471, 0.482352941176471, 1.0 ]
 				}
 
 			}
@@ -522,6 +524,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 18.5, 295.5, 75.333333333333314, 295.5 ],
 					"source" : [ "obj-3", 0 ]
 				}
 
@@ -543,6 +546,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 432.5, 304.5, 75.333333333333314, 304.5 ],
 					"source" : [ "obj-36", 0 ]
 				}
 
@@ -600,9 +604,6 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -613,12 +614,15 @@
 						"autogradient" : 0.0
 					}
 ,
+					"fontface" : [ 0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ]
 				}
 ,
 				"parentstyle" : "",

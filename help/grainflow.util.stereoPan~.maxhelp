@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 86.0, 91.0, 640.0, 480.0 ],
+		"rect" : [ 86.0, 91.0, 640.0, 896.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -40,12 +40,50 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 17.0, 64.0, 430.0, 19.0 ],
+					"text" : "Randomly pans new grains in a stereo field with equal power panning"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"lastchannelcount" : 2,
+					"maxclass" : "mc.live.gain~",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"orientation" : 1,
+					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 17.0, 502.0, 136.0, 47.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_longname" : "mc.live.gain~",
+							"parameter_mmax" : 6.0,
+							"parameter_mmin" : -70.0,
+							"parameter_shortname" : "mc.live.gain~",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 4
+						}
+
+					}
+,
+					"varname" : "mc.live.gain~"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-28",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 243.0, 142.0, 76.0, 21.0 ],
+					"patching_rect" : [ 243.0, 202.0, 76.0, 21.0 ],
 					"text" : "loadmess 0.5"
 				}
 
@@ -56,7 +94,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 79.0, 162.0, 150.0, 19.0 ],
+					"patching_rect" : [ 79.0, 222.0, 150.0, 19.0 ],
 					"text" : "The panning center (0-1)"
 				}
 
@@ -68,7 +106,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.0, 55.0, 76.0, 21.0 ],
+					"patching_rect" : [ 17.0, 115.0, 76.0, 21.0 ],
 					"text" : "loadmess 0.1"
 				}
 
@@ -80,7 +118,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 89.5, 85.0, 150.0, 31.0 ],
+					"patching_rect" : [ 89.5, 145.0, 150.0, 31.0 ],
 					"text" : "How spread the panning is from the center point (0-1)"
 				}
 
@@ -92,7 +130,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 292.0, 369.0, 150.0, 31.0 ],
+					"patching_rect" : [ 167.0, 462.0, 150.0, 31.0 ],
 					"text" : "The argument is the maximum number of grains"
 				}
 
@@ -120,7 +158,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 17.0, 162.0, 50.0, 21.0 ]
+					"patching_rect" : [ 17.0, 222.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -131,7 +169,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.0, 202.0, 77.0, 21.0 ],
+					"patching_rect" : [ 17.0, 262.0, 77.0, 21.0 ],
 					"text" : "panCenter $1"
 				}
 
@@ -143,7 +181,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 184.0, 275.0, 71.0, 21.0 ],
+					"patching_rect" : [ 59.0, 325.0, 71.0, 21.0 ],
 					"text" : "phasor~ 0.1"
 				}
 
@@ -155,8 +193,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 142.0, 250.0, 61.0, 21.0 ],
-					"text" : "phasor~ 5"
+					"patching_rect" : [ 17.0, 300.0, 67.0, 21.0 ],
+					"text" : "phasor~ 50"
 				}
 
 			}
@@ -171,7 +209,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 17.0, 84.0, 50.0, 21.0 ]
+					"patching_rect" : [ 17.0, 144.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -182,7 +220,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.0, 124.0, 79.0, 21.0 ],
+					"patching_rect" : [ 17.0, 184.0, 79.0, 21.0 ],
 					"text" : "panSpread $1"
 				}
 
@@ -193,7 +231,7 @@
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 142.0, 428.0, 45.0, 45.0 ]
+					"patching_rect" : [ 17.0, 592.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -205,7 +243,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 142.0, 214.0, 24.0, 24.0 ]
+					"patching_rect" : [ 123.0, 280.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -216,7 +254,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 300.0, 315.0, 167.0, 21.0 ],
+					"patching_rect" : [ 175.0, 365.0, 167.0, 21.0 ],
 					"text" : "buffer~ _gf.stereopan anton.aif"
 				}
 
@@ -228,7 +266,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 7,
 					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 142.0, 315.0, 145.0, 21.0 ],
+					"patching_rect" : [ 17.0, 365.0, 145.0, 21.0 ],
 					"text" : "grainflow~ _gf.stereopan 5"
 				}
 
@@ -240,7 +278,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 142.0, 364.0, 145.0, 21.0 ],
+					"patching_rect" : [ 17.0, 457.0, 145.0, 21.0 ],
 					"text" : "grainflow.util.stereoPan~ 5"
 				}
 
@@ -248,7 +286,7 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
+					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -297,6 +335,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
 					"source" : [ "obj-25", 0 ]
 				}
@@ -312,7 +357,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 1 ],
-					"midpoints" : [ 172.5, 342.0, 277.5, 342.0 ],
+					"midpoints" : [ 47.5, 392.0, 152.5, 392.0 ],
 					"source" : [ "obj-3", 1 ]
 				}
 
@@ -332,6 +377,15 @@
 
 			}
  ],
+		"parameters" : 		{
+			"obj-2" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
+			"parameterbanks" : 			{
+
+			}
+,
+			"inherited_shortname" : 1
+		}
+,
 		"dependency_cache" : [ 			{
 				"name" : "grainflow.util.stereoPan~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
@@ -365,14 +419,6 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -383,7 +429,15 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"fontface" : [ 0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ]
 				}
 ,
 				"parentstyle" : "",

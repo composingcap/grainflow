@@ -45,7 +45,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 560.0, 153.0, 150.0, 55.0 ],
+					"patching_rect" : [ 542.0, 140.0, 150.0, 55.0 ],
 					"text" : "As with other grainflow abstractions, you are able to use grainflow messages with chorus as well"
 				}
 
@@ -57,7 +57,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 463.0, 143.0, 76.0, 21.0 ],
+					"patching_rect" : [ 445.0, 130.0, 76.0, 21.0 ],
 					"text" : "loadmess 0.1"
 				}
 
@@ -71,7 +71,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 463.0, 177.0, 50.0, 21.0 ]
+					"patching_rect" : [ 445.0, 164.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -82,7 +82,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 463.0, 212.0, 88.0, 21.0 ],
+					"patching_rect" : [ 445.0, 199.0, 88.0, 21.0 ],
 					"text" : "ampRandom $1"
 				}
 
@@ -94,7 +94,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 200.0, 253.0, 150.0, 43.0 ],
+					"patching_rect" : [ 182.0, 240.0, 150.0, 43.0 ],
 					"text" : "Arguments are chorus value, buffersize, and number of voices"
 				}
 
@@ -106,7 +106,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 109.0, 172.0, 268.0, 31.0 ],
+					"patching_rect" : [ 91.0, 159.0, 268.0, 31.0 ],
 					"text" : "The best values for a chorus effect are between zero and one"
 				}
 
@@ -118,7 +118,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 57.0, 119.0, 76.0, 21.0 ],
+					"patching_rect" : [ 39.0, 106.0, 76.0, 21.0 ],
 					"text" : "loadmess 0.5"
 				}
 
@@ -130,7 +130,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 19.0, 71.0, 427.0, 31.0 ],
+					"patching_rect" : [ 1.0, 58.0, 427.0, 31.0 ],
 					"text" : "A granular chorusing effect where grains are modulated in terms of rate and delay based on a single value.  Random panning is also applied."
 				}
 
@@ -142,7 +142,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 19.0, 16.0, 426.0, 43.0 ],
+					"patching_rect" : [ 1.0, 3.0, 426.0, 43.0 ],
 					"text" : "grainflow.chorus~"
 				}
 
@@ -153,7 +153,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 109.0, 149.0, 268.0, 19.0 ],
+					"patching_rect" : [ 91.0, 136.0, 268.0, 19.0 ],
 					"text" : "Chorus value- higher is more extreme."
 				}
 
@@ -167,7 +167,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 57.0, 149.0, 50.0, 21.0 ]
+					"patching_rect" : [ 39.0, 136.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -179,7 +179,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 31.0, 116.0, 24.0, 24.0 ],
+					"patching_rect" : [ 13.0, 103.0, 24.0, 24.0 ],
 					"uncheckedcolor" : [ 0.572549019607843, 0.572549019607843, 0.572549019607843, 1.0 ]
 				}
 
@@ -190,7 +190,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 27.0, 335.0, 53.0, 21.0 ],
+					"patching_rect" : [ 9.0, 322.0, 53.0, 21.0 ],
 					"text" : "mc.dac~"
 				}
 
@@ -225,7 +225,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 57.0, 202.0, 150.0, 30.0 ],
+					"patching_rect" : [ 39.0, 189.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -239,7 +239,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 27.0, 264.0, 164.0, 21.0 ],
+					"patching_rect" : [ 9.0, 251.0, 164.0, 21.0 ],
 					"text" : "grainflow.chorus~ 0.5 5000 10"
 				}
 
@@ -247,7 +247,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "2036_flow_1" ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "showTriangles", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "mode", 0 ], [ "bgColor", 1, 1, 1, 0 ] ],
+					"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 0 ], [ "buffername", "1372_flow_1" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "mode", 0 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-25",
 					"maxclass" : "jsui",
@@ -255,7 +255,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 175.0, 347.0, 400.0, 100.0 ]
+					"patching_rect" : [ 157.0, 334.0, 400.0, 100.0 ]
 				}
 
 			}
@@ -398,13 +398,6 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontname" : [ "Futura Medium" ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -415,8 +408,15 @@
 						"autogradient" : 0.0
 					}
 ,
+					"fontface" : [ 0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ]
 				}
 ,
 				"parentstyle" : "",

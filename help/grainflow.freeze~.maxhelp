@@ -57,7 +57,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 15.0, 50.0, 447.0, 19.0 ],
-					"text" : "grainflow.freeze is designed to freeze a moment in time for the duration of a midinote"
+					"text" : "grainflow.freeze is designed to freeze a moment in time for the duration of a midi note "
 				}
 
 			}
@@ -68,7 +68,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 633.0, 438.0, 150.0, 43.0 ],
+					"patching_rect" : [ 427.0, 538.5, 150.0, 43.0 ],
 					"text" : "The time it take for the freeze to reach its freeze depth"
 				}
 
@@ -82,7 +82,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 575.0, 449.0, 50.0, 21.0 ],
+					"patching_rect" : [ 369.0, 549.5, 50.0, 21.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 500 ],
@@ -106,7 +106,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 575.0, 486.0, 117.0, 21.0 ],
+					"patching_rect" : [ 369.0, 586.5, 117.0, 21.0 ],
 					"text" : "freezeExpandTime $1"
 				}
 
@@ -117,7 +117,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 575.0, 514.0, 92.0, 21.0 ],
+					"patching_rect" : [ 369.0, 614.5, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -129,7 +129,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 627.0, 325.5, 150.0, 43.0 ],
+					"patching_rect" : [ 421.0, 426.0, 156.0, 43.0 ],
 					"text" : "The maximum distance in ms the freeze will span after the freezeExpandTime"
 				}
 
@@ -143,7 +143,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 570.0, 334.0, 50.0, 21.0 ],
+					"patching_rect" : [ 364.0, 434.5, 50.0, 21.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
@@ -167,7 +167,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 570.0, 371.0, 86.0, 21.0 ],
+					"patching_rect" : [ 364.0, 471.5, 86.0, 21.0 ],
 					"text" : "freezeDepth $1"
 				}
 
@@ -178,7 +178,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 570.0, 410.0, 92.0, 21.0 ],
+					"patching_rect" : [ 364.0, 510.5, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -189,7 +189,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 55.0, 381.0, 150.0, 19.0 ],
+					"patching_rect" : [ 57.0, 401.0, 150.0, 19.0 ],
 					"text" : "View the internal buffer"
 				}
 
@@ -200,7 +200,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 14.0, 414.0, 92.0, 21.0 ],
+					"patching_rect" : [ 16.0, 434.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -487,7 +487,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 333.0, 325.5, 205.0, 64.0 ],
+					"patching_rect" : [ 364.0, 265.0, 205.0, 64.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -499,7 +499,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 437.0, 221.0, 153.0, 55.0 ],
+					"patching_rect" : [ 364.0, 190.0, 153.0, 55.0 ],
 					"text" : "Midi notes are used to mark voices.  The velocity will translate to loudness but pitch does not matter"
 				}
 
@@ -605,7 +605,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 333.0, 453.0, 92.0, 21.0 ],
+					"patching_rect" : [ 364.0, 392.5, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -617,7 +617,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 333.0, 420.0, 75.0, 21.0 ],
+					"patching_rect" : [ 364.0, 359.5, 75.0, 21.0 ],
 					"text" : "prepend adsr"
 				}
 
@@ -639,7 +639,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 333.0, 255.0, 92.0, 21.0 ],
+					"patching_rect" : [ 265.0, 227.0, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -651,7 +651,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 333.0, 218.0, 29.5, 21.0 ],
+					"patching_rect" : [ 265.0, 190.0, 29.5, 21.0 ],
 					"text" : "join"
 				}
 
@@ -666,7 +666,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 333.0, 151.0, 336.0, 53.0 ]
+					"patching_rect" : [ 265.0, 123.0, 336.0, 53.0 ]
 				}
 
 			}
@@ -725,7 +725,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "int", "int" ],
-					"patching_rect" : [ 333.0, 106.0, 40.0, 21.0 ],
+					"patching_rect" : [ 265.0, 78.0, 40.0, 21.0 ],
 					"text" : "notein"
 				}
 
@@ -737,7 +737,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 14.0, 381.0, 33.0, 21.0 ],
+					"patching_rect" : [ 16.0, 401.0, 33.0, 21.0 ],
 					"text" : "open"
 				}
 
@@ -1067,12 +1067,6 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1083,9 +1077,15 @@
 						"autogradient" : 0.0
 					}
 ,
+					"fontface" : [ 0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ]
 				}
 ,
 				"parentstyle" : "",
