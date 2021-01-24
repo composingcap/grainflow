@@ -319,7 +319,10 @@
 	<!--RELATED-->
 
 	<seealsolist>
-		<seealso name='grainflow~' />
+		<seealso name='grainflow.chorus~' />
+		<seealso name='grainflow.harmonize~' />
+		<seealso name='grainflow.synth~' />
+		<seealso name='grainflow.scrubSynth~' />
 	</seealsolist>
 
 

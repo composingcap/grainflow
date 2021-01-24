@@ -325,6 +325,10 @@
 
 	<seealsolist>
 		<seealso name='grainflow~' />
+		<seealso name='grainflow.streams~' />
+		<seealso name='grainflow.record~' />
+		<seealso name='grainflow.grainRecord~' />
+		<seealso name='grainflow.waveform~' />
 	</seealsolist>
 
 

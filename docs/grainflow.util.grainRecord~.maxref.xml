@@ -35,7 +35,7 @@
 
 					</digest>
 					<description>
-Grains will be scheduled based on this clock in accordance to the windowOffset and space paramters. windowOffset tells the granulator how much each voice should offset as a percentage of the phasor size.  If there are two grains and the windowOffset is 0.5 then one grain will start when hte pohasor is 0 and the other will start when the phasor reaches 0.5. Space determined the size of the grain in relation to the phasor.  If space is 0 the grain will take up the entire length of the phasor.  If it is 0.5 it will take up half of the length.
+Grains will be scheduled based on this clock in accordance to the windowOffset and space parameters. windowOffset tells the granulator how much each voice should offset as a percentage of the phasor size.  If there are two grains and the windowOffset is 0.5 then one grain will start when the phasor is 0 and the other will start when the phasor reaches 0.5. Space determined the size of the grain in relation to the phasor.  If space is 0 the grain will take up the entire length of the phasor.  If it is 0.5 it will take up half of the length.
 					</description>
 				</inlet>
 
@@ -121,6 +121,7 @@ Grains will be scheduled based on this clock in accordance to the windowOffset a
 	<seealsolist>
 		<seealso name='grainflow~' />
 		<seealso name='grainflow.util.record~' />
+		<seealso name='grainflow.streams~' />
 	</seealsolist>
 
 

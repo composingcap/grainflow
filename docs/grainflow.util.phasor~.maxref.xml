@@ -97,6 +97,7 @@
 	<seealsolist>
 		<seealso name='grainflow~' />
 		<seealso name='grainflow.live~' />
+		<seealso name='grainflow.streams~' />
 	</seealsolist>
 
 

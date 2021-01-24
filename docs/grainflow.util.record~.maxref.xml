@@ -104,6 +104,7 @@
 	<seealsolist>
 		<seealso name='grainflow~' />
 		<seealso name='grainflow.util.grainRecord~' />
+		<seealso name='grainflow.streams~' />
 	</seealsolist>
 
 

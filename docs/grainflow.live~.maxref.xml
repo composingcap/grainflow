@@ -329,6 +329,8 @@
 
 	<seealsolist>
 		<seealso name='grainflow~' />
+		<seealso name='grainflow.streams~' />
+		<seealso name='grainflow.waveform~' />
 	</seealsolist>
 
 
