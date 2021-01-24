@@ -160,6 +160,10 @@
 			<digest>Randomness applied to space</digest>
 		</method>
 
+		<method name='density'>
+			<digest>Randomness applied to space</digest>
+		</method>
+
 		<method name='travOffset' size="1">
 			<digest>Traversal offset per grain in ms</digest>
 			<description></description>
