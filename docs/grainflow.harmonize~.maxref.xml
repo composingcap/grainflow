@@ -109,7 +109,7 @@
 		</method>
 
 
-		<method name='any-grainflow-param'>
+		<method name='---grain-flow-messages---'>
 			<digest>below are standard grainflow parameters they will all work unless they are overwritten by an internal parameter</digest>
 			<description></description>
 		</method>
@@ -161,6 +161,10 @@
 		</method>
 
 		<method name='spaceRandom'>
+			<digest>Randomness applied to space</digest>
+		</method>
+
+		<method name='density'>
 			<digest>Randomness applied to space</digest>
 		</method>
 
