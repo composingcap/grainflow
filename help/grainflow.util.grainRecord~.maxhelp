@@ -40,6 +40,46 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-22",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 590.0, 227.0, 87.0, 31.0 ],
+					"presentation_linecount" : 2,
+					"text" : "Overdubs the grain recording"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-20",
+					"maxclass" : "flonum",
+					"maximum" : 1.0,
+					"minimum" : 0.0,
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 531.0, 232.0, 50.0, 21.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 531.0, 263.0, 66.0, 21.0 ],
+					"text" : "overdub $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-21",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -57,7 +97,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 293.0, 391.0, 71.0, 21.0 ],
+					"patching_rect" : [ 291.833333333333314, 430.0, 71.0, 21.0 ],
 					"text" : "prepend line"
 				}
 
@@ -69,7 +109,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 289.0, 368.0, 110.0, 21.0 ],
+					"patching_rect" : [ 287.833333333333314, 407.0, 110.0, 21.0 ],
 					"text" : "route recordHeadMs"
 				}
 
@@ -142,7 +182,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 88.0, 337.0, 153.0, 43.0 ],
+					"patching_rect" : [ 91.0, 380.0, 153.0, 43.0 ],
 					"text" : "Outputs a safe place to play grains based on the record head and random traversal"
 				}
 
@@ -288,7 +328,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 9.0, 53.0, 432.0, 31.0 ],
+					"patching_rect" : [ 9.0, 53.0, 435.0, 31.0 ],
 					"text" : "Record grains of an incoming signal to a buffer.  This adds delay, but can be used to create the illusion of more grains without adding a lot of processing load"
 				}
 
@@ -422,7 +462,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "" ],
-					"patching_rect" : [ 65.833333333333314, 308.0, 241.0, 21.0 ],
+					"patching_rect" : [ 65.833333333333314, 354.0, 241.0, 21.0 ],
 					"text" : "grainflow.util.grainRecord~ _gf.grainrecordbuf"
 				}
 
@@ -502,6 +542,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-20", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-27", 0 ],
 					"source" : [ "obj-21", 0 ]
 				}
@@ -568,6 +615,14 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 540.5, 332.5, 75.333333333333314, 332.5 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-6", 0 ]
 				}
 
@@ -595,7 +650,8 @@
 			}
 , 			{
 				"name" : "Snare 01.wav",
-				"bootpath" : "C74:/packages/MaxIntroLessons/media",
+				"bootpath" : "D:/Music/Samples/Downloaded Samples/Free Sound Radar Samples/timewarp-fx-samples/Gated Reverb",
+				"patcherrelativepath" : "../../../../../Music/Samples/Downloaded Samples/Free Sound Radar Samples/timewarp-fx-samples/Gated Reverb",
 				"type" : "WAVE",
 				"implicit" : 1
 			}
@@ -604,6 +660,14 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -614,15 +678,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"fontsize" : [ 10.0 ]
 				}
 ,
 				"parentstyle" : "",

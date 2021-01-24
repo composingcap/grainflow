@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-19",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 444.0, 336.5, 150.0, 31.0 ],
+					"text" : "The adsr message will set the voice envelope"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-13",
 					"linecount" : 7,
 					"maxclass" : "comment",
@@ -53,11 +65,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-4",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 15.0, 50.0, 447.0, 19.0 ],
-					"text" : "grainflow.freeze is designed to freeze a moment in time for the duration of a midi note "
+					"patching_rect" : [ 15.0, 50.0, 558.0, 31.0 ],
+					"text" : "grainflow.freeze is designed to freeze a moment in time for the duration of a midi note.\nThe freeze starts with a small granulation area and expands to freezeDepth over the freezeExpandTime. "
 				}
 
 			}
@@ -207,7 +220,7 @@
 			}
 , 			{
 				"box" : 				{
-					"bgmode" : 0,
+					"bgmode" : 2,
 					"border" : 0,
 					"clickthrough" : 0,
 					"embed" : 1,
@@ -605,7 +618,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 364.0, 392.5, 92.0, 21.0 ],
+					"patching_rect" : [ 364.0, 374.5, 92.0, 21.0 ],
 					"text" : "s __gfhelpfreeze"
 				}
 
@@ -617,7 +630,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 364.0, 359.5, 75.0, 21.0 ],
+					"patching_rect" : [ 364.0, 341.5, 75.0, 21.0 ],
 					"text" : "prepend adsr"
 				}
 
@@ -725,7 +738,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "int", "int" ],
-					"patching_rect" : [ 265.0, 78.0, 40.0, 21.0 ],
+					"patching_rect" : [ 265.0, 95.0, 40.0, 21.0 ],
 					"text" : "notein"
 				}
 
@@ -1067,6 +1080,14 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1077,15 +1098,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"fontsize" : [ 10.0 ]
 				}
 ,
 				"parentstyle" : "",

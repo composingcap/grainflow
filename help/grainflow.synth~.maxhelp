@@ -40,11 +40,38 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-9",
+					"lastchannelcount" : 2,
+					"maxclass" : "mc.live.gain~",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"orientation" : 1,
+					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 23.5, 662.0, 136.0, 47.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_longname" : "mc.live.gain~",
+							"parameter_mmax" : 6.0,
+							"parameter_mmin" : -70.0,
+							"parameter_shortname" : "mc.live.gain~",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 4
+						}
+
+					}
+,
+					"varname" : "mc.live.gain~"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 186.0, 665.0, 92.0, 21.0 ],
+					"patching_rect" : [ 477.0, 626.0, 92.0, 21.0 ],
 					"text" : "s __gf.helpsynth"
 				}
 
@@ -56,14 +83,14 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 186.0, 628.0, 75.0, 21.0 ],
+					"patching_rect" : [ 477.0, 593.0, 75.0, 21.0 ],
 					"text" : "prepend adsr"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"bgmode" : 0,
+					"bgmode" : 2,
 					"border" : 0,
 					"clickthrough" : 0,
 					"embed" : 1,
@@ -343,7 +370,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 186.0, 558.0, 205.0, 68.0 ],
+					"patching_rect" : [ 477.0, 523.0, 208.0, 59.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -355,7 +382,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 313.5, 623.0, 151.0, 31.0 ],
+					"patching_rect" : [ 568.0, 593.0, 151.0, 31.0 ],
 					"text" : "adsr message will set the voice envelope"
 				}
 
@@ -369,41 +396,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 26.5, 294.0, 78.0, 21.0 ],
 					"text" : "loadmess 150"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-95",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 270.0, 485.0, 150.0, 19.0 ],
-					"text" : "Open grainflow help"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-93",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 181.0, 485.0, 87.0, 21.0 ],
-					"text" : "help grainflow~"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-91",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 181.0, 516.0, 49.0, 21.0 ],
-					"text" : "pcontrol"
 				}
 
 			}
@@ -512,7 +504,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 697.5, 495.0, 50.0, 21.0 ]
+					"patching_rect" : [ 701.5, 422.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -523,7 +515,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 752.5, 484.0, 153.0, 43.0 ],
+					"patching_rect" : [ 756.5, 411.0, 153.0, 43.0 ],
 					"text" : "Without update, they will update in accordance to the autoUpdate state"
 				}
 
@@ -534,7 +526,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 697.5, 558.0, 92.0, 21.0 ],
+					"patching_rect" : [ 701.5, 485.0, 92.0, 21.0 ],
 					"text" : "s __gf.helpsynth"
 				}
 
@@ -546,7 +538,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 697.5, 529.0, 86.0, 21.0 ],
+					"patching_rect" : [ 701.5, 456.0, 86.0, 21.0 ],
 					"text" : "travRandom $1"
 				}
 
@@ -560,7 +552,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 473.0, 484.0, 50.0, 21.0 ]
+					"patching_rect" : [ 477.0, 411.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -571,7 +563,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 531.0, 473.0, 149.0, 43.0 ],
+					"patching_rect" : [ 535.0, 400.0, 149.0, 43.0 ],
 					"text" : "Messages prepended by update will update in real-time"
 				}
 
@@ -582,7 +574,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 473.0, 547.0, 92.0, 21.0 ],
+					"patching_rect" : [ 477.0, 474.0, 92.0, 21.0 ],
 					"text" : "s __gf.helpsynth"
 				}
 
@@ -594,7 +586,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 473.0, 518.0, 124.0, 21.0 ],
+					"patching_rect" : [ 477.0, 445.0, 124.0, 21.0 ],
 					"text" : "update travRandom $1"
 				}
 
@@ -605,7 +597,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 473.0, 450.0, 92.0, 21.0 ],
+					"patching_rect" : [ 477.0, 377.0, 92.0, 21.0 ],
 					"text" : "s __gf.helpsynth"
 				}
 
@@ -617,7 +609,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 501.0, 379.0, 443.0, 31.0 ],
+					"patching_rect" : [ 505.0, 306.0, 443.0, 31.0 ],
 					"text" : "By default, new parameters are triggered when a new voice is set.  If you use autoUpdate, the parameters on all grain will update as they change"
 				}
 
@@ -798,6 +790,14 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -808,15 +808,7 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontface" : [ 0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ]
+									"fontsize" : [ 10.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -860,7 +852,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 200.0, 750.0, 107.0, 21.0 ],
+					"patching_rect" : [ 206.5, 649.0, 107.0, 21.0 ],
 					"text" : "s __gf.helpsynthgui"
 				}
 
@@ -909,7 +901,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 473.0, 379.0, 24.0, 24.0 ]
+					"patching_rect" : [ 477.0, 306.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -920,7 +912,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 473.0, 415.0, 83.0, 21.0 ],
+					"patching_rect" : [ 477.0, 342.0, 83.0, 21.0 ],
 					"text" : "autoUpdate $1"
 				}
 
@@ -928,7 +920,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 1 ], [ "buffername", "_gflowSynthHelp" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "bgColor", 1, 1, 1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 1 ], [ "triangleColor", 0.2, 0.2, 0.2, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 1 ], [ "dotScale", 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_gflowSynthHelp" ], [ "triangleColor", 0.2, 0.2, 0.2, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selection", 0, 1 ], [ "dotVJitter", 0 ], [ "mode", 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-26",
 					"maxclass" : "jsui",
@@ -947,7 +939,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.0, 678.0, 91.0, 21.0 ],
+					"patching_rect" : [ 23.5, 573.0, 91.0, 21.0 ],
 					"text" : "r __gf.helpsynth"
 				}
 
@@ -980,7 +972,7 @@
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 17.0, 786.0, 45.0, 45.0 ]
+					"patching_rect" : [ 23.5, 727.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -1054,7 +1046,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "clearGrains" ],
-					"patching_rect" : [ 17.0, 716.0, 202.0, 21.0 ],
+					"patching_rect" : [ 23.5, 611.0, 202.0, 21.0 ],
 					"text" : "grainflow.synth~ _gflowSynthHelp 8 4"
 				}
 
@@ -1091,7 +1083,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 231.5, 716.0, 183.0, 21.0 ],
+					"patching_rect" : [ 238.0, 611.0, 183.0, 21.0 ],
 					"text" : "buffer~ _gflowSynthHelp anton.aif"
 				}
 
@@ -1099,15 +1091,15 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-17", 0 ],
-					"source" : [ "obj-1", 0 ]
+					"destination" : [ "obj-59", 0 ],
+					"source" : [ "obj-1", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-59", 0 ],
-					"source" : [ "obj-1", 1 ]
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-1", 0 ]
 				}
 
 			}
@@ -1318,8 +1310,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-91", 0 ],
-					"source" : [ "obj-93", 0 ]
+					"destination" : [ "obj-17", 0 ],
+					"source" : [ "obj-9", 0 ]
 				}
 
 			}
@@ -1329,6 +1321,7 @@
 			"obj-6::obj-36" : [ "D", "D", 0 ],
 			"obj-6::obj-37" : [ "S", "S", 0 ],
 			"obj-6::obj-38" : [ "R", "R", 0 ],
+			"obj-9" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
 
 			}
@@ -1383,6 +1376,15 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -1394,16 +1396,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"fontsize" : [ 10.0 ]
 				}
 ,
 				"parentstyle" : "",
