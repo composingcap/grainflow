@@ -21,10 +21,10 @@
 	<inletlist>
 		<inlet id="1" type="signal/multichannelsignal/list">
 			<digest>
-				Signal and Multichannelsignal will act as the grainulators clock.  Multichannel signals should be used if you want more dirrect control in the length and size of grains. Lists are interpreted as messages to the abstraction.
+				Signal and Multichannelsignal will act as the granulator's clock.  Multichannel signals should be used if you want more direct control in the length and size of grains. Lists are interpreted as messages to the abstraction.
 			</digest>
 			<description>
-				Signal and Multichannelsignal will act as the grainulators clock.  Grains will be scheduled based on this clock in accordance to the windowOffset and space paramters. windowOffset tells the granulator how much each voice should offset as a percentage of the phasor size.  If there are two grains and the windowOffset is 0.5 then one grain will start when hte pohasor is 0 and the other will start when the phasor reaches 0.5. Space determined the size of the grain in relation to the phasor.  If space is 0 the grain will take up the entire length of the phasor.  If it is 0.5 it will take up half of the length.
+				Signal and Multichannelsignal will act as the granulator's clock.  Grains will be scheduled based on this clock in accordance to the windowOffset and space parameters. windowOffset tells the granulator how much each voice should offset as a percentage of the phasor size.  If there are two grains and the windowOffset is 0.5, then one grain will start when the phasor is 0 and the other will start when the phasor reaches 0.5. Space determined the size of the grain in relation to the phasor.  If space is 0 the grain will take up the entire length of the phasor.  If it is 0.5 it will take up half of the length.
 			</description>
 		</inlet>
 
@@ -69,7 +69,7 @@
 
 	<objarglist>
 <objarg name="buffer-time" optional="0" type="float">
-	<digest>The length of the interal buffer.  The freeze can last as long as the duration of this buffer. If it does over the duration the buffer loops and the freeze will be overwritten.</digest>
+	<digest>The length of the interal buffer.  The freeze can last as long as the duration of this buffer. If it goes over the duration the buffer loops and the freeze will be overwritten.</digest>
 </objarg>
 <objarg name="freeze-voices" optional="0" type="int">
 	<digest>Number of freeze voices</digest>
@@ -82,7 +82,7 @@
 	<methodlist>
 		<method name='midi-note' type="int" size="2">
 			<digest>A midi note that controls the on and off of a freeze</digest>
-			<description>Freezes are toggled by midi notes</description>
+			<description>Freezes are toggled by midi notes.</description>
 		</method>
 		<method name='adsr' type="float" size="4">
 			<digest>ADSR message to control the envelope of each freeze</digest>
@@ -92,22 +92,22 @@
 		</method>
 		<method name='freezeDepth' type="float" size="1">
 			<digest>The length of the freeze in ms</digest>
-			<description>This time expands over the freezeExpandTime to become the overall time grains from the freeze are sampled over</description>
+			<description>This time expands over the freezeExpandTime to become the overall time grains from the freeze are sampled over.</description>
 		</method>
 		<method name='freezeExpandTime' type="float" size="1">
-			<digest>The time it takes in ms for the freeze to expand to the freezeDepth</digest>
+			<digest>The time it takes in ms for the freeze to expand to the freezeDepth.</digest>
 		</method>
 		<method name='int' type="int" size="1">
 			<digest>Sets the state of the granulator</digest>
-			<description>Sets the state of the granulator 1 is on 0 is off</description>
+			<description>Sets the state of the granulator 1 is on 0 is off.</description>
 		</method>
 
 		<method name='open'>
-			<digest>Opens the internal buffer</digest>
+			<digest>Opens the internal buffer.</digest>
 		</method>
 
 		<method name='---grain-flow-messages---'>
-			<digest>Most grainflow messages will work on the freeze these do no work:
+			<digest>Most grainflow messages will work on the freeze; these do not work:
 				state
 				rate
 			</digest>
@@ -115,79 +115,79 @@
 
 
 		<method name='ngrains' type="int" size="1">
-			<digest>Sets the number of active grains. This may not exceed the maxiumum graincount</digest>
+			<digest>Sets the number of active grains. This may not exceed the maxiumum graincount.</digest>
 			<description></description>
 		</method>
 
 		<method name='voices' type="int" size="1">
-			<digest>Sets the maximum number of grains</digest>
+			<digest>Sets the maximum number of grains.</digest>
 			<description></description>
 		</method>
 
 		<method name='grain' type="list" size="1">
-			<digest>followed by an integer and a message- send this message to a specific grain</digest>
+			<digest>Followed by an integer and a message- send this message to a specific grain.</digest>
 			<description></description>
 		</method>
 
 		<method name='env' type="string" size="1">
-			<digest>Sets the grain envelope to a named buffer</digest>
+			<digest>Sets the grain envelope to a named buffer.</digest>
 			<description></description>
 		</method>
 
 		<method name='buf' type="string" size="1">
-			<digest>Sets the granulation buffer</digest>
+			<digest>Sets the granulation buffer.</digest>
 			<description></description>
 		</method>
 
 		<method name='amp' size="1">
-			<digest>Grain Volume from 0 - 1</digest>
+			<digest>Grain Volume from 0 - 1.</digest>
 			<description></description>
 		</method>
 
 		<method name='ampRandom' size="1">
-			<digest>Ranbdom Grain Volume from 0 - 1 - only attinuates</digest>
+			<digest>Ranbdom Grain Volume from 0 - 1 - only attenuates.</digest>
 			<description></description>
 		</method>
 
 		<method name='windowOffset' size="1">
-			<digest>The offset position of each subiquent grain on the grain phasor from 0 - 1</digest>
+			<digest>The offset position of each subsequent grain on the grain phasor from 0 - 1.</digest>
 			<description></description>
 		</method>
 
 		<method name='windowOffsetRandom' size="1">
-			<digest>Randomness applied to the offset position of each subiquent grain on the grain phasor</digest>
+			<digest>Randomness applied to the offset position of each subsequent grain on the grain phasor.</digest>
 			<description></description>
 		</method>
 
 		<method name='space' size="1">
-			<digest>Sets the amount of empty space per grain on the phasor</digest>
-			<description>If this is 0, there each grain will take the entire phasor to complete.  If it is 0.5, the grain will occur for half of the phasor length</description>
+			<digest>Sets the amount of empty space per grain on the phasor.</digest>
+			<description>If this is 0, there each grain will take the entire phasor to complete.  If it is 0.5, the grain will occur for half of the phasor length.</description>
 		</method>
 
 		<method name='spaceRandom' size="1">
-			<digest>Randomness applied to space</digest>
+			<digest>Randomness applied to space.</digest>
 		</method>
 
 		<method name='density'>
-			<digest>Randomness applied to space</digest>
+			<digest>Randomness applied to space.</digest>
 		</method>
 
 		<method name='travOffset' size="1">
-			<digest>Traversal offset per grain in ms</digest>
+			<digest>Traversal offset per grain in ms.</digest>
 			<description></description>
 		</method>
 
 		<method name='travRandom' size="1">
-			<digest>Random traversal in ms</digest>
+			<digest>Random traversal in ms.</digest>
 			<description></description>
 		</method>
 		<method name='travGlobalOffset' size="1">
 			<digest>
-				A global offset to the traversal in ms
+				A global offset to the traversal in ms.
 			</digest>
 		</method>
 		<method name='rate' size="1">
-			<digest>The playback rate of the samples within each grain. Will cause a pitch shift</digest>
+			<digest>The playback rate of the samples within each grain. Will cause a pitch shift.</digest>
 			<description></description>
 		</method>
 
@@ -197,38 +197,38 @@
 		</method>
 
 		<method name='direction' size="1">
-			<digest>The probablistic dirrection of each grain 1 is always forward -1 is always backward</digest>
+			<digest>The probablistic dirrection of each grain 1 is always forward -1 is always backward.</digest>
 			<description></description>
 		</method>
 
 		<method name='rateOffset' size="1">
-			<digest>The playback rate of the samples within each grain per each subsiquent grain/</digest>
+			<digest>The playback rate of the samples within each grain per each subsequent grain./</digest>
 			<description></description>
 		</method>
 
 		<method name='glisson' size="1">
-			<digest>A glissandom from the initial rate to n+ the initial rate over the duration of the grain</digest>
+			<digest>A glissando from the initial rate to n+ the initial rate over the duration of the grain.</digest>
 			<description></description>
 		</method>
 
 		<method name='glissonRandom' size="1">
-			<digest>Randomness applied to glisson in rate</digest>
+			<digest>Randomness applied to glisson in rate.</digest>
 			<description></description>
 		</method>
 
 		<method name='rateQuantizeSemi' size="1">
-			<digest>Will quanize rates to semitones</digest>
+			<digest>Will quanize rates to semitones.</digest>
 			<description></description>
 		</method>
 
 		<method name='travMode' size="1">
 			<digest>Will set the traversal mode to one of the following
 				0: Traversal by messages (default)
-				1: Tranversal from buffer read by voices
+				1: Traversal from buffer read by voices
 				2: Traversal from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic traversals to design sounds.  The buffer can be set using the travOffsets message
+				This is useful when needing to dial in very specic traversals to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
@@ -245,7 +245,7 @@
 				2: Rate from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message
+				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
@@ -260,34 +260,34 @@
 		<method name='envMode' size="1">
 			<digest>
 				Sets how envelopes are read to one of the following:
-				0: reads from a buffer containing 1 envelope (default)
+				0: Reads from a buffer containing 1 envelope (default)
 				1: Reads an envelope from buffer organized as a 2D wavetable read by voices
-				2 : does not exist but should be random like the others
+				2: Does not exist but should be random like the others
 			</digest>
 		</method>
 
 		<method name='env2D' size="1">
 			<digest>
-				A buffer containing a 2D envelope wavetable for envMode 1
+				A buffer containing a 2D envelope wavetable for envMode 1.
 			</digest>
 		</method>
 
 		<method name='env2DNumber' size="1">
 			<digest>
-				The number of envelopes in the 2D wavetable
+				The number of envelopes in the 2D wavetable.
 			</digest>
 		</method>
 
 	<method name='env2DPosition' size="1">
 		<digest>
-			The overall position in the 2Denv buffer
+			The overall position in the 2Denv buffer.
 		</digest>
 	</method>
 
 
 <method name='env2DRandom' size="1">
 	<digest>
-		The randomness applied to the position the 2Denv buffer
+		The randomness applied to the position the 2Denv buffer.
 	</digest>
 </method>
 
@@ -315,7 +315,7 @@
 
 	<attributelist>
 		<attribute name='any-message' get='0' set='1' type='anything' size='1' >
-				 <digest>Any message can be set on instantiation as an attribute</digest>
+				 <digest>Any message can be set on instantiation as an attribute.</digest>
 		 </attribute>
 	</attributelist>
 

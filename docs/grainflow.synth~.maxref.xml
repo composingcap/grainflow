@@ -57,21 +57,21 @@
 
 	<methodlist>
 		<method name='midi-note' type="int" size="2">
-			<digest>Midi notes determine the transposition and volume of each voice</digest>
-			<description>Freezes are toggled by midi notes</description>
+			<digest>Midi notes determine the transposition and volume of each voice.</digest>
+			<description>Freezes are toggled by midi notes.</description>
 		</method>
 		<method name='adsr' type="float" size="4">
-			<digest>ADSR message to control the envelope of each voice</digest>
+			<digest>ADSR message to control the envelope of each voice.</digest>
 		</method>
 		<method name='period' type="float" size="1">
-			<digest>The size of grains in the synth</digest>
+			<digest>The size of grains in the synth.</digest>
 		</method>
 		<method name='update' type="list" size="2">
-			<digest>Messages prepended by update will update in real-time any message can follow this</digest>
+			<digest>Messages prepended by update will update in real-time any message can follow this.</digest>
 		</method>
 
 		<method name='autoUpdate' type="list" size="2">
-			<digest>Sets all messages to update in realtime without the need for a new voice</digest>
+			<digest>Sets all messages to update in realtime without the need for a new voice.</digest>
 		</method>
 
 
@@ -85,79 +85,79 @@
 
 
 		<method name='ngrains' type="int" size="1">
-			<digest>Sets the number of active grains. This may not exceed the maxiumum graincount</digest>
+			<digest>Sets the number of active grains. This may not exceed the maxiumum graincount.</digest>
 			<description></description>
 		</method>
 
 		<method name='voices' type="int" size="1">
-			<digest>Sets the maximum number of grains</digest>
+			<digest>Sets the maximum number of grains.</digest>
 			<description></description>
 		</method>
 
 		<method name='grain' type="list" size="1">
-			<digest>followed by an integer and a message- send this message to a specific grain</digest>
+			<digest>followed by an integer and a message- send this message to a specific grain.</digest>
 			<description></description>
 		</method>
 
 		<method name='env' type="string" size="1">
-			<digest>Sets the grain envelope to a named buffer</digest>
+			<digest>Sets the grain envelope to a named buffer.</digest>
 			<description></description>
 		</method>
 
 		<method name='buf' type="string" size="1">
-			<digest>Sets the granulation buffer</digest>
+			<digest>Sets the granulation buffer.</digest>
 			<description></description>
 		</method>
 
 		<method name='amp' size="1">
-			<digest>Grain Volume from 0 - 1</digest>
+			<digest>Grain Volume from 0 - 1.</digest>
 			<description></description>
 		</method>
 
 		<method name='ampRandom' size="1">
-			<digest>Ranbdom Grain Volume from 0 - 1 - only attinuates</digest>
+			<digest>Ranbdom Grain Volume from 0 - 1 - only attinuates.</digest>
 			<description></description>
 		</method>
 
 		<method name='windowOffset' size="1">
-			<digest>The offset position of each subiquent grain on the grain phasor from 0 - 1</digest>
+			<digest>The offset position of each subsequent grain on the grain phasor from 0 - 1.</digest>
 			<description></description>
 		</method>
 
 		<method name='windowOffsetRandom' size="1">
-			<digest>Randomness applied to the offset position of each subiquent grain on the grain phasor</digest>
+			<digest>Randomness applied to the offset position of each subsequent grain on the grain phasor.</digest>
 			<description></description>
 		</method>
 
 		<method name='space' size="1">
-			<digest>Sets the amount of empty space per grain on the phasor</digest>
-			<description>If this is 0, there each grain will take the entire phasor to complete.  If it is 0.5, the grain will occur for half of the phasor length</description>
+			<digest>Sets the amount of empty space per grain on the phasor.</digest>
+			<description>If this is 0, each grain will take the entire phasor to complete.  If it is 0.5, the grain will occur for half of the phasor length.</description>
 		</method>
 
 		<method name='spaceRandom' size="1">
-			<digest>Randomness applied to space</digest>
+			<digest>Randomness applied to space.</digest>
 		</method>
 
 		<method name='density'>
-			<digest>Randomness applied to space</digest>
+			<digest>Randomness applied to space.</digest>
 		</method>
 
 		<method name='travOffset' size="1">
-			<digest>Traversal offset per grain in ms</digest>
+			<digest>Traversal offset per grain in ms.</digest>
 			<description></description>
 		</method>
 
 		<method name='travRandom' size="1">
-			<digest>Random traversal in ms</digest>
+			<digest>Random traversal in ms.</digest>
 			<description></description>
 		</method>
 		<method name='travGlobalOffset' size="1">
 			<digest>
-				A global offset to the traversal in ms
+				A global offset to the traversal in ms.
 			</digest>
 		</method>
 		<method name='rate' size="1">
-			<digest>The playback rate of the samples within each grain. Will cause a pitch shift</digest>
+			<digest>The playback rate of the samples within each grain. Will cause a pitch shift.</digest>
 			<description></description>
 		</method>
 
@@ -167,27 +167,27 @@
 		</method>
 
 		<method name='direction' size="1">
-			<digest>The probablistic dirrection of each grain 1 is always forward -1 is always backward</digest>
+			<digest>The probablistic dirrection of each grain; 1 is always forward, -1 is always backward.</digest>
 			<description></description>
 		</method>
 
 		<method name='rateOffset' size="1">
-			<digest>The playback rate of the samples within each grain per each subsiquent grain/</digest>
+			<digest>The playback rate of the samples within each grain per each subsequent grain./</digest>
 			<description></description>
 		</method>
 
 		<method name='glisson' size="1">
-			<digest>A glissandom from the initial rate to n+ the initial rate over the duration of the grain</digest>
+			<digest>A glissando from the initial rate to n+ the initial rate over the duration of the grain.</digest>
 			<description></description>
 		</method>
 
 		<method name='glissonRandom' size="1">
-			<digest>Randomness applied to glisson in rate</digest>
+			<digest>Randomness applied to glisson in rate.</digest>
 			<description></description>
 		</method>
 
 		<method name='rateQuantizeSemi' size="1">
-			<digest>Will quanize rates to semitones</digest>
+			<digest>Will quantize rates to semitones.</digest>
 			<description></description>
 		</method>
 
@@ -198,13 +198,13 @@
 				2: Traversal from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic traversals to design sounds.  The buffer can be set using the travOffsets message
+				This is useful when needing to dial in very specic traversals to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
 		<method name='travOffsets' size="1">
 			<digest>
-				Sets the traversal buffers for travMode 1 and 2
+				Sets the traversal buffers for travMode 1 and 2.
 			</digest>
 		</method>
 
@@ -215,13 +215,13 @@
 				2: Rate from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message
+				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
 		<method name='rates' size="1">
 			<digest>
-				Sets the rate buffers for rateMode 1 and 2
+				Sets the rate buffers for rateMode 1 and 2.
 			</digest>
 		</method>
 
@@ -238,26 +238,26 @@
 
 		<method name='env2D' size="1">
 			<digest>
-				A buffer containing a 2D envelope wavetable for envMode 1
+				A buffer containing a 2D envelope wavetable for envMode 1.
 			</digest>
 		</method>
 
 		<method name='env2DNumber' size="1">
 			<digest>
-				The number of envelopes in the 2D wavetable
+				The number of envelopes in the 2D wavetable.
 			</digest>
 		</method>
 
 	<method name='env2DPosition' size="1">
 		<digest>
-			The overall position in the 2Denv buffer
+			The overall position in the 2Denv buffer.
 		</digest>
 	</method>
 
 
 <method name='env2DRandom' size="1">
 	<digest>
-		The randomness applied to the position the 2Denv buffer
+		The randomness applied to the position the 2Denv buffer.
 	</digest>
 </method>
 
@@ -272,7 +272,7 @@
 
 	<method name='windowReadBias' size="1">
 		<digest>
-			Will read the grain window so a polynomial. This is expensive and should be avoided if unneccisary.
+			Will read the grain window so a polynomial. This is expensive and should be avoided if unnecessary.
 		</digest>
 </method>
 
@@ -285,7 +285,7 @@
 
 	<attributelist>
 		<attribute name='any-message' get='0' set='1' type='anything' size='1' >
-				 <digest>Any message can be set on instantiation as an attribute</digest>
+				 <digest>Any message can be set on instantiation as an attribute.</digest>
 		 </attribute>
 	</attributelist>
 

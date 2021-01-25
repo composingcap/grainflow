@@ -3,7 +3,7 @@
 
 <c74object name='grainflow.util.rateSizePhasor~' module="msp" category="grainflow, MSP Proccessing">
 
-	<digest>A utility that translates grain rate and grain size to the phasor overlap model used in grain flow for grain scheduling</digest>
+	<digest>A utility that translates grain rate and grain size to the phasor overlap model used in grain flow for grain scheduling.</digest>
 	<description>
 
 	</description>
@@ -22,7 +22,7 @@
 	<inletlist>
 		<inlet id="0" type="float">
 			<digest>
-				Grain Rate
+				Grain Rate.
 			</digest>
 			<description>
 
@@ -30,7 +30,7 @@
 		</inlet>
 		<inlet id="1" type="float">
 			<digest>
-				grain size ms
+				Grain size ms.
 			</digest>
 			<description>
 
@@ -43,7 +43,7 @@
 	<outletlist>
 		<outlet id="0" type="signal/list">
 			<digest>
-			Grain clock and messages for grainflow
+			Grain clock and messages for grainflow.
 			</digest>
 			<description>
 			</description>

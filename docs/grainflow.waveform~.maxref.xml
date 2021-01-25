@@ -31,7 +31,7 @@
 
 	<objarglist>
 <objarg name="buffername" optional="0" type="symbol">
-	<digest>Buffer to display</digest>
+	<digest>Buffer to display.</digest>
 </objarg>
 
 	</objarglist>
@@ -52,43 +52,43 @@
 
 	<attributelist>
 		<attribute name='buffername' get='1' set='1' type='string' size='1' >
-			<digest>The same of the selected buffer</digest>
+			<digest>The same of the selected buffer.</digest>
 		</attribute>
 		<attribute name='bgColor' get='1' set='1' type='color' size='4' >
-			<digest>background color using rgba</digest>
+			<digest>Background color using rgba.</digest>
 		</attribute>
 		<attribute name='waveformColor' get='1' set='1' type='color' size='4' >
-			<digest>waveform color color using rgba</digest>
+			<digest>Waveform color color using rgba.</digest>
 		</attribute>
 		<attribute name='dotSize' get='1' set='1' type='float' size='1' >
-			<digest>the scale of the grain dots</digest>
+			<digest>The scale of the grain dots.</digest>
 		</attribute>
 		<attribute name='mode' get='1' set='1' type='int' size='1' >
-			<digest>The interaction mode of the waveform: 0 is no selection, 1 is selection, 2 is loop</digest>
+			<digest>The interaction mode of the waveform: 0 is no selection, 1 is selection, 2 is loop.</digest>
 		</attribute>
 		<attribute name='dotColor' get='1' set='1' type='color' size='4' >
-			<digest>primary dot color</digest>
+			<digest>Primary dot color.</digest>
 		</attribute>
 		<attribute name='dotColorSecondary' get='1' set='1' type='color' size='4' >
-			<digest>secondary dot color</digest>
+			<digest>Secondary dot color.</digest>
 		</attribute>
 		<attribute name='triangleEnable' get='1' set='1' type='float' size='1' >
-			<digest>enable tracking triangles</digest>
+			<digest>Enable tracking triangles.</digest>
 		</attribute>
 		<attribute name='triangleColor' get='1' set='1' type='color' size='4' >
-			<digest>color of tracking triangles</digest>
+			<digest>Color of tracking triangles.</digest>
 		</attribute>
 		<attribute name='triangleOutColor' get='1' set='1' type='color' size='4' >
-			<digest>color of tracking triangles outline</digest>
+			<digest>Color of tracking triangles outline.</digest>
 		</attribute>
 		<attribute name='maxDrawSamples' get='1' set='1' type='int' size='1' >
-			<digest>The maximum number of samples to be drawn in the wavform. Will draw the enire waveform at varying qualities</digest>
+			<digest>The maximum number of samples to be drawn in the wavform. Will draw the enire waveform at varying qualities.</digest>
 		</attribute>
 		<attribute name='selection' get='1' set='1' type='float' size='2' >
-			<digest>the selection range from 0-1</digest>
+			<digest>The selection range from 0-1.</digest>
 		</attribute>
 		<attribute name='dotVJitter' get='1' set='1' type='float' size='1' >
-			<digest>randomness applied to the dots verticle offset</digest>
+			<digest>Randomness applied to the dots verticle offset.</digest>
 		</attribute>
 	</attributelist>
 

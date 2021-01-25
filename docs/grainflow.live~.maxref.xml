@@ -178,11 +178,11 @@
 		</method>
 
 		<method name='density'>
-			<digest>Randomness applied to space</digest>
+			<digest>The probability if a grain will trigger (0-1).</digest>
 		</method>
 
 		<method name='travOffset'>
-			<digest>Traversal offset per grain in ms</digest>
+			<digest>Traversal offset per grain in ms.</digest>
 			<description></description>
 		</method>
 
@@ -192,11 +192,11 @@
 		</method>
 		<method name='travGlobalOffset'>
 			<digest>
-				A global offset to the traversal in ms
+				A global offset to the traversal in ms.
 			</digest>
 		</method>
 		<method name='rate'>
-			<digest>The playback rate of the samples within each grain. Will cause a pitch shift</digest>
+			<digest>The playback rate of the samples within each grain. Will cause a pitch shift.</digest>
 			<description></description>
 		</method>
 
@@ -206,38 +206,38 @@
 		</method>
 
 		<method name='direction'>
-			<digest>The probablistic dirrection of each grain 1 is always forward -1 is always backward</digest>
+			<digest>The probabilistic direction of each grain; 1 is always forward, -1 is always backward.</digest>
 			<description></description>
 		</method>
 
 		<method name='rateOffset'>
-			<digest>The playback rate of the samples within each grain per each subsiquent grain/</digest>
+			<digest>The playback rate of the samples within each grain per each subsequent grain./</digest>
 			<description></description>
 		</method>
 
 		<method name='glisson'>
-			<digest>A glissandom from the initial rate to n+ the initial rate over the duration of the grain</digest>
+			<digest>A glissando from the initial rate to n+ the initial rate over the duration of the grain.</digest>
 			<description></description>
 		</method>
 
 		<method name='glissonRandom'>
-			<digest>Randomness applied to glisson in rate</digest>
+			<digest>Randomness applied to glisson in rate.</digest>
 			<description></description>
 		</method>
 
 		<method name='rateQuantizeSemi'>
-			<digest>Will quanize rates to semitones</digest>
+			<digest>Will quantize rates to semitones.</digest>
 			<description></description>
 		</method>
 
 		<method name='travMode'>
 			<digest>Will set the traversal mode to one of the following
 				0: Traversal by messages (default)
-				1: Tranversal from buffer read by voices
+				1: Traversal from buffer read by voices
 				2: Traversal from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic traversals to design sounds.  The buffer can be set using the travOffsets message
+				This is useful when needing to dial in very specic traversals to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
@@ -254,7 +254,7 @@
 				2: Rate from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message
+				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
@@ -277,32 +277,32 @@
 
 		<method name='env2D'>
 			<digest>
-				A buffer containing a 2D envelope wavetable for envMode 1
+				A buffer containing a 2D envelope wavetable for envMode 1.
 			</digest>
 		</method>
 
 		<method name='env2DNumber'>
 			<digest>
-				The number of envelopes in the 2D wavetable
+				The number of envelopes in the 2D wavetable.
 			</digest>
 		</method>
 
 	<method name='env2DPosition'>
 		<digest>
-			The overall position in the 2Denv buffer
+			The overall position in the 2Denv buffer.
 		</digest>
 	</method>
 
 
 <method name='env2DRandom'>
 	<digest>
-		The randomness applied to the position the 2Denv buffer
+		The randomness applied to the position the 2Denv buffer.
 	</digest>
 </method>
 
 <method name='windowOffsetMode'>
 	<digest>
-		Will set the rate mode to one of the following
+		Will set the rate mode to one of the following;
 			0: windowOffset by messages (default)
 			1: windowOffset from buffer read by voices
 			2: windowOffset from buffer read randomly per grain
@@ -311,7 +311,7 @@
 
 	<method name='windowReadBias'>
 		<digest>
-			Will read the grain window so a polynomial. This is expensive and should be avoided if unneccisary.
+			Will read the grain window so a polynomial. This is expensive and should be avoided if unnecessary.
 		</digest>
 </method>
 

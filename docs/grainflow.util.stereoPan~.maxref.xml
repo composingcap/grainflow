@@ -3,7 +3,7 @@
 
 <c74object name='grainflow.util.stereoPan~' module="msp" category="grainflow, MSP Proccessing">
 
-	<digest>An easy way to pan grains generated with grainflow</digest>
+	<digest>An easy way to pan grains generated with grainflow.</digest>
 	<description>
 
 	</description>
@@ -22,7 +22,7 @@
 	<inletlist>
 		<inlet id="0" type="multichannelsignal">
 			<digest>
-				Grains as independent channels
+				Grains as independent channels.
 			</digest>
 			<description>
 
@@ -30,7 +30,7 @@
 		</inlet>
 		<inlet id="1" type="list">
 			<digest>
-				Grain data from grainflow
+				Grain data from grainflow.
 			</digest>
 			<description>
 
@@ -43,7 +43,7 @@
 	<outletlist>
 		<outlet id="0" type="multichannelsignal">
 			<digest>
-			Grains in a stereo spread
+			Grains in a stereo spread.
 			</digest>
 			<description>
 			</description>
@@ -54,7 +54,7 @@
 
 	<objarglist>
 		<objarg name="number-of-grains" optional="0" type="int">
-			<digest>The maximum number of grains to mixdown</digest>
+			<digest>The maximum number of grains to mixdown.</digest>
 		</objarg>
 	</objarglist>
 
@@ -65,7 +65,7 @@
 
 		<method name="panSpread">
 			<digest>
-				The spread of the stereo image from 0 - 1
+				The spread of the stereo image from 0 - 1.
 			</digest>
 			<description>
 
@@ -73,7 +73,7 @@
 		</method>
 		<method name="panCenter">
 			<digest>
-				the center of the stereo image from 0 - 1
+				The center of the stereo image from 0 - 1.
 			</digest>
 			<description>
 

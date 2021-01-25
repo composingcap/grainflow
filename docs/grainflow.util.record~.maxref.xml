@@ -3,7 +3,7 @@
 
 <c74object name='grainflow.util.record~' module="msp" category="grainflow, MSP Proccessing">
 
-	<digest>simple recording tool that outputs an accurate phasor linked to record time</digest>
+	<digest>Simple recording tool that outputs an accurate phasor linked to record time.</digest>
 	<description>
 
 	</description>
@@ -22,7 +22,7 @@
 	<inletlist>
 		<inlet id="0" type="signal">
 			<digest>
-				Signal to record
+				Signal to record.
 
 			</digest>
 			<description>
@@ -36,14 +36,14 @@
 	<outletlist>
 		<outlet id="0" type="signal">
 			<digest>
-			record head
+			Record head.
 			</digest>
 			<description>
 			</description>
 		</outlet>
 		<outlet id="1" type="list">
 			<digest>
-			record head
+			Record head.
 			</digest>
 			<description>
 			</description>
@@ -54,7 +54,7 @@
 
 	<objarglist>
 		<objarg name="buffername" optional="0" type="symbol">
-			<digest>The name of the buffer the granulate</digest>
+			<digest>The name of the buffer the granulator of the better.</digest>
 		</objarg>
 	</objarglist>
 
@@ -65,7 +65,7 @@
 
 		<method name="int">
 			<digest>
-				state of the the recoding
+				State of the the recording.
 			</digest>
 			<description>
 
@@ -73,7 +73,7 @@
 		</method>
 		<method name="freeze">
 			<digest>
-				freezes the record head output
+				Freezes the record head output.
 			</digest>
 			<description>
 
@@ -82,7 +82,7 @@
 
 		<method name="overdub">
 			<digest>
-				the amount the previous values in the buffer are mixed into the newly recorded value
+				The amount the previous values in the buffer are mixed into the newly recorded value.
 			</digest>
 			<description>
 

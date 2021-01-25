@@ -3,7 +3,7 @@
 
 <c74object name='grainflow.util.randomRangeList' module="max" category="grainflow, MSP Proccessing">
 
-	<digest>Generates a random list of n elements between two numbers</digest>
+	<digest>Generates a random list of n elements between two numbers.</digest>
 	<description>
 
 	</description>
@@ -22,25 +22,25 @@
 	<inletlist>
 		<inlet id="0" type="bang">
 			<digest>
-				Triggers a list
+				Triggers a list.
 			</digest>
 		</inlet>
 
 		<inlet id="1" type="int">
 			<digest>
-				members in the list
+				Members in the list.
 			</digest>
 		</inlet>
 
 		<inlet id="2" type="float">
 			<digest>
-				min value
+				Min value.
 			</digest>
 		</inlet>
 
 		<inlet id="3" type="float">
 			<digest>
-				max value
+				Max value.
 			</digest>
 		</inlet>
 
@@ -50,7 +50,7 @@
 	<outletlist>
 		<outlet id="0" type="list">
 			<digest>
-			Random list
+			Random list.
 			</digest>
 			<description>
 			</description>
@@ -61,7 +61,7 @@
 
 	<objarglist>
 		<objarg name="list-length" optional="0" type="int">
-			<digest>length of the random list</digest>
+			<digest>Length of the random list.</digest>
 		</objarg>
 		<objarg name="min" optional="0" type="float">
 

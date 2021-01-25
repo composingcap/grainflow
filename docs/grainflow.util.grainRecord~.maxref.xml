@@ -63,7 +63,7 @@ Grains will be scheduled based on this clock in accordance to the windowOffset a
 
 	<objarglist>
 		<objarg name="buffername" optional="0" type="symbol">
-			<digest>The name of the buffer the granulate</digest>
+			<digest>The name of the buffer the granulate.</digest>
 		</objarg>
 	</objarglist>
 
@@ -74,7 +74,7 @@ Grains will be scheduled based on this clock in accordance to the windowOffset a
 
 		<method name="int">
 			<digest>
-				state of the the recoding
+				state of the the recording.
 			</digest>
 			<description>
 
@@ -91,7 +91,7 @@ Grains will be scheduled based on this clock in accordance to the windowOffset a
 
 	<method name="ngrains">
 		<digest>
-			The number of grains to be recorded
+			The number of grains to be recorded.
 		</digest>
 		<description>
 
@@ -99,7 +99,7 @@ Grains will be scheduled based on this clock in accordance to the windowOffset a
 	</method>
 		<method name="overdub">
 			<digest>
-				the amount the previous values in the buffer are mixed into the newly recorded value
+				the amount the previous values in the buffer are mixed into the newly recorded value.
 			</digest>
 			<description>
 

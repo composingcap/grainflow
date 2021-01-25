@@ -3,7 +3,7 @@
 
 <c74object name='grainflow.harmonize~' module="msp" category="grainflow, MSP Proccessing">
 
-	<digest>granular harmonizer abstraction using grainflow~</digest>
+	<digest>Granular harmonizer abstraction using grainflow~.</digest>
 	<description>
 		grainflow.harmonize~ is an implementation of grainflow~ designed for harmonization.  Each harmonizer voice is a 4 grain granulator.
 	</description>
@@ -23,7 +23,7 @@
 
 		<inlet id="0" type="signal">
 			<digest>
-				Signal to be harmonized
+				Signal to be harmonized.
 			</digest>
 			<description>
 				This will be recorded into grainflow.harmonize~'s internal buffer and granulated. Multichannel signals will be mixed down to mono.
@@ -34,7 +34,7 @@
 				Frequency Modulation
 			</digest>
 			<description>
-				Will modulate the grain rate with a signal or multichannelsignal
+				Will modulate the grain rate with a signal or multichannelsignal.
 			</description>
 		</inlet>
 		<inlet id="2" type="signal/multichannelsignal">
@@ -42,7 +42,7 @@
 				Amplitude Modulation
 			</digest>
 			<description>
-				Will modulate the amplitude with a signal or multichannelsignal
+				Will modulate the amplitude with a signal or multichannelsignal.
 			</description>
 		</inlet>
 	</inletlist>
@@ -51,7 +51,7 @@
 	<outletlist>
 		<outlet id="0" type="multichannelsignal">
 			<digest>
-			Each harmonizer voice as its own channel
+			Each harmonizer voice as its own channel.
 			</digest>
 			<description>
 			</description>
@@ -62,10 +62,10 @@
 
 	<objarglist>
 <objarg name="buffer-size" optional="0" type="symbol">
-	<digest>The size of the internal buffer</digest>
+	<digest>The size of the internal buffer.</digest>
 </objarg>
 <objarg name="harmonizer-voices" optional="0" type="int">
-	<digest>The maximum number of harmonizer voices.  Each harmonize has 4 grains</digest>
+	<digest>The maximum number of harmonizer voices.  Each harmonizer has 4 grains.</digest>
 </objarg>
 	</objarglist>
 
@@ -75,111 +75,111 @@
 	<methodlist>
 
 		<method name='int'>
-			<digest>Sets the state of the harmonizer</digest>
-			<description>This will enable recording and granulation</description>
+			<digest>Sets the state of the harmonizer.</digest>
+			<description>This will enable recording and granulation.</description>
 		</method>
 
 		<method name='state'>
-			<digest>Sets the state of the live granulator</digest>
-			<description>This will enable recording and granulation</description>
+			<digest>Sets the state of the live granulator.</digest>
+			<description>This will enable recording and granulation.</description>
 		</method>
 
 		<method name='grainSize'>
-			<digest>The size of the granultar harmonizers grains</digest>
+			<digest>The size of the granultar harmonizers grains.</digest>
 		</method>
 
 		<method name='notesPerOctave'>
-			<digest>The number of semitones in each octave, default is 12</digest>
+			<digest>The number of semitones in each octave, default is 12.</digest>
 		</method>
 
 		<method name='adsr'>
-			<digest>sets the adsr of each harmonizer voice's envelope</digest>
+			<digest>Sets the adsr of each harmonizer voice's envelope.</digest>
 		</method>
 
 		<method name='allnotesoff'>
-			<digest>turns off all harmonizer voices</digest>
+			<digest>Turns off all harmonizer voices.</digest>
 		</method>
 
 		<method name='addedLatency'>
-			<digest>Additionall latancy added in ms- useful if you are using pitch modifiers like a vibrato</digest>
+			<digest>Additionall latency added in ms; useful if you are using pitch modifiers like a vibrato.</digest>
 		</method>
 
 		<method name='latencyMode'>
-			<digest>If enabled, the largest needed latency will be choses an applied to all harmonizers</digest>
+			<digest>If enabled, the largest needed latency will be choses an applied to all harmonizers.</digest>
 		</method>
 
 
 		<method name='---grain-flow-messages---'>
-			<digest>below are standard grainflow parameters they will all work unless they are overwritten by an internal parameter</digest>
+			<digest>Below are standard grainflow parameters they will all work unless they are overwritten by an internal parameter.</digest>
 			<description></description>
 		</method>
 
 		<method name='ngrains'>
-			<digest>Sets the number of active grains. This may not exceed the maxiumum graincount</digest>
+			<digest>Sets the number of active grains. This may not exceed the maxiumum graincount.</digest>
 			<description></description>
 		</method>
 
 		<method name='voices'>
-			<digest>Sets the maximum number of grains</digest>
+			<digest>Sets the maximum number of grains.</digest>
 			<description></description>
 		</method>
 
 		<method name='grain'>
-			<digest>followed by an integer and a message- send this message to a specific grain</digest>
+			<digest>Followed by an integer and a message; send this message to a specific grain.</digest>
 			<description></description>
 		</method>
 
 		<method name='env'>
-			<digest>Sets the grain envelope to a named buffer</digest>
+			<digest>Sets the grain envelope to a named buffer.</digest>
 			<description></description>
 		</method>
 
 
 		<method name='amp'>
-			<digest>Grain Volume from 0 - 1</digest>
+			<digest>Grain Volume from 0 - 1.</digest>
 			<description></description>
 		</method>
 
 		<method name='ampRandom'>
-			<digest>Ranbdom Grain Volume from 0 - 1 - only attinuates</digest>
+			<digest>Random Grain Volume from 0 - 1 - only attenuates.</digest>
 			<description></description>
 		</method>
 
 		<method name='windowOffset'>
-			<digest>The offset position of each subiquent grain on the grain phasor from 0 - 1</digest>
+			<digest>The offset position of each subsequent grain on the grain phasor from 0 - 1.</digest>
 			<description></description>
 		</method>
 
 		<method name='windowOffsetRandom'>
-			<digest>Randomness applied to the offset position of each subiquent grain on the grain phasor</digest>
+			<digest>Randomness applied to the offset position of each subsequent grain on the grain phasor.</digest>
 			<description></description>
 		</method>
 
 		<method name='space'>
-			<digest>Sets the amount of empty space per grain on the phasor</digest>
-			<description>If this is 0, there each grain will take the entire phasor to complete.  If it is 0.5, the grain will occur for half of the phasor length</description>
+			<digest>Sets the amount of empty space per grain on the phasor.</digest>
+			<description>If this is 0, there each grain will take the entire phasor to complete.  If it is 0.5, the grain will occur for half of the phasor length.</description>
 		</method>
 
 		<method name='spaceRandom'>
-			<digest>Randomness applied to space</digest>
+			<digest>Randomness applied to space.</digest>
 		</method>
 
 		<method name='density'>
-			<digest>Randomness applied to space</digest>
+			<digest>The probability if a grain will trigger (0-1).</digest>
 		</method>
 
 		<method name='travOffset'>
-			<digest>Traversal offset per grain in ms</digest>
+			<digest>Traversal offset per grain in ms.</digest>
 			<description></description>
 		</method>
 
 		<method name='travRandom'>
-			<digest>Random traversal in ms</digest>
+			<digest>Random traversal in ms.</digest>
 			<description></description>
 		</method>
 		<method name='travGlobalOffset'>
 			<digest>
-				A global offset to the traversal in ms
+				A global offset to the traversal in ms.
 			</digest>
 		</method>
 
@@ -190,34 +190,34 @@
 		</method>
 
 		<method name='direction'>
-			<digest>The probablistic dirrection of each grain 1 is always forward -1 is always backward</digest>
+			<digest>The probablistic dirrection of each grain 1 is always forward -1 is always backward.</digest>
 			<description></description>
 		</method>
 
 		<method name='rateOffset'>
-			<digest>The playback rate of the samples within each grain per each subsiquent grain/</digest>
+			<digest>The playback rate of the samples within each grain per each subsiquent grain./</digest>
 			<description></description>
 		</method>
 
 		<method name='glisson'>
-			<digest>A glissandom from the initial rate to n+ the initial rate over the duration of the grain</digest>
+			<digest>A glissandom from the initial rate to n+ the initial rate over the duration of the grain.</digest>
 			<description></description>
 		</method>
 
 		<method name='glissonRandom'>
-			<digest>Randomness applied to glisson in rate</digest>
+			<digest>Randomness applied to glisson in rate.</digest>
 			<description></description>
 		</method>
 
 		<method name='rateQuantizeSemi'>
-			<digest>Will quanize rates to semitones</digest>
+			<digest>Will quanize rates to semitones.</digest>
 			<description></description>
 		</method>
 
 		<method name='travMode'>
 			<digest>Will set the traversal mode to one of the following
 				0: Traversal by messages (default)
-				1: Tranversal from buffer read by voices
+				1: Traversal from buffer read by voices
 				2: Traversal from buffer read randomly per grain
 			</digest>
 			<description>
@@ -238,7 +238,7 @@
 				2: Rate from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message
+				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
@@ -261,13 +261,13 @@
 
 		<method name='env2D'>
 			<digest>
-				A buffer containing a 2D envelope wavetable for envMode 1
+				A buffer containing a 2D envelope wavetable for envMode 1.
 			</digest>
 		</method>
 
 		<method name='env2DNumber'>
 			<digest>
-				The number of envelopes in the 2D wavetable
+				The number of envelopes in the 2D wavetable.
 			</digest>
 		</method>
 
@@ -280,7 +280,7 @@
 
 <method name='env2DRandom'>
 	<digest>
-		The randomness applied to the position the 2Denv buffer
+		The randomness applied to the position the 2Denv buffer.
 	</digest>
 </method>
 
@@ -295,7 +295,7 @@
 
 	<method name='windowReadBias'>
 		<digest>
-			Will read the grain window so a polynomial. This is expensive and should be avoided if unneccisary.
+			Will read the grain window so a polynomial. This is expensive and should be avoided if unnecessary.
 		</digest>
 </method>
 

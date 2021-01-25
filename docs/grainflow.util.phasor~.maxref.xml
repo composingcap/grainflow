@@ -22,7 +22,7 @@
 	<inletlist>
 		<inlet id="0" type="float">
 			<digest>
-				Rate of the phasor in hz
+				Rate of the phasor in hz.
 			</digest>
 			<description>
 
@@ -39,7 +39,7 @@
 
 		<inlet id="1" type="float">
 			<digest>
-				high boundary
+				High boundary
 			</digest>
 			<description>
 
@@ -52,7 +52,7 @@
 	<outletlist>
 		<outlet id="0" type="signal">
 			<digest>
-			Phasor signal
+			Phasor signal.
 			</digest>
 			<description>
 			</description>
@@ -64,7 +64,7 @@
 
 	<objarglist>
 		<objarg name="initial frequency" optional="0" type="int">
-			<digest>Inital frequency of the phasor</digest>
+			<digest>Inital frequency of the phasor.</digest>
 		</objarg>
 
 	</objarglist>
@@ -74,13 +74,13 @@
 
 	<methodlist>
 		<method name="mode">
-			<digest>Phasor wraping mode- mode are fold and wrap</digest>
+			<digest>Phasor wraping mode- mode are fold and wrap.</digest>
 		</method>
 		<method name="reset">
-			<digest>Resets the phasor to 0</digest>
+			<digest>Resets the phasor to 0.</digest>
 		</method>
 		<method name="set">
-			<digest>sets the phasor to a certain value</digest>
+			<digest>Sets the phasor to a certain value.</digest>
 		</method>
 	</methodlist>
 

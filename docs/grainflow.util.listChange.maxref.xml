@@ -22,7 +22,7 @@
 	<inletlist>
 		<inlet id="0" type="list">
 			<digest>
-				List to check for changes from the last list
+				List to check for changes from the last list.
 
 			</digest>
 			<description>
@@ -36,7 +36,7 @@
 	<outletlist>
 		<outlet id="0" type="list">
 			<digest>
-			list of changes. 0 is no change 1 is a change in a positive direction, -1 is a change in a negitive dirrection
+			list of changes. 0 is no change 1 is a change in a positive direction, -1 is a change in a negitive dirrection.
 			</digest>
 			<description>
 			</description>
@@ -63,7 +63,7 @@
 
 		<method name="list">
 			<digest>
-				List to check for changes from the last list
+				List to check for changes from the last list.
 
 			</digest>
 			<description>
