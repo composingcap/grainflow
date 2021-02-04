@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "dsp.gen",
-		"rect" : [ 665.0, 784.0, 1294.0, 480.0 ],
+		"rect" : [ 740.0, 739.0, 1294.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -63,7 +63,7 @@
 			}
 , 			{
 				"box" : 				{
-					"code" : "Param trav(1);\r\nParam ngrains(4);\r\nParam rec(0);\r\nParam travRandom(0);\r\nParam overdub(0);\r\nBuffer buf();\r\n\r\nData travPos(100);\r\nData lastWindowPosition(100);\r\nData grainInitFlag(100);\r\n\r\nHistory baseTravPos(0);\r\n\r\ninput = in1;\r\n\r\ngrainclock = in2;\r\n\r\nif (rec==1){\r\n\t\r\n\tbaseTravPos = wrap(baseTravPos+(1/trav)/(dim(buf)),0,1);\r\n\tbaseTravSamp = floor(dim(buf)*baseTravPos);\r\n\r\n\tpoke(buf, 0, baseTravSamp, 0, overdub);\r\n\t\r\n\r\n\t\r\n\tfor (g = 0 ; g  < ngrains; g+=1){\r\n\t\tmyLastWindowPosition = peek(lastWindowPosition,g);\r\n\t\tmyWindowPosition = wrap(grainclock+g/ngrains,0,1);\r\n\t\t\r\n\t\tif (myWindowPosition - myLastWindowPosition < 0){\r\n\t\t\tpoke(grainInitFlag,1,g);\r\n\t\t\tmyTravPos = baseTravSamp-(mstosamps(noise()*travRandom));\r\n\t\t\tpoke(travPos, myTravPos ,g);\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t\r\n\t\tmyGrainInitFlag = peek(grainInitFlag,g);\r\n\t\tif (myGrainInitFlag == 1){\r\n\t\t\tgrainEnv = sin(myWindowPosition*pi);\r\n\t\t\tgrainRec = input*grainEnv*(1/ngrains); \r\n\t\t\tmyTravPos = peek(travPos,g);\r\n\t\t\tpoke(buf, grainRec, myTravPos, 0, 1, boundmode=\"wrap\", overdubmode=\"accum\");\r\n\t\t\tpoke(travPos,myTravPos+1,g);\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t}\r\n\t\t\tpoke(lastWindowPosition, myWindowPosition, g);\r\n\t\t\r\n\t\t}\r\n\t\r\n\r\n}\r\n\r\n\r\nout1 =wrap(baseTravPos-vectorsize/dim(buf),0,1);\r\nout2 =wrap(baseTravPos-((vectorsize+mstosamps(travRandom))/dim(buf)),0,1);\r\n",
+					"code" : "Param trav(1);\r\nParam ngrains(4);\r\nParam rec(0);\r\nParam travRandom(0);\r\nParam overdub(0);\r\nBuffer buf();\r\n\r\nData travPos(100);\r\nData lastWindowPosition(100);\r\nData grainInitFlag(100);\r\n\r\nHistory baseTravPos(0);\r\n\r\ninput = in1;\r\n\r\ngrainclock = in2;\r\n\r\nif (rec==1){\r\n\t\r\n\tbaseTravPos = wrap(baseTravPos+(1/trav)/(dim(buf)),0,1);\r\n\tbaseTravSamp = floor(dim(buf)*baseTravPos);\r\n\r\n\tpoke(buf, 0, baseTravSamp, 0, overdub);\r\n\t\r\n\r\n\t\r\n\tfor (g = 0 ; g  < ngrains; g+=1){\r\n\t\tmyLastWindowPosition = peek(lastWindowPosition,g);\r\n\t\tmyWindowPosition = wrap(grainclock+g/ngrains,0,1);\r\n\t\t\r\n\t\tif (myWindowPosition - myLastWindowPosition < 0){\r\n\t\t\tpoke(grainInitFlag,1,g);\r\n\t\t\tmyTravPos = baseTravSamp-(mstosamps(noise()*travRandom));\r\n\t\t\tpoke(travPos, myTravPos ,g);\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t\r\n\t\tmyGrainInitFlag = peek(grainInitFlag,g);\r\n\t\tif (myGrainInitFlag == 1){\r\n\t\t\tgrainEnv = sin(myWindowPosition*pi);\r\n\t\t\tgrainRec = input*grainEnv; \r\n\t\t\tmyTravPos = peek(travPos,g);\r\n\t\t\tpoke(buf, grainRec, myTravPos, 0, 1, boundmode=\"wrap\", overdubmode=\"accum\");\r\n\t\t\tpoke(travPos,myTravPos+1,g);\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t}\r\n\t\t\tpoke(lastWindowPosition, myWindowPosition, g);\r\n\t\t\r\n\t\t}\r\n\t\r\n\r\n}\r\n\r\n\r\nout1 =wrap(baseTravPos-vectorsize/dim(buf),0,1);\r\nout2 =wrap(baseTravPos-((vectorsize+mstosamps(travRandom))/dim(buf)),0,1);\r\n",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 10.0,
@@ -132,9 +132,12 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontsize" : [ 10.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -145,12 +148,9 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
+					"fontface" : [ 0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

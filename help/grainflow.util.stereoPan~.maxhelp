@@ -242,6 +242,7 @@
 			}
 , 			{
 				"box" : 				{
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"id" : "obj-8",
 					"local" : 1,
 					"maxclass" : "mc.ezdac~",
@@ -436,11 +437,12 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontsize" : [ 10.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -451,10 +453,9 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
+					"fontface" : [ 0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

@@ -596,3 +596,7 @@ function wrap(x, min, max){
 	return x;
 	
 	}
+	
+function loadbang(){
+	load_buffer();
+	}
