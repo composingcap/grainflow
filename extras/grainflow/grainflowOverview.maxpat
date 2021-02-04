@@ -10,12 +10,12 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 131.0, 157.0, 664.0, 841.0 ],
+		"rect" : [ 178.0, 165.0, 664.0, 841.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato Medium",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -44,7 +44,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 138.5, 785.5, 304.0, 19.0 ],
+					"patching_rect" : [ 138.5, 785.5, 304.0, 20.0 ],
 					"text" : "A GUI object that can visualize grains"
 				}
 
@@ -56,7 +56,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 197.5, 696.5, 304.0, 31.0 ],
+					"patching_rect" : [ 197.5, 696.5, 304.0, 33.0 ],
 					"text" : "Detects changes within a list - good for identifying grain changes"
 				}
 
@@ -67,7 +67,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 197.5, 666.5, 304.0, 19.0 ],
+					"patching_rect" : [ 197.5, 666.5, 304.0, 20.0 ],
 					"text" : "Generates a list of random numbers"
 				}
 
@@ -79,7 +79,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 197.5, 624.0, 304.0, 31.0 ],
+					"patching_rect" : [ 197.5, 624.0, 304.0, 33.0 ],
 					"text" : "A phasor that can wrap at different loop points in various ways"
 				}
 
@@ -91,7 +91,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 197.5, 590.5, 304.0, 31.0 ],
+					"patching_rect" : [ 197.5, 590.5, 304.0, 33.0 ],
 					"text" : "Outputs parameters and a grainclock to interact with grainflow using grain size and grain rate"
 				}
 
@@ -102,7 +102,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 197.5, 563.0, 304.0, 19.0 ],
+					"patching_rect" : [ 197.5, 563.0, 304.0, 20.0 ],
 					"text" : "Automatic stereo panning on new grains"
 				}
 
@@ -113,7 +113,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 197.5, 528.0, 304.0, 19.0 ],
+					"patching_rect" : [ 197.5, 528.0, 304.0, 20.0 ],
 					"text" : "A recording tool that records in grains"
 				}
 
@@ -125,7 +125,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 197.5, 487.5, 304.0, 31.0 ],
+					"patching_rect" : [ 197.5, 487.5, 304.0, 33.0 ],
 					"text" : "A simple recording tool that has an accurate position output that can be used as a traversal phasor"
 				}
 
@@ -137,7 +137,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 398.166666666666629, 300.0, 31.0 ],
+					"patching_rect" : [ 149.0, 398.166666666666629, 300.0, 33.0 ],
 					"text" : "An interface to allow for easy control of multiple instances of grainflow"
 				}
 
@@ -148,7 +148,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 372.268518518518476, 300.0, 19.0 ],
+					"patching_rect" : [ 149.0, 372.268518518518476, 300.0, 20.0 ],
 					"text" : "A wavelet-like synthesizer created through granulation"
 				}
 
@@ -159,7 +159,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 340.370370370370324, 300.0, 19.0 ],
+					"patching_rect" : [ 149.0, 340.370370370370324, 300.0, 20.0 ],
 					"text" : "A granular chorus effect"
 				}
 
@@ -170,7 +170,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 308.472222222222172, 300.0, 19.0 ],
+					"patching_rect" : [ 149.0, 308.472222222222172, 300.0, 20.0 ],
 					"text" : "A granular sampler"
 				}
 
@@ -181,7 +181,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 276.574074074074019, 300.0, 19.0 ],
+					"patching_rect" : [ 149.0, 276.574074074074019, 300.0, 20.0 ],
 					"text" : "A tool for creating granular snapshots"
 				}
 
@@ -192,7 +192,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 244.675925925925867, 300.0, 19.0 ],
+					"patching_rect" : [ 149.0, 244.675925925925867, 300.0, 20.0 ],
 					"text" : "A basic granular harmonizer"
 				}
 
@@ -204,14 +204,14 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 206.777777777777715, 304.0, 31.0 ],
+					"patching_rect" : [ 149.0, 206.777777777777715, 304.0, 33.0 ],
 					"text" : "A live implementation of grainflow that allows for granulation of live input"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-22",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -225,7 +225,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-11",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -239,7 +239,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-9",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -259,7 +259,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 460.0, 760.0, 74.0, 21.0 ],
+					"patching_rect" : [ 460.0, 760.0, 74.0, 22.0 ],
 					"text" : "prepend help"
 				}
 
@@ -272,7 +272,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 460.0, 789.0, 49.0, 21.0 ],
+					"patching_rect" : [ 460.0, 789.0, 49.0, 22.0 ],
 					"text" : "pcontrol"
 				}
 
@@ -284,14 +284,14 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 5.0, 748.0, 224.0, 24.0 ],
+					"patching_rect" : [ 5.0, 748.0, 224.0, 23.0 ],
 					"text" : "Grainflow GUI:"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-2",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -305,7 +305,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-3",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -319,7 +319,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-1",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -339,7 +339,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 460.0, 458.5, 74.0, 21.0 ],
+					"patching_rect" : [ 460.0, 458.5, 74.0, 22.0 ],
 					"text" : "prepend help"
 				}
 
@@ -352,7 +352,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 460.0, 481.5, 49.0, 21.0 ],
+					"patching_rect" : [ 460.0, 481.5, 49.0, 22.0 ],
 					"text" : "pcontrol"
 				}
 
@@ -365,7 +365,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 271.0, 161.166666666666515, 74.0, 21.0 ],
+					"patching_rect" : [ 271.0, 161.166666666666515, 74.0, 22.0 ],
 					"text" : "prepend help"
 				}
 
@@ -378,14 +378,14 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 271.0, 178.166666666666515, 49.0, 21.0 ],
+					"patching_rect" : [ 271.0, 178.166666666666515, 49.0, 22.0 ],
 					"text" : "pcontrol"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-32",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -399,7 +399,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-29",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -413,7 +413,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-27",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -439,7 +439,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-21",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -453,7 +453,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-20",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -467,7 +467,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-19",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -481,7 +481,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-18",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -495,7 +495,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-17",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -509,7 +509,7 @@
 			}
 , 			{
 				"box" : 				{
-					"fontsize" : 10.0,
+					"fontsize" : 11.0,
 					"id" : "obj-15",
 					"maxclass" : "textbutton",
 					"numinlets" : 1,
@@ -540,7 +540,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 5.0, 63.0, 640.0, 31.0 ],
+					"patching_rect" : [ 5.0, 63.0, 640.0, 33.0 ],
 					"text" : "Grainflow is a powerful and flexible sample accurate granular engine.  Grainflow can be used for granular sampling, synthesis, delay, reverb and many other creative and non-standard applications."
 				}
 
@@ -560,11 +560,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-7",
-					"linecount" : 3,
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 149.0, 113.0, 464.0, 43.0 ],
+					"patching_rect" : [ 149.0, 113.0, 466.0, 33.0 ],
 					"text" : "Everything in this package is built on top of this grainflow~.  Each of these implementations can be seen as a tool or an example of how to use grainflow~ for many purposes."
 				}
 
@@ -757,13 +757,10 @@
 				"name" : "Minimal",
 				"default" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -774,7 +771,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

@@ -10,12 +10,12 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 607.0, 849.0 ],
+		"rect" : [ 100.0, 100.0, 528.0, 671.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -40,12 +40,24 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"id" : "obj-6",
+					"local" : 1,
+					"maxclass" : "ezdac~",
+					"numinlets" : 2,
+					"numoutlets" : 0,
+					"patching_rect" : [ 12.0, 583.0, 45.0, 45.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-5",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 208.0, 96.0, 78.0, 21.0 ],
+					"patching_rect" : [ 208.0, 96.0, 78.0, 22.0 ],
 					"text" : "loadmess 125"
 				}
 
@@ -57,7 +69,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 12.0, 101.0, 72.0, 21.0 ],
+					"patching_rect" : [ 12.0, 101.0, 72.0, 22.0 ],
 					"text" : "loadmess 20"
 				}
 
@@ -69,7 +81,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 12.0, 63.0, 443.0, 31.0 ],
+					"patching_rect" : [ 12.0, 59.0, 443.0, 33.0 ],
 					"text" : "A utility that translates grain rate and grain size to the phasor overlap model used in grain flow for grain scheduling"
 				}
 
@@ -81,7 +93,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 12.0, 10.0, 554.0, 43.0 ],
+					"patching_rect" : [ 12.0, 10.0, 443.0, 42.0 ],
 					"text" : "grainflow.util.rateSizePhasor~ "
 				}
 
@@ -93,7 +105,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 30.000000000000036, 570.0, 150.0, 19.0 ],
+					"patching_rect" : [ 30.000000000000036, 466.0, 150.0, 20.0 ],
 					"text" : "The grain clock"
 				}
 
@@ -106,7 +118,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 224.666666666666657, 505.0, 261.0, 31.0 ],
+					"patching_rect" : [ 224.666666666666657, 443.0, 261.0, 33.0 ],
 					"text" : "The factor on the phasor at which each grain is offset"
 				}
 
@@ -118,7 +130,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 174.666666666666657, 461.0, 261.0, 19.0 ],
+					"patching_rect" : [ 174.666666666666657, 399.0, 261.0, 20.0 ],
 					"text" : "The amount of empty space on the grain phasor"
 				}
 
@@ -130,7 +142,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 117.833333333333343, 422.0, 150.0, 19.0 ],
+					"patching_rect" : [ 117.833333333333343, 360.0, 150.0, 20.0 ],
 					"text" : "The number of active grains"
 				}
 
@@ -141,8 +153,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 245.666666666666629, 178.0, 305.0, 19.0 ],
-					"text" : "argumnents: the maximum number of grains, rate, size"
+					"patching_rect" : [ 232.666666666666629, 178.0, 305.0, 20.0 ],
+					"text" : "argumnents: the maximum number of grains, rate, size",
+					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
 
 			}
@@ -150,11 +163,11 @@
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"id" : "obj-13",
-					"linecount" : 5,
+					"linecount" : 4,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 30.000000000000036, 214.0, 150.0, 67.0 ],
+					"patching_rect" : [ 30.000000000000036, 214.0, 150.0, 59.0 ],
 					"text" : "This outlet send out both a signal for the grain clock and messages to schedule grains in the correct positions"
 				}
 
@@ -168,7 +181,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 171.166666666666657, 505.0, 50.0, 21.0 ]
+					"patching_rect" : [ 171.166666666666657, 443.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -181,7 +194,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 117.833333333333343, 461.0, 50.0, 21.0 ]
+					"patching_rect" : [ 117.833333333333343, 399.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -193,7 +206,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 64.666666666666657, 422.0, 50.0, 21.0 ]
+					"patching_rect" : [ 64.666666666666657, 360.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -204,7 +217,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 4,
 					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 64.5, 388.0, 179.0, 21.0 ],
+					"patching_rect" : [ 64.5, 326.0, 179.0, 22.0 ],
 					"text" : "route ngrains space windowOffset"
 				}
 
@@ -215,7 +228,7 @@
 					"maxclass" : "scope~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 12.0, 593.0, 338.0, 70.0 ],
+					"patching_rect" : [ 12.0, 489.0, 338.0, 70.0 ],
 					"range" : [ 0.0, 1.0 ]
 				}
 
@@ -227,18 +240,19 @@
 					"numinlets" : 1,
 					"numoutlets" : 6,
 					"outlettype" : [ "signal", "bang", "int", "float", "", "list" ],
-					"patching_rect" : [ 12.0, 354.0, 71.5, 21.0 ],
+					"patching_rect" : [ 12.0, 279.0, 71.5, 22.0 ],
 					"text" : "typeroute~"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-36",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 273.166666666666629, 207.0, 150.0, 19.0 ],
+					"patching_rect" : [ 263.166666666666629, 207.0, 150.0, 24.0 ],
 					"text" : "Resultant overlap"
 				}
 
@@ -252,28 +266,30 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 208.0, 207.0, 50.0, 21.0 ]
+					"patching_rect" : [ 208.0, 207.0, 50.0, 22.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-31",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 259.666666666666629, 124.0, 107.999999999999972, 19.0 ],
+					"patching_rect" : [ 259.666666666666629, 124.0, 107.999999999999972, 24.0 ],
 					"text" : "Grain Size (ms)"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-30",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 64.0, 124.0, 90.0, 19.0 ],
+					"patching_rect" : [ 64.0, 124.0, 107.0, 24.0 ],
 					"text" : "Grain Rate (hz)"
 				}
 
@@ -288,7 +304,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 208.0, 124.0, 50.0, 21.0 ]
+					"patching_rect" : [ 208.0, 124.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -302,7 +318,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 12.0, 124.0, 50.0, 21.0 ]
+					"patching_rect" : [ 12.0, 124.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -313,7 +329,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 12.0, 178.0, 215.0, 21.0 ],
+					"patching_rect" : [ 12.0, 178.0, 215.0, 22.0 ],
 					"text" : "grainflow.util.rateSizePhasor~ 20 20 125"
 				}
 
@@ -404,25 +420,16 @@
 				"type" : "JSON",
 				"implicit" : 1
 			}
-, 			{
-				"name" : "grainflow.util.phasor~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
-				"patcherrelativepath" : "../patchers/util",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.sahPhasor.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
-				"implicit" : 1
-			}
  ],
 		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -433,15 +440,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

@@ -10,12 +10,12 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 809.0, 932.0 ],
+		"rect" : [ 227.0, 106.0, 618.0, 932.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -40,69 +40,86 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-13",
-					"linecount" : 2,
+					"id" : "obj-6",
+					"local" : 1,
+					"maxclass" : "mc.ezdac~",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 5.0, 821.0, 45.0, 45.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-38",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 233.0, 126.0, 150.0, 31.0 ],
-					"text" : "Play this sound file into grainflow.live~"
+					"patching_rect" : [ 158.0, 131.0, 17.0, 17.0 ],
+					"text" : "2",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"id" : "obj-39",
-					"maxclass" : "newobj",
+					"maxclass" : "panel",
+					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 385.0, 296.0, 78.0, 21.0 ],
-					"text" : "s _gflive_help"
+					"patching_rect" : [ 158.0, 131.0, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-38",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 5.0, 138.0, 78.0, 21.0 ],
-					"text" : "s _gflive_help"
-				}
-
-			}
-, 			{
-				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
 					"id" : "obj-35",
-					"maxclass" : "newobj",
+					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 116.0, 269.0, 78.0, 21.0 ],
-					"text" : "s _gflive_help"
+					"patching_rect" : [ 36.0, 105.0, 17.0, 17.0 ],
+					"text" : "1",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-33",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 5.0, 525.0, 77.0, 21.0 ],
-					"text" : "r _gflive_help"
-				}
-
-			}
-, 			{
-				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"id" : "obj-29",
-					"maxclass" : "newobj",
+					"maxclass" : "panel",
+					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 5.0, 219.0, 78.0, 21.0 ],
-					"text" : "s _gflive_help"
+					"patching_rect" : [ 36.0, 105.0, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bubble" : 1,
+					"id" : "obj-13",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 180.0, 131.0, 237.0, 24.0 ],
+					"text" : "Play this sound file into grainflow.live~"
 				}
 
 			}
@@ -113,7 +130,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 5.0, 180.0, 33.0, 21.0 ],
+					"patching_rect" : [ 5.0, 180.0, 33.0, 22.0 ],
 					"text" : "clear"
 				}
 
@@ -125,7 +142,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 203.333333333333343, 302.0, 78.0, 21.0 ],
+					"patching_rect" : [ 203.333333333333343, 302.0, 78.0, 22.0 ],
 					"text" : "loadmess 125"
 				}
 
@@ -137,7 +154,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 46.333333333333336, 306.0, 72.0, 21.0 ],
+					"patching_rect" : [ 46.333333333333336, 306.0, 72.0, 22.0 ],
 					"text" : "loadmess 20"
 				}
 
@@ -149,8 +166,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 221.0, 366.0, 332.0, 31.0 ],
-					"text" : "This abstraction is a way to interface with the granulator in terms of rate and size of grains"
+					"patching_rect" : [ 233.0, 366.0, 260.333333333333371, 33.0 ],
+					"text" : "This abstraction is a way to interface with the granulator in terms of rate and size of grains",
+					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
 
 			}
@@ -163,7 +181,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 213.0, 174.0, 50.0, 21.0 ]
+					"patching_rect" : [ 213.0, 174.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -174,19 +192,20 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 213.0, 202.0, 45.0, 21.0 ],
+					"patching_rect" : [ 213.0, 202.0, 45.0, 22.0 ],
 					"text" : "trav $1"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-14",
-					"linecount" : 3,
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 267.0, 174.0, 150.0, 43.0 ],
+					"patching_rect" : [ 271.666666666666742, 167.0, 183.0, 37.0 ],
 					"text" : "Any grainflow~ message can be sent to grainflow.live~"
 				}
 
@@ -200,7 +219,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 116.0, 174.0, 50.0, 21.0 ]
+					"patching_rect" : [ 116.0, 174.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -211,7 +230,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 116.0, 202.0, 86.0, 21.0 ],
+					"patching_rect" : [ 116.0, 202.0, 86.0, 22.0 ],
 					"text" : "travRandom $1"
 				}
 
@@ -223,18 +242,19 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 5.0, 623.0, 151.0, 21.0 ],
+					"patching_rect" : [ 5.0, 623.0, 151.0, 22.0 ],
 					"text" : "grainflow.util.stereoPan~ 20"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-36",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 252.0, 402.5, 150.0, 19.0 ],
+					"patching_rect" : [ 252.0, 402.5, 125.0, 24.0 ],
 					"text" : "Resultant overlap"
 				}
 
@@ -248,28 +268,30 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 203.333333333333343, 402.5, 50.0, 21.0 ]
+					"patching_rect" : [ 203.333333333333343, 402.5, 50.0, 22.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-31",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 255.0, 335.0, 64.0, 19.0 ],
+					"patching_rect" : [ 255.0, 335.0, 97.0, 24.0 ],
 					"text" : "Grain Size"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-30",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 98.333333333333343, 335.0, 71.0, 19.0 ],
+					"patching_rect" : [ 98.333333333333343, 335.0, 85.0, 24.0 ],
 					"text" : "Grain Rate"
 				}
 
@@ -284,7 +306,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 203.333333333333343, 335.0, 50.0, 21.0 ]
+					"patching_rect" : [ 203.333333333333343, 335.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -298,7 +320,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 46.333333333333336, 335.0, 50.0, 21.0 ]
+					"patching_rect" : [ 46.333333333333336, 335.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -309,30 +331,32 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 46.333333333333336, 371.0, 176.0, 21.0 ],
+					"patching_rect" : [ 46.333333333333336, 371.0, 176.0, 22.0 ],
 					"text" : "grainflow.util.rateSizePhasor~ 20"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-17",
-					"linecount" : 2,
+					"linecount" : 4,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 85.5, 515.0, 312.0, 31.0 ],
-					"text" : "An input signal will be recorded to the buffer. The traversal of the granulator will by synconized wit the record head."
+					"patching_rect" : [ 21.0, 491.0, 217.0, 63.0 ],
+					"text" : "An input signal will be recorded to the buffer. The traversal of the granulator will by synconized with the record head."
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-12",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 411.0, 235.0, 270.0, 19.0 ],
+					"patching_rect" : [ 322.0, 225.0, 270.0, 24.0 ],
 					"text" : "Freeze the traversal, recording will still occur"
 				}
 
@@ -345,7 +369,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 385.0, 235.0, 24.0, 24.0 ]
+					"patching_rect" : [ 296.0, 225.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -356,18 +380,19 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 385.0, 263.0, 56.0, 21.0 ],
+					"patching_rect" : [ 296.0, 253.0, 56.0, 22.0 ],
 					"text" : "freeze $1"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-5",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 35.0, 105.0, 255.0, 19.0 ],
+					"patching_rect" : [ 63.0, 105.0, 255.0, 24.0 ],
 					"text" : "Enable recording and playback"
 				}
 
@@ -375,7 +400,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 0 ], [ "buffername", "3270_flow_1" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "bgColor", 1, 1, 1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 5 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "dotScale", 5 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "1987_flow_1" ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "showTriangles", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -383,7 +408,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 129.0, 672.0, 488.0, 111.0 ]
+					"patching_rect" : [ 129.0, 672.0, 418.0, 105.0 ]
 				}
 
 			}
@@ -427,11 +452,12 @@
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-53",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 485.333333333333371, 263.0, 94.0, 19.0 ],
+					"patching_rect" : [ 396.333333333333371, 253.0, 111.0, 24.0 ],
 					"text" : "Open buffer"
 				}
 
@@ -443,7 +469,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 7.0, 62.0, 650.0, 31.0 ],
+					"patching_rect" : [ 7.0, 59.0, 493.0, 33.0 ],
 					"text" : "An easy to use live implementation of grainFlow~.  This abstraction creates an internal buffer, records to it, and keeps the granulator in sync."
 				}
 
@@ -455,7 +481,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 448.333333333333371, 263.0, 33.0, 21.0 ],
+					"patching_rect" : [ 359.333333333333371, 253.0, 33.0, 22.0 ],
 					"text" : "open"
 				}
 
@@ -467,7 +493,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 7.0, 9.0, 311.0, 43.0 ],
+					"patching_rect" : [ 7.0, 9.0, 311.0, 42.0 ],
 					"text" : "grainFlow.live~"
 				}
 
@@ -516,21 +542,10 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 87.5, 126.0, 135.0, 28.0 ],
+					"patching_rect" : [ 21.0, 131.0, 135.0, 28.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-11",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 5.0, 806.0, 53.0, 21.0 ],
-					"text" : "mc.dac~"
 				}
 
 			}
@@ -541,7 +556,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 5.0, 577.0, 143.0, 21.0 ],
+					"patching_rect" : [ 5.0, 577.0, 143.0, 22.0 ],
 					"text" : "grainflow.live~ 5000 20"
 				}
 
@@ -594,22 +609,22 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 97.0, 265.0, 14.5, 265.0 ],
+					"midpoints" : [ 30.5, 265.0, 14.5, 265.0 ],
 					"source" : [ "obj-19", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-11", 0 ],
+					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-20", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"midpoints" : [ 222.5, 261.5, 125.5, 261.5 ],
+					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 222.5, 282.5, 14.5, 282.5 ],
 					"source" : [ "obj-22", 0 ]
 				}
 
@@ -630,14 +645,15 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-39", 0 ],
+					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 368.833333333333371, 296.0, 14.5, 296.0 ],
 					"source" : [ "obj-25", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-29", 0 ],
+					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-26", 0 ]
 				}
 
@@ -665,13 +681,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"source" : [ "obj-33", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-20", 0 ],
 					"source" : [ "obj-37", 0 ]
 				}
@@ -679,21 +688,23 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
+					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 125.5, 283.5, 14.5, 283.5 ],
 					"source" : [ "obj-4", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-39", 0 ],
+					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 305.5, 296.0, 14.5, 296.0 ],
 					"source" : [ "obj-7", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-38", 0 ],
+					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-8", 0 ]
 				}
 
@@ -786,9 +797,22 @@
 			}
  ],
 		"autosave" : 0,
+		"boxgroups" : [ 			{
+				"boxes" : [ "obj-29", "obj-35" ]
+			}
+, 			{
+				"boxes" : [ "obj-39", "obj-38" ]
+			}
+ ],
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -800,16 +824,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

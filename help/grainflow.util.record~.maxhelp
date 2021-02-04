@@ -10,12 +10,12 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 86.0, 91.0, 640.0, 659.0 ],
+		"rect" : [ 86.0, 91.0, 511.0, 606.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -40,22 +40,112 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-25",
+					"id" : "obj-13",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 55.5, 169.0, 215.0, 19.0 ],
-					"text" : "1 will start recording, 0 will stop it"
+					"patching_rect" : [ 153.0, 443.0, 150.0, 33.0 ],
+					"text" : "Wave~ reads a soundfile from 0-1 like grainflow",
+					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
+					"id" : "obj-8",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 201.5, 146.0, 132.0, 24.0 ],
+					"text" : "Play a soundfile"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-4",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 174.5, 149.0, 17.0, 17.0 ],
+					"text" : "2",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-6",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 174.5, 149.0, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-35",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 46.5, 116.0, 17.0, 17.0 ],
+					"text" : "1",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-29",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 46.5, 116.0, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bubble" : 1,
+					"id" : "obj-25",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 63.5, 113.0, 132.0, 24.0 ],
+					"text" : "Start recording"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"id" : "obj-23",
+					"local" : 1,
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 30.0, 516.0, 45.0, 45.0 ]
+					"patching_rect" : [ 19.0, 516.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -66,7 +156,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 30.0, 443.0, 130.0, 21.0 ],
+					"patching_rect" : [ 19.0, 443.0, 130.0, 22.0 ],
 					"text" : "wave~ grainflow_record"
 				}
 
@@ -81,19 +171,20 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 106.5, 394.5, 256.0, 27.0 ],
+					"patching_rect" : [ 56.0, 382.0, 256.0, 27.0 ],
 					"size" : 1.0
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-20",
 					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 368.0, 179.5, 150.0, 43.0 ],
+					"patching_rect" : [ 356.0, 169.75, 150.0, 50.0 ],
 					"text" : "overdubing will mix the input with what is previously recorded"
 				}
 
@@ -106,7 +197,7 @@
 					"numinlets" : 5,
 					"numoutlets" : 6,
 					"outlettype" : [ "float", "float", "float", "float", "list", "" ],
-					"patching_rect" : [ 106.5, 319.0, 256.0, 64.0 ]
+					"patching_rect" : [ 91.5, 309.0, 256.0, 64.0 ]
 				}
 
 			}
@@ -140,7 +231,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 34.0, 114.0, 150.0, 30.0 ],
+					"patching_rect" : [ 19.0, 149.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -154,7 +245,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 272.5, 221.0, 66.0, 21.0 ],
+					"patching_rect" : [ 261.5, 221.0, 66.0, 22.0 ],
 					"text" : "overdub $1"
 				}
 
@@ -168,19 +259,21 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 272.5, 179.5, 86.0, 27.5 ],
+					"patching_rect" : [ 261.5, 179.5, 86.0, 27.5 ],
 					"size" : 1.0
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-11",
+					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 80.0, 203.5, 178.0, 19.0 ],
-					"text" : "Freezing will continue recording"
+					"patching_rect" : [ 83.0, 195.5, 138.0, 50.0 ],
+					"text" : "Freezing will continue recording but freeze the output phasor"
 				}
 
 			}
@@ -192,7 +285,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 54.0, 201.0, 24.0, 24.0 ],
+					"patching_rect" : [ 43.0, 201.0, 24.0, 24.0 ],
 					"uncheckedcolor" : [ 0.556862745098039, 0.556862745098039, 0.556862745098039, 1.0 ]
 				}
 
@@ -204,7 +297,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 54.0, 232.0, 56.0, 21.0 ],
+					"patching_rect" : [ 43.0, 232.0, 56.0, 22.0 ],
 					"text" : "freeze $1"
 				}
 
@@ -217,7 +310,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 30.0, 164.0, 24.0, 24.0 ],
+					"patching_rect" : [ 19.0, 113.0, 24.0, 24.0 ],
 					"uncheckedcolor" : [ 0.556862745098039, 0.556862745098039, 0.556862745098039, 1.0 ]
 				}
 
@@ -233,7 +326,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 30.0, 311.0, 56.0, 21.0 ],
+					"patching_rect" : [ 19.0, 319.0, 56.0, 21.0 ],
 					"sig" : 0.0
 				}
 
@@ -245,7 +338,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 3.0, 53.0, 503.0, 43.0 ],
+					"patching_rect" : [ 3.0, 53.0, 503.0, 46.0 ],
 					"text" : "grainflow.util.record~ was created because record~ was not accurate enough in tracking its record point for live granulation. grainflow.util.record~  is similar to record, but has options to freeze the output tracker and loops by default. "
 				}
 
@@ -257,7 +350,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 3.0, 3.0, 503.0, 43.0 ],
+					"patching_rect" : [ 3.0, 3.0, 503.0, 42.0 ],
 					"text" : "grainflow.util.record~ "
 				}
 
@@ -269,7 +362,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 252.0, 267.0, 170.0, 21.0 ],
+					"patching_rect" : [ 241.0, 267.0, 170.0, 22.0 ],
 					"text" : "buffer~ grainflow_record 10000"
 				}
 
@@ -281,7 +374,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "" ],
-					"patching_rect" : [ 30.0, 267.0, 205.0, 21.0 ],
+					"patching_rect" : [ 19.0, 267.0, 205.0, 22.0 ],
 					"text" : "grainflow.util.record~ grainflow_record"
 				}
 
@@ -391,9 +484,21 @@
 			}
  ],
 		"autosave" : 0,
+		"boxgroups" : [ 			{
+				"boxes" : [ "obj-29", "obj-35" ]
+			}
+, 			{
+				"boxes" : [ "obj-6", "obj-4" ]
+			}
+ ],
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -404,15 +509,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

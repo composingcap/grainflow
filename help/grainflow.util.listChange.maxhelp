@@ -13,9 +13,9 @@
 		"rect" : [ 86.0, 91.0, 640.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -44,7 +44,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 47.0, 430.0, 19.0 ],
+					"patching_rect" : [ 13.0, 47.0, 430.0, 20.0 ],
 					"text" : "Identifies changes in lists.  Is useful for anylizing information about lists of grains"
 				}
 
@@ -56,44 +56,33 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 2.0, 430.0, 43.0 ],
+					"patching_rect" : [ 13.0, 2.0, 430.0, 42.0 ],
 					"text" : "grainflow.util.listChange"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-17",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 305.5, 279.0, 24.0, 24.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-15",
-					"linecount" : 4,
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 304.5, 392.0, 150.0, 55.0 ],
-					"presentation_linecount" : 4,
+					"patching_rect" : [ 300.5, 369.0, 243.0, 37.0 ],
 					"text" : "List of changed indices multiplied by direction (outputs nothing if not changed)"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-14",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 202.5, 329.0, 150.0, 31.0 ],
+					"patching_rect" : [ 187.5, 311.0, 150.0, 37.0 ],
 					"text" : "Direction of the change (0 is no change)"
 				}
 
@@ -105,8 +94,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 202.5, 211.0, 259.0, 21.0 ],
-					"text" : "0.39564 0.569457 0.30183 0.645065 0.49635"
+					"patching_rect" : [ 197.5, 195.0, 259.0, 22.0 ],
+					"text" : "0.014001 0.967697 0.268327 0.877588 0.563356"
 				}
 
 			}
@@ -118,7 +107,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 161.5, 102.0, 24.0, 24.0 ]
+					"patching_rect" : [ 156.5, 86.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -129,8 +118,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 154.5, 392.0, 137.0, 21.0 ],
-					"text" : "-1 2 3 4 -5"
+					"patching_rect" : [ 149.5, 376.0, 137.0, 22.0 ],
+					"text" : "-1 2 -3 4 5"
 				}
 
 			}
@@ -141,8 +130,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 21.5, 334.0, 159.0, 21.0 ],
-					"text" : "-1 1 1 1 -1"
+					"patching_rect" : [ 16.5, 318.0, 159.0, 22.0 ],
+					"text" : "-1 1 -1 1 1"
 				}
 
 			}
@@ -153,7 +142,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 161.5, 147.0, 133.0, 21.0 ],
+					"patching_rect" : [ 156.5, 131.0, 133.0, 22.0 ],
 					"text" : "randomRangeList 5 0. 1."
 				}
 
@@ -165,21 +154,13 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 161.5, 256.0, 130.0, 21.0 ],
+					"patching_rect" : [ 156.5, 240.0, 130.0, 22.0 ],
 					"text" : "grainflow.util.listChange"
 				}
 
 			}
  ],
 		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-17", 0 ],
-					"order" : 0,
-					"source" : [ "obj-1", 1 ]
-				}
-
-			}
-, 			{
 				"patchline" : 				{
 					"destination" : [ "obj-4", 1 ],
 					"source" : [ "obj-1", 0 ]
@@ -189,7 +170,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-6", 1 ],
-					"order" : 1,
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -251,14 +231,11 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 10.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -269,7 +246,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

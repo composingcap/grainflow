@@ -40,12 +40,25 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"id" : "obj-2",
+					"local" : 1,
+					"maxclass" : "ezdac~",
+					"numinlets" : 2,
+					"numoutlets" : 0,
+					"patching_rect" : [ 345.0, 337.0, 45.0, 45.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-24",
 					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 413.0, 77.0, 152.0, 43.0 ],
+					"patching_rect" : [ 375.0, 77.0, 190.0, 47.0 ],
 					"text" : "Sah mode will only change the frequency of the phasor on a new cycle"
 				}
 
@@ -56,7 +69,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 278.0, 225.0, 150.0, 19.0 ],
+					"patching_rect" : [ 388.0, 215.0, 150.0, 19.0 ],
 					"text" : "mode 2 is fold"
 				}
 
@@ -69,7 +82,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 383.0, 84.0, 24.0, 24.0 ],
+					"patching_rect" : [ 345.0, 84.0, 24.0, 24.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "off", "on" ],
@@ -95,7 +108,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 383.0, 133.0, 69.0, 21.0 ],
+					"patching_rect" : [ 345.0, 133.0, 69.0, 21.0 ],
 					"text" : "sahMode $1"
 				}
 
@@ -107,7 +120,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 19.0, 203.0, 43.0, 21.0 ],
+					"patching_rect" : [ 20.0, 203.0, 43.0, 21.0 ],
 					"text" : "set 0.5"
 				}
 
@@ -119,7 +132,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 19.0, 168.0, 34.0, 21.0 ],
+					"patching_rect" : [ 20.0, 168.0, 34.0, 21.0 ],
 					"text" : "reset"
 				}
 
@@ -130,7 +143,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 278.0, 199.0, 150.0, 19.0 ],
+					"patching_rect" : [ 388.0, 189.0, 150.0, 19.0 ],
 					"text" : "mode 1 is warp"
 				}
 
@@ -142,7 +155,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 224.0, 225.0, 46.0, 21.0 ],
+					"patching_rect" : [ 334.0, 215.0, 46.0, 21.0 ],
 					"text" : "mode 2"
 				}
 
@@ -154,7 +167,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 224.0, 199.0, 46.0, 21.0 ],
+					"patching_rect" : [ 334.0, 189.0, 46.0, 21.0 ],
 					"text" : "mode 1"
 				}
 
@@ -166,7 +179,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 58.0, 77.0, 66.0, 21.0 ],
+					"patching_rect" : [ 18.0, 98.0, 66.0, 21.0 ],
 					"text" : "loadmess 1"
 				}
 
@@ -178,18 +191,19 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 168.0, 77.0, 66.0, 21.0 ],
+					"patching_rect" : [ 130.0, 187.0, 66.0, 21.0 ],
 					"text" : "loadmess 1"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-13",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 214.0, 158.0, 149.0, 19.0 ],
+					"patching_rect" : [ 184.0, 222.0, 101.0, 23.0 ],
 					"text" : "high bound"
 				}
 
@@ -205,17 +219,18 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 168.0, 158.0, 49.0, 21.0 ]
+					"patching_rect" : [ 130.0, 222.0, 49.0, 21.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-11",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 159.0, 133.0, 149.0, 19.0 ],
+					"patching_rect" : [ 121.0, 155.0, 149.0, 23.0 ],
 					"text" : "low bound"
 				}
 
@@ -231,17 +246,18 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 113.0, 133.0, 49.0, 21.0 ]
+					"patching_rect" : [ 75.0, 155.0, 49.0, 21.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-10",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 119.5, 104.0, 150.0, 19.0 ],
+					"patching_rect" : [ 79.5, 125.0, 150.0, 23.0 ],
 					"text" : "Rate"
 				}
 
@@ -255,7 +271,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 58.0, 102.0, 50.0, 21.0 ]
+					"patching_rect" : [ 18.0, 123.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -266,7 +282,7 @@
 					"maxclass" : "scope~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 58.0, 349.0, 287.0, 112.0 ],
+					"patching_rect" : [ 20.0, 349.0, 287.0, 112.0 ],
 					"range" : [ 0.0, 1.0 ]
 				}
 
@@ -277,7 +293,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 6.0, 53.0, 541.0, 19.0 ],
+					"patching_rect" : [ 10.0, 52.0, 541.0, 19.0 ],
 					"text" : "A phasor that easilt wraps and folds around different looping points between 0 and 1"
 				}
 
@@ -301,7 +317,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
-					"patching_rect" : [ 58.0, 301.0, 129.0, 21.0 ],
+					"patching_rect" : [ 20.0, 301.0, 129.0, 21.0 ],
 					"text" : "grainflow.util.phasor~ 1"
 				}
 
@@ -345,6 +361,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 343.5, 286.0, 29.5, 286.0 ],
 					"source" : [ "obj-18", 0 ]
 				}
 
@@ -352,6 +369,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 343.5, 283.0, 29.5, 283.0 ],
 					"source" : [ "obj-19", 0 ]
 				}
 
@@ -387,6 +405,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 354.5, 285.0, 29.5, 285.0 ],
 					"source" : [ "obj-9", 0 ]
 				}
 
@@ -421,13 +440,10 @@
 				"name" : "Minimal",
 				"default" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -438,7 +454,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

@@ -13,9 +13,9 @@
 		"rect" : [ 86.0, 91.0, 947.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -40,12 +40,23 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-3",
+					"local" : 1,
+					"maxclass" : "ezdac~",
+					"numinlets" : 2,
+					"numoutlets" : 0,
+					"patching_rect" : [ 20.0, 264.0, 45.0, 45.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-5",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 109.0, 38.0, 29.5, 21.0 ],
+					"patching_rect" : [ 109.0, 38.0, 29.5, 22.0 ],
 					"text" : "join"
 				}
 
@@ -57,19 +68,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "int", "int" ],
-					"patching_rect" : [ 109.0, 6.0, 40.0, 21.0 ],
+					"patching_rect" : [ 109.0, 6.0, 40.0, 22.0 ],
 					"text" : "notein"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-3",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 0,
-					"patching_rect" : [ 20.0, 281.0, 34.0, 21.0 ],
-					"text" : "dac~"
 				}
 
 			}
@@ -80,7 +80,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
-					"patching_rect" : [ 20.0, 19.0, 34.0, 21.0 ],
+					"patching_rect" : [ 20.0, 19.0, 34.0, 22.0 ],
 					"text" : "adc~"
 				}
 
@@ -206,16 +206,16 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "cp.grainFlow.record~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/patchers",
-				"patcherrelativepath" : "../../../../cpDelayNetworks/patchers",
+				"name" : "grainflow.util.record~.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
+				"patcherrelativepath" : "../../../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "cp.grainFlow.record.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/cpDelayNetworks/code",
-				"patcherrelativepath" : "../../../../cpDelayNetworks/code",
+				"name" : "grainflow.record.gendsp",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
+				"patcherrelativepath" : "../../../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
@@ -253,12 +253,10 @@
 				"name" : "Minimal",
 				"default" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -269,8 +267,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

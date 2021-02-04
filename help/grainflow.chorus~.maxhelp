@@ -10,12 +10,12 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 86.0, 91.0, 735.0, 638.0 ],
+		"rect" : [ 86.0, 91.0, 582.0, 638.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -39,6 +39,92 @@
 		"subpatcher_template" : "minimal",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-38",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 170.0, 148.5, 17.0, 17.0 ],
+					"text" : "2",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-39",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 170.0, 148.5, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-35",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 44.5, 107.5, 17.0, 17.0 ],
+					"text" : "1",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-5",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 44.5, 107.5, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bubble" : 1,
+					"id" : "obj-13",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 192.0, 148.5, 237.0, 24.0 ],
+					"text" : "Play this sound file into grainflow.chorus~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bubble" : 1,
+					"id" : "obj-6",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 63.0, 105.0, 255.0, 24.0 ],
+					"text" : "Enable the chorus"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-4",
 					"lastchannelcount" : 2,
@@ -66,7 +152,9 @@
 			}
 , 			{
 				"box" : 				{
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"id" : "obj-2",
+					"local" : 1,
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -76,23 +164,13 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-8",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 44.0, 118.0, 150.0, 19.0 ],
-					"text" : "A 1 will turn it on, a 0 off"
-				}
-
-			}
-, 			{
-				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-32",
-					"linecount" : 4,
+					"linecount" : 5,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 535.0, 196.0, 150.0, 55.0 ],
+					"patching_rect" : [ 438.0, 232.0, 142.0, 76.0 ],
 					"text" : "As with other grainflow abstractions, you are able to use grainflow messages with chorus as well"
 				}
 
@@ -104,7 +182,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 450.0, 196.0, 76.0, 21.0 ],
+					"patching_rect" : [ 337.0, 190.0, 76.0, 22.0 ],
 					"text" : "loadmess 0.1"
 				}
 
@@ -118,7 +196,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 450.0, 230.0, 50.0, 21.0 ]
+					"patching_rect" : [ 337.0, 224.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -129,7 +207,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 450.0, 265.0, 88.0, 21.0 ],
+					"patching_rect" : [ 337.0, 259.0, 88.0, 22.0 ],
 					"text" : "ampRandom $1"
 				}
 
@@ -137,12 +215,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-22",
-					"linecount" : 3,
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 187.0, 306.0, 150.0, 43.0 ],
-					"text" : "Arguments are chorus value, buffersize, and number of voices"
+					"patching_rect" : [ 188.0, 317.0, 299.0, 33.0 ],
+					"text" : "Arguments are chorus value, buffersize, and number of voices",
+					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
 
 			}
@@ -153,8 +232,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 96.0, 225.0, 268.0, 31.0 ],
-					"text" : "The best values for a chorus effect are between zero and one"
+					"patching_rect" : [ 36.0, 242.0, 180.0, 33.0 ],
+					"text" : "The best values for a chorus effect are between zero and one",
+					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
 
 			}
@@ -165,7 +245,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 44.0, 170.0, 76.0, 21.0 ],
+					"patching_rect" : [ 15.0, 186.0, 76.0, 22.0 ],
 					"text" : "loadmess 0.5"
 				}
 
@@ -177,7 +257,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1.0, 58.0, 427.0, 31.0 ],
+					"patching_rect" : [ 1.0, 58.0, 427.0, 33.0 ],
 					"text" : "A granular chorusing effect where grains are modulated in terms of rate and delay based on a single value.  Random panning is also applied."
 				}
 
@@ -189,18 +269,19 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1.0, 3.0, 426.0, 43.0 ],
+					"patching_rect" : [ 1.0, 3.0, 426.0, 42.0 ],
 					"text" : "grainflow.chorus~"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-11",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 96.0, 202.0, 268.0, 19.0 ],
+					"patching_rect" : [ 67.0, 218.0, 268.0, 24.0 ],
 					"text" : "Chorus value- higher is more extreme."
 				}
 
@@ -214,7 +295,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 44.0, 202.0, 50.0, 21.0 ]
+					"patching_rect" : [ 15.0, 218.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -226,7 +307,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 14.0, 113.0, 24.0, 24.0 ],
+					"patching_rect" : [ 14.0, 104.0, 24.0, 24.0 ],
 					"uncheckedcolor" : [ 0.572549019607843, 0.572549019607843, 0.572549019607843, 1.0 ]
 				}
 
@@ -261,7 +342,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 44.0, 255.0, 150.0, 30.0 ],
+					"patching_rect" : [ 14.0, 142.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -275,7 +356,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 14.0, 317.0, 164.0, 21.0 ],
+					"patching_rect" : [ 14.0, 317.0, 164.0, 22.0 ],
 					"text" : "grainflow.chorus~ 0.5 5000 10"
 				}
 
@@ -283,7 +364,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "bgColor", 1, 1, 1, 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "buffername", "2314_flow_1" ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "showTriangles", 0 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "mode", 0 ], [ "maxBufferDrawSamples", 1920 ] ],
+					"embedstate" : [ [ "dotScale", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "3214_flow_1" ], [ "dotColor", 1, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-25",
 					"maxclass" : "jsui",
@@ -320,6 +401,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 346.5, 298.0, 23.5, 298.0 ],
 					"source" : [ "obj-27", 0 ]
 				}
 
@@ -328,13 +410,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-27", 0 ],
 					"source" : [ "obj-29", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"source" : [ "obj-3", 1 ]
 				}
 
 			}
@@ -447,18 +522,21 @@
 			}
  ],
 		"autosave" : 0,
+		"boxgroups" : [ 			{
+				"boxes" : [ "obj-39", "obj-38" ]
+			}
+, 			{
+				"boxes" : [ "obj-5", "obj-35" ]
+			}
+ ],
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontsize" : [ 10.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -468,7 +546,11 @@
 						"proportion" : 0.39,
 						"autogradient" : 0.0
 					}
-
+,
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

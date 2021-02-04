@@ -10,12 +10,12 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 86.0, 91.0, 640.0, 896.0 ],
+		"rect" : [ 86.0, 91.0, 445.0, 725.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -40,11 +40,23 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"bubble" : 1,
+					"id" : "obj-9",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 53.0, 85.0, 150.0, 24.0 ],
+					"text" : "Start the granulator"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-6",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 17.0, 64.0, 430.0, 19.0 ],
+					"patching_rect" : [ 17.0, 56.0, 407.0, 20.0 ],
 					"text" : "Randomly pans new grains in a stereo field with equal power panning"
 				}
 
@@ -83,18 +95,19 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 243.0, 202.0, 76.0, 21.0 ],
+					"patching_rect" : [ 31.5, 210.0, 76.0, 22.0 ],
 					"text" : "loadmess 0.5"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-27",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 79.0, 222.0, 150.0, 19.0 ],
+					"patching_rect" : [ 88.5, 233.0, 168.0, 24.0 ],
 					"text" : "The panning center (0-1)"
 				}
 
@@ -106,20 +119,21 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.0, 115.0, 76.0, 21.0 ],
+					"patching_rect" : [ 17.0, 115.0, 76.0, 22.0 ],
 					"text" : "loadmess 0.1"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-24",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 89.5, 145.0, 150.0, 31.0 ],
-					"text" : "How spread the panning is from the center point (0-1)"
+					"patching_rect" : [ 63.5, 144.0, 230.0, 37.0 ],
+					"text" : "Spread the panning is from the center point (0-1)"
 				}
 
 			}
@@ -130,8 +144,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 167.0, 462.0, 150.0, 31.0 ],
-					"text" : "The argument is the maximum number of grains"
+					"patching_rect" : [ 168.0, 457.0, 140.0, 33.0 ],
+					"text" : "The argument is the maximum number of grains",
+					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
 
 			}
@@ -142,7 +157,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 17.0, 5.0, 430.0, 43.0 ],
+					"patching_rect" : [ 17.0, 5.0, 407.0, 42.0 ],
 					"text" : "grainflow.util.stereoPan~"
 				}
 
@@ -158,7 +173,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 17.0, 222.0, 50.0, 21.0 ]
+					"patching_rect" : [ 31.5, 233.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -169,7 +184,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.0, 262.0, 77.0, 21.0 ],
+					"patching_rect" : [ 31.5, 263.0, 77.0, 22.0 ],
 					"text" : "panCenter $1"
 				}
 
@@ -181,8 +196,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 59.0, 325.0, 71.0, 21.0 ],
-					"text" : "phasor~ 0.1"
+					"patching_rect" : [ 59.0, 325.0, 71.0, 22.0 ],
+					"text" : "phasor~ 0.5"
 				}
 
 			}
@@ -193,8 +208,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 17.0, 300.0, 67.0, 21.0 ],
-					"text" : "phasor~ 50"
+					"patching_rect" : [ 17.0, 300.0, 61.0, 22.0 ],
+					"text" : "phasor~ 5"
 				}
 
 			}
@@ -209,7 +224,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 17.0, 144.0, 50.0, 21.0 ]
+					"patching_rect" : [ 17.0, 144.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -220,7 +235,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.0, 184.0, 79.0, 21.0 ],
+					"patching_rect" : [ 17.0, 184.0, 79.0, 22.0 ],
 					"text" : "panSpread $1"
 				}
 
@@ -228,6 +243,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-8",
+					"local" : 1,
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -243,7 +259,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 123.0, 280.0, 24.0, 24.0 ]
+					"patching_rect" : [ 17.0, 85.0, 24.0, 24.0 ],
+					"uncheckedcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 				}
 
 			}
@@ -254,7 +271,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 175.0, 365.0, 167.0, 21.0 ],
+					"patching_rect" : [ 175.0, 365.0, 167.0, 22.0 ],
 					"text" : "buffer~ _gf.stereopan anton.aif"
 				}
 
@@ -266,7 +283,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 7,
 					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 17.0, 365.0, 145.0, 21.0 ],
+					"patching_rect" : [ 17.0, 365.0, 145.0, 22.0 ],
 					"text" : "grainflow~ _gf.stereopan 5"
 				}
 
@@ -278,7 +295,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 17.0, 457.0, 145.0, 21.0 ],
+					"patching_rect" : [ 17.0, 457.0, 145.0, 22.0 ],
 					"text" : "grainflow.util.stereoPan~ 5"
 				}
 
@@ -419,6 +436,11 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -429,15 +451,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

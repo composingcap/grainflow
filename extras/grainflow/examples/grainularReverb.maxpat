@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 94.0, 158.0, 1049.0, 1101.0 ],
+		"rect" : [ 94.0, 158.0, 1034.0, 1101.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -40,12 +40,50 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 36.0, 100.0, 24.0, 24.0 ],
+					"uncheckedcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-8",
+					"maxclass" : "meter~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 219.5, 762.0, 156.5, 186.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bubble" : 1,
+					"bubblepoint" : 0.9,
+					"id" : "obj-6",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 329.0, 148.0, 166.0, 23.0 ],
+					"text" : "Play a soundfile"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-66",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 100.333333333333371, 245.0, 224.0, 31.0 ],
+					"patching_rect" : [ 100.333333333333371, 245.0, 224.0, 35.0 ],
 					"text" : "Make sure the grain frequency does not feedback"
 				}
 
@@ -64,35 +102,25 @@
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-63",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 120.333333333333343, 131.0, 150.0, 19.0 ],
+					"patching_rect" : [ 109.000000000000028, 131.0, 180.999999999999972, 23.0 ],
 					"text" : "Clear the granulator buffer"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-62",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 128.0, 100.0, 150.0, 19.0 ],
+					"patching_rect" : [ 65.0, 100.0, 166.0, 23.0 ],
 					"text" : "Turn the granulator on"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-48",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 59.5, 562.0, 92.0, 21.0 ],
-					"text" : "r togf.reverb.live"
 				}
 
 			}
@@ -236,6 +264,11 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -246,15 +279,10 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"fontname" : [ "Futura Medium" ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ]
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -290,7 +318,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 71.0, 829.0, 136.0, 47.0 ],
+					"patching_rect" : [ 70.0, 793.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
@@ -311,47 +339,11 @@
 				"box" : 				{
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"id" : "obj-34",
+					"local" : 1,
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 71.0, 906.0, 45.0, 45.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-29",
-					"maxclass" : "textbutton",
-					"mode" : 1,
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "int" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 24.0, 100.0, 100.0, 20.0 ],
-					"text" : "Granulator Off",
-					"texton" : "Granulator On"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 24.0, 165.0, 93.0, 21.0 ],
-					"text" : "s togf.reverb.live"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-8",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 676.0, 509.0, 93.0, 21.0 ],
-					"text" : "s togf.reverb.live"
+					"patching_rect" : [ 70.0, 860.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -410,12 +402,13 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.96 ],
+					"bubble" : 1,
 					"id" : "obj-54",
-					"linecount" : 3,
+					"linecount" : 4,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 757.0, 322.0, 252.0, 43.0 ],
+					"patching_rect" : [ 757.0, 322.0, 252.0, 59.0 ],
 					"text" : "If you want to avoid frequencies, try dialing in your own frequencies to the buffer. Non-integer numbers will result in less ringing."
 				}
 
@@ -423,12 +416,13 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.96 ],
+					"bubble" : 1,
 					"id" : "obj-53",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 187.0, 473.0, 174.0, 31.0 ],
+					"patching_rect" : [ 193.5, 456.0, 174.0, 35.0 ],
 					"text" : "reduce grainyness by randomizing grain lengths"
 				}
 
@@ -604,6 +598,11 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -614,15 +613,10 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"fontname" : [ "Futura Medium" ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ]
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -664,11 +658,12 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.96 ],
+					"bubble" : 1,
 					"id" : "obj-42",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 145.0, 408.0, 271.0, 19.0 ],
+					"patching_rect" : [ 145.0, 408.0, 271.0, 23.0 ],
 					"text" : "tapin/out needed for valid feedback loop"
 				}
 
@@ -676,12 +671,13 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.96 ],
+					"bubble" : 1,
 					"id" : "obj-41",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 166.0, 288.0, 150.0, 31.0 ],
+					"patching_rect" : [ 166.0, 288.0, 150.0, 35.0 ],
 					"text" : "Feedback filter provides color"
 				}
 
@@ -689,11 +685,12 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.96 ],
+					"bubble" : 1,
 					"id" : "obj-39",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 213.666666666666629, 535.0, 100.0, 19.0 ],
+					"patching_rect" : [ 213.666666666666629, 535.0, 100.0, 23.0 ],
 					"text" : "Grain size ms"
 				}
 
@@ -726,12 +723,13 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.96 ],
+					"bubble" : 1,
 					"id" : "obj-28",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 222.0, 661.0, 109.0, 31.0 ],
+					"patching_rect" : [ 226.0, 661.0, 109.0, 35.0 ],
 					"text" : "Randomly pans each new grain"
 				}
 
@@ -739,12 +737,13 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.96 ],
+					"bubble" : 1,
 					"id" : "obj-20",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 150.0, 353.0, 271.0, 31.0 ],
+					"patching_rect" : [ 150.0, 353.0, 272.0, 35.0 ],
 					"text" : "Feedback coeficent determines how long the tail of the reverb is"
 				}
 
@@ -757,7 +756,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 749.0, 420.0, 185.0, 31.0 ],
+					"patching_rect" : [ 480.0, 531.0, 185.0, 31.0 ],
 					"text" : "travMode 2 reads a sample of the tracOffsets randomly"
 				}
 
@@ -765,12 +764,13 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 1.0, 1.0, 1.0, 0.96 ],
+					"bubble" : 1,
 					"id" : "obj-12",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 753.0, 262.0, 251.0, 31.0 ],
+					"patching_rect" : [ 753.0, 262.0, 251.0, 35.0 ],
 					"text" : "generates a random list of numbers between -100 and -250"
 				}
 
@@ -782,7 +782,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 676.0, 430.0, 54.0, 21.0 ],
+					"patching_rect" : [ 407.0, 541.0, 54.0, 21.0 ],
 					"text" : "loadbang"
 				}
 
@@ -845,7 +845,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 676.0, 456.0, 348.0, 33.0 ],
+					"patching_rect" : [ 407.0, 573.0, 348.0, 33.0 ],
 					"text" : "travMode 2, travOffsets travbuf, space 0.01, windowOffsetRandom 1, travRandom 5, ampRandom 0.25, rateRandom -0.001"
 				}
 
@@ -890,7 +890,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "buffername", "1082_flow_1" ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "selection", 0, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "dotScale", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "3877_flow_1" ], [ "dotColor", 1, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-36",
 					"maxclass" : "jsui",
@@ -898,7 +898,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 384.0, 668.0, 550.0, 125.0 ]
+					"patching_rect" : [ 378.0, 715.0, 550.0, 125.0 ]
 				}
 
 			}
@@ -1005,7 +1005,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 219.0, 180.5, 203.0, 39.0 ],
+					"patching_rect" : [ 88.0, 166.0, 203.0, 39.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -1076,7 +1076,7 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-36", 0 ],
-					"midpoints" : [ 203.5, 623.5, 393.5, 623.5 ],
+					"midpoints" : [ 203.5, 691.5, 387.5, 691.5 ],
 					"order" : 0,
 					"source" : [ "obj-1", 1 ]
 				}
@@ -1093,7 +1093,23 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-50", 0 ],
+					"order" : 1,
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"order" : 0,
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
@@ -1106,7 +1122,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
+					"destination" : [ "obj-50", 0 ],
 					"source" : [ "obj-15", 0 ]
 				}
 
@@ -1159,13 +1175,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-35", 0 ],
 					"source" : [ "obj-26", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
-					"source" : [ "obj-29", 0 ]
 				}
 
 			}
@@ -1242,13 +1251,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"source" : [ "obj-48", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-31", 0 ],
 					"source" : [ "obj-49", 0 ]
 				}
@@ -1294,7 +1296,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
+					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-56", 0 ]
 				}
 
@@ -1316,7 +1318,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 228.5, 436.5, 79.5, 436.5 ],
+					"midpoints" : [ 97.5, 533.0, 79.5, 533.0 ],
 					"source" : [ "obj-7", 0 ]
 				}
 
@@ -1412,6 +1414,11 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1422,15 +1429,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontname" : [ "Futura Medium" ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

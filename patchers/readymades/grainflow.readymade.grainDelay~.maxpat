@@ -13,9 +13,9 @@
 		"rect" : [ 1592.0, 394.0, 640.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -45,7 +45,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 404.333333333333371, 322.0, 79.0, 21.0 ],
+					"patching_rect" : [ 404.333333333333371, 322.0, 79.0, 22.0 ],
 					"text" : "panSpread $1"
 				}
 
@@ -175,7 +175,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 451.0, 157.5, 88.0, 21.0 ],
+					"patching_rect" : [ 451.0, 157.5, 88.0, 22.0 ],
 					"text" : "ampRandom $1"
 				}
 
@@ -186,7 +186,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 451.0, 186.5, 105.0, 21.0 ],
+					"patching_rect" : [ 451.0, 186.5, 105.0, 22.0 ],
 					"text" : "s #0_tograinflow"
 				}
 
@@ -227,7 +227,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 316.0, 85.0, 86.0, 21.0 ],
+					"patching_rect" : [ 316.0, 85.0, 86.0, 22.0 ],
 					"text" : "travRandom $1"
 				}
 
@@ -238,7 +238,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 316.0, 120.0, 105.0, 21.0 ],
+					"patching_rect" : [ 316.0, 120.0, 105.0, 22.0 ],
 					"text" : "s #0_tograinflow"
 				}
 
@@ -251,10 +251,10 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 439.5, 14.0, 181.0, 65.0 ],
+					"patching_rect" : [ 439.5, 14.0, 181.0, 64.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 5.0, -3.0, 138.0, 65.0 ],
+					"presentation_rect" : [ 5.0, -3.0, 138.0, 64.0 ],
 					"text" : "Grainflow\nDelay"
 				}
 
@@ -266,7 +266,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 62.0, 247.0, 104.0, 21.0 ],
+					"patching_rect" : [ 62.0, 247.0, 104.0, 22.0 ],
 					"text" : "r #0_tograinflow"
 				}
 
@@ -277,7 +277,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 140.0, 70.0, 105.0, 21.0 ],
+					"patching_rect" : [ 140.0, 70.0, 105.0, 22.0 ],
 					"text" : "s #0_tograinflow"
 				}
 
@@ -333,7 +333,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 64.0, 103.0, 30.0, 30.0 ]
 				}
 
@@ -347,7 +347,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 297.333333333333371, 273.0, 50.0, 21.0 ]
+					"patching_rect" : [ 297.333333333333371, 273.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -358,7 +358,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "float" ],
-					"patching_rect" : [ 101.333333333333343, 219.0, 215.0, 21.0 ],
+					"patching_rect" : [ 101.333333333333343, 219.0, 215.0, 22.0 ],
 					"text" : "grainflow.util.rateSizePhasor~ 30 15 250"
 				}
 
@@ -370,7 +370,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 62.0, 322.0, 151.0, 21.0 ],
+					"patching_rect" : [ 62.0, 322.0, 151.0, 22.0 ],
 					"text" : "grainflow.util.stereoPan~ 30"
 				}
 
@@ -382,7 +382,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 62.0, 284.0, 137.0, 21.0 ],
+					"patching_rect" : [ 62.0, 284.0, 137.0, 22.0 ],
 					"text" : "grainFlow.live~ 10000 30"
 				}
 
@@ -390,7 +390,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "bgColor", 1, 1, 1, 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "showTriangles", 0 ], [ "maxBufferDrawSamples", 1920 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 5 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "3292_flow_1" ] ],
+					"embedstate" : [ [ "dotScale", 5 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "4018_flow_1" ], [ "dotColor", 1, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-15",
 					"maxclass" : "jsui",
@@ -531,12 +531,10 @@
 				"name" : "Minimal",
 				"default" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -547,8 +545,10 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
