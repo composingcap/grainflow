@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 227.0, 106.0, 618.0, 932.0 ],
+		"rect" : [ 1218.0, 196.0, 618.0, 932.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -58,7 +58,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 158.0, 131.0, 17.0, 17.0 ],
+					"patching_rect" : [ 159.0, 144.0, 17.0, 17.0 ],
 					"text" : "2",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textjustification" : 1
@@ -74,7 +74,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 158.0, 131.0, 16.0, 17.0 ],
+					"patching_rect" : [ 159.0, 144.0, 16.0, 17.0 ],
 					"proportion" : 0.39,
 					"shape" : 1
 				}
@@ -118,7 +118,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 180.0, 131.0, 237.0, 24.0 ],
+					"patching_rect" : [ 178.0, 140.0, 237.0, 24.0 ],
 					"text" : "Play this sound file into grainflow.live~"
 				}
 
@@ -181,7 +181,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 213.0, 174.0, 50.0, 22.0 ]
+					"patching_rect" : [ 213.0, 184.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -192,7 +192,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 213.0, 202.0, 45.0, 22.0 ],
+					"patching_rect" : [ 213.0, 212.0, 45.0, 22.0 ],
 					"text" : "trav $1"
 				}
 
@@ -205,7 +205,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 271.666666666666742, 167.0, 183.0, 37.0 ],
+					"patching_rect" : [ 271.666666666666742, 177.0, 183.0, 37.0 ],
 					"text" : "Any grainflow~ message can be sent to grainflow.live~"
 				}
 
@@ -219,7 +219,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 116.0, 174.0, 50.0, 22.0 ]
+					"patching_rect" : [ 116.0, 184.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -230,7 +230,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 116.0, 202.0, 86.0, 22.0 ],
+					"patching_rect" : [ 116.0, 212.0, 86.0, 22.0 ],
 					"text" : "travRandom $1"
 				}
 
@@ -400,7 +400,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotScale", 5 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "1987_flow_1" ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "showTriangles", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 5 ], [ "showTriangles", 0 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "buffername", "1003_flow_1" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "mode", 0 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -542,7 +542,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 21.0, 131.0, 135.0, 28.0 ],
+					"patching_rect" : [ 21.0, 140.0, 135.0, 28.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -807,12 +807,10 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"fontface" : [ 0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"fontsize" : [ 10.0 ],
+					"fontface" : [ 0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -824,10 +822,12 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
+					"fontsize" : [ 10.0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
