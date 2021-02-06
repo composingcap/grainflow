@@ -4,18 +4,18 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 3,
+			"revision" : 8,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1107.0, 694.0, 1270.0, 480.0 ],
+		"rect" : [ 73.0, 200.0, 319.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -37,6 +37,7 @@
 		"tags" : "",
 		"style" : "Minimal",
 		"subpatcher_template" : "minimal",
+		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
 					"id" : "obj-5",
@@ -44,7 +45,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 406.0, 155.0, 65.0, 21.0 ],
+					"patching_rect" : [ 217.0, 148.0, 69.0, 22.0 ],
 					"text" : "vexpr $f1*0"
 				}
 
@@ -56,7 +57,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "" ],
-					"patching_rect" : [ 341.0, 146.0, 29.5, 21.0 ],
+					"patching_rect" : [ 152.0, 139.0, 29.5, 22.0 ],
 					"text" : "t 0 l"
 				}
 
@@ -68,7 +69,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 406.0, 132.0, 47.0, 21.0 ],
+					"patching_rect" : [ 217.0, 125.0, 50.0, 22.0 ],
 					"text" : "gate 1 1"
 				}
 
@@ -80,7 +81,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 341.0, 120.0, 35.0, 21.0 ],
+					"patching_rect" : [ 152.0, 113.0, 37.0, 22.0 ],
 					"text" : "zl.reg"
 				}
 
@@ -89,12 +90,12 @@
 				"box" : 				{
 					"comment" : "input list",
 					"id" : "obj-29",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 212.5, 17.0, 30.0, 30.0 ]
+					"patching_rect" : [ 23.5, 10.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -102,11 +103,11 @@
 				"box" : 				{
 					"comment" : "base 1 indices of changes (positive up negitive down)",
 					"id" : "obj-28",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 352.5, 400.0, 30.0, 30.0 ]
+					"patching_rect" : [ 163.5, 393.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -114,11 +115,11 @@
 				"box" : 				{
 					"comment" : "list of changes (1 is up -1 is down)",
 					"id" : "obj-27",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 223.0, 400.0, 30.0, 30.0 ]
+					"patching_rect" : [ 34.0, 393.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -129,7 +130,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 352.5, 321.0, 93.0, 21.0 ],
+					"patching_rect" : [ 163.5, 314.0, 101.0, 22.0 ],
 					"text" : "vexpr $i1*($i2+1)"
 				}
 
@@ -141,7 +142,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 352.5, 279.0, 49.0, 21.0 ],
+					"patching_rect" : [ 163.5, 272.0, 53.0, 22.0 ],
 					"text" : "zl.filter 0"
 				}
 
@@ -153,7 +154,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 4,
 					"outlettype" : [ "", "", "", "bang" ],
-					"patching_rect" : [ 212.5, 87.0, 50.5, 21.0 ],
+					"patching_rect" : [ 23.5, 80.0, 50.5, 22.0 ],
 					"text" : "t l l l b"
 				}
 
@@ -165,7 +166,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 223.0, 215.0, 175.0, 21.0 ],
+					"patching_rect" : [ 34.0, 208.0, 202.0, 22.0 ],
 					"text" : "vexpr int(($f1-$f2 > 0)-($f1-$f2 < 0))"
 				}
 
@@ -279,16 +280,21 @@
 
 			}
  ],
+		"dependency_cache" : [  ],
+		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
+					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -299,10 +305,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

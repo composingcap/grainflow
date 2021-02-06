@@ -10,12 +10,12 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 989.0, 358.0, 1270.0, 744.0 ],
+		"rect" : [ 165.0, 148.0, 649.0, 550.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -45,7 +45,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 8.0, 75.0, 66.0, 21.0 ],
+					"patching_rect" : [ 8.0, 75.0, 66.0, 22.0 ],
 					"text" : "loadmess 0"
 				}
 
@@ -57,7 +57,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
-					"patching_rect" : [ 8.0, 103.0, 29.5, 21.0 ],
+					"patching_rect" : [ 8.0, 103.0, 29.5, 22.0 ],
 					"text" : "!- 1"
 				}
 
@@ -69,7 +69,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 8.0, 143.0, 43.0, 21.0 ],
+					"patching_rect" : [ 8.0, 143.0, 43.0, 22.0 ],
 					"text" : "mute~"
 				}
 
@@ -81,7 +81,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 365.0, 81.0, 54.0, 21.0 ],
+					"patching_rect" : [ 365.0, 81.0, 54.0, 22.0 ],
 					"text" : "loadbang"
 				}
 
@@ -93,7 +93,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "" ],
-					"patching_rect" : [ 446.0, 288.0, 29.5, 21.0 ],
+					"patching_rect" : [ 446.0, 288.0, 29.5, 22.0 ],
 					"text" : "t b l"
 				}
 
@@ -105,7 +105,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 446.0, 263.0, 68.0, 21.0 ],
+					"patching_rect" : [ 446.0, 263.0, 68.0, 22.0 ],
 					"text" : "prepend set"
 				}
 
@@ -117,7 +117,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 446.0, 233.0, 55.0, 21.0 ],
+					"patching_rect" : [ 446.0, 233.0, 55.0, 22.0 ],
 					"text" : "route buf"
 				}
 
@@ -129,7 +129,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 9,
 					"outlettype" : [ "float", "list", "float", "float", "float", "float", "float", "", "int" ],
-					"patching_rect" : [ 450.0, 318.0, 103.0, 21.0 ],
+					"patching_rect" : [ 450.0, 318.0, 103.0, 22.0 ],
 					"text" : "info~"
 				}
 
@@ -141,7 +141,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 405.0, 173.0, 114.0, 21.0 ],
+					"patching_rect" : [ 405.0, 173.0, 114.0, 22.0 ],
 					"text" : "qmetro 33 @active 1"
 				}
 
@@ -153,7 +153,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 239.0, 399.0, 29.5, 21.0 ],
+					"patching_rect" : [ 239.0, 399.0, 29.5, 22.0 ],
 					"text" : "* 0."
 				}
 
@@ -165,7 +165,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 239.0, 423.0, 125.0, 21.0 ],
+					"patching_rect" : [ 239.0, 423.0, 125.0, 22.0 ],
 					"text" : "prepend recordHeadMs"
 				}
 
@@ -177,7 +177,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 109.0, 362.0, 111.0, 21.0 ],
+					"patching_rect" : [ 109.0, 362.0, 111.0, 22.0 ],
 					"text" : "prepend recordHead"
 				}
 
@@ -189,7 +189,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 50.0, 143.0, 157.0, 21.0 ],
+					"patching_rect" : [ 50.0, 143.0, 157.0, 22.0 ],
 					"text" : "mc.mixdown~ 1 @autogain 1"
 				}
 
@@ -201,7 +201,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 190.0, 120.0, 69.0, 21.0 ],
+					"patching_rect" : [ 190.0, 120.0, 69.0, 22.0 ],
 					"text" : "prepend rec"
 				}
 
@@ -213,7 +213,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 50.0, 48.0, 155.0, 21.0 ],
+					"patching_rect" : [ 50.0, 48.0, 155.0, 22.0 ],
 					"text" : "routepass multichannelsignal"
 				}
 
@@ -225,7 +225,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 6,
 					"outlettype" : [ "signal", "bang", "int", "float", "", "list" ],
-					"patching_rect" : [ 169.0, 82.0, 71.5, 21.0 ],
+					"patching_rect" : [ 169.0, 82.0, 71.5, 22.0 ],
 					"text" : "typeroute~"
 				}
 
@@ -237,7 +237,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 282.0, 103.0, 69.0, 21.0 ],
+					"patching_rect" : [ 282.0, 103.0, 69.0, 22.0 ],
 					"text" : "prepend buf"
 				}
 
@@ -249,7 +249,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 273.0, 69.0, 40.0, 21.0 ],
+					"patching_rect" : [ 273.0, 69.0, 40.0, 22.0 ],
 					"text" : "unjoin"
 				}
 
@@ -261,7 +261,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 273.0, 40.0, 68.0, 21.0 ],
+					"patching_rect" : [ 273.0, 40.0, 68.0, 22.0 ],
 					"text" : "patcherargs",
 					"varname" : "u723011287"
 				}
@@ -274,7 +274,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 109.0, 325.0, 62.0, 21.0 ],
+					"patching_rect" : [ 109.0, 325.0, 62.0, 22.0 ],
 					"text" : "snapshot~"
 				}
 
@@ -286,7 +286,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "signal", "signal", "signal" ],
-					"patching_rect" : [ 50.0, 204.0, 122.0, 21.0 ],
+					"patching_rect" : [ 50.0, 204.0, 122.0, 22.0 ],
 					"text" : "gen~ grainFlow.record"
 				}
 
@@ -295,11 +295,11 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-1",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 50.0, 16.0, 30.0, 30.0 ]
 				}
 
@@ -308,7 +308,7 @@
 				"box" : 				{
 					"comment" : "sync~",
 					"id" : "obj-2",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -320,7 +320,7 @@
 				"box" : 				{
 					"comment" : "recordHead",
 					"id" : "obj-3",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -546,14 +546,27 @@
 
 			}
  ],
+		"dependency_cache" : [ 			{
+				"name" : "grainflow.record.gendsp",
+				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
+				"patcherrelativepath" : "../../code",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+ ],
+		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -565,11 +578,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontname" : [ "Futura Medium" ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
