@@ -13,9 +13,9 @@
 		"rect" : [ 100.0, 100.0, 604.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -58,7 +58,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 375.0, 77.0, 190.0, 47.0 ],
+					"patching_rect" : [ 375.0, 77.0, 190.0, 50.0 ],
 					"text" : "Sah mode will only change the frequency of the phasor on a new cycle"
 				}
 
@@ -69,7 +69,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 388.0, 215.0, 150.0, 19.0 ],
+					"patching_rect" : [ 388.0, 215.0, 150.0, 20.0 ],
 					"text" : "mode 2 is fold"
 				}
 
@@ -108,7 +108,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 345.0, 133.0, 69.0, 21.0 ],
+					"patching_rect" : [ 345.0, 133.0, 69.0, 22.0 ],
 					"text" : "sahMode $1"
 				}
 
@@ -120,7 +120,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.0, 203.0, 43.0, 21.0 ],
+					"patching_rect" : [ 20.0, 203.0, 43.0, 22.0 ],
 					"text" : "set 0.5"
 				}
 
@@ -132,7 +132,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.0, 168.0, 34.0, 21.0 ],
+					"patching_rect" : [ 20.0, 168.0, 34.0, 22.0 ],
 					"text" : "reset"
 				}
 
@@ -143,7 +143,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 388.0, 189.0, 150.0, 19.0 ],
+					"patching_rect" : [ 388.0, 189.0, 150.0, 20.0 ],
 					"text" : "mode 1 is warp"
 				}
 
@@ -155,7 +155,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 334.0, 215.0, 46.0, 21.0 ],
+					"patching_rect" : [ 334.0, 215.0, 46.0, 22.0 ],
 					"text" : "mode 2"
 				}
 
@@ -167,7 +167,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 334.0, 189.0, 46.0, 21.0 ],
+					"patching_rect" : [ 334.0, 189.0, 46.0, 22.0 ],
 					"text" : "mode 1"
 				}
 
@@ -179,7 +179,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 18.0, 98.0, 66.0, 21.0 ],
+					"patching_rect" : [ 18.0, 98.0, 66.0, 22.0 ],
 					"text" : "loadmess 1"
 				}
 
@@ -191,7 +191,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 130.0, 187.0, 66.0, 21.0 ],
+					"patching_rect" : [ 130.0, 187.0, 66.0, 22.0 ],
 					"text" : "loadmess 1"
 				}
 
@@ -203,7 +203,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 184.0, 222.0, 101.0, 23.0 ],
+					"patching_rect" : [ 184.0, 222.0, 101.0, 24.0 ],
 					"text" : "high bound"
 				}
 
@@ -219,7 +219,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 130.0, 222.0, 49.0, 21.0 ]
+					"patching_rect" : [ 130.0, 222.0, 49.0, 22.0 ]
 				}
 
 			}
@@ -230,7 +230,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 121.0, 155.0, 149.0, 23.0 ],
+					"patching_rect" : [ 121.0, 155.0, 149.0, 24.0 ],
 					"text" : "low bound"
 				}
 
@@ -246,7 +246,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 75.0, 155.0, 49.0, 21.0 ]
+					"patching_rect" : [ 75.0, 155.0, 49.0, 22.0 ]
 				}
 
 			}
@@ -257,7 +257,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 79.5, 125.0, 150.0, 23.0 ],
+					"patching_rect" : [ 79.5, 125.0, 150.0, 24.0 ],
 					"text" : "Rate"
 				}
 
@@ -271,7 +271,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 18.0, 123.0, 50.0, 21.0 ]
+					"patching_rect" : [ 18.0, 123.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -293,19 +293,20 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 10.0, 52.0, 541.0, 19.0 ],
+					"patching_rect" : [ 10.0, 52.0, 541.0, 20.0 ],
 					"text" : "A phasor that easily wraps and folds around different looping points between 0 and 1"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato",
 					"fontsize" : 30.0,
 					"id" : "obj-3",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 10.0, 5.0, 430.0, 43.0 ],
+					"patching_rect" : [ 10.0, 5.0, 372.0, 42.0 ],
 					"text" : "grainflow.util.phasor~"
 				}
 
@@ -317,7 +318,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
-					"patching_rect" : [ 20.0, 301.0, 129.0, 21.0 ],
+					"patching_rect" : [ 20.0, 301.0, 129.0, 22.0 ],
 					"text" : "grainflow.util.phasor~ 1"
 				}
 

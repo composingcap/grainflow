@@ -94,7 +94,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 257.1640625, 530.0, 156.0, 37.0 ],
+									"patching_rect" : [ 257.1640625, 500.0, 156.0, 37.0 ],
 									"text" : "Will adust the amplitude with a signal- great for AM"
 								}
 
@@ -107,7 +107,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 193.1640625, 474.5, 150.0, 37.0 ],
+									"patching_rect" : [ 186.5, 454.5, 150.0, 37.0 ],
 									"text" : "Will adust the rate with a signal- great for FM"
 								}
 
@@ -123,7 +123,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 205.1640625, 520.0, 50.0, 22.0 ]
+									"patching_rect" : [ 205.1640625, 500.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -136,7 +136,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 143.1640625, 482.0, 50.0, 22.0 ]
+									"patching_rect" : [ 143.1640625, 462.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -147,7 +147,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 205.1640625, 542.0, 37.0, 22.0 ],
+									"patching_rect" : [ 205.1640625, 522.0, 37.0, 22.0 ],
 									"text" : "sig~ 0"
 								}
 
@@ -159,7 +159,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 143.1640625, 512.0, 37.0, 22.0 ],
+									"patching_rect" : [ 143.1640625, 492.0, 37.0, 22.0 ],
 									"text" : "sig~ 0"
 								}
 
@@ -171,7 +171,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 19.1640625, 512.0, 66.0, 22.0 ],
+									"patching_rect" : [ 19.1640625, 492.0, 66.0, 22.0 ],
 									"text" : "phasor~ 0.5"
 								}
 
@@ -183,7 +183,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 81.1640625, 542.0, 72.0, 22.0 ],
+									"patching_rect" : [ 81.1640625, 522.0, 72.0, 22.0 ],
 									"text" : "phasor~ 0.05"
 								}
 
@@ -208,7 +208,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 236.1640625, 576.0, 123.0, 33.0 ],
+									"patching_rect" : [ 236.1640625, 556.0, 123.0, 33.0 ],
 									"text" : "arguments: buffername. max-grains",
 									"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 								}
@@ -249,7 +249,7 @@
 									"maxclass" : "mc.ezdac~",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 19.1640625, 734.0, 45.0, 45.0 ]
+									"patching_rect" : [ 19.1640625, 714.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -260,7 +260,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 143.1640625, 620.0, 111.8359375, 59.0 ],
+									"patching_rect" : [ 143.1640625, 600.0, 111.8359375, 59.0 ],
 									"text" : "Each grain has its own channel.  This is convienent for bussing and panning.",
 									"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 								}
@@ -273,7 +273,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 19.1640625, 706.0, 61.0, 22.0 ],
+									"patching_rect" : [ 19.1640625, 686.0, 61.0, 22.0 ],
 									"text" : "mc.*~ 0.5"
 								}
 
@@ -285,7 +285,7 @@
 									"numinlets" : 4,
 									"numoutlets" : 7,
 									"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-									"patching_rect" : [ 19.1640625, 582.5, 205.0, 22.0 ],
+									"patching_rect" : [ 19.1640625, 562.5, 205.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf2 5"
 								}
 
@@ -300,7 +300,7 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 19.1640625, 612.5, 123.0, 65.0 ],
+									"patching_rect" : [ 19.1640625, 592.5, 123.0, 65.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[3]",
@@ -324,7 +324,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 19.1640625, 682.0, 90.0, 22.0 ],
+									"patching_rect" : [ 19.1640625, 662.0, 90.0, 22.0 ],
 									"text" : "mc.mixdown~ 2"
 								}
 
@@ -486,7 +486,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 572.08203125, 58.5, 115.0, 50.0 ],
+									"patching_rect" : [ 548.08203125, 58.5, 115.0, 50.0 ],
 									"text" : "Offsets grains from the traversal signal in ms "
 								}
 
@@ -626,7 +626,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 517.91796875, 153.5, 50.0, 22.0 ]
+									"patching_rect" : [ 493.91796875, 153.5, 50.0, 22.0 ]
 								}
 
 							}
@@ -637,7 +637,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 517.91796875, 184.0, 86.0, 22.0 ],
+									"patching_rect" : [ 493.91796875, 184.0, 86.0, 22.0 ],
 									"text" : "rateRandom $1"
 								}
 
@@ -651,7 +651,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 425.74609375, 153.5, 50.0, 22.0 ]
+									"patching_rect" : [ 409.74609375, 153.5, 50.0, 22.0 ]
 								}
 
 							}
@@ -662,7 +662,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 425.74609375, 184.0, 75.0, 22.0 ],
+									"patching_rect" : [ 409.74609375, 184.0, 75.0, 22.0 ],
 									"text" : "rateOffset $1"
 								}
 
@@ -675,7 +675,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 593.08203125, 126.5, 107.0, 76.0 ],
+									"patching_rect" : [ 569.08203125, 126.5, 107.0, 76.0 ],
 									"text" : "The rate at which grains are played. This will cause a pitch shift."
 								}
 
@@ -714,7 +714,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 517.91796875, 84.0, 50.0, 22.0 ]
+									"patching_rect" : [ 493.91796875, 84.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -727,7 +727,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 422.58203125, 84.0, 50.0, 22.0 ]
+									"patching_rect" : [ 406.58203125, 84.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -789,7 +789,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 422.58203125, 114.5, 75.0, 22.0 ],
+									"patching_rect" : [ 406.58203125, 114.5, 75.0, 22.0 ],
 									"text" : "travOffset $1"
 								}
 
@@ -801,7 +801,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 517.91796875, 114.5, 86.0, 22.0 ],
+									"patching_rect" : [ 493.91796875, 114.5, 86.0, 22.0 ],
 									"text" : "travRandom $1"
 								}
 
@@ -1215,7 +1215,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 527.41796875, 327.0, 28.6640625, 327.0 ],
+									"midpoints" : [ 503.41796875, 327.0, 28.6640625, 327.0 ],
 									"source" : [ "obj-50", 0 ]
 								}
 
@@ -1224,7 +1224,7 @@
 								"patchline" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 59.6640625, 613.5, 281.828125, 613.5 ],
+									"midpoints" : [ 59.6640625, 588.5, 281.828125, 588.5 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -1239,7 +1239,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 432.08203125, 326.0, 28.6640625, 326.0 ],
+									"midpoints" : [ 416.08203125, 326.0, 28.6640625, 326.0 ],
 									"source" : [ "obj-57", 0 ]
 								}
 
@@ -1247,7 +1247,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 336.0, 472.25, 28.6640625, 472.25 ],
+									"midpoints" : [ 336.0, 546.25, 28.6640625, 546.25 ],
 									"source" : [ "obj-70", 0 ]
 								}
 
@@ -1298,7 +1298,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 435.24609375, 324.75, 28.6640625, 324.75 ],
+									"midpoints" : [ 419.24609375, 324.75, 28.6640625, 324.75 ],
 									"source" : [ "obj-81", 0 ]
 								}
 
@@ -1313,7 +1313,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 527.41796875, 325.75, 28.6640625, 325.75 ],
+									"midpoints" : [ 503.41796875, 325.75, 28.6640625, 325.75 ],
 									"source" : [ "obj-84", 0 ]
 								}
 
@@ -1442,7 +1442,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 79.0, 126.0, 710.0, 775.0 ],
+						"rect" : [ 0.0, 26.0, 710.0, 775.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -2537,7 +2537,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 48.0, 638.0, 59.0 ],
+									"patching_rect" : [ 18.0, 48.0, 640.0, 59.0 ],
 									"text" : "Buffers can be used to set tables of parameters.  Buffers are read from 0-1 by voice/maxVoices with either no or linear interpolation.  Often a mode will need to be set to use buffers instead of the standard parameter.  For these modes mode 1 often delineates random effecting the parameter value while mode 2 indicates that random values will affect the lookup position.  Mode 0 is the standard mode with no buffer lookup. "
 								}
 
@@ -3010,7 +3010,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 186.169270833333258, 596.5, 471.0, 126.0 ]
+									"patching_rect" : [ 173.169270833333258, 531.5, 471.0, 126.0 ]
 								}
 
 							}
@@ -3273,7 +3273,7 @@
 									"maxclass" : "mc.ezdac~",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 25.3359375, 729.0, 45.0, 45.0 ]
+									"patching_rect" : [ 25.3359375, 663.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -3284,7 +3284,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 25.3359375, 676.0, 61.0, 22.0 ],
+									"patching_rect" : [ 25.3359375, 629.0, 61.0, 22.0 ],
 									"text" : "mc.*~ 0.5"
 								}
 
@@ -3310,7 +3310,7 @@
 									"numoutlets" : 4,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 25.3359375, 503.5, 81.0, 123.0 ],
+									"patching_rect" : [ 25.3359375, 456.5, 81.0, 123.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[1]",
@@ -3334,7 +3334,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 25.3359375, 645.0, 90.0, 22.0 ],
+									"patching_rect" : [ 25.3359375, 598.0, 90.0, 22.0 ],
 									"text" : "mc.mixdown~ 2"
 								}
 
@@ -3458,7 +3458,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 102.669270833333314, 568.25, 195.669270833333258, 568.25 ],
+									"midpoints" : [ 102.669270833333314, 512.25, 182.669270833333258, 512.25 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -3570,7 +3570,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 710.0, 775.0 ],
+						"rect" : [ 79.0, 126.0, 710.0, 775.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -3608,7 +3608,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 60.328125, 379.5, 157.0, 37.0 ],
+									"patching_rect" : [ 60.328125, 351.5, 157.0, 37.0 ],
 									"text" : "The period of the grain clock in ms"
 								}
 
@@ -3621,7 +3621,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 146.589843749999773, 602.5, 152.0, 37.0 ],
+									"patching_rect" : [ 146.589843749999773, 574.5, 152.0, 37.0 ],
 									"text" : "This patch chord contains data about each grain"
 								}
 
@@ -3635,7 +3635,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 363.332031250000057, 574.5, 187.0, 65.0 ],
+									"patching_rect" : [ 363.332031250000057, 546.5, 187.0, 65.0 ],
 									"text" : "This is grainflow.waveform~.  It is a graphical JSUI object that visualizes grains"
 								}
 
@@ -3648,7 +3648,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 75.417968749999886, 314.5, 227.0, 37.0 ],
+									"patching_rect" : [ 75.417968749999886, 288.5, 227.0, 37.0 ],
 									"text" : "A random number of ms a grain may spawn behind the traversal"
 								}
 
@@ -3686,7 +3686,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 176.328125, 513.0, 143.0, 33.0 ],
+									"patching_rect" : [ 176.328125, 485.0, 143.0, 33.0 ],
 									"text" : "arguments: buffername. max-grains"
 								}
 
@@ -3754,7 +3754,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 134.4921875, 642.0, 415.83984375, 72.0 ]
+									"patching_rect" : [ 134.4921875, 614.0, 415.83984375, 72.0 ]
 								}
 
 							}
@@ -3765,7 +3765,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 8.328125, 417.5, 93.0, 22.0 ],
+									"patching_rect" : [ 8.328125, 389.5, 93.0, 22.0 ],
 									"text" : "expr 1/$f1*1000"
 								}
 
@@ -3778,7 +3778,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 370.664062499999886, 381.5, 319.0, 37.0 ],
+									"patching_rect" : [ 370.664062499999886, 353.5, 319.0, 37.0 ],
 									"text" : "This phasor control the traversal. As a signal, the traversal is a fraction of the buffer from 0-1"
 								}
 
@@ -3791,7 +3791,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 75.417968749999886, 443.0, 308.171874999999943, 37.0 ],
+									"patching_rect" : [ 75.417968749999886, 415.0, 308.171874999999943, 37.0 ],
 									"text" : "This phasor is the grain clock.  It determined both the size and speed at which grains are spawned "
 								}
 
@@ -3803,7 +3803,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "float", "bang" ],
-									"patching_rect" : [ 134.589843749999773, 718.0, 174.0, 22.0 ],
+									"patching_rect" : [ 134.589843749999773, 690.0, 174.0, 22.0 ],
 									"text" : "buffer~ _help_grainBuf1 Anton.aif"
 								}
 
@@ -3815,7 +3815,7 @@
 									"maxclass" : "mc.ezdac~",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 8.328125, 755.0, 45.0, 45.0 ]
+									"patching_rect" : [ 8.328125, 727.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -3828,7 +3828,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 288.664062499999886, 357.0, 50.0, 22.0 ],
+									"patching_rect" : [ 288.664062499999886, 329.0, 50.0, 22.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 0.53 ],
@@ -3929,7 +3929,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 8.328125, 322.0, 50.0, 22.0 ]
+									"patching_rect" : [ 8.328125, 296.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -3940,7 +3940,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 288.664062499999886, 389.0, 77.0, 22.0 ],
+									"patching_rect" : [ 288.664062499999886, 361.0, 77.0, 22.0 ],
 									"text" : "phasor~ 0.53"
 								}
 
@@ -3977,7 +3977,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 8.328125, 351.5, 86.0, 22.0 ],
+									"patching_rect" : [ 8.328125, 325.5, 86.0, 22.0 ],
 									"text" : "travRandom $1"
 								}
 
@@ -4004,7 +4004,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 214.664062499999886, 269.5, 134.0, 22.0 ],
+									"patching_rect" : [ 214.664062499999886, 262.5, 134.0, 22.0 ],
 									"text" : "windowOffsetRandom $1"
 								}
 
@@ -4030,7 +4030,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 8.328125, 387.0, 50.0, 22.0 ],
+									"patching_rect" : [ 8.328125, 359.0, 50.0, 22.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 100.0 ],
@@ -4094,7 +4094,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 23.332031250000057, 550.5, 176.335937499999886, 50.0 ],
+									"patching_rect" : [ 23.332031250000057, 522.5, 182.0, 50.0 ],
 									"text" : "Each grain has its own channel.  This is convienent for bussing and panning."
 								}
 
@@ -4106,7 +4106,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 8.328125, 450.5, 67.0, 22.0 ],
+									"patching_rect" : [ 8.328125, 422.5, 67.0, 22.0 ],
 									"text" : "phasor~ 10"
 								}
 
@@ -4118,7 +4118,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 8.328125, 723.0, 61.0, 22.0 ],
+									"patching_rect" : [ 8.328125, 695.0, 61.0, 22.0 ],
 									"text" : "mc.*~ 0.5"
 								}
 
@@ -4142,7 +4142,7 @@
 									"numinlets" : 4,
 									"numoutlets" : 7,
 									"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-									"patching_rect" : [ 8.328125, 518.0, 158.0, 22.0 ],
+									"patching_rect" : [ 8.328125, 490.0, 158.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf1 5"
 								}
 
@@ -4157,7 +4157,7 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 8.328125, 616.5, 123.0, 65.0 ],
+									"patching_rect" : [ 8.328125, 588.5, 123.0, 65.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~",
@@ -4181,7 +4181,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 8.328125, 692.0, 90.0, 22.0 ],
+									"patching_rect" : [ 8.328125, 664.0, 90.0, 22.0 ],
 									"text" : "mc.mixdown~ 2"
 								}
 
@@ -4190,7 +4190,7 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 224.164062499999886, 487.0, 17.828125, 487.0 ],
+									"midpoints" : [ 224.164062499999886, 474.0, 17.828125, 474.0 ],
 									"source" : [ "obj-10", 0 ]
 								}
 
@@ -4212,7 +4212,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 17.828125, 464.75, 17.828125, 464.75 ],
+									"midpoints" : [ 17.828125, 436.75, 17.828125, 436.75 ],
 									"source" : [ "obj-2", 0 ]
 								}
 
@@ -4248,7 +4248,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 224.164062499999886, 490.25, 17.828125, 490.25 ],
+									"midpoints" : [ 224.164062499999886, 473.25, 17.828125, 473.25 ],
 									"source" : [ "obj-42", 0 ]
 								}
 
@@ -4271,7 +4271,7 @@
 								"patchline" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 40.994791666666671, 553.5, 143.9921875, 553.5 ],
+									"midpoints" : [ 40.994791666666671, 525.5, 143.9921875, 525.5 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -4286,7 +4286,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 1 ],
-									"midpoints" : [ 298.164062499999886, 509.0, 64.161458333333343, 509.0 ],
+									"midpoints" : [ 298.164062499999886, 481.0, 64.161458333333343, 481.0 ],
 									"source" : [ "obj-69", 0 ]
 								}
 
@@ -4294,7 +4294,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 224.164062499999886, 489.75, 17.828125, 489.75 ],
+									"midpoints" : [ 224.164062499999886, 473.75, 17.828125, 473.75 ],
 									"source" : [ "obj-70", 0 ]
 								}
 
