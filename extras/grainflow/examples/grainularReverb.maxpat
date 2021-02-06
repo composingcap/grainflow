@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 94.0, 158.0, 1034.0, 1101.0 ],
+		"rect" : [ 94.0, 158.0, 1034.0, 818.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -53,24 +53,13 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-8",
-					"maxclass" : "meter~",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "float" ],
-					"patching_rect" : [ 219.5, 762.0, 156.5, 186.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"bubble" : 1,
 					"bubblepoint" : 0.9,
 					"id" : "obj-6",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 329.0, 148.0, 166.0, 23.0 ],
+					"patching_rect" : [ 286.0, 156.0, 166.0, 23.0 ],
 					"text" : "Play a soundfile"
 				}
 
@@ -264,11 +253,14 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"fontsize" : [ 10.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ],
+									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -279,10 +271,7 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -292,7 +281,7 @@
 						"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 					}
 ,
-					"patching_rect" : [ 159.0, 507.0, 118.0, 21.0 ],
+					"patching_rect" : [ 245.0, 472.0, 118.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -318,7 +307,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 70.0, 793.0, 136.0, 47.0 ],
+					"patching_rect" : [ 70.0, 706.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
@@ -343,7 +332,7 @@
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 70.0, 860.0, 45.0, 45.0 ]
+					"patching_rect" : [ 70.0, 759.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -422,7 +411,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 193.5, 456.0, 174.0, 35.0 ],
+					"patching_rect" : [ 274.5, 439.5, 167.5, 35.0 ],
 					"text" : "reduce grainyness by randomizing grain lengths"
 				}
 
@@ -435,7 +424,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 159.0, 468.0, 24.0, 24.0 ]
+					"patching_rect" : [ 245.0, 445.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -598,11 +587,14 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"fontsize" : [ 10.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ],
+									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -613,10 +605,7 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -690,7 +679,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 213.666666666666629, 535.0, 100.0, 23.0 ],
+					"patching_rect" : [ 299.666666666666629, 500.0, 100.0, 23.0 ],
 					"text" : "Grain size ms"
 				}
 
@@ -702,7 +691,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 159.0, 562.0, 93.0, 21.0 ],
+					"patching_rect" : [ 245.0, 527.0, 93.0, 21.0 ],
 					"text" : "expr 1/$f1*1000"
 				}
 
@@ -716,7 +705,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 159.0, 535.0, 50.0, 21.0 ]
+					"patching_rect" : [ 245.0, 500.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -729,7 +718,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 226.0, 661.0, 109.0, 35.0 ],
+					"patching_rect" : [ 221.0, 629.0, 109.0, 35.0 ],
 					"text" : "Randomly pans each new grain"
 				}
 
@@ -782,7 +771,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 407.0, 541.0, 54.0, 21.0 ],
+					"patching_rect" : [ 424.0, 535.0, 54.0, 21.0 ],
 					"text" : "loadbang"
 				}
 
@@ -845,7 +834,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 407.0, 573.0, 348.0, 33.0 ],
+					"patching_rect" : [ 424.0, 567.0, 348.0, 33.0 ],
 					"text" : "travMode 2, travOffsets travbuf, space 0.01, windowOffsetRandom 1, travRandom 5, ampRandom 0.25, rateRandom -0.001"
 				}
 
@@ -858,7 +847,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 70.0, 661.0, 143.0, 33.0 ],
+					"patching_rect" : [ 70.0, 629.0, 143.0, 33.0 ],
 					"text" : "grainflow.util.stereoPan~ 20 @panSpread 0.25"
 				}
 
@@ -890,7 +879,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotScale", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "3877_flow_1" ], [ "dotColor", 1, 0, 0, 0.9 ], [ "showTriangles", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "dotVJitter", 0 ], [ "dotScale", 1 ], [ "showTriangles", 0 ], [ "buffername", "3102_flow_1" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "mode", 0 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-36",
 					"maxclass" : "jsui",
@@ -898,7 +887,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 378.0, 715.0, 550.0, 125.0 ]
+					"patching_rect" : [ 340.0, 640.0, 669.0, 117.0 ]
 				}
 
 			}
@@ -921,7 +910,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 70.0, 737.0, 68.0, 21.0 ],
+					"patching_rect" : [ 70.0, 675.0, 68.0, 21.0 ],
 					"text" : "mc.*~ 0.65"
 				}
 
@@ -933,7 +922,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 159.0, 591.0, 61.0, 21.0 ],
+					"patching_rect" : [ 245.0, 556.0, 61.0, 21.0 ],
 					"text" : "phasor~ 5"
 				}
 
@@ -1067,7 +1056,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 70.0, 626.0, 143.0, 21.0 ],
+					"patching_rect" : [ 70.0, 594.0, 143.0, 21.0 ],
 					"text" : "grainFlow.live~ 100000 20"
 				}
 
@@ -1076,7 +1065,7 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-36", 0 ],
-					"midpoints" : [ 203.5, 691.5, 387.5, 691.5 ],
+					"midpoints" : [ 203.5, 631.5, 349.5, 631.5 ],
 					"order" : 0,
 					"source" : [ "obj-1", 1 ]
 				}
@@ -1093,15 +1082,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-50", 0 ],
-					"order" : 1,
-					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
-					"order" : 0,
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -1159,7 +1139,7 @@
 				"patchline" : 				{
 					"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
 					"destination" : [ "obj-1", 1 ],
-					"midpoints" : [ 168.5, 620.5, 120.833333333333343, 620.5 ],
+					"midpoints" : [ 254.5, 583.5, 120.833333333333343, 583.5 ],
 					"source" : [ "obj-23", 0 ]
 				}
 
@@ -1266,7 +1246,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
-					"midpoints" : [ 79.5, 704.0, 12.0, 704.0, 12.0, 205.0, 40.5, 205.0 ],
+					"midpoints" : [ 79.5, 686.0, 12.0, 686.0, 12.0, 205.0, 40.5, 205.0 ],
 					"order" : 1,
 					"source" : [ "obj-50", 0 ]
 				}
@@ -1414,11 +1394,14 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"fontsize" : [ 10.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
+					"fontface" : [ 0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1429,10 +1412,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

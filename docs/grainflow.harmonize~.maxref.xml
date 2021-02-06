@@ -210,7 +210,7 @@
 		</method>
 
 		<method name='rateQuantizeSemi'>
-			<digest>Will quanize rates to semitones.</digest>
+			<digest>Will quantize rates to semitones.</digest>
 			<description></description>
 		</method>
 
@@ -221,7 +221,7 @@
 				2: Traversal from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic traversals to design sounds.  The buffer can be set using the travOffsets message
+				This is useful when needing to dial in very specific traversals to design sounds.  The buffer can be set using the travOffsets message
 			</description>
 		</method>
 
@@ -238,7 +238,7 @@
 				2: Rate from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message.
+				This is useful when needing to dial in very specific rates to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 

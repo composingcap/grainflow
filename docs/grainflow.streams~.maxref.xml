@@ -155,7 +155,7 @@
 		</method>
 
 		<method name='windowOffset' size="1">
-			<digest>The offset position of each subiquent grain on the grain phasor from 0 - 1.</digest>
+			<digest>The offset position of each subequent grain on the grain phasor from 0 - 1.</digest>
 			<description></description>
 		</method>
 

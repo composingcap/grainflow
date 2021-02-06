@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 691.0, 890.0 ],
+		"rect" : [ 100.0, 100.0, 691.0, 770.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -46,7 +46,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 88.5, 474.0, 163.0, 59.0 ],
+					"patching_rect" : [ 85.5, 436.0, 163.0, 59.0 ],
 					"text" : "Sets the period of the grain clock in ms. This determines the grain size as well as speed."
 				}
 
@@ -60,7 +60,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 374.0, 337.0, 17.0, 17.0 ],
+					"patching_rect" : [ 371.0, 299.0, 17.0, 17.0 ],
 					"text" : "2",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textjustification" : 1
@@ -76,7 +76,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 374.0, 337.0, 16.0, 17.0 ],
+					"patching_rect" : [ 371.0, 299.0, 16.0, 17.0 ],
 					"proportion" : 0.39,
 					"shape" : 1
 				}
@@ -121,7 +121,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 399.0, 326.0, 163.0, 35.0 ],
+					"patching_rect" : [ 396.0, 288.0, 163.0, 35.0 ],
 					"text" : "Create a note by pressing the keyboard"
 				}
 
@@ -247,11 +247,14 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"fontsize" : [ 10.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ],
+									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -262,10 +265,7 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -301,7 +301,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 23.5, 704.0, 136.0, 47.0 ],
+					"patching_rect" : [ 20.5, 647.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
@@ -325,7 +325,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 374.0, 626.0, 75.0, 21.0 ],
+					"patching_rect" : [ 381.0, 559.0, 75.0, 21.0 ],
 					"text" : "prepend adsr"
 				}
 
@@ -612,7 +612,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 374.0, 556.0, 208.0, 59.0 ],
+					"patching_rect" : [ 381.0, 489.0, 208.0, 59.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -625,7 +625,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 465.0, 626.0, 151.0, 35.0 ],
+					"patching_rect" : [ 472.0, 559.0, 151.0, 35.0 ],
 					"text" : "adsr message will set the voice envelope"
 				}
 
@@ -637,7 +637,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 23.5, 460.0, 78.0, 21.0 ],
+					"patching_rect" : [ 20.5, 422.0, 78.0, 21.0 ],
 					"text" : "loadmess 150"
 				}
 
@@ -650,7 +650,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 72.5, 568.0, 237.0, 35.0 ],
+					"patching_rect" : [ 69.5, 530.0, 237.0, 35.0 ],
 					"text" : "Most grainflow parameters will work in conjunction with the synth"
 				}
 
@@ -664,7 +664,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 110.0, 267.0, 57.0, 21.0 ]
+					"patching_rect" : [ 107.0, 229.0, 57.0, 21.0 ]
 				}
 
 			}
@@ -675,7 +675,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 110.0, 299.0, 47.0, 21.0 ],
+					"patching_rect" : [ 107.0, 261.0, 47.0, 21.0 ],
 					"text" : "amp $1"
 				}
 
@@ -689,7 +689,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 23.5, 267.0, 57.0, 21.0 ]
+					"patching_rect" : [ 20.5, 229.0, 57.0, 21.0 ]
 				}
 
 			}
@@ -700,7 +700,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 23.5, 299.0, 45.0, 21.0 ],
+					"patching_rect" : [ 20.5, 261.0, 45.0, 21.0 ],
 					"text" : "trav $1"
 				}
 
@@ -714,7 +714,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 284.5, 493.0, 50.0, 21.0 ]
+					"patching_rect" : [ 281.5, 455.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -726,7 +726,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 339.5, 482.0, 219.0, 35.0 ],
+					"patching_rect" : [ 336.5, 444.0, 219.0, 35.0 ],
 					"text" : "Without update, they will update in accordance to the autoUpdate state"
 				}
 
@@ -738,7 +738,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 284.5, 527.0, 86.0, 21.0 ],
+					"patching_rect" : [ 281.5, 489.0, 86.0, 21.0 ],
 					"text" : "travRandom $1"
 				}
 
@@ -752,7 +752,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 288.0, 418.0, 50.0, 21.0 ]
+					"patching_rect" : [ 285.0, 380.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -764,7 +764,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 340.0, 411.0, 188.0, 35.0 ],
+					"patching_rect" : [ 337.0, 373.0, 188.0, 35.0 ],
 					"text" : "Messages prepended by update will update in all voices"
 				}
 
@@ -776,7 +776,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 288.0, 452.0, 124.0, 21.0 ],
+					"patching_rect" : [ 285.0, 414.0, 124.0, 21.0 ],
 					"text" : "update travRandom $1"
 				}
 
@@ -789,7 +789,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 219.0, 236.0, 351.0, 47.0 ],
+					"patching_rect" : [ 216.0, 198.0, 351.0, 47.0 ],
 					"text" : "By default, new parameters are triggered when a new voice is set.  If you use autoUpdate, the parameters on all grain will update as they change"
 				}
 
@@ -947,11 +947,14 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"fontsize" : [ 10.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ],
+									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -962,10 +965,7 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -975,7 +975,7 @@
 						"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 					}
 ,
-					"patching_rect" : [ 23.5, 236.0, 105.5, 21.0 ],
+					"patching_rect" : [ 20.5, 198.0, 105.5, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -997,7 +997,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 206.5, 704.0, 107.0, 21.0 ],
+					"patching_rect" : [ 203.5, 647.0, 107.0, 21.0 ],
 					"text" : "s __gf.helpsynthgui"
 				}
 
@@ -1009,7 +1009,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 57.0, 423.0, 215.0, 31.0 ],
+					"patching_rect" : [ 54.0, 385.0, 215.0, 31.0 ],
 					"text" : "Midi notes set the rate by transposing based on midi note 60",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -1047,7 +1047,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 184.5, 242.0, 24.0, 24.0 ]
+					"patching_rect" : [ 181.5, 204.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -1058,7 +1058,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 184.5, 292.0, 83.0, 21.0 ],
+					"patching_rect" : [ 181.5, 254.0, 83.0, 21.0 ],
 					"text" : "autoUpdate $1"
 				}
 
@@ -1066,7 +1066,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotScale", 1 ], [ "triangleColor", 0.2, 0.2, 0.2, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "_gflowSynthHelp" ], [ "dotColor", 1, 0, 0, 0.9 ], [ "showTriangles", 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "dotVJitter", 0 ], [ "dotScale", 1 ], [ "showTriangles", 1 ], [ "buffername", "_gflowSynthHelp" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 1 ], [ "triangleColor", 0.2, 0.2, 0.2, 1 ], [ "selection", 0, 1 ], [ "mode", 0 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-26",
 					"maxclass" : "jsui",
@@ -1074,7 +1074,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 9.0, 112.0, 487.0, 112.0 ]
+					"patching_rect" : [ 9.0, 112.0, 485.0, 68.0 ]
 				}
 
 			}
@@ -1085,7 +1085,7 @@
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 23.5, 769.0, 45.0, 45.0 ]
+					"patching_rect" : [ 20.5, 712.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -1099,7 +1099,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 23.5, 485.0, 57.0, 21.0 ]
+					"patching_rect" : [ 20.5, 447.0, 57.0, 21.0 ]
 				}
 
 			}
@@ -1110,7 +1110,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 23.5, 512.0, 63.0, 21.0 ],
+					"patching_rect" : [ 20.5, 474.0, 63.0, 21.0 ],
 					"text" : "period $1"
 				}
 
@@ -1124,7 +1124,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 23.5, 568.0, 50.0, 21.0 ]
+					"patching_rect" : [ 20.5, 530.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -1135,7 +1135,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 23.5, 606.0, 134.0, 21.0 ],
+					"patching_rect" : [ 20.5, 568.0, 134.0, 21.0 ],
 					"text" : "windowOffsetRandom $1"
 				}
 
@@ -1147,7 +1147,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "clearGrains" ],
-					"patching_rect" : [ 23.5, 677.0, 202.0, 21.0 ],
+					"patching_rect" : [ 20.5, 620.0, 202.0, 21.0 ],
 					"text" : "grainflow.synth~ _gflowSynthHelp 8 4"
 				}
 
@@ -1159,7 +1159,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 23.5, 423.0, 29.5, 21.0 ],
+					"patching_rect" : [ 20.5, 385.0, 29.5, 21.0 ],
 					"text" : "join"
 				}
 
@@ -1173,7 +1173,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 23.5, 337.0, 336.0, 53.0 ]
+					"patching_rect" : [ 20.5, 299.0, 336.0, 53.0 ]
 				}
 
 			}
@@ -1184,7 +1184,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 144.0, 753.0, 183.0, 21.0 ],
+					"patching_rect" : [ 141.0, 696.0, 183.0, 21.0 ],
 					"text" : "buffer~ _gflowSynthHelp anton.aif"
 				}
 
@@ -1277,7 +1277,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 194.0, 330.5, 33.0, 330.5 ],
+					"midpoints" : [ 191.0, 292.5, 30.0, 292.5 ],
 					"source" : [ "obj-50", 0 ]
 				}
 
@@ -1313,7 +1313,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 383.5, 661.5, 33.0, 661.5 ],
+					"midpoints" : [ 390.5, 607.5, 30.0, 607.5 ],
 					"source" : [ "obj-63", 0 ]
 				}
 
@@ -1370,7 +1370,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 119.5, 332.0, 33.0, 332.0 ],
+					"midpoints" : [ 116.5, 294.0, 30.0, 294.0 ],
 					"source" : [ "obj-85", 0 ]
 				}
 
@@ -1450,12 +1450,15 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"fontface" : [ 0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"fontsize" : [ 10.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
@@ -1467,10 +1470,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

@@ -159,12 +159,12 @@
 		</method>
 
 		<method name='windowOffset'>
-			<digest>The offset position of each subiquent grain on the grain phasor from 0 - 1</digest>
+			<digest>The offset position of each subequent grain on the grain phasor from 0 - 1</digest>
 			<description></description>
 		</method>
 
 		<method name='windowOffsetRandom'>
-			<digest>Randomness applied to the offset position of each subiquent grain on the grain phasor</digest>
+			<digest>Randomness applied to the offset position of each subequent grain on the grain phasor</digest>
 			<description></description>
 		</method>
 
@@ -237,7 +237,7 @@
 				2: Traversal from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic traversals to design sounds.  The buffer can be set using the travOffsets message.
+				This is useful when needing to dial in very specific traversals to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
@@ -254,7 +254,7 @@
 				2: Rate from buffer read randomly per grain
 			</digest>
 			<description>
-				This is useful when needing to dial in very specic rates to design sounds.  The buffer can be set using the travOffsets message.
+				This is useful when needing to dial in very specific rates to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 

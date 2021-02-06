@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 693.0, 874.0 ],
+		"rect" : [ 100.0, 100.0, 693.0, 788.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -48,7 +48,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 17.5, 725.0, 136.0, 47.0 ],
+					"patching_rect" : [ 17.5, 657.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "live.gain~",
@@ -72,7 +72,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 131.0, 597.0, 141.0, 24.0 ],
+					"patching_rect" : [ 129.5, 541.0, 141.0, 24.0 ],
 					"text" : "grain clock"
 				}
 
@@ -228,7 +228,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 420.0, 498.0, 151.0, 37.0 ],
+					"patching_rect" : [ 419.0, 451.0, 151.0, 37.0 ],
 					"text" : "The adsr message will set the voice envelope"
 				}
 
@@ -240,8 +240,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 187.0, 635.0, 150.0, 86.0 ],
-					"text" : "The freeze can last the duration of the freeze buffer in this case 600000 ms. If it does over the duration the buffer loops and the freeze will be overwritten.",
+					"patching_rect" : [ 186.0, 576.0, 150.0, 86.0 ],
+					"text" : "The freeze can last the duration of the freeze buffer in this case 600000 ms. If it goes over the duration the buffer loops and the freeze will be overwritten.",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
 
@@ -266,7 +266,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 164.5, 443.0, 148.0, 50.0 ],
+					"patching_rect" : [ 163.5, 396.0, 148.0, 50.0 ],
 					"text" : "The time it take for the freeze to reach its freeze depth"
 				}
 
@@ -280,7 +280,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 41.0, 426.5, 50.0, 22.0 ],
+					"patching_rect" : [ 40.0, 379.5, 50.0, 22.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 500 ],
@@ -304,7 +304,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 41.0, 463.5, 117.0, 22.0 ],
+					"patching_rect" : [ 40.0, 416.5, 117.0, 22.0 ],
 					"text" : "freezeExpandTime $1"
 				}
 
@@ -317,7 +317,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 168.5, 513.0, 141.0, 63.0 ],
+					"patching_rect" : [ 167.5, 466.0, 141.0, 63.0 ],
 					"text" : "The maximum distance in ms the freeze will span after the freezeExpandTime"
 				}
 
@@ -331,7 +331,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 69.0, 491.5, 50.0, 22.0 ],
+					"patching_rect" : [ 68.0, 444.5, 50.0, 22.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
@@ -355,7 +355,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 69.0, 528.5, 86.0, 22.0 ],
+					"patching_rect" : [ 68.0, 481.5, 86.0, 22.0 ],
 					"text" : "freezeDepth $1"
 				}
 
@@ -367,7 +367,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 58.5, 370.0, 150.0, 24.0 ],
+					"patching_rect" : [ 52.5, 343.0, 150.0, 24.0 ],
 					"text" : "View the internal buffer"
 				}
 
@@ -654,7 +654,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 340.0, 426.5, 205.0, 64.0 ],
+					"patching_rect" : [ 339.0, 379.5, 205.0, 64.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -730,7 +730,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 340.0, 503.0, 75.0, 22.0 ],
+					"patching_rect" : [ 339.0, 456.0, 75.0, 22.0 ],
 					"text" : "prepend adsr"
 				}
 
@@ -769,7 +769,7 @@
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 17.5, 803.0, 45.0, 45.0 ]
+					"patching_rect" : [ 17.5, 715.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -817,7 +817,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.5, 370.0, 33.0, 22.0 ],
+					"patching_rect" : [ 17.5, 343.0, 33.0, 22.0 ],
 					"text" : "open"
 				}
 
@@ -866,7 +866,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 17.5, 689.0, 157.0, 22.0 ],
+					"patching_rect" : [ 17.5, 621.0, 157.0, 22.0 ],
 					"text" : "mc.mixdown~ 1 @autogain 1"
 				}
 
@@ -878,7 +878,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 60.5, 597.0, 67.0, 22.0 ],
+					"patching_rect" : [ 60.5, 541.0, 67.0, 22.0 ],
 					"text" : "phasor~ 10"
 				}
 
@@ -903,7 +903,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 17.5, 644.0, 148.0, 22.0 ],
+					"patching_rect" : [ 17.5, 576.0, 148.0, 22.0 ],
 					"text" : "grainflow.freeze~ 600000 8"
 				}
 
@@ -956,7 +956,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 349.5, 582.25, 27.0, 582.25 ],
+					"midpoints" : [ 348.5, 535.25, 27.0, 535.25 ],
 					"source" : [ "obj-15", 0 ]
 				}
 
@@ -1013,7 +1013,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 78.5, 567.75, 27.0, 567.75 ],
+					"midpoints" : [ 77.5, 520.75, 27.0, 520.75 ],
 					"source" : [ "obj-44", 0 ]
 				}
 
@@ -1028,7 +1028,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 50.5, 564.25, 27.0, 564.25 ],
+					"midpoints" : [ 49.5, 517.25, 27.0, 517.25 ],
 					"source" : [ "obj-49", 0 ]
 				}
 
@@ -1058,7 +1058,7 @@
 				"patchline" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 354.5, 415.5, 27.0, 415.5 ],
+					"midpoints" : [ 354.5, 376.5, 27.0, 376.5 ],
 					"source" : [ "obj-8", 0 ]
 				}
 
@@ -1149,12 +1149,14 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontname" : [ "Futura Medium" ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1165,8 +1167,6 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontface" : [ 0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
