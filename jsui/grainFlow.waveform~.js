@@ -33,6 +33,12 @@ drawTask.repeat(-1);
 
 //Waveform Color
 
+function notifydeleted(){
+	drawTask.cancel();	
+	
+	}
+
+
 var waveformColor = [0.1,0.1,0.1,1];
 
 declareattribute("waveformColor",			"getattr_waveformColor",			"setattr_waveformColor", 1);
