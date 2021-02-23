@@ -35,10 +35,10 @@ var redraw = true;
 var pointLimit = 0;
 var autoOutput = 0;
 var framer = new Task(frame, this);
-
-function loadbang(){
 framer.interval = 33;
 framer.repeat(); 
+function loadbang(){
+
 getattr_points();
 updateTracker();
 }
@@ -65,6 +65,7 @@ declareattribute("pointLimit",			"getattr_pointLimit",			"setattr_pointLimit", 1
 function setattr_pointLimit(v)
 {
 	pointLimit = v;
+	redraw = true;
 	}
 
 
@@ -78,6 +79,7 @@ declareattribute("dotSize",			"getattr_dotSize",			"setattr_dotSize", 1);
 function setattr_dotSize(v)
 {
 	dotSize = v;
+	redraw = true;
 	}
 
 
@@ -91,6 +93,7 @@ declareattribute("trackerSize",			"getattr_trackerSize",			"setattr_trackerSize"
 function setattr_trackerSize(v)
 {
 	trackerSize = v;
+	redraw = true;
 
 }
 
@@ -104,6 +107,7 @@ declareattribute("lineThickness",			"getattr_lineThickness",			"setattr_lineThic
 function setattr_lineThickness(v)
 {
 	lineThickness = v;
+	redraw = true;
 
 }
 
@@ -118,6 +122,8 @@ function setattr_bgColor()
 {
 
 	bgColor = arrayfromargs(arguments);
+	redraw = true;
+	
 
 
 
@@ -133,6 +139,7 @@ function setattr_color()
 {
 
 	color = arrayfromargs(arguments);
+	redraw = true;
 
 
 
@@ -150,6 +157,7 @@ function setattr_selectColor()
 {
 
 	selectColor = arrayfromargs(arguments);
+	redraw = true;
 
 
 
@@ -167,6 +175,7 @@ function setattr_trackerColor()
 {
 
 	trackerColor = arrayfromargs(arguments);
+	redraw = true;
 
 
 
@@ -183,6 +192,7 @@ function setattr_dotTextColor()
 {
 
 	dotTextColor = arrayfromargs(arguments);
+	redraw = true;
 
 
 }
@@ -199,6 +209,7 @@ function setattr_points()
 
 	pArray = arrayfromargs(arguments)
 	pointsFromArray(pArray);
+	redraw = true;
 
 }
 
@@ -218,6 +229,7 @@ function setattr_clipRange(v)
 {
 
 	 clipRange = v;
+	redraw = true;
 
 }
 
