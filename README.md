@@ -14,6 +14,7 @@ To install, place this package folding in the Max 8 Packages directory.
 * Granular Chorus
 * Granular Recording
 * Granular Visualization
+* Vector Synthisis 
 
 ## Grainflow includes examples and readmade bpatchers for:
 * Granular reverb
