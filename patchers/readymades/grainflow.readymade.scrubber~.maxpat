@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 8,
+			"revision" : 10,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -397,9 +397,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 867.5, 584.5, 73.0, 21.0 ],
+					"patching_rect" : [ 867.5, 584.5, 114.0, 21.0 ],
 					"style" : "Minimal",
-					"text" : "prepend rate"
+					"text" : "prepend rateRandom"
 				}
 
 			}
@@ -1198,7 +1198,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotScale", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "buffername", "---grainflow" ], [ "dotColor", 0.392, 1, 0.663, 1 ], [ "showTriangles", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0.1, 1, 0.1, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ] ],
+					"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 0.392, 1, 0.663, 1 ], [ "buffername", "---grainflow" ], [ "maxBufferDrawSamples", 1920 ], [ "dotColorSecondary", 0.1, 1, 0.1, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "showTriangles", 0 ], [ "dotScale", 1 ], [ "mode", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "triangleColor", 1, 1, 1, 1 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-3",
 					"maxclass" : "jsui",
@@ -1683,12 +1683,16 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"fontsize" : [ 10.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"fontface" : [ 0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1698,11 +1702,7 @@
 						"proportion" : 0.39,
 						"autogradient" : 0.0
 					}
-,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+
 				}
 ,
 				"parentstyle" : "",

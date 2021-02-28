@@ -121,6 +121,16 @@
 			<description></description>
 		</method>
 
+		<method name='trigger' type="symbol" size="1">
+			<digest>Triggers an avalible grain at control rate</digest>
+			<description></description>
+		</method>
+
+		<method name='dictionary' type="dictionary" size="1">
+			<digest>A dictionary of grainfloaw parameters will set those parameters</digest>
+			<description></description>
+		</method>
+
 		<method name='env' type="string" size="1">
 			<digest>Sets the grain envelope to a named buffer.</digest>
 			<description></description>

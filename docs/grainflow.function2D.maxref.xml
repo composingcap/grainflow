@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.stereoPan~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>An easy way to pan grains generated with grainflow.</digest>
+	<description></description>
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="multichannelsignal">
+			<digest>
+				Grains as independent channels.
+			</digest>
+			<description></description>
+		</inlet>
+		<inlet id="1" type="float">
+			<digest>
+				Tracker Position
+			</digest>
+			<description></description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>
+				List of tracker positions
+			</digest>
+			<description></description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist></objarglist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="float">
+			<digest>
+				Move one tracker to the given point or position between two points.
+			</digest>
+			<description>
+				Decimal values linearly interpolate between points.
+			</description>
+		</method>
+
+		<method name="norm">
+			<digest>
+				Move one tracker through the entire set of points represented by 0-1;
+
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="trackers">
+			<digest>
+				Move a list of trackers to given points or positions between two points.
+
+			</digest>
+			<description>
+				Decimal values linearly interpolate between points.
+			</description>
+		</method>
+
+		<method name="trackersNorm">
+			<digest>
+				Move a list of trackers to positions along the enitre set of points represented by 0-1
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="doubleclick">
+			<digest>
+				Adds a point
+			</digest>
+			<description>
+				If a line is selected, the added point will be inserted on the line
+			</description>
+		</method>
+
+		<method name="drag">
+			<digest>
+				Moves a selected point or line
+			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="shiftclick">
+			<digest>
+				Removes a selected point
+			</digest>
+			<description>
+			</description>
+		</method>
+
+
+		<method name="addPoint">
+			<digest>
+				Add a point to the end
+			</digest>
+			<description>
+				The functionality of this message changes with the number of arguments. (addPoint): adds a random point; (addPoint x y): adds a point at a given position
+			</description>
+		</method>
+
+		<method name="insertPoint">
+			<digest>
+				Add a point to an index
+			</digest>
+			<description>
+				The functionality of this message changes with the number of arguments. (insertPoint): adds a random point at at random index; (insertPoint i) : adds a random point at index i; (insertPoint i x y): adds a point at a given position at at index i
+			</description>
+		</method>
+
+		<method name="movePoint">
+			<digest>
+				Move a point
+			</digest>
+			<description>
+				The functionality of this message changes with the number of arguments. (movePoint): move a random point to a random position; (movePoint i) : move point i to a random position; (movePoint i x y): move point i to a set position (x,y)
+			</description>
+		</method>
+
+		<method name="removePoint">
+			<digest>
+				Remove a point
+			</digest>
+			<description>
+				The functionality of this message changes with the number of arguments. (removePoint): remove a random point; (removePoint i) : remove point i
+
+			</description>
+		</method>
+
+		<method name="removePoint">
+			<digest>
+				Remove a point
+			</digest>
+			<description>
+				The functionality of this message changes with the number of arguments. (removePoint): remove a random point; (removePoint i) : remove point i
+
+			</description>
+		</method>
+
+		<method name="swapPoint">
+			<digest>
+				Switch the indices of two points
+			</digest>
+			<description>
+				(swapPoint i n) : switch the indices of point i and n
+
+			</description>
+		</method>
+
+		<method name="scramble">
+			<digest>
+				Randomly switch the indices of all but the listed points
+			</digest>
+			<description>
+				(scramble ...n) : Randomly switch the indices of all but ...n points
+			</description>
+		</method>
+
+		<method name="randomize">
+			<digest>
+				Replace all points with generated random points
+			</digest>
+			<description>
+				(randomize n) : Create n random points; (randomize n m): Create a number of randomized points between n and m;
+			</description>
+		</method>
+
+		<method name="jitter">
+			<digest>
+				Move each point by a random amount
+			</digest>
+			<description>
+				(jitter x y) : Move points by a maximum distance of x and y; (jitter x y ...n): Move points by a maximum distance of x and y except for ...n points
+			</description>
+		</method>
+
+		<method name="setPoints">
+			<digest>
+				Sets points as x,y pairs
+			</digest>
+			<description>
+				(setPoints x1 y1 x2 y2 ... xn yn)
+
+			</description>
+		</method>
+
+		<method name="clear">
+			<digest>
+				Remove all points
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="getPoints">
+			<digest>
+				Reterive a list of points as x, y pairs from the rightmost outlet.
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="getLength">
+			<digest>
+				Get the number of points from the rightmost outlet
+			</digest>
+			<description></description>
+		</method>
+
+
+		<method name="bgColor">
+			<digest>
+				Set the background color (RGBA)
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="color">
+			<digest>
+				Set the dot and line color (RGBA)
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="selectColor">
+			<digest>
+				Set the seletion color (RGBA)
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="dotTextColor">
+			<digest>
+				Set the text color for the dot numbers (RGBA)
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="trackerColor">
+			<digest>
+					Set the tracker color (RGBA)
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="dotSize">
+			<digest>
+					Set the size of the dots
+			</digest>
+			<description></description>
+		</method>
+
+		<method name="trackerSize">
+			<digest>
+					Set the size of the tracker
+			</digest>
+			<description></description>
+		</method>
+
+	<method name="lineThickness">
+		<digest>
+				Set the thickness of the lines
+		</digest>
+		<description></description>
+	</method>
+
+</methodlist>
+
+	<!--ATTRIBUTES-->
+
+	<attributelist></attributelist>
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~'/>
+		<seealso name='function'/>
+		<seealso name='2D.wave~'/>
+	</seealsolist>
+
+</c74object>

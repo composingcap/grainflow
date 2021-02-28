@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 8,
+			"revision" : 10,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 209.0, 160.0, 961.0, 619.0 ],
+		"rect" : [ 100.0, 100.0, 961.0, 619.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -51,13 +51,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 8,
+							"revision" : 10,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 961.0, 593.0 ],
+						"rect" : [ 100.0, 126.0, 961.0, 593.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -87,6 +87,44 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-22",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 1,
+									"patching_rect" : [ 224.5, 150.0, 50.0, 22.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_initial" : [ 1.0 ],
+											"parameter_initial_enable" : 1,
+											"parameter_invisible" : 1,
+											"parameter_longname" : "number[4]",
+											"parameter_shortname" : "number[2]",
+											"parameter_type" : 3
+										}
+
+									}
+,
+									"varname" : "number[2]"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-21",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 224.5, 183.0, 89.0, 22.0 ],
+									"text" : "lineThickness $1"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"format" : 6,
 									"id" : "obj-20",
@@ -207,7 +245,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 467.0, 112.0, 116.0, 22.0 ],
+									"patching_rect" : [ 463.0, 112.0, 116.0, 22.0 ],
 									"text" : "prepend dotTextColor"
 								}
 
@@ -302,7 +340,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotTextColor", 1, 1, 1, 1 ], [ "pointLimit", 0 ], [ "bgColor", 0.75, 1, 0.8828125, 1 ], [ "trackerColor", 1, 0.65625, 0, 1 ], [ "points", 0.37, 0.795, 0.917302252593601, 0.530065681767995, 0.352051534189187, 0.193712043941398, 0.001720870288757, 0.78284581454122, 0.275, 0.675, 0.79699711311969, 0.532986193460535, 1, 0.320986135916625, 0.184820951512405, 0.412979502386761, 0.446619343747495, 0.373706530053413, 0.857518708715373, 0.848464763448673, 0.6, 0.16, 0.865, 0.21, 0.44, 0.095 ], [ "trackerSize", 1 ], [ "dotSize", 1 ], [ "clipRange", 1 ], [ "autoOutput", 0 ], [ "selectColor", 0.849609375, 0.125, 1, 1 ], [ "color", 0.015625, 0, 0.125, 1 ], [ "lineThickness", 1 ] ],
+									"embedstate" : [ [ "trackerSize", 1 ], [ "dotSize", 1 ], [ "bgColor", 0.75, 1, 0.8828125, 1 ], [ "selectColor", 0.849609375, 0.125, 1, 1 ], [ "points", 0.37, 0.795, 0.917302252593601, 0.530065681767995, 0.352051534189187, 0.193712043941398, 0.001720870288757, 0.78284581454122, 0.275, 0.675, 0.79699711311969, 0.532986193460535, 1, 0.320986135916625, 0.184820951512405, 0.412979502386761, 0.446619343747495, 0.373706530053413, 0.857518708715373, 0.848464763448673, 0.6, 0.16, 0.865, 0.21, 0.44, 0.095, 0.93, 0.06 ], [ "lineThickness", 1 ], [ "color", 0.015625, 0, 0.125, 1 ], [ "autoOutput", 0 ], [ "dotTextColor", 1, 1, 1, 1 ], [ "trackerColor", 1, 0.65625, 0, 1 ], [ "clipRange", 1 ], [ "pointLimit", 0 ] ],
 									"filename" : "grainflow.function2D.js",
 									"id" : "obj-9",
 									"maxclass" : "jsui",
@@ -388,6 +426,20 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-9", 0 ],
+									"source" : [ "obj-21", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-21", 0 ],
+									"source" : [ "obj-22", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 0 ],
 									"source" : [ "obj-3", 0 ]
 								}
 
@@ -417,6 +469,11 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -427,16 +484,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 11.0 ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Lato" ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 11.0 ]
+									"fontname" : [ "Lato" ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -472,7 +524,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 8,
+							"revision" : 10,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -539,7 +591,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 361.5, 299.0, 358.0, 24.0 ],
-									"presentation_linecount" : 2,
 									"text" : "jitters points by an x and y amount, but not the given points"
 								}
 
@@ -565,7 +616,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 462.5, 217.0, 199.0, 37.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Randomize a number of points between the range"
 								}
 
@@ -578,7 +628,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 354.5, 177.5, 199.0, 24.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Scramble all but the given points"
 								}
 
@@ -592,7 +641,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 487.0, 129.5, 150.0, 37.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Move a given point to a given position"
 								}
 
@@ -606,7 +654,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 487.0, 82.5, 150.0, 50.0 ],
-									"presentation_linecount" : 3,
 									"text" : "Insert a point before a given point at a given position, or randomly"
 								}
 
@@ -927,11 +974,11 @@
 								"box" : 								{
 									"id" : "obj-42",
 									"maxclass" : "newobj",
-									"numinlets" : 4,
-									"numoutlets" : 4,
-									"outlettype" : [ "", "", "", "" ],
-									"patching_rect" : [ 234.666666666666686, 476.0, 137.0, 22.0 ],
-									"text" : "route points length tracker"
+									"numinlets" : 3,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "" ],
+									"patching_rect" : [ 234.666666666666686, 476.0, 100.0, 22.0 ],
+									"text" : "route points length"
 								}
 
 							}
@@ -986,7 +1033,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotTextColor", 1, 1, 1, 1 ], [ "pointLimit", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "trackerColor", 0.5, 0, 0, 1 ], [ "points", 0.361394688421934, 0.932171012441981, 0.916116015673807, 0.687443092787526, 0.504332078323816, 0.831325352374197, 0.452004633531551, 0.04979970583177, 0.024900553366587, 0.951020132066876, 0.640718468443591, 0.381072704849019, 0.164447088250561, 0.020496092701548, 0.649157759419798, 0.032245112321029, 0.891289465543384, 0.800384119303749, 0.999886378590295, 0.821124757056467 ], [ "trackerSize", 1 ], [ "dotSize", 1 ], [ "clipRange", 1 ], [ "autoOutput", 0 ], [ "selectColor", 0.5, 0.5, 0.5, 1 ], [ "color", 0, 0, 0, 1 ], [ "lineThickness", 1 ] ],
+									"embedstate" : [ [ "trackerSize", 1 ], [ "dotSize", 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "selectColor", 0.5, 0.5, 0.5, 1 ], [ "points", 0.361394688421934, 0.932171012441981, 0.916116015673807, 0.687443092787526, 0.504332078323816, 0.831325352374197, 0.452004633531551, 0.04979970583177, 0.024900553366587, 0.951020132066876, 0.640718468443591, 0.381072704849019, 0.164447088250561, 0.020496092701548, 0.649157759419798, 0.032245112321029, 0.891289465543384, 0.800384119303749, 0.999886378590295, 0.821124757056467 ], [ "lineThickness", 1 ], [ "color", 0, 0, 0, 1 ], [ "autoOutput", 0 ], [ "dotTextColor", 1, 1, 1, 1 ], [ "trackerColor", 0.5, 0, 0, 1 ], [ "clipRange", 1 ], [ "pointLimit", 0 ] ],
 									"filename" : "grainflow.function2D.js",
 									"id" : "obj-9",
 									"maxclass" : "jsui",
@@ -1199,6 +1246,11 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1209,16 +1261,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 11.0 ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Lato" ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 11.0 ]
+									"fontname" : [ "Lato" ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1254,7 +1301,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 8,
+							"revision" : 10,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1740,7 +1787,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 1,
-											"revision" : 8,
+											"revision" : 10,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1938,6 +1985,11 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"fontface" : [ 0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1948,16 +2000,11 @@
 														"autogradient" : 0.0
 													}
 ,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontsize" : [ 11.0 ],
 													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Lato" ],
 													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontsize" : [ 11.0 ]
+													"fontname" : [ "Lato" ],
+													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -2020,7 +2067,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotTextColor", 1, 1, 1, 1 ], [ "pointLimit", 0 ], [ "bgColor", 1, 1, 1.5 ], [ "trackerColor", 0.5, 0, 0, 1 ], [ "points", 0.775, 0.05, 0.64, 0.635, 0.265, 0.98, 0.065, 0.565, 0.13, 0.1, 0.35, 0.505 ], [ "trackerSize", 1 ], [ "dotSize", 1 ], [ "clipRange", 1 ], [ "autoOutput", 0 ], [ "selectColor", 0.5, 0.5, 0.5, 1 ], [ "color", 0, 0, 0, 1 ], [ "lineThickness", 1 ] ],
+									"embedstate" : [ [ "trackerSize", 1 ], [ "dotSize", 1 ], [ "bgColor", 1, 1, 1.5 ], [ "selectColor", 0.5, 0.5, 0.5, 1 ], [ "points", 0.775, 0.05, 0.64, 0.635, 0.265, 0.98, 0.065, 0.565, 0.13, 0.1, 0.35, 0.505 ], [ "lineThickness", 1 ], [ "color", 0, 0, 0, 1 ], [ "autoOutput", 0 ], [ "dotTextColor", 1, 1, 1, 1 ], [ "trackerColor", 0.5, 0, 0, 1 ], [ "clipRange", 1 ], [ "pointLimit", 0 ] ],
 									"filename" : "grainflow.function2D.js",
 									"id" : "obj-7",
 									"maxclass" : "jsui",
@@ -2035,7 +2082,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "gf.function2Dmulti" ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "showTriangles", 0 ], [ "mode", 0 ], [ "maxBufferDrawSamples", 1920 ] ],
+									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "showTriangles", 0 ], [ "buffername", "gf.function2Dmulti" ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotScale", 1 ], [ "maxBufferDrawSamples", 1920 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "selection", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ] ],
 									"filename" : "grainflow.waveform~",
 									"id" : "obj-27",
 									"maxclass" : "jsui",
@@ -2341,6 +2388,11 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2351,16 +2403,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 11.0 ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Lato" ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 11.0 ]
+									"fontname" : [ "Lato" ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -2395,13 +2442,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 8,
+							"revision" : 10,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 209.0, 186.0, 961.0, 593.0 ],
+						"rect" : [ 0.0, 26.0, 961.0, 593.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -2720,7 +2767,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 1,
-											"revision" : 8,
+											"revision" : 10,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -2918,6 +2965,11 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"fontface" : [ 0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2928,16 +2980,11 @@
 														"autogradient" : 0.0
 													}
 ,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontsize" : [ 11.0 ],
 													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Lato" ],
 													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontsize" : [ 11.0 ]
+													"fontname" : [ "Lato" ],
+													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -3086,7 +3133,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotTextColor", 1, 1, 1, 1 ], [ "pointLimit", 0 ], [ "bgColor", 1, 1, 1.5 ], [ "trackerColor", 0.5, 0, 0, 1 ], [ "points", 0.205, 0.035, 0.64, 0.635, 0.53, 0.935, 0.065, 0.565, 0.425, 0.495 ], [ "trackerSize", 1 ], [ "dotSize", 1 ], [ "clipRange", 1 ], [ "autoOutput", 0 ], [ "selectColor", 0.5, 0.5, 0.5, 1 ], [ "color", 0, 0, 0, 1 ], [ "lineThickness", 1 ] ],
+									"embedstate" : [ [ "trackerSize", 1 ], [ "dotSize", 1 ], [ "bgColor", 1, 1, 1.5 ], [ "selectColor", 0.5, 0.5, 0.5, 1 ], [ "points", 0.205, 0.035, 0.64, 0.635, 0.53, 0.935, 0.065, 0.565, 0.425, 0.495 ], [ "lineThickness", 1 ], [ "color", 0, 0, 0, 1 ], [ "autoOutput", 0 ], [ "dotTextColor", 1, 1, 1, 1 ], [ "trackerColor", 0.5, 0, 0, 1 ], [ "clipRange", 1 ], [ "pointLimit", 0 ] ],
 									"filename" : "grainflow.function2D.js",
 									"id" : "obj-7",
 									"maxclass" : "jsui",
@@ -3101,7 +3148,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "gf.function2D" ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "showTriangles", 0 ], [ "mode", 0 ], [ "maxBufferDrawSamples", 1920 ] ],
+									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "showTriangles", 0 ], [ "buffername", "gf.function2D" ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotScale", 1 ], [ "maxBufferDrawSamples", 1920 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "selection", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ] ],
 									"filename" : "grainflow.waveform~",
 									"id" : "obj-27",
 									"maxclass" : "jsui",
@@ -3314,6 +3361,11 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -3324,16 +3376,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 11.0 ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Lato" ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 11.0 ]
+									"fontname" : [ "Lato" ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -3362,6 +3409,7 @@
 		"parameters" : 		{
 			"obj-1::obj-18" : [ "number[3]", "number[3]", 0 ],
 			"obj-1::obj-20" : [ "number[2]", "number[2]", 0 ],
+			"obj-1::obj-22" : [ "number[4]", "number[2]", 0 ],
 			"obj-46::obj-15" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"obj-46::obj-44" : [ "number", "number", 0 ],
 			"obj-47::obj-15" : [ "mc.live.gain~[1]", "mc.live.gain~", 0 ],
@@ -3448,6 +3496,11 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -3458,16 +3511,11 @@
 						"autogradient" : 0.0
 					}
 ,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 11.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Lato" ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 11.0 ]
+					"fontname" : [ "Lato" ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
