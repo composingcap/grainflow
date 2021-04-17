@@ -20,17 +20,16 @@ waveFormDrawn = false;
 var waveform = new Sketch();
 var lasty= 0;
 var clickPos= [0,1];
-
+var fps = 30;
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
 var selectposition = [0,1];
 var selectpositionOut = [0,0]
 
 drawTask = new Task(drawMe, this);
-drawTask.interval=33;
+drawTask.interval= Math.round(1/fps);
 drawTask.repeat(-1);
-//drawTast.execute();
-
+	
 //Waveform Color
 
 function notifydeleted(){
@@ -289,6 +288,24 @@ function getattr_maxBufferDrawSamples()
 }
 
 
+declareattribute("fps",			"getattr_fps",			"setattr_fps", 1);
+
+function setattr_fps(rate)
+{
+	
+	drawTask.repeat(0);
+	fps = rate;
+	drawTask.interval= (1/fps);
+	drawTask.repeat(-1);
+	
+}
+
+function getattr_fps()
+{
+	return fps;
+}
+
+
 function load_buffer(){
 	buffer = new Buffer(buffername);
 	var bufTask = new Task(drawBuffer,this, buffername);
@@ -479,8 +496,7 @@ function onresize(w,h){
 	dim[0] = w;
 	dim[1] = h;
 	drawWaveform();
-	draw();
-	refresh();
+
 	
 	}
 	
