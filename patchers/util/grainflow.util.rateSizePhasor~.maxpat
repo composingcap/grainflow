@@ -106,7 +106,6 @@
 						"style" : "Minimal",
 						"subpatcher_template" : "minimal",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-3",
@@ -606,7 +605,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 204.0, 143.45166015625, 50.0, 22.0 ],
-									"text" : "0.43"
+									"text" : "0.936"
 								}
 
 							}
@@ -1027,7 +1026,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 72.375, 40.0, 30.0, 30.0 ]
+					"patching_rect" : [ 79.375, 40.0, 30.0, 30.0 ]
 				}
 
 			}
