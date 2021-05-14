@@ -21,6 +21,8 @@ var waveform = new Sketch();
 var lasty= 0;
 var clickPos= [0,1];
 var fps = 30;
+var recHeadPos = -1;
+
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
 var selectposition = [0,1];
@@ -177,6 +179,38 @@ function getattr_triangleOutColor()
 {
 	return triangleOutColor;
 }
+
+//Tracker Color
+var trackerColor = [0.9,0.9,0.9,0.75];
+
+declareattribute("trackerColor",			"getattr_trackerColor",			"setattr_trackerColor", 1);
+
+function setattr_trackerColor()
+{
+	trackerColor = arrayfromargs(arguments);
+
+}
+
+function getattr_trackerColor()
+{
+	return trackerColor;
+}
+
+var trackerWidth = 2;
+
+declareattribute("trackerWidth",			"getattr_trackerWidth",			"setattr_trackerWidth", 1);
+
+function setattr_trackerWidth()
+{
+	trackerWidth = arrayfromargs(arguments);
+
+}
+
+function getattr_trackerWidth()
+{
+	return trackerWidth;
+}
+
 
 
 // Background Color
@@ -396,7 +430,12 @@ function draw(){
 		copypixels(waveform,0,0,0,0,dim[0],dim[1]);
 		
 		}
+		glcolor(trackerColor[0],trackerColor[1],trackerColor[2],trackerColor[3]);
+		gllinewidth(trackerWidth);
 
+		moveto(scaleX(recHeadPos),-1,0);
+		lineto(scaleX(recHeadPos),1,0);
+		
 		//Dots 	
 		for (p = 0 ; p < grainPositions.length; p++){
 			if(grainStates[p] != 0){
@@ -425,6 +464,8 @@ function draw(){
 		frametri(scaleX(clickPos[0]), -0.9,0, scaleX(clickPos[0])-0.1,-1,0,scaleX(clickPos[0])+0.1,-1,0);
 
 }
+		
+		
 		
 		}
 	
@@ -621,4 +662,14 @@ function wrap(x, min, max){
 	
 function loadbang(){
 	load_buffer();
+	}
+	
+function bang(){
+		load_buffer()
+	}
+	
+function recordHead(progress){
+	recHeadPos = progress;
+
+	
 	}
