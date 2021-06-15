@@ -22,7 +22,7 @@ var lasty= 0;
 var clickPos= [0,1];
 var fps = 30;
 var recHeadPos = -1;
-
+var bufChans = [];
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
 var selectposition = [0,1];
@@ -34,6 +34,7 @@ drawTask.repeat(-1);
 	
 //Waveform Color
 
+function anything(){}
 function notifydeleted(){
 	drawTask.cancel();	
 	
@@ -246,13 +247,38 @@ function getattr_buffername()
 	return buffername;
 }
 
+//Buffer channel
+
+declareattribute("chan",			"getattr_chan",			"setattr_chan", 1);
+
+//Mode 0 is none
+//Mode 1 is select
+//Mode 2 is loop
+
+var chan = 1;
+
+function setattr_chan(thischan)
+{
+	chan = thischan;
+	load_buffer();
+
+
+}
+
+
+function getattr_chan()
+{
+	return chan;
+}
+
+
 // Buffer Name
 var mode = 0;
 
 declareattribute("mode",			"getattr_mode",			"setattr_mode", 1);
 
 //Mode 0 is none
-//Mode 1 is select
+//Mode 1 iss select
 //Mode 2 is loop
 
 function setattr_mode(thismode)
@@ -368,9 +394,8 @@ function drawBuffer(buffername){
 			sampCount = buffer.framecount();
 			sampSkip = 1;
 		}
-	
 	for (i = 0; i < sampCount; i++){
-		samples[i] = buffer.peek(0,i*sampSkip,1)
+		samples[i] = buffer.peek(chan,i*sampSkip,1)
 		}
 		
 	drawWaveform();
@@ -438,7 +463,7 @@ function draw(){
 		
 		//Dots 	
 		for (p = 0 ; p < grainPositions.length; p++){
-			if(grainStates[p] != 0){
+			if(grainStates[p] != 0 && bufChans[p] == chan){
 			dotColorMod = p/grainPositions.length*0.5;
 			dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
 			dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
@@ -517,6 +542,11 @@ function grainState(){
 	
 		
 			}
+			
+			
+function bufChan(){
+	bufChans = arrayfromargs(messagename,arguments);
+	}
 	
 function drawMe(){
 	draw();
@@ -665,7 +695,7 @@ function loadbang(){
 	}
 	
 function bang(){
-		load_buffer()
+		load_buffer();
 	}
 	
 function recordHead(progress){
