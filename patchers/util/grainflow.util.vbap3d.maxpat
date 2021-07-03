@@ -58,7 +58,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 497.0, 223.0, 123.0, 36.0 ],
+					"patching_rect" : [ 497.0, 223.0, 123.0, 35.0 ],
 					"text" : "zl.group @zlmaxsize 3000"
 				}
 
@@ -703,7 +703,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 245.0, 500.0, 379.0, 50.0 ],
+					"patching_rect" : [ 245.0, 500.0, 382.0, 48.0 ],
 					"text" : "delete matrix, newobject newobj @text $1 @varname matrix @patching_rect 67. 363. 74. 22., connect matrix 0 out 0, connect in 0 matrix 0, connect mix 0 matrix 0"
 				}
 
@@ -1072,7 +1072,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 67.0, 85.0, 30.0, 30.0 ]
 				}
 

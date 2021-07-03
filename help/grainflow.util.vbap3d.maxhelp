@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 195.0, 217.0, 959.0, 628.0 ],
+		"rect" : [ 100.0, 100.0, 959.0, 628.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -46,7 +46,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 421.0, 331.0, 150.0, 52.0 ],
+					"patching_rect" : [ 421.0, 331.0, 151.0, 37.0 ],
 					"text" : "Generates position based on a position and spread"
 				}
 
@@ -165,7 +165,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 123.333333333333314, 304.0, 150.0, 38.0 ],
+					"patching_rect" : [ 123.333333333333314, 304.0, 150.0, 37.0 ],
 					"text" : "Sets speaker positions with xyz coords"
 				}
 
@@ -200,7 +200,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 12.0, 58.0, 356.0, 34.0 ],
+					"patching_rect" : [ 12.0, 58.0, 356.0, 33.0 ],
 					"text" : "grainflow.vbap3d changes the panning of grains at control rate. It is sutable for panning grains with a single position"
 				}
 
@@ -212,7 +212,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 12.0, 4.0, 355.0, 41.0 ],
+					"patching_rect" : [ 12.0, 4.0, 355.0, 42.0 ],
 					"text" : "grainflow.vbap3d"
 				}
 

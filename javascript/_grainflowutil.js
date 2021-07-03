@@ -106,18 +106,40 @@ function genEnv2D(){
 	
 	
 	var dest = new Buffer(args[0]);
+	var pb;	
 	
-	var src = new  Buffer(args[1]);
+		
+	
+	
+	
+
+	
+	var bufs;
+	
+	if (args.length==2){
+	    pb = new PolyBuffer(args[1])
+		
+		bufs = pb.getbufferlist();	
+		
+		}
+		
+	else {
+		
+		bufs = args.slice(1);
+		
+		
+		}
+	var src = new  Buffer(bufs[0]);
 	
 	var len = src.framecount();
 	
-	var envs = args.length-1
+	var envs = bufs.length
 	
 	dest.send("samps", len*envs)
 	
 	for (var i = 0; i < envs; i++){
 		
-		src = new  Buffer(args[i+1]);
+		src = new  Buffer(bufs[i]);
 		
 		var samps = src.peek(0,0,len);
 		
