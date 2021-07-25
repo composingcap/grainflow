@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 601.0, 460.0 ],
+		"rect" : [ 50.0, 185.0, 601.0, 460.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -44,7 +44,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 40.0, 55.0, 224.0, 20.0 ],
+					"patching_rect" : [ 6.0, 45.0, 224.0, 20.0 ],
 					"text" : "This is used to generate 2D envelopes "
 				}
 
@@ -56,7 +56,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 40.0, 18.0, 314.0, 35.0 ],
+					"patching_rect" : [ 6.0, 3.0, 314.0, 35.0 ],
 					"text" : "Grainflow.gen.env2D"
 				}
 
@@ -68,7 +68,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 107.0, 207.5, 144.0, 33.0 ],
+					"patching_rect" : [ 78.0, 192.5, 144.0, 33.0 ],
 					"text" : "All buffers must  be the same size!",
 					"textcolor" : [ 0.388235294117647, 0.388235294117647, 0.388235294117647, 1.0 ]
 				}
@@ -91,7 +91,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 0.0, 640.0, 480.0 ],
+						"rect" : [ 59.0, 107.0, 640.0, 480.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -127,7 +127,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "bang", "clear" ],
-									"patching_rect" : [ 301.0, 176.0, 47.0, 22.0 ],
+									"patching_rect" : [ 306.0, 117.0, 47.0, 36.0 ],
 									"text" : "t b clear"
 								}
 
@@ -140,7 +140,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 301.0, 145.0, 53.0, 22.0 ],
+									"patching_rect" : [ 293.0, 64.0, 53.0, 36.0 ],
 									"text" : "loadbang"
 								}
 
@@ -153,7 +153,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 293.0, 247.0, 88.0, 22.0 ],
+									"patching_rect" : [ 318.0, 220.0, 88.0, 36.0 ],
 									"text" : "prepend append"
 								}
 
@@ -166,7 +166,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 302.0, 209.0, 299.0, 22.0 ],
+									"patching_rect" : [ 281.0, 167.0, 299.0, 36.0 ],
 									"text" : "grainflow.Blackman, grainflow.FatPluck, grainflow.Hamming"
 								}
 
@@ -179,7 +179,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
-									"patching_rect" : [ 293.0, 281.0, 118.0, 22.0 ],
+									"patching_rect" : [ 318.0, 283.0, 118.0, 36.0 ],
 									"saved_object_attributes" : 									{
 										"embed" : 0
 									}
@@ -327,15 +327,15 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-21", 0 ],
-									"source" : [ "obj-26", 1 ]
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-26", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-21", 0 ],
-									"source" : [ "obj-26", 0 ]
+									"destination" : [ "obj-7", 0 ],
+									"source" : [ "obj-26", 1 ]
 								}
 
 							}
@@ -356,7 +356,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 483.0, 298.0, 52.0, 22.0 ],
+					"patching_rect" : [ 454.0, 283.0, 52.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -375,7 +375,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 174.0, 174.0, 150.0, 24.0 ],
+					"patching_rect" : [ 145.0, 159.0, 150.0, 24.0 ],
 					"text" : "Or a polybuffer"
 				}
 
@@ -387,7 +387,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 78.0, 174.0, 91.0, 22.0 ],
+					"patching_rect" : [ 49.0, 159.0, 91.0, 22.0 ],
 					"text" : "env2d envelopes"
 				}
 
@@ -399,7 +399,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 483.0, 332.5, 32.0, 22.0 ],
+					"patching_rect" : [ 454.0, 317.5, 32.0, 22.0 ],
 					"text" : "clear"
 				}
 
@@ -411,8 +411,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 171.0, 139.0, 277.0, 24.0 ],
-					"presentation_linecount" : 3,
+					"patching_rect" : [ 142.0, 124.0, 277.0, 24.0 ],
 					"text" : "Contails a target buffer follows by a list of buffers"
 				}
 
@@ -424,7 +423,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 40.0, 259.0, 125.0, 22.0 ],
+					"patching_rect" : [ 11.0, 244.0, 125.0, 22.0 ],
 					"text" : "grainflow.util.genEnv2D"
 				}
 
@@ -436,7 +435,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 66.0, 95.0, 150.0, 24.0 ],
+					"patching_rect" : [ 37.0, 80.0, 150.0, 24.0 ],
 					"text" : "Generate the 2D buffer"
 				}
 
@@ -449,7 +448,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 40.0, 95.0, 24.0, 24.0 ]
+					"patching_rect" : [ 11.0, 80.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -461,7 +460,7 @@
 					"numinlets" : 5,
 					"numoutlets" : 6,
 					"outlettype" : [ "float", "float", "float", "float", "list", "" ],
-					"patching_rect" : [ 40.0, 294.0, 426.0, 113.0 ],
+					"patching_rect" : [ 11.0, 279.0, 426.0, 113.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 0.0 ],
 					"voffset" : 1.0,
 					"vzoom" : 0.5
@@ -475,7 +474,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 40.0, 139.0, 129.0, 22.0 ],
+					"patching_rect" : [ 11.0, 124.0, 129.0, 22.0 ],
 					"text" : "env2d env1 env2 env1"
 				}
 
@@ -487,7 +486,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 483.0, 359.5, 82.0, 22.0 ],
+					"patching_rect" : [ 454.0, 344.5, 82.0, 22.0 ],
 					"text" : "buffer~ env2d"
 				}
 
@@ -524,8 +523,8 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "grainflow.util.genEnv2D.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -541,6 +540,15 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"fontname" : [ "Lato Medium" ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontface" : [ 0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.741176470588235, 0.741176470588235, 0.741176470588235, 1.0 ],
+					"fontsize" : [ 11.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -551,16 +559,7 @@
 						"autogradient" : 0.0
 					}
 ,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 11.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"elementcolor" : [ 0.741176470588235, 0.741176470588235, 0.741176470588235, 1.0 ],
-					"fontname" : [ "Lato Medium" ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ]
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

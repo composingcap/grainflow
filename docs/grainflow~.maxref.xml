@@ -257,6 +257,24 @@
 			</digest>
 		</method>
 
+		<method name='bufChans' size="1">
+			<digest>
+				 Assigns grain voices to buffer channels in a round robin fashion.
+			</digest>
+		</method>
+
+		<method name='bufChan' size="1">
+			<digest>
+				 Sets grainflow to a buffer channel. Use a "g" message to target a single voice.
+			</digest>
+		</method>
+
+		<method name='chanMode' size="1">
+			<digest>
+				 0: Grains are sampled from their assigned channels.
+				 1: Grains are randomly sampled from the number for bufChans
+			</digest>
+		</method>
 
 
 		<method name='envMode' size="1">

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.vbap3d' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>An easy way to pan grains generated with grainflow.</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="multichannelsignal">
+			<digest>
+				Grains as independent channels.
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="multichannelsignal">
+			<digest>
+
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="position">
+			<digest>
+				A list containing the grain number folled by the xyz position of that grain.
+			</digest>
+			<description>
+
+			</description>
+		</method>
+		<method name="speakers">
+			<digest>
+				Can be set as a dictionary with the key as the speaker index and the data as a 3 member array that indicate the xyz position of the speaker.
+				Can also be set as a list containing the speaker number followed by the position of that speaker.
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.util.3Dspread' />
+	</seealsolist>
+
+
+</c74object>

@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.3dspread' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>An easy way to pan grains generated with grainflow.</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="multichannelsignal">
+			<digest>
+				Grains as independent channels.
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="channel coordinates">
+			<digest>
+			x y z positions of a channel
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="spread">
+			<digest>
+				The maximum random distance from the center. Can be set as a single number or in XYZ format
+			</digest>
+			<description>
+
+			</description>
+		</method>
+		<method name="center">
+			<digest>
+				The center of the stereo image in x y z format
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.util.vbap3d' />
+	</seealsolist>
+
+
+</c74object>
