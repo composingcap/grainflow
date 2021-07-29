@@ -10,12 +10,12 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 557.0, 217.0, 1343.0, 480.0 ],
+		"rect" : [ 86.0, 91.0, 1019.0, 500.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 11.0,
+		"default_fontsize" : 10.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Lato",
+		"default_fontname" : "Futura Medium",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -45,7 +45,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 22.0, 81.0, 54.0, 22.0 ],
+					"patching_rect" : [ 18.0, 48.0, 59.0, 21.0 ],
 					"text" : "mc.pack~"
 				}
 
@@ -58,11 +58,11 @@
 								"absolutepath" : "FemVoice.aif",
 								"filename" : "FemVoice.aif",
 								"filekind" : "audiofile",
-								"id" : "u411001149",
+								"id" : "u260003611",
 								"selection" : [ 0.0, 1.0 ],
-								"loop" : 1,
+								"loop" : 0,
 								"content_state" : 								{
-									"loop" : 1
+
 								}
 
 							}
@@ -80,21 +80,10 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 22.0, 39.0, 150.0, 30.0 ],
+					"patching_rect" : [ 18.0, 9.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-3",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 24.5, 296.0, 49.0, 22.0 ],
-					"text" : "mc.dac~"
 				}
 
 			}
@@ -108,21 +97,67 @@
 					"id" : "obj-1",
 					"lockeddragscroll" : 0,
 					"maxclass" : "bpatcher",
-					"name" : "grainflow.readymade.cloudhopper.maxpat",
+					"name" : "grainflow.readymade.shuffle~.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 22.0, 117.0, 763.0, 169.0 ],
+					"patching_rect" : [ 18.0, 77.0, 534.0, 209.0 ],
 					"viewvisibility" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"lastchannelcount" : 2,
+					"maxclass" : "mc.live.gain~",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"orientation" : 1,
+					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 22.0, 288.0, 136.0, 47.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_longname" : "mc.live.gain~",
+							"parameter_mmax" : 6.0,
+							"parameter_mmin" : -70.0,
+							"parameter_shortname" : "mc.live.gain~",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 4
+						}
+
+					}
+,
+					"varname" : "mc.live.gain~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"id" : "obj-3",
+					"local" : 1,
+					"maxclass" : "mc.ezdac~",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 22.0, 337.0, 45.0, 45.0 ]
 				}
 
 			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
+					"destination" : [ "obj-4", 0 ],
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-4", 0 ]
 				}
 
 			}
@@ -149,35 +184,31 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-1::obj-103" : [ "live.numbox[14]", "live.numbox", 0 ],
-			"obj-1::obj-104" : [ "live.numbox[15]", "live.numbox", 0 ],
-			"obj-1::obj-108" : [ "live.numbox[16]", "live.numbox", 0 ],
-			"obj-1::obj-109" : [ "live.numbox[17]", "live.numbox", 0 ],
-			"obj-1::obj-113" : [ "live.numbox[18]", "live.numbox", 0 ],
-			"obj-1::obj-114" : [ "live.numbox[19]", "live.numbox", 0 ],
-			"obj-1::obj-118" : [ "live.numbox[20]", "live.numbox", 0 ],
-			"obj-1::obj-119" : [ "live.numbox[21]", "live.numbox", 0 ],
-			"obj-1::obj-123" : [ "live.numbox[22]", "live.numbox", 0 ],
-			"obj-1::obj-18" : [ "out", "out", 0 ],
-			"obj-1::obj-23" : [ "grain size", "grain size", 0 ],
-			"obj-1::obj-32" : [ "random grain delay", "random grain delay", 0 ],
-			"obj-1::obj-34" : [ "live.numbox", "live.numbox", 0 ],
-			"obj-1::obj-46" : [ "live.numbox[1]", "live.numbox", 0 ],
-			"obj-1::obj-5" : [ "feedback", "feedback", 0 ],
-			"obj-1::obj-50" : [ "live.numbox[2]", "live.numbox", 0 ],
-			"obj-1::obj-67" : [ "live.numbox[3]", "live.numbox", 0 ],
-			"obj-1::obj-76" : [ "live.numbox[4]", "live.numbox", 0 ],
-			"obj-1::obj-81" : [ "live.numbox[5]", "live.numbox", 0 ],
-			"obj-1::obj-83" : [ "live.numbox[6]", "live.numbox", 0 ],
-			"obj-1::obj-84" : [ "live.numbox[7]", "live.numbox", 0 ],
-			"obj-1::obj-88" : [ "live.numbox[8]", "live.numbox", 0 ],
-			"obj-1::obj-89" : [ "live.numbox[9]", "live.numbox", 0 ],
-			"obj-1::obj-9" : [ "delay time", "fb delay time", 0 ],
-			"obj-1::obj-93" : [ "live.numbox[10]", "live.numbox", 0 ],
-			"obj-1::obj-94" : [ "live.numbox[11]", "live.numbox", 0 ],
-			"obj-1::obj-98" : [ "live.numbox[12]", "live.numbox", 0 ],
-			"obj-1::obj-99" : [ "live.numbox[13]", "live.numbox", 0 ],
+			"obj-1::obj-106" : [ "envelope", "Evelope", 0 ],
+			"obj-1::obj-116" : [ "state", "state", 0 ],
+			"obj-1::obj-39" : [ "grainSize", "Grain Size", 0 ],
+			"obj-1::obj-41" : [ "delayMin", "Delay", 0 ],
+			"obj-1::obj-49" : [ "delayRandom", "Random Delay", 0 ],
+			"obj-1::obj-50" : [ "stereoSpread", "Stereo Spread", 0 ],
+			"obj-1::obj-51" : [ "density", "Density", 0 ],
+			"obj-1::obj-61" : [ "feedback", "Feedback", 0 ],
+			"obj-1::obj-68" : [ "grainSizeRandom", "grainSizeRandom", 0 ],
+			"obj-1::obj-71" : [ "transposerandom", "Random Transpose", 0 ],
+			"obj-1::obj-92" : [ "space", "Space", 0 ],
+			"obj-1::obj-97" : [ "live.tab", "live.tab", 0 ],
+			"obj-4" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
+
+			}
+,
+			"parameter_overrides" : 			{
+				"obj-1::obj-68" : 				{
+					"parameter_initial" : 0,
+					"parameter_longname" : "grainSizeRandom",
+					"parameter_range" : [ 0.0, 100.0 ],
+					"parameter_shortname" : "grainSizeRandom",
+					"parameter_unitstyle" : 5
+				}
 
 			}
 ,
@@ -185,10 +216,17 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "grainflow.readymade.cloudhopper.maxpat",
+				"name" : "grainflow.readymade.shuffle~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/readymades",
 				"patcherrelativepath" : "../../../patchers/readymades",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainFlow.waveform~.js",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
+				"patcherrelativepath" : "../../../jsui",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
@@ -213,13 +251,6 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../../../patchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "grainflow.util.record~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../../../patchers/util",
@@ -234,6 +265,19 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "pan2.maxpat",
+				"bootpath" : "~/AppData/Roaming/Cycling '74/Max 8/examples/spatialization/panning/lib",
+				"patcherrelativepath" : "../../../../../../../AppData/Roaming/Cycling '74/Max 8/examples/spatialization/panning/lib",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "anton.aif",
+				"bootpath" : "C74:/media/msp",
+				"type" : "AIFF",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "FemVoice.aif",
 				"bootpath" : "C74:/patchers/m4l/Pluggo for Live resources/samples",
 				"type" : "AIFF",
@@ -244,14 +288,13 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 11.0 ],
+					"fontsize" : [ 10.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -262,14 +305,15 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontname" : [ "Lato" ],
+					"fontname" : [ "Futura Medium" ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
 				"multi" : 0
 			}
- ]
+ ],
+		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 	}
 
 }
