@@ -336,7 +336,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 449.0, 413.0, 95.0, 22.0 ],
+					"patching_rect" : [ 449.0, 393.0, 95.0, 22.0 ],
 					"text" : "falloffDistance $1"
 				}
 
@@ -352,8 +352,8 @@
 					"outlettype" : [ "", "", "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 689.0, 144.0, 100.0, 100.0 ],
-					"xplace" : [ 0.43 ],
-					"yplace" : [ 0.67 ]
+					"xplace" : [ 0.15 ],
+					"yplace" : [ 0.11 ]
 				}
 
 			}
@@ -365,7 +365,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 444.0, 323.5, 151.0, 37.0 ],
+					"patching_rect" : [ 441.0, 300.5, 151.0, 37.0 ],
 					"text" : "Generates position based on a position and spread"
 				}
 
@@ -471,7 +471,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 310.0, 331.0, 120.0, 22.0 ],
+					"patching_rect" : [ 310.0, 311.5, 120.0, 22.0 ],
 					"text" : "grainflow.util.3dspread"
 				}
 
