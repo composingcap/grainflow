@@ -291,6 +291,10 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -301,15 +305,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
 									"fontname" : [ "Futura Medium" ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"fontface" : [ 0 ]
 								}
 ,
@@ -434,7 +434,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 74.0, 439.0, 53.0, 23.0 ],
+									"patching_rect" : [ 74.0, 439.0, 53.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -446,7 +446,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 111.0, 353.0, 57.0, 23.0 ],
+									"patching_rect" : [ 111.0, 353.0, 57.0, 21.0 ],
 									"text" : "tosymbol"
 								}
 
@@ -458,7 +458,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "bang", "bang" ],
-									"patching_rect" : [ 100.0, 100.0, 32.0, 23.0 ],
+									"patching_rect" : [ 100.0, 100.0, 32.0, 21.0 ],
 									"text" : "t b b"
 								}
 
@@ -470,8 +470,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 110.0, 316.0, 76.0, 23.0 ],
-									"text" : "sprintf %s%s"
+									"patching_rect" : [ 110.0, 316.0, 120.0, 21.0 ],
+									"text" : "sprintf %spatches/%s"
 								}
 
 							}
@@ -482,7 +482,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 50.0, 212.0, 32.0, 23.0 ],
+									"patching_rect" : [ 50.0, 212.0, 32.0, 21.0 ],
 									"text" : "path"
 								}
 
@@ -494,7 +494,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 51.0, 279.0, 68.0, 23.0 ],
+									"patching_rect" : [ 51.0, 279.0, 68.0, 21.0 ],
 									"save" : [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
 									"text" : "thispatcher"
 								}
@@ -507,7 +507,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 140.0, 150.0, 73.0, 23.0 ],
+									"patching_rect" : [ 140.0, 150.0, 73.0, 21.0 ],
 									"text" : "v gftutpatch"
 								}
 
@@ -519,7 +519,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 74.0, 409.0, 50.0, 23.0 ],
+									"patching_rect" : [ 74.0, 409.0, 50.0, 21.0 ],
 									"text" : "load $1"
 								}
 
@@ -605,6 +605,10 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -615,15 +619,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
 									"fontname" : [ "Futura Medium" ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"fontface" : [ 0 ]
 								}
 ,
@@ -736,7 +736,7 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 11.0, 4.0, 512.0, 42.0 ],
 					"readonly" : 1,
-					"text" : "Lets Build a Granular Scrubber"
+					"text" : "1. Lets Build a Granular Scrubber"
 				}
 
 			}
@@ -778,20 +778,36 @@
 			}
 , 			{
 				"box" : 				{
+					"data" : 					{
+						"1" : 						{
+							"name" : "1. Lets Build a Granular Scrubber",
+							"vid" : "ndEkPoEfvE4",
+							"patch" : "grainScrubber.maxpat",
+							"desc" : "This is the first of several Grainflow tutorials. In this tutorial we build a granular scrubbing effect to will allow you to draw and loop shapes that control playback position and amplitude."
+						}
+,
+						"2" : 						{
+							"name" : "2. Lets Build a Harmonizer Part 1",
+							"vid" : "4KvgYO7Xp0M",
+							"patch" : "grainScrubber.maxpat",
+							"desc" : "In this tutorial we build a single voice harmonizer using Grainflow."
+						}
+
+					}
+,
 					"id" : "obj-4",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 4,
 					"outlettype" : [ "dictionary", "", "", "" ],
-					"patching_rect" : [ 642.333333333333371, 205.0, 90.0, 37.0 ],
+					"patching_rect" : [ 642.333333333333371, 205.0, 150.0, 23.0 ],
 					"saved_object_attributes" : 					{
-						"embed" : 0,
+						"embed" : 1,
 						"parameter_enable" : 0,
 						"parameter_mappable" : 0
 					}
 ,
-					"text" : "dict gfletsbuilds"
+					"text" : "dict gfletsbuilds @embed 1"
 				}
 
 			}
@@ -846,7 +862,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-3",
-					"items" : "<empty>",
+					"items" : [ "1. Lets Build a Granular Scrubber", ",", "2. Lets Build a Harmonizer Part 1" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -854,7 +870,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 704.0, 56.0, 182.0, 23.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 495.0, 71.0, 182.0, 23.0 ]
+					"presentation_rect" : [ 495.0, 71.0, 223.0, 23.0 ]
 				}
 
 			}
@@ -1027,6 +1043,10 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 12.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1037,15 +1057,11 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 12.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
 					"fontname" : [ "Lato" ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : [ 0 ]
 				}
 ,
