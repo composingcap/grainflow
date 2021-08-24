@@ -29,15 +29,26 @@ var selectposition = [0,1];
 var selectpositionOut = [0,0]
 
 drawTask = new Task(drawMe, this);
-drawTask.interval= Math.round(1/fps);
-drawTask.repeat(-1);
-	
+autoDraw(1);
+
 //Waveform Color
 
 function anything(){}
 function notifydeleted(){
-	drawTask.cancel();	
-	
+	drawTask.cancel();
+
+	}
+
+
+function autoDraw(state){
+	if ((state) && (!drawTask.running)){
+		drawTask.interval= Math.round(1/fps);
+		drawTask.repeat(-1);
+	}
+	else if ((!state) && (drawTask.running)){
+			drawTask.cancel();
+		}
+
 	}
 
 
@@ -352,12 +363,12 @@ declareattribute("fps",			"getattr_fps",			"setattr_fps", 1);
 
 function setattr_fps(rate)
 {
-	
+
 	drawTask.repeat(0);
 	fps = rate;
 	drawTask.interval= (1/fps);
 	drawTask.repeat(-1);
-	
+
 }
 
 function getattr_fps()
@@ -370,10 +381,10 @@ function load_buffer(){
 	buffer = new Buffer(buffername);
 	var bufTask = new Task(drawBuffer,this, buffername);
 	bufTask.execute();
-	
+
 	}
 
-	
+
 function buf(thisbuffername) {
 		setattr_buffername(thisbuffername);
 		}
@@ -382,9 +393,9 @@ function set(thisbuffername){
 		setattr_buffername(thisbuffername);
 	}
 
-		
+
 function drawBuffer(buffername){
-	
+
 
 	if (maxSamples < buffer.framecount()){
 	sampSkip = Math.floor(buffer.framecount()/ maxSamples)
@@ -397,14 +408,14 @@ function drawBuffer(buffername){
 	for (i = 0; i < sampCount; i++){
 		samples[i] = buffer.peek(chan,i*sampSkip,1)
 		}
-		
+
 	drawWaveform();
 
 	}
-	
+
 function scaleX(x){
-	return x*(dim[0]/dim[1])*2-(dim[0]/dim[1]);		
-			}	
+	return x*(dim[0]/dim[1])*2-(dim[0]/dim[1]);
+			}
 
 
 function draw(){
@@ -412,56 +423,56 @@ function draw(){
 	with(sketch){
 		glclearcolor(bgColor[0],bgColor[1],bgColor[2],bgColor[3]);
 		glclear();
-		
-		
+
+
 		if (mode == 1 || mode == 2){
 			glcolor(selectColor[0],selectColor[1],selectColor[2],selectColor[3]);
-			
-						/*			
+
+						/*
 			selX1 = (2*selectposition[0]-1)*dim[0]/dim[1];
 			selX2 = (2*selectposition[1]-1)*dim[0]/dim[1];
-			
+
 
 			quad(selX1,-1,0,selX1,1,0,selX2,1,0,selX2,-1,0);
 			*/
-			
+
 			selX1 = (2*selectposition[0]-1)*dim[0]/dim[1];
 			selX2 = (2*selectposition[1]-1)*dim[0]/dim[1];
-			
+
 
 			quad(selX1,-1,0,selX1,1,0,selX2,1,0,selX2,-1,0);
-			
+
 			selX1 = (2*selectposition[0]+1)*dim[0]/dim[1];
 			selX2 = (2*selectposition[1]+1)*dim[0]/dim[1];
-			
+
 
 			quad(selX1,-1,0,selX1,1,0,selX2,1,0,selX2,-1,0);
-			
+
 			selX1 = (2*selectposition[0]-3)*dim[0]/dim[1];
 			selX2 = (2*selectposition[1]-3)*dim[0]/dim[1];
-			
+
 
 			quad(selX1,-1,0,selX1,1,0,selX2,1,0,selX2,-1,0);
-				
-				
-			
 
-			
-			
+
+
+
+
+
 					}
-		
-		
+
+
 		if (waveFormDrawn){
 		copypixels(waveform,0,0,0,0,dim[0],dim[1]);
-		
+
 		}
 		glcolor(trackerColor[0],trackerColor[1],trackerColor[2],trackerColor[3]);
 		gllinewidth(trackerWidth);
 
 		moveto(scaleX(recHeadPos),-1,0);
 		lineto(scaleX(recHeadPos),1,0);
-		
-		//Dots 	
+
+		//Dots
 		for (p = 0 ; p < grainPositions.length; p++){
 			if(grainStates[p] != 0 && bufChans[p] == chan){
 			dotColorMod = p/grainPositions.length*0.5;
@@ -474,37 +485,37 @@ function draw(){
 			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI*0.5)*dotScale,0.5), 0, 360);
 					}
 					}
-					
+
 		if (showTriangles){
-		
+
 		glcolor(triangleColor[0],triangleColor[1],triangleColor[2],triangleColor[3]);
 		tri(scaleX(clickPos[0]), -0.9,0, scaleX(clickPos[0])-0.1,-1,0,scaleX(clickPos[0])+0.1,-1,0);
-		
+
 		ypos = (clickPos[1]*2)-1;
 		tri(scaleX(0)+0.1, ypos,0, scaleX(0),ypos-0.1,0,scaleX(0),ypos+0.1,0);
-	    
+
 		glcolor(triangleOutColor[0],triangleOutColor[1],triangleOutColor[2],triangleOutColor[3]);
 
 		frametri(scaleX(0)+0.1, ypos,0, scaleX(0),ypos-0.1,0,scaleX(0),ypos+0.1,0);
 		frametri(scaleX(clickPos[0]), -0.9,0, scaleX(clickPos[0])-0.1,-1,0,scaleX(clickPos[0])+0.1,-1,0);
 
 }
-		
-		
-		
+
+
+
 		}
-	
-	
+
+
 	}
 
 
 function setSelection(x1,x2){
 	selectposition = [x1,x2];
-	
+
 	}
 
 function drawWaveform(){
-	
+
 	waveform = new Sketch(dim[0],dim[1])
 	waveform.default2d();
 	waveform.glclearcolor(1,1,1,0);
@@ -513,64 +524,64 @@ function drawWaveform(){
 	waveform.glcolor(waveformColor[0], waveformColor[1], waveformColor[2], waveformColor[3])
 		for (s = 1 ; s < samples.length; s++){
 			samp = samples[s];
-			waveform.lineto(scaleX(s/sampCount),samp,0);	
-			//waveform.strokepoint(scaleX(s/sampCount),samp,0);		
+			waveform.lineto(scaleX(s/sampCount),samp,0);
+			//waveform.strokepoint(scaleX(s/sampCount),samp,0);
 			}
-			
+
 	waveFormDrawn = true;
-	
-	} 	
-	
+
+	}
+
 function grainPosition(){
 	grainPositions = arrayfromargs(messagename,arguments);
-	
-		
-			}	
+
+
+			}
 function grainWindow(){
 	grainWindows = arrayfromargs(messagename,arguments);
-	
-		
-			}	
+
+
+			}
 function grainAmp(){
 	grainAmps = arrayfromargs(messagename,arguments);
-	
-		
-			}	
-			
+
+
+			}
+
 function grainState(){
 	grainStates = arrayfromargs(messagename,arguments);
-	
-		
+
+
 			}
-			
-			
+
+
 function bufChan(){
 	bufChans = arrayfromargs(messagename,arguments);
 	}
-	
+
 function drawMe(){
 	draw();
 	refresh();
 
 	}
-	
+
 function clearGrains(){
 	grainPositions = [];
-	
-	
+
+
 	}
-	
 
 
-			
+
+
 function onresize(w,h){
 	dim[0] = w;
 	dim[1] = h;
 	drawWaveform();
 
-	
+
 	}
-	
+
 onresize.local = 1;
 
 
@@ -578,40 +589,40 @@ function onclick(x,y,button){
 	y = y/dim[1],0,1;
 	x = x/dim[0];
 	lastY = y;
-	
 
-	
+
+
 	if(mode == 1){
 		selectposition[0] = x;
-		selectposition[1] = x;	
+		selectposition[1] = x;
 		outlet(0,["selection", selectposition[0], selectposition[1]]);
-		
+
 		}
-	
-	
+
+
 	if(mode == 2){
-			
+
 		var distance = Math.abs(selectposition[1]-selectposition[0])/2;
 		x = wrap(x,0,1);
 		selectposition[0] = x - distance;
 		selectposition[1] = x + distance;
-		
-		
+
+
 		selectpositionOut = selectposition;
 		outlet(0,["selection", selectpositionOut[0], selectpositionOut[1]]);
-		
+
 		}
-		
+
 	x = wrap(x,0,1);
 	y = clamp(y,0,1);
 	outlet(1,["clicking", x, 1-y, button]);
 	clickPos = [x, 1-y];
-	
-	
-	
-	
+
+
+
+
 	}
-	
+
 
 function ondrag(x,y,button){
 	y = y/dim[1],0,1;
@@ -620,24 +631,24 @@ function ondrag(x,y,button){
 	var dY = y - lastY;
 	lastY = y;
 
-	
+
 		if(mode == 1){
 		selectposition[1] = x;
-		
+
 		var distance = selectposition[1]-selectposition[0];
 		if (distance > 1){
-			selectposition[1] = selectposition[0] + 1; 	
+			selectposition[1] = selectposition[0] + 1;
 		}
 		else if (distance < -1){
-			selectposition[1] = selectposition[0] - 1; 
+			selectposition[1] = selectposition[0] - 1;
 			}
-		
+
 		selectpositionOut[0] = selectposition[0];
 		selectpositionOut[1] = selectposition[1];
 		outlet(0,["selection", selectpositionOut[0], selectpositionOut[1]]);
-		
+
 		}
-		
+
 		if(mode == 2){
 			x = wrap(x,0,1);
 			var distance = Math.abs(selectposition[1]-selectposition[0])/2;
@@ -647,16 +658,16 @@ function ondrag(x,y,button){
 
 			selectpositionOut.sort();
 			outlet(0,["selection", selectpositionOut[0], selectpositionOut[1]]);
-		
+
 		}
-			
+
 	x = wrap(x,0,1);
 	y = clamp(y,0,1);
 	outlet(1,["clicking", x, 1-y, button]);
 	clickPos = [x, 1-y];
-	
+
 	}
-	
+
 function ondblclick(x,y,button){
 	x = wrap(x/dim[0],0,1);
 	y = clamp(y/dim[1],0,1);
@@ -666,40 +677,41 @@ function ondblclick(x,y,button){
 		outlet(0,["selection", selectposition[0], selectposition[1]]);
 		}
 	}
-	
+
 function onidle(x,y,button){
 	x = wrap(x/dim[0],0,1);
 	y = clamp(y/dim[1],0,1);
 	outlet(1,["idle", x, 1-y, button]);
 	}
-	
+
 function clamp(num, min, max) {
   return num <= min ? min : num >= max ? max : num;
 }
 
 function wrap(x, min, max){
-	
+
 	if (x < 0){
 		x = Math.abs(1+x);
 		}
-		
+
 	x = x % (max-min);
 	x = x+min;
-	
+
 	return x;
-	
+
 	}
-	
+
 function loadbang(){
 	load_buffer();
 	}
-	
+
 function bang(){
 		load_buffer();
 	}
 	
+
 function recordHead(progress){
 	recHeadPos = progress;
 
-	
+
 	}
