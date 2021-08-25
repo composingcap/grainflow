@@ -29,7 +29,8 @@ var selectposition = [0,1];
 var selectpositionOut = [0,0]
 
 drawTask = new Task(drawMe, this);
-autoDraw(1);
+		drawTask.interval= Math.round(1/fps)*1000;
+		drawTask.repeat(-1);
 
 //Waveform Color
 
@@ -42,7 +43,7 @@ function notifydeleted(){
 
 function autoDraw(state){
 	if ((state) && (!drawTask.running)){
-		drawTask.interval= Math.round(1/fps);
+		drawTask.interval= Math.round(1/fps)*1000;
 		drawTask.repeat(-1);
 	}
 	else if ((!state) && (drawTask.running)){
@@ -364,10 +365,11 @@ declareattribute("fps",			"getattr_fps",			"setattr_fps", 1);
 function setattr_fps(rate)
 {
 
-	drawTask.repeat(0);
 	fps = rate;
-	drawTask.interval= (1/fps);
-	drawTask.repeat(-1);
+	autoDraw(0);
+	autoDraw(1);
+	post(fps);
+	
 
 }
 
