@@ -250,8 +250,10 @@ declareattribute("buffername",			"getattr_buffername",			"setattr_buffername", 1
 
 function setattr_buffername(thisbuffername)
 {
-	buffername = thisbuffername;
-	load_buffer();
+	if (buffername != thisbuffername){
+		buffername = thisbuffername;
+		load_buffer();
+	}
 
 }
 
