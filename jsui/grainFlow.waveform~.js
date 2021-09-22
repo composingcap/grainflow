@@ -22,7 +22,7 @@ var lasty= 0;
 var clickPos= [0,1];
 var fps = 30;
 var recHeadPos = -1;
-var bufChans = [];
+var bufChans = [0];
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
 var selectposition = [0,1];
@@ -479,7 +479,7 @@ function draw(){
 
 		//Dots
 		for (p = 0 ; p < grainPositions.length; p++){
-			if(grainStates[p] != 0 && bufChans[p] == chan){
+			if(grainStates[p] != 0 && bufChans[p%bufChans.length] == chan){
 			dotColorMod = p/grainPositions.length*0.5;
 			dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
 			dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
