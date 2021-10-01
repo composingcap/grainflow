@@ -326,6 +326,30 @@
 		</digest>
 </method>
 
+<method name='loopMode' size="1">
+	<digest>
+		Modifies how grainflow loops.
+		0: no looping;
+		1: wrap;
+		2: fold grain start point;
+		3: fold read point;
+	</digest>
+
+</method>
+
+<method name='startPoint' size="1">
+	<digest>
+		Sets the starting location for a loop in grainflow from 0-1
+	</digest>
+
+</method>
+
+<method name='stopPoint' size="1">
+	<digest>
+		Sets the ending location for a loop in grainflow from 0-1
+	</digest>
+
+</method>
 
 
 	</methodlist>

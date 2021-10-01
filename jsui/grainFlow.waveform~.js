@@ -24,6 +24,7 @@ var fps = 30;
 var recHeadPos = -1;
 var bufChans = [0];
 
+
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
 var selectposition = [0,1];
 var selectpositionOut = [0,0]
@@ -53,6 +54,19 @@ function autoDraw(state){
 
 	}
 
+var displayRange = [0.0, 1.0];
+declareattribute("displayRange",			"getattr_displayRange",			"setattr_displayRange", 1);
+
+function setattr_displayRange()
+{
+	displayRange = arrayfromargs(arguments);
+	bang();
+}
+
+function getattr_displayRange()
+{
+	return displayRange;
+}
 
 var waveformColor = [0.1,0.1,0.1,1];
 
@@ -401,17 +415,18 @@ function set(thisbuffername){
 
 function drawBuffer(buffername){
 
-
-	if (maxSamples < buffer.framecount()){
-	sampSkip = Math.floor(buffer.framecount()/ maxSamples)
+	var bsamps =  buffer.framecount()*Math.abs(displayRange[0]-displayRange[1]);
+	var bstart =  Math.floor(buffer.framecount()*(displayRange[0]));
+	if (maxSamples < bsamps){
+	sampSkip = Math.floor(bsamps/ maxSamples)
 	sampCount = maxSamples
 	}
 	else{
-			sampCount = buffer.framecount();
+			sampCount = bsamps;
 			sampSkip = 1;
 		}
 	for (i = 0; i < sampCount; i++){
-		samples[i] = buffer.peek(chan,i*sampSkip,1)
+		samples[i+bstart] = buffer.peek(chan,i*sampSkip,1)
 		}
 
 	drawWaveform();
@@ -486,7 +501,7 @@ function draw(){
 			dotB= dotColor[2]*(1-dotColorMod) + dotColor2[2]*(dotColorMod);
 			dotA= dotColor[3]*(1-dotColorMod) + dotColor2[3]*(dotColorMod);
 			glcolor(dotR, dotG, dotB, dotA);
-			moveto(scaleX(wrap(grainPositions[p],0,1)), 1.75*grainAmps[p]-(1.75*0.5) + (0.05/grainPositions.length*p-0.05)*(1+dotVJitter));
+			moveto(scaleX((wrap(grainPositions[p],0,1)-displayRange[0])/Math.abs(displayRange[1]-displayRange[0])), 1.75*grainAmps[p]-(1.75*0.5) + (0.05/grainPositions.length*p-0.05)*(1+dotVJitter));
 			circle(0.05*Math.pow(Math.sin(grainWindows[p]*Math.PI*0.5)*dotScale,0.5), 0, 360);
 					}
 					}
