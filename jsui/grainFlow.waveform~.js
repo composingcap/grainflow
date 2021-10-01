@@ -22,7 +22,7 @@ var lasty= 0;
 var clickPos= [0,1];
 var fps = 30;
 var recHeadPos = -1;
-var bufChans = [0];
+var bufChans = [1];
 
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
