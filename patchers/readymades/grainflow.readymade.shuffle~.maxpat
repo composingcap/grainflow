@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 11,
+			"minor" : 2,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -141,6 +141,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 20.0, 69.0, 48.0, 27.5 ],
 					"saved_attribute_attributes" : 					{
+						"activebgoncolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_enum" : [ "val1", "val2" ],
 							"parameter_longname" : "state",
@@ -177,7 +181,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "multichannelsignal" ],
 					"patching_rect" : [ 47.0, 9.0, 30.0, 30.0 ]
 				}
 
@@ -232,6 +236,18 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 437.333333333333371, 69.0, 42.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_linknames" : 1,
 							"parameter_longname" : "envelope",
@@ -359,6 +375,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 20.0, 103.5, 48.0, 49.0 ],
 					"saved_attribute_attributes" : 					{
+						"activebgoncolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_enum" : [ "2 grains", "4 grains" ],
 							"parameter_longname" : "live.tab",
@@ -424,6 +444,18 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 352.333333333333371, 116.5, 60.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_linknames" : 1,
 							"parameter_longname" : "space",
@@ -451,8 +483,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1781,10 +1813,11 @@
 , 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 									"fontsize" : [ 11.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Lato" ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1795,12 +1828,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontname" : [ "Lato" ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"fontface" : [ 0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1809,8 +1841,8 @@
 , 							{
 								"name" : "Patrick",
 								"default" : 								{
-									"color" : [ 0.227450980392157, 0.909803921568627, 0.980392156862745, 1.0 ],
-									"elementcolor" : [ 0.254901960784314, 0.274509803921569, 0.462745098039216, 1.0 ]
+									"elementcolor" : [ 0.254901960784314, 0.274509803921569, 0.462745098039216, 1.0 ],
+									"color" : [ 0.227450980392157, 0.909803921568627, 0.980392156862745, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1819,7 +1851,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 868.0, 241.0, 81.0, 22.0 ],
+					"patching_rect" : [ 834.5, 281.5, 81.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1845,10 +1877,22 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 862.5, 174.0, 25.0, 36.0 ],
+					"patching_rect" : [ 862.5, 174.0, 72.666666666666629, 36.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 244.0, 116.5, 91.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_linknames" : 1,
 							"parameter_longname" : "transposerandom",
@@ -1877,20 +1921,32 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 943.0, 148.0, 25.0, 36.0 ],
+					"patching_rect" : [ 967.0, 162.0, 74.0, 36.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 244.0, 69.0, 70.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
+							"parameter_initial" : [ 0 ],
 							"parameter_linknames" : 1,
-							"parameter_longname" : "transpose",
-							"parameter_mmax" : 12.0,
-							"parameter_mmin" : -12.0,
-							"parameter_shortname" : "Transpose",
+							"parameter_longname" : "grainSizeRandom",
+							"parameter_mmax" : 100.0,
+							"parameter_shortname" : "grainSizeRandom",
 							"parameter_steps" : 241,
 							"parameter_type" : 0,
 							"parameter_units" : "st",
-							"parameter_unitstyle" : 9
+							"parameter_unitstyle" : 5
 						}
 
 					}
@@ -1938,6 +1994,18 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 434.333333333333371, 116.5, 48.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_linknames" : 1,
 							"parameter_longname" : "feedback",
@@ -2004,6 +2072,18 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 95.0, 116.5, 55.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
 							"parameter_initial_enable" : 1,
@@ -2037,6 +2117,18 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 352.333333333333371, 69.0, 64.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_linknames" : 1,
 							"parameter_longname" : "stereoSpread",
@@ -2080,6 +2172,18 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 167.0, 116.5, 68.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
 							"parameter_linknames" : 1,
@@ -2123,6 +2227,18 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 167.0, 69.0, 54.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
 							"parameter_linknames" : 1,
@@ -2166,6 +2282,18 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 95.0, 69.0, 55.0, 36.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeneedlecolor" : 						{
+							"expression" : ""
+						}
+,
+						"textcolor" : 						{
+							"expression" : ""
+						}
+,
+						"activefgdialcolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
 							"parameter_linknames" : 1,
@@ -2279,8 +2407,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2581,11 +2709,12 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2596,12 +2725,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontname" : [ "Futura Medium" ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"fontface" : [ 0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -2649,8 +2777,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2908,8 +3036,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2967,8 +3095,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 1,
-											"revision" : 11,
+											"minor" : 2,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -3485,10 +3613,11 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 									"fontsize" : [ 11.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Lato" ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -3499,12 +3628,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontname" : [ "Lato" ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"fontface" : [ 0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -3544,7 +3672,7 @@
 				"box" : 				{
 					"id" : "obj-1",
 					"maxclass" : "newobj",
-					"numinlets" : 1,
+					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "" ],
 					"patching_rect" : [ 182.666666666666657, 267.5, 227.0, 22.0 ],
@@ -3557,8 +3685,8 @@
 					"id" : "obj-8",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 7,
-					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"numoutlets" : 8,
+					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 138.0, 361.5, 312.0, 22.0 ],
 					"text" : "grainflow~ #0_grainflow.shuffle 4 @ngrains 2 @autoOverlap"
 				}
@@ -3567,7 +3695,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "buffername", "1081_grainflow.shuffle" ], [ "dotColorSecondary", 0.51, 0.992, 1, 0.5 ], [ "fps", 30 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "showTriangles", 0 ], [ "waveformColor", 1, 1, 1, 1 ], [ "trackerWidth", 5 ], [ "bgColor", 1, 1, 1, 0 ], [ "dotScale", 40 ], [ "dotColor", 0.51, 0.992, 1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "trackerColor", 0.8, 0.8, 1, 0.75 ], [ "selection", 0, 1 ], [ "mode", 0 ], [ "dotVJitter", 20 ], [ "maxBufferDrawSamples", 500 ], [ "triangleOutColor", 1, 1, 1, 1 ] ],
+					"embedstate" : [ [ "displayRange", 0, 1 ], [ "trackerColor", 0.8, 0.8, 1, 0.75 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 500 ], [ "showTriangles", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "buffername", "1198_grainflow.shuffle" ], [ "dotColorSecondary", 0.51, 0.992, 1, 0.5 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerWidth", 5 ], [ "chan", 1 ], [ "waveformColor", 1, 1, 1, 1 ], [ "dotScale", 40 ], [ "mode", 0 ], [ "dotColor", 0.51, 0.992, 1, 1 ], [ "dotVJitter", 20 ], [ "selection", 0, 1 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-10",
 					"maxclass" : "jsui",
@@ -3591,7 +3719,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1041.0, 228.5, 128.0, 128.0 ],
+					"patching_rect" : [ 858.0, 148.0, 128.0, 128.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 7.0, 55.5, 503.0, 107.0 ],
 					"proportion" : 0.39,
@@ -3906,14 +4034,14 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-91", 1 ],
+					"destination" : [ "obj-91", 0 ],
 					"source" : [ "obj-68", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-91", 0 ],
+					"destination" : [ "obj-91", 1 ],
 					"source" : [ "obj-71", 0 ]
 				}
 
@@ -3921,7 +4049,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
-					"midpoints" : [ 196.333333333333343, 387.5, 236.5, 387.5 ],
+					"midpoints" : [ 189.357142857142861, 387.5, 236.5, 387.5 ],
 					"source" : [ "obj-8", 1 ]
 				}
 
@@ -4032,10 +4160,11 @@
 , 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 					"fontsize" : [ 11.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Lato" ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -4046,12 +4175,11 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontname" : [ "Lato" ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : [ 0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -4060,8 +4188,8 @@
 , 			{
 				"name" : "Patrick",
 				"default" : 				{
-					"color" : [ 0.227450980392157, 0.909803921568627, 0.980392156862745, 1.0 ],
-					"elementcolor" : [ 0.254901960784314, 0.274509803921569, 0.462745098039216, 1.0 ]
+					"elementcolor" : [ 0.254901960784314, 0.274509803921569, 0.462745098039216, 1.0 ],
+					"color" : [ 0.227450980392157, 0.909803921568627, 0.980392156862745, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

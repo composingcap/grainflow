@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 10,
+			"minor" : 2,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -102,6 +102,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 763.75, 18.0, 42.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
 							"parameter_initial" : [ 0 ],
@@ -184,6 +188,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 763.75, 42.5, 42.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
 							"parameter_initial" : [ 0 ],
@@ -268,6 +276,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 359.25, 123.75, 60.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
 							"parameter_initial_enable" : 1,
@@ -337,6 +349,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 186.25, 123.75, 60.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_linknames" : 1,
 							"parameter_longname" : "samplePositionRandom",
@@ -417,6 +433,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 761.75, 63.5, 44.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
@@ -511,6 +531,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 639.75, 65.0, 44.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
@@ -677,6 +701,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 2.0, 77.0, 54.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
+						"activebgoncolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_enum" : [ "val1", "val2" ],
 							"parameter_linknames" : 1,
@@ -738,6 +766,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 639.75, 42.5, 44.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
 							"parameter_initial" : [ 200 ],
@@ -801,6 +833,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 639.75, 18.0, 44.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
 							"parameter_initial" : [ 20 ],
@@ -1011,9 +1047,9 @@
 					"fontsize" : 11.0,
 					"id" : "obj-24",
 					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"numinlets" : 3,
 					"numoutlets" : 2,
-					"outlettype" : [ "signal", "float" ],
+					"outlettype" : [ "multichannelsignal", "" ],
 					"patching_rect" : [ 361.0, 589.5, 174.0, 22.0 ],
 					"style" : "Minimal",
 					"text" : "grainflow.util.rateSizePhasor~ 100"
@@ -1047,6 +1083,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 359.25, 102.5, 60.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
 							"parameter_initial_enable" : 1,
@@ -1092,6 +1132,10 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 186.25, 102.5, 60.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"activeslidercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_longname" : "samplePosition",
 							"parameter_mmax" : 100.0,
@@ -1128,8 +1172,8 @@
 					"id" : "obj-7",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 7,
-					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"numoutlets" : 8,
+					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 361.0, 662.5, 209.0, 22.0 ],
 					"style" : "Minimal",
 					"text" : "grainflow~ ---grainflow 100"
@@ -1198,7 +1242,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotColor", 0.392, 1, 0.663, 1 ], [ "buffername", "---grainflow" ], [ "maxBufferDrawSamples", 1920 ], [ "dotColorSecondary", 0.1, 1, 0.1, 0.9 ], [ "dotVJitter", 0 ], [ "selection", 0, 1 ], [ "showTriangles", 0 ], [ "dotScale", 1 ], [ "mode", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "triangleColor", 1, 1, 1, 1 ] ],
+					"embedstate" : [ [ "dotColorSecondary", 0.1, 1, 0.1, 0.9 ], [ "dotVJitter", 0 ], [ "buffername", "---grainflow" ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "displayRange", 0, 1 ], [ "dotColor", 0.392, 1, 0.663, 1 ], [ "fps", 30 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "chan", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerWidth", 2 ], [ "mode", 0 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 0 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-3",
 					"maxclass" : "jsui",
@@ -1206,7 +1250,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 113.5, 127.5, 446.0, 90.0 ],
+					"patching_rect" : [ 102.5, 156.25, 446.0, 90.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 189.0, 3.0, 446.0, 90.0 ]
 				}
@@ -1449,7 +1493,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
-					"midpoints" : [ 268.0, 525.5, 35.5, 525.5, 35.5, 116.5, 123.0, 116.5 ],
+					"midpoints" : [ 268.0, 525.5, 35.5, 525.5, 35.5, 116.5, 112.0, 116.5 ],
 					"source" : [ "obj-35", 0 ]
 				}
 
@@ -1533,7 +1577,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"order" : 1,
+					"source" : [ "obj-5", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-35", 0 ],
+					"order" : 0,
 					"source" : [ "obj-5", 1 ]
 				}
 
@@ -1618,7 +1671,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
-					"midpoints" : [ 402.166666666666686, 698.611113250255585, 52.0, 698.611113250255585, 52.0, 115.5, 123.0, 115.5 ],
+					"midpoints" : [ 397.64285714285711, 698.611113250255585, 52.0, 698.611113250255585, 52.0, 115.5, 112.0, 115.5 ],
 					"source" : [ "obj-7", 1 ]
 				}
 
@@ -1683,16 +1736,9 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontsize" : [ 10.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"fontface" : [ 0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1702,7 +1748,14 @@
 						"proportion" : 0.39,
 						"autogradient" : 0.0
 					}
-
+,
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ]
 				}
 ,
 				"parentstyle" : "",
