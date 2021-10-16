@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 594.0, 427.0, 488.0, 642.0 ],
+		"rect" : [ 100.0, 100.0, 488.0, 642.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 594.0, 453.0, 488.0, 616.0 ],
+						"rect" : [ 0.0, 26.0, 488.0, 616.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -95,7 +95,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 265.5, 361.5, 129.0, 39.0 ],
-									"presentation_linecount" : 5,
 									"text" : "Set numbers to be normalized"
 								}
 
@@ -109,7 +108,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 343.0, 252.0, 76.0, 39.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Change name"
 								}
 
@@ -123,7 +121,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 141.0, 269.5, 78.0, 39.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Change color"
 								}
 
@@ -654,7 +651,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 281.0, 151.0, 101.0, 25.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Display units"
 								}
 
@@ -980,7 +976,6 @@
 					}
 ,
 					"patching_rect" : [ 34.0, 127.0, 79.0, 23.0 ],
-					"presentation_linecount" : 4,
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1757,19 +1752,6 @@
 							}
 , 							{
 								"box" : 								{
-									"bubble" : 1,
-									"id" : "obj-72",
-									"linecount" : 2,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 273.0, 112.0, 150.0, 39.0 ],
-									"text" : "0 is bipolar, -1 in negitive, 1 is positive"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-70",
 									"maxclass" : "number",
 									"numinlets" : 1,
@@ -2063,7 +2045,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 488.0, 616.0 ],
+						"rect" : [ 100.0, 126.0, 488.0, 616.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2516,19 +2498,6 @@
 							}
 , 							{
 								"box" : 								{
-									"bubble" : 1,
-									"id" : "obj-72",
-									"linecount" : 2,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 273.0, 112.0, 150.0, 39.0 ],
-									"text" : "0 is bipolar, -1 in negitive, 1 is positive"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-70",
 									"maxclass" : "number",
 									"numinlets" : 1,
@@ -2949,7 +2918,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 280.0, 107.0, 150.0, 39.0 ],
-									"text" : "0 is bipolar, -1 in negitive, 1 is positive"
+									"text" : "0 is bipolar, -1 is negitive, 1 is positive"
 								}
 
 							}
