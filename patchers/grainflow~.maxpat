@@ -4561,7 +4561,7 @@
 					"numoutlets" : 9,
 					"outlettype" : [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "", "" ],
 					"patching_rect" : [ 50.833333333333371, 486.0, 313.0, 22.0 ],
-					"text" : "mc.poly~ _grainflow.poly #2 @target 0 @parallel 0 @replicate 1"
+					"text" : "mc.poly~ _grainflow.poly #2 @target 0 @parallel 1 @replicate 1"
 				}
 
 			}
