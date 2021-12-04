@@ -23,13 +23,13 @@ var clickPos= [0,1];
 var fps = 30;
 var recHeadPos = -1;
 var bufChans = [1];
-
+var loadBufferNextFrame = false;
 
 dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
 var selectposition = [0,1];
 var selectpositionOut = [0,0]
 
-drawTask = new Task(drawMe, this);
+drawTask = new Task(drawLoop, this);
 		drawTask.interval= ((1/fps)*1000);
 		drawTask.repeat(-1);
 
@@ -266,7 +266,7 @@ function setattr_buffername(thisbuffername)
 {
 	if (buffername != thisbuffername){
 		buffername = thisbuffername;
-		load_buffer();
+		loadBufferNextFrame = true;
 	}
 
 }
@@ -289,7 +289,7 @@ var chan = 1;
 function setattr_chan(thischan)
 {
 	chan = thischan;
-	load_buffer();
+	loadBufferNextFrame = true;
 
 
 }
@@ -367,7 +367,7 @@ declareattribute("maxBufferDrawSamples",			"getattr_maxBufferDrawSamples",			"se
 function setattr_maxBufferDrawSamples()
 {
 	maxSamples = arrayfromargs(arguments);
-	load_buffer()
+	loadBufferNextFrame = true;
 
 }
 
@@ -400,6 +400,7 @@ function load_buffer(){
 	buffer = new Buffer(buffername);
 	var bufTask = new Task(drawBuffer,this, buffername);
 	bufTask.execute();
+	loadBufferNextFrame = false;
 
 	}
 
@@ -579,7 +580,10 @@ function bufChan(){
 	bufChans = arrayfromargs(messagename,arguments);
 	}
 
-function drawMe(){
+function drawLoop(){
+	if (loadBufferNextFrame){
+		load_buffer();
+	}
 	draw();
 	refresh();
 
@@ -722,11 +726,11 @@ function wrap(x, min, max){
 	}
 
 function loadbang(){
-	load_buffer();
+	loadBufferNextFrame = true;
 	}
 
 function bang(){
-		load_buffer();
+	loadBufferNextFrame = true;
 	}
 	
 
