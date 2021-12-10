@@ -30,7 +30,7 @@ var myfont = "ableton sans medium";
 var clicked = 0;
 var inputField = 0;
 var p = this.patcher;
-
+var inputingNumber = false; 
 function setvalueof(){
 	
 	 val = arguments[0];
