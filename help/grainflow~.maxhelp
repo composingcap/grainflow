@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 11,
+			"minor" : 2,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -50,8 +50,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -87,6 +87,32 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"bubble" : 1,
+									"id" : "obj-7",
+									"linecount" : 3,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 601.333333333333258, 299.0, 195.0, 50.0 ],
+									"presentation_linecount" : 3,
+									"text" : "gchan can be used to comunicate with grains voices currently asigned to a buffer channel"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-5",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 425.0, 313.0, 155.0, 22.0 ],
+									"text" : "gchan 1 delayRandom 2000"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-6",
 									"linecount" : 3,
@@ -287,7 +313,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "trackerWidth", 2 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "dotScale", 5 ], [ "showTriangles", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "bgColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "chan", 2 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 30 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "triangleColor", 1, 1, 1, 1 ] ],
+									"embedstate" : [ [ "displayRange", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "buffername", "_help_grainBuf1" ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "dotScale", 5 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "chan", 2 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-1",
 									"maxclass" : "jsui",
@@ -481,15 +507,15 @@
 									"numinlets" : 4,
 									"numoutlets" : 8,
 									"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-									"patching_rect" : [ 32.666666666666629, 391.0, 243.0, 22.0 ],
-									"text" : "grainflow~ _help_grainBuf1 8 @travRandom 500"
+									"patching_rect" : [ 32.666666666666629, 391.0, 250.0, 22.0 ],
+									"text" : "grainflow~ _help_grainBuf1 8 @delayRandom 500"
 								}
 
 							}
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "trackerWidth", 2 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "dotScale", 5 ], [ "showTriangles", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "bgColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 30 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "triangleColor", 1, 1, 1, 1 ] ],
+									"embedstate" : [ [ "displayRange", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "buffername", "_help_grainBuf1" ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "dotScale", 5 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-46",
 									"maxclass" : "jsui",
@@ -677,15 +703,25 @@
 								}
 
 							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-2", 0 ],
+									"source" : [ "obj-5", 0 ]
+								}
+
+							}
  ],
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 11.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
+									"fontname" : [ "Lato" ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -696,11 +732,36 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ]
+								}
+,
+								"parentstyle" : "",
+								"multi" : 0
+							}
+, 							{
+								"name" : "Minimal-1",
+								"default" : 								{
 									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Lato" ]
+									"fontsize" : [ 12.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"elementcolor" : [ 0.741176470588235, 0.741176470588235, 0.741176470588235, 1.0 ],
+									"fontname" : [ "Lato" ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"bgfillcolor" : 									{
+										"type" : "color",
+										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+										"angle" : 270.0,
+										"proportion" : 0.39,
+										"autogradient" : 0.0
+									}
+,
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -734,8 +795,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1323,11 +1384,14 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 11.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
+									"fontname" : [ "Lato" ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1338,11 +1402,8 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Lato" ]
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1376,8 +1437,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1562,7 +1623,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "trackerWidth", 2 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "dotScale", 1 ], [ "showTriangles", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "bgColor", 1, 1, 1, 0 ], [ "maxBufferDrawSamples", 1920 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 30 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "triangleColor", 1, 1, 1, 1 ] ],
+									"embedstate" : [ [ "displayRange", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "buffername", "_help_grainBuf1" ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-7",
 									"maxclass" : "jsui",
@@ -1785,11 +1846,14 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 11.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
+									"fontname" : [ "Lato" ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1800,11 +1864,8 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontsize" : [ 11.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Lato" ]
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1838,8 +1899,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2005,7 +2066,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "trackerWidth", 2 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "dotScale", 1 ], [ "showTriangles", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "bgColor", 1, 1, 1, 0 ], [ "maxBufferDrawSamples", 1920 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 30 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf2" ], [ "triangleColor", 1, 1, 1, 1 ] ],
+									"embedstate" : [ [ "displayRange", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "buffername", "_help_grainBuf2" ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-7",
 									"maxclass" : "jsui",
@@ -3168,9 +3229,12 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
@@ -3182,11 +3246,8 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontsize" : [ 10.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ]
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -3223,8 +3284,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -3295,8 +3356,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 1,
-											"revision" : 11,
+											"minor" : 2,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -3383,9 +3444,12 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontsize" : [ 10.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontface" : [ 0 ],
+													"fontname" : [ "Futura Medium" ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
@@ -3397,11 +3461,8 @@
 														"autogradient" : 0.0
 													}
 ,
-													"fontsize" : [ 10.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ]
+													"fontface" : [ 0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -3476,8 +3537,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 1,
-											"revision" : 11,
+											"minor" : 2,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -3680,9 +3741,12 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontsize" : [ 10.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontface" : [ 0 ],
+													"fontname" : [ "Futura Medium" ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
@@ -3694,11 +3758,8 @@
 														"autogradient" : 0.0
 													}
 ,
-													"fontsize" : [ 10.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ]
+													"fontface" : [ 0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -3808,8 +3869,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 1,
-											"revision" : 11,
+											"minor" : 2,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -3964,9 +4025,12 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontsize" : [ 10.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontface" : [ 0 ],
+													"fontname" : [ "Futura Medium" ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
@@ -3978,11 +4042,8 @@
 														"autogradient" : 0.0
 													}
 ,
-													"fontsize" : [ 10.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ]
+													"fontface" : [ 0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -4054,7 +4115,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 511.0, 245.25, 162.0, 74.5 ],
+									"patching_rect" : [ 511.0, 245.25, 162.0, 75.0 ],
 									"setminmax" : [ 0.0, 1.0 ],
 									"size" : 5
 								}
@@ -4140,7 +4201,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "trackerWidth", 2 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "dotScale", 1 ], [ "showTriangles", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "bgColor", 1, 1, 1, 0 ], [ "maxBufferDrawSamples", 1920 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 30 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "triangleColor", 1, 1, 1, 1 ] ],
+									"embedstate" : [ [ "displayRange", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "buffername", "_help_grainBuf1" ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-1",
 									"maxclass" : "jsui",
@@ -4312,7 +4373,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 298.0, 248.0, 156.5, 70.0 ],
+									"patching_rect" : [ 298.0, 248.0, 157.0, 70.0 ],
 									"setminmax" : [ 0.0, 1.0 ],
 									"size" : 5
 								}
@@ -4669,12 +4730,15 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
 									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -4685,11 +4749,8 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontsize" : [ 10.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ]
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -4723,8 +4784,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -4802,7 +4863,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "trackerWidth", 2 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "dotScale", 1 ], [ "showTriangles", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "bgColor", 1, 1, 1, 0 ], [ "maxBufferDrawSamples", 1920 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 30 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "triangleColor", 1, 1, 1, 1 ] ],
+									"embedstate" : [ [ "displayRange", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "buffername", "_help_grainBuf1" ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-1",
 									"maxclass" : "jsui",
@@ -5297,12 +5358,15 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
 									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -5313,11 +5377,8 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontsize" : [ 10.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ]
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -5351,8 +5412,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -5534,7 +5595,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "trackerWidth", 2 ], [ "selection", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "dotScale", 1 ], [ "showTriangles", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "bgColor", 1, 1, 1, 0 ], [ "maxBufferDrawSamples", 1920 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 30 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "triangleColor", 1, 1, 1, 1 ] ],
+									"embedstate" : [ [ "displayRange", 0, 1 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "buffername", "_help_grainBuf1" ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "chan", 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-7",
 									"maxclass" : "jsui",
@@ -6147,12 +6208,15 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontname" : [ "Futura Medium" ],
 									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -6163,11 +6227,8 @@
 										"autogradient" : 0.0
 									}
 ,
-									"fontsize" : [ 10.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ]
+									"fontface" : [ 0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -6227,8 +6288,8 @@
 			}
 , 			{
 				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -6258,12 +6319,15 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -6274,11 +6338,8 @@
 						"autogradient" : 0.0
 					}
 ,
-					"fontsize" : [ 10.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"fontface" : [ 0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

@@ -121,6 +121,18 @@
 			<description></description>
 		</method>
 
+		<method name='g' type="list" size="1">
+			<digest>Followed by an integer and a message- send this message to a specific grain.</digest>
+			<description></description>
+		</method>
+
+		<method name='gchan' type="list" size="1">
+			<digest>Followed by an integer and a message- send this message to grain voices assigned to a certain channel.</digest>
+			<description></description>
+		</method>
+
+
+
 		<method name='trigger' type="symbol" size="1">
 			<digest>Triggers an avalible grain at control rate</digest>
 			<description></description>
