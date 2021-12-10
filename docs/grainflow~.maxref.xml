@@ -275,41 +275,45 @@
 				 1: Grains are randomly sampled from the number for bufChans
 			</digest>
 		</method>
+		<method name='liveMode' size="1">
+					<digest>
+						If enabled, grainflow will play at Max's samplerate not the buffer sample rate.
+					</digest>
+				</method>
+
+				<method name='envMode' size="1">
+					<digest>
+						Sets how envelopes are read to one of the following:
+						0: reads from a buffer containing 1 envelope (default)
+						1: Reads an envelope from buffer organized as a 2D wavetable read by voices
+						2 : does not exist but should be random like the others
+					</digest>
+				</method>
+
+				<method name='env2D' size="1">
+					<digest>
+						A buffer containing a 2D envelope wavetable for envMode 1.
+					</digest>
+				</method>
+
+				<method name='env2DNumber' size="1">
+					<digest>
+						The number of envelopes in the 2D wavetable.
+					</digest>
+				</method>
+
+			<method name='env2DPosition' size="1">
+				<digest>
+					The overall position in the 2Denv buffer.
+				</digest>
+			</method>
 
 
-		<method name='envMode' size="1">
+		<method name='env2DRandom' size="1">
 			<digest>
-				Sets how envelopes are read to one of the following:
-				0: reads from a buffer containing 1 envelope (default)
-				1: Reads an envelope from buffer organized as a 2D wavetable read by voices
-				2 : does not exist but should be random like the others
+				The randomness applied to the position the 2Denv buffer.
 			</digest>
 		</method>
-
-		<method name='env2D' size="1">
-			<digest>
-				A buffer containing a 2D envelope wavetable for envMode 1.
-			</digest>
-		</method>
-
-		<method name='env2DNumber' size="1">
-			<digest>
-				The number of envelopes in the 2D wavetable.
-			</digest>
-		</method>
-
-	<method name='env2DPosition' size="1">
-		<digest>
-			The overall position in the 2Denv buffer.
-		</digest>
-	</method>
-
-
-<method name='env2DRandom' size="1">
-	<digest>
-		The randomness applied to the position the 2Denv buffer.
-	</digest>
-</method>
 
 <method name='windowOffsetMode' size="1">
 	<digest>
