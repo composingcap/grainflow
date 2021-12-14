@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 2,
-			"revision" : 0,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1225.0, 408.0, 650.0, 497.0 ],
+		"rect" : [ 1225.0, 408.0, 650.0, 615.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -51,13 +51,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 0,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 650.0, 471.0 ],
+						"rect" : [ 0.0, 26.0, 650.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -98,7 +98,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 0,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -284,10 +284,10 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"fontname" : [ "Lato" ],
 													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-													"fontface" : [ 0 ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"fontface" : [ 0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -298,11 +298,11 @@
 														"autogradient" : 0.0
 													}
 ,
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontsize" : [ 11.0 ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Lato" ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 												}
 ,
@@ -367,7 +367,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 0,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -844,10 +844,10 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"fontname" : [ "Lato" ],
 													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-													"fontface" : [ 0 ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"fontface" : [ 0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -858,11 +858,11 @@
 														"autogradient" : 0.0
 													}
 ,
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontsize" : [ 11.0 ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Lato" ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 												}
 ,
@@ -927,7 +927,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 2,
-											"revision" : 0,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1386,10 +1386,10 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
+													"fontname" : [ "Lato" ],
 													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-													"fontface" : [ 0 ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"fontface" : [ 0 ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1400,11 +1400,11 @@
 														"autogradient" : 0.0
 													}
 ,
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontsize" : [ 11.0 ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Lato" ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 												}
 ,
@@ -1487,9 +1487,9 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1500,11 +1500,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 								}
 ,
@@ -1542,13 +1542,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 0,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1225.0, 434.0, 650.0, 471.0 ],
+						"rect" : [ 0.0, 26.0, 650.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1727,9 +1727,9 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1740,11 +1740,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 								}
 ,
@@ -1782,13 +1782,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 0,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 650.0, 471.0 ],
+						"rect" : [ 0.0, 26.0, 650.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -2212,9 +2212,9 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2225,11 +2225,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 								}
 ,
@@ -2267,13 +2267,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 2,
-							"revision" : 0,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 650.0, 471.0 ],
+						"rect" : [ 1225.0, 434.0, 650.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -2304,13 +2304,39 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 182.0, 416.467592592592609, 300.0, 19.0 ],
+									"text" : "Stereo sustain effect"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-1",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 15.0, 411.268518518518476, 160.0, 29.398148148148152 ],
+									"text" : "grainflow.sustain~"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-31",
 									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 402.666666666666629, 300.0, 31.0 ],
-									"text" : "An interface to allow for easy control of multiple instances of grainflow"
+									"patching_rect" : [ 182.0, 442.666666666666629, 300.0, 31.0 ],
+									"text" : "(depricated - use buffer channels now!) An interface to allow for easy control of multiple instances of grainflow",
+									"textcolor" : [ 0.572549019607843, 0.0, 0.0, 1.0 ]
 								}
 
 							}
@@ -2437,6 +2463,7 @@
 							}
 , 							{
 								"box" : 								{
+									"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 									"fontsize" : 11.0,
 									"id" : "obj-20",
 									"maxclass" : "textbutton",
@@ -2444,8 +2471,9 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 404.666666666666629, 160.0, 26.0 ],
-									"text" : "grainflow.streams~"
+									"patching_rect" : [ 15.0, 444.666666666666629, 160.0, 26.0 ],
+									"text" : "grainflow.streams~",
+									"textoncolor" : [ 0.556862745098039, 0.0, 0.0, 1.0 ]
 								}
 
 							}
@@ -2651,9 +2679,9 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"fontface" : [ 0 ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2664,11 +2692,11 @@
 										"autogradient" : 0.0
 									}
 ,
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontsize" : [ 10.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 								}
 ,
@@ -2702,9 +2730,9 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontface" : [ 0 ],
+					"fontname" : [ "Futura Medium" ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2715,11 +2743,11 @@
 						"autogradient" : 0.0
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontsize" : [ 10.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
 ,
