@@ -383,8 +383,10 @@ function setattr_fps(rate)
 {
 
 	fps = rate;
-	autoDraw(0);
-	autoDraw(1);
+	drawTask.interval= ((1/fps)*1000);
+	drawTask.cancel();
+	drawTask.repeat(-1);
+
 
 	
 

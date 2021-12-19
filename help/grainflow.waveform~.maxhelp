@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 11,
+			"minor" : 2,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 53.0, 85.0, 641.0, 755.0 ],
+		"rect" : [ 414.0, 192.0, 641.0, 889.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -50,14 +50,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 641.0, 729.0 ],
+						"rect" : [ 414.0, 218.0, 641.0, 863.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -87,6 +87,18 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-4",
+									"maxclass" : "number",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 108.0, 93.0, 50.0, 21.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-51",
@@ -161,14 +173,14 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 1,
-											"revision" : 11,
+											"minor" : 2,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 1472.0, 642.0, 1082.0, 597.0 ],
+										"rect" : [ 1472.0, 642.0, 1085.0, 597.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 10.0,
@@ -486,7 +498,7 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
+													"fontname" : [ "Futura Medium" ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -497,13 +509,13 @@
 														"autogradient" : 0.0
 													}
 ,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
 													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
 													"fontface" : [ 0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontsize" : [ 10.0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 												}
@@ -637,34 +649,8 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 146.35714285714289, 99.0, 152.0, 47.0 ],
+									"patching_rect" : [ 146.35714285714289, 99.0, 156.0, 47.0 ],
 									"text" : "Adjusting the frame rate will reduce the frequency of drawing calls"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"format" : 6,
-									"id" : "obj-14",
-									"maxclass" : "flonum",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "bang" ],
-									"parameter_enable" : 1,
-									"patching_rect" : [ 83.85714285714289, 99.0, 50.0, 21.0 ],
-									"saved_attribute_attributes" : 									{
-										"valueof" : 										{
-											"parameter_initial" : [ 33.0 ],
-											"parameter_initial_enable" : 1,
-											"parameter_invisible" : 1,
-											"parameter_longname" : "number[1]",
-											"parameter_shortname" : "number[1]",
-											"parameter_type" : 3
-										}
-
-									}
-,
-									"varname" : "number[1]"
 								}
 
 							}
@@ -754,7 +740,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "trackerWidth", 5 ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 33 ], [ "buffername", "_gf.wf.help2" ], [ "chan", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "showTriangles", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotVJitter", 0 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
+									"embedstate" : [ [ "showTriangles", 0 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 12 ], [ "buffername", "_gf.wf.help2" ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ], [ "displayRange", 0, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "chan", 1 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-2",
 									"maxclass" : "jsui",
@@ -771,13 +757,6 @@
 								"patchline" : 								{
 									"destination" : [ "obj-2", 0 ],
 									"source" : [ "obj-12", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-12", 0 ],
-									"source" : [ "obj-14", 0 ]
 								}
 
 							}
@@ -813,6 +792,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-24", 0 ],
 									"source" : [ "obj-34", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-12", 0 ],
+									"source" : [ "obj-4", 0 ]
 								}
 
 							}
@@ -862,7 +848,7 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"fontsize" : [ 10.0 ],
+									"fontname" : [ "Futura Medium" ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -873,13 +859,13 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
 									"fontface" : [ 0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 								}
@@ -915,14 +901,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 53.0, 111.0, 641.0, 729.0 ],
+						"rect" : [ 0.0, 26.0, 641.0, 863.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1052,8 +1038,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 1,
-											"revision" : 11,
+											"minor" : 2,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1087,7 +1073,6 @@
 										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
 										"assistshowspatchername" : 0,
-										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-92",
@@ -1099,8 +1084,8 @@
 														"fileversion" : 1,
 														"appversion" : 														{
 															"major" : 8,
-															"minor" : 1,
-															"revision" : 11,
+															"minor" : 2,
+															"revision" : 1,
 															"architecture" : "x64",
 															"modernui" : 1
 														}
@@ -1169,8 +1154,8 @@
 																		"fileversion" : 1,
 																		"appversion" : 																		{
 																			"major" : 8,
-																			"minor" : 1,
-																			"revision" : 11,
+																			"minor" : 2,
+																			"revision" : 1,
 																			"architecture" : "x64",
 																			"modernui" : 1
 																		}
@@ -1335,7 +1320,7 @@
 																		"styles" : [ 																			{
 																				"name" : "Minimal",
 																				"default" : 																				{
-																					"fontsize" : [ 10.0 ],
+																					"fontname" : [ "Futura Medium" ],
 																					"bgfillcolor" : 																					{
 																						"type" : "color",
 																						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1346,12 +1331,12 @@
 																						"autogradient" : 0.0
 																					}
 ,
-																					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-																					"fontname" : [ "Futura Medium" ],
-																					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-																					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-																					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 																					"fontface" : [ 0 ],
+																					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+																					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+																					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+																					"fontsize" : [ 10.0 ],
+																					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 																					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 																					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 																				}
@@ -1617,7 +1602,7 @@
 														"styles" : [ 															{
 																"name" : "Minimal",
 																"default" : 																{
-																	"fontsize" : [ 10.0 ],
+																	"fontname" : [ "Futura Medium" ],
 																	"bgfillcolor" : 																	{
 																		"type" : "color",
 																		"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1628,12 +1613,12 @@
 																		"autogradient" : 0.0
 																	}
 ,
-																	"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-																	"fontname" : [ "Futura Medium" ],
-																	"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-																	"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-																	"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 																	"fontface" : [ 0 ],
+																	"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+																	"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+																	"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+																	"fontsize" : [ 10.0 ],
+																	"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 																	"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 																	"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 																}
@@ -1809,7 +1794,7 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
+													"fontname" : [ "Futura Medium" ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -1820,12 +1805,12 @@
 														"autogradient" : 0.0
 													}
 ,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontface" : [ 0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontsize" : [ 10.0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 												}
@@ -2210,8 +2195,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 1,
-											"revision" : 11,
+											"minor" : 2,
+											"revision" : 1,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -2454,7 +2439,7 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"fontsize" : [ 10.0 ],
+													"fontname" : [ "Futura Medium" ],
 													"bgfillcolor" : 													{
 														"type" : "color",
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2465,12 +2450,12 @@
 														"autogradient" : 0.0
 													}
 ,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontface" : [ 0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"fontsize" : [ 10.0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 												}
@@ -2622,7 +2607,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "trackerWidth", 2 ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "fps", 30 ], [ "buffername", "_gf.wf.help" ], [ "chan", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "showTriangles", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotVJitter", 0 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
+									"embedstate" : [ [ "showTriangles", 0 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "fps", 30 ], [ "buffername", "" ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "trackerWidth", 2 ], [ "displayRange", 0, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "chan", 1 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-2",
 									"maxclass" : "jsui",
@@ -2872,7 +2857,7 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"fontsize" : [ 10.0 ],
+									"fontname" : [ "Futura Medium" ],
 									"bgfillcolor" : 									{
 										"type" : "color",
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -2883,13 +2868,13 @@
 										"autogradient" : 0.0
 									}
 ,
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
 									"fontface" : [ 0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"fontsize" : [ 10.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 								}
@@ -2920,7 +2905,6 @@
 		"parameters" : 		{
 			"obj-1::obj-12" : [ "number[2]", "number[2]", 0 ],
 			"obj-1::obj-6" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
-			"obj-2::obj-14" : [ "number[1]", "number[1]", 0 ],
 			"obj-2::obj-20" : [ "toggle[1]", "toggle[1]", 0 ],
 			"obj-2::obj-34" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-50" : [ "number", "number", 0 ],
@@ -2933,63 +2917,63 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "grainFlow.waveform~.js",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/jsui",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
 				"patcherrelativepath" : "../jsui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/code",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.phasor~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.sahPhasor.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/code",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.record.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/code",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
@@ -2999,7 +2983,7 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontsize" : [ 10.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -3010,12 +2994,12 @@
 						"autogradient" : 0.0
 					}
 ,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"fontsize" : [ 10.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
 				}
