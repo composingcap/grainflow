@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.rateSizePhasor~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Generates random numbers in a range whenver a grain turns off.</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="signal">
+			<digest>
+				Grain state (0 triggers output)
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+		<inlet id="1" type="signal">
+			<digest>
+			Min
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+		<inlet id="2" type="signal">
+			<digest>
+			Max
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="signal">
+			<digest>
+			Random numbers as signals per grain
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+		<objarg name="min" optional="0" type="float">
+		</objarg>
+		<objarg name="max" optional="0" type="float">
+		</objarg>
+
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+	</seealsolist>
+
+
+</c74object>
