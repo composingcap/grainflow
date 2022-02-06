@@ -2,6 +2,8 @@ inlets = 1;
 outlets = 2;
 
 
+
+
 var buffer = new Buffer("");
 var samples = []
 var sampCount = 0;
@@ -18,7 +20,7 @@ waveFormDrawn = false;
 var waveform = new Sketch();
 var lasty= 0;
 var clickPos= [0,1];
-var fps = 24;
+var fps = 30;
 var recHeadPos = -1;
 var bufChans = [1];
 var loadBufferNextFrame = false;
@@ -28,14 +30,15 @@ var selectposition = [0,1];
 var selectpositionOut = [0,0]
 
 drawTask = new Task(drawLoop, this);
-
+		drawTask.interval= ((1/fps)*1000);
+		drawTask.repeat(-1);
 
 //Waveform Color
 
 function anything(){}
 function notifydeleted(){
 	drawTask.cancel();
-	drawTask.freepeer();
+
 	}
 
 
@@ -47,7 +50,6 @@ function autoDraw(state){
 	}
 	else if ((!state) && (drawTask.running)){
 			drawTask.cancel();
-			drawTask.freepeer();
 		}
 
 	}
@@ -381,7 +383,6 @@ function setattr_fps(rate)
 {
 
 	fps = rate;
-	drawTask.freepeer();
 	drawTask.interval= ((1/fps)*1000);
 	drawTask.cancel();
 	drawTask.repeat(-1);
@@ -727,20 +728,8 @@ function wrap(x, min, max){
 	}
 
 function loadbang(){
-
-	var loadTask = new Task(initalize);
-	loadTask.schedule(10);
-	}
-
-function initalize(){
-	if (fps > 0){
-	drawTask.interval= ((1/fps)*1000);	
-	drawTask.repeat(-1);
 	loadBufferNextFrame = true;
-	arguments.callee.task.freepeer(); 
 	}
-
-}
 
 function bang(){
 	loadBufferNextFrame = true;
