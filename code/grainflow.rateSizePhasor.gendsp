@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 2,
-			"revision" : 0,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 393.0, 432.0, 71.0, 23.0 ],
+					"text" : "mc_channel"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-2",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -51,7 +63,7 @@
 			}
 , 			{
 				"box" : 				{
-					"code" : "\r\nParam size(100);\r\nParam ngrains(0);\r\nParam jitter(0);\r\n\r\nHistory enabled(0);\r\nHistory p(0);\r\nHistory increment (0);\r\nHistory lastClock(0);\r\n\r\nclock = in1;\r\n\r\n\r\n\r\nif (!enabled){\r\n\tp = 0;\t\r\n\tif (mc_channel <= ngrains){\r\n\tif (abs((clock-(1/ngrains*(mc_channel-1)))+noise()*jitter/ngrains) < 0.01) {\r\n\t\tif (clock != lastClock){\r\n\t\tenabled = 1;\r\n\t\t\r\n\t\t}\r\n\t\t}\r\n\t}\r\n\t}\r\n\t\r\nif(enabled){\r\n\tincrement = 1/mstosamps(size);\r\n\tp += increment;\r\n\t\r\n\tif (p>=1){\r\n\t\tenabled = 0;\r\n\t\t}\r\n\t\r\n\t}\r\n\t\r\nlastClock = clock;\r\nout1 = p;\r\nout2 = mc_channel;",
+					"code" : "\r\nParam size(100);\r\nParam ngrains(0);\r\nParam jitter(0);\r\n\r\nHistory enabled(0);\r\nHistory p(0);\r\nHistory increment (0);\r\nHistory lastClock(0);\r\n\r\nclock = in1;\r\noffset = (mc_channel-1)/ngrains;\r\n\r\n\r\n\r\nif (!enabled){\r\n\tp = 0;\t\r\n\tif (mc_channel <= ngrains){\r\n\tif ((wrap(clock+offset+noise()*jitter,0,1))< 0.001) {\r\n\t\tif (clock != lastClock){\r\n\t\tenabled = 1;\r\n\t\t\r\n\t\t}\r\n\t\t}\r\n\t}\r\n\t}\r\n\t\r\nif(enabled){\r\n\tincrement = 1/mstosamps(size);\r\n\tp += increment;\r\n\t\r\n\tif (p>=1){\r\n\t\tenabled = 0;\r\n\t\t}\r\n\t\r\n\t}\r\n\t\r\nlastClock = clock;\r\nout1 = p;\r\nout2 = offset;",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
@@ -113,12 +125,8 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontname" : [ "Futura Medium" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -130,9 +138,13 @@
 					}
 ,
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
+					"fontface" : [ 0 ],
+					"fontname" : [ "Futura Medium" ],
 					"fontsize" : [ 10.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -141,12 +153,8 @@
 , 			{
 				"name" : "Minimal-1",
 				"default" : 				{
-					"fontname" : [ "Lato" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"type" : "color",
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
@@ -158,9 +166,13 @@
 					}
 ,
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"elementcolor" : [ 0.741176470588235, 0.741176470588235, 0.741176470588235, 1.0 ],
+					"fontface" : [ 0 ],
+					"fontname" : [ "Lato" ],
 					"fontsize" : [ 12.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.741176470588235, 0.741176470588235, 0.741176470588235, 1.0 ]
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
