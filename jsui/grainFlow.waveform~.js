@@ -284,7 +284,7 @@ declareattribute("chan",			"getattr_chan",			"setattr_chan", 1);
 //Mode 1 is select
 //Mode 2 is loop
 
-var chan = 1;
+var chan = 0;
 
 function setattr_chan(thischan)
 {
@@ -429,7 +429,11 @@ function drawBuffer(buffername){
 			sampSkip = 1;
 		}
 	for (i = 0; i < sampCount; i++){
-		samples[i+bstart] = buffer.peek(chan,i*sampSkip,1)
+		bchan = chan;
+		if (chan == 0){
+			bchan = 1;
+		}
+		samples[i+bstart] = buffer.peek(bchan,i*sampSkip,1)
 		}
 
 	drawWaveform();
@@ -497,7 +501,7 @@ function draw(){
 
 		//Dots
 		for (p = 0 ; p < grainPositions.length; p++){
-			if(grainStates[p] != 0 && bufChans[p%bufChans.length] == chan){
+			if((grainStates[p] != 0 && bufChans[p%bufChans.length] == chan) || chan == 0){
 			dotColorMod = p/grainPositions.length*0.5;
 			dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
 			dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
