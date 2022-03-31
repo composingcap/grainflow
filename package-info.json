@@ -27,7 +27,7 @@
 	}
 ,
 	"tags" : [ "granulation", "mc" ],
-	"version" : "0.3.2",
+	"version" : "0.3.3",
 	"website" : "https://github.com/composingcap/grainflow",
 	"filelist" : 	{
 		"externals" : [ ],
