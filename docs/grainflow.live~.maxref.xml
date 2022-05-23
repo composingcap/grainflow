@@ -123,20 +123,61 @@
 			<description></description>
 		</method>
 
-		<method name='ngrains'>
-			<digest>Sets the number of active grains. This may not exceed the maxiumum graincount</digest>
+			<method name='int' type="int" size="1">
+			<digest>Sets the state of the granulator.</digest>
+			<description>Sets the state of the granulator 1 is on 0 is off.</description>
+		</method>
+
+		<method name='state' type="int" size="2">
+			<digest>Sets the state of the granulator.</digest>
+			<description>Sets the state of the granulator 1 is on 0 is off.</description>
+		</method>
+
+		<method name='ngrains' type="int" size="1">
+			<digest>Sets the number of active grains. This may not exceed the maxiumum graincount.</digest>
 			<description></description>
 		</method>
 
-		<method name='voices'>
-			<digest>Sets the maximum number of grains</digest>
+		<method name='voices' type="int" size="1">
+			<digest>Sets the maximum number of grains.</digest>
 			<description></description>
 		</method>
 
-		<method name='grain'>
-			<digest>followed by an integer and a message- send this message to a specific grain</digest>
+		<method name='grain' type="list" size="1">
+			<digest>Followed by an integer and a message- send this message to a specific grain.</digest>
 			<description></description>
 		</method>
+
+		<method name='g' type="list" size="2">
+			<digest>Followed by an integer and a message- send this message to a specific grain.</digest>
+			<description></description>
+		</method>
+
+		<method name='gchan' type="list" size="1">
+			<digest>Followed by an integer and a message- send this message to grain voices assigned to a certain channel.</digest>
+			<description></description>
+		</method>
+
+		<method name='stream' type="list" size="5">
+			<digest>Control grains in groups or streams. Stream 1 rate 2 will set all grains in stream 1 to 2. See the streams tab in grainflows help file for more info</digest>
+			<description>
+			Streams can be controled by adress of bt a spread or deviate message. For example (stream 1 rate 2) will set all grains in stream 1 to 2, 
+			(stream deviate rate 0.5 2) will randomly set each stream to a rate 0.5 around 2 
+			and (stream spread 1 2) will set streams to transpositions inclusivly between 1 and 2</description>
+		</method>
+
+		<method name='streamSet' type="list" size="3">
+			<digest>Assigns a stream either manually or programatically. See the streams tab in grainflows help file for more info</digest>
+			<description>
+			Individual streams can be set using the grain targeting message 'g' like (g 1 streamSet 2) will assign grain 1 to stream 2.
+			Grains can be programatically assigned using the 'auto,' 'per,' or 'random' identifiers. 
+			(streamSet auto 4) will interleave grains between four streams ie 12341234. 
+			(streamSet random 4) will randomly assign grains to four streams.
+			(streamSet per 4) will set groups of four grains to streams until there are no more grains ie 1111222233334444.
+			</description>
+		</method>
+
+
 
 		<method name='trigger' type="symbol" size="1">
 			<digest>Triggers an avalible grain at control rate</digest>
@@ -148,42 +189,42 @@
 			<description></description>
 		</method>
 
-		<method name='env'>
-			<digest>Sets the grain envelope to a named buffer</digest>
+		<method name='env' type="string" size="1">
+			<digest>Sets the grain envelope to a named buffer.</digest>
 			<description></description>
 		</method>
 
-		<method name='buf'>
-			<digest>Sets the granulation buffer</digest>
+		<method name='buf' type="string" size="1">
+			<digest>Sets the granulation buffer.</digest>
 			<description></description>
 		</method>
 
-		<method name='amp'>
-			<digest>Grain Volume from 0 - 1</digest>
+		<method name='amp' size="1">
+			<digest>Grain Volume from 0 - 1.</digest>
 			<description></description>
 		</method>
 
-		<method name='ampRandom'>
-			<digest>Ranbdom Grain Volume from 0 - 1 - only attinuates</digest>
+		<method name='ampRandom' size="1">
+			<digest>Random Grain Volume from 0 - 1 - only attenuates.</digest>
 			<description></description>
 		</method>
 
-		<method name='windowOffset'>
-			<digest>The offset position of each subequent grain on the grain phasor from 0 - 1</digest>
+		<method name='windowOffset' size="1">
+			<digest>The offset position of each subsequent grain on the grain phasor from 0 - 1.</digest>
 			<description></description>
 		</method>
 
-		<method name='windowOffsetRandom'>
-			<digest>Randomness applied to the offset position of each subequent grain on the grain phasor</digest>
+		<method name='windowOffsetRandom' size="1">
+			<digest>Randomness applied to the offset position of each subsequent grain on the grain phasor.</digest>
 			<description></description>
 		</method>
 
-		<method name='space'>
-			<digest>Sets the amount of empty space per grain on the phasor</digest>
-			<description>If this is 0, there each grain will take the entire phasor to complete.  If it is 0.5, the grain will occur for half of the phasor length</description>
+		<method name='space' size="1">
+			<digest>Sets the amount of empty space per grain on the phasor.</digest>
+			<description>If this is 0, there each grain will take the entire phasor to complete.  If it is 0.5, the grain will occur for half of the phasor length.</description>
 		</method>
 
-		<method name='spaceRandom'>
+		<method name='spaceRandom' size="1">
 			<digest>Randomness applied to space</digest>
 		</method>
 
@@ -191,73 +232,92 @@
 			<digest>The probability if a grain will trigger (0-1).</digest>
 		</method>
 
-		<method name='travOffset'>
-			<digest>Traversal offset per grain in ms.</digest>
+		<method name='delayOffset' size="1">
+			<digest>Delay offset per grain in ms.</digest>
 			<description></description>
 		</method>
 
-		<method name='travRandom'>
-			<digest>Random traversal in ms</digest>
+		<method name='delayRandom' size="1">
+			<digest>Random delay in ms.</digest>
 			<description></description>
 		</method>
-		<method name='travGlobalOffset'>
+		<method name='delay' size="1">
 			<digest>
-				A global offset to the traversal in ms.
+				Sets a delay in ms
 			</digest>
 		</method>
-		<method name='rate'>
+		<method name='rate' size="1">
 			<digest>The playback rate of the samples within each grain. Will cause a pitch shift.</digest>
 			<description></description>
 		</method>
+		<method name='transpose' size="1">
+			<digest>The playback rate of the samples within each grain in semitones. Will cause a pitch shift.</digest>
+			<description></description>
+		</method>
 
-		<method name='rateRandom'>
+		<method name='rateRandom' size="1">
 			<digest>Random playback rate of the samples within each grain.</digest>
 			<description></description>
 		</method>
 
-		<method name='direction'>
-			<digest>The probabilistic direction of each grain; 1 is always forward, -1 is always backward.</digest>
+		<method name='transposeRandom' size="1">
+			<digest>Random playback rate of the samples within each grain in semitones.</digest>
 			<description></description>
 		</method>
 
-		<method name='rateOffset'>
+		<method name='direction' size="1">
+			<digest>The probablistic dirrection of each grain 1 is always forward -1 is always backward.</digest>
+			<description></description>
+		</method>
+
+		<method name='rateOffset' size="1">
 			<digest>The playback rate of the samples within each grain per each subsequent grain./</digest>
 			<description></description>
 		</method>
 
-		<method name='glisson'>
+		<method name='glisson' size="1">
 			<digest>A glissando from the initial rate to n+ the initial rate over the duration of the grain.</digest>
 			<description></description>
 		</method>
 
-		<method name='glissonRandom'>
+		<method name='glissonSt' size="1">
+			<digest>A glissando from the initial rate to n+ the initial rate over the duration of the grain in semitones.</digest>
+			<description></description>
+		</method>
+
+		<method name='glissonRandom' size="1">
 			<digest>Randomness applied to glisson in rate.</digest>
 			<description></description>
 		</method>
 
-		<method name='rateQuantizeSemi'>
+		<method name='glissonRandomSt' size="1">
+			<digest>Randomness applied to glisson in rate in semitones.</digest>
+			<description></description>
+		</method>
+
+		<method name='rateQuantizeSemi' size="1">
 			<digest>Will quantize rates to semitones.</digest>
 			<description></description>
 		</method>
 
-		<method name='travMode'>
-			<digest>Will set the traversal mode to one of the following
-				0: Traversal by messages (default)
-				1: Traversal from buffer read by voices
-				2: Traversal from buffer read randomly per grain
+		<method name='delayMode' size="1">
+			<digest>Will set the delay mode to one of the following
+				0: Delay by messages (default)
+				1: Delay from buffer read by voices
+				2: Delay from buffer read randomly per grain
 			</digest>
 			<description>
 				This is useful when needing to dial in very specific traversals to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
-		<method name='travOffsets'>
+		<method name='delayOffsets' size="1">
 			<digest>
-				Sets the traversal buffers for travMode 1 and 2
+				Sets the delay buffers for travMode 1 and 2.
 			</digest>
 		</method>
 
-		<method name='rateMode'>
+		<method name='rateMode' size="1">
 			<digest>Will set the rate mode to one of the following
 				0: Rate by messages (default)
 				1: Rate from buffer read by voices
@@ -268,62 +328,110 @@
 			</description>
 		</method>
 
-		<method name='rates'>
+		<method name='rates' size="1">
 			<digest>
-				Sets the rate buffers for rateMode 1 and 2
+				Sets the rate buffers for rateMode 1 and 2.
 			</digest>
 		</method>
 
-
-
-		<method name='envMode'>
+		<method name='bufChans' size="1">
 			<digest>
-				Sets how envelopes are read to one of the following:
-				0: reads from a buffer containing 1 envelope (default)
-				1: Reads an envelope from buffer organized as a 2D wavetable read by voices
-				2 : does not exist but should be random like the others
+				 Assigns grain voices to buffer channels in a round robin fashion.
 			</digest>
 		</method>
 
-		<method name='env2D'>
+		<method name='bufChan' size="1">
 			<digest>
-				A buffer containing a 2D envelope wavetable for envMode 1.
+				 Sets grainflow to a buffer channel. Use a "g" message to target a single voice.
 			</digest>
 		</method>
 
-		<method name='env2DNumber'>
+		<method name='chanMode' size="1">
 			<digest>
-				The number of envelopes in the 2D wavetable.
+				 0: Grains are sampled from their assigned channels.
+				 1: Grains are randomly sampled from the number for bufChans
+			</digest>
+		</method>
+		<method name='liveMode' size="1">
+					<digest>
+						If enabled, grainflow will play at Max's samplerate not the buffer sample rate.
+					</digest>
+				</method>
+
+				<method name='envMode' size="1">
+					<digest>
+						Sets how envelopes are read to one of the following:
+						0: reads from a buffer containing 1 envelope (default)
+						1: Reads an envelope from buffer organized as a 2D wavetable read by voices
+						2 : does not exist but should be random like the others
+					</digest>
+				</method>
+
+				<method name='env2D' size="1">
+					<digest>
+						A buffer containing a 2D envelope wavetable for envMode 1.
+					</digest>
+				</method>
+
+				<method name='env2DNumber' size="1">
+					<digest>
+						The number of envelopes in the 2D wavetable.
+					</digest>
+				</method>
+
+			<method name='env2DPosition' size="1">
+				<digest>
+					The overall position in the 2Denv buffer.
+				</digest>
+			</method>
+
+
+		<method name='env2DRandom' size="1">
+			<digest>
+				The randomness applied to the position the 2Denv buffer.
 			</digest>
 		</method>
 
-	<method name='env2DPosition'>
-		<digest>
-			The overall position in the 2Denv buffer.
-		</digest>
-	</method>
-
-
-<method name='env2DRandom'>
+<method name='windowOffsetMode' size="1">
 	<digest>
-		The randomness applied to the position the 2Denv buffer.
-	</digest>
-</method>
-
-<method name='windowOffsetMode'>
-	<digest>
-		Will set the rate mode to one of the following;
+		Will set the rate mode to one of the following
 			0: windowOffset by messages (default)
 			1: windowOffset from buffer read by voices
 			2: windowOffset from buffer read randomly per grain
 	</digest>
 </method>
 
-	<method name='windowReadBias'>
+	<method name='windowReadBias' size="1">
 		<digest>
 			Will read the grain window so a polynomial. This is expensive and should be avoided if unnecessary.
 		</digest>
 </method>
+
+<method name='loopMode' size="1">
+	<digest>
+		Modifies how grainflow loops.
+		0: no looping;
+		1: wrap;
+		2: fold grain start point;
+		3: fold read point;
+	</digest>
+
+</method>
+
+<method name='startPoint' size="1">
+	<digest>
+		Sets the starting location for a loop in grainflow from 0-1
+	</digest>
+
+</method>
+
+<method name='stopPoint' size="1">
+	<digest>
+		Sets the ending location for a loop in grainflow from 0-1
+	</digest>
+
+</method>
+
 
 
 

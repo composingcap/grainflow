@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 770.0, 809.0 ],
+		"rect" : [ 100.0, 100.0, 779.0, 809.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 770.0, 783.0 ],
+						"rect" : [ 100.0, 126.0, 779.0, 783.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -106,7 +106,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 231.5, 461.0, 152.0, 22.0 ],
-									"presentation_linecount" : 2,
 									"text" : "stream spread transpose 0 24"
 								}
 
@@ -144,7 +143,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 410.666666666666629, 218.0, 202.0, 50.0 ],
-									"presentation_linecount" : 5,
 									"text" : "Manually set a stream number of streams (used for deviate and spread)"
 								}
 
@@ -170,7 +168,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 181.666666666666629, 231.0, 118.0, 50.0 ],
-									"presentation_linecount" : 3,
 									"text" : "Manually set a stream number to a grain"
 								}
 
@@ -213,7 +210,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 646.499999999999886, 148.5, 118.0, 37.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Random sets streams randomly"
 								}
 
@@ -226,8 +222,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 396.333333333333371, 141.0, 118.0, 37.0 ],
-									"presentation_linecount" : 2,
+									"patching_rect" : [ 396.333333333333371, 141.0, 120.0, 37.0 ],
 									"text" : "Per sets a chunk of grains per stream"
 								}
 
@@ -253,7 +248,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 526.333333333333258, 156.0, 106.0, 22.0 ],
-									"presentation_linecount" : 2,
 									"text" : "streamSet random 4"
 								}
 
@@ -784,7 +778,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 501.0, 26.0, 65.0, 22.0 ],
+					"patching_rect" : [ 593.0, 36.0, 65.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -816,7 +810,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 770.0, 783.0 ],
+						"rect" : [ 0.0, 26.0, 779.0, 783.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -1071,7 +1065,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "fps", 30 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_help_grainBuf1" ], [ "chan", 2 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 5 ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
+									"embedstate" : [ [ "buffername", "_help_grainBuf1" ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "displayRange", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "fps", 30 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "chan", 2 ], [ "selection", 0, 1 ], [ "dotScale", 5 ], [ "dotColor", 1, 0, 0, 0.9 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-1",
 									"maxclass" : "jsui",
@@ -1273,7 +1267,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "fps", 30 ], [ "bgColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_help_grainBuf1" ], [ "chan", 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 5 ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
+									"embedstate" : [ [ "buffername", "_help_grainBuf1" ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "displayRange", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "fps", 30 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "chan", 1 ], [ "selection", 0, 1 ], [ "dotScale", 5 ], [ "dotColor", 1, 0, 0, 0.9 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-46",
 									"maxclass" : "jsui",
@@ -1528,7 +1522,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 580.0, 30.0, 104.0, 22.0 ],
+					"patching_rect" : [ 672.0, 40.0, 104.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1560,7 +1554,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 770.0, 783.0 ],
+						"rect" : [ 0.0, 26.0, 779.0, 783.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -2170,7 +2164,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 817.0, 18.0, 76.0, 22.0 ],
+					"patching_rect" : [ 909.0, 28.0, 76.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2202,7 +2196,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 770.0, 783.0 ],
+						"rect" : [ 0.0, 26.0, 779.0, 783.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -2381,7 +2375,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "fps", 30 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_help_grainBuf1" ], [ "chan", 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 1 ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
+									"embedstate" : [ [ "buffername", "_help_grainBuf1" ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "displayRange", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "fps", 30 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "chan", 1 ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-7",
 									"maxclass" : "jsui",
@@ -2632,7 +2626,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 278.0, 22.0, 109.0, 22.0 ],
+					"patching_rect" : [ 267.0, 16.0, 109.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -2664,7 +2658,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 770.0, 783.0 ],
+						"rect" : [ 0.0, 26.0, 779.0, 783.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -2694,6 +2688,18 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-18",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 200.1640625, 351.5, 247.0, 20.0 ],
+									"text" : "Glisson in semitones uses the glissonSt message",
+									"textcolor" : [ 0.392, 0.392, 0.392, 1.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-28",
@@ -2824,7 +2830,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "fps", 30 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_help_grainBuf2" ], [ "chan", 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 1 ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
+									"embedstate" : [ [ "buffername", "_help_grainBuf2" ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "displayRange", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "fps", 30 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "chan", 1 ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-7",
 									"maxclass" : "jsui",
@@ -3094,7 +3100,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 549.08203125, 38.5, 115.0, 50.0 ],
-									"text" : "Offsets grains from the traversal signal in ms "
+									"text" : "Offsets grains from the delay signal in ms "
 								}
 
 							}
@@ -3118,8 +3124,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 346.24609375, 94.5, 45.0, 22.0 ],
-									"text" : "trav $1"
+									"patching_rect" : [ 346.24609375, 94.5, 50.0, 22.0 ],
+									"text" : "delay $1"
 								}
 
 							}
@@ -3396,8 +3402,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 407.58203125, 94.5, 75.0, 22.0 ],
-									"text" : "travOffset $1"
+									"patching_rect" : [ 407.58203125, 94.5, 81.0, 22.0 ],
+									"text" : "delayOffset $1"
 								}
 
 							}
@@ -3408,8 +3414,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 494.91796875, 94.5, 86.0, 22.0 ],
-									"text" : "travRandom $1"
+									"patching_rect" : [ 494.91796875, 94.5, 90.0, 22.0 ],
+									"text" : "delayRandom $1"
 								}
 
 							}
@@ -4049,7 +4055,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 770.0, 783.0 ],
+						"rect" : [ 0.0, 26.0, 779.0, 783.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -4959,7 +4965,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "fps", 30 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_help_grainBuf1" ], [ "chan", 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 1 ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
+									"embedstate" : [ [ "buffername", "_help_grainBuf1" ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "displayRange", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "fps", 30 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "chan", 1 ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-1",
 									"maxclass" : "jsui",
@@ -5517,7 +5523,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 709.0, 28.0, 89.0, 22.0 ],
+					"patching_rect" : [ 801.0, 38.0, 89.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -5549,7 +5555,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 770.0, 783.0 ],
+						"rect" : [ 0.0, 26.0, 779.0, 783.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -5621,7 +5627,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "fps", 30 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_help_grainBuf1" ], [ "chan", 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 1 ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
+									"embedstate" : [ [ "buffername", "_help_grainBuf1" ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "displayRange", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "fps", 30 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "chan", 1 ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-1",
 									"maxclass" : "jsui",
@@ -6145,7 +6151,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 407.0, 22.0, 81.0, 22.0 ],
+					"patching_rect" : [ 499.0, 32.0, 81.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -6177,7 +6183,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 770.0, 783.0 ],
+						"rect" : [ 0.0, 26.0, 779.0, 783.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -6208,6 +6214,19 @@
 						"assistshowspatchername" : 0,
 						"title" : "General Usage",
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-11",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 60.328125, 174.0, 150.0, 33.0 ],
+									"text" : "the transpose message adjusts rate in semitones",
+									"textcolor" : [ 0.388235294117647, 0.388235294117647, 0.388235294117647, 1.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-6",
@@ -6294,7 +6313,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 176.328125, 470.0, 143.0, 33.0 ],
-									"text" : "arguments: buffername. max-grains"
+									"text" : "arguments: buffername. max-grains",
+									"textcolor" : [ 0.392, 0.392, 0.392, 1.0 ]
 								}
 
 							}
@@ -6353,7 +6373,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "fps", 30 ], [ "bgColor", 1, 1, 1, 0 ], [ "selection", 0, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "mode", 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "_help_grainBuf1" ], [ "chan", 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 1 ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
+									"embedstate" : [ [ "buffername", "_help_grainBuf1" ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "displayRange", 0, 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "fps", 30 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "chan", 1 ], [ "selection", 0, 1 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ] ],
 									"filename" : "grainFlow.waveform~.js",
 									"id" : "obj-7",
 									"maxclass" : "jsui",
@@ -6584,8 +6604,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 8.328125, 310.5, 86.0, 22.0 ],
-									"text" : "travRandom $1"
+									"patching_rect" : [ 8.328125, 310.5, 90.0, 22.0 ],
+									"text" : "delayRandom $1"
 								}
 
 							}

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1841.0, 417.0, 1241.0, 613.0 ],
+		"rect" : [ 394.0, 501.0, 1241.0, 613.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -100,7 +100,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "stream",
 					"id" : "obj-37",
 					"index" : 9,
 					"maxclass" : "outlet",
@@ -112,7 +112,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "buffer channel",
 					"id" : "obj-36",
 					"index" : 8,
 					"maxclass" : "outlet",
@@ -124,7 +124,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "envelope as mc",
 					"id" : "obj-34",
 					"index" : 7,
 					"maxclass" : "outlet",
@@ -136,7 +136,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "amp as mc",
 					"id" : "obj-33",
 					"index" : 6,
 					"maxclass" : "outlet",
@@ -148,7 +148,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "playhead as mc",
 					"id" : "obj-9",
 					"index" : 5,
 					"maxclass" : "outlet",
@@ -160,7 +160,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "grain clock as mc",
 					"id" : "obj-6",
 					"index" : 4,
 					"maxclass" : "outlet",
@@ -172,7 +172,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "grain state as mc",
 					"id" : "obj-2",
 					"index" : 3,
 					"maxclass" : "outlet",
@@ -300,7 +300,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 152.333333333333314, 16.0, 30.0, 30.0 ]
 				}
 
@@ -313,27 +313,26 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 3.0, -4.0, 30.0, 30.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "out",
 					"id" : "obj-31",
 					"index" : 1,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 35.0, 490.0, 30.0, 30.0 ],
-					"varname" : "out"
+					"patching_rect" : [ 35.0, 490.0, 30.0, 30.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "data",
 					"id" : "obj-26",
 					"index" : 2,
 					"maxclass" : "outlet",

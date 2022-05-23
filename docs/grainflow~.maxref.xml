@@ -78,6 +78,55 @@
 				buffername - the name of the primary buffer being granulated from (it is possible to assign different buffers to different grains)
 			</description>
 		</outlet>
+		<outlet id="2" type="multichannelsignal">
+			<digest>
+			Grain states as a multichannel signal. Useful for SAH applications.
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="3" type="multichannelsignal">
+			<digest>
+			Grain clock as a multichannel signal. Usefull for driving effects over the lifespan of a grain. 
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="4" type="multichannelsignal">
+			<digest>
+			Playhead as MC
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="5" type="multichannelsignal">
+			<digest>
+			Amplitude as MC
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="6" type="multichannelsignal">
+			<digest>
+			Envelope as MC
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="7" type="multichannelsignal">
+			<digest>
+			Buffer channel. Used if you want to keep a spatialized image.
+			</digest>
+			<description>
+			</description>
+		</outlet>
+		<outlet id="8" type="multichannelsignal">
+			<digest>
+			Stream number. 
+			</digest>
+			<description>
+			</description>
+		</outlet>
 	</outletlist>
 
 	<!--ARGUMENTS-->
@@ -121,7 +170,7 @@
 			<description></description>
 		</method>
 
-		<method name='g' type="list" size="1">
+		<method name='g' type="list" size="2">
 			<digest>Followed by an integer and a message- send this message to a specific grain.</digest>
 			<description></description>
 		</method>
@@ -129,6 +178,25 @@
 		<method name='gchan' type="list" size="1">
 			<digest>Followed by an integer and a message- send this message to grain voices assigned to a certain channel.</digest>
 			<description></description>
+		</method>
+
+		<method name='stream' type="list" size="5">
+			<digest>Control grains in groups or streams. Stream 1 rate 2 will set all grains in stream 1 to 2. See the streams tab in grainflows help file for more info</digest>
+			<description>
+			Streams can be controled by adress of bt a spread or deviate message. For example (stream 1 rate 2) will set all grains in stream 1 to 2, 
+			(stream deviate rate 0.5 2) will randomly set each stream to a rate 0.5 around 2 
+			and (stream spread 1 2) will set streams to transpositions inclusivly between 1 and 2</description>
+		</method>
+
+		<method name='streamSet' type="list" size="3">
+			<digest>Assigns a stream either manually or programatically. See the streams tab in grainflows help file for more info</digest>
+			<description>
+			Individual streams can be set using the grain targeting message 'g' like (g 1 streamSet 2) will assign grain 1 to stream 2.
+			Grains can be programatically assigned using the 'auto,' 'per,' or 'random' identifiers. 
+			(streamSet auto 4) will interleave grains between four streams ie 12341234. 
+			(streamSet random 4) will randomly assign grains to four streams.
+			(streamSet per 4) will set groups of four grains to streams until there are no more grains ie 1111222233334444.
+			</description>
 		</method>
 
 
@@ -186,27 +254,36 @@
 			<digest>The probability if a grain will trigger (0-1).</digest>
 		</method>
 
-		<method name='travOffset' size="1">
-			<digest>Traversal offset per grain in ms.</digest>
+		<method name='delayOffset' size="1">
+			<digest>Delay offset per grain in ms.</digest>
 			<description></description>
 		</method>
 
-		<method name='travRandom' size="1">
-			<digest>Random traversal in ms.</digest>
+		<method name='delayRandom' size="1">
+			<digest>Random delay in ms.</digest>
 			<description></description>
 		</method>
-		<method name='travGlobalOffset' size="1">
+		<method name='delay' size="1">
 			<digest>
-				A global offset to the traversal in ms.
+				Sets a delay in ms
 			</digest>
 		</method>
 		<method name='rate' size="1">
 			<digest>The playback rate of the samples within each grain. Will cause a pitch shift.</digest>
 			<description></description>
 		</method>
+		<method name='transpose' size="1">
+			<digest>The playback rate of the samples within each grain in semitones. Will cause a pitch shift.</digest>
+			<description></description>
+		</method>
 
 		<method name='rateRandom' size="1">
 			<digest>Random playback rate of the samples within each grain.</digest>
+			<description></description>
+		</method>
+
+		<method name='transposeRandom' size="1">
+			<digest>Random playback rate of the samples within each grain in semitones.</digest>
 			<description></description>
 		</method>
 
@@ -225,8 +302,18 @@
 			<description></description>
 		</method>
 
+		<method name='glissonSt' size="1">
+			<digest>A glissando from the initial rate to n+ the initial rate over the duration of the grain in semitones.</digest>
+			<description></description>
+		</method>
+
 		<method name='glissonRandom' size="1">
 			<digest>Randomness applied to glisson in rate.</digest>
+			<description></description>
+		</method>
+
+		<method name='glissonRandomSt' size="1">
+			<digest>Randomness applied to glisson in rate in semitones.</digest>
 			<description></description>
 		</method>
 
@@ -235,20 +322,20 @@
 			<description></description>
 		</method>
 
-		<method name='travMode' size="1">
-			<digest>Will set the traversal mode to one of the following
-				0: Traversal by messages (default)
-				1: Tranversal from buffer read by voices
-				2: Traversal from buffer read randomly per grain
+		<method name='delayMode' size="1">
+			<digest>Will set the delay mode to one of the following
+				0: Delay by messages (default)
+				1: Delay from buffer read by voices
+				2: Delay from buffer read randomly per grain
 			</digest>
 			<description>
 				This is useful when needing to dial in very specific traversals to design sounds.  The buffer can be set using the travOffsets message.
 			</description>
 		</method>
 
-		<method name='travOffsets' size="1">
+		<method name='delayOffsets' size="1">
 			<digest>
-				Sets the traversal buffers for travMode 1 and 2.
+				Sets the delay buffers for travMode 1 and 2.
 			</digest>
 		</method>
 
@@ -386,8 +473,8 @@
 		<seealso name='grainflow.live~' />
 		<seealso name='grainflow.streams~' />
 		<seealso name='grainflow.waveform~' />
-		<seealso name='grainflow.record~' />
-		<seealso name='grainflow.grainRecord~' />
+		<seealso name='grainflow.util.record~' />
+		<seealso name='grainflow.util.grainRecord~' />
 	</seealsolist>
 
 
