@@ -5,8 +5,6 @@ Grainflow is a suite of sample accurate signal driven granular tools built in Ma
 
 To install, place this package folding in the Max 8 Packages directory. 
 
-If you are running Grainflow on an M1 system, be advised that saving a patch with grainflow.waveform~ will crash Max. This is a general issue with jsui which will hopefully be resolved soon.
-
 ## Grainflow includes tools for:
 * Soundfile granulation 
 * Live input granulation 
