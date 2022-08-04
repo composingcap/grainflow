@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.util.list~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Selects from a list based on an audio value from 0-1.</digest>
+	<description>
+
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="multichannelsignal">
+			<digest>
+				Sampling value from 0-1
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+		<inlet id="1" type="list">
+			<digest>
+				list to sample from
+			</digest>
+			<description>
+
+			</description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="multichannelsignal">
+			<digest>
+			Values sampled from list
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+		<objarg name="list of values" optional="0" type="int">
+			<digest>Values to be sampled from</digest>
+		</objarg>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+	</seealsolist>
+
+
+</c74object>
