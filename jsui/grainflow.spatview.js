@@ -5,6 +5,7 @@ var falloffD = 1.1;
 var spreadxyz = [0.5,0.5,0.5];
 var spreadxyzinner = [0,0,0];
 var centerpos = [0,0,0];
+var speakerAmp = [];
 drawTask = new Task(drawLoop, this);
 drawTask.interval= ((1/24)*1000);
 	drawTask.repeat(-1);
@@ -32,7 +33,14 @@ function draw(){
                 if (pos.length == 2){
                     moveto(pos[0]*0.5,pos[1]*0.5);
                 }
-                glcolor(0,0,0,0.25);
+                glcolor(0,0,0,0.15);
+	if (speakerAmp[i] != undefined){
+		var a = speakerAmp[i];
+		a =Math.pow(a,0.5);
+		glcolor(a,a,0,0.15+a*0.25);
+		
+
+		}
                 circle(falloffD*0.5);
                 glcolor(0,0,0,1);
                 circle(0.025);
@@ -62,16 +70,18 @@ function draw(){
 
     if (centerpos){
     moveto(centerpos[0]*0.5,centerpos[2]*0.5);
+	glcolor(0,0,0,0.75);
+
     }
     if (spreadxyz){
     
-        glcolor(0,0,0,0.75);
+        //glcolor(0,0,0,0.75);
         gllinewidth(0.5);
         frameellipse(spreadxyz[0]*0.5,spreadxyz[2]*0.5,0,360);
     }
 
     if (spreadxyzinner){
-        glcolor(0,0,0,0.75);
+        //glcolor(0,0,0,0.75);
         gllinewidth(0.5);
         frameellipse(spreadxyzinner[0]*0.5,spreadxyzinner[2]*0.5,0,360);
     }
@@ -164,4 +174,8 @@ function onresize(w,h)
 
 
 }
+
+function speakerAmps(){
+	speakerAmp = arrayfromargs(arguments);
+	}
 
