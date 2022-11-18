@@ -123,7 +123,8 @@
 			<description></description>
 		</method>
 
-			<method name='int' type="int" size="1">
+
+		<method name='int' type="int" size="1">
 			<digest>Sets the state of the granulator.</digest>
 			<description>Sets the state of the granulator 1 is on 0 is off.</description>
 		</method>
@@ -295,6 +296,11 @@
 			<description></description>
 		</method>
 
+		<method name='glissonCurve' size="1">
+			<digest>Curve function applied to the glisson rate over time</digest>
+			<description></description>
+		</method>
+
 		<method name='rateQuantizeSemi' size="1">
 			<digest>Will quantize rates to semitones.</digest>
 			<description></description>
@@ -406,7 +412,10 @@
 			Will read the grain window so a polynomial. This is expensive and should be avoided if unnecessary.
 		</digest>
 </method>
-
+<method name='grainClockMode' size="1">
+	<digest>
+		Adjusts the grain clock to either output the phasor (0) or the grain lifespan (1). The default is 1
+	</digest>
 <method name='loopMode' size="1">
 	<digest>
 		Modifies how grainflow loops.
@@ -431,7 +440,6 @@
 	</digest>
 
 </method>
-
 
 
 

@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 3,
-			"revision" : 1,
+			"revision" : 3,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1225.0, 408.0, 650.0, 615.0 ],
+		"rect" : [ 137.0, 118.0, 650.0, 615.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -51,13 +51,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 3,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1225.0, 434.0, 650.0, 589.0 ],
+						"rect" : [ 0.0, 26.0, 650.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -98,7 +98,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 3,
-											"revision" : 1,
+											"revision" : 3,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -367,7 +367,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 3,
-											"revision" : 1,
+											"revision" : 3,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -966,7 +966,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 3,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1007,7 +1007,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 189.0, 103.412109375, 363.0, 19.0 ],
+									"patching_rect" : [ 189.0, 107.412109375, 363.0, 19.0 ],
 									"text" : "A dial object with a modulation depth paremeter built in"
 								}
 
@@ -1021,7 +1021,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 10.0, 100.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 10.0, 104.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.moddial"
 								}
 
@@ -1032,7 +1032,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 189.0, 70.412109375, 363.0, 19.0 ],
+									"patching_rect" : [ 189.0, 73.412109375, 363.0, 19.0 ],
 									"text" : "A GUI object that allows for the creation of paterns on an XY pad"
 								}
 
@@ -1046,7 +1046,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 10.0, 67.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 10.0, 70.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.function2D"
 								}
 
@@ -1084,7 +1084,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 80.0, 206.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 80.0, 155.412109375, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -1097,7 +1097,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 80.0, 235.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 80.0, 184.412109375, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -1206,7 +1206,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 3,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1243,11 +1243,36 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-7",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 247.5, 386.0, 304.0, 19.0 ],
+									"text" : "Accesses a list using a normalized range"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-6",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 20.0, 386.0, 203.0, 23.0 ],
+									"text" : "grainflow.util.list~"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-4",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 363.0, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 356.0, 304.0, 19.0 ],
 									"text" : "Generates 2D envelopes from a collection of buffers"
 								}
 
@@ -1261,7 +1286,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 357.0, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 354.0, 203.0, 23.0 ],
 									"text" : "grainflow.util.genEnv2D"
 								}
 
@@ -1632,6 +1657,14 @@
 								}
 
 							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-35", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-6", 1 ]
+								}
+
+							}
  ],
 						"styles" : [ 							{
 								"name" : "Minimal",
@@ -1691,13 +1724,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 3,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 650.0, 589.0 ],
+						"rect" : [ 137.0, 144.0, 650.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1732,7 +1765,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 416.467592592592609, 300.0, 19.0 ],
+									"patching_rect" : [ 182.0, 414.467592592592609, 300.0, 19.0 ],
 									"text" : "Stereo sustain effect"
 								}
 
@@ -1746,7 +1779,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 411.268518518518476, 160.0, 29.398148148148152 ],
+									"patching_rect" : [ 15.0, 409.268518518518476, 160.0, 29.398148148148152 ],
 									"text" : "grainflow.sustain~"
 								}
 
@@ -1839,7 +1872,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 271.0, 143.166666666666515, 74.0, 21.0 ],
+									"patching_rect" : [ 15.0, 490.166666666666515, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -1852,7 +1885,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 271.0, 160.166666666666515, 49.0, 21.0 ],
+									"patching_rect" : [ 15.0, 507.166666666666515, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -2023,7 +2056,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 420.175925925925867, 498.5, 420.175925925925867, 498.5, 132.166666666666515, 280.5, 132.166666666666515 ],
+									"midpoints" : [ 95.0, 383.171296296296191, 24.5, 383.171296296296191 ],
 									"source" : [ "obj-15", 1 ]
 								}
 
@@ -2032,7 +2065,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 411.972222222222172, 504.5, 411.972222222222172, 504.5, 132.166666666666515, 280.5, 132.166666666666515 ],
+									"midpoints" : [ 95.0, 415.069444444444343, 24.5, 415.069444444444343 ],
 									"source" : [ "obj-17", 1 ]
 								}
 
@@ -2041,7 +2074,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 423.277777777777715, 499.5, 423.277777777777715, 499.5, 132.166666666666515, 280.5, 132.166666666666515 ],
+									"midpoints" : [ 95.0, 367.222222222222115, 24.5, 367.222222222222115 ],
 									"source" : [ "obj-18", 1 ]
 								}
 
@@ -2050,7 +2083,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 416.768518518518476, 498.5, 416.768518518518476, 498.5, 132.166666666666515, 280.5, 132.166666666666515 ],
+									"midpoints" : [ 95.0, 448.666666666666572, 24.5, 448.666666666666572 ],
 									"source" : [ "obj-19", 1 ]
 								}
 
@@ -2059,7 +2092,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 417.666666666666629, 503.5, 417.666666666666629, 503.5, 132.166666666666515, 280.5, 132.166666666666515 ],
+									"midpoints" : [ 95.0, 483.416666666666572, 24.5, 483.416666666666572 ],
 									"source" : [ "obj-20", 1 ]
 								}
 
@@ -2068,7 +2101,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 418.074074074074019, 500.5, 418.074074074074019, 500.5, 132.166666666666515, 280.5, 132.166666666666515 ],
+									"midpoints" : [ 95.0, 399.120370370370267, 24.5, 399.120370370370267 ],
 									"source" : [ "obj-21", 1 ]
 								}
 
@@ -2077,7 +2110,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 412.870370370370324, 499.5, 412.870370370370324, 499.5, 132.166666666666515, 280.5, 132.166666666666515 ],
+									"midpoints" : [ 95.0, 431.01851851851842, 24.5, 431.01851851851842 ],
 									"source" : [ "obj-29", 1 ]
 								}
 
