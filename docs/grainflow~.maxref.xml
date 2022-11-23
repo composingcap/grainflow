@@ -18,7 +18,7 @@
 		<metadata name='tag'>MSP</metadata>
 
 	</metadatalist>
-<!--INLETS-->
+	<!--INLETS-->
 	<inletlist>
 		<inlet id="0" type="signal/multichannelsignal/list">
 			<digest>
@@ -132,12 +132,12 @@
 	<!--ARGUMENTS-->
 
 	<objarglist>
-<objarg name="buffername" optional="0" type="symbol">
-	<digest>The name of the buffer of the granulator.</digest>
-</objarg>
-<objarg name="max-grains" optional="0" type="int">
-	<digest>The maximum number of grains.  There will be a slight overhead for each grain even when it is off.</digest>
-</objarg>
+		<objarg name="buffername" optional="0" type="symbol">
+			<digest>The name of the buffer of the granulator.</digest>
+		</objarg>
+		<objarg name="max-grains" optional="0" type="int">
+			<digest>The maximum number of grains.  There will be a slight overhead for each grain even when it is off.</digest>
+		</objarg>
 	</objarglist>
 
 
@@ -380,37 +380,37 @@
 			</digest>
 		</method>
 		<method name='liveMode' size="1">
-					<digest>
+			<digest>
 						If enabled, grainflow will play at Max's samplerate not the buffer sample rate.
-					</digest>
-				</method>
+			</digest>
+		</method>
 
-				<method name='envMode' size="1">
-					<digest>
+		<method name='envMode' size="1">
+			<digest>
 						Sets how envelopes are read to one of the following:
 						0: reads from a buffer containing 1 envelope (default)
 						1: Reads an envelope from buffer organized as a 2D wavetable read by voices
 						2 : does not exist but should be random like the others
-					</digest>
-				</method>
+			</digest>
+		</method>
 
-				<method name='env2D' size="1">
-					<digest>
+		<method name='env2D' size="1">
+			<digest>
 						A buffer containing a 2D envelope wavetable for envMode 1.
-					</digest>
-				</method>
+			</digest>
+		</method>
 
-				<method name='env2DNumber' size="1">
-					<digest>
+		<method name='env2DNumber' size="1">
+			<digest>
 						The number of envelopes in the 2D wavetable.
-					</digest>
-				</method>
+			</digest>
+		</method>
 
-			<method name='env2DPosition' size="1">
-				<digest>
+		<method name='env2DPosition' size="1">
+			<digest>
 					The overall position in the 2Denv buffer.
-				</digest>
-			</method>
+			</digest>
+		</method>
 
 
 		<method name='env2DRandom' size="1">
@@ -419,71 +419,72 @@
 			</digest>
 		</method>
 
-<method name='windowOffsetMode' size="1">
-	<digest>
+		<method name='windowOffsetMode' size="1">
+			<digest>
 		Will set the rate mode to one of the following
 			0: windowOffset by messages (default)
 			1: windowOffset from buffer read by voices
 			2: windowOffset from buffer read randomly per grain
-	</digest>
-</method>
+			</digest>
+		</method>
 
-	<method name='windowReadBias' size="1">
-		<digest>
+		<method name='windowReadBias' size="1">
+			<digest>
 			Will read the grain window so a polynomial. This is expensive and should be avoided if unnecessary.
-		</digest>
-</method>
-<method name='grainClockMode' size="1">
-	<digest>
+			</digest>
+		</method>
+		<method name='grainClockMode' size="1">
+			<digest>
 		Adjusts the grain clock to either output the phasor (0) or the grain lifespan (1). The default is 1
-	</digest>
-<method name='loopMode' size="1">
-	<digest>
+			</digest>
+			</method>
+			<method name='loopMode' size="1">
+				<digest>
 		Modifies how grainflow loops.
 		0: no looping;
 		1: wrap;
 		2: fold grain start point;
 		3: fold read point;
-	</digest>
+				</digest>
 
-</method>
+			</method>
 
-<method name='startPoint' size="1">
-	<digest>
+			<method name='startPoint' size="1">
+				<digest>
 		Sets the starting location for a loop in grainflow from 0-1
-	</digest>
+				</digest>
 
-</method>
+			</method>
 
-<method name='stopPoint' size="1">
-	<digest>
+			<method name='stopPoint' size="1">
+				<digest>
 		Sets the ending location for a loop in grainflow from 0-1
-	</digest>
+				</digest>
 
-</method>
-
-
-	</methodlist>
+			</method>
 
 
-	<!--ATTRIBUTES-->
-
-	<attributelist>
-		<attribute name='any-message' get='0' set='1' type='anything' size='1' >
-				 <digest>Any message can be set on instantiation as an attribute.</digest>
-		 </attribute>
-	</attributelist>
+		</methodlist>
 
 
-	<!--RELATED-->
+		<!--ATTRIBUTES-->
 
-	<seealsolist>
-		<seealso name='grainflow.live~' />
-		<seealso name='grainflow.streams~' />
-		<seealso name='grainflow.waveform~' />
-		<seealso name='grainflow.util.record~' />
-		<seealso name='grainflow.util.grainRecord~' />
-	</seealsolist>
+		<attributelist>
+			<attribute name='any-message' get='0' set='1' type='anything' size='1' >
+				<digest>Any message can be set on instantiation as an attribute.</digest>
+			</attribute>
+		</attributelist>
 
 
-</c74object>
+		<!--RELATED-->
+
+		<seealsolist>
+			<seealso name='grainflow.live~' />
+			<seealso name='grainflow.streams~' />
+			<seealso name='grainflow.waveform~' />
+			<seealso name='grainflow.util.record~' />
+			<seealso name='grainflow.util.grainRecord~' />
+		</seealsolist>
+
+
+	</c74object>
