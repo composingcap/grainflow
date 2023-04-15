@@ -5,8 +5,9 @@ var falloffD = 1.1;
 var spreadxyz = [0.5,0.5,0.5];
 var spreadxyzinner = [0,0,0];
 var centerpos = [0,0,0];
-var gcolor1= [1, 1, 0];
-var gcolor2 = [0, 1,1];
+var gcolor1= [0.8,0.7,0];
+var gcolor2 = [1, 1,0];
+var grainAmps = [];
 var drawTask = new Task(drawLoop, this);
 drawTask.interval= ((1/24)*1000);
 	drawTask.repeat(-1);
@@ -32,7 +33,7 @@ function setSpeakerAmps(){
 
 function draw(){
     with (sketch){
-		//glclearcolor(0., 0., 0., 1.);
+		glclearcolor(0.5, 0.5, 0.5, 1.);
 
         glclear();			
 		moveto(0,0);
@@ -43,26 +44,33 @@ function draw(){
             for (var i = 0; i <k.length; i++){
                 
                 var pos = outPos.get(k[i])
-                if (pos.length == 3){
-                    moveto(pos[0]*0.5,pos[1]*0.5);
-                }
-                if (pos.length == 2){
-                    moveto(pos[0]*0.5,pos[1]*0.5);
-                }
+ 
+                moveto(pos[0]*0.5,pos[1]*0.5);
+	
+                glcolor(0.5,0.5,0.5,0.05);
+                circle(falloffD*0.5);
+
+
+            }
+            for (var i = 0; i <k.length; i++){
+                var pos = outPos.get(k[i])
 				ampColor = 0;
 				if (speakerAmps[i] != undefined){
 					ampColor = speakerAmps[i];
 					}
-                glcolor(0.7,1,0.7,0.1+0.9*ampColor);
-                circle(falloffD*0.5);
-                glcolor(0,0,0,1);
-				move(0,0,2);
-                circle(0.025);
-
-
-            }
+ 
+                moveto(pos[0]*0.5,pos[1]*0.5);
+                glcolor(0,0+ampColor,0,1);
+                circle(0.03);
+				}
         }
         }
+    if (centerpos){
+    moveto(centerpos[0]*0.5,centerpos[1]*0.5,centerpos[2]*0.5);
+	glcolor(0,0,0,1);
+
+	circle(0.05);
+    
 
         if (inPos){
             var k = inPos.getkeys();
@@ -70,13 +78,13 @@ function draw(){
             for (var i = 0; i <k.length; i++){
 				var cfact = i/(k.length-1)
 				var thisColor = [0,0,0];
-				for (var j = 0; j<2; j++) thisColor[j]=gcolor1[j]*(1-cfact)+gcolor2[j]*cfact;
+				for (var j = 0; j<3; j++) thisColor[j]=gcolor1[j]*(1-cfact)+gcolor2[j]*cfact;
                 glcolor(thisColor[0],thisColor[1],thisColor[2],1);
                 var pos = inPos.get(k[i])
 
                 moveto(pos[0]*0.5,pos[1]*0.5, pos[2]*0.5);
 				
-                sphere(0.0125);
+                circle(0.025*grainAmps[i]);
 
 
             }
@@ -85,25 +93,8 @@ function draw(){
     }
 
 
-    if (centerpos){
-    moveto(centerpos[0]*0.5,centerpos[2]*0.5,centerpos[1]*0.5);
-    }
+}
 
-
-
-    if (spreadxyz){
-    
-        glcolor(0,0,0,0.75);
-        gllinewidth(1);
-        frameSphere(spreadxyz[0]*0.75,spreadxyz[2]*0.75,spreadxyz[1]*0.75);
-		
-    }
-
-    if (spreadxyzinner){
-        glcolor(0,0,0,0.2);
-        gllinewidth(0.1);
-        frameellipse(spreadxyzinner[0]*0.5,spreadxyzinner[2]*0.5,0,360);
-    }
     }    
 }
 
@@ -180,15 +171,15 @@ function center(){
 }
 
 function onclick(x,y,but,cmd,shift,capslock,option,ctrl){
-    centerpos = [((x/width-1)*2)*2+2,0,-((y/width*2)-1)*2]
+    centerpos = [((x/width-1)*2)*2+2,-((y/width*2)-1)*2, 0]
 
-    outlet(0,["center", centerpos[0],0,centerpos[2]])
+    outlet(0,["center", centerpos[0],centerpos[1],centerpos[2]])
 
 }
 
 function ondrag(x,y,but,cmd,shift,capslock,option,ctrl){
-    centerpos = [((x/width-1)*2)*2+2,0,-((y/width*2)-1)*2]
-    outlet(0,["center", centerpos[0],0,centerpos[2]])
+    centerpos = [((x/width-1)*2)*2+2,-((y/width*2)-1)*2, 0]
+    outlet(0,["center", centerpos[0],centerpos[1],centerpos[2]])
 
 
 }
@@ -226,5 +217,13 @@ function xyz(){
 	
 	}
 	
+function grainAmp(){
+	
+	grainAmps = arrayfromargs(arguments);
+	}
+	
+function anything(){
+	
+	}
 
 
