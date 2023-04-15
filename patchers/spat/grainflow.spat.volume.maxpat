@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1249.0, 251.0, 920.0, 642.0 ],
+		"rect" : [ 183.0, 260.0, 920.0, 644.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,18 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-8",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 254.0, 201.0, 49.0, 22.0 ],
+					"text" : "mode 2"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-16",
 					"maxclass" : "newobj",
@@ -887,7 +899,7 @@
 						}
 ,
 						"classnamespace" : "dsp.gen",
-						"rect" : [ 956.0, 309.0, 758.0, 686.0 ],
+						"rect" : [ 615.0, 376.0, 758.0, 628.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -917,7 +929,7 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
-									"code" : "rnd(){\r\n\t\r\n\treturn (noise()+1)*0.5;\r\n\t}\r\n\t\r\nspheretocar(a,t,d){\r\n\tx = d*fastsin(a)*fastcos(t);\r\n\ty = d*fastsin(a)*fastsin(t);\r\n\tz = d *fastcos(a);\r\n\treturn x,y,z;\r\n\t}\r\n\r\nrotate(pitch,roll,yaw, x,y,z){\r\n\tcosa = cos(pitch);\r\n\tsina = sin(pitch);\r\n\t\r\n\tcosb = cos(roll);\r\n\tsinb = sin(roll);\r\n\t\r\n\tcosc = cos(yaw);\r\n\tsinc = sin(yaw);\r\n\t\r\n\t Axx = cosa*cosb;\n     Axy = cosa*sinb*sinc - sina*cosc;\n     Axz = cosa*sinb*cosc + sina*sinc;\n\n     Ayx = sina*cosb;\n     Ayy = sina*sinb*sinc + cosa*cosc;\n     Ayz = sina*sinb*cosc - cosa*sinc;\n\n     Azx = -sinb;\n     Azy = cosb*sinc;\n     Azz = cosb*cosc;\r\n\t\r\n\tpx = Axx*x + Axy*y + Axz*z;\r\n\tpy = Ayx*x + Ayy*y + Ayz*z;\r\n\tpz = Azx*x + Azy*y + Azz*z;\r\n\r\n\t\r\n\treturn px,py,pz;\r\n\t}\r\n\r\narcVolume2d(phase,innerRad){\r\n\t\r\n\tx, y = poltocar((1-innerRad)*rnd() + innerRad, (phase*0.5*noise()+0.25)*TWOPI);\r\n\t\r\n\tz = 0;\r\n\t\r\n\treturn x, y, z;\r\n\t}\r\n\r\narcVolume3d(phase,elevation, innerRad){\r\n\t\r\n\tx, y, z= spheretocar((-elevation*rnd()+0.25)*twopi, (phase*0.5*noise()+0.25)*twopi,(1-innerRad)*rnd()+innerRad);\r\n\r\n\treturn x,y,z;\r\n\t\r\n\t\r\n\t}\r\n\t\r\n//Params\r\nParam mode(0);\r\nParam phaseRange(1, min=0,max=1), InnerRad(0, min=0,max=1), elevationRange(0.5, min=-1,max=1);\r\nParam tx(0),ty(0),tz(0);\r\nParam pitch(0), roll(0), yaw(0);\r\nParam scale(1), sx(1), sy(1), sz(1);\r\nx,y,z = 0;\r\n//Sample Volume\t\r\nif (mode == 0) x,y,z = arcVolume2d(phaseRange, InnerRad);\r\nif (mode == 1) x,y,z = arcVolume3d(phaseRange, elevationRange,InnerRad);\r\n\r\n\r\n//Scale\r\n\r\nx *= sx*scale;\r\ny *= sy*scale;\r\nz *= sz*scale;\r\n\r\n//Rotate\r\nx,y,z = rotate(-pitch*TWOPI,-roll*TWOPI, -yaw*TWOPI, x,y,z);\r\n\r\n//Translate\r\n\r\nx += tx;\r\ny += ty;\r\nz += tz;\r\n\r\nout1 = x;\r\nout2 = y;\r\nout3 = z;",
+									"code" : "rnd(){\r\n\t\r\n\treturn (noise()+1)*0.5;\r\n\t}\r\n\t\r\nspheretocar(a,t,d){\r\n\tx = d*fastsin(a)*fastcos(t);\r\n\ty = d*fastsin(a)*fastsin(t);\r\n\tz = d *fastcos(a);\r\n\treturn x,y,z;\r\n\t}\r\n\r\nrotate(pitch,roll,yaw, x,y,z){\r\n\tcosa = cos(pitch);\r\n\tsina = sin(pitch);\r\n\t\r\n\tcosb = cos(roll);\r\n\tsinb = sin(roll);\r\n\t\r\n\tcosc = cos(yaw);\r\n\tsinc = sin(yaw);\r\n\t\r\n\t Axx = cosa*cosb;\n     Axy = cosa*sinb*sinc - sina*cosc;\n     Axz = cosa*sinb*cosc + sina*sinc;\n\n     Ayx = sina*cosb;\n     Ayy = sina*sinb*sinc + cosa*cosc;\n     Ayz = sina*sinb*cosc - cosa*sinc;\n\n     Azx = -sinb;\n     Azy = cosb*sinc;\n     Azz = cosb*cosc;\r\n\t\r\n\tpx = Axx*x + Axy*y + Axz*z;\r\n\tpy = Ayx*x + Ayy*y + Ayz*z;\r\n\tpz = Azx*x + Azy*y + Azz*z;\r\n\r\n\t\r\n\treturn px,py,pz;\r\n\t}\r\n\r\narcVolume2d(phase,innerRad){\r\n\t\r\n\tx, y = poltocar((1-innerRad)*rnd() + innerRad, (phase*0.5*noise()+0.25)*TWOPI);\r\n\t\r\n\tz = 0;\r\n\t\r\n\treturn x, y, z;\r\n\t}\r\n\r\narcVolume3d(phase,elevation, innerRad){\r\n\t\r\n\tx, y, z= spheretocar((-elevation*rnd()+0.25)*twopi, (phase*0.5*noise()+0.25)*twopi,(1-innerRad)*rnd()+innerRad);\r\n\r\n\treturn x,y,z;\r\n\t\r\n\t\r\n\t}\r\n\t\r\nbox2d(phase, innerRad){\r\n\tphase = clip(phase, 0.0001, 1);\r\n\tw = noise()*phase*4.9999;\r\n\ts = sign(w);\r\n\tx = abs(w%1);\r\n\ty = 1;\r\n\tz = 0;\r\n\tw = abs(w);\r\n\t\r\n\tif (innerRad < 1){\r\n\t\ty2 = y*innerRad;\r\n\t\tl = rnd();\r\n\t\ty = (1-l)*y + l*y2; \r\n\t}\r\n\t\r\n\t\r\n\tif (w < 1 ) return s*x,y,z;\r\n\telse if (w < 2) return s*y,(1-x),z;\r\n\telse if (w < 3) return s*y,-x,z;\r\n\telse return (1-x)*s,-y,z;\r\n\r\n\r\n\t\r\n\t\r\n\t}\r\n\t\r\nbox3d(phase, elevation, innerRad){\r\n\tx,y,z = box2d(phase,innerRad);\r\n\tz = rnd()*elevation;\r\n\t\r\n\treturn x,y,z;\r\n\t\r\n\t}\r\n\t\r\n//Params\r\nParam mode(0);\r\nParam phaseRange(1, min=0,max=1), InnerRad(0, min=0,max=1), elevationRange(0.5, min=-1,max=1);\r\nParam tx(0),ty(0),tz(0);\r\nParam pitch(0), roll(0), yaw(0);\r\nParam scale(1), sx(1), sy(1), sz(1);\r\nx,y,z = 0;\r\n//Sample Volume\t\r\nif (mode == 0) x,y,z = arcVolume2d(phaseRange, InnerRad);\r\nif (mode == 1) x,y,z = arcVolume3d(phaseRange, elevationRange,InnerRad);\r\nif (mode == 2) x,y,z = box2d(phaseRange, InnerRad);\r\nif (mode == 3) x,y,z = box3d(phaseRange, elevationRange,InnerRad);\r\n\r\n//Scale\r\n\r\nx *= sx*scale;\r\ny *= sy*scale;\r\nz *= sz*scale;\r\n\r\n//Rotate\r\nx,y,z = rotate(-pitch*TWOPI,-roll*TWOPI, -yaw*TWOPI, x,y,z);\r\n\r\n//Translate\r\n\r\nx += tx;\r\ny += ty;\r\nz += tz;\r\n\r\nout1 = x;\r\nout2 = y;\r\nout3 = z;",
 									"fontface" : 0,
 									"fontname" : "<Monospaced>",
 									"fontsize" : 12.0,
@@ -1143,7 +1155,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 204.105555999999979, 307.0, 150.0, 22.0 ]
+					"patching_rect" : [ 337.105555999999979, 354.0, 150.0, 22.0 ]
 				}
 
 			}
@@ -1354,6 +1366,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-20", 0 ],
 					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-8", 0 ]
 				}
 
 			}

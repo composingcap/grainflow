@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 356.0, 96.0, 798.0, 918.0 ],
+		"rect" : [ 100.0, 96.0, 1774.0, 918.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -39,6 +39,18 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-51",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 843.0, 522.0, 45.0, 22.0 ],
+					"text" : "mode 2"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"format" : 6,
 					"id" : "obj-47",
@@ -416,7 +428,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 972.0, 392.0, 50.0, 22.0 ]
+					"patching_rect" : [ 972.0, 403.5, 50.0, 22.0 ]
 				}
 
 			}
@@ -464,7 +476,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 363.0, 802.0, 159.0, 22.0 ],
-					"text" : "center -0.017544 0.017544 0"
+					"text" : "center -0.017544 -0.052632 0"
 				}
 
 			}
@@ -489,7 +501,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1463.0, 385.0, 50.0, 74.0 ],
-					"text" : "aed 4 4.746234 0. 0.789104 1"
+					"text" : "aed 3 -171.103169 0. 0.230052 1"
 				}
 
 			}
@@ -550,7 +562,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1303.0, 492.0, 50.0, 61.0 ],
-					"text" : "-0.014293 -0.000019 0."
+					"text" : "-0.086786 -0.000019 0."
 				}
 
 			}
@@ -711,7 +723,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 776.0, 789.500001311302071, 240.0, 22.0 ],
-					"text" : "/spat/serv car 3 -0.501424 0.935928 0. 0. 0."
+					"text" : "/spat/serv car 2 -0.293176 -0.275354 0. 0. 0."
 				}
 
 			}
@@ -2154,6 +2166,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-44", 0 ],
 					"source" : [ "obj-50", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-61", 0 ],
+					"source" : [ "obj-51", 0 ]
 				}
 
 			}
