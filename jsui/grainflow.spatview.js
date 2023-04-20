@@ -8,6 +8,7 @@ var centerpos = [0,0,0];
 var gcolor1= [0.8,0.7,0];
 var gcolor2 = [1, 1,0];
 var grainAmps = [];
+var showCenter = false;
 var drawTask = new Task(drawLoop, this);
 drawTask.interval= ((1/24)*1000);
 	drawTask.repeat(-1);
@@ -65,11 +66,12 @@ function draw(){
 				}
         }
         }
-    if (centerpos){
+    if (centerpos && showCenter){
     moveto(centerpos[0]*0.5,centerpos[1]*0.5,centerpos[2]*0.5);
 	glcolor(0,0,0,1);
 
 	circle(0.05);
+	}
     
 
         if (inPos){
@@ -90,7 +92,7 @@ function draw(){
             }
             
         }
-    }
+    
 
 
 }
@@ -171,15 +173,18 @@ function center(){
 }
 
 function onclick(x,y,but,cmd,shift,capslock,option,ctrl){
-    centerpos = [((x/width-1)*2)*2+2,-((y/width*2)-1)*2, 0]
+    if(showCenter){
+	centerpos = [((x/width-1)*2)*2+2,-((y/width*2)-1)*2, 0]
 
     outlet(0,["center", centerpos[0],centerpos[1],centerpos[2]])
-
+}
 }
 
 function ondrag(x,y,but,cmd,shift,capslock,option,ctrl){
+	 if(showCenter){
     centerpos = [((x/width-1)*2)*2+2,-((y/width*2)-1)*2, 0]
     outlet(0,["center", centerpos[0],centerpos[1],centerpos[2]])
+}
 
 
 }

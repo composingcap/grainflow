@@ -275,7 +275,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 76.5, 577.0, 30.0, 30.0 ]
+					"patching_rect" : [ 76.5, 599.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -322,7 +322,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 475.0, 327.0, 305.0, 22.0 ],
+					"patching_rect" : [ 475.0, 327.0, 319.0, 22.0 ],
 					"text" : "jit.matrix #0_vel @dim 10 @planecount 3 @type float32"
 				}
 
@@ -334,7 +334,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 66.0, 415.0, 232.0, 22.0 ],
+					"patching_rect" : [ 66.0, 415.0, 245.0, 22.0 ],
 					"text" : "jit.matrix #0_pos @dim 10 @planecount 3"
 				}
 
@@ -395,7 +395,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 71.0, 248.0, 309.0, 22.0 ],
+					"patching_rect" : [ 71.0, 248.0, 323.0, 22.0 ],
 					"text" : "jit.matrix #0_pos @dim 10 @planecount 3 @type float32"
 				}
 

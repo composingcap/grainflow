@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-16",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"patching_rect" : [ 658.0, 402.0, 48.0, 22.0 ],
+					"text" : "pow 0.5"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-54",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 143.5, 175.5, 47.0, 22.0 ],
+					"text" : "dict.iter"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-28",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -255,7 +279,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 664.0, 392.0, 76.0, 22.0 ],
+					"patching_rect" : [ 656.0, 374.0, 76.0, 22.0 ],
 					"text" : "mc.peakamp~"
 				}
 
@@ -382,13 +406,13 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "spatview output",
 					"id" : "obj-117",
 					"index" : 2,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 693.0, 197.0, 30.0, 30.0 ]
+					"patching_rect" : [ 672.0, 540.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -2941,7 +2965,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 245.0, 495.0, 269.0, 61.0 ],
+					"patching_rect" : [ 245.0, 495.0, 271.0, 61.0 ],
 					"text" : "delete matrix, newobject newobj @text $1 @varname matrix @patching_rect 67. 363. 74. 22., connect matrix 0 out 0, connect in 0 matrix 0, connect mix 0 matrix 0, connect in 0 ampviz 0"
 				}
 
@@ -3281,11 +3305,11 @@
 				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 67.0, 143.0, 163.0, 22.0 ],
-					"text" : "routepass multichannelsignal"
+					"numinlets" : 3,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 67.0, 143.0, 200.0, 22.0 ],
+					"text" : "routepass multichannelsignal dictionary"
 				}
 
 			}
@@ -3310,7 +3334,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "multichannelsignal" ],
 					"patching_rect" : [ 85.0, 77.0, 30.0, 30.0 ]
 				}
 
@@ -3320,9 +3344,10 @@
 					"id" : "obj-8",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 67.0, 363.0, 74.0, 22.0 ],
+					"numoutlets" : 2,
+					"outlettype" : [ "multichannelsignal", "" ],
+					"patching_rect" : [ 67.0, 363.0, 150.0, 22.0 ],
+					"text" : "mcs.matrix~ 16 8 0. @ramp 2",
 					"varname" : "matrix"
 				}
 
@@ -3409,6 +3434,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-14", 0 ],
 					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-71", 1 ],
+					"source" : [ "obj-16", 0 ]
 				}
 
 			}
@@ -3554,6 +3586,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-54", 0 ],
+					"source" : [ "obj-4", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
 					"source" : [ "obj-4", 0 ]
 				}
@@ -3562,7 +3601,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-9", 0 ],
-					"source" : [ "obj-4", 1 ]
+					"source" : [ "obj-4", 2 ]
 				}
 
 			}
@@ -3631,6 +3670,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-54", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-117", 0 ],
 					"source" : [ "obj-55", 0 ]
 				}
@@ -3677,15 +3723,15 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-71", 2 ],
-					"source" : [ "obj-62", 1 ]
+					"destination" : [ "obj-16", 0 ],
+					"source" : [ "obj-62", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-71", 1 ],
-					"source" : [ "obj-62", 0 ]
+					"destination" : [ "obj-71", 2 ],
+					"source" : [ "obj-62", 1 ]
 				}
 
 			}
