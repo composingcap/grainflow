@@ -239,7 +239,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 766.0, 892.0 ],
+						"rect" : [ 0.0, 26.0, 766.0, 892.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -286,7 +286,7 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 0.0, 0.0, 640.0, 480.0 ],
+										"rect" : [ 59.0, 107.0, 640.0, 480.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -352,135 +352,19 @@
 											}
 , 											{
 												"box" : 												{
-													"data" : 													{
-														"8ch stereo pairs" : 														{
-															"speakers" : 															{
-																"1" : [ -0.4, 1, 0 ],
-																"2" : [ 0.4, 1, 0 ],
-																"3" : [ -1, 0.4, 0 ],
-																"4" : [ 1, 0.4, 0 ],
-																"5" : [ -1, -0.4, 0 ],
-																"6" : [ 1, -0.4, 0 ],
-																"7" : [ -0.4, -1, 0 ],
-																"8" : [ 0.4, -1, 0 ]
-															}
-,
-															"falloffDistance" : 1.5,
-															"falloffCurve" : -1,
-															"dimmask" : [ 1, 1, 0 ]
-														}
-,
-														"8ch double diamond" : 														{
-															"speakers" : 															{
-																"1" : [ 0, 1, 0 ],
-																"2" : [ 0.5, 0.5, 0 ],
-																"3" : [ 1, 0, 0 ],
-																"4" : [ 0.5, -0.5, 0 ],
-																"5" : [ 0, -1, 0 ],
-																"6" : [ -0.5, -0.5, 0 ],
-																"7" : [ -1, 0, 0 ],
-																"8" : [ -0.5, 0.5, 0 ]
-															}
-,
-															"falloffDistance" : 1,
-															"falloffCurve" : -1,
-															"dimmask" : [ 1, 1, 0 ]
-														}
-,
-														"stereo" : 														{
-															"speakers" : 															{
-																"1" : [ -1, 0, 0 ],
-																"2" : [ 1, 0, 0 ]
-															}
-,
-															"falloffDistance" : 1.5,
-															"falloffCurve" : -1,
-															"dimmask" : [ 1, 0, 0 ]
-														}
-,
-														"quad" : 														{
-															"speakers" : 															{
-																"1" : [ -1, 1, 0 ],
-																"2" : [ 1, 1, 0 ],
-																"3" : [ -1, -1, 0 ],
-																"4" : [ 1, -1, 0 ]
-															}
-,
-															"falloffDistance" : 1.5,
-															"falloffCurve" : -1,
-															"dimmask" : [ 1, 1, 0 ]
-														}
-,
-														"5ch surround" : 														{
-															"speakers" : 															{
-																"1" : [ -1, 1, 0 ],
-																"2" : [ 1, 1, 0 ],
-																"3" : [ 0, 1, 0 ],
-																"4" : [ -1, -1, 0 ],
-																"5" : [ 1, -1, 0 ]
-															}
-,
-															"falloffDistance" : 1.5,
-															"falloffCurve" : -1,
-															"dimmask" : [ 1, 1, 0 ]
-														}
-,
-														"7ch surround" : 														{
-															"speakers" : 															{
-																"1" : [ -1, 1, 0 ],
-																"2" : [ 1, 1, 0 ],
-																"3" : [ 0, 1, 0 ],
-																"4" : [ -1, -1, 0 ],
-																"5" : [ 1, -1, 0 ],
-																"6" : [ -1, 0, 0 ],
-																"7" : [ 1, 0, 0 ]
-															}
-,
-															"falloffDistance" : 1.5,
-															"falloffCurve" : -1,
-															"dimmask" : [ 1, 1, 0 ]
-														}
-,
-														"16ch Stacked Stereo Pairs" : 														{
-															"speakers" : 															{
-																"1" : [ -0.4, 1, 0 ],
-																"2" : [ 0.4, 1, 0 ],
-																"3" : [ -1, 0.4, 0 ],
-																"4" : [ 1, 0.4, 0 ],
-																"5" : [ -1, -0.4, 0 ],
-																"6" : [ 1, -0.4, 0 ],
-																"7" : [ -0.4, -1, 0 ],
-																"8" : [ 0.4, -1, 0 ],
-																"9" : [ -0.4, 1, 1 ],
-																"10" : [ 0.4, 1, 1 ],
-																"11" : [ -1, 0.4, 1 ],
-																"12" : [ 1, 0.4, 1 ],
-																"13" : [ -1, -0.4, 1 ],
-																"14" : [ 1, -0.4, 1 ],
-																"15" : [ -0.4, -1, 1 ],
-																"16" : [ 0.4, -1, 1 ]
-															}
-,
-															"falloffDistance" : 0.75,
-															"falloffCurve" : -1,
-															"dimmask" : [ 1, 1, 1 ]
-														}
-
-													}
-,
 													"id" : "obj-10",
 													"maxclass" : "newobj",
 													"numinlets" : 2,
 													"numoutlets" : 4,
 													"outlettype" : [ "dictionary", "", "", "" ],
-													"patching_rect" : [ 50.0, 148.5, 171.0, 22.0 ],
+													"patching_rect" : [ 50.0, 148.5, 211.0, 22.0 ],
 													"saved_object_attributes" : 													{
-														"embed" : 1,
+														"embed" : 0,
 														"parameter_enable" : 0,
 														"parameter_mappable" : 0
 													}
 ,
-													"text" : "dict speakersetups @embed 1"
+													"text" : "dict speakers grainflow.speakersetups"
 												}
 
 											}
@@ -997,7 +881,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 766.0, 892.0 ],
+						"rect" : [ 100.0, 126.0, 766.0, 892.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1747,7 +1631,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 257.666666666666686, 211.0, 115.0, 38.0 ],
+									"patching_rect" : [ 299.666666666666686, 211.0, 115.0, 38.0 ],
 									"text" : "See how these are stored"
 								}
 
@@ -1783,7 +1667,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "multichannelsignal", "grainReset" ],
-									"patching_rect" : [ 164.666666666666657, 446.0, 112.0, 22.0 ],
+									"patching_rect" : [ 178.0, 443.0, 112.0, 22.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
 
@@ -1808,7 +1692,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 257.666666666666686, 480.0, 415.0, 166.0 ]
+									"patching_rect" : [ 271.0, 477.0, 415.0, 166.0 ]
 								}
 
 							}
@@ -1881,142 +1765,26 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 128.666666666666657, 269.5, 55.0, 22.0 ],
+									"patching_rect" : [ 142.0, 260.5, 55.0, 22.0 ],
 									"text" : "zl.slice 1"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"data" : 									{
-										"8ch stereo pairs" : 										{
-											"speakers" : 											{
-												"1" : [ -0.4, 1, 0 ],
-												"2" : [ 0.4, 1, 0 ],
-												"3" : [ -1, 0.4, 0 ],
-												"4" : [ 1, 0.4, 0 ],
-												"5" : [ -1, -0.4, 0 ],
-												"6" : [ 1, -0.4, 0 ],
-												"7" : [ -0.4, -1, 0 ],
-												"8" : [ 0.4, -1, 0 ]
-											}
-,
-											"falloffDistance" : 1.5,
-											"falloffCurve" : -1,
-											"dimmask" : [ 1, 1, 0 ]
-										}
-,
-										"8ch double diamond" : 										{
-											"speakers" : 											{
-												"1" : [ 0, 1, 0 ],
-												"2" : [ 0.5, 0.5, 0 ],
-												"3" : [ 1, 0, 0 ],
-												"4" : [ 0.5, -0.5, 0 ],
-												"5" : [ 0, -1, 0 ],
-												"6" : [ -0.5, -0.5, 0 ],
-												"7" : [ -1, 0, 0 ],
-												"8" : [ -0.5, 0.5, 0 ]
-											}
-,
-											"falloffDistance" : 1,
-											"falloffCurve" : -1,
-											"dimmask" : [ 1, 1, 0 ]
-										}
-,
-										"stereo" : 										{
-											"speakers" : 											{
-												"1" : [ -1, 0, 0 ],
-												"2" : [ 1, 0, 0 ]
-											}
-,
-											"falloffDistance" : 1.5,
-											"falloffCurve" : -1,
-											"dimmask" : [ 1, 0, 0 ]
-										}
-,
-										"quad" : 										{
-											"speakers" : 											{
-												"1" : [ -1, 1, 0 ],
-												"2" : [ 1, 1, 0 ],
-												"3" : [ -1, -1, 0 ],
-												"4" : [ 1, -1, 0 ]
-											}
-,
-											"falloffDistance" : 1.5,
-											"falloffCurve" : -1,
-											"dimmask" : [ 1, 1, 0 ]
-										}
-,
-										"5ch surround" : 										{
-											"speakers" : 											{
-												"1" : [ -1, 1, 0 ],
-												"2" : [ 1, 1, 0 ],
-												"3" : [ 0, 1, 0 ],
-												"4" : [ -1, -1, 0 ],
-												"5" : [ 1, -1, 0 ]
-											}
-,
-											"falloffDistance" : 1.5,
-											"falloffCurve" : -1,
-											"dimmask" : [ 1, 1, 0 ]
-										}
-,
-										"7ch surround" : 										{
-											"speakers" : 											{
-												"1" : [ -1, 1, 0 ],
-												"2" : [ 1, 1, 0 ],
-												"3" : [ 0, 1, 0 ],
-												"4" : [ -1, -1, 0 ],
-												"5" : [ 1, -1, 0 ],
-												"6" : [ -1, 0, 0 ],
-												"7" : [ 1, 0, 0 ]
-											}
-,
-											"falloffDistance" : 1.5,
-											"falloffCurve" : -1,
-											"dimmask" : [ 1, 1, 0 ]
-										}
-,
-										"16ch Stacked Stereo Pairs" : 										{
-											"speakers" : 											{
-												"1" : [ -0.4, 1, 0 ],
-												"2" : [ 0.4, 1, 0 ],
-												"3" : [ -1, 0.4, 0 ],
-												"4" : [ 1, 0.4, 0 ],
-												"5" : [ -1, -0.4, 0 ],
-												"6" : [ 1, -0.4, 0 ],
-												"7" : [ -0.4, -1, 0 ],
-												"8" : [ 0.4, -1, 0 ],
-												"9" : [ -0.4, 1, 1 ],
-												"10" : [ 0.4, 1, 1 ],
-												"11" : [ -1, 0.4, 1 ],
-												"12" : [ 1, 0.4, 1 ],
-												"13" : [ -1, -0.4, 1 ],
-												"14" : [ 1, -0.4, 1 ],
-												"15" : [ -0.4, -1, 1 ],
-												"16" : [ 0.4, -1, 1 ]
-											}
-,
-											"falloffDistance" : 0.75,
-											"falloffCurve" : -1,
-											"dimmask" : [ 1, 1, 1 ]
-										}
-
-									}
-,
 									"id" : "obj-7",
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 4,
 									"outlettype" : [ "dictionary", "", "", "" ],
-									"patching_rect" : [ 78.0, 219.0, 171.0, 22.0 ],
+									"patching_rect" : [ 78.0, 219.0, 211.0, 22.0 ],
 									"saved_object_attributes" : 									{
-										"embed" : 1,
+										"embed" : 0,
 										"parameter_enable" : 0,
 										"parameter_mappable" : 0
 									}
 ,
-									"text" : "dict speakersetups @embed 1"
+									"text" : "dict speakers grainflow.speakersetups"
 								}
 
 							}

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 690.0, 480.0 ],
+		"rect" : [ 100.0, 100.0, 690.0, 767.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -40,13 +40,73 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-30",
+					"id" : "obj-21",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 83.0, 201.0, 51.0, 22.0 ],
+					"text" : "scale 0.1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-20",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 379.0, 164.0, 42.0, 22.0 ],
+					"text" : "scale 4"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 215.0, 105.0, 52.0, 22.0 ],
+					"patching_rect" : [ 294.0, 131.0, 52.0, 22.0 ],
 					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 294.0, 164.0, 65.0, 22.0 ],
+					"text" : "rotate 1 0 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 71.5, 233.0, 115.0, 22.0 ],
+					"text" : "grainflow.spat.volume"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 71.5, 280.0, 169.0, 22.0 ],
+					"text" : "grainflow.spat.transformOverLife"
 				}
 
 			}
@@ -56,8 +116,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 10.0, 52.0, 544.0, 20.0 ],
-					"text" : "A very basic physics engine for controling particles"
+					"patching_rect" : [ 7.0, 47.0, 544.0, 20.0 ],
+					"text" : "Transform a points coordinate system over its life."
 				}
 
 			}
@@ -68,8 +128,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 10.0, 8.0, 389.0, 42.0 ],
-					"text" : "grainflow.spat.phys"
+					"patching_rect" : [ 7.0, 3.0, 532.0, 42.0 ],
+					"text" : "grainflow.spat.transformOverLife"
 				}
 
 			}
@@ -80,7 +140,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 41.0, 319.0, 61.0, 22.0 ],
+					"patching_rect" : [ 46.0, 428.0, 61.0, 22.0 ],
 					"text" : "mc.*~ 0.25"
 				}
 
@@ -92,7 +152,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 82.0, 105.0, 40.0, 22.0 ],
+					"patching_rect" : [ 83.0, 114.0, 40.0, 22.0 ],
 					"text" : "noise~"
 				}
 
@@ -104,7 +164,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 41.0, 292.0, 85.0, 22.0 ],
+					"patching_rect" : [ 46.0, 385.0, 85.0, 22.0 ],
 					"text" : "mc.mixdown~ 2"
 				}
 
@@ -127,7 +187,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 59.0, 107.0, 640.0, 480.0 ],
+						"rect" : [ 809.0, 227.0, 640.0, 480.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -369,7 +429,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 190.5, 245.0, 92.0, 22.0 ],
+					"patching_rect" : [ 101.0, 312.0, 92.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -383,60 +443,12 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-21",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 552.0, 139.0, 135.0, 22.0 ],
-					"text" : "accelerationRandom 0 5 0"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-18",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 445.0, 139.0, 105.0, 22.0 ],
-					"text" : "acceleration -15 0 0"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-16",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 215.0, 139.0, 124.0, 22.0 ],
-					"text" : "positionRandom 0 0.1 0"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-13",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 365.0, 139.0, 74.0, 22.0 ],
-					"text" : "velocity 5 0 0"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-11",
 					"local" : 1,
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 41.0, 352.0, 45.0, 45.0 ]
+					"patching_rect" : [ 46.0, 458.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -448,7 +460,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 7.0, 88.0, 24.0, 24.0 ]
+					"patching_rect" : [ 8.0, 97.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -459,8 +471,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 45.0, 78.0, 57.0, 22.0 ],
-					"text" : "phasor~ 1"
+					"patching_rect" : [ 46.0, 87.0, 57.0, 22.0 ],
+					"text" : "phasor~ 2"
 				}
 
 			}
@@ -471,8 +483,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 190.5, 84.0, 143.0, 22.0 ],
-					"text" : "buffer~ _spatphys femvoice"
+					"patching_rect" : [ 188.5, 97.0, 118.0, 22.0 ],
+					"text" : "buffer~ _spattfol sacre"
 				}
 
 			}
@@ -483,8 +495,8 @@
 					"numinlets" : 4,
 					"numoutlets" : 9,
 					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 45.0, 129.0, 127.0, 22.0 ],
-					"text" : "grainflow~ _spatphys 10"
+					"patching_rect" : [ 46.0, 138.0, 121.0, 22.0 ],
+					"text" : "grainflow~ _spattfol 10"
 				}
 
 			}
@@ -495,20 +507,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "grainReset" ],
-					"patching_rect" : [ 45.0, 239.0, 103.0, 22.0 ],
+					"patching_rect" : [ 46.0, 344.0, 103.0, 22.0 ],
 					"text" : "grainflow.spat.pan~"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-1",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 72.0, 187.0, 118.0, 22.0 ],
-					"text" : "grainflow.spat.phys 10"
 				}
 
 			}
@@ -522,36 +522,39 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 129.0, 334.0, 365.0, 146.0 ]
+					"patching_rect" : [ 130.0, 419.0, 365.0, 146.0 ]
 				}
 
 			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-2", 0 ],
+					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-1", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
+					"destination" : [ "obj-20", 0 ],
+					"order" : 0,
 					"source" : [ "obj-13", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"source" : [ "obj-16", 0 ]
+					"destination" : [ "obj-21", 0 ],
+					"order" : 2,
+					"source" : [ "obj-13", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"source" : [ "obj-18", 0 ]
+					"destination" : [ "obj-9", 0 ],
+					"order" : 1,
+					"source" : [ "obj-13", 0 ]
 				}
 
 			}
@@ -566,6 +569,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
 					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-20", 0 ]
 				}
 
 			}
@@ -613,33 +623,9 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-13", 0 ],
-					"order" : 2,
-					"source" : [ "obj-30", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-16", 0 ],
-					"order" : 3,
-					"source" : [ "obj-30", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
-					"order" : 1,
-					"source" : [ "obj-30", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-21", 0 ],
-					"order" : 0,
-					"source" : [ "obj-30", 0 ]
+					"destination" : [ "obj-6", 1 ],
+					"midpoints" : [ 93.75, 187.0, 231.0, 187.0 ],
+					"source" : [ "obj-3", 3 ]
 				}
 
 			}
@@ -659,13 +645,35 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-2", 0 ],
+					"midpoints" : [ 81.0, 324.0, 55.5, 324.0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
 					"source" : [ "obj-7", 0 ]
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
  ],
 		"dependency_cache" : [ 			{
+				"name" : "_grainflow.aed2xyz.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "_grainflow.poly.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
@@ -680,6 +688,20 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "_grainflow.spreadlist.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "_grainflow.xyz2aed.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "grainflow.spat.pan~.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
@@ -687,7 +709,14 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.spat.phys.maxpat",
+				"name" : "grainflow.spat.transformOverLife.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.spat.volume.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
@@ -713,10 +742,6 @@
 				"patcherrelativepath" : "../../patchers",
 				"type" : "JSON",
 				"implicit" : 1
-			}
-, 			{
-				"name" : "jit.*.mxe64",
-				"type" : "mx64"
 			}
  ],
 		"autosave" : 0,

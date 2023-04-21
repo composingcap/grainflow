@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 150.0, 279.0, 1135.0, 678.0 ],
+		"rect" : [ 100.0, 100.0, 1135.0, 678.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1135.0, 652.0 ],
+						"rect" : [ 100.0, 126.0, 1135.0, 652.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -88,12 +88,25 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"border" : 0,
+									"filename" : "grainflow.spatview~.js",
+									"id" : "obj-7",
+									"maxclass" : "jsui",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 209.333333333333258, 432.0, 421.0, 168.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-39",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 281.666666666666629, 312.0, 171.0, 20.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Select what parts to sample"
 								}
 
@@ -327,17 +340,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-14",
-									"maxclass" : "meter~",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "float" ],
-									"patching_rect" : [ 407.5, 438.0, 114.0, 150.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-13",
 									"maxclass" : "toggle",
 									"numinlets" : 1,
@@ -357,20 +359,6 @@
 									"outlettype" : [ "float", "bang" ],
 									"patching_rect" : [ 129.5, 149.0, 149.0, 22.0 ],
 									"text" : "buffer~ _spatvolume brushes"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"filename" : "grainflow.spatview.js",
-									"id" : "obj-7",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 242.0, 438.0, 150.0, 150.0 ]
 								}
 
 							}
@@ -652,7 +640,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
+									"outlettype" : [ "multichannelsignal", "grainReset" ],
 									"patching_rect" : [ 40.0, 453.5, 103.0, 22.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
@@ -885,17 +873,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-14", 0 ],
-									"midpoints" : [ 49.5, 485.5, 177.25, 485.5, 177.25, 417.0, 417.0, 417.0 ],
-									"order" : 0,
-									"source" : [ "obj-5", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"order" : 1,
 									"source" : [ "obj-5", 0 ]
 								}
 
@@ -903,7 +881,6 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 133.5, 485.5, 192.5, 485.5, 192.5, 427.0, 251.5, 427.0 ],
 									"source" : [ "obj-5", 1 ]
 								}
 
@@ -999,7 +976,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 150.0, 305.0, 1135.0, 652.0 ],
+						"rect" : [ 0.0, 26.0, 1135.0, 652.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -1083,7 +1060,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 1030.666666666666742, 204.0, 87.0, 50.0 ],
-									"presentation_linecount" : 3,
 									"text" : "apply a rotation to the volume"
 								}
 
@@ -1097,7 +1073,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 735.0, 210.0, 95.0, 50.0 ],
-									"presentation_linecount" : 3,
 									"text" : "change the scale of the volume"
 								}
 
@@ -1373,7 +1348,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 834.000000000000114, 111.0, 99.0, 46.0 ],
+									"patching_rect" : [ 834.000000000000114, 111.0, 101.0, 46.0 ],
 									"text" : "Only used for 3D volumes. Adjusts a height component."
 								}
 
@@ -1385,7 +1360,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 644.666666666666629, 112.0, 99.0, 59.0 ],
+									"patching_rect" : [ 644.666666666666629, 112.0, 100.0, 59.0 ],
 									"text" : "Cuts out the middle of a volume. 1 gets the parimeter only"
 								}
 
@@ -1397,7 +1372,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 469.666666666666629, 112.0, 76.0, 59.0 ],
+									"patching_rect" : [ 469.666666666666629, 112.0, 77.0, 59.0 ],
 									"text" : "How much of the volume is selected radially "
 								}
 
@@ -1743,17 +1718,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-14",
-									"maxclass" : "meter~",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "float" ],
-									"patching_rect" : [ 392.5, 449.0, 113.0, 150.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-13",
 									"maxclass" : "toggle",
 									"numinlets" : 1,
@@ -1798,20 +1762,6 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 338.5, 110.0, 52.0, 22.0 ],
 									"text" : "shape $1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"filename" : "grainflow.spatview.js",
-									"id" : "obj-7",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 240.5, 449.0, 150.0, 150.0 ]
 								}
 
 							}
@@ -2093,7 +2043,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
+									"outlettype" : [ "multichannelsignal", "grainReset" ],
 									"patching_rect" : [ 81.0, 462.5, 103.0, 22.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
@@ -2205,7 +2155,6 @@
 									"background" : 1,
 									"bgcolor" : [ 0.65098, 0.666667, 0.662745, 0.0 ],
 									"border" : 2,
-									"bordercolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"id" : "obj-67",
 									"maxclass" : "panel",
 									"mode" : 0,
@@ -2213,6 +2162,20 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 407.0, 104.5, 557.0, 75.5 ],
 									"proportion" : 0.39
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"border" : 0,
+									"filename" : "grainflow.spatview~.js",
+									"id" : "obj-8",
+									"maxclass" : "jsui",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 257.333333333333258, 424.0, 421.0, 168.0 ]
 								}
 
 							}
@@ -2437,25 +2400,14 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-14", 0 ],
-									"midpoints" : [ 90.5, 492.5, 198.25, 492.5, 198.25, 426.0, 402.0, 426.0 ],
-									"order" : 0,
-									"source" : [ "obj-5", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"order" : 1,
 									"source" : [ "obj-5", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 174.5, 494.5, 212.25, 494.5, 212.25, 438.0, 250.0, 438.0 ],
+									"destination" : [ "obj-8", 0 ],
 									"source" : [ "obj-5", 1 ]
 								}
 
@@ -2673,6 +2625,13 @@
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.spatview~.js",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/jsui",
+				"patcherrelativepath" : "../../jsui",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
