@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 62.0, 100.0, 766.0, 918.0 ],
+		"rect" : [ 100.0, 100.0, 766.0, 918.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 62.0, 126.0, 766.0, 892.0 ],
+						"rect" : [ 0.0, 26.0, 766.0, 892.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -106,7 +106,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 204.0, 253.0, 150.0, 34.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Transform a position over the lifespan of a grain"
 								}
 
@@ -119,7 +118,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 163.0, 195.0, 150.0, 48.0 ],
-									"presentation_linecount" : 3,
 									"text" : "Move position using a rudementary physics engine"
 								}
 
@@ -132,7 +130,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 163.0, 152.0, 150.0, 34.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Set a position from a randomly sample volume"
 								}
 
@@ -242,7 +239,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 59.0, 107.0, 640.0, 480.0 ],
+						"rect" : [ 100.0, 126.0, 766.0, 892.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -271,7 +268,6 @@
 						"subpatcher_template" : "",
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-32",
@@ -581,14 +577,14 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"filename" : "grainflow.spatview.js",
+									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 163.5, 454.0, 150.0, 150.0 ]
+									"patching_rect" : [ 163.5, 454.0, 402.0, 160.0 ]
 								}
 
 							}
@@ -719,7 +715,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
+									"outlettype" : [ "multichannelsignal", "grainReset" ],
 									"patching_rect" : [ 25.0, 430.0, 112.0, 22.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
@@ -733,7 +729,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 30.0, 66.0, 543.0, 48.0 ],
-									"presentation_linecount" : 5,
 									"text" : "spat.pan~ currently supports distance based panning and vector based panning. Vector based panning is much better when dealing with larger speaker arrays because it avoids weird wavefronts created in distance based panning that can reduce the size of the sweet spot. "
 								}
 
@@ -1040,7 +1035,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 357.833333333333258, 357.0, 271.166666666666742, 52.0 ],
-									"presentation_linecount" : 5,
 									"text" : "sets a dimentional mask when computing volumes. This is useful when converting 3D spatializations to 2D"
 								}
 
@@ -1114,7 +1108,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 452.0, 312.0, 177.0, 38.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Speaker positions can be set with XYX coordinates"
 								}
 
@@ -1260,7 +1253,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 51.0, 363.0, 34.0 ],
+									"patching_rect" : [ 15.0, 51.0, 366.0, 34.0 ],
 									"text" : "Allows for granular panning in 3D speaker setups and incorperates panning methods for distance and vector based amplitude panning"
 								}
 
@@ -1280,14 +1273,14 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"filename" : "grainflow.spatview.js",
+									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 299.0, 421.0, 150.0, 150.0 ]
+									"patching_rect" : [ 299.0, 421.0, 344.0, 137.0 ]
 								}
 
 							}
@@ -1421,7 +1414,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
+									"outlettype" : [ "multichannelsignal", "grainReset" ],
 									"patching_rect" : [ 44.0, 543.5, 112.0, 22.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
@@ -1755,7 +1748,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 257.666666666666686, 211.0, 115.0, 38.0 ],
-									"presentation_linecount" : 2,
 									"text" : "See how these are stored"
 								}
 
@@ -1790,7 +1782,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
+									"outlettype" : [ "multichannelsignal", "grainReset" ],
 									"patching_rect" : [ 164.666666666666657, 446.0, 112.0, 22.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
@@ -1809,14 +1801,14 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"filename" : "grainflow.spatview.js",
+									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 257.666666666666686, 480.0, 150.0, 150.0 ]
+									"patching_rect" : [ 257.666666666666686, 480.0, 415.0, 166.0 ]
 								}
 
 							}
@@ -1828,7 +1820,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 164.666666666666657, 112.0, 115.0, 38.0 ],
+									"patching_rect" : [ 164.666666666666657, 112.0, 118.0, 38.0 ],
 									"text" : "Select a speaker configuration"
 								}
 
@@ -2114,6 +2106,13 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "_grainflow.aed2xyz.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"patcherrelativepath" : "../patchers/_private",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "_grainflow.poly.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
@@ -2129,6 +2128,13 @@
 			}
 , 			{
 				"name" : "_grainflow.spat.pointparse.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"patcherrelativepath" : "../patchers/_private",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "_grainflow.xyz2aed.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
@@ -2170,7 +2176,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.spatview.js",
+				"name" : "grainflow.spatview~.js",
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/jsui",
 				"patcherrelativepath" : "../jsui",
 				"type" : "TEXT",
@@ -2189,6 +2195,10 @@
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
+			}
+, 			{
+				"name" : "jit.*.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "jit.+.mxe64",

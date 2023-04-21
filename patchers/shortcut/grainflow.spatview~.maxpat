@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 5,
-			"revision" : 3,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -165,8 +165,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 145.0, 204.0, 212.0, 22.0 ],
-					"text" : "placejsui $1 grainflow.spatview.js 250 250"
+					"patching_rect" : [ 145.0, 204.0, 213.0, 22.0 ],
+					"text" : "placejsui $1 grainflow.spatview~.js 150 75"
 				}
 
 			}

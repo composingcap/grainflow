@@ -26,7 +26,7 @@ sketch.glrotate(0,1,0,0);
 sketch.glblendfunc("src_alpha","one_minus_src_alpha");
 
 var width = box.rect[2] - box.rect[0];
-
+var xyOffset = 1.25;
 function setSpeakerAmps(){
 	speakerAmps = arrayfromargs(arguments);
 	//post(speakerAmps, "\n");
@@ -39,17 +39,23 @@ function draw(){
         glclear();			
 		moveto(0,0);
 
+
         if (outPos){
             var k = outPos.getkeys();
             if (k){
             for (var i = 0; i <k.length; i++){
                 
-                var pos = outPos.get(k[i])
+                var pos = outPos.get(k[i]);
+
+				glcolor(0.5,0.5,0.5,0.05);
  
-                moveto(pos[0]*0.5,pos[1]*0.5);
-	
-                glcolor(0.5,0.5,0.5,0.05);
+                moveto(pos[0]*0.5 - xyOffset ,pos[1]*0.5);
                 circle(falloffD*0.5);
+
+				moveto(pos[1]*0.5 + xyOffset ,pos[2]*0.5);
+				circle(falloffD*0.5);
+
+
 
 
             }
@@ -59,15 +65,18 @@ function draw(){
 				if (speakerAmps[i] != undefined){
 					ampColor = speakerAmps[i];
 					}
- 
-                moveto(pos[0]*0.5,pos[1]*0.5);
-                glcolor(0,0+ampColor,0,1);
+ 				glcolor(0,0+ampColor,0,1);
+
+                moveto(pos[0]*0.5-xyOffset,pos[1]*0.5);
+                circle(0.03);
+
+                moveto(pos[1]*0.5+xyOffset,pos[2]*0.5);
                 circle(0.03);
 				}
         }
         }
     if (centerpos && showCenter){
-    moveto(centerpos[0]*0.5,centerpos[1]*0.5,centerpos[2]*0.5);
+    moveto(centerpos[0]*0.5-xyOffset,centerpos[1]*0.5,centerpos[2]*0.5);
 	glcolor(0,0,0,1);
 
 	circle(0.05);
@@ -83,19 +92,51 @@ function draw(){
 				for (var j = 0; j<3; j++) thisColor[j]=gcolor1[j]*(1-cfact)+gcolor2[j]*cfact;
                 glcolor(thisColor[0],thisColor[1],thisColor[2],1);
                 var pos = inPos.get(k[i])
+				if (pos){
+					
+                moveto(pos[0]*0.5-xyOffset,pos[1]*0.5, pos[2]*0.5);
+                circle(0.025*grainAmps[i]);
 
-                moveto(pos[0]*0.5,pos[1]*0.5, pos[2]*0.5);
-				
+				moveto(pos[1]*0.5+xyOffset,pos[2]*0.5, pos[0]*0.5);
                 circle(0.025*grainAmps[i]);
 
 
-            }
-            
+				}
+
+            } 
         }
-    
 
-
-}
+		}
+	glcolor(0.5, 0.5, 0.5, 1);
+	gllinewidth(10);
+	moveto(0,1);
+	lineto(0,-1)
+	
+	glcolor(0., 0., 0., 1);
+	gllinewidth(3);
+	moveto(0,1);
+	lineto(0,-1)
+	
+	
+	glcolor(0.5, 0.5, 0.5, 1);
+	gllinewidth(30);
+	moveto(-xyOffset*2,-0.9);
+	lineto(-xyOffset*1.5,-0.9)
+	glcolor(0., 0., 0., 1);
+	moveto(-xyOffset*1.9,-0.9);
+	textalign("left","center")
+	text("x | y")
+	
+		
+	glcolor(0.5, 0.5, 0.5, 1);
+	gllinewidth(30);
+	moveto(xyOffset*2,-0.9);
+	lineto(xyOffset*1.5,-0.9)
+	glcolor(0., 0., 0., 1);
+	moveto(xyOffset*1.9,-0.9);
+	textalign("right","center")
+	text("y | z")
+	
 
     }    
 }
@@ -192,9 +233,8 @@ function ondrag(x,y,but,cmd,shift,capslock,option,ctrl){
 function onresize(w,h)
 {
     width = box.rect[2] - box.rect[0];
-    if (w!=h) {
-		h = w;
-		box.size(w,h);
+    if (w != h*2.5) {
+		box.size(w, w/2.5);
 	}
 	}
 
@@ -218,6 +258,7 @@ function frameSphere(x,y,z){
 	}
 function xyz(){
 	var args = arrayfromargs(arguments);
+	
     inPos.set(String(args[0]),args.slice(1,4));
 	
 	}
@@ -232,3 +273,7 @@ function anything(){
 	}
 
 
+function grainReset(){
+	inPos.clear();
+	
+	}
