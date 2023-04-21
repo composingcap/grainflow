@@ -20,13 +20,19 @@ var speakerAmps = [0];
 var grainSize = 2;
 sketch.glshademodel("smooth");
 sketch.glrotate(0,1,0,0);
-//sketch.glenable("blend");
-//sketch.glmatrixmode("projection");
+
+
 
 sketch.glblendfunc("src_alpha","one_minus_src_alpha");
 
 var width = box.rect[2] - box.rect[0];
 var xyOffset = 1.25;
+
+function notifydeleted(){
+	drawTask.cancel();
+
+	}
+
 function setSpeakerAmps(){
 	speakerAmps = arrayfromargs(arguments);
 	//post(speakerAmps, "\n");
@@ -52,7 +58,7 @@ function draw(){
                 moveto(pos[0]*0.5 - xyOffset ,pos[1]*0.5);
                 circle(falloffD*0.5);
 
-				moveto(pos[1]*0.5 + xyOffset ,pos[2]*0.5);
+				moveto(pos[0]*0.5 + xyOffset ,pos[2]*0.5);
 				circle(falloffD*0.5);
 
 
@@ -70,13 +76,13 @@ function draw(){
                 moveto(pos[0]*0.5-xyOffset,pos[1]*0.5);
                 circle(0.03);
 
-                moveto(pos[1]*0.5+xyOffset,pos[2]*0.5);
+                moveto(pos[0]*0.5+xyOffset,pos[2]*0.5);
                 circle(0.03);
 				}
         }
         }
     if (centerpos && showCenter){
-    moveto(centerpos[0]*0.5-xyOffset,centerpos[1]*0.5,centerpos[2]*0.5);
+    moveto(centerpos[0]*0.5-xyOffset,centerpos[0]*0.5,centerpos[2]*0.5);
 	glcolor(0,0,0,1);
 
 	circle(0.05);
@@ -93,12 +99,16 @@ function draw(){
                 glcolor(thisColor[0],thisColor[1],thisColor[2],1);
                 var pos = inPos.get(k[i])
 				if (pos){
-					
+				
+				if (pos[0]*0.5-xyOffset < 0){	
+							
                 moveto(pos[0]*0.5-xyOffset,pos[1]*0.5, pos[2]*0.5);
                 circle(0.025*grainAmps[i]*grainSize);
-
-				moveto(pos[1]*0.5+xyOffset,pos[2]*0.5, pos[0]*0.5);
+				}
+				if (pos[0]*0.5+xyOffset > 0){
+				moveto(pos[0]*0.5+xyOffset,pos[2]*0.5, pos[0]*0.5);
                 circle(0.025*grainAmps[i]*grainSize);
+				}
 
 
 				}
@@ -135,7 +145,7 @@ function draw(){
 	glcolor(0., 0., 0., 1);
 	moveto(xyOffset*1.9,-0.9);
 	textalign("right","center")
-	text("y | z")
+	text("x | z")
 	
 
     }    
