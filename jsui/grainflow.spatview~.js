@@ -17,7 +17,7 @@ sketch.default2d();
 draw();
 var activationColor = [0, 1., 0, 1]; 
 var speakerAmps = [0];
-
+var grainSize = 2;
 sketch.glshademodel("smooth");
 sketch.glrotate(0,1,0,0);
 //sketch.glenable("blend");
@@ -95,10 +95,10 @@ function draw(){
 				if (pos){
 					
                 moveto(pos[0]*0.5-xyOffset,pos[1]*0.5, pos[2]*0.5);
-                circle(0.025*grainAmps[i]);
+                circle(0.025*grainAmps[i]*grainSize);
 
 				moveto(pos[1]*0.5+xyOffset,pos[2]*0.5, pos[0]*0.5);
-                circle(0.025*grainAmps[i]);
+                circle(0.025*grainAmps[i]*grainSize);
 
 
 				}
