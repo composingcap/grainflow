@@ -88,6 +88,95 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-19",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 464.0, 40.0, 150.0, 19.0 ],
+									"text" : "Physics"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-18",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 202.0, 40.0, 150.0, 19.0 ],
+									"text" : "Position"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-17",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 18.0, 40.0, 150.0, 19.0 ],
+									"text" : "Panners and Utilities"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-15",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 460.0, 218.412109375, 183.0, 25.0 ],
+									"text" : "grainflow.spat.phys.drag"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-14",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 460.0, 179.412109375, 183.0, 25.0 ],
+									"text" : "grainflow.spat.phys.transform"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-13",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 460.0, 142.412109375, 183.0, 25.0 ],
+									"text" : "grainflow.spat.phys.magnets"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-12",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 464.0, 104.912109375, 159.0, 25.0 ],
+									"text" : "grainflow.spat.phys.add"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"fontsize" : 11.0,
 									"id" : "obj-11",
 									"maxclass" : "textbutton",
@@ -95,7 +184,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 465.0, 203.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 142.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.format"
 								}
 
@@ -109,7 +198,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 17.0, 100.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 104.912109375, 159.0, 25.0 ],
 									"text" : "grainflow.spatview~"
 								}
 
@@ -123,7 +212,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 213.0, 76.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 202.0, 104.912109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.spirograph"
 								}
 
@@ -137,7 +226,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 213.0, 203.412109375, 222.0, 21.0 ],
+									"patching_rect" : [ 202.0, 181.412109375, 222.0, 21.0 ],
 									"text" : "grainflow.spat.transformOverLife"
 								}
 
@@ -151,7 +240,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 213.0, 165.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 202.0, 142.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.transform"
 								}
 
@@ -165,7 +254,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 213.0, 121.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 464.0, 67.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.phys"
 								}
 
@@ -179,7 +268,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 213.0, 45.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 202.0, 67.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.volume"
 								}
 
@@ -193,7 +282,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 17.0, 45.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 67.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
 
@@ -206,7 +295,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 87.0, 271.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 18.0, 268.412109375, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -219,7 +308,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 87.0, 300.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 18.0, 297.412109375, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -231,7 +320,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 10.412109375, 224.0, 24.0 ],
+									"patching_rect" : [ 18.0, 8.412109375, 224.0, 24.0 ],
 									"text" : "Grainflow Spat:"
 								}
 
@@ -240,6 +329,7 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-1", 1 ]
 								}
 
@@ -247,6 +337,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-10", 1 ]
 								}
 
@@ -254,6 +345,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-11", 1 ]
 								}
 
@@ -261,6 +353,39 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-12", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-13", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-14", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-15", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-2", 1 ]
 								}
 
@@ -268,6 +393,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-3", 1 ]
 								}
 
@@ -275,6 +401,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-5", 1 ]
 								}
 
@@ -290,6 +417,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-7", 1 ]
 								}
 
@@ -297,6 +425,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-9", 1 ]
 								}
 
