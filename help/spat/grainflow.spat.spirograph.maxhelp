@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 180.0, 147.0, 635.0, 624.0 ],
+		"rect" : [ 100.0, 100.0, 635.0, 624.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 635.0, 598.0 ],
+						"rect" : [ 100.0, 126.0, 635.0, 598.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -539,18 +539,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-17",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "float", "bang" ],
-									"patching_rect" : [ 181.833333333333286, 116.0, 125.0, 22.0 ],
-									"text" : "buffer~ _spathelp jongly"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-16",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
@@ -791,7 +779,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 180.0, 173.0, 635.0, 598.0 ],
+						"rect" : [ 0.0, 26.0, 635.0, 598.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -1042,7 +1030,6 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 162.0, 119.5, 179.0, 22.0 ],
-													"presentation_linecount" : 5,
 													"text" : "get \"16ch Stacked Stereo Pairs\""
 												}
 

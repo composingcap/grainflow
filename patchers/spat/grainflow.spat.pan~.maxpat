@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1029.0, 276.0, 849.0, 658.0 ],
+		"rect" : [ 1029.0, 276.0, 555.0, 658.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -4205,7 +4205,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "Grain signals, list of panning and speaker positions",
 					"id" : "obj-2",
 					"index" : 1,
 					"maxclass" : "inlet",

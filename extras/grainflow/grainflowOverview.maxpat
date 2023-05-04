@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 137.0, 144.0, 817.0, 589.0 ],
+						"rect" : [ 0.0, 26.0, 817.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1650,7 +1650,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 817.0, 589.0 ],
+						"rect" : [ 137.0, 144.0, 817.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1681,11 +1681,22 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-8",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 247.5, 257.499999999999943, 304.0, 19.0 ],
+									"text" : "Detects changes in a list"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-7",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 386.0, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 319.0, 304.0, 19.0 ],
 									"text" : "Accesses a list using a normalized range"
 								}
 
@@ -1699,7 +1710,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 386.0, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 319.0, 203.0, 23.0 ],
 									"text" : "grainflow.util.list~"
 								}
 
@@ -1710,7 +1721,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 356.0, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 289.0, 304.0, 19.0 ],
 									"text" : "Generates 2D envelopes from a collection of buffers"
 								}
 
@@ -1724,71 +1735,8 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 354.0, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 287.0, 203.0, 23.0 ],
 									"text" : "grainflow.util.genEnv2D"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-42",
-									"linecount" : 2,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 321.0, 304.0, 31.0 ],
-									"text" : "Detects changes within a list - good for identifying grain changes"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-48",
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 295.5, 304.0, 19.0 ],
-									"text" : "Generates a list of random numbers"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontsize" : 11.0,
-									"id" : "obj-49",
-									"maxclass" : "textbutton",
-									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "", "", "int" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 286.666666666666629, 203.0, 27.0 ],
-									"text" : "grainflow.util.vbap3D"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontsize" : 11.0,
-									"id" : "obj-50",
-									"maxclass" : "textbutton",
-									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "", "", "int" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 323.833333333333314, 203.0, 23.0 ],
-									"text" : "grainflow.util.3dspread"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-46",
-									"linecount" : 2,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 257.0, 304.0, 31.0 ],
-									"text" : "Detects changes within a list - good for identifying grain changes"
 								}
 
 							}
@@ -1798,7 +1746,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 227.0, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 220.333333333333314, 304.0, 19.0 ],
 									"text" : "Generates a list of random numbers"
 								}
 
@@ -1939,7 +1887,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 30.0, 425.5, 74.0, 21.0 ],
+									"patching_rect" : [ 112.0, 360.5, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -1952,7 +1900,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 30.0, 448.5, 49.0, 21.0 ],
+									"patching_rect" : [ 112.0, 383.5, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -2002,7 +1950,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.5, 141.0, 6.0, 141.0, 6.0, 411.0, 39.5, 411.0 ],
+									"midpoints" : [ 122.5, 141.0, 6.0, 141.0, 6.0, 411.0, 121.5, 411.0 ],
 									"source" : [ "obj-1", 1 ]
 								}
 
@@ -2011,7 +1959,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 210.0, 6.0, 210.0, 6.0, 411.0, 39.5, 411.0 ],
+									"midpoints" : [ 121.5, 210.0, 6.0, 210.0, 6.0, 411.0, 121.5, 411.0 ],
 									"source" : [ "obj-11", 1 ]
 								}
 
@@ -2020,7 +1968,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.25, 111.0, 6.0, 111.0, 6.0, 411.0, 39.5, 411.0 ],
+									"midpoints" : [ 122.25, 111.0, 6.0, 111.0, 6.0, 411.0, 121.5, 411.0 ],
 									"source" : [ "obj-2", 1 ]
 								}
 
@@ -2029,7 +1977,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 249.0, 6.0, 249.0, 6.0, 411.0, 39.5, 411.0 ],
+									"midpoints" : [ 121.5, 249.0, 6.0, 249.0, 6.0, 411.0, 121.5, 411.0 ],
 									"source" : [ "obj-22", 1 ]
 								}
 
@@ -2038,7 +1986,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 282.0, 6.0, 282.0, 6.0, 411.0, 39.5, 411.0 ],
+									"midpoints" : [ 121.5, 282.0, 6.0, 282.0, 6.0, 411.0, 121.5, 411.0 ],
 									"source" : [ "obj-27", 1 ]
 								}
 
@@ -2047,7 +1995,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.5, 177.0, 6.0, 177.0, 6.0, 411.0, 39.5, 411.0 ],
+									"midpoints" : [ 122.5, 177.0, 6.0, 177.0, 6.0, 411.0, 121.5, 411.0 ],
 									"source" : [ "obj-3", 1 ]
 								}
 
@@ -2056,7 +2004,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.5, 78.0, 6.0, 78.0, 6.0, 411.0, 39.5, 411.0 ],
+									"midpoints" : [ 122.5, 78.0, 6.0, 78.0, 6.0, 411.0, 121.5, 411.0 ],
 									"source" : [ "obj-32", 1 ]
 								}
 
@@ -2073,25 +2021,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 318.0, 6.0, 318.0, 6.0, 411.0, 39.5, 411.0 ],
-									"source" : [ "obj-49", 1 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-35", 0 ],
-									"hidden" : 1,
 									"source" : [ "obj-5", 1 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-35", 0 ],
-									"hidden" : 1,
-									"midpoints" : [ 121.5, 411.0, 39.5, 411.0 ],
-									"source" : [ "obj-50", 1 ]
 								}
 
 							}

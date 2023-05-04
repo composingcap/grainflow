@@ -57,7 +57,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 751.0, 131.0, 150.0, 46.0 ],
+					"patching_rect" : [ 751.0, 131.0, 151.0, 46.0 ],
 					"text" : "All values are a out of 100 as opposed to 1 to make the scaling usable."
 				}
 
@@ -164,7 +164,7 @@
 					"patching_rect" : [ 684.0, 128.0, 50.0, 22.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_initial" : [ 0.05 ],
+							"parameter_initial" : [ 5.0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_invisible" : 1,
 							"parameter_longname" : "number",
@@ -190,7 +190,7 @@
 					"patching_rect" : [ 657.0, 97.0, 50.0, 22.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_initial" : [ 0.01 ],
+							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_invisible" : 1,
 							"parameter_longname" : "number[1]",
@@ -216,7 +216,7 @@
 					"patching_rect" : [ 630.0, 71.0, 50.0, 22.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_initial" : [ 0.01 ],
+							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_invisible" : 1,
 							"parameter_longname" : "number[2]",

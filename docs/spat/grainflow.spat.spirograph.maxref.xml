@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.spirograph' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Samples signals to spatialize grains with grainflow.spat.pan~</digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0">
+			<digest>
+				Grain State as MC
+			</digest>
+			<description>
+
+			</description>
+
+		</inlet>
+		<inlet id="1">
+			<digest>
+				X position
+			</digest>
+			<description>
+
+			</description>
+
+		</inlet>
+		<inlet id="2">
+			<digest>
+				Y position
+			</digest>
+			<description>
+
+			</description>
+
+		</inlet>
+		<inlet id="3">
+			<digest>
+				Z position
+			</digest>
+			<description>
+
+			</description>
+
+		</inlet>
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="multichannelsignal">
+			<digest>
+				xyz message for grainflow.spat.pan~
+			</digest>
+			<description>
+			</description>
+		</outlet>
+
+
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	
+	<methodlist>
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.spat.pan~' />
+		<seealso name='grainflow.spat.volume' />
+		<seealso name='grainflow.spat.phys' />
+		<seealso name='grainflow.spat.transformOverLife' />
+	</seealsolist>
+
+
+</c74object>

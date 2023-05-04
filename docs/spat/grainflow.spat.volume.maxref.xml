@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.volume' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Samples 3D volumes for grainflow.spat.pan~</digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="multichannelsignal">
+			<digest>
+				Grain states
+			</digest>
+			<description>
+
+			</description>
+
+		</inlet>
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>
+				xyz positions
+			</digest>
+			<description>
+			</description>
+		</outlet>
+
+		<outlet id="1" type="viz">
+			<digest>
+				Information for grainflow.spatview~
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="shape">
+			<digest>
+				A symbol representing the shape you wish to sample: circle, sphere, square, cube, or torus
+			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="phase">
+			<digest>
+				The depth at which the volume is sampled on the x/y plane
+			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="elevation">
+			<digest>
+				The depth at which the volume is sampled on the z plane
+			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="innerRadius">
+			<digest>
+				The amount of space left empty in the center of the volume. 0 samples all posible points. 1 samples the parimeter.
+			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="translate">
+			<digest>
+			Translates each sampled point by a 3d vector.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="translateRandom">
+			<digest>
+			Randomly translates each sampled point by a 3d vector.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+				<method name="translate">
+			<digest>
+			Translates each sampled point by a 3d vector.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="translateRandom">
+			<digest>
+			Randomly translates each sampled point by a 3d vector.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="scale">
+			<digest>
+			Scale each sampled point by a 3d vector around 0,0,0.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="scaleRandom">
+			<digest>
+			Randomly scales each sampled point by a 3d vector around 0,0,0
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="rotate">
+			<digest>
+			Rotates each sampled point by a 3d vector around 0,0,0. Maximum phase is represented by 1.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="rotateRandom">
+			<digest>
+			Randomly roatates each sampled point by a 3d vector around 0,0,0. Maximum phase is represented by 1.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="jit_matrix">
+			<digest>
+			Begins sampleing the vertices of the input matrix in trigrid format
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.spat.pan~' />
+		<seealso name='grainflow.spat.spirograph' />
+		
+		<seealso name='grainflow.spat.phys' />
+		<seealso name='grainflow.spat.transformOverLife' />
+	</seealsolist>
+
+
+</c74object>

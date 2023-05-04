@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.pan~' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>A 3D Panner for grainflow</digest>
+	<description>
+	Pan grains based on position to speakers. Currently suports basic distance based panning and vector based panning.
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="multichannelsignal/list">
+			<digest>
+				Grains as MC, pan positions and speaker posions as messages.
+			</digest>
+			<description>
+
+			</description>
+
+		</inlet>
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="multichannelsignal">
+			<digest>
+				Panned Grains
+			</digest>
+			<description>
+			</description>
+		</outlet>
+
+		<outlet id="1" type="viz">
+			<digest>
+				Information for grainflow.spatview~
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="xyz">
+			<digest>
+				A list containing the grain number folled by the xyz position of that grain.
+			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="speakers">
+			<digest>
+				Can be set as a dictionary with the key as the speaker index and the data as a 3 member array that indicate the xyz position of the speaker.
+				Can also be set as a list containing the speaker number followed by the position of that speaker.
+			</digest>
+			<description>
+
+			</description>
+</method>
+		<method name="dictionary">
+			<digest>
+				see speakers
+			</digest>
+			<description>
+
+			</description>
+</method>
+
+			<method name="falloffDistance">
+			<digest>
+				How far the range of a speaker is.
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+					<method name="falloffCurve">
+			<digest>
+				The curve of the falloff.  0 is linear, 1 is exponentail, -1 is logarithmic (equal power)
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+		<method name="dimmask">
+			<digest>
+				A mask in X Y Z that determines how much each dimmention contributes to speaker volumes
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+		<method name="panMode">
+			<digest>
+				The method used for determining speaker volumes. 1: distance based amplitude panning; 2: vector based amplitude panning
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+		<method name="nspeakers">
+			<digest>
+			The maximum number of speakers selected in the vector based panner. 2 is good for 2D and 3 is good for 3D.
+			</digest>
+			<description>
+
+			</description>
+		</method>
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.spat.spirograph' />
+		<seealso name='grainflow.spat.volume' />
+		<seealso name='grainflow.spat.phys' />
+		<seealso name='grainflow.spat.transformOverLife' />
+	</seealsolist>
+
+
+</c74object>
