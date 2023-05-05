@@ -94,7 +94,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 167.0, 115.0, 150.0, 34.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Randomly places grains around a center point"
 								}
 
@@ -1165,13 +1164,12 @@
 								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-7",
-									"linecount" : 4,
+									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 535.0, 290.0, 134.666666666666742, 66.0 ],
-									"presentation_linecount" : 7,
-									"text" : "grainflow.spatview~ sends a center message when clicked"
+									"patching_rect" : [ 697.833333333333258, 104.0, 134.666666666666742, 38.0 ],
+									"text" : "Select a speaker setup"
 								}
 
 							}
@@ -1183,8 +1181,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 544.0, 436.0, 102.666666666666742, 79.0 ],
-									"presentation_linecount" : 2,
+									"patching_rect" : [ 544.0, 436.0, 105.0, 79.0 ],
 									"text" : "grainflow.spatview~ sends a center message when clicked"
 								}
 
@@ -1974,7 +1971,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 92.0, 186.5, 124.0, 67.0 ],
-									"presentation_linecount" : 3,
 									"text" : "this abstraction has some premade speaker setups"
 								}
 
