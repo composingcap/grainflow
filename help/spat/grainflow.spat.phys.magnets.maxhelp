@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 307.0, 226.0, 1049.0, 657.0 ],
+		"rect" : [ 1274.0, 309.0, 576.0, 639.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -616,8 +616,8 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 349.0, 118.0, 100.0, 100.0 ],
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"xplace" : [ 1.0, 0.32, 0.51 ],
-					"yplace" : [ 0.23, 0.35, 0.74 ]
+					"xplace" : [ 0.76, 0.32, 0.51 ],
+					"yplace" : [ 0.33, 0.35, 0.74 ]
 				}
 
 			}

@@ -26,6 +26,7 @@ sketch.glrotate(0,1,0,0);
 sketch.glblendfunc("src_alpha","one_minus_src_alpha");
 
 var width = box.rect[2] - box.rect[0];
+var height =  box.rect[3] - box.rect[1];
 var xyOffset = 1.25;
 
 function notifydeleted(){
@@ -224,25 +225,38 @@ function center(){
 }
 
 function onclick(x,y,but,cmd,shift,capslock,option,ctrl){
-    if(showCenter){
-	centerpos = [((x/width-1)*2)*2+2,-((y/width*2)-1)*2, 0]
-
-    outlet(0,["center", centerpos[0],centerpos[1],centerpos[2]])
-}
+	setcenter(x,y)
 }
 
 function ondrag(x,y,but,cmd,shift,capslock,option,ctrl){
-	 if(showCenter){
-    centerpos = [((x/width-1)*2)*2+2,-((y/width*2)-1)*2, 0]
+	setcenter(x,y)
+
+}
+function setcenter(x,y){
+	
+	x_snorm = (x/width)*2-1;
+	y_snorm = (y/height)*2-1;
+	
+	if (x_snorm < 0){
+	centerpos[0] = ((1-Math.abs(x_snorm))-0.5)*4;
+	centerpos[1] = y_snorm*-2;
+	}
+	
+	if (x_snorm > 0){
+	centerpos[0] = ((Math.abs(x_snorm))-0.5)*4;
+	centerpos[2] = y_snorm*-2;
+	}
+
     outlet(0,["center", centerpos[0],centerpos[1],centerpos[2]])
-}
+	
+	}
 
 
-}
 
 function onresize(w,h)
 {
     width = box.rect[2] - box.rect[0];
+ 	height = box.rect[3] - box.rect[1];
     if (w != h*2.5) {
 		box.size(w, w/2.5);
 	}

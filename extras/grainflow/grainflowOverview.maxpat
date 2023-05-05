@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 137.0, 118.0, 817.0, 615.0 ],
+		"rect" : [ 1032.0, 166.0, 817.0, 615.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -103,7 +103,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 202.0, 40.0, 150.0, 19.0 ],
+									"patching_rect" : [ 18.0, 123.0, 150.0, 19.0 ],
 									"text" : "Position"
 								}
 
@@ -114,8 +114,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 40.0, 150.0, 19.0 ],
-									"text" : "Panners and Utilities"
+									"patching_rect" : [ 18.0, 40.0, 150.0, 19.0 ]
 								}
 
 							}
@@ -184,7 +183,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 18.0, 142.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 409.0, 359.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.format"
 								}
 
@@ -198,7 +197,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 18.0, 104.912109375, 159.0, 25.0 ],
+									"patching_rect" : [ 409.0, 321.912109375, 159.0, 25.0 ],
 									"text" : "grainflow.spatview~"
 								}
 
@@ -212,7 +211,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 202.0, 104.912109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 187.912109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.spirograph"
 								}
 
@@ -226,7 +225,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 202.0, 181.412109375, 222.0, 21.0 ],
+									"patching_rect" : [ 18.0, 264.412109375, 222.0, 21.0 ],
 									"text" : "grainflow.spat.transformOverLife"
 								}
 
@@ -240,7 +239,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 202.0, 142.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 225.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.transform"
 								}
 
@@ -268,7 +267,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 202.0, 67.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 150.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.volume"
 								}
 
@@ -295,7 +294,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 18.0, 268.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 682.0, 257.412109375, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -308,7 +307,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 18.0, 297.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 682.0, 286.412109375, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -1410,7 +1409,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 817.0, 589.0 ],
+						"rect" : [ 1032.0, 192.0, 817.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1650,7 +1649,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 137.0, 144.0, 817.0, 589.0 ],
+						"rect" : [ 0.0, 26.0, 817.0, 589.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,

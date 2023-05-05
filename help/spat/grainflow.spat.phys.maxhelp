@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 973.0, 744.0 ],
+		"rect" : [ 857.0, 187.0, 973.0, 744.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 973.0, 718.0 ],
+						"rect" : [ 857.0, 213.0, 973.0, 718.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -88,12 +88,24 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-13",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 558.0, 400.0, 119.0, 22.0 ],
+									"text" : "grainflow.util.3dspread"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-18",
 									"linecount" : 3,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 525.0, 43.5, 157.0, 46.0 ],
+									"patching_rect" : [ 525.0, 43.5, 158.0, 46.0 ],
 									"text" : "Other physics abstraction that can be used in a physics lamba expression"
 								}
 
@@ -388,7 +400,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 38.0, 434.0, 61.0, 22.0 ],
+									"patching_rect" : [ 42.0, 434.0, 61.0, 22.0 ],
 									"text" : "mc.*~ 0.25"
 								}
 
@@ -412,7 +424,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 38.0, 407.0, 85.0, 22.0 ],
+									"patching_rect" : [ 42.0, 407.0, 85.0, 22.0 ],
 									"text" : "mc.mixdown~ 2"
 								}
 
@@ -696,7 +708,7 @@
 									"maxclass" : "mc.ezdac~",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 38.0, 467.0, 45.0, 45.0 ]
+									"patching_rect" : [ 42.0, 467.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -770,7 +782,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 126.0, 407.0, 365.0, 146.0 ]
+									"patching_rect" : [ 179.0, 427.0, 365.0, 146.0 ]
 								}
 
 							}
@@ -2172,6 +2184,20 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "grainflow.util.3dspread.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"patcherrelativepath" : "../../patchers/util",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.util.listChange.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"patcherrelativepath" : "../../patchers/util",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "grainflow.voice.gendsp",
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/code",
 				"patcherrelativepath" : "../../code",
@@ -2187,14 +2213,6 @@
 			}
 , 			{
 				"name" : "jit.!-.mxe64",
-				"type" : "mx64"
-			}
-, 			{
-				"name" : "jit.*.mxe64",
-				"type" : "mx64"
-			}
-, 			{
-				"name" : "jit.+.mxe64",
 				"type" : "mx64"
 			}
  ],
