@@ -5,19 +5,69 @@ var falloffD = 1.1;
 var spreadxyz = [0.5,0.5,0.5];
 var spreadxyzinner = [0,0,0];
 var centerpos = [0,0,0];
-var gcolor1= [0.8,0.7,0];
-var gcolor2 = [1, 1,0];
+
 var grainAmps = [];
-var showCenter = false;
 var drawTask = new Task(drawLoop, this);
 drawTask.interval= ((1/24)*1000);
 	drawTask.repeat(-1);
 
-sketch.default2d();
-draw();
+
 var activationColor = [0, 1., 0, 1]; 
 var speakerAmps = [0];
 var grainSize = 2;
+
+//Attributes
+
+declareattribute("drawCenter",			"getattr_drawCenter",			"setattr_drawCenter", 1);
+var showCenter = false;
+
+function setattr_drawCenter()
+{
+	showCenter = arrayfromargs(arguments)[0];
+	drawWaveform();
+}
+
+function getattr_drawCenter()
+{
+	return showCenter;
+}
+
+
+
+var gcolor1 = [1, 1,0];
+var gcolor2= [0.8,0.7,0];
+
+declareattribute("grainColor",			"getattr_gcolor",			"setattr_gcolor", 1);
+
+function setattr_gcolor()
+{
+	gcolor1 = arrayfromargs(arguments);
+	gcolor2 = [gcolor1[0]*0.8,gcolor1[1]*0.7,gcolor1[2]*0.75]
+}
+
+function getattr_gcolor()
+{
+	return gcolor1;
+}
+
+var bgcolor = [0.5, 0.5, 0.5]
+
+declareattribute("bgColor",			"getattr_bgColor",			"setattr_bgColor", 1);
+
+function setattr_bgColor()
+{
+	bgcolor = arrayfromargs(arguments);
+}
+
+function getattr_bgColor()
+{
+	return bgcolor;
+}
+
+ 
+
+sketch.default2d();
+draw();
 sketch.glshademodel("smooth");
 sketch.glrotate(0,1,0,0);
 
@@ -36,12 +86,11 @@ function notifydeleted(){
 
 function setSpeakerAmps(){
 	speakerAmps = arrayfromargs(arguments);
-	//post(speakerAmps, "\n");
 	}
 
 function draw(){
     with (sketch){
-		glclearcolor(0.5, 0.5, 0.5, 1.);
+		glclearcolor(bgcolor[0],bgcolor[1],bgcolor[2], 1);
 
         glclear();			
 		moveto(0,0);
@@ -83,7 +132,12 @@ function draw(){
         }
         }
     if (centerpos && showCenter){
-    moveto(centerpos[0]*0.5-xyOffset,centerpos[0]*0.5,centerpos[2]*0.5);
+    moveto(centerpos[0]*0.5-xyOffset,centerpos[1]*0.5,0);
+	glcolor(0,0,0,1);
+
+	circle(0.05);
+	
+	 moveto(centerpos[0]*0.5+xyOffset,centerpos[2]*0.5,0);
 	glcolor(0,0,0,1);
 
 	circle(0.05);
@@ -118,7 +172,7 @@ function draw(){
         }
 
 		}
-	glcolor(0.5, 0.5, 0.5, 1);
+	glcolor(bgcolor[0],bgcolor[1],bgcolor[2], 1);
 	gllinewidth(10);
 	moveto(0,1);
 	lineto(0,-1)
@@ -129,7 +183,7 @@ function draw(){
 	lineto(0,-1)
 	
 	
-	glcolor(0.5, 0.5, 0.5, 1);
+	glcolor(bgcolor[0],bgcolor[1],bgcolor[2], 1);
 	gllinewidth(30);
 	moveto(-xyOffset*2,-0.9);
 	lineto(-xyOffset*1.5,-0.9)
@@ -139,7 +193,7 @@ function draw(){
 	text("x | y")
 	
 		
-	glcolor(0.5, 0.5, 0.5, 1);
+	glcolor(bgcolor[0],bgcolor[1],bgcolor[2], 1);
 	gllinewidth(30);
 	moveto(xyOffset*2,-0.9);
 	lineto(xyOffset*1.5,-0.9)
@@ -152,10 +206,6 @@ function draw(){
     }    
 }
 
-function rotateScene(r, x,y,z){
-	sketch.glrotate(r,x,y,z);
-	
-	}
 
 function falloffDistance(d){
     falloffD = d;
@@ -237,12 +287,12 @@ function setcenter(x,y){
 	x_snorm = (x/width)*2-1;
 	y_snorm = (y/height)*2-1;
 	
-	if (x_snorm < 0){
+	if (x_snorm < 0 && x_snorm > -2){
 	centerpos[0] = ((1-Math.abs(x_snorm))-0.5)*4;
 	centerpos[1] = y_snorm*-2;
 	}
 	
-	if (x_snorm > 0){
+	if (x_snorm > 0 && x_snorm<2){
 	centerpos[0] = ((Math.abs(x_snorm))-0.5)*4;
 	centerpos[2] = y_snorm*-2;
 	}
@@ -263,23 +313,6 @@ function onresize(w,h)
 	}
 
 
-
-function frameSphere(x,y,z){
-	with(sketch){
-		
-
-			
-			shapeorient(0, 0, 0);
-			frameellipse(x,y);
-			
-			//shapeorient(90, 90, 0);
-			//frameellipse(y,z);
-
-
-			
-		}
-	
-	}
 function xyz(){
 	var args = arrayfromargs(arguments);
 	

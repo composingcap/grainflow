@@ -170,6 +170,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-1",
+									"linecount" : 2,
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 1,
@@ -321,7 +322,7 @@
 									"maxclass" : "inlet",
 									"numinlets" : 0,
 									"numoutlets" : 1,
-									"outlettype" : [ "" ],
+									"outlettype" : [ "xyz" ],
 									"patching_rect" : [ 50.0, 39.999999914062499, 30.0, 30.0 ]
 								}
 
@@ -533,7 +534,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
+					"outlettype" : [ "", "xyz", "" ],
 					"patching_rect" : [ 47.25, 93.0, 148.0, 23.0 ],
 					"text" : "_grainflow.spat.pointparse"
 				}
@@ -636,6 +637,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-18",
+									"linecount" : 2,
 									"maxclass" : "newobj",
 									"numinlets" : 0,
 									"numoutlets" : 1,
@@ -943,7 +945,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 106.75, 10.5, 70.0, 23.0 ],
+					"patching_rect" : [ 102.0, 10.5, 70.0, 23.0 ],
 					"text" : "patcherargs"
 				}
 
@@ -992,7 +994,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 44.0, 32.0, 30.0, 30.0 ]
 				}
 
@@ -1016,6 +1018,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-38", 0 ],
 					"source" : [ "obj-37", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-47", 0 ],
+					"source" : [ "obj-37", 1 ]
 				}
 
 			}

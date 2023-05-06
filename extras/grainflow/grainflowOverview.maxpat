@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1032.0, 166.0, 817.0, 615.0 ],
+		"rect" : [ 130.0, 150.0, 658.0, 719.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 817.0, 589.0 ],
+						"rect" : [ 130.0, 176.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -88,23 +88,261 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
-									"id" : "obj-19",
+									"id" : "obj-21",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 464.0, 40.0, 150.0, 19.0 ],
-									"text" : "Physics"
+									"patching_rect" : [ 188.0, 560.1988525390625, 255.0, 19.0 ],
+									"text" : "Access speaker presets"
 								}
 
 							}
 , 							{
 								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-23",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 18.0, 557.1988525390625, 159.0, 25.0 ],
+									"text" : "grainflow.spat.speakers"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-39",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 617.412109375, 255.0, 31.0 ],
+									"text" : "Format spatalization for other systems like spat gris or the IEM plugin suite"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-38",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 588.412109375, 255.0, 19.0 ],
+									"text" : "Split spatialization messages based on grain ID"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-37",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 530.1988525390625, 195.0, 19.0 ],
+									"text" : "View grain spatialization"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-36",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 206.0, 464.55908203125, 262.0, 19.0 ],
+									"text" : "Add drag to your physics system"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-35",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 206.0, 437.55908203125, 262.0, 19.0 ],
+									"text" : "Transform your physics forces"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-34",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 206.0, 407.3458251953125, 262.0, 19.0 ],
+									"text" : "Add magnets that apply force based on distance"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-33",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 374.132568359375, 195.0, 19.0 ],
+									"text" : "Add a force yout physics system"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-32",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 18.0, 585.412109375, 159.0, 25.0 ],
+									"text" : "grainflow.spat.split"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-31",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 346.9193115234375, 195.0, 19.0 ],
+									"text" : "Apply basic physics to your grains"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-30",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 242.0, 288.4927978515625, 307.0, 19.0 ],
+									"text" : "Transform grain positions over their lifespan"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-29",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 261.279541015625, 307.0, 19.0 ],
+									"text" : "Transform grain positions via translation, rotation, or scale"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-28",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 201.6397705078125, 307.0, 19.0 ],
+									"text" : "Sets grain positions based on a sampled volume"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-27",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 171.6397705078125, 307.0, 19.0 ],
+									"text" : "Sets grain positions based on audio for an X, Y, and Z axis"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-26",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 188.0, 138.2132568359375, 307.0, 19.0 ],
+									"text" : "Sets grain positions based on a center point"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bgcolor" : [ 1.0, 0.243137254901961, 0.976470588235294, 0.0 ],
+									"fontsize" : 14.0,
+									"id" : "obj-25",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 18.0, 494.985595703125, 207.0, 24.0 ],
+									"text" : "Utilities"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-22",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 18.0, 55.0, 473.0, 19.0 ],
+									"text" : "Grainflow.spat is set up to allow you to spatialize grains like a particle system."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bgcolor" : [ 1.0, 0.243137254901961, 0.976470588235294, 0.0 ],
+									"fontsize" : 14.0,
+									"id" : "obj-20",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 18.0, 229.0662841796875, 207.0, 24.0 ],
+									"text" : "Transform Grain Positions"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-16",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 18.0, 135.2132568359375, 159.0, 25.0 ],
+									"text" : "grainflow.spat.3dspread"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bgcolor" : [ 1.0, 0.243137254901961, 0.976470588235294, 0.0 ],
+									"fontsize" : 14.0,
+									"id" : "obj-19",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 18.0, 314.7060546875, 207.0, 24.0 ],
+									"text" : "Apply Physics"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bgcolor" : [ 1.0, 0.243137254901961, 0.976470588235294, 0.0 ],
+									"fontsize" : 14.0,
 									"id" : "obj-18",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 123.0, 150.0, 19.0 ],
-									"text" : "Position"
+									"patching_rect" : [ 18.0, 109.2132568359375, 207.0, 24.0 ],
+									"text" : "Set Grain Positions Position"
 								}
 
 							}
@@ -114,7 +352,8 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 40.0, 150.0, 19.0 ]
+									"patching_rect" : [ 188.0, 82.0, 271.0, 19.0 ],
+									"text" : "A multchannel panner for spatializing grains"
 								}
 
 							}
@@ -127,7 +366,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 460.0, 218.412109375, 183.0, 25.0 ],
+									"patching_rect" : [ 18.0, 464.7723388671875, 183.0, 25.0 ],
 									"text" : "grainflow.spat.phys.drag"
 								}
 
@@ -141,7 +380,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 460.0, 179.412109375, 183.0, 25.0 ],
+									"patching_rect" : [ 18.0, 434.55908203125, 183.0, 25.0 ],
 									"text" : "grainflow.spat.phys.transform"
 								}
 
@@ -155,7 +394,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 460.0, 142.412109375, 183.0, 25.0 ],
+									"patching_rect" : [ 18.0, 404.3458251953125, 183.0, 25.0 ],
 									"text" : "grainflow.spat.phys.magnets"
 								}
 
@@ -169,7 +408,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 464.0, 104.912109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 374.132568359375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.phys.add"
 								}
 
@@ -183,7 +422,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 409.0, 359.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 617.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.format"
 								}
 
@@ -197,7 +436,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 409.0, 321.912109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 524.1988525390625, 159.0, 25.0 ],
 									"text" : "grainflow.spatview~"
 								}
 
@@ -211,7 +450,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 18.0, 187.912109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 168.6397705078125, 159.0, 25.0 ],
 									"text" : "grainflow.spat.spirograph"
 								}
 
@@ -225,7 +464,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 18.0, 264.412109375, 222.0, 21.0 ],
+									"patching_rect" : [ 18.0, 288.4927978515625, 222.0, 21.0 ],
 									"text" : "grainflow.spat.transformOverLife"
 								}
 
@@ -239,7 +478,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 18.0, 225.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 258.279541015625, 159.0, 25.0 ],
 									"text" : "grainflow.spat.transform"
 								}
 
@@ -253,7 +492,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 464.0, 67.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 343.9193115234375, 159.0, 25.0 ],
 									"text" : "grainflow.spat.phys"
 								}
 
@@ -267,21 +506,21 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 18.0, 150.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 198.6397705078125, 159.0, 25.0 ],
 									"text" : "grainflow.spat.volume"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"fontsize" : 11.0,
+									"fontsize" : 14.0,
 									"id" : "obj-9",
 									"maxclass" : "textbutton",
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 18.0, 67.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 18.0, 79.0, 159.0, 25.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
 
@@ -294,7 +533,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 682.0, 257.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 88.0, 656.412109375, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -307,20 +546,20 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 682.0, 286.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 88.0, 678.412109375, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"fontsize" : 14.0,
+									"fontsize" : 30.0,
 									"id" : "obj-4",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 8.412109375, 224.0, 24.0 ],
-									"text" : "Grainflow Spat:"
+									"patching_rect" : [ 18.0, 8.412109375, 265.0, 43.0 ],
+									"text" : "Grainflow.Spat"
 								}
 
 							}
@@ -378,6 +617,14 @@
 									"destination" : [ "obj-6", 0 ],
 									"hidden" : 1,
 									"source" : [ "obj-15", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-16", 1 ]
 								}
 
 							}
@@ -494,7 +741,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 817.0, 589.0 ],
+						"rect" : [ 0.0, 26.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1409,7 +1656,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1032.0, 192.0, 817.0, 589.0 ],
+						"rect" : [ 0.0, 26.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1444,7 +1691,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 189.0, 107.412109375, 363.0, 19.0 ],
+									"patching_rect" : [ 184.0, 135.412109375, 363.0, 19.0 ],
 									"text" : "A dial object with a modulation depth paremeter built in"
 								}
 
@@ -1458,7 +1705,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 10.0, 104.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 5.0, 132.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.moddial"
 								}
 
@@ -1469,7 +1716,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 189.0, 73.412109375, 363.0, 19.0 ],
+									"patching_rect" : [ 184.0, 101.412109375, 363.0, 19.0 ],
 									"text" : "A GUI object that allows for the creation of paterns on an XY pad"
 								}
 
@@ -1483,7 +1730,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 10.0, 70.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 5.0, 98.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.function2D"
 								}
 
@@ -1494,7 +1741,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 189.0, 39.412109375, 304.0, 19.0 ],
+									"patching_rect" : [ 184.0, 67.412109375, 304.0, 19.0 ],
 									"text" : "A GUI object that can visualize grains"
 								}
 
@@ -1508,7 +1755,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 10.0, 36.412109375, 159.0, 25.0 ],
+									"patching_rect" : [ 5.0, 64.412109375, 159.0, 25.0 ],
 									"text" : "grainflow.waveform~"
 								}
 
@@ -1521,7 +1768,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 80.0, 155.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 75.0, 183.412109375, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -1534,20 +1781,20 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 80.0, 184.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 75.0, 212.412109375, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"fontsize" : 14.0,
+									"fontsize" : 30.0,
 									"id" : "obj-4",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 10.412109375, 224.0, 24.0 ],
-									"text" : "Grainflow GUI:"
+									"patching_rect" : [ 5.0, 10.412109375, 462.0, 43.0 ],
+									"text" : "Grainflow GUI"
 								}
 
 							}
@@ -1649,7 +1896,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 817.0, 589.0 ],
+						"rect" : [ 0.0, 26.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1684,7 +1931,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 257.499999999999943, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 272.499999999999943, 304.0, 19.0 ],
 									"text" : "Detects changes in a list"
 								}
 
@@ -1695,7 +1942,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 319.0, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 334.0, 304.0, 19.0 ],
 									"text" : "Accesses a list using a normalized range"
 								}
 
@@ -1709,7 +1956,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 319.0, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 334.0, 203.0, 23.0 ],
 									"text" : "grainflow.util.list~"
 								}
 
@@ -1720,7 +1967,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 289.0, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 304.0, 304.0, 19.0 ],
 									"text" : "Generates 2D envelopes from a collection of buffers"
 								}
 
@@ -1734,7 +1981,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 287.0, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 302.0, 203.0, 23.0 ],
 									"text" : "grainflow.util.genEnv2D"
 								}
 
@@ -1745,7 +1992,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 220.333333333333314, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 235.333333333333314, 304.0, 19.0 ],
 									"text" : "Generates a list of random numbers"
 								}
 
@@ -1757,7 +2004,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 184.5, 304.0, 31.0 ],
+									"patching_rect" : [ 247.5, 199.5, 304.0, 31.0 ],
 									"text" : "A phasor that can wrap at different loop points in various ways"
 								}
 
@@ -1769,7 +2016,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 151.0, 304.0, 31.0 ],
+									"patching_rect" : [ 247.5, 166.0, 304.0, 31.0 ],
 									"text" : "Outputs parameters and a grainclock to interact with grainflow using grain size and grain rate"
 								}
 
@@ -1780,7 +2027,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 123.5, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 138.5, 304.0, 19.0 ],
 									"text" : "Automatic stereo panning on new grains"
 								}
 
@@ -1791,7 +2038,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 88.5, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 103.5, 304.0, 19.0 ],
 									"text" : "A recording tool that records in grains"
 								}
 
@@ -1803,7 +2050,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 48.0, 304.0, 31.0 ],
+									"patching_rect" : [ 247.5, 63.0, 304.0, 31.0 ],
 									"text" : "A simple recording tool that has an accurate position output that can be used as a traversal phasor"
 								}
 
@@ -1817,7 +2064,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 216.333333333333314, 203.0, 27.0 ],
+									"patching_rect" : [ 20.0, 231.333333333333314, 203.0, 27.0 ],
 									"text" : "grainflow.util.randomRangeList"
 								}
 
@@ -1831,7 +2078,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 183.166666666666657, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 198.166666666666657, 203.0, 23.0 ],
 									"text" : "grainflow.util.phasor~"
 								}
 
@@ -1845,7 +2092,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 84.666666666666671, 204.5, 26.0 ],
+									"patching_rect" : [ 20.0, 99.666666666666671, 204.5, 26.0 ],
 									"text" : "grainflow.util.grainRecord~"
 								}
 
@@ -1859,7 +2106,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 152.0, 205.0, 21.0 ],
+									"patching_rect" : [ 20.0, 167.0, 205.0, 21.0 ],
 									"text" : "grainflow.util.rateSizePhasor~"
 								}
 
@@ -1873,7 +2120,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 120.833333333333343, 205.0, 21.0 ],
+									"patching_rect" : [ 20.0, 135.833333333333343, 205.0, 21.0 ],
 									"text" : "grainflow.util.stereoPan~"
 								}
 
@@ -1886,7 +2133,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 112.0, 360.5, 74.0, 21.0 ],
+									"patching_rect" : [ 112.0, 375.5, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -1899,7 +2146,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 112.0, 383.5, 49.0, 21.0 ],
+									"patching_rect" : [ 112.0, 398.5, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -1913,7 +2160,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 48.0, 205.0, 26.5 ],
+									"patching_rect" : [ 20.0, 63.0, 205.0, 26.5 ],
 									"text" : "grainflow.util.record~"
 								}
 
@@ -1927,20 +2174,20 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 253.499999999999972, 203.0, 23.000000000000028 ],
+									"patching_rect" : [ 20.0, 268.5, 203.0, 23.000000000000028 ],
 									"text" : "grainflow.util.listChange"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"fontsize" : 16.0,
+									"fontsize" : 30.0,
 									"id" : "obj-26",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 13.0, 250.0, 26.0 ],
-									"text" : "Grainflow Utilities:"
+									"patching_rect" : [ 10.0, 13.0, 455.0, 43.0 ],
+									"text" : "Grainflow.Util"
 								}
 
 							}
@@ -1949,7 +2196,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.5, 141.0, 6.0, 141.0, 6.0, 411.0, 121.5, 411.0 ],
+									"midpoints" : [ 122.5, 156.0, 6.0, 156.0, 6.0, 426.0, 121.5, 426.0 ],
 									"source" : [ "obj-1", 1 ]
 								}
 
@@ -1958,7 +2205,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 210.0, 6.0, 210.0, 6.0, 411.0, 121.5, 411.0 ],
+									"midpoints" : [ 121.5, 225.0, 6.0, 225.0, 6.0, 426.0, 121.5, 426.0 ],
 									"source" : [ "obj-11", 1 ]
 								}
 
@@ -1967,7 +2214,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.25, 111.0, 6.0, 111.0, 6.0, 411.0, 121.5, 411.0 ],
+									"midpoints" : [ 122.25, 126.0, 6.0, 126.0, 6.0, 426.0, 121.5, 426.0 ],
 									"source" : [ "obj-2", 1 ]
 								}
 
@@ -1976,7 +2223,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 249.0, 6.0, 249.0, 6.0, 411.0, 121.5, 411.0 ],
+									"midpoints" : [ 121.5, 264.0, 6.0, 264.0, 6.0, 426.0, 121.5, 426.0 ],
 									"source" : [ "obj-22", 1 ]
 								}
 
@@ -1985,7 +2232,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 282.0, 6.0, 282.0, 6.0, 411.0, 121.5, 411.0 ],
+									"midpoints" : [ 121.5, 297.0, 6.0, 297.0, 6.0, 426.0, 121.5, 426.0 ],
 									"source" : [ "obj-27", 1 ]
 								}
 
@@ -1994,7 +2241,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.5, 177.0, 6.0, 177.0, 6.0, 411.0, 121.5, 411.0 ],
+									"midpoints" : [ 122.5, 192.0, 6.0, 192.0, 6.0, 426.0, 121.5, 426.0 ],
 									"source" : [ "obj-3", 1 ]
 								}
 
@@ -2003,7 +2250,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.5, 78.0, 6.0, 78.0, 6.0, 411.0, 121.5, 411.0 ],
+									"midpoints" : [ 122.5, 93.0, 6.0, 93.0, 6.0, 426.0, 121.5, 426.0 ],
 									"source" : [ "obj-32", 1 ]
 								}
 
@@ -2097,7 +2344,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 817.0, 589.0 ],
+						"rect" : [ 0.0, 26.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 586.0, 166.0, 1269.0, 722.0 ],
+		"rect" : [ 586.0, 166.0, 975.0, 722.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,18 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 186.0, 93.0, 72.0, 22.0 ],
+					"text" : "patcherargs"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-3",
 					"maxclass" : "newobj",
@@ -1109,7 +1121,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "grainflow spat message",
 					"id" : "obj-25",
 					"index" : 1,
 					"maxclass" : "inlet",
@@ -1199,7 +1211,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "grain clock as mc",
 					"id" : "obj-19",
 					"index" : 2,
 					"maxclass" : "inlet",
@@ -1228,7 +1240,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
+					"outlettype" : [ "", "xyz", "" ],
 					"patching_rect" : [ 63.0, 168.0, 148.0, 22.0 ],
 					"text" : "_grainflow.spat.pointparse"
 				}
@@ -1708,6 +1720,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-21", 0 ],
 					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-36", 0 ],
+					"source" : [ "obj-6", 1 ]
 				}
 
 			}

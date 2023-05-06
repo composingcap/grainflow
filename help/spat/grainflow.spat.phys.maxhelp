@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 857.0, 187.0, 973.0, 744.0 ],
+		"rect" : [ 570.0, 194.0, 973.0, 744.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 857.0, 213.0, 973.0, 718.0 ],
+						"rect" : [ 0.0, 26.0, 973.0, 718.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -973,7 +973,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 973.0, 718.0 ],
+						"rect" : [ 570.0, 220.0, 973.0, 718.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -2114,6 +2114,13 @@
  ],
 		"lines" : [  ],
 		"dependency_cache" : [ 			{
+				"name" : "_grainflow.aed2xyz.maxpat",
+				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "_grainflow.poly.maxpat",
 				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
@@ -2213,6 +2220,14 @@
 			}
 , 			{
 				"name" : "jit.!-.mxe64",
+				"type" : "mx64"
+			}
+, 			{
+				"name" : "jit.*.mxe64",
+				"type" : "mx64"
+			}
+, 			{
+				"name" : "jit.+.mxe64",
 				"type" : "mx64"
 			}
  ],

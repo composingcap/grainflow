@@ -60,9 +60,9 @@
 						"rect" : [ 0.0, 26.0, 942.0, 880.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
-						"default_fontsize" : 12.0,
+						"default_fontsize" : 11.0,
 						"default_fontface" : 0,
-						"default_fontname" : "Arial",
+						"default_fontname" : "Lato",
 						"gridonopen" : 1,
 						"gridsize" : [ 15.0, 15.0 ],
 						"gridsnaponopen" : 1,
@@ -82,7 +82,7 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"style" : "",
+						"style" : "Minimal",
 						"subpatcher_template" : "",
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
@@ -93,7 +93,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 167.0, 115.0, 150.0, 34.0 ],
+									"patching_rect" : [ 167.0, 115.0, 150.0, 33.0 ],
 									"text" : "Randomly places grains around a center point"
 								}
 
@@ -117,7 +117,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 13.0, 61.0, 355.0, 34.0 ],
+									"patching_rect" : [ 13.0, 61.0, 355.0, 33.0 ],
 									"text" : "Grainflow has a number of spatializers you can use to set and move grains."
 								}
 
@@ -129,7 +129,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 208.0, 313.0, 150.0, 34.0 ],
+									"patching_rect" : [ 208.0, 313.0, 150.0, 33.0 ],
 									"text" : "Transform a position over the lifespan of a grain"
 								}
 
@@ -137,11 +137,11 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-8",
-									"linecount" : 3,
+									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 167.0, 255.0, 150.0, 48.0 ],
+									"patching_rect" : [ 167.0, 255.0, 150.0, 33.0 ],
 									"text" : "Move position using a rudementary physics engine"
 								}
 
@@ -153,7 +153,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 167.0, 212.0, 150.0, 34.0 ],
+									"patching_rect" : [ 167.0, 212.0, 150.0, 33.0 ],
 									"text" : "Set a position from a randomly sample volume"
 								}
 
@@ -165,7 +165,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 167.0, 169.0, 150.0, 34.0 ],
+									"patching_rect" : [ 167.0, 169.0, 150.0, 33.0 ],
 									"text" : "Set a position sampled from input signals"
 								}
 
@@ -225,20 +225,52 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 13.0, 14.0, 355.0, 41.0 ],
+									"patching_rect" : [ 13.0, 14.0, 355.0, 42.0 ],
 									"text" : "Spatializers"
 								}
 
 							}
  ],
-						"lines" : [  ]
+						"lines" : [  ],
+						"styles" : [ 							{
+								"name" : "Minimal",
+								"default" : 								{
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"bgfillcolor" : 									{
+										"angle" : 270.0,
+										"autogradient" : 0.0,
+										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+										"proportion" : 0.39,
+										"type" : "color"
+									}
+,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontface" : [ 0 ],
+									"fontname" : [ "Lato" ],
+									"fontsize" : [ 11.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+								}
+,
+								"parentstyle" : "",
+								"multi" : 0
+							}
+ ]
 					}
 ,
 					"patching_rect" : [ 213.0, 195.0, 72.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
+						"fontname" : "Lato",
+						"fontsize" : 11.0,
 						"globalpatchername" : "",
+						"style" : "Minimal",
 						"tags" : ""
 					}
 ,
@@ -266,9 +298,9 @@
 						"rect" : [ 0.0, 26.0, 942.0, 880.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
-						"default_fontsize" : 12.0,
+						"default_fontsize" : 11.0,
 						"default_fontface" : 0,
-						"default_fontname" : "Arial",
+						"default_fontname" : "Lato",
 						"gridonopen" : 1,
 						"gridsize" : [ 15.0, 15.0 ],
 						"gridsnaponopen" : 1,
@@ -288,7 +320,7 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"style" : "",
+						"style" : "Minimal",
 						"subpatcher_template" : "",
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
@@ -485,6 +517,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
+									"embedstate" : [ [ "drawCenter", 0 ] ],
 									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
@@ -636,7 +669,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 30.0, 66.0, 543.0, 48.0 ],
+									"patching_rect" : [ 30.0, 66.0, 543.0, 46.0 ],
 									"text" : "spat.pan~ currently supports distance based panning and vector based panning. Vector based panning is much better when dealing with larger speaker arrays because it avoids weird wavefronts created in distance based panning that can reduce the size of the sweet spot. "
 								}
 
@@ -648,7 +681,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 30.0, 21.0, 355.0, 41.0 ],
+									"patching_rect" : [ 30.0, 21.0, 355.0, 42.0 ],
 									"text" : "Pan Modes"
 								}
 
@@ -697,7 +730,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 367.0, 154.5, 297.250000000000227, 103.0 ],
+									"patching_rect" : [ 367.0, 154.5, 297.250000000000227, 99.0 ],
 									"text" : "Distance based amplitude panning caculates the distance between each speaker and the source to determine the amplitude sent to the speaker. \n\nVector base select to top \"nspeakers\" (default 3) and pans only to those speakers based on the ratio of distance to the source. "
 								}
 
@@ -873,6 +906,35 @@
 								}
 
 							}
+ ],
+						"styles" : [ 							{
+								"name" : "Minimal",
+								"default" : 								{
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"bgfillcolor" : 									{
+										"angle" : 270.0,
+										"autogradient" : 0.0,
+										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+										"proportion" : 0.39,
+										"type" : "color"
+									}
+,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontface" : [ 0 ],
+									"fontname" : [ "Lato" ],
+									"fontsize" : [ 11.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+								}
+,
+								"parentstyle" : "",
+								"multi" : 0
+							}
  ]
 					}
 ,
@@ -880,7 +942,10 @@
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
+						"fontname" : "Lato",
+						"fontsize" : 11.0,
 						"globalpatchername" : "",
+						"style" : "Minimal",
 						"tags" : ""
 					}
 ,
@@ -908,9 +973,9 @@
 						"rect" : [ 100.0, 126.0, 942.0, 880.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
-						"default_fontsize" : 12.0,
+						"default_fontsize" : 11.0,
 						"default_fontface" : 0,
-						"default_fontname" : "Arial",
+						"default_fontname" : "Lato",
 						"gridonopen" : 1,
 						"gridsize" : [ 15.0, 15.0 ],
 						"gridsnaponopen" : 1,
@@ -930,11 +995,23 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"style" : "",
+						"style" : "Minimal",
 						"subpatcher_template" : "",
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-3",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"patching_rect" : [ 550.833333333333258, 79.0, 52.0, 22.0 ],
+									"text" : "loadbang"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-44",
 									"maxclass" : "comment",
@@ -1164,11 +1241,10 @@
 								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-7",
-									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 697.833333333333258, 104.0, 134.666666666666742, 38.0 ],
+									"patching_rect" : [ 701.833333333333258, 112.0, 133.0, 24.0 ],
 									"text" : "Select a speaker setup"
 								}
 
@@ -1177,11 +1253,10 @@
 								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-6",
-									"linecount" : 5,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 544.0, 436.0, 105.0, 79.0 ],
+									"patching_rect" : [ 529.833333333333258, 441.0, 305.0, 24.0 ],
 									"text" : "grainflow.spatview~ sends a center message when clicked"
 								}
 
@@ -1243,7 +1318,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 238.083333333333201, 269.0, 270.666666666666742, 52.0 ],
+									"patching_rect" : [ 238.083333333333201, 269.0, 270.666666666666742, 50.0 ],
 									"text" : "grainflow.spat has abstractions that aid in spatialization. This one generates a random point around a center point every new grain."
 								}
 
@@ -1483,11 +1558,10 @@
 									"bubble" : 1,
 									"bubbleside" : 0,
 									"id" : "obj-22",
-									"linecount" : 3,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 224.333333333333485, 548.5, 145.666666666666515, 67.0 ],
+									"patching_rect" : [ 228.0, 556.5, 274.0, 39.0 ],
 									"text" : "grainflow.spatview~ is used to visualize grains in space"
 								}
 
@@ -1512,7 +1586,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 84.0, 326.0, 104.833333333333243, 38.0 ],
+									"patching_rect" : [ 84.0, 326.0, 104.833333333333243, 37.0 ],
 									"text" : "Spatialization messages"
 								}
 
@@ -1533,11 +1607,10 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-107",
-									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 51.0, 716.833333333333258, 34.0 ],
+									"patching_rect" : [ 15.0, 51.0, 716.833333333333258, 20.0 ],
 									"text" : "Allows for granular panning in 3D speaker setups and incorperates panning methods for distance and vector based amplitude panning"
 								}
 
@@ -1545,6 +1618,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
+									"embedstate" : [ [ "drawCenter", 1 ] ],
 									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
@@ -1552,7 +1626,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 136.333333333333485, 417.5, 344.0, 137.0 ]
+									"patching_rect" : [ 138.0, 414.5, 344.0, 137.0 ]
 								}
 
 							}
@@ -1574,7 +1648,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 8.0, 355.0, 41.0 ],
+									"patching_rect" : [ 15.0, 8.0, 355.0, 42.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
 
@@ -1769,6 +1843,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-55", 0 ],
+									"source" : [ "obj-3", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-25", 2 ],
 									"source" : [ "obj-30", 0 ]
 								}
@@ -1806,7 +1887,7 @@
 								"patchline" : 								{
 									"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
 									"destination" : [ "obj-51", 0 ],
-									"midpoints" : [ 145.833333333333485, 561.0, 539.833333333333485, 561.0, 539.833333333333485, 90.0, 229.166666666666686, 90.0 ],
+									"midpoints" : [ 147.5, 561.0, 539.833333333333485, 561.0, 539.833333333333485, 90.0, 229.166666666666686, 90.0 ],
 									"source" : [ "obj-5", 0 ]
 								}
 
@@ -1886,6 +1967,35 @@
 								}
 
 							}
+ ],
+						"styles" : [ 							{
+								"name" : "Minimal",
+								"default" : 								{
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"bgfillcolor" : 									{
+										"angle" : 270.0,
+										"autogradient" : 0.0,
+										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+										"proportion" : 0.39,
+										"type" : "color"
+									}
+,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontface" : [ 0 ],
+									"fontname" : [ "Lato" ],
+									"fontsize" : [ 11.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+								}
+,
+								"parentstyle" : "",
+								"multi" : 0
+							}
  ]
 					}
 ,
@@ -1893,7 +2003,10 @@
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
+						"fontname" : "Lato",
+						"fontsize" : 11.0,
 						"globalpatchername" : "",
+						"style" : "Minimal",
 						"tags" : ""
 					}
 ,
@@ -1921,9 +2034,9 @@
 						"rect" : [ 0.0, 26.0, 942.0, 880.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
-						"default_fontsize" : 12.0,
+						"default_fontsize" : 11.0,
 						"default_fontface" : 0,
-						"default_fontname" : "Arial",
+						"default_fontname" : "Lato",
 						"gridonopen" : 1,
 						"gridsize" : [ 15.0, 15.0 ],
 						"gridsnaponopen" : 1,
@@ -1943,7 +2056,7 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"style" : "",
+						"style" : "Minimal",
 						"subpatcher_template" : "",
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
@@ -1970,7 +2083,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 92.0, 186.5, 124.0, 67.0 ],
+									"patching_rect" : [ 92.0, 186.5, 125.0, 65.0 ],
 									"text" : "this abstraction has some premade speaker setups"
 								}
 
@@ -1993,11 +2106,11 @@
 									"bubblepoint" : 0.1,
 									"bubbleside" : 0,
 									"id" : "obj-33",
-									"linecount" : 4,
+									"linecount" : 3,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 648.916666666666288, 226.5, 203.166666666666742, 81.0 ],
+									"patching_rect" : [ 651.916666666666288, 229.5, 212.0, 65.0 ],
 									"text" : "sets a dimentional mask when computing volumes. This is useful when converting 3D spatializations to 2D"
 								}
 
@@ -2046,7 +2159,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 800.0, 144.0, 100.0, 79.0 ],
+									"patching_rect" : [ 800.0, 144.0, 100.0, 76.0 ],
 									"text" : "Speaker positions can be set with XYZ coordinates"
 								}
 
@@ -2079,11 +2192,11 @@
 								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-58",
-									"linecount" : 4,
+									"linecount" : 3,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 434.833333333333258, 227.0, 166.0, 66.0 ],
+									"patching_rect" : [ 434.833333333333258, 227.0, 172.0, 50.0 ],
 									"text" : "The curve of the falloff.  0 is linear, 1 is exponentail, -1 is logarithmic (equal power)"
 								}
 
@@ -2096,7 +2209,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 440.833333333333258, 137.5, 140.333333333333258, 52.0 ],
+									"patching_rect" : [ 440.833333333333258, 137.5, 142.0, 50.0 ],
 									"text" : "The maximum distance at which something will sound"
 								}
 
@@ -2167,11 +2280,11 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-10",
-									"linecount" : 3,
+									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 511.5, 150.0, 48.0 ],
+									"patching_rect" : [ 15.0, 511.5, 150.0, 33.0 ],
 									"text" : "Speakers can be stored as dictionaries as well as a list"
 								}
 
@@ -2194,7 +2307,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 6.0, 355.0, 41.0 ],
+									"patching_rect" : [ 15.0, 6.0, 355.0, 42.0 ],
 									"text" : "Speaker setups"
 								}
 
@@ -2224,6 +2337,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
+									"embedstate" : [ [ "drawCenter", 0 ] ],
 									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
@@ -2243,7 +2357,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 168.666666666666657, 105.0, 118.0, 38.0 ],
+									"patching_rect" : [ 168.666666666666657, 105.0, 118.0, 37.0 ],
 									"text" : "Select a speaker configuration"
 								}
 
@@ -2415,6 +2529,35 @@
 								}
 
 							}
+ ],
+						"styles" : [ 							{
+								"name" : "Minimal",
+								"default" : 								{
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"bgfillcolor" : 									{
+										"angle" : 270.0,
+										"autogradient" : 0.0,
+										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
+										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+										"proportion" : 0.39,
+										"type" : "color"
+									}
+,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontface" : [ 0 ],
+									"fontname" : [ "Lato" ],
+									"fontsize" : [ 11.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+								}
+,
+								"parentstyle" : "",
+								"multi" : 0
+							}
  ]
 					}
 ,
@@ -2422,7 +2565,10 @@
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
+						"fontname" : "Lato",
+						"fontsize" : 11.0,
 						"globalpatchername" : "",
+						"style" : "Minimal",
 						"tags" : ""
 					}
 ,

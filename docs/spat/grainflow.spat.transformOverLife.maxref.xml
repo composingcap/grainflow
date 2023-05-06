@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes'?>
 <?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
 
-<c74object name='grainflow.spat.volume' module="msp" category="grainflow, MSP Proccessing">
+<c74object name='grainflow.spat.transformOverLive' module="msp" category="grainflow, MSP Proccessing">
 
 	<digest>Samples 3D volumes for grainflow.spat.pan~</digest>
 	<description>
@@ -61,13 +61,7 @@
 	<!--MESSAGES-->
 
 	<methodlist>
-		<method name="bang">
-			<digest>
-			Updates the transform for all grains
- 			</digest>
-			<description>
-			</description>
-		</method>
+
 		<method name="translate">
 			<digest>
 			Translates each sampled point by a 3d vector.
@@ -146,7 +140,7 @@
         <seealso name='grainflow.spat.volume' />
 		<seealso name='grainflow.spat.spirograph' />
 		<seealso name='grainflow.spat.phys' />
-		<seealso name='grainflow.spat.transformOverLife' />
+		<seealso name='grainflow.spat.transform' />
 	</seealsolist>
 
 
