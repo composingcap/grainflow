@@ -517,7 +517,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "drawCenter", 0 ] ],
+									"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
 									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
@@ -1618,7 +1618,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "drawCenter", 1 ] ],
+									"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
 									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",
@@ -1626,7 +1626,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 138.0, 414.5, 344.0, 137.0 ]
+									"patching_rect" : [ 158.0, 417.5, 344.0, 137.0 ]
 								}
 
 							}
@@ -1887,7 +1887,7 @@
 								"patchline" : 								{
 									"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
 									"destination" : [ "obj-51", 0 ],
-									"midpoints" : [ 147.5, 561.0, 539.833333333333485, 561.0, 539.833333333333485, 90.0, 229.166666666666686, 90.0 ],
+									"midpoints" : [ 167.5, 561.0, 539.833333333333485, 561.0, 539.833333333333485, 90.0, 229.166666666666686, 90.0 ],
 									"source" : [ "obj-5", 0 ]
 								}
 
@@ -2337,7 +2337,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "drawCenter", 0 ] ],
+									"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
 									"filename" : "grainflow.spatview~.js",
 									"id" : "obj-5",
 									"maxclass" : "jsui",

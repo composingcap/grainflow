@@ -24,7 +24,6 @@ var showCenter = false;
 function setattr_drawCenter()
 {
 	showCenter = arrayfromargs(arguments)[0];
-	drawWaveform();
 }
 
 function getattr_drawCenter()
