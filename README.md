@@ -5,7 +5,7 @@ Grainflow is a suite of sample accurate signal driven granular tools built in Ma
 
 To install, place this package folding in the Max 8 Packages directory. 
 
-## [Join the Grainflow Community on Discord](https://discord.gg/6t4AfpaZ) 
+## [Join the Grainflow Community on Discord](https://discord.gg/8RUUUvjVgK) 
 
 ## Grainflow includes tools for:
 * Soundfile granulation 
