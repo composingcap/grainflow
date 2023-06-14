@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.phys.magnets' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Calculates distanced between grains and magnets then applies physics</digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="jittermatrix">
+			<digest>
+				grainflow.phys matrix
+			</digest>
+			<description>
+			</description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="jittermatrix">
+			<digest>
+				Lamda outlet for custom physics proccessing
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="magnets">
+			<digest>
+			Magents can be set as a list of quintupplets formated as position(x,y,z) followed by a distance and strength value. These values can also be loaded in via a dictionary which is often more convenient- this is formated as a dictionary of nested dictionaries representing each magnet with a keys for position, strength, and distance.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+        <method name="dimop">
+			<digest>
+			The dimention the magnets operate on. 0 = position; 1= velocity; 2= acceleration. The distance caluclation is always based on position.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+        <seealso name='grainflow.spat.phys' />
+		<seealso name='grainflow.spat.pan~' />
+		<seealso name='grainflow.spat.phys.add' />
+
+		<seealso name='grainflow.spat.phys.transform' />
+		<seealso name='grainflow.spat.phys.drag' />
+
+	</seealsolist>
+
+
+</c74object>

@@ -10,12 +10,9 @@ To install, place this package folding in the Max 8 Packages directory.
 ## Grainflow includes tools for:
 * Soundfile granulation 
 * Live input granulation 
-* Granular Synthisis 
 * Granular Sampling
-* Granular Harmonization
-* Granular Chorus
-* Granular Recording
-* Granular Visualization
+* Granular Effects
+* Granular Spatialization
 * Vector Synthisis 
 
 ## Grainflow includes examples and readmade bpatchers for:

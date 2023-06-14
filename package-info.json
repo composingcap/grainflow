@@ -1,13 +1,13 @@
 {
 	"author" : "Christopher Poovey",
 	"authors" : [  ],
-	"description" : "A suite of granulation tools that are multichannel and sample accurate.",
+	"description" : "A suite of granulation tools that leverage the multichannel system in Max to allow for the rapid creation of creative granular tool.",
 	"displayname" : "Grainflow",
 	"extends" : "",
 	"extensible" : 0,
 	"homepatcher" : "grainflowOverview.maxpat",
 	"max_version_max" : "none",
-	"max_version_min" : "8",
+	"max_version_min" : "8.5",
 	"name" : "Grainflow",
 	"os" : 	{
 		"macintosh" : 		{
@@ -27,7 +27,7 @@
 	}
 ,
 	"tags" : [ "granulation", "mc" ],
-	"version" : "1.1",
+	"version" : "1.2",
 	"website" : "https://github.com/composingcap/grainflow",
 	"filelist" : 	{
 		"externals" : [ ],

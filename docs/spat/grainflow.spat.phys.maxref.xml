@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.phys' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>A simple physics engine that allows for manipulation of position, velocity, and acceleration manipulations. </digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="multichannelsignal">
+			<digest>
+				Grain State as MC
+			</digest>
+			<description>
+			</description>
+		</inlet>
+
+		<inlet id="1" type="jittermatrix">
+			<digest>
+				Jitter matrix created using the lambda outlet. The matrix will insert itself before each physics update.
+			</digest>
+			<description>
+			</description>
+		</inlet>
+
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>
+				xyz positions
+			</digest>
+			<description>
+			</description>
+		</outlet>
+
+		<outlet id="1" type="jittermatrix">
+			<digest>
+				Lamda outlet for custom physics proccessing
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="position">
+			<digest>
+			The intial position of each grain in XYZ coordinates
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="positionRandom">
+			<digest>
+			A random deviation from position determined at the start of each grain
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+				<method name="velocity">
+			<digest>
+			The initial velocity of each grain in XYZ
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="velocityRandom">
+			<digest>
+			A random deviation from velocity determined at the start of each grain.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="acceleration">
+			<digest>
+			Initial acceleration of each grain in XYZ
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="accelerationRandom">
+			<digest>
+			A random deviation from acceleration determined at the start of each grain.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="physUpdate">
+			<digest>
+		 	The update rate of the physics system in ms. Default is 10ms. 
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.spat.pan~' />
+		<seealso name='grainflow.spat.phys.add' />
+		<seealso name='grainflow.spat.phys.magnets' />
+		<seealso name='grainflow.spat.phys.transform' />
+		<seealso name='grainflow.spat.phys.drag' />
+
+	</seealsolist>
+
+
+</c74object>

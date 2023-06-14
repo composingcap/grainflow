@@ -988,13 +988,13 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "Grain state as mc",
 					"id" : "obj-1",
 					"index" : 1,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "multichannelsignal" ],
 					"patching_rect" : [ 44.0, 32.0, 30.0, 30.0 ]
 				}
 

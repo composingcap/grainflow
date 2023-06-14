@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.format' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Formats grain position messages for other systems such as Spat Gris or the IEM Suite</digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="">
+			<digest>
+			</digest>
+			<description>
+			</description>
+		</inlet>
+
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="">
+			<digest>
+				converted message
+			</digest>
+			<description>
+			</description>
+		</outlet>
+
+
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+			    <method name="xyz">
+    		<digest>
+				XYZ grain position message to be converted into aother format. AED is unsupported at this time.
+			</digest>
+	</method>
+        <method name="mode">
+    		<digest>
+				Sets the translation mode based on an integer. 0: spatGrisCube, 1: spatGrisDome, 2: IEM/SPARTA, 3: ICSTXYZ, 4: ICSTAED, 5: SpatXYZ, 6: SpatAED
+			</digest>
+            	</method>
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+        <seealso name='grainflow.spat.phys' />
+		<seealso name='grainflow.spat.pan~' />
+		<seealso name='grainflow.spat.phys.add' />
+
+		<seealso name='grainflow.spat.phys.magnets' />
+		<seealso name='grainflow.spat.phys.transform' />
+
+	</seealsolist>
+
+
+</c74object>

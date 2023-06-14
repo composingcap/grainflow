@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.phys.add' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Adds values to physics fields using the lambda outlet for custom updates.</digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="jittermatrix">
+			<digest>
+				grainflow.phys matrix
+			</digest>
+			<description>
+			</description>
+		</inlet>
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="jittermatrix">
+			<digest>
+				Lamda outlet for custom physics proccessing
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="position">
+			<digest>
+			Position tranform for the position of each grain in XYZ coordinates
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="positionRandom">
+			<digest>
+			A random deviation from position tranform for the position of each grain in XYZ coordinates
+
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+				<method name="velocity">
+			<digest>
+			Velocity tranform for the position of each grain in XYZ coordinates
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="velocityRandom">
+			<digest>
+			A random deviation from velocity tranform for the position of each grain in XYZ coordinates
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="acceleration">
+			<digest>
+			Acceleration tranform for the position of each grain in XYZ coordinates
+ 			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="accelerationRandom">
+			<digest>
+			A random deviation from acceleration determined at the start of each grain.
+ 			</digest>
+			<description>
+			</description>
+		</method>
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.spat.pan~' />
+		<seealso name='grainflow.spat.phys.add' />
+		<seealso name='grainflow.spat.phys.magnets' />
+		<seealso name='grainflow.spat.phys.transform' />
+		<seealso name='grainflow.spat.phys.drag' />
+
+	</seealsolist>
+
+
+</c74object>

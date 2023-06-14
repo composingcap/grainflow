@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 130.0, 176.0, 658.0, 693.0 ],
+						"rect" : [ 0.0, 26.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -533,7 +533,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 88.0, 656.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 43.0, 653.412109375, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -546,7 +546,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 88.0, 678.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 43.0, 680.412109375, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -640,7 +640,23 @@
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
 									"hidden" : 1,
+									"source" : [ "obj-23", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-3", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-32", 1 ]
 								}
 
 							}
@@ -2344,7 +2360,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 658.0, 693.0 ],
+						"rect" : [ 130.0, 176.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -2374,6 +2390,35 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"hidden" : 1,
+									"id" : "obj-9",
+									"linecount" : 2,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 389.0, 61.0, 271.0, 33.0 ],
+									"text" : ";\r\nmax launchbrowser https://discord.gg/8RUUUvjVgK"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bgcolor" : [ 0.564705882352941, 0.0, 1.0, 1.0 ],
+									"id" : "obj-6",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 389.0, 17.166666666666515, 219.0, 30.0 ],
+									"text" : "Join the Grainflow Discord",
+									"textoncolor" : [ 1.0, 1.0, 1.0, 1.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-2",
 									"maxclass" : "comment",
@@ -2742,6 +2787,14 @@
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
 									"source" : [ "obj-5", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-6", 0 ]
 								}
 
 							}

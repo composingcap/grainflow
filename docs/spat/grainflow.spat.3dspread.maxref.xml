@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.3dspread' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Spreads grains from a center point</digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="multichannelsignal">
+			<digest>
+				Grain state as mc
+			</digest>
+			<description>
+
+			</description>
+
+		</inlet>
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>
+				xyz positions
+			</digest>
+			<description>
+			</description>
+		</outlet>
+
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+		<objarg name="spread" optional="1" type="int">
+			<digest>The amount grains may deviate from the center</digest>
+		</objarg>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="spread">
+			<digest>
+				The amount grains may deviate from the center as a single value or a list of XYZ values
+			</digest>
+			<description>
+			</description>
+		</method>
+
+		<method name="center">
+			<digest>
+			The center point defined in XYZ coordinates
+			</digest>
+			<description>
+			</description>
+		</method>
+		<method name="centeraed">
+			<digest>
+			The center point defined in AED coordinates
+			</digest>
+			<description>
+			</description>
+		</method>
+
+		
+
+
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.spat.pan~' />
+		<seealso name='grainflow.spat.spirograph' />
+		
+		<seealso name='grainflow.spat.phys' />
+		<seealso name='grainflow.spat.transformOverLife' />
+	</seealsolist>
+
+
+</c74object>

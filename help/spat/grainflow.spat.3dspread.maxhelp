@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 942.0, 906.0 ],
+		"rect" : [ 563.0, 246.0, 942.0, 589.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -40,37 +40,56 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"bubble" : 1,
+					"id" : "obj-3",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 110.0, 477.0, 68.0, 37.0 ],
+					"text" : "Turn on audio"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bubble" : 1,
+					"bubbleside" : 2,
 					"id" : "obj-44",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 260.0, 117.0, 134.0, 33.0 ],
+					"patching_rect" : [ 256.333333333333371, 94.0, 134.0, 52.0 ],
 					"text" : "Define the center in x y z coordinates"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
+					"bubbleside" : 2,
 					"id" : "obj-42",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 470.0, 113.0, 148.0, 33.0 ],
-					"text" : "Define the spread in x y z coordinates"
+					"patching_rect" : [ 481.0, 93.0, 148.0, 52.0 ],
+					"text" : "Define the spread in normalized x y z coordinates"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
+					"bubbleside" : 2,
 					"id" : "obj-36",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 674.0, 124.5, 198.0, 33.0 ],
-					"text" : "Define the center point in spherical coordinates"
+					"patching_rect" : [ 662.0, 103.5, 198.0, 52.0 ],
+					"text" : "Define the center point in normalized spherical coordinates"
 				}
 
 			}
@@ -80,7 +99,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 818.333333333333258, 207.0, 26.666666666666686, 20.0 ],
+					"patching_rect" : [ 825.333333333333258, 207.0, 26.666666666666686, 20.0 ],
 					"text" : "D"
 				}
 
@@ -91,7 +110,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 794.666666666666742, 181.0, 26.666666666666686, 20.0 ],
+					"patching_rect" : [ 799.333333333333371, 180.0, 26.666666666666686, 20.0 ],
 					"text" : "E"
 				}
 
@@ -116,7 +135,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 768.0, 207.0, 50.0, 22.0 ]
+					"patching_rect" : [ 775.0, 207.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -129,7 +148,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 739.333333333333371, 181.0, 50.0, 22.0 ]
+					"patching_rect" : [ 744.0, 180.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -669,11 +688,12 @@
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-26",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 66.0, 100.0, 150.0, 20.0 ],
+					"patching_rect" : [ 53.0, 98.0, 150.0, 24.0 ],
 					"text" : "Turn on the granulator"
 				}
 
@@ -706,17 +726,19 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-107",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 23.0, 59.0, 652.833333333333258, 20.0 ],
-					"text" : "Moves grains to a distance around a central point"
+					"patching_rect" : [ 23.0, 59.0, 344.833333333333258, 33.0 ],
+					"text" : "The most straightforward grainflow spatializer that moves grains to a distance around a central point"
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"border" : 0,
+					"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
 					"filename" : "grainflow.spatview~.js",
 					"id" : "obj-5",
 					"maxclass" : "jsui",
@@ -724,7 +746,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 234.0, 323.0, 544.0, 217.0 ]
+					"patching_rect" : [ 220.333333333333258, 349.0, 374.0, 149.0 ]
 				}
 
 			}
@@ -881,6 +903,7 @@
 				"patchline" : 				{
 					"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
 					"destination" : [ "obj-5", 0 ],
+					"midpoints" : [ 155.5, 427.5, 199.5, 427.5, 199.5, 332.0, 229.833333333333258, 332.0 ],
 					"source" : [ "obj-2", 1 ]
 				}
 
@@ -903,7 +926,7 @@
 				"patchline" : 				{
 					"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 436.5, 278.75, 91.75, 278.75 ],
+					"midpoints" : [ 436.5, 276.75, 91.75, 276.75 ],
 					"source" : [ "obj-25", 0 ]
 				}
 
@@ -945,7 +968,9 @@
 			}
 , 			{
 				"patchline" : 				{
+					"color" : [ 0.929411764705882, 0.36078431372549, 0.866666666666667, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 691.5, 274.0, 91.75, 274.0 ],
 					"source" : [ "obj-32", 0 ]
 				}
 
@@ -1015,63 +1040,63 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "_grainflow.aed2xyz.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.spat.pointparse.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.3dspread.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
 				"patcherrelativepath" : "../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.pan~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
 				"patcherrelativepath" : "../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.speakers.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
 				"patcherrelativepath" : "../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spatview~.js",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/jsui",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
 				"patcherrelativepath" : "../jsui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/code",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1

@@ -40,6 +40,42 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-16",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "bang", "bang" ],
+					"patching_rect" : [ 34.5, 137.0, 35.0, 22.0 ],
+					"text" : "t b b"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-46",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 34.5, 199.0, 82.0, 22.0 ],
+					"text" : "frameTime $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-34",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "float", "" ],
+					"patching_rect" : [ 34.5, 164.0, 35.0, 22.0 ],
+					"text" : "timer"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-33",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -2103,7 +2139,7 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
-									"code" : "rotate(pitch,roll,yaw, x,y,z){\r\n\tcosa = cos(pitch);\r\n\tsina = sin(pitch);\r\n\t\r\n\tcosb = cos(roll);\r\n\tsinb = sin(roll);\r\n\t\r\n\tcosc = cos(yaw);\r\n\tsinc = sin(yaw);\r\n\t\r\n\t Axx = cosa*cosb;\n     Axy = cosa*sinb*sinc - sina*cosc;\n     Axz = cosa*sinb*cosc + sina*sinc;\n\n     Ayx = sina*cosb;\n     Ayy = sina*sinb*sinc + cosa*cosc;\n     Ayz = sina*sinb*cosc - cosa*sinc;\n\n     Azx = -sinb;\n     Azy = cosb*sinc;\n     Azz = cosb*cosc;\r\n\t\r\n\tpx = Axx*x + Axy*y + Axz*z;\r\n\tpy = Ayx*x + Ayy*y + Ayz*z;\r\n\tpz = Azx*x + Azy*y + Azz*z;\r\n\r\n\t\r\n\treturn px,py,pz;\r\n\t}\r\nParam pitch,roll,yaw;\r\nParam tx,ty,tz;\r\nParam sx(1),sy(1),sz(1);\r\nParam pos(1), vel, acc;\r\n\r\n\r\n\r\n\r\nd = cell(in1).y;\r\np = (d == 0)*pos;\r\np += (d == 1)*vel;\r\np += (d == 2)*acc;\r\n\r\n\r\nx = in1.x;\r\ny = in1.y;\r\nz = in1.z;\r\nx,y,z = rotate(pitch*p, roll*p, yaw*p, x,y,z);\r\nx += tx*p;\r\ny += ty*p;\r\nz += tz*p;\r\nx *= sx;\r\ny *= sy;\r\nz *= sz;\r\n\r\nout1 = vec(x,y,z);\r\n\r\n\r\n",
+									"code" : "rotate(pitch,roll,yaw, x,y,z){\r\n\tcosa = cos(pitch);\r\n\tsina = sin(pitch);\r\n\t\r\n\tcosb = cos(roll);\r\n\tsinb = sin(roll);\r\n\t\r\n\tcosc = cos(yaw);\r\n\tsinc = sin(yaw);\r\n\t\r\n\t Axx = cosa*cosb;\n     Axy = cosa*sinb*sinc - sina*cosc;\n     Axz = cosa*sinb*cosc + sina*sinc;\n\n     Ayx = sina*cosb;\n     Ayy = sina*sinb*sinc + cosa*cosc;\n     Ayz = sina*sinb*cosc - cosa*sinc;\n\n     Azx = -sinb;\n     Azy = cosb*sinc;\n     Azz = cosb*cosc;\r\n\t\r\n\tpx = Axx*x + Axy*y + Axz*z;\r\n\tpy = Ayx*x + Ayy*y + Ayz*z;\r\n\tpz = Azx*x + Azy*y + Azz*z;\r\n\r\n\t\r\n\treturn px,py,pz;\r\n\t}\r\nParam pitch,roll,yaw;\r\nParam tx,ty,tz;\r\nParam sx(1),sy(1),sz(1);\r\nParam pos(1), vel, acc;\r\nParam frameTime(10);\r\n\r\n\r\n\r\nd = cell(in1).y;\r\np = (d == 0)*pos;\r\np += (d == 1)*vel;\r\np += (d == 2)*acc;\r\np = (p/10)*frameTime;\r\n\r\nx = in1.x;\r\ny = in1.y;\r\nz = in1.z;\r\nx,y,z = rotate(pitch*p, roll*p, yaw*p, x,y,z);\r\nx += tx*p;\r\ny += ty*p;\r\nz += tz*p;\r\nx *= sx;\r\ny *= sy;\r\nz *= sz;\r\n\r\nout1 = vec(x,y,z);\r\n\r\n\r\n",
 									"fontface" : 0,
 									"fontname" : "<Monospaced>",
 									"fontsize" : 11.0,
@@ -2194,6 +2230,20 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
+					"destination" : [ "obj-34", 1 ],
+					"source" : [ "obj-16", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-34", 0 ],
+					"source" : [ "obj-16", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
 					"source" : [ "obj-2", 0 ]
 				}
@@ -2208,6 +2258,14 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-16", 0 ],
+					"order" : 1,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-33", 1 ]
 				}
@@ -2216,7 +2274,22 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
+					"order" : 0,
 					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-46", 0 ],
+					"source" : [ "obj-34", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-2", 0 ],
+					"source" : [ "obj-46", 0 ]
 				}
 
 			}
