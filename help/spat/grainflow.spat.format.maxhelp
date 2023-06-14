@@ -40,12 +40,37 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-23",
+					"bubble" : 1,
+					"id" : "obj-5",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 58.0, 370.0, 20.0 ],
-					"text" : "Formats spatial coordinates for other spatialization systems"
+					"patching_rect" : [ 345.0, 241.5, 150.0, 37.0 ],
+					"text" : "use udpsend to send messages over osc"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 219.0, 249.0, 124.0, 22.0 ],
+					"text" : "udpsend localhost 4048"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 13.0, 58.0, 370.0, 33.0 ],
+					"text" : "Formats spatial coordinates for other spatialization systems. Note that some of these systems are Max externals and others work over OSC."
 				}
 
 			}
@@ -151,7 +176,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-9",
-					"items" : [ "spatGrisCube", ",", "spatGrisDome", ",", "IEM", ",", "ICSTXYZ", ",", "ICSTAED" ],
+					"items" : [ "spatGrisCube", ",", "spatGrisDome", ",", "IEM/SPARTA", ",", "ICSTXYZ", ",", "ICSTAED", ",", "SpatXYZ", ",", "SpatAED" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -182,7 +207,7 @@
 					"outlettype" : [ "", "int", "", "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 49.5, 338.0, 287.0, 48.0 ],
-					"text" : "/spat/serv car 1 12.38526 -0.25398 1.2616 0. 0."
+					"text" : "/spat/serv car 1 -0.05312 0.2158 -0.249 0. 0."
 				}
 
 			}
@@ -279,14 +304,14 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "_grainflow.xyz2aed.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.format.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1

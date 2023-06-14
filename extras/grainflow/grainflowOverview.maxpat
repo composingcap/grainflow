@@ -533,7 +533,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 88.0, 656.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 43.0, 653.412109375, 74.0, 21.0 ],
 									"text" : "prepend help"
 								}
 
@@ -546,7 +546,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 88.0, 678.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 43.0, 680.412109375, 49.0, 21.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -640,7 +640,23 @@
 								"patchline" : 								{
 									"destination" : [ "obj-6", 0 ],
 									"hidden" : 1,
+									"source" : [ "obj-23", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
 									"source" : [ "obj-3", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-32", 1 ]
 								}
 
 							}

@@ -45,7 +45,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 344.0, 321.0, 39.0, 22.0 ],
+					"patching_rect" : [ 296.0, 260.0, 39.0, 22.0 ],
 					"text" : "set $1"
 				}
 
@@ -57,7 +57,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 298.0, 361.0, 49.0, 22.0 ],
+					"patching_rect" : [ 296.0, 303.0, 49.0, 22.0 ],
 					"text" : "prepend"
 				}
 
@@ -69,7 +69,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 286.5, 262.0, 95.0, 22.0 ],
+					"patching_rect" : [ 385.5, 105.0, 95.0, 22.0 ],
 					"text" : "routepass xyz aed"
 				}
 
@@ -80,7 +80,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 3,
-					"outlettype" : [ "", "aed", "" ],
+					"outlettype" : [ "", "xyz", "" ],
 					"patching_rect" : [ 85.0, 58.0, 148.0, 22.0 ],
 					"text" : "_grainflow.spat.pointparse"
 				}
@@ -105,14 +105,14 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 314.0, 181.0, 40.0, 22.0 ],
+					"patching_rect" : [ 306.5, 165.0, 40.0, 22.0 ],
 					"text" : "unjoin"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "upper bound",
 					"id" : "obj-13",
 					"index" : 3,
 					"maxclass" : "inlet",
@@ -125,7 +125,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "lower bound",
 					"id" : "obj-12",
 					"index" : 2,
 					"maxclass" : "inlet",
@@ -156,7 +156,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 197.0, 340.0, 30.0, 30.0 ]
+					"patching_rect" : [ 201.5, 427.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -168,7 +168,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 135.0, 327.0, 30.0, 30.0 ]
+					"patching_rect" : [ 139.5, 414.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -179,7 +179,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 41.0, 247.0, 35.0, 22.0 ],
+					"patching_rect" : [ 137.0, 252.0, 35.0, 22.0 ],
 					"text" : "join 2"
 				}
 
@@ -227,7 +227,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 135.0, 270.0, 39.0, 22.0 ],
+					"patching_rect" : [ 139.5, 357.0, 39.0, 22.0 ],
 					"text" : "gate 2"
 				}
 
@@ -246,13 +246,13 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "grain spatialization messages",
 					"id" : "obj-1",
 					"index" : 1,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 85.0, 15.0, 30.0, 30.0 ]
 				}
 

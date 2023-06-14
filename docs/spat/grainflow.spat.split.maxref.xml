@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./c74ref.xsl" type="text/xsl"?>
+
+<c74object name='grainflow.spat.split' module="msp" category="grainflow, MSP Proccessing">
+
+	<digest>Splits grain posiiton messages based on their IDs</digest>
+	<description>
+	</description>
+
+
+	<!--METADATA-->
+
+	<metadatalist>
+		<metadata name='author'>Christopher Poovey</metadata>
+		<metadata name='tag'>Grainflow</metadata>
+		<metadata name='tag'>Granulation</metadata>
+		<metadata name='tag'>MSP</metadata>
+		<metadata name='tag'>Spatialization</metadata>
+
+	</metadatalist>
+<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="">
+			<digest>
+				speaker position messages or grain state messages (will generate positions at 0 0 0)
+			</digest>
+			<description>
+			</description>
+		</inlet>
+
+
+
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="">
+			<digest>
+				grain positions within the range
+			</digest>
+			<description>
+			</description>
+		</outlet>
+
+        <outlet id="1" type="">
+			<digest>
+				grain positions outside of the range
+			</digest>
+			<description>
+			</description>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+    <objarg name="start-grain">
+    		<digest>
+				grain ID that starts the range
+			</digest>
+	</objarg>
+    <objarg name="end-grain"> 
+    <digest>
+				grain ID that ends the range
+			</digest>
+    </objarg>
+	</objarglist>
+
+
+	<!--MESSAGES-->
+
+	<methodlist>
+			
+	</methodlist>
+
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+	</attributelist>
+
+
+	<!--RELATED-->
+
+	<seealsolist>
+		<seealso name='grainflow~' />
+        <seealso name='grainflow.spat.phys' />
+		<seealso name='grainflow.spat.pan~' />
+		<seealso name='grainflow.spat.phys.add' />
+
+		<seealso name='grainflow.spat.phys.magnets' />
+		<seealso name='grainflow.spat.phys.transform' />
+
+	</seealsolist>
+
+
+</c74object>
