@@ -16,7 +16,7 @@ var grainAmps = [];
 var grainStates = [];
 sketch.default2d();
 sketch.glclear();
-waveFormDrawn = false;
+var waveFormDrawn = false;
 var waveform = new Sketch();
 var lasty= 0;
 var clickPos= [0,1];
@@ -25,11 +25,11 @@ var recHeadPos = -1;
 var bufChans = [1];
 var loadBufferNextFrame = false;
 
-dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
+var dim = [box.rect[2]-box.rect[0],box.rect[3]-box.rect[1]];
 var selectposition = [0,1];
 var selectpositionOut = [0,0]
 
-drawTask = new Task(drawLoop, this);
+var drawTask = new Task(drawLoop, this);
 		drawTask.interval= ((1/fps)*1000);
 		drawTask.repeat(-1);
 
