@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1996.0, 422.0, 640.0, 480.0 ],
+		"rect" : [ 894.0, 534.0, 640.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -70,7 +70,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "jit_matrix" ],
 					"patching_rect" : [ 73.0, 64.0, 30.0, 30.0 ]
 				}
 
@@ -83,7 +83,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
 					"patching_rect" : [ 73.0, 280.0, 220.0, 22.0 ],
-					"text" : "mcs.wave~ #0_mesh 0 1 3 @interp 1"
+					"text" : "mcs.wave~ #0_mesh 0 0 3 @interp 1"
 				}
 
 			}
