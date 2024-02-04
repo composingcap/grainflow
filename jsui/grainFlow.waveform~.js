@@ -502,7 +502,7 @@ function draw(){
 		//Dots
 		for (p = 0 ; p < grainPositions.length; p++){
 			if((grainStates[p] != 0 && bufChans[p%bufChans.length] == chan) || chan == 0){
-			dotColorMod = p/grainPositions.length*0.5;
+			dotColorMod = p/grainPositions.length;
 			dotR= dotColor[0]*(1-dotColorMod) + dotColor2[0]*(dotColorMod);
 			dotG= dotColor[1]*(1-dotColorMod) + dotColor2[1]*(dotColorMod);
 			dotB= dotColor[2]*(1-dotColorMod) + dotColor2[2]*(dotColorMod);
