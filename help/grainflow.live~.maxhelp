@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 8,
+			"minor" : 6,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -192,8 +192,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 213.0, 212.0, 45.0, 22.0 ],
-					"text" : "trav $1"
+					"patching_rect" : [ 213.0, 212.0, 50.0, 22.0 ],
+					"text" : "delay $1"
 				}
 
 			}
@@ -230,8 +230,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 116.0, 212.0, 86.0, 22.0 ],
-					"text" : "travRandom $1"
+					"patching_rect" : [ 116.0, 212.0, 90.0, 22.0 ],
+					"text" : "delayRandom $1"
 				}
 
 			}
@@ -240,8 +240,8 @@
 					"id" : "obj-37",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"numoutlets" : 2,
+					"outlettype" : [ "multichannelsignal", "" ],
 					"patching_rect" : [ 5.0, 553.0, 151.0, 22.0 ],
 					"text" : "grainflow.util.stereoPan~ 20"
 				}
@@ -328,9 +328,9 @@
 				"box" : 				{
 					"id" : "obj-24",
 					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"numinlets" : 3,
 					"numoutlets" : 2,
-					"outlettype" : [ "signal", "float" ],
+					"outlettype" : [ "multichannelsignal", "" ],
 					"patching_rect" : [ 46.333333333333336, 371.0, 176.0, 22.0 ],
 					"text" : "grainflow.util.rateSizePhasor~ 20"
 				}
@@ -400,7 +400,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotVJitter", 0 ], [ "dotScale", 5 ], [ "showTriangles", 0 ], [ "buffername", "3351_flow_1" ], [ "selectColor", 1, 1, 1, 0.75 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "bgColor", 1, 1, 1, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "mode", 0 ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ] ],
+					"embedstate" : [ [ "showTriangles", 0 ], [ "buffername", "1074_flow_1" ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 0 ], [ "displayRange", 0, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 5 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "selection", 0, 1 ], [ "chan", 0 ], [ "fps", 30 ], [ "trackerWidth", 2 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -434,7 +434,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 5.0, 592.0, 115.0, 47.0 ],
+					"patching_rect" : [ 5.0, 592.0, 115.0, 45.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~[1]",
@@ -555,8 +555,8 @@
 					"id" : "obj-1",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 2,
-					"outlettype" : [ "multichannelsignal", "" ],
+					"numoutlets" : 9,
+					"outlettype" : [ "multichannelsignal", "bang", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 5.0, 507.0, 143.0, 22.0 ],
 					"text" : "grainflow.live~ 5000 20"
 				}
@@ -728,45 +728,10 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "grainflow.live~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainFlow~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
-				"patcherrelativepath" : "../patchers/util",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.record.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
@@ -777,22 +742,70 @@
 			}
 , 			{
 				"name" : "grainFlow.waveform~.js",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/jsui",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
 				"patcherrelativepath" : "../jsui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
+				"name" : "grainFlow~.maxpat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"patcherrelativepath" : "../patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.live~.maxpat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"patcherrelativepath" : "../patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.rateSizePhasor.gendsp",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
+				"patcherrelativepath" : "../code",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.record.gendsp",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
+				"patcherrelativepath" : "../code",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "grainflow.util.rateSizePhasor~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"patcherrelativepath" : "../patchers/util",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.util.record~.maxpat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.voice.gendsp",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
+				"patcherrelativepath" : "../code",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "thru.maxpat",
+				"bootpath" : "C74:/patchers/m4l/Pluggo for Live resources/patches",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -808,27 +821,27 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"fontsize" : [ 10.0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontface" : [ 0 ],
+					"fontname" : [ "Futura Medium" ],
+					"fontsize" : [ 10.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
