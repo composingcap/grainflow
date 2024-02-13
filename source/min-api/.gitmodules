@@ -1,0 +1,9 @@
+[submodule "include/readerwriterqueue"]
+	path = include/readerwriterqueue
+	url = https://github.com/cameron314/readerwriterqueue.git
+[submodule "test/mock"]
+	path = test/mock
+	url = https://github.com/Cycling74/mock.git
+[submodule "max-sdk-base"]
+	path = max-sdk-base
+	url = https://github.com/Cycling74/max-sdk-base
