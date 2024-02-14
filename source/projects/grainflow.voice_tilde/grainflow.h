@@ -12,7 +12,7 @@ namespace Grainflow {
         float windowOffset = 0;
         float sourceSample = 0;
         float playRate = 1;
-        int bufferFames = 0;      
+        int bufferFrames = 0;      
         bool reset = false;
         float lastGrainClock = -999;
         float sampleRateAdjustment = 1;
@@ -32,7 +32,7 @@ namespace Grainflow {
             info->lastGrainClock = grainClock;
             return;
         }
-        info->sourceSample = traversal*info->bufferFames;
+        info->sourceSample = traversal*info->bufferFrames;
         info->playRate = 1; 
         info->lastGrainClock = grainClock;
         info->reset = true;
@@ -43,7 +43,7 @@ namespace Grainflow {
 
     void GrainUpdate(GrainInfo* info, double fm) {
 
-        info->sourceSample = fmod(info->sourceSample + info->playRate*info->sampleRateAdjustment + info->bufferFames * 10, info->bufferFames); //This is hacky but should be okay...
+        info->sourceSample = fmod(info->sourceSample + info->playRate*info->sampleRateAdjustment + info->bufferFrames * 10, info->bufferFrames); //This is hacky but should be okay...
     }
 
     float GetGrainClock(GrainInfo* info, float grainClock) {

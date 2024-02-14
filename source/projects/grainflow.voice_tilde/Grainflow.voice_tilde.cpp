@@ -95,25 +95,58 @@ MIN_ARGUMENT_FUNCTION {
                 //Vector Level operations
                 //                
                 Grainflow::GrainInfo* thisGrain = &grainInfo[g];
-                thisGrain->bufferFames = grainSamples.frame_count();
+                thisGrain->bufferFrames = grainSamples.frame_count();
                 thisGrain->oneOverBufferFrames = 1.0f/grainSamples.frame_count();
                 //Sample Level Operations
-                for (int i = 0; i < output.frame_count(); i++) {
-                    auto thisGrainClock = Grainflow::GetGrainClock(thisGrain, grainClock[i]);
-                    GrainReset(thisGrain, thisGrainClock, traversalPhasor[i]); //It may be possible to do this in a smarter way
-                    Grainflow::GrainUpdate(thisGrain, fm[i]);
-                    auto sample = SampleBuffer(grainSamples, thisGrain->sourceSample);
-                    auto envelope = SampleBuffer(envelopeSamples, thisGrainClock * envelopeSamples.frame_count());
+                int resetSample = -1;
+                
+                for (int v = 0; v < output.frame_count(); v++) {
+
+                        float thisGrainClock = fmod(grainClock[v] + thisGrain->windowOffset,1);                        
+                        bool grainReset = thisGrain->lastGrainClock > thisGrainClock;
+                        thisGrain->lastGrainClock = thisGrainClock;
+
+                        /// Grain Reset
+                        
+                        thisGrain->sourceSample = thisGrain->sourceSample * !grainReset + fmod(traversalPhasor[v] + 10, 1) * grainSamples.frame_count() * grainReset;
+                        auto sourceSample = thisGrain->sourceSample;
+                        thisGrain->sourceSample += fm[v] * thisGrain->sampleRateAdjustment;
+                        //Sample buffer
+                        //* fm[i]));
+                        auto tween = fmod(sourceSample, 1);
+                        auto frame = size_t(sourceSample);
+                        auto sample = grainSamples.lookup(frame, 0) * (1-tween) + grainSamples.lookup((frame + 1), 0)*tween;
+                        
+                        /*
+                        auto z1 = grainSamples.lookup(frame, 0);
+                        auto z2 = grainSamples.lookup(frame + 1 % thisGrain->bufferFames, 0);
+                        auto mu = (1 - cos(fmod(thisGrain->sourceSample,1) * PI)) / 2;
+                        auto sample = (z1 * (1 - mu) + z2 * mu);
+                        */
+
+                        //Sample envelope
+                        auto frame2 = size_t(thisGrainClock * envelopeSamples.frame_count());
+                        auto envelope = envelopeSamples.lookup(frame2, 0);
+                        /*
+                        auto frame2 = size_t(thisGrainClock * envelopeSamples.frame_count());
+                        auto e1 = envelopeSamples.lookup(frame2, 0);
+                        auto e2 = envelopeSamples.lookup((frame2 +1 % envelopeSamples.frame_count()), 0);
+                        auto mu2 = (1 - cos(fmod(thisGrainClock * envelopeSamples.frame_count(), 1) * PI)) / 2;
+                        auto envelope = (e1 * (1 - mu2) + e2 * mu2);
+                        */
+
+
+                        out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - am[v]);
+                        out[g + grainState][v] = grainReset;
+                        out[g + grainProgress][v] = thisGrainClock;
+                        out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
+                        out[g + grainAmp][v] = (1 - am[v]);
+                        out[g + grainEnvelope][v] = envelope;
+                        out[g + grainBufferChannel][v] = 0;
+                        out[g + grainStreamChannel][v] = 0;
                     
-                    out[g + grainOutput][i] = sample * 0.5f * envelope * (1-am[i]);
-                    out[g + grainState][i] = thisGrain->reset ? 1 : 0;
-                    out[g + grainProgress][i] = thisGrainClock;
-                    out[g + grainPlayhead][i] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
-                    out[g + grainAmp][i] = (1 - am[i]);
-                    out[g + grainEnvelope][i] = envelope;
-                    out[g + grainBufferChannel][i] = 0;
-                    out[g + grainStreamChannel][i] = 0;
-                    
+
+                   
                 }
             }
         }
