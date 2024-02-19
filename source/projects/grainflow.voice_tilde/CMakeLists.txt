@@ -4,6 +4,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 set(C74_MIN_API_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../min-api)
+set(CMAKE_OSX_ARCHITECTURES x86_64;arm64)
 include(${C74_MIN_API_DIR}/script/min-pretarget.cmake)
 
 
@@ -37,4 +38,4 @@ include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
 # UNIT TEST
 #############################################################
 
-include(${C74_MIN_API_DIR}/test/min-object-unittest.cmake)
+
