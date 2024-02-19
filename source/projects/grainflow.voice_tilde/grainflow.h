@@ -1,12 +1,15 @@
 #pragma once
-//#include <random>
-//#include <functional>
 
 #include <numeric> 
 #include "c74_min.h"
-
+/// <summary>
+/// Contains enties and functions that modify said entities. This is the 
+/// fastest way to proccess data while also having the ability for it to be organized.
+/// </summary>
 namespace Grainflow {
-
+    /// <summary>
+    /// Avalible parameters using the GfParam struct
+    /// </summary>
     enum GfParamName {
         delay = 0,
         rate,
@@ -15,12 +18,18 @@ namespace Grainflow {
         amplitude, 
         space
     };
+    /// <summary>
+    /// Different paramter types using in the GfParam Struct
+    /// </summary>
     enum GfParamType {
         base = 0,
         random,
         offset,
     };
-
+    /// <summary>
+    /// Parameter entity. When used with GfParamSet() different fields can be set 
+    /// SampleParam() is used to set the value field which is what should be used to read the correct value
+    /// </summary>
     struct GfParam {
         float base = 0;
         float random = 0;
@@ -121,15 +130,6 @@ namespace Grainflow {
         
     }
 
-
-    void GrainUpdate(GrainInfo* info, double fm) {
-
-        info->sourceSample = fmod(info->sourceSample + info->playRate*info->sampleRateAdjustment + info->bufferFrames * 10, info->bufferFrames); //This is hacky but should be okay...
-    }
-
-    float GetGrainClock(GrainInfo* info, float grainClock) {
-        return fmod(grainClock + info->window.value,1);
-    }
 
     void SetSampleRateAdjustment(GrainInfo* info, float gloabalSampleRate, float bufferSampleRate) {
         info->sampleRateAdjustment = bufferSampleRate / gloabalSampleRate;
