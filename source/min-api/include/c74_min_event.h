@@ -27,6 +27,13 @@ namespace c74::min {
                 auto* e = static_cast<event*>( static_cast<void*>(args[0]) );
                 *this = *e;
             }
+            else if (args.size() == 3){
+                // a triplet indicates we are being passed a pointer to an event containing additional mousewheel deltas
+                auto* e = static_cast<event*>( static_cast<void*>(args[0]) );
+                e->m_wheel_delta_x = args[1];
+                e->m_wheel_delta_y = args[2];
+                *this = *e;
+			}
             else if (args.size() != 5) {
                 error("incorrect number of arguments for notification");
             }
@@ -122,6 +129,14 @@ namespace c74::min {
 			return m_pen_tilt_y;   
         }
 
+        auto wheel_delta_x() const {
+            return m_wheel_delta_x;
+        }
+
+        auto wheel_delta_y() const {
+            return m_wheel_delta_y;
+        }
+
     private:
         max::t_object*  m_self;
         ui::target      m_target;
@@ -135,7 +150,8 @@ namespace c74::min {
 		number          m_pen_rotation {};
 		number          m_pen_tilt_x {};
 		number          m_pen_tilt_y {};
-    };
-
+		number          m_wheel_delta_x {};
+		number          m_wheel_delta_y {};
+	};
 
 }    // namespace c74::min

@@ -48,7 +48,7 @@ namespace c74::min {
         auto attr_name() const {
             symbol attribute_name;
             if (is_attr_modified()) {
-                auto retval = c74::max::object_method(m_data, k_sym_getname);
+                auto retval = c74::max::object_method(m_data, static_cast<max::t_symbol*>(k_sym_getname));
                 attribute_name = static_cast<c74::max::t_symbol*>(retval);
             }
             return attribute_name;

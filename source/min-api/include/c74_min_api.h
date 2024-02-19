@@ -34,9 +34,18 @@
 #include "murmur/Murmur3.h"    // used for constexpr hash function
 
 #include "c74_max.h"
+// avoid collision between preprocessor macro from the Max SDK and 
+// Min's definition of c74::max::object_method
+#undef object_method  
+#undef object_new
+
 #include "c74_ui.h"
 #include "c74_ui_graphics.h"
+
 #include "c74_jitter.h"
+// avoid collision with preprocessor macro from the Max SDK
+#undef jit_object_new
+
 #include "c74_msp.h"
 
 using c74::max::t_atom_long;

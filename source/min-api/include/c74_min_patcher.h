@@ -43,7 +43,7 @@ namespace c74::min {
         void instantiate(const symbol a_name, const T1 arg1) {
             if (m_instance && m_own)
                 max::object_free(m_instance);
-            m_instance = (max::t_object*)max::object_new(max::CLASS_NOBOX, a_name, arg1, 0);
+            m_instance = (max::t_object*)max::object_new(max::CLASS_NOBOX, static_cast<max::t_symbol*>(a_name), arg1, 0);
         }
 
 

@@ -523,9 +523,9 @@ namespace c74::min {
         auto           out_matrix = static_cast<max::t_object*>(max::object_method(outputs, max::_jit_sym_getindex, 0));
 
         if (max::object_classname(in_matrix) != max::_jit_sym_jit_matrix)
-            in_matrix = static_cast<max::t_object*>(max::object_method(in_matrix, k_sym_getmatrix));
+            in_matrix = static_cast<max::t_object*>(max::object_method(in_matrix, static_cast<max::t_symbol*>(k_sym_getmatrix)));
         if (max::object_classname(out_matrix) != max::_jit_sym_jit_matrix)
-            out_matrix = static_cast<max::t_object*>(max::object_method(out_matrix, k_sym_getmatrix));
+            out_matrix = static_cast<max::t_object*>(max::object_method(out_matrix, static_cast<max::t_symbol*>(k_sym_getmatrix)));
 
         if (!self || !in_matrix || !out_matrix)
             err = max::JIT_ERR_INVALID_PTR;
@@ -607,7 +607,7 @@ namespace c74::min {
             auto           outputs    = static_cast<max::t_object*>(max::object_method((max::t_object*)mop, max::_jit_sym_getoutputlist));
             max::t_jit_err err        = max::JIT_ERR_NONE;
             auto           out_mop_io = static_cast<max::t_object*>(max::object_method(outputs, max::_jit_sym_getindex, 0));
-            auto           out_matrix = static_cast<max::t_object*>(max::object_method(out_mop_io, k_sym_getmatrix));
+            auto           out_matrix = static_cast<max::t_object*>(max::object_method(out_mop_io, static_cast<max::t_symbol*>(k_sym_getmatrix)));
 
             if (!self || !out_matrix) {
                 err = max::JIT_ERR_INVALID_PTR;

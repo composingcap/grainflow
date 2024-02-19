@@ -946,7 +946,7 @@ namespace c74::min {
 
     template<class T>
     max::t_max_err min_attr_getter(minwrap<T>* self, max::t_object* maxattr, long* ac, max::t_atom** av) {
-        const symbol	attr_name	= static_cast<const max::t_symbol*>(max::object_method(maxattr, k_sym_getname));
+        const symbol	attr_name	= static_cast<const max::t_symbol*>(max::object_method(maxattr, static_cast<max::t_symbol*>(k_sym_getname)));
         auto&	        attr		= self->m_min_object.attributes()[attr_name.c_str()];
         atoms	        rvals		= *attr;
 
@@ -971,7 +971,7 @@ namespace c74::min {
 
     template<class T>
     max::t_max_err min_attr_setter(minwrap<T>* self, max::t_object* maxattr, const long ac, const max::t_atom* av) {
-		const symbol attr_name { static_cast<const max::t_symbol*>(max::object_method(maxattr, k_sym_getname)) };
+		const symbol attr_name { static_cast<const max::t_symbol*>(max::object_method(maxattr, static_cast<max::t_symbol*>(k_sym_getname))) };
 		auto         attr      { self->m_min_object.attributes()[attr_name.c_str()] };
 
         if (attr) {

@@ -236,6 +236,24 @@ namespace c74::min {
         meth(as);
     }
 
+    template<class min_class_type, class message_name_type>
+    void wrapper_method_mousewheel(max::t_object *o, max::t_object *a_patcherview, max::t_pt position, long modifiers, double delta_x, double delta_y) {
+        auto  self = wrapper_find_self<min_class_type>(o);
+        auto& meth = *self->m_min_object.messages()[message_name_type::name];
+        max::t_mouseevent an_event {};
+        
+        an_event.type = max::eMouseEvent;
+        an_event.index = 0; // zero-based or one based ???
+        an_event.position = position;
+        an_event.modifiers = static_cast<max::t_modifiers>(modifiers);
+        
+        event e { o, a_patcherview, an_event };
+        atom deltaX { delta_x };
+        atom deltaY { delta_y };
+        atoms as { e, deltaX, deltaY };
+        meth(as);
+    }
+
 
     template<class min_class_type, class message_name_type>
     void wrapper_method_multitouch(max::t_object* o, max::t_object* a_patcherview, const max::t_mouseevent* an_event) {
@@ -471,6 +489,7 @@ namespace c74::min {
     MIN_WRAPPER_CREATE_TYPE_FROM_STRING(mt_mousedrag)
     MIN_WRAPPER_CREATE_TYPE_FROM_STRING(mousedragdelta)
     MIN_WRAPPER_CREATE_TYPE_FROM_STRING(mousedoubleclick)
+    MIN_WRAPPER_CREATE_TYPE_FROM_STRING(mousewheel)
     MIN_WRAPPER_CREATE_TYPE_FROM_STRING(notify)
     MIN_WRAPPER_CREATE_TYPE_FROM_STRING(okclose)
     MIN_WRAPPER_CREATE_TYPE_FROM_STRING(oksize)
@@ -549,13 +568,16 @@ namespace c74::min {
             else if (a_message.first == "maxclass_setup");          // for min class construction only, do not add for exposure to max
             else if (a_message.first == "savestate")
                 max::class_addmethod(c, reinterpret_cast<max::method>(wrapper_method_savestate<min_class_type>), "appendtodictionary", max::A_CANT, 0);
+            else if (a_message.first == "mousewheel")
+                max::class_addmethod(c, reinterpret_cast<max::method>(wrapper_method_mousewheel<min_class_type, wrapper_message_name_mousewheel>), "mousewheel", max::A_CANT, 0);
+
             else {
-              if (a_message.second->type() == max::A_GIMMEBACK) {
-                max::class_addmethod(c, reinterpret_cast<method>(wrapper_method_generic_typed<min_class_type>),
-                    a_message.first.c_str(), a_message.second->type(), 0);
-              }
-              else {
-                max::class_addmethod(c, reinterpret_cast<method>(wrapper_method_generic<min_class_type>),
+                if (a_message.second->type() == max::A_GIMMEBACK) {
+                    max::class_addmethod(c, reinterpret_cast<method>(wrapper_method_generic_typed<min_class_type>),
+                        a_message.first.c_str(), a_message.second->type(), 0);
+                }
+                else {
+                    max::class_addmethod(c, reinterpret_cast<method>(wrapper_method_generic<min_class_type>),
                         a_message.first.c_str(), a_message.second->type(), 0);
                 }
             }
@@ -842,6 +864,8 @@ namespace c74::min {
             else if (a_message.first == "mop_setup");         // for min class construction only, do not add for exposure to max
             else if (a_message.first == "maxob_setup");       // for min class construction only, do not add for exposure to max
             else if (a_message.first == "setup");             // for min class construction only, do not add for exposure to max
+            else if (a_message.first == "mousewheel")
+                max::class_addmethod(c, reinterpret_cast<max::method>(wrapper_method_mousewheel<min_class_type, wrapper_message_name_mousewheel>), "mousewheel", max::A_CANT, 0);
             else {
                 if (a_message.second->type() == max::A_GIMMEBACK) {
                     // add handlers for gimmeback messages, allowing for return values in JS and max wrapper dumpout
