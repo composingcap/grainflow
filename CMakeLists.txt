@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
 project(Min-DevKit)
-
+set(CMAKE_OSX_ARCHITECTURES x86_64;arm64)
 enable_testing()
 
 string(REGEX REPLACE "(.*)/" "" THIS_PACKAGE_NAME "${CMAKE_CURRENT_SOURCE_DIR}")
