@@ -78,10 +78,10 @@ MIN_ARGUMENT_FUNCTION {
         auto out = output.samples();
 
         //These varible indicate the starting indices of each mc parameter
-        int grainClock = 0;
-        int traversalPhasor = input_chans[0];
-        int fm = traversalPhasor + input_chans[1];
-        int am = fm + input_chans[2];
+        int grainClockCh = 0;
+        int traversalPhasorCh = input_chans[0];
+        int fmCh = traversalPhasorCh + input_chans[1];
+        int amCh = fmCh + input_chans[2];
 
         const int grainOutput = 0;
         const int grainState = 1 * maxGrains;
@@ -115,14 +115,19 @@ MIN_ARGUMENT_FUNCTION {
                 //Sample Level Operations
                 int resetSample = -1;
 
+                int grainClock = grainClockCh + (g % input_chans[0]);
+                int traversalPhasor = traversalPhasorCh + (g % input_chans[1]);
+                int fm = fmCh + (g % input_chans[2]);
+                int am = amCh + (g % input_chans[3]);
+
                 for (int i = 0; i < output.frame_count(); i += 16) {
                     for (int j = 0; j < 16; j++) {
                         int v = i + j;
                        
-                        float thisGrainClock = fmod(in[grainClock+ (g % input_chans[0])][v] + thisGrain->window.value, 1);
-                        float thisTraversalPhasor = in[traversalPhasor + (g % input_chans[1])][v];
-                        float thisFm = in[fm + (g%input_chans[2])][v];
-                        float thisAm = in[am + (g % input_chans[3])][v];
+                        float thisGrainClock = fmod(in[grainClock][v] + thisGrain->window.value, 1);
+                        float thisTraversalPhasor = in[traversalPhasor][v];
+                        float thisFm = in[fm][v];
+                        float thisAm = in[am][v];
                         auto grainReset = GrainReset(thisGrain, thisGrainClock, thisTraversalPhasor, g);
                         thisGrain->lastGrainClock = thisGrainClock;
 
