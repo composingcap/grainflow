@@ -282,7 +282,7 @@ MIN_ARGUMENT_FUNCTION {
 
         message<> ngrains{ this,"ngrains", "",
             MIN_FUNCTION {
-                _ngrains = (int)args[0] <= maxGrains ? args[0] : maxGrains;
+                _ngrains = (int)(args[0]) <= maxGrains ? args[0] : maxGrains;
                 gainAdjustment = _ngrains > 0 ? 1 / _ngrains : 0;
                 return{};
                 }};
