@@ -5622,7 +5622,7 @@
 					"numoutlets" : 10,
 					"outlettype" : [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "", "" ],
 					"patching_rect" : [ 50.833333333333371, 486.0, 320.0, 22.0 ],
-					"text" : "mc.poly~ _grainflow.poly #2 @target 0 @parallel 1 @replicate 1"
+					"text" : "mc.poly~ _grainflow.poly #2 @target 0 @parallel 0 @replicate 1"
 				}
 
 			}
@@ -5634,7 +5634,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 55.333333333333371, 69.0, 30.0, 30.0 ]
 				}
 
@@ -5647,7 +5647,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 157.500000000000057, 422.0, 30.0, 30.0 ],
 					"varname" : "traversal"
 				}

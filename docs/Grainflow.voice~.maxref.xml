@@ -46,6 +46,56 @@
 			<description>Choose a named buffer~ from which to read. </description>
 		</method>
 
+		<method name='rate'>
+			<digest>turns grainflow on and off </digest>
+			<description>turns grainflow on and off </description>
+		</method>
+
+		<method name='rateOffset'>
+			<digest>turns grainflow on and off </digest>
+			<description>turns grainflow on and off </description>
+		</method>
+
+		<method name='rateRandom'>
+			<digest>turns grainflow on and off </digest>
+			<description>turns grainflow on and off </description>
+		</method>
+
+		<method name='delay'>
+			<digest>turns grainflow on and off </digest>
+			<description>turns grainflow on and off </description>
+		</method>
+
+		<method name='delayRandom'>
+			<digest>turns grainflow on and off </digest>
+			<description>turns grainflow on and off </description>
+		</method>
+
+		<method name='g'>
+			<digest>sends a message to a single grain </digest>
+			<description>sends a message to a single grain </description>
+		</method>
+
+		<method name='wiindow'>
+			<digest>sets the position of the window </digest>
+			<description>sets the position of the window </description>
+		</method>
+
+		<method name='windowRandom'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='windowOffset'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='ngrains'>
+			<digest></digest>
+			<description></description>
+		</method>
+
 	</methodlist>
 
 
@@ -69,9 +119,6 @@
 	<!--RELATED-->
 
 	<seealsolist>
-		<seealso name='print' />
-		<seealso name='jit.print' />
-		<seealso name='dict.print' />
 	</seealsolist>
 
 
