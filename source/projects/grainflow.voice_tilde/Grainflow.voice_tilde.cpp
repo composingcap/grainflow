@@ -5,15 +5,17 @@
 /// 
 
 #include "grainflow.h"
+#include <algorithm>
 
 using namespace c74::min;
 
 
 long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
+long simplemc_inputchanged(c74::max::t_object* x, long index, long count);
 void ProccessGrains(audio_bundle& input, audio_bundle& output, const int subloopSize, const int maxGrains);
 void GrainMessage(float value, Grainflow::GfParamName param, Grainflow::GfParamType type);
 
-class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public vector_operator<> {
+class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<> {
 
 public:  
 
@@ -22,10 +24,10 @@ public:
     MIN_AUTHOR{ "Christopher Poovey" };
     MIN_RELATED{ "" };
 
-    inlet<>  grainClock{ this,  "(signal) phasor input", "signal" };
-    inlet<>  traversalPhasor{ this,  "(signal) where the grain should be sampled from the buffer", "signal" };
-    inlet<>  fm{ this,  "(signal) grain playback rate", "signal" };
-    inlet<>  am{ this,  "(signal) amplitude modulation", "signal" };
+    inlet<>  grainClock{ this,  "(multichannelsignal) phasor input", "multichannelsignal" };
+    inlet<>  traversalPhasor{ this,  "(multichannelsignal) where the grain should be sampled from the buffer", "multichannelsignal" };
+    inlet<>  fm{ this,  "(multichannelsignal) grain playback rate", "multichannelsignal" };
+    inlet<>  am{ this,  "(multichannelsignal) amplitude modulation", "multichannelsignal" };
 
     outlet<> output{ this, "(multichannel) grain output", "multichannelsignal" };
 
@@ -68,11 +70,18 @@ MIN_ARGUMENT_FUNCTION {
 
     void operator()(audio_bundle input, audio_bundle output) {
 
-        auto grainClock = input.samples(0);
-        auto traversalPhasor = input.samples(1);
-        auto fm = input.samples(2);
-        auto am = input.samples(3);
+        //auto grainClock = input.samples(0);
+        //auto traversalPhasor = input.samples(1);
+        //auto fm = input.samples(2);
+        //auto am = input.samples(3);
+        auto in = input.samples();
         auto out = output.samples();
+
+        //These varible indicate the starting indices of each mc parameter
+        int grainClock = 0;
+        int traversalPhasor = input_chans[0];
+        int fm = traversalPhasor + input_chans[1];
+        int am = fm + input_chans[2];
 
         const int grainOutput = 0;
         const int grainState = 1 * maxGrains;
@@ -109,8 +118,12 @@ MIN_ARGUMENT_FUNCTION {
                 for (int i = 0; i < output.frame_count(); i += 16) {
                     for (int j = 0; j < 16; j++) {
                         int v = i + j;
-                        float thisGrainClock = fmod(grainClock[v] + thisGrain->window.value, 1);                      
-                        auto grainReset = GrainReset(thisGrain, thisGrainClock, traversalPhasor[v], g);
+                       
+                        float thisGrainClock = fmod(in[grainClock+ (g % input_chans[0])][v] + thisGrain->window.value, 1);
+                        float thisTraversalPhasor = in[traversalPhasor + (g % input_chans[1])][v];
+                        float thisFm = in[fm + (g%input_chans[2])][v];
+                        float thisAm = in[am + (g % input_chans[3])][v];
+                        auto grainReset = GrainReset(thisGrain, thisGrainClock, thisTraversalPhasor, g);
                         thisGrain->lastGrainClock = thisGrainClock;
 
 
@@ -126,16 +139,16 @@ MIN_ARGUMENT_FUNCTION {
 
 
 
-                        out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - am[v]);
+                        out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm);
                         out[g + grainState][v] = grainReset;
                         out[g + grainProgress][v] = thisGrainClock;
                         out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
-                        out[g + grainAmp][v] = (1 - am[v]);
+                        out[g + grainAmp][v] = (1 - thisAm);
                         out[g + grainEnvelope][v] = envelope;
                         out[g + grainBufferChannel][v] = 0;
                         out[g + grainStreamChannel][v] = 0;
 
-                        thisGrain->sourceSample += fm[v] * thisGrain->sampleRateAdjustment * thisGrain->rate.value;
+                        thisGrain->sourceSample += thisFm * thisGrain->sampleRateAdjustment * thisGrain->rate.value;
                     }
                 }
             }
@@ -195,6 +208,8 @@ MIN_ARGUMENT_FUNCTION {
         MIN_FUNCTION {
             c74::max::t_class * c = args[0];
             c74::max::class_addmethod(c, (c74::max::method)simplemc_multichanneloutputs, "multichanneloutputs", c74::max::A_CANT, 0);
+            c74::max::class_addmethod(c, (c74::max::method)simplemc_inputchanged,
+                "inputchanged", c74::max::A_CANT, 0);
             return {};
             }
         };
@@ -310,16 +325,19 @@ MIN_ARGUMENT_FUNCTION {
     }}
     };
 
-    using vector_operator::operator();
+    //using vector_operator::operator();
+    //using mc_operator::operator();
     int GetMaxGrains() {
         return maxGrains;
     }
+    int input_chans[4];
+    int maxGrains = 0;
 private:
     int _ngrains = 0;
     float gainAdjustment = 1;
     int dspSamplerate = 441000;
     float oneOverSamplerate = 1;
-    int maxGrains = 0;
+
     int _target = 0;
 
     };
@@ -332,4 +350,11 @@ MIN_EXTERNAL(grainflow_voice_tilde);
 long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count) {
     minwrap<grainflow_voice_tilde>* ob = (minwrap<grainflow_voice_tilde>*)(x);
     return ob->m_min_object.GetMaxGrains();
+}
+
+long simplemc_inputchanged(c74::max::t_object* x, long index, long count) {
+    minwrap<grainflow_voice_tilde>* ob = (minwrap<grainflow_voice_tilde> *)(x);
+    auto chan_number = ob->m_min_object.GetMaxGrains();
+    ob->m_min_object.input_chans[index] = count > 0 ? count: 1;
+    return false;
 }
