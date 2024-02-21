@@ -232,7 +232,7 @@ function speaker(){
 	var args = arrayfromargs(arguments);
 
 	if (outPos == undefined) outPos = new Dict();
-	outPos.set(args[1], args.slice(1,4));
+	outPos.set(args[0], args.slice(1,4));
 	}
 
 function drawLoop(){
