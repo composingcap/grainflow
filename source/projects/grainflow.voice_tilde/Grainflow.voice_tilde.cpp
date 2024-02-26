@@ -1,6 +1,6 @@
 /// @file
-///	@ingroup 	minexamples
-///	@copyright	Copyright 2018 The Min-DevKit Authors. All rights reserved.
+///	@ingroup 	grainflow
+///	@copyright	Copyright 2024 Christopher Poovey
 ///	@license	Use of this source code is governed by the MIT License found in the License.md file.
 /// 
 
@@ -24,6 +24,15 @@ public:
 	MIN_AUTHOR{ "Christopher Poovey" };
 	MIN_RELATED{ "" };
 
+	~grainflow_voice_tilde() {
+		for (int g = 0; g < maxGrains; g++) {
+			//delete (buffer_reference*)(grainInfo[g].bufferRef); //must explicitly delete int* members
+		}
+		delete[] grainInfo;
+	}
+	Grainflow::GrainInfo* grainInfo = nullptr;
+	string bufferArg;
+
 #pragma region MAX_IO
 	inlet<>  grainClock{ this,  "(multichannelsignal) phasor input", "multichannelsignal" };
 	inlet<>  traversalPhasor{ this,  "(multichannelsignal) where the grain should be sampled from the buffer", "multichannelsignal" };
@@ -39,27 +48,10 @@ public:
 	outlet<> channel{ this, "(multichannel) channel", "multichannelsignal" };
 	outlet<> stream{ this, "(multichannel) stream", "multichannelsignal" };
 #pragma endregion
-
-	buffer_reference envelopeBuffer{ this };
-	Grainflow::GrainInfo* grainInfo = nullptr;
-
-	string bufferArg;
-
-
-
-	~grainflow_voice_tilde() {
-		for (int g = 0; g < maxGrains; g++) {
-			//delete (buffer_reference*)(grainInfo[g].bufferRef); //must explicitly delete int* members
-		}
-		delete[] grainInfo;
-	}
+#pragma region DSP
 
 	void operator()(audio_bundle input, audio_bundle output) {
 
-		//auto grainClock = input.samples(0);
-		//auto traversalPhasor = input.samples(1);
-		//auto fm = input.samples(2);
-		//auto am = input.samples(3);
 		auto in = input.samples();
 		auto out = output.samples();
 
@@ -179,31 +171,7 @@ public:
 		return grainReset;
 	}
 
-	/// <summary>
-	/// Helper to make targeting grains easier
-	/// </summary>
-	/// <param name="value"></param>
-	/// <param name="param"></param>
-	/// <param name="type"></param>
-	void GrainMessage(float value, Grainflow::GfParamName param, Grainflow::GfParamType type) {
-
-		if (_streamTarget > 0) {
-			for (int g = 0; g < maxGrains; g++) {
-				if (grainInfo[g].stream != _streamTarget) continue;
-				Grainflow::GfParamSet(value, grainInfo[g], param, type);
-			}
-			return;
-		}
-
-		if (_target > 0) {
-			if (_target >= maxGrains) return;
-			Grainflow::GfParamSet(value, grainInfo[_target-1], param, type);
-			return;
-		}
-		for (int g = 0; g < maxGrains; g++) {
-			Grainflow::GfParamSet(value, grainInfo[g], param, type);
-		}
-	};
+#pragma endregion
 
 #pragma region MAX_ARGS
 	argument<symbol> buffer{ this, "buf", "Buffer~ from which to read.",
@@ -231,6 +199,32 @@ MIN_ARGUMENT_FUNCTION {
 
 #pragma region MAX_MESSAGES
 
+	/// <summary>
+	/// Helper to make targeting grains easier
+	/// </summary>
+	/// <param name="value"></param>
+	/// <param name="param"></param>
+	/// <param name="type"></param>
+	void GrainMessage(float value, Grainflow::GfParamName param, Grainflow::GfParamType type) {
+
+		if (_streamTarget > 0) {
+			for (int g = 0; g < maxGrains; g++) {
+				if (grainInfo[g].stream != _streamTarget) continue;
+				Grainflow::GfParamSet(value, grainInfo[g], param, type);
+			}
+			return;
+		}
+
+		if (_target > 0) {
+			if (_target >= maxGrains) return;
+			Grainflow::GfParamSet(value, grainInfo[_target - 1], param, type);
+			return;
+		}
+		for (int g = 0; g < maxGrains; g++) {
+			Grainflow::GfParamSet(value, grainInfo[g], param, type);
+		}
+	};
+
 	//Setup functions 
 	message<> maxclass_setup{ this, "maxclass_setup",
 	MIN_FUNCTION {
@@ -243,14 +237,12 @@ MIN_ARGUMENT_FUNCTION {
 	};
 
 	message<> dspsetup{ this, "dspsetup",
-	MIN_FUNCTION {
-		dspSamplerate = args[0];
-		oneOverSamplerate = 1 / dspSamplerate;
+	MIN_FUNCTION {		
+		oneOverSamplerate = 1 / samplerate();
 			for (int g = 0; g < _ngrains; g++) {
 				buffer_lock<>	grainSamples(*(buffer_reference*)(grainInfo[g].bufferRef));
 				if (!grainSamples.valid()) continue;
-				//Grainflow::AssignAutoOverlap(&grainInfo[g], _ngrains, g); //This  is now handled through window offset
-				Grainflow::SetSampleRateAdjustment(&grainInfo[g], dspSamplerate, grainSamples.samplerate());
+				Grainflow::SetSampleRateAdjustment(&grainInfo[g], samplerate(), grainSamples.samplerate());
 		}
 
 		return {};
@@ -260,56 +252,95 @@ MIN_ARGUMENT_FUNCTION {
 	//Grainflow Messages 
 
 	//Rate
-	message<> rate{ this, "rate", "turns grainflow on and off",
+	message<> rate{ this, "rate", "how fast a grain plays in relation to its normal playback rate",
 	MIN_FUNCTION {
 			GrainMessage(args[0], Grainflow::rate, Grainflow::base);
 			return{};
 	} };
-	message<> rateRandom{ this, "rateRandom", "turns grainflow on and off",
+	message<> rateRandom{ this, "rateRandom", "randomization depth for the rate parameter",
 	MIN_FUNCTION {
 		GrainMessage(args[0], Grainflow::rate, Grainflow::random);
 	return{};
 	} };
-	message<> rateOffset{ this, "rateOffset", "turns grainflow on and off",
+	message<> rateOffset{ this, "rateOffset", "the amount rate to apply rate based on grain index",
 	MIN_FUNCTION {
 		GrainMessage(args[0], Grainflow::rate, Grainflow::offset);
 	return{};
 	} };
 
+	message<> transpose{ this, "transpose", "control rate in semitones",
+		MIN_FUNCTION{
+			GrainMessage(Grainflow::PitchToRate((float)args[0]), Grainflow::rate, Grainflow::base);
+			return{};
+			}
+	};
+	message<> transposeRandom{ this, "transposeRandom", "randomization depth for the the transpose parameter",
+		MIN_FUNCTION{
+			GrainMessage(Grainflow::PitchToRate((float)args[0]), Grainflow::rate, Grainflow::random);
+			return{};
+			}
+	};
+	message<> transposeOffset{ this, "transposeOffset", "the amount of transposition to apply rate based on grain index",
+	MIN_FUNCTION{
+		GrainMessage(Grainflow::PitchToRate((float)args[0]), Grainflow::rate, Grainflow::offset);
+		return{};
+		}
+	};
+
 	//glisson
-	message<> glisson{ this, "glisson", "turns grainflow on and off",
+	message<> glisson{ this, "glisson", "how much the pitch will change over the life of the grain based on rate",
 	MIN_FUNCTION {
 			GrainMessage(args[0], Grainflow::glisson, Grainflow::base);
 			return{};
 	} };
-	message<> glissonRandom{ this, "glissonRandom", "turns grainflow on and off",
+	message<> glissonRandom{ this, "glissonRandom", "",
 	MIN_FUNCTION {
 		GrainMessage(args[0], Grainflow::glisson, Grainflow::random);
 	return{};
 	} };
-	message<> glissonOffset{ this, "glissonOffset", "turns grainflow on and off",
+	message<> glissonOffset{ this, "glissonOffset", "",
 	MIN_FUNCTION {
 		GrainMessage(args[0], Grainflow::glisson, Grainflow::offset);
 	return{};
 	} };
 
+	message<> glissonSt{ this, "glissonSt", "controls glisson in semitones",
+	MIN_FUNCTION{
+		GrainMessage(Grainflow::PitchToRate((float)args[0])-1, Grainflow::glisson, Grainflow::base);
+		return{};
+		}
+	};
+	message<> glissonStRandom{ this, "glissonStRandom", "",
+		MIN_FUNCTION{
+			GrainMessage(Grainflow::PitchToRate((float)args[0])-1, Grainflow::glisson, Grainflow::random);
+			return{};
+			}
+	};
+	message<> glissonStOffset{ this, "glissonStOffset", "",
+	MIN_FUNCTION{
+		GrainMessage(Grainflow::PitchToRate((float)args[0])-1, Grainflow::glisson, Grainflow::offset);
+		return{};
+		}
+	};
+
+
 	//delay
-	message<> delay{ this, "delay", "turns grainflow on and off",
+	message<> delay{ this, "delay", "the amound grains are delayed in ms",
 	MIN_FUNCTION {
-		auto value = (float)args[0] * 0.001f * dspSamplerate;
+		auto value = (float)args[0] * 0.001f * samplerate();
 		GrainMessage(value, Grainflow::delay, Grainflow::base);
 		return{};
 	} };
-	message<> delayRandom{ this, "delayRandom", "turns grainflow on and off",
+	message<> delayRandom{ this, "delayRandom", "",
 	MIN_FUNCTION {
-			auto value = (float)args[0] * 0.001f * dspSamplerate;
+			auto value = (float)args[0] * 0.001f * samplerate();
 			GrainMessage(value, Grainflow::delay, Grainflow::random);
 
 	return{};
 	} };
-	message<> delayOffset{ this, "delayOffset", "turns grainflow on and off",
+	message<> delayOffset{ this, "delayOffset", "",
 	MIN_FUNCTION {
-			auto value = (float)args[0] * 0.001f * dspSamplerate;
+			auto value = (float)args[0] * 0.001f * samplerate();
 			GrainMessage(value, Grainflow::delay, Grainflow::offset);
 
 	return{};
@@ -347,7 +378,7 @@ return{};
 	} };
 
 	//Space
-	message<> space{ this, "space", "sets the position of the window",
+	message<> space{ this, "space", "the amound of emty space at the end of each grains as a ratio of the total grain size",
 	MIN_FUNCTION {
 			GrainMessage(args[0], Grainflow::space, Grainflow::base);
 			return{};
@@ -371,8 +402,8 @@ return{};
 			Grainflow::GfStreamSetType mode = Grainflow::automaticStreams;
 			if (modestr == "per")  mode = Grainflow::perStreams;
 			if (modestr == "random") mode = Grainflow::randomStreams;
-			int nstreams = args[1];
-			Grainflow::StreamSet(grainInfo, maxGrains, mode, nstreams);	
+			_nstreams = args[1];
+			Grainflow::StreamSet(grainInfo, maxGrains, mode, _nstreams);
 			return{};
 	} };
 
@@ -387,7 +418,7 @@ return{};
 
 	//State
 
-	message<> density{ this, "density", "",
+	message<> density{ this, "density", "the probability a grain will play",
 	MIN_FUNCTION {
 		if (_target > 0) {
 				grainInfo[_target - 1].density = args[0];
@@ -399,14 +430,14 @@ return{};
 		return{};
 		} };
 
-	message<> ngrains{ this,"ngrains", "",
+	message<> ngrains{ this,"ngrains", "the number of active grains",
 		MIN_FUNCTION {
 			_ngrains = (int)(args[0]) <= maxGrains ? (int)(args[0]) : maxGrains;
 			gainAdjustment = _ngrains > 0 ? 1 / _ngrains : 0;
 			return{};
 			} };
 
-	message<> env{ this, "env","",
+	message<> env{ this, "env","sets the envelope buffer",
 		MIN_FUNCTION {
 			string bname = args[0];
 			if (bname.empty()) return{};
@@ -420,18 +451,25 @@ return{};
 return{};
 } };
 
-	message<> buf{ this, "buf","",
+	message<> buf{ this, "buf","sets the granulation buffer",
 		MIN_FUNCTION {
 			string bname = args[0];
 			if (bname.empty()) return{};
 
 			if (_target > 0) {
-				((buffer_reference*)(grainInfo[_target-1].bufferRef))->set(bname);
+				auto buf = ((buffer_reference*)(grainInfo[_target - 1].bufferRef));
+				buf->set(bname);
+				buffer_lock<>	grainSamples(*buf);
+				if (!grainSamples.valid()) return{};
+				//Grainflow::SetSampleRateAdjustment(&grainInfo[_target - 1], samplerate(), grainSamples.samplerate());
 				return{};
 			}
 			for (int g = 0; g < maxGrains; g++) {
-
-				((buffer_reference*)(grainInfo[g].bufferRef))->set(bname); //To access ir must be converted to the correct type
+				auto buf = ((buffer_reference*)(grainInfo[g].bufferRef)); //To access ir must be converted to the correct type
+				buf->set(bname);
+				buffer_lock<>	grainSamples(*buf);
+				if (!grainSamples.valid()) continue;
+				//Grainflow::SetSampleRateAdjustment(&grainInfo[g], samplerate(), grainSamples.samplerate());
 			}
 			return{};
 		} };
@@ -440,6 +478,45 @@ return{};
 	MIN_FUNCTION {
 		return{};
 	} };
+
+	message<> streamDeviate{ this, "streamDeviate", "will deviate any parameter based on streams",
+		MIN_FUNCTION{
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			_streamTarget = 0;
+			for (int s = 0; s < _nstreams; s++) {
+				value = Grainflow::Deviate(args[1], args[2]);
+				for (int g = 0; g < maxGrains; g++) {
+					if (grainInfo[g].stream != s) continue;
+					_target = g;
+					this->try_call(args[0], value);					
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			return{};
+			}
+	};
+
+	message<> streamSpread{ this, "streamSpread", "will create evenly spaced values between each number based on streams",
+	MIN_FUNCTION{
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			_streamTarget = 0;
+			for (int s = 0; s < _nstreams; s++) {
+				value = Grainflow::Lerp(args[1], args[2], (float)s/_nstreams);
+				for (int g = 0; g < maxGrains; g++) {
+					if (grainInfo[g].stream != s) continue;
+					_target = g;
+					this->try_call(args[0], value);
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			return{};
+			}};
 
 #pragma endregion
 #pragma region MAX_ATTR
@@ -475,11 +552,11 @@ return{};
 private:
 	int _ngrains = 0;
 	float gainAdjustment = 1;
-	int dspSamplerate = 441000;
 	float oneOverSamplerate = 1;
 
 	int _target = 0;
 	int _streamTarget = 0;
+	int _nstreams = 0;
 
 };
 

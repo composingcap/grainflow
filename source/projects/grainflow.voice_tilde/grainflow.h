@@ -121,6 +121,13 @@ namespace Grainflow {
 
     }
   
+    float Deviate(float center, float range) {
+        return center + ((rand() % 10000) * 0.0001f - 1) * 2 * range;
+    }
+
+    float Lerp(float lower, float upper, float position) {
+        return lower * (1 - position) + upper * position; 
+    }
 
     void SampleParam(GfParam& param, int index) {
         param.value = abs((rand() % 10000) * 0.0001f) * (param.random)+param.base + param.offset * index;
@@ -170,6 +177,9 @@ namespace Grainflow {
         info->grainEnabled = info->density >= (rand() % 10000) * 0.0001f;
     }
 
+    float PitchToRate(float pitch) {
+        return pow(2, pitch / 12);
+    }
 
     void SetSampleRateAdjustment(GrainInfo* info, float gloabalSampleRate, float bufferSampleRate) {
         info->sampleRateAdjustment = bufferSampleRate / gloabalSampleRate;
