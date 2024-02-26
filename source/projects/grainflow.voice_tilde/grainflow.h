@@ -1,7 +1,6 @@
 #pragma once
+#include <numeric>
 
-#include <numeric> 
-#include "c74_min.h"
 /// <summary>
 /// Contains enties and functions that modify said entities. This is the 
 /// fastest way to proccess data while also having the ability for it to be organized.
@@ -16,7 +15,7 @@ namespace Grainflow {
         glisson,
         window,
         amplitude, 
-        space
+        space,
     };
     /// <summary>
     /// Different paramter types using in the GfParam Struct
@@ -25,6 +24,12 @@ namespace Grainflow {
         base = 0,
         random,
         offset,
+    };
+
+    enum GfStreamSetType {
+        automaticStreams = 0, 
+        perStreams,
+        randomStreams,
     };
     /// <summary>
     /// Parameter entity. When used with GfParamSet() different fields can be set 
@@ -40,14 +45,18 @@ namespace Grainflow {
     class GrainInfo {
 
     public:
-        float sourceSample = 0;
-        float playRate = 1;
+        double sourceSample = 0;
+        double playRate = 1;
         int bufferFrames = 0;      
         bool reset = false;
         float lastGrainClock = -999;
-        float sampleRateAdjustment = 1;
+        double sampleRateAdjustment = 1;
         float sourcePositionNorm = 0;
         float oneOverBufferFrames= 1;
+        float density = 1;
+        bool grainEnabled = true;
+
+
 
         GfParam delay;
         GfParam window;
@@ -56,6 +65,11 @@ namespace Grainflow {
         GfParam amplitude; 
         GfParam rate;
         GfParam glisson;
+
+        int* bufferRef = nullptr;
+        int* envelopeRef = nullptr;
+        size_t stream = 0;
+        size_t bchan = 0;
         
 
 
@@ -83,6 +97,9 @@ namespace Grainflow {
         case(glisson):
             selectedParam = &grain.glisson;
             break;
+        case(space):
+            selectedParam = &grain.space;
+            break;
         default:
             throw("param does not exist");
             return;
@@ -106,7 +123,7 @@ namespace Grainflow {
   
 
     void SampleParam(GfParam& param, int index) {
-        param. value = abs((rand() % 1000000) * 0.00001f) * (param.random)+param.base + param.offset * index;
+        param.value = abs((rand() % 10000) * 0.0001f) * (param.random)+param.base + param.offset * index;
     }
 
     void AssignAutoOverlap(GrainInfo* info, int ngrains, int index) {
@@ -125,15 +142,46 @@ namespace Grainflow {
         info->sourceSample = traversal*info->bufferFrames;
         info->playRate = 1; 
         info->lastGrainClock = grainClock;
-        info->reset = true;
+        info->reset = true;        
+    }
 
-        
+    void StreamSet(GrainInfo* grains, int maxGrains, GfStreamSetType mode, int nstreams) {
+        for (int g = 0; g < maxGrains; g++) {
+            switch (mode) {
+            case(automaticStreams):
+                grains[g].stream = g % nstreams;
+                break;
+            case(perStreams):
+                for (int g = 0; g < maxGrains; g++) {
+                    grains[g].stream = g / nstreams;
+                }
+                break;
+            case(randomStreams):
+                for (int g = 0; g < maxGrains; g++) {
+                    grains[g].stream = rand() % nstreams;
+                }
+                break;
+            }
+        }
+    };
+
+
+    void SampleDensity(GrainInfo* info) {
+        info->grainEnabled = info->density >= (rand() % 10000) * 0.0001f;
     }
 
 
     void SetSampleRateAdjustment(GrainInfo* info, float gloabalSampleRate, float bufferSampleRate) {
         info->sampleRateAdjustment = bufferSampleRate / gloabalSampleRate;
     }
+
+    void Increment(GrainInfo* info, float fm, float grainClock) {
+
+        info->sourceSample = fmod(info->sourceSample + fm * info->sampleRateAdjustment * info->rate.value * ( 1+ info->glisson.value * grainClock), info->bufferFrames);
+        info->lastGrainClock = grainClock;
+    }
+
+
 
 
 
