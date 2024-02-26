@@ -12,7 +12,6 @@ using namespace c74::min;
 
 long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
 long simplemc_inputchanged(c74::max::t_object* x, long index, long count);
-void ProccessGrains(audio_bundle& input, audio_bundle& output, const int subloopSize, const int maxGrains);
 void GrainMessage(float value, Grainflow::GfParamName param, Grainflow::GfParamType type);
 
 class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<> {
@@ -520,29 +519,8 @@ return{};
 
 #pragma endregion
 #pragma region MAX_ATTR
+	//Attributes go here
 #pragma endregion
-
-
-#if 0
-	// UNUSED FUNCTIONS
-	float SampleBuffer(buffer_lock<> buffer, float samplePosition) {
-		auto frame = size_t(samplePosition);
-		auto sample = buffer.lookup(frame, 0);
-		auto nextSample = buffer.lookup((frame + 1) % buffer.frame_count(), 0);
-		float tween = fmod(samplePosition, 1);
-		//TODO: Interpolate      
-		return CosineInterp(sample, nextSample, tween);
-
-	}
-	/// <summary>
-	/// Two point cosine interpolation
-	/// https://paulbourke.net/miscellaneous/interpolation/ 
-	/// </summary>
-	float CosineInterp(float y1, float y2, float mu) {
-		float mu2 = (1 - cos(mu * PI)) / 2;
-		return(y1 * (1 - mu2) + y2 * mu2);
-	}
-#endif
 
 	int GetMaxGrains() {
 		return maxGrains;
