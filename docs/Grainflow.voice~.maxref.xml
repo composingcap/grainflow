@@ -51,6 +51,11 @@
 			<description>randomization depth for the the transpose parameter </description>
 		</method>
 
+		<method name='rateMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
 		<method name='transpose'>
 			<digest>control rate in semitones </digest>
 			<description>control rate in semitones </description>
@@ -141,9 +146,19 @@
 			<description>sends a message to a single grain </description>
 		</method>
 
+		<method name='rateBuffer'>
+			<digest>sets the buffer for rate modes 1 and 2 </digest>
+			<description>sets the buffer for rate modes 1 and 2 </description>
+		</method>
+
 		<method name='window'>
 			<digest>sets the position of the window </digest>
 			<description>sets the position of the window </description>
+		</method>
+
+		<method name='windowMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
 		</method>
 
 		<method name='windowRandom'>
@@ -196,9 +211,24 @@
 			<description>the probability a grain will play </description>
 		</method>
 
+		<method name='delayMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
 		<method name='env'>
 			<digest>sets the envelope buffer </digest>
 			<description>sets the envelope buffer </description>
+		</method>
+
+		<method name='delayBuffer'>
+			<digest>sets the buffer for delay modes 1 and 2 </digest>
+			<description>sets the buffer for delay modes 1 and 2 </description>
+		</method>
+
+		<method name='windowBuffer'>
+			<digest>sets the buffer for window modes 1 and 2 </digest>
+			<description>sets the buffer for window modes 1 and 2 </description>
 		</method>
 
 		<method name='done'>

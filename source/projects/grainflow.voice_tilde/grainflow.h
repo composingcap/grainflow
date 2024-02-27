@@ -1,6 +1,8 @@
 #pragma once
 #include <numeric>
 #include<memory>
+#include<vector>
+
 
 /// <summary>
 /// Contains enties and functions that modify said entities. This is the 
@@ -25,6 +27,7 @@ namespace Grainflow {
         base = 0,
         random,
         offset,
+        mode,
     };
 
     enum GfStreamSetType {
@@ -32,6 +35,13 @@ namespace Grainflow {
         perStreams,
         randomStreams,
     };
+
+    enum GfBufferMode {
+        normal = 0,
+        buffer_sequence = 1,
+        buffer_random = 2,
+    };
+
     /// <summary>
     /// Parameter entity. When used with GfParamSet() different fields can be set 
     /// SampleParam() is used to set the value field which is what should be used to read the correct value
@@ -41,15 +51,22 @@ namespace Grainflow {
         float random = 0;
         float offset = 0;
         float value = 0;
+        GfBufferMode mode = normal;
     };
 
-    enum GfParamMode {
-        normal=0,
-        buffer_sequence = 1,
-        buffer_random = 2,
+
+    enum GFBuffers {
+        buffer=0,
+        envelope,
+        envelope2D,
+        rateBuffer,
+        delayBuffer,
+        windowBuffer
     };
 
     class GrainInfo {
+
+
 
     public:
         double sourceSample = 0;
@@ -63,6 +80,12 @@ namespace Grainflow {
         float density = 1;
         bool grainEnabled = true;
 
+        std::unique_ptr<int> bufferRef = nullptr;
+        std::unique_ptr<int> envelopeRef = nullptr;
+        std::unique_ptr<int> delayBufRef = nullptr;
+        std::unique_ptr<int> rateBufRef = nullptr;
+        std::unique_ptr<int> windowBufRef = nullptr;
+        std::unique_ptr<int> env2DBufRef = nullptr;
 
 
         GfParam delay;
@@ -72,20 +95,6 @@ namespace Grainflow {
         GfParam amplitude; 
         GfParam rate;
         GfParam glisson;
-
-        GfParamMode delayMode;
-        GfParamMode rateMode;
-        GfParamMode offsetMode;
-        GfParamMode envMode;
-
-
-
-        std::unique_ptr<int> bufferRef = nullptr;
-        std::unique_ptr<int> envelopeRef = nullptr;
-        std::unique_ptr<int> delayBufRef = nullptr;
-        std::unique_ptr<int> rateBufRef = nullptr;
-        std::unique_ptr<int> offsetBufRef = nullptr;
-        std::unique_ptr<int> env2DBufRef = nullptr;
 
         size_t stream = 0;
         size_t bchan = 0;
@@ -132,6 +141,9 @@ namespace Grainflow {
             break;
         case(offset):
             selectedParam->offset = value;
+            break;
+        case(mode):
+            selectedParam->mode = (GfBufferMode)(int)value;
             break;
         default:
             throw("invalid type");
@@ -189,6 +201,47 @@ namespace Grainflow {
                 break;
             }
         }
+    };
+
+    void SetBufferRef(GrainInfo& grain, GFBuffers bufferType, int* handle) {
+        switch (bufferType) {
+        case(buffer):
+            grain.bufferRef.reset(handle);
+            break;
+        case(envelope):
+            grain.envelopeRef.reset(handle);
+            break;
+        case(envelope2D):
+            grain.env2DBufRef.reset(handle);
+            break;
+        case(rateBuffer):
+            grain.rateBufRef.reset(handle);
+            break;
+        case(delayBuffer):
+            grain.delayBufRef.reset(handle);
+            break;
+        case(windowBuffer):
+            grain.windowBufRef.reset(handle);
+            break;
+        }
+    };
+
+    int* GetBuffer(GrainInfo& grain, GFBuffers bufferType) {
+        switch (bufferType) {
+        case(buffer):
+            return grain.bufferRef.get();
+        case(envelope):
+            return grain.envelopeRef.get();
+        case(envelope2D):
+            return grain.env2DBufRef.get();
+        case(rateBuffer):
+            return grain.rateBufRef.get();
+        case(delayBuffer):
+            return grain.delayBufRef.get();
+        case(windowBuffer):
+            return grain.windowBufRef.get();
+        }
+        return nullptr;
     };
 
 
