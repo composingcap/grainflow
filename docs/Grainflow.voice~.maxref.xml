@@ -131,6 +131,11 @@
 			<description>sends a message to a single grain </description>
 		</method>
 
+		<method name='streamTarget'>
+			<digest>messages will target grains assigned to this stream </digest>
+			<description>messages will target grains assigned to this stream </description>
+		</method>
+
 		<method name='target'>
 			<digest>sends a message to a single grain </digest>
 			<description>sends a message to a single grain </description>
@@ -176,6 +181,16 @@
 			<description></description>
 		</method>
 
+		<method name='streamDeviate'>
+			<digest>will deviate any parameter based on streams </digest>
+			<description>will deviate any parameter based on streams </description>
+		</method>
+
+		<method name='streamSpread'>
+			<digest>will create evenly spaced values between each number based on streams </digest>
+			<description>will create evenly spaced values between each number based on streams </description>
+		</method>
+
 		<method name='density'>
 			<digest>the probability a grain will play </digest>
 			<description>the probability a grain will play </description>
@@ -189,16 +204,6 @@
 		<method name='done'>
 			<digest></digest>
 			<description></description>
-		</method>
-
-		<method name='streamDeviate'>
-			<digest>will deviate any parameter based on streams </digest>
-			<description>will deviate any parameter based on streams </description>
-		</method>
-
-		<method name='streamSpread'>
-			<digest>will create evenly spaced values between each number based on streams </digest>
-			<description>will create evenly spaced values between each number based on streams </description>
 		</method>
 
 	</methodlist>

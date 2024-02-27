@@ -85,8 +85,8 @@ public:
 			//Vector Level operations
 
 			Grainflow::GrainInfo* thisGrain = &grainInfo[g];
-			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->bufferRef));
-			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->envelopeRef));
+			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->bufferRef.get()));
+			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->envelopeRef.get()));
 			if (!grainSamples.valid() || !envelopeSamples.valid()) continue;
 			thisGrain->bufferFrames = grainSamples.frame_count();
 			thisGrain->oneOverBufferFrames = 1.0f / grainSamples.frame_count();
@@ -186,10 +186,11 @@ MIN_ARGUMENT_FUNCTION {
 	maxGrains = arg;
 	_ngrains = 0;
 	for (int g = 0; g < maxGrains; g++) {
-		grainInfo[g].bufferRef = (int*)(new buffer_reference{ this }); //For flexibility this location is stored as an int*
-		grainInfo[g].envelopeRef = (int*)(new buffer_reference{ this });
+		grainInfo[g].bufferRef.reset((int*)(new buffer_reference{ this })); //For flexibility this location is stored as an int*
+		grainInfo[g].envelopeRef.reset((int*)(new buffer_reference{ this }));
 		if (bufferArg.empty() || bufferArg == "0") continue;
-		((buffer_reference*)(grainInfo[g].bufferRef))->set(bufferArg); //To access ir must be converted to the correct type
+		if (grainInfo[g].bufferRef.get() == nullptr) continue;
+		((buffer_reference*)(grainInfo[g].bufferRef.get()))->set(bufferArg); //To access ir must be converted to the correct type
 	}
 	}
 	};
@@ -239,7 +240,7 @@ MIN_ARGUMENT_FUNCTION {
 	MIN_FUNCTION {		
 		oneOverSamplerate = 1 / samplerate();
 			for (int g = 0; g < _ngrains; g++) {
-				buffer_lock<>	grainSamples(*(buffer_reference*)(grainInfo[g].bufferRef));
+				buffer_lock<>	grainSamples(*(buffer_reference*)(grainInfo[g].bufferRef.get()));
 				if (!grainSamples.valid()) continue;
 				Grainflow::SetSampleRateAdjustment(&grainInfo[g], samplerate(), grainSamples.samplerate());
 		}
@@ -344,6 +345,8 @@ MIN_ARGUMENT_FUNCTION {
 
 	return{};
 	} };
+
+
 	//Targets 
 	message<> grain{ this, "g", "sends a message to a single grain",
 		MIN_FUNCTION{
@@ -406,14 +409,71 @@ return{};
 			return{};
 	} };
 
+	message<> streamTarget{ this, "streamTarget", "messages will target grains assigned to this stream",
+		MIN_FUNCTION{
+			_target = 0;
+			_streamTarget = args[0];
+			return{};
+	} };
+
 	message<> streamMsg{ this, "stream", "",
 	MIN_FUNCTION{
-			_streamTarget = args[0];
-			_target = 0;
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			_streamTarget = 0;
+			for (int s = 0; s < _nstreams; s++) {
+				value = args[1];
+				for (int g = 0; g < maxGrains; g++) {
+					if (grainInfo[g].stream != s) continue;
+					_target = g;
+					this->try_call(args[0], value);
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
 			return{};
+			} };		
 
-} };
 
+	message<> streamDeviate{ this, "streamDeviate", "will deviate any parameter based on streams",
+		MIN_FUNCTION{
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			_streamTarget = 0;
+			for (int s = 0; s < _nstreams; s++) {
+				value = Grainflow::Deviate(args[1], args[2]);
+				for (int g = 0; g < maxGrains; g++) {
+					if (grainInfo[g].stream != s) continue;
+					_target = g;
+					this->try_call(args[0], value);
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			return{};
+			}
+	};
+
+	message<> streamSpread{ this, "streamSpread", "will create evenly spaced values between each number based on streams",
+	MIN_FUNCTION{
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			_streamTarget = 0;
+			for (int s = 0; s < _nstreams; s++) {
+				value = Grainflow::Lerp(args[1], args[2], (float)s / _nstreams);
+				for (int g = 0; g < maxGrains; g++) {
+					if (grainInfo[g].stream != s) continue;
+					_target = g;
+					this->try_call(args[0], value);
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			return{};
+			} };
 
 	//State
 
@@ -441,11 +501,11 @@ return{};
 			string bname = args[0];
 			if (bname.empty()) return{};
 			if (_target > 0) {
-				((buffer_reference*)(grainInfo[_target-1].envelopeRef))->set(bname);
+				((buffer_reference*)(grainInfo[_target-1].envelopeRef.get()))->set(bname);
 				return{};
 			}
 			for (int g = 0; g < maxGrains; g++) {
-				((buffer_reference*)(grainInfo[g].envelopeRef))->set(bname);
+				((buffer_reference*)(grainInfo[g].envelopeRef.get()))->set(bname);
 }
 return{};
 } };
@@ -456,7 +516,7 @@ return{};
 			if (bname.empty()) return{};
 
 			if (_target > 0) {
-				auto buf = ((buffer_reference*)(grainInfo[_target - 1].bufferRef));
+				auto buf = ((buffer_reference*)(grainInfo[_target - 1].bufferRef.get()));
 				buf->set(bname);
 				buffer_lock<>	grainSamples(*buf);
 				if (!grainSamples.valid()) return{};
@@ -464,11 +524,10 @@ return{};
 				return{};
 			}
 			for (int g = 0; g < maxGrains; g++) {
-				auto buf = ((buffer_reference*)(grainInfo[g].bufferRef)); //To access ir must be converted to the correct type
+				auto buf = ((buffer_reference*)(grainInfo[g].bufferRef.get())); //To access ir must be converted to the correct type
 				buf->set(bname);
 				buffer_lock<>	grainSamples(*buf);
 				if (!grainSamples.valid()) continue;
-				//Grainflow::SetSampleRateAdjustment(&grainInfo[g], samplerate(), grainSamples.samplerate());
 			}
 			return{};
 		} };
@@ -478,44 +537,6 @@ return{};
 		return{};
 	} };
 
-	message<> streamDeviate{ this, "streamDeviate", "will deviate any parameter based on streams",
-		MIN_FUNCTION{
-			float value = 0;
-			int lastTarget = _target;
-			int lastStream = _streamTarget;
-			_streamTarget = 0;
-			for (int s = 0; s < _nstreams; s++) {
-				value = Grainflow::Deviate(args[1], args[2]);
-				for (int g = 0; g < maxGrains; g++) {
-					if (grainInfo[g].stream != s) continue;
-					_target = g;
-					this->try_call(args[0], value);					
-				}
-			}
-			_target = lastTarget;
-			_streamTarget = lastStream;
-			return{};
-			}
-	};
-
-	message<> streamSpread{ this, "streamSpread", "will create evenly spaced values between each number based on streams",
-	MIN_FUNCTION{
-			float value = 0;
-			int lastTarget = _target;
-			int lastStream = _streamTarget;
-			_streamTarget = 0;
-			for (int s = 0; s < _nstreams; s++) {
-				value = Grainflow::Lerp(args[1], args[2], (float)s/_nstreams);
-				for (int g = 0; g < maxGrains; g++) {
-					if (grainInfo[g].stream != s) continue;
-					_target = g;
-					this->try_call(args[0], value);
-				}
-			}
-			_target = lastTarget;
-			_streamTarget = lastStream;
-			return{};
-			}};
 
 #pragma endregion
 #pragma region MAX_ATTR
@@ -525,7 +546,7 @@ return{};
 	int GetMaxGrains() {
 		return maxGrains;
 	}
-	int input_chans[4];
+	int input_chans[4] = {0,0,0,0};
 	int maxGrains = 0;
 private:
 	int _ngrains = 0;

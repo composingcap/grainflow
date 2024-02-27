@@ -1,5 +1,6 @@
 #pragma once
 #include <numeric>
+#include<memory>
 
 /// <summary>
 /// Contains enties and functions that modify said entities. This is the 
@@ -42,6 +43,12 @@ namespace Grainflow {
         float value = 0;
     };
 
+    enum GfParamMode {
+        normal=0,
+        buffer_sequence = 1,
+        buffer_random = 2,
+    };
+
     class GrainInfo {
 
     public:
@@ -66,8 +73,20 @@ namespace Grainflow {
         GfParam rate;
         GfParam glisson;
 
-        int* bufferRef = nullptr;
-        int* envelopeRef = nullptr;
+        GfParamMode delayMode;
+        GfParamMode rateMode;
+        GfParamMode offsetMode;
+        GfParamMode envMode;
+
+
+
+        std::unique_ptr<int> bufferRef = nullptr;
+        std::unique_ptr<int> envelopeRef = nullptr;
+        std::unique_ptr<int> delayBufRef = nullptr;
+        std::unique_ptr<int> rateBufRef = nullptr;
+        std::unique_ptr<int> offsetBufRef = nullptr;
+        std::unique_ptr<int> env2DBufRef = nullptr;
+
         size_t stream = 0;
         size_t bchan = 0;
         
