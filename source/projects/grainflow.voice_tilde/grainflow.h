@@ -166,7 +166,7 @@ namespace Grainflow {
 
     void AssignAutoOverlap(GrainInfo* info, int ngrains, int index) {
            
-        info->window.offset = 1 / ngrains;
+        info->window.offset = 1.0f / ngrains;
         info->window.value = (float)index / ngrains;
         
     }

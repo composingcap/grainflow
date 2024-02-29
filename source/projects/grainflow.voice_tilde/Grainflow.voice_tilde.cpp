@@ -535,7 +535,7 @@ using namespace c74::min;
 					for (int g = 0; g < maxGrains; g++) {
 						if (grainInfo[g].stream != s) continue;
 						_target = g;
-						this->try_call(args[0], value);
+						this->try_call((string)args[0], value);
 					}
 				}
 				_target = lastTarget;
@@ -559,7 +559,7 @@ using namespace c74::min;
 					for (int g = 0; g < maxGrains; g++) {
 						if (grainInfo[g].stream != s) continue;
 						_target = g;
-						this->try_call(args[0], value);
+						this->try_call((string)args[0], value);
 					}
 				}
 				_target = lastTarget;
@@ -610,7 +610,7 @@ using namespace c74::min;
 				_target = 0;
 				value = args[2];
 					for (int g = 0; g < maxGrains; g++) {
-						this->try_call(args[1], value);
+						this->try_call((string)args[1], value);
 					}
 				
 				_target = lastTarget;
@@ -662,7 +662,7 @@ using namespace c74::min;
 		//Buffers 
 		message<> env{ this, "env","sets the envelope buffer",
 			MIN_FUNCTION {
-				string bname = args[0];
+				string bname = (string)args[0];
 				BufferRefMessage(bname, Grainflow::envelope);
 			return{};
 			} };
@@ -687,27 +687,27 @@ using namespace c74::min;
 
 		message<> buf{ this, "buf","sets the granulation buffer",
 			MIN_FUNCTION {
-				string bname = args[0];
+				string bname = (string)args[0];
 				BufferRefMessage(bname, Grainflow::buffer);
 				return{};
 			} };
 		message<> delayBuffer{ this, "delayBuffer", "sets the buffer for delay modes 1 and 2",
 			MIN_FUNCTION{
-				string bname = args[0];
+				string bname = (string)args[0];
 				BufferRefMessage(bname, Grainflow::delayBuffer);
 				return{};
 			} };
 
 		message<> windowBuffer{ this, "windowBuffer", "sets the buffer for window modes 1 and 2",
 			MIN_FUNCTION{
-				string bname = args[0];
+				string bname = (string)args[0];
 				BufferRefMessage(bname, Grainflow::windowBuffer);
 				return{};
 			} };
 
 		message<> rateBuffer{ this, "rateBuffer", "sets the buffer for rate modes 1 and 2",
 			MIN_FUNCTION{
-				string bname = args[0];
+				string bname = (string)args[0];
 				BufferRefMessage(bname, Grainflow::rateBuffer);
 				return{};
 			} };
