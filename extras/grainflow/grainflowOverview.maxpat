@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 4,
+			"minor" : 6,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -50,8 +50,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -92,7 +92,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 560.1988525390625, 255.0, 19.0 ],
+									"patching_rect" : [ 188.0, 560.1988525390625, 255.0, 18.0 ],
 									"text" : "Access speaker presets"
 								}
 
@@ -118,7 +118,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 617.412109375, 255.0, 31.0 ],
+									"patching_rect" : [ 188.0, 617.412109375, 255.0, 29.0 ],
 									"text" : "Format spatalization for other systems like spat gris or the IEM plugin suite"
 								}
 
@@ -129,7 +129,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 588.412109375, 255.0, 19.0 ],
+									"patching_rect" : [ 188.0, 588.412109375, 255.0, 18.0 ],
 									"text" : "Split spatialization messages based on grain ID"
 								}
 
@@ -140,7 +140,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 530.1988525390625, 195.0, 19.0 ],
+									"patching_rect" : [ 188.0, 530.1988525390625, 195.0, 18.0 ],
 									"text" : "View grain spatialization"
 								}
 
@@ -151,7 +151,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 206.0, 464.55908203125, 262.0, 19.0 ],
+									"patching_rect" : [ 206.0, 464.55908203125, 262.0, 18.0 ],
 									"text" : "Add drag to your physics system"
 								}
 
@@ -162,7 +162,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 206.0, 437.55908203125, 262.0, 19.0 ],
+									"patching_rect" : [ 206.0, 437.55908203125, 262.0, 18.0 ],
 									"text" : "Transform your physics forces"
 								}
 
@@ -173,7 +173,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 206.0, 407.3458251953125, 262.0, 19.0 ],
+									"patching_rect" : [ 206.0, 407.3458251953125, 262.0, 18.0 ],
 									"text" : "Add magnets that apply force based on distance"
 								}
 
@@ -184,7 +184,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 374.132568359375, 195.0, 19.0 ],
+									"patching_rect" : [ 188.0, 374.132568359375, 195.0, 18.0 ],
 									"text" : "Add a force yout physics system"
 								}
 
@@ -209,7 +209,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 346.9193115234375, 195.0, 19.0 ],
+									"patching_rect" : [ 188.0, 346.9193115234375, 195.0, 18.0 ],
 									"text" : "Apply basic physics to your grains"
 								}
 
@@ -220,7 +220,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 242.0, 288.4927978515625, 307.0, 19.0 ],
+									"patching_rect" : [ 242.0, 288.4927978515625, 307.0, 18.0 ],
 									"text" : "Transform grain positions over their lifespan"
 								}
 
@@ -231,7 +231,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 261.279541015625, 307.0, 19.0 ],
+									"patching_rect" : [ 188.0, 261.279541015625, 307.0, 18.0 ],
 									"text" : "Transform grain positions via translation, rotation, or scale"
 								}
 
@@ -242,7 +242,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 201.6397705078125, 307.0, 19.0 ],
+									"patching_rect" : [ 188.0, 201.6397705078125, 307.0, 18.0 ],
 									"text" : "Sets grain positions based on a sampled volume"
 								}
 
@@ -253,7 +253,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 171.6397705078125, 307.0, 19.0 ],
+									"patching_rect" : [ 188.0, 171.6397705078125, 307.0, 18.0 ],
 									"text" : "Sets grain positions based on audio for an X, Y, and Z axis"
 								}
 
@@ -264,7 +264,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 138.2132568359375, 307.0, 19.0 ],
+									"patching_rect" : [ 188.0, 138.2132568359375, 307.0, 18.0 ],
 									"text" : "Sets grain positions based on a center point"
 								}
 
@@ -277,7 +277,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 494.985595703125, 207.0, 24.0 ],
+									"patching_rect" : [ 18.0, 494.985595703125, 207.0, 22.0 ],
 									"text" : "Utilities"
 								}
 
@@ -288,7 +288,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 55.0, 473.0, 19.0 ],
+									"patching_rect" : [ 18.0, 55.0, 473.0, 18.0 ],
 									"text" : "Grainflow.spat is set up to allow you to spatialize grains like a particle system."
 								}
 
@@ -301,7 +301,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 229.0662841796875, 207.0, 24.0 ],
+									"patching_rect" : [ 18.0, 229.0662841796875, 207.0, 22.0 ],
 									"text" : "Transform Grain Positions"
 								}
 
@@ -328,7 +328,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 314.7060546875, 207.0, 24.0 ],
+									"patching_rect" : [ 18.0, 314.7060546875, 207.0, 22.0 ],
 									"text" : "Apply Physics"
 								}
 
@@ -341,7 +341,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 109.2132568359375, 207.0, 24.0 ],
+									"patching_rect" : [ 18.0, 109.2132568359375, 207.0, 22.0 ],
 									"text" : "Set Grain Positions Position"
 								}
 
@@ -352,7 +352,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 188.0, 82.0, 271.0, 19.0 ],
+									"patching_rect" : [ 188.0, 82.0, 271.0, 18.0 ],
 									"text" : "A multchannel panner for spatializing grains"
 								}
 
@@ -533,7 +533,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 43.0, 653.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 43.0, 653.412109375, 74.0, 20.0 ],
 									"text" : "prepend help"
 								}
 
@@ -546,7 +546,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 43.0, 680.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 43.0, 680.412109375, 49.0, 20.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -558,7 +558,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 8.412109375, 265.0, 43.0 ],
+									"patching_rect" : [ 18.0, 8.412109375, 265.0, 40.0 ],
 									"text" : "Grainflow.Spat"
 								}
 
@@ -750,8 +750,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -797,8 +797,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 5,
-											"revision" : 4,
+											"minor" : 6,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1012,7 +1012,7 @@
  ]
 									}
 ,
-									"patching_rect" : [ 332.0, 92.0, 60.0, 21.0 ],
+									"patching_rect" : [ 332.0, 92.0, 60.0, 20.0 ],
 									"saved_object_attributes" : 									{
 										"description" : "",
 										"digest" : "",
@@ -1066,8 +1066,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 5,
-											"revision" : 4,
+											"minor" : 6,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1554,7 +1554,7 @@
  ]
 									}
 ,
-									"patching_rect" : [ 10.0, 216.0, 59.0, 21.0 ],
+									"patching_rect" : [ 10.0, 216.0, 59.0, 20.0 ],
 									"saved_object_attributes" : 									{
 										"description" : "",
 										"digest" : "",
@@ -1576,7 +1576,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 9.0, 10.0, 103.0, 31.0 ],
+									"patching_rect" : [ 9.0, 10.0, 103.0, 29.0 ],
 									"text" : "Tutorials:",
 									"textjustification" : 2
 								}
@@ -1665,8 +1665,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1707,7 +1707,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 184.0, 135.412109375, 363.0, 19.0 ],
+									"patching_rect" : [ 184.0, 135.412109375, 363.0, 18.0 ],
 									"text" : "A dial object with a modulation depth paremeter built in"
 								}
 
@@ -1732,7 +1732,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 184.0, 101.412109375, 363.0, 19.0 ],
+									"patching_rect" : [ 184.0, 101.412109375, 363.0, 18.0 ],
 									"text" : "A GUI object that allows for the creation of paterns on an XY pad"
 								}
 
@@ -1757,7 +1757,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 184.0, 67.412109375, 304.0, 19.0 ],
+									"patching_rect" : [ 184.0, 67.412109375, 304.0, 18.0 ],
 									"text" : "A GUI object that can visualize grains"
 								}
 
@@ -1784,7 +1784,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 75.0, 183.412109375, 74.0, 21.0 ],
+									"patching_rect" : [ 75.0, 183.412109375, 74.0, 20.0 ],
 									"text" : "prepend help"
 								}
 
@@ -1797,7 +1797,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 75.0, 212.412109375, 49.0, 21.0 ],
+									"patching_rect" : [ 75.0, 212.412109375, 49.0, 20.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -1809,7 +1809,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 10.412109375, 462.0, 43.0 ],
+									"patching_rect" : [ 5.0, 10.412109375, 462.0, 40.0 ],
 									"text" : "Grainflow GUI"
 								}
 
@@ -1905,8 +1905,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1947,7 +1947,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 272.499999999999943, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 272.499999999999943, 304.0, 18.0 ],
 									"text" : "Detects changes in a list"
 								}
 
@@ -1958,7 +1958,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 334.0, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 334.0, 304.0, 18.0 ],
 									"text" : "Accesses a list using a normalized range"
 								}
 
@@ -1983,7 +1983,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 304.0, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 304.0, 304.0, 18.0 ],
 									"text" : "Generates 2D envelopes from a collection of buffers"
 								}
 
@@ -2008,7 +2008,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 235.333333333333314, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 235.333333333333314, 304.0, 18.0 ],
 									"text" : "Generates a list of random numbers"
 								}
 
@@ -2020,7 +2020,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 199.5, 304.0, 31.0 ],
+									"patching_rect" : [ 247.5, 199.5, 282.0, 29.0 ],
 									"text" : "A phasor that can wrap at different loop points in various ways"
 								}
 
@@ -2032,7 +2032,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 166.0, 304.0, 31.0 ],
+									"patching_rect" : [ 247.5, 166.0, 304.0, 29.0 ],
 									"text" : "Outputs parameters and a grainclock to interact with grainflow using grain size and grain rate"
 								}
 
@@ -2043,7 +2043,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 138.5, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 138.5, 304.0, 18.0 ],
 									"text" : "Automatic stereo panning on new grains"
 								}
 
@@ -2054,7 +2054,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 103.5, 304.0, 19.0 ],
+									"patching_rect" : [ 247.5, 103.5, 304.0, 18.0 ],
 									"text" : "A recording tool that records in grains"
 								}
 
@@ -2066,7 +2066,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 63.0, 304.0, 31.0 ],
+									"patching_rect" : [ 247.5, 63.0, 304.0, 29.0 ],
 									"text" : "A simple recording tool that has an accurate position output that can be used as a traversal phasor"
 								}
 
@@ -2149,7 +2149,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 112.0, 375.5, 74.0, 21.0 ],
+									"patching_rect" : [ 112.0, 375.5, 74.0, 20.0 ],
 									"text" : "prepend help"
 								}
 
@@ -2162,7 +2162,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 112.0, 398.5, 49.0, 21.0 ],
+									"patching_rect" : [ 112.0, 398.5, 49.0, 20.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -2202,7 +2202,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 13.0, 455.0, 43.0 ],
+									"patching_rect" : [ 10.0, 13.0, 455.0, 40.0 ],
 									"text" : "Grainflow.Util"
 								}
 
@@ -2353,8 +2353,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2398,7 +2398,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 389.0, 61.0, 271.0, 33.0 ],
+									"patching_rect" : [ 389.0, 61.0, 271.0, 31.0 ],
 									"text" : ";\r\nmax launchbrowser https://discord.gg/8RUUUvjVgK"
 								}
 
@@ -2424,7 +2424,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 414.467592592592609, 300.0, 19.0 ],
+									"patching_rect" : [ 182.0, 414.467592592592609, 300.0, 18.0 ],
 									"text" : "Stereo sustain effect"
 								}
 
@@ -2450,7 +2450,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 442.666666666666629, 300.0, 31.0 ],
+									"patching_rect" : [ 182.0, 442.666666666666629, 300.0, 29.0 ],
 									"text" : "An interface to allow for easy control of multiple instances of grainflow",
 									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
@@ -2462,7 +2462,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 376.768518518518476, 300.0, 19.0 ],
+									"patching_rect" : [ 182.0, 376.768518518518476, 300.0, 18.0 ],
 									"text" : "A wavelet-like synthesizer created through granulation"
 								}
 
@@ -2473,7 +2473,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 344.870370370370324, 300.0, 19.0 ],
+									"patching_rect" : [ 182.0, 344.870370370370324, 300.0, 18.0 ],
 									"text" : "A granular chorus effect"
 								}
 
@@ -2484,7 +2484,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 312.972222222222172, 300.0, 19.0 ],
+									"patching_rect" : [ 182.0, 312.972222222222172, 300.0, 18.0 ],
 									"text" : "A granular sampler"
 								}
 
@@ -2495,7 +2495,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 281.074074074074019, 300.0, 19.0 ],
+									"patching_rect" : [ 182.0, 281.074074074074019, 300.0, 18.0 ],
 									"text" : "A tool for creating granular snapshots"
 								}
 
@@ -2506,7 +2506,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 249.175925925925867, 300.0, 19.0 ],
+									"patching_rect" : [ 182.0, 249.175925925925867, 300.0, 18.0 ],
 									"text" : "A basic granular harmonizer"
 								}
 
@@ -2518,7 +2518,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 211.277777777777715, 304.0, 31.0 ],
+									"patching_rect" : [ 182.0, 211.277777777777715, 305.0, 29.0 ],
 									"text" : "A live implementation of grainflow that allows for granulation of live input"
 								}
 
@@ -2531,7 +2531,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 15.0, 490.166666666666515, 74.0, 21.0 ],
+									"patching_rect" : [ 15.0, 490.166666666666515, 74.0, 20.0 ],
 									"text" : "prepend help"
 								}
 
@@ -2544,7 +2544,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 15.0, 507.166666666666515, 49.0, 21.0 ],
+									"patching_rect" : [ 15.0, 507.166666666666515, 49.0, 20.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -2655,7 +2655,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 177.0, 250.0, 26.0 ],
+									"patching_rect" : [ 5.0, 177.0, 250.0, 24.0 ],
 									"text" : "Grainflow Abstractions:"
 								}
 
@@ -2667,7 +2667,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 63.0, 640.0, 31.0 ],
+									"patching_rect" : [ 5.0, 63.0, 640.0, 29.0 ],
 									"text" : "Grainflow is a powerful and flexible sample accurate granular engine.  Grainflow can be used for granular sampling, synthesis, delay, reverb and many other creative and non-standard applications."
 								}
 
@@ -2679,7 +2679,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 4.0, 360.0, 50.0 ],
+									"patching_rect" : [ 5.0, 4.0, 360.0, 47.0 ],
 									"text" : "Grainflow Overview"
 								}
 
@@ -2691,7 +2691,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 149.0, 113.0, 476.0, 31.0 ],
+									"patching_rect" : [ 149.0, 113.0, 476.0, 29.0 ],
 									"text" : "Everything in this package is built on top of this grainflow~.  Each of these implementations can be seen as a tool or an example of how to use grainflow~ for many purposes."
 								}
 
@@ -2712,6 +2712,14 @@
 							}
  ],
 						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-34", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-1", 1 ]
+								}
+
+							}
+, 							{
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,

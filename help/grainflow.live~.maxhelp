@@ -400,7 +400,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "showTriangles", 0 ], [ "buffername", "1074_flow_1" ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 0 ], [ "displayRange", 0, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "mode", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotScale", 5 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "selection", 0, 1 ], [ "chan", 0 ], [ "fps", 30 ], [ "trackerWidth", 2 ], [ "selectColor", 1, 1, 1, 0.75 ] ],
+					"embedstate" : [ [ "maxBufferDrawSamples", 1920 ], [ "dotVJitter", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "mode", 0 ], [ "dotScale", 5 ], [ "displayRange", 0, 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "chan", 0 ], [ "showTriangles", 0 ], [ "buffername", "1006_flow_1" ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "trackerWidth", 2 ], [ "fps", 30 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ] ],
 					"filename" : "grainFlow.waveform~.js",
 					"id" : "obj-2",
 					"maxclass" : "jsui",
@@ -566,7 +566,6 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
-					"order" : 0,
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -574,8 +573,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-37", 1 ],
-					"order" : 1,
-					"source" : [ "obj-1", 1 ]
+					"source" : [ "obj-1", 2 ]
 				}
 
 			}
@@ -728,11 +726,8 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "Grainflow.voice~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "anton.aif",
@@ -794,13 +789,6 @@
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{

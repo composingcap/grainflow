@@ -261,6 +261,11 @@
 			<description>sets the envelope buffer </description>
 		</method>
 
+		<method name='envMode'>
+			<digest>sets the envelope mode </digest>
+			<description>sets the envelope mode </description>
+		</method>
+
 		<method name='delayBuffer'>
 			<digest>sets the buffer for delay modes 1 and 2 </digest>
 			<description>sets the buffer for delay modes 1 and 2 </description>
@@ -276,12 +281,22 @@
 			<description></description>
 		</method>
 
+		<method name='voices'>
+			<digest></digest>
+			<description></description>
+		</method>
+
 	</methodlist>
 
 
 	<!--ATTRIBUTES-->
 
 	<attributelist>
+
+		<attribute name='liveMode' get='1' set='1' type='long' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
 
 	</attributelist>
 

@@ -16,7 +16,6 @@ using namespace c74::min;
 
 
 	class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<> {
-
 	public:
 
 		MIN_DESCRIPTION{ "the base object for grainflow" };
@@ -25,7 +24,7 @@ using namespace c74::min;
 		MIN_RELATED{ "" };
 
 		~grainflow_voice_tilde() {
-			delete[] grainInfo;
+			Cleanup();
 		}
 		Grainflow::GrainInfo* grainInfo = nullptr;
 		string bufferArg;
@@ -93,7 +92,9 @@ using namespace c74::min;
 				buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->envelopeRef.get()));
 				if (!grainSamples.valid() || !envelopeSamples.valid()) continue;
 				thisGrain->bufferFrames = grainSamples.frame_count();
+				if (thisGrain->bufferFrames == 0) continue;
 				thisGrain->oneOverBufferFrames = 1.0f / grainSamples.frame_count();
+				thisGrain->sampleRateAdjustment = _livemode ? 1 : grainSamples.samplerate()/ samplerate();
 
 				//Determine the channel to pull from for each grain.
 				int grainClock = grainClockCh + (g % input_chans[0]);
@@ -240,17 +241,64 @@ using namespace c74::min;
 
 			if (_target > 0) {
 				auto buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[_target - 1], type);
+				buf->set(""); //This forces a refresh even if the name is the same
 				buf->set(bname);
-				buffer_lock<>	grainSamples(*buf);
 				return;
 			}
 			for (int g = 0; g < maxGrains; g++) {
 				auto buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], type); //To access ir must be converted to the correct type
+				buf->set("");
 				buf->set(bname);
-				buffer_lock<>	grainSamples(*buf);
-				if (!grainSamples.valid()) continue;
+
 			}
 		}
+		/// <summary>
+		/// Forces a refresh of a type of buffer.
+		/// </summary>
+		void BufferRefresh(Grainflow::GFBuffers type) {
+			for (int g = 0; g < maxGrains; g++) {
+				auto buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], type); //To access ir must be converted to the correct type
+				auto name = buf->name();
+				buf->set("");
+				buf->set(name);
+
+			}
+		};
+
+		void Init() {
+			for (int g = 0; g < maxGrains; g++) {
+				Grainflow::SetBufferRef(grainInfo[g], Grainflow::buffer, (int*)(new buffer_reference{ this }));
+				Grainflow::SetBufferRef(grainInfo[g], Grainflow::envelope, (int*)(new buffer_reference{ this }));
+				Grainflow::SetBufferRef(grainInfo[g], Grainflow::delayBuffer, (int*)(new buffer_reference{ this }));
+				Grainflow::SetBufferRef(grainInfo[g], Grainflow::windowBuffer, (int*)(new buffer_reference{ this }));
+				Grainflow::SetBufferRef(grainInfo[g], Grainflow::rateBuffer, (int*)(new buffer_reference{ this }));
+
+				if (bufferArg.empty() || bufferArg == "0") continue;
+				buffer_reference* buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer);
+				if (buf == nullptr) continue;
+				buf->set(bufferArg); //To access ir must be converted to the correct type
+
+			}
+		}
+
+		void Cleanup() {
+			for (int g = 0; g < maxGrains; g++) {
+				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer);
+				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::envelope);
+				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::delayBuffer);
+				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::windowBuffer);
+				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::rateBuffer);
+			}
+			delete[] grainInfo;
+		}
+
+		void Reinit(int grains) {
+			Cleanup();
+			grainInfo = new Grainflow::GrainInfo[grains];
+			maxGrains = grains;
+			Init();
+		}
+
 
 #pragma region MAX_ARGS
 		argument<symbol> buffer{ this, "buf", "Buffer~ from which to read.",
@@ -270,26 +318,15 @@ using namespace c74::min;
 		}
 		};
 
+
 #pragma endregion
 #pragma region MAX_MESSAGES
 		//Setup functions 
 
 		message<> setup{ this, "setup",
 	MIN_FUNCTION {
-		for (int g = 0; g < maxGrains; g++) {
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::buffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::envelope, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::delayBuffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::windowBuffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::rateBuffer, (int*)(new buffer_reference{ this }));
-			buffer_lock<>	grainSamples(*(buffer_reference*)(grainInfo[g].bufferRef.get()));
-			if (!grainSamples.valid() || samplerate() == 0) continue;
-			Grainflow::SetSampleRateAdjustment(&grainInfo[g], samplerate(), grainSamples.samplerate());
-			if (bufferArg.empty() || bufferArg == "0") continue;
-			buffer_reference* buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer);
-			if (buf == nullptr) continue;
-			buf->set(bufferArg); //To access ir must be converted to the correct type
-		}
+		Init();
+
 	return {};
 	}
 		};
@@ -306,11 +343,7 @@ using namespace c74::min;
 		message<> dspsetup{ this, "dspsetup",
 		MIN_FUNCTION {
 			oneOverSamplerate = 1 / samplerate();
-				for (int g = 0; g < _ngrains; g++) {
-					buffer_lock<>	grainSamples(*(buffer_reference*)(grainInfo[g].bufferRef.get()));
-					if (!grainSamples.valid()) continue;
-					Grainflow::SetSampleRateAdjustment(&grainInfo[g], samplerate(), grainSamples.samplerate());
-			}
+			BufferRefresh(Grainflow::buffer); //This is needed so grainflow live can load buffers correctly. 	
 
 			return {};
 		}
@@ -638,7 +671,6 @@ using namespace c74::min;
 		message<> ngrains{ this,"ngrains", "the number of active grains",
 			MIN_FUNCTION {
 				_ngrains = (int)(args[0]) <= maxGrains ? (int)(args[0]) : maxGrains;
-				gainAdjustment = _ngrains > 0 ? 1 / _ngrains : 0;
 				return{};
 				} };
 
@@ -689,6 +721,7 @@ using namespace c74::min;
 			MIN_FUNCTION {
 				string bname = (string)args[0];
 				BufferRefMessage(bname, Grainflow::buffer);
+
 				return{};
 			} };
 		message<> delayBuffer{ this, "delayBuffer", "sets the buffer for delay modes 1 and 2",
@@ -717,25 +750,39 @@ using namespace c74::min;
 			return{};
 		} };
 
+		message<> voices{ this, "voices","",
+			MIN_FUNCTION {
+				int grains = args[0];
+				if (grains < 1) return{};
+				Reinit(grains);
+				return{};
+			} };
+
 
 
 
 #pragma endregion
 #pragma region MAX_ATTR
 		//Attributes go here
+		attribute<bool> liveMode{ this, "liveMode", false,
+		setter { MIN_FUNCTION {
+			_livemode = args[0];
+			return args;
+		}}};
+
 #pragma endregion
 		int GetMaxGrains() { return maxGrains; }
 		int input_chans[4] = { 0,0,0,0 };
 		int maxGrains = 0;
 	private:
 		int _ngrains = 0;
-		float gainAdjustment = 1;
 		float oneOverSamplerate = 1;
 
 		int _target = 0;
 		int _streamTarget = 0;
 		int _channelTarget = 0;
 		int _nstreams = 0;
+		bool _livemode;
 
 	};
 

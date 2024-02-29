@@ -66,12 +66,10 @@ namespace Grainflow {
 
     class GrainInfo {
 
-
-
     public:
         double sourceSample = 0;
         double playRate = 1;
-        int bufferFrames = 0;      
+        int bufferFrames = 441000;      
         bool reset = false;
         float lastGrainClock = -999;
         double sampleRateAdjustment = 1;
@@ -79,6 +77,7 @@ namespace Grainflow {
         float oneOverBufferFrames= 1;
         float density = 1;
         bool grainEnabled = true;
+        bool bufferDefined = false;
 
         std::unique_ptr<int> bufferRef = nullptr;
         std::unique_ptr<int> envelopeRef = nullptr;
