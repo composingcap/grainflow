@@ -283,11 +283,12 @@ using namespace c74::min;
 
 		void Cleanup() {
 			for (int g = 0; g < maxGrains; g++) {
-				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer);
-				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::envelope);
-				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::delayBuffer);
-				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::windowBuffer);
-				~*(buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::rateBuffer);
+				//Need to figure how to do this better
+				//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer));
+				//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::envelope));
+				//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::delayBuffer));
+				//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::windowBuffer));
+				//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::rateBuffer));
 			}
 			delete[] grainInfo;
 		}
@@ -517,8 +518,11 @@ using namespace c74::min;
 			MIN_FUNCTION{
 				string modestr = args[0];
 				Grainflow::GfStreamSetType mode = Grainflow::automaticStreams;
-				if (modestr == "per")  mode = Grainflow::perStreams;
-				if (modestr == "random") mode = Grainflow::randomStreams;
+				if (modestr == "auto") mode = Grainflow::automaticStreams;
+				else if (modestr == "per")  mode = Grainflow::perStreams;
+				else if (modestr == "random") mode = Grainflow::randomStreams;
+				else return{};
+
 				_nstreams = args[1];
 				Grainflow::StreamSet(grainInfo, maxGrains, mode, _nstreams);
 				return{};
