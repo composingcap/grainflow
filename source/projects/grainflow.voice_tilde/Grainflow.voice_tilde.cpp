@@ -10,11 +10,10 @@
 using namespace c74::min;
 
 
+
 	long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
 	long simplemc_inputchanged(c74::max::t_object* x, long index, long count);
-	void GrainMessage(float value, Grainflow::GfParamName param, Grainflow::GfParamType type);
-	void BufferRefMessage(string bname, Grainflow::GFBuffers type);
-	void SampleParamBuffer(Grainflow::GFBuffers bufferType, Grainflow::GrainInfo* grain, Grainflow::GfParam& param, int index);
+
 
 	class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<> {
 
@@ -74,12 +73,18 @@ using namespace c74::min;
 
 			//Clear unused channels or we will get garbage
 			int size = output.frame_count();
+			if (vector_size() < 16) {
+				for (int g = 0; g < (maxGrains) * 8; g++) {
+					memset(out[g], double(0), sizeof(double) * size);
+				}
+				return;
+			}
 			for (int g = 0; g < (maxGrains - _ngrains) * 8; g++) {
 				memset(out[g], double(0), sizeof(double) * size);
 			}
 
 			//Pre proccess
-
+			
 			for (int g = 0; g < _ngrains; g++) {
 				//Vector Level operations
 
@@ -106,17 +111,18 @@ using namespace c74::min;
 				for (int i = 0; i < output.frame_count(); i += 16) {
 					//If possible in the future, this setup should help with vecorization
 					//Outer Loop				
-					//Innter Loop
+					//Inner Loop
 					for (int j = 0; j < 16; j++) {
 						int v = i + j;
-
+						
 						double thisGrainClock = fmod(in[grainClock][v] + thisGrain->window.value, 1) / windowPortion;
 						thisGrainClock *= thisGrainClock <= 1;
+						
 						double thisTraversalPhasor = in[traversalPhasor][v];
 						double thisFm = in[fm][v];
 						double thisAm = in[am][v];
 						auto grainReset = GrainReset(thisGrain, thisGrainClock, thisTraversalPhasor, g);
-
+						
 						//Sample buffers
 						auto tween = (float)fmod(thisGrain->sourceSample, 1);
 						auto frame = size_t(thisGrain->sourceSample);
@@ -126,7 +132,7 @@ using namespace c74::min;
 						auto sample = grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween;
 						auto envelope = envelopeSamples.lookup(frame2, 0);
 						auto grainEnabled = thisGrain->grainEnabled;
-
+						
 						//Set correct data into each outlet 
 						out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * grainEnabled;
 						out[g + grainState][v] = grainReset * grainEnabled;
@@ -134,11 +140,12 @@ using namespace c74::min;
 						out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames * grainEnabled;
 						out[g + grainAmp][v] = (1 - thisAm) * grainEnabled;
 						out[g + grainEnvelope][v] = envelope * grainEnabled;
-						out[g + grainBufferChannel][v] = chan;
+						out[g + grainBufferChannel][v] = chan + 1;
 						out[g + grainStreamChannel][v] = stream + 1;
 
 						//Increment playhead 
 						Grainflow::Increment(thisGrain, thisFm, thisGrainClock);
+						
 					}
 
 				}
@@ -171,35 +178,7 @@ using namespace c74::min;
 
 #pragma endregion
 
-#pragma region MAX_ARGS
-		argument<symbol> buffer{ this, "buf", "Buffer~ from which to read.",
-		MIN_ARGUMENT_FUNCTION {
 
-		bufferArg = arg;
-	}
-		};
-
-		argument<symbol> grains{ this, "number-of-grains", "max number of grins",
-	MIN_ARGUMENT_FUNCTION {
-		grainInfo = new Grainflow::GrainInfo[arg];
-		maxGrains = arg;
-		_ngrains = 0;
-		for (int g = 0; g < maxGrains; g++) {
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::buffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::envelope, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::delayBuffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::windowBuffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::rateBuffer, (int*)(new buffer_reference{ this }));
-
-			if (bufferArg.empty() || bufferArg == "0") continue;
-			buffer_reference* buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer);
-			if (buf == nullptr) continue;
-			buf->set(bufferArg); //To access ir must be converted to the correct type
-		}
-		}
-		};
-
-#pragma endregion
 
 
 		void SampleParamBuffer(Grainflow::GFBuffers bufferType, Grainflow::GrainInfo* grain, Grainflow::GfParam& param, int index) {
@@ -232,7 +211,15 @@ using namespace c74::min;
 
 			if (_streamTarget > 0) {
 				for (int g = 0; g < maxGrains; g++) {
-					if (grainInfo[g].stream != _streamTarget) continue;
+					if (grainInfo[g].stream-1 != _streamTarget) continue;
+					Grainflow::GfParamSet(value, grainInfo[g], param, type);
+				}
+				return;
+			}
+
+			if (_channelTarget > 0) {
+				for (int g = 0; g < maxGrains; g++) {
+					if (grainInfo[g].bchan - 1 != _channelTarget) continue;
 					Grainflow::GfParamSet(value, grainInfo[g], param, type);
 				}
 				return;
@@ -265,8 +252,47 @@ using namespace c74::min;
 			}
 		}
 
+#pragma region MAX_ARGS
+		argument<symbol> buffer{ this, "buf", "Buffer~ from which to read.",
+		MIN_ARGUMENT_FUNCTION {
+
+		bufferArg = arg;
+	}
+		};
+
+		argument<symbol> grains{ this, "number-of-grains", "max number of grains",
+	MIN_ARGUMENT_FUNCTION {
+		grainInfo = new Grainflow::GrainInfo[arg];
+		maxGrains = arg;
+		_ngrains = 0;
+
+		
+		}
+		};
+
+#pragma endregion
 #pragma region MAX_MESSAGES
 		//Setup functions 
+
+		message<> setup{ this, "setup",
+	MIN_FUNCTION {
+		for (int g = 0; g < maxGrains; g++) {
+			Grainflow::SetBufferRef(grainInfo[g], Grainflow::buffer, (int*)(new buffer_reference{ this }));
+			Grainflow::SetBufferRef(grainInfo[g], Grainflow::envelope, (int*)(new buffer_reference{ this }));
+			Grainflow::SetBufferRef(grainInfo[g], Grainflow::delayBuffer, (int*)(new buffer_reference{ this }));
+			Grainflow::SetBufferRef(grainInfo[g], Grainflow::windowBuffer, (int*)(new buffer_reference{ this }));
+			Grainflow::SetBufferRef(grainInfo[g], Grainflow::rateBuffer, (int*)(new buffer_reference{ this }));
+			buffer_lock<>	grainSamples(*(buffer_reference*)(grainInfo[g].bufferRef.get()));
+			if (!grainSamples.valid() || samplerate() == 0) continue;
+			Grainflow::SetSampleRateAdjustment(&grainInfo[g], samplerate(), grainSamples.samplerate());
+			if (bufferArg.empty() || bufferArg == "0") continue;
+			buffer_reference* buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer);
+			if (buf == nullptr) continue;
+			buf->set(bufferArg); //To access ir must be converted to the correct type
+		}
+	return {};
+	}
+		};
 		message<> maxclass_setup{ this, "maxclass_setup",
 		MIN_FUNCTION {
 			c74::max::t_class * c = args[0];
@@ -327,7 +353,7 @@ using namespace c74::min;
 			return{};
 			}
 		};
-
+		
 		//glisson
 		message<> glisson{ this, "glisson", "how much the pitch will change over the life of the grain based on rate",
 		MIN_FUNCTION {
@@ -363,7 +389,22 @@ using namespace c74::min;
 			return{};
 			}
 		};
-
+		//amp
+		message<> ampMess{ this, "amp", "",
+		MIN_FUNCTION {
+			GrainMessage(args[0], Grainflow::amplitude, Grainflow::base);
+			return{};
+		} };
+		message<> ampRandom{ this, "ampRandom", "",
+		MIN_FUNCTION {
+			GrainMessage(args[0], Grainflow::amplitude, Grainflow::random);
+			return{};
+		} };
+		message<> ampOffseet{ this, "ampOffset", "",
+		MIN_FUNCTION {
+			GrainMessage(args[0], Grainflow::amplitude, Grainflow::offset);
+			return{};
+		} };
 
 		//delay
 		message<> delay{ this, "delay", "the amound grains are delayed in ms",
@@ -453,6 +494,7 @@ using namespace c74::min;
 		message<> streamTarget{ this, "streamTarget", "messages will target grains assigned to this stream",
 			MIN_FUNCTION{
 				_target = 0;
+				_channelTarget = 0;
 				_streamTarget = args[0];
 				return{};
 		} };
@@ -462,17 +504,20 @@ using namespace c74::min;
 				float value = 0;
 				int lastTarget = _target;
 				int lastStream = _streamTarget;
-				_streamTarget = 0;
+				int lastChannelTarget = _channelTarget;
+				_channelTarget = 0;
+				_streamTarget = args[0];
 				for (int s = 0; s < _nstreams; s++) {
-					value = args[1];
+					value = args[2];
 					for (int g = 0; g < maxGrains; g++) {
 						if (grainInfo[g].stream != s) continue;
 						_target = g;
-						this->try_call(args[0], value);
+						this->try_call(args[1], value);
 					}
 				}
 				_target = lastTarget;
 				_streamTarget = lastStream;
+				_channelTarget = lastChannelTarget;
 				return{};
 				} };
 
@@ -482,6 +527,8 @@ using namespace c74::min;
 				float value = 0;
 				int lastTarget = _target;
 				int lastStream = _streamTarget;
+				int lastChannelTarget = _channelTarget;
+				_channelTarget = 0;
 				_streamTarget = 0;
 				for (int s = 0; s < _nstreams; s++) {
 					value = Grainflow::Deviate(args[1], args[2]);
@@ -493,6 +540,8 @@ using namespace c74::min;
 				}
 				_target = lastTarget;
 				_streamTarget = lastStream;
+				_channelTarget = lastChannelTarget;
+
 				return{};
 				}
 		};
@@ -502,7 +551,9 @@ using namespace c74::min;
 				float value = 0;
 				int lastTarget = _target;
 				int lastStream = _streamTarget;
+				int lastChannelTarget = _channelTarget;
 				_streamTarget = 0;
+				_channelTarget = 0;
 				for (int s = 0; s < _nstreams; s++) {
 					value = Grainflow::Lerp(args[1], args[2], (float)s / _nstreams);
 					for (int g = 0; g < maxGrains; g++) {
@@ -513,8 +564,62 @@ using namespace c74::min;
 				}
 				_target = lastTarget;
 				_streamTarget = lastStream;
+				_channelTarget = lastChannelTarget;
 				return{};
 				} };
+
+		//Buffer Channels
+		message<> bufChans{ this, "bufChans", "",
+			MIN_FUNCTION{
+				int chans = args[0];
+				for (int g = 0; g < maxGrains; g++) {
+					grainInfo[g].bchan = g % chans;
+				}
+				
+				return{};
+			} };
+
+		message<> bufChan{ this, "bufChan", "",
+			MIN_FUNCTION{
+				int g = 0;
+				int chan = 0;
+				if (args.size() == 1) {
+					g = _target-1;
+					chan = args[0];
+					
+				}
+				else {
+					g = (int)args[0]-1;
+					chan = args[1];
+				}			
+
+				if (g >= maxGrains || g < 0) return{};
+				grainInfo[g].bchan = chan-1;
+
+			return{};
+			} };
+
+		message<> gchan{ this, "gchan", "",
+			MIN_FUNCTION{
+				float value = 0;
+				int lastTarget = _target;
+				int lastStream = _streamTarget;
+				int lastChannelTarget = _channelTarget;
+				_channelTarget = args[0];
+				_streamTarget = 0;
+				_target = 0;
+				value = args[2];
+					for (int g = 0; g < maxGrains; g++) {
+						this->try_call(args[1], value);
+					}
+				
+				_target = lastTarget;
+				_streamTarget = lastStream;
+				_channelTarget = lastChannelTarget;
+				return{};
+
+			return{};
+			} };
 
 		//State
 
@@ -559,6 +664,24 @@ using namespace c74::min;
 			MIN_FUNCTION {
 				string bname = args[0];
 				BufferRefMessage(bname, Grainflow::envelope);
+			return{};
+			} };
+
+		message<> env2D{ this, "env2D","sets the envelope buffer",
+			MIN_FUNCTION {
+
+			return{};
+			} };
+
+		message<> envMode{ this, "envMode","sets the envelope mode",
+			MIN_FUNCTION {
+
+				return{};
+			} };
+
+		message<> env2DNumber{ this, "env2DNumber","sets the envelope buffer",
+			MIN_FUNCTION {
+
 			return{};
 			} };
 
@@ -611,6 +734,7 @@ using namespace c74::min;
 
 		int _target = 0;
 		int _streamTarget = 0;
+		int _channelTarget = 0;
 		int _nstreams = 0;
 
 	};

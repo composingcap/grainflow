@@ -30,8 +30,8 @@
 		</objarg>
 
 		<objarg name='number-of-grains' optional='1' type='symbol'>
-			<digest>max number of grins </digest>
-			<description>max number of grins </description>
+			<digest>max number of grains </digest>
+			<description>max number of grains </description>
 		</objarg>
 
 	</objarglist>
@@ -86,6 +86,11 @@
 			<description>how much the pitch will change over the life of the grain based on rate </description>
 		</method>
 
+		<method name='amp'>
+			<digest></digest>
+			<description></description>
+		</method>
+
 		<method name='glissonRandom'>
 			<digest></digest>
 			<description></description>
@@ -106,6 +111,11 @@
 			<description>controls glisson in semitones </description>
 		</method>
 
+		<method name='gchan'>
+			<digest></digest>
+			<description></description>
+		</method>
+
 		<method name='glissonStOffset'>
 			<digest></digest>
 			<description></description>
@@ -116,9 +126,29 @@
 			<description></description>
 		</method>
 
+		<method name='ampRandom'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='g'>
+			<digest>sends a message to a single grain </digest>
+			<description>sends a message to a single grain </description>
+		</method>
+
+		<method name='ampOffset'>
+			<digest></digest>
+			<description></description>
+		</method>
+
 		<method name='delay'>
 			<digest>the amound grains are delayed in ms </digest>
 			<description>the amound grains are delayed in ms </description>
+		</method>
+
+		<method name='env2DNumber'>
+			<digest>sets the envelope buffer </digest>
+			<description>sets the envelope buffer </description>
 		</method>
 
 		<method name='delayRandom'>
@@ -129,11 +159,6 @@
 		<method name='delayOffset'>
 			<digest></digest>
 			<description></description>
-		</method>
-
-		<method name='g'>
-			<digest>sends a message to a single grain </digest>
-			<description>sends a message to a single grain </description>
 		</method>
 
 		<method name='streamTarget'>
@@ -161,6 +186,11 @@
 			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
 		</method>
 
+		<method name='bufChan'>
+			<digest></digest>
+			<description></description>
+		</method>
+
 		<method name='windowRandom'>
 			<digest></digest>
 			<description></description>
@@ -179,6 +209,11 @@
 		<method name='buf'>
 			<digest>sets the granulation buffer </digest>
 			<description>sets the granulation buffer </description>
+		</method>
+
+		<method name='env2D'>
+			<digest>sets the envelope buffer </digest>
+			<description>sets the envelope buffer </description>
 		</method>
 
 		<method name='spaceRandom'>
@@ -209,6 +244,11 @@
 		<method name='density'>
 			<digest>the probability a grain will play </digest>
 			<description>the probability a grain will play </description>
+		</method>
+
+		<method name='bufChans'>
+			<digest></digest>
+			<description></description>
 		</method>
 
 		<method name='delayMode'>
