@@ -276,14 +276,14 @@ public:
 #pragma region MAX_ARGS
 	argument<symbol> buffer{ this, "buf", "Buffer~ from which to read.",
 	MIN_ARGUMENT_FUNCTION {
-	bufferArg = (string)arg;
-	if (bufferArg.empty() || (int)arg == 0) {
+	bufferArg = arg;
+	if (bufferArg.empty() || (bufferArg.size() ==  1 && (int)bufferArg[0] == 0)) {
 		bufferArg = "__gfNone__";
 	}
 }
 	};
 
-	argument<symbol> grains{ this, "number-of-grains", "max number of grains",
+	argument<int> grains{ this, "number-of-grains", "max number of grains",
 MIN_ARGUMENT_FUNCTION {
 	maxGrains = (int)arg;
 	if (maxGrains < 1) maxGrains = 2;
