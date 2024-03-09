@@ -490,7 +490,7 @@ return{};
 		MIN_FUNCTION{
 			string modestr = args[0];
 			_nstreams = args[1];
-			if (_nstreams < 0) return{};
+			if (_nstreams < 1) return{};
 			Grainflow::GfStreamSetType mode = Grainflow::automaticStreams;
 			if (modestr == "auto") mode = Grainflow::automaticStreams;
 			else if (modestr == "per")  mode = Grainflow::perStreams;
