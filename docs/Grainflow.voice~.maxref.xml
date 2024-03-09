@@ -161,6 +161,11 @@
 			<description></description>
 		</method>
 
+		<method name='liveMode'>
+			<digest></digest>
+			<description></description>
+		</method>
+
 		<method name='streamTarget'>
 			<digest>messages will target grains assigned to this stream </digest>
 			<description>messages will target grains assigned to this stream </description>
@@ -292,11 +297,6 @@
 	<!--ATTRIBUTES-->
 
 	<attributelist>
-
-		<attribute name='liveMode' get='1' set='1' type='long' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
 
 	</attributelist>
 
