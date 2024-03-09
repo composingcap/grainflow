@@ -489,13 +489,14 @@ return{};
 	message<> streamSet{ this, "streamSet", "",
 		MIN_FUNCTION{
 			string modestr = args[0];
+			_nstreams = args[1];
+			if (_nstreams < 0) return{};
 			Grainflow::GfStreamSetType mode = Grainflow::automaticStreams;
 			if (modestr == "auto") mode = Grainflow::automaticStreams;
 			else if (modestr == "per")  mode = Grainflow::perStreams;
 			else if (modestr == "random") mode = Grainflow::randomStreams;
 			else return{};
 
-			_nstreams = args[1];
 			Grainflow::StreamSet(grainInfo, maxGrains, mode, _nstreams);
 			return{};
 	} };

@@ -29,7 +29,7 @@
 			<description>Buffer~ from which to read. </description>
 		</objarg>
 
-		<objarg name='number-of-grains' optional='1' type='symbol'>
+		<objarg name='number-of-grains' optional='1' type='int'>
 			<digest>max number of grains </digest>
 			<description>max number of grains </description>
 		</objarg>
