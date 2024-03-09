@@ -12,11 +12,11 @@ This branch is used for developing the grainflow~ external
 ✔️ Support for grouping grains into streams
 ### In Progress
 🔲 The abilty to store configurations in dictionaries\
-🔲 2D envelope buffers\ 
+🔲 2D envelope buffers
 ###  Planned
-🔲 Replace JSUI gui elements with external versions\
+🔲 Replace JSUI gui elements with external versions
 ### Removed features
-✖️ The abiltiy to manually trigger grains\  
+✖️ The abiltiy to manually trigger grains
 
 ## Buidling
 Currently grainiflow has only ben tested on Windows 11.  
