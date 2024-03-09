@@ -63,12 +63,6 @@ public:
 
 		//Clear unused channels or we will get garbage
 		int size = output.frame_count();
-		if (vector_size() < 16) {
-			for (int g = 0; g < (maxGrains) * 8; g++) {
-				memset(out[g], double(0), sizeof(double) * size);
-			}
-			return;
-		}
 		for (int g = 0; g < (maxGrains - _ngrains) * 8; g++) {
 			memset(out[g], double(0), sizeof(double) * size);
 		}
@@ -81,14 +75,12 @@ public:
 			Grainflow::GrainInfo* thisGrain = &grainInfo[g];
 			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->bufferRef.get()));
 			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->envelopeRef.get()));
-			if (!grainSamples.valid() || !envelopeSamples.valid()) {
-				memset(out[g], double(0), sizeof(double) * size);
-				continue;
-			}
-			thisGrain->bufferFrames = grainSamples.frame_count();
-			if (thisGrain->bufferFrames == 0) continue;
-			thisGrain->oneOverBufferFrames = 1.0f / grainSamples.frame_count();
 			thisGrain->sampleRateAdjustment = _livemode ? 1 : grainSamples.samplerate() / samplerate();
+
+			
+			thisGrain->bufferFrames = grainSamples.valid() ? grainSamples.frame_count() : 0;
+			thisGrain->oneOverBufferFrames = thisGrain->bufferFrames > 0 ? 1.0f / grainSamples.frame_count() : 0;
+			
 
 			//Determine the channel to pull from for each grain.
 			int grainClock = grainClockCh + (g % input_chans[0]);
@@ -96,7 +88,7 @@ public:
 			int fm = fmCh + (g % input_chans[2]);
 			int am = amCh + (g % input_chans[3]);
 
-			size_t chan = (thisGrain->bchan) % grainSamples.channel_count();
+			size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
 			double stream = thisGrain->stream;
 			float windowPortion = std::clamp(1 - thisGrain->space.value, 0.0001f, 1.0f);
 
@@ -115,8 +107,8 @@ public:
 				
 				//TODO how to make this more efficent? maybe memcopy in the outer loop?
 				//We are using linear interpolation here because cosine interpolation has too much overhead
-				auto sample = grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween;
-				auto envelope = GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock);
+				auto sample = grainSamples.valid() ? grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween : 0;
+				auto envelope = envelopeSamples.valid() ? GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock) : 0;
 
 				//Set correct data into each outlet
 				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm);
@@ -191,7 +183,7 @@ public:
 			frame = index % paramBuf.frame_count();
 		}
 		else if (param.mode == Grainflow::buffer_random) {
-			frame = rand() % paramBuf.frame_count();
+			frame = rd() % paramBuf.frame_count();
 		}
 
 		param.value = paramBuf.lookup(frame, 0);
@@ -296,9 +288,7 @@ public:
 	argument<symbol> buffer{ this, "buf", "Buffer~ from which to read.",
 	MIN_ARGUMENT_FUNCTION {
 	bufferArg = (string)arg;
-	if (bufferArg.empty() || (bufferArg.size() ==  1 && (int)bufferArg[0] == 0)) {
-		bufferArg = "__gfNone__";
-	}
+
 }
 	};
 
@@ -315,9 +305,7 @@ public:
 	argument<symbol> env_arg{ this, "env", "default envelope buffer.",
 		MIN_ARGUMENT_FUNCTION {
 		envArg = (string)arg;
-		if (envArg.empty() || (envArg.size() == 1 && (int)envArg[0] == 0)) {
-			envArg = "__gfNone__";
-		}}
+		}
 			};
 
 #pragma endregion
@@ -794,6 +782,7 @@ private:
 	int _channelTarget = 0;
 	int _nstreams = 0;
 	bool _livemode;
+	std::random_device rd;
 
 };
 

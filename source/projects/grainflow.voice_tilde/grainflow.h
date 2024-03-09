@@ -1,7 +1,6 @@
 #pragma once
-#include <numeric>
 #include<memory>
-#include<vector>
+#include<random>
 
 
 /// <summary>
@@ -65,6 +64,7 @@ namespace Grainflow {
         windowBuffer
     };
 
+
     class GrainInfo {
 
     public:
@@ -108,6 +108,8 @@ namespace Grainflow {
        }
 
     };
+
+
 
     void GfParamSet(float value, GrainInfo &grain, GfParamName param, GfParamType type) {
         GfParam *selectedParam = nullptr;
@@ -161,7 +163,8 @@ namespace Grainflow {
     }
   
     float Deviate(float center, float range) {
-        return center + ((rand() % 10000) * 0.0001f - 1) * 2 * range;
+        std::random_device rd;
+        return center + ((rd() % 10000) * 0.0001f - 1) * 2 * range;
     }
 
     float Lerp(float lower, float upper, float position) {
@@ -169,7 +172,8 @@ namespace Grainflow {
     }
 
     void SampleParam(GfParam& param, int index) {
-        param.value = abs((rand() % 10000) * 0.0001f) * (param.random)+param.base + param.offset * index;
+        std::random_device rd;
+        param.value = abs((rd() % 10000) * 0.0001f) * (param.random)+param.base + param.offset * index;
     }
 
     void AssignAutoOverlap(GrainInfo* info, int ngrains, int index) {
@@ -204,7 +208,8 @@ namespace Grainflow {
                 break;
             case(randomStreams):
                 for (int g = 0; g < maxGrains; g++) {
-                    grains[g].stream = rand() % nstreams;
+                    std::random_device rd;
+                    grains[g].stream = rd() % nstreams;
                 }
                 break;
             }
@@ -249,7 +254,8 @@ namespace Grainflow {
 
 
     void SampleDensity(GrainInfo* info) {
-        info->grainEnabled = info->density >= (rand() % 10000) * 0.0001f;
+        std::random_device rd;
+        info->grainEnabled = info->density >= (rd() % 10000) * 0.0001f;
     }
 
     float PitchToRate(float pitch) {
