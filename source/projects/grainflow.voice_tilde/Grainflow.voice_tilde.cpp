@@ -23,8 +23,6 @@ public:
 	~grainflow_voice_tilde() {
 		Cleanup();
 	}
-	Grainflow::GrainInfo* grainInfo = nullptr;
-	string bufferArg;
 
 #pragma region MAX_IO
 	inlet<>  grainClock{ this,  "(multichannelsignal) phasor input", "multichannelsignal" };
@@ -83,7 +81,10 @@ public:
 			Grainflow::GrainInfo* thisGrain = &grainInfo[g];
 			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->bufferRef.get()));
 			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->envelopeRef.get()));
-			if (!grainSamples.valid() || !envelopeSamples.valid()) continue;
+			if (!grainSamples.valid() || !envelopeSamples.valid()) {
+				memset(out[g], double(0), sizeof(double) * size);
+				continue;
+			}
 			thisGrain->bufferFrames = grainSamples.frame_count();
 			if (thisGrain->bufferFrames == 0) continue;
 			thisGrain->oneOverBufferFrames = 1.0f / grainSamples.frame_count();
@@ -103,7 +104,6 @@ public:
 			for (int v = 0; v < output.frame_count(); v++) {
 				double thisGrainClock = fmod(in[grainClock][v] + thisGrain->window.value, 1) / windowPortion;
 				thisGrainClock *= thisGrainClock <= 1;
-
 				double thisTraversalPhasor = in[traversalPhasor][v];
 				double thisFm = in[fm][v];
 				double thisAm = in[am][v];
@@ -112,27 +112,44 @@ public:
 				//Sample buffers
 				auto tween = (float)fmod(thisGrain->sourceSample, 1);
 				auto frame = size_t(thisGrain->sourceSample);
-				auto frame2 = size_t((thisGrainClock * envelopeSamples.frame_count()));
+				
 				//TODO how to make this more efficent? maybe memcopy in the outer loop?
 				//We are using linear interpolation here because cosine interpolation has too much overhead
 				auto sample = grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween;
-				auto envelope = envelopeSamples.lookup(frame2, 0);
-				auto grainEnabled = thisGrain->grainEnabled;
+				auto envelope = GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock);
 
 				//Set correct data into each outlet
-				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * grainEnabled;
-				out[g + grainState][v] = grainReset * grainEnabled;
-				out[g + grainProgress][v] = thisGrainClock * grainEnabled;
-				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames * grainEnabled;
-				out[g + grainAmp][v] = (1 - thisAm) * grainEnabled;
-				out[g + grainEnvelope][v] = envelope * grainEnabled;
+				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm);
+				out[g + grainState][v] = thisGrainClock!= 0;
+				out[g + grainProgress][v] = thisGrainClock;
+				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
+				out[g + grainAmp][v] = (1 - thisAm);
+				out[g + grainEnvelope][v] = envelope;
 				out[g + grainBufferChannel][v] = chan + 1;
 				out[g + grainStreamChannel][v] = stream + 1;
 
 				//Increment playhead
 				Grainflow::Increment(thisGrain, thisFm, thisGrainClock);
+
 			}
 		}
+	}
+
+	float GetEnvelopeValue(buffer_lock<> buffer, Grainflow::GrainInfo* grain, float grainClock) {
+
+		if (grain->nEnvelopes <= 1) {
+			auto frame = size_t((grainClock * buffer.frame_count()));
+			auto envelope = buffer.lookup(frame, 0);
+			return envelope;
+		}
+		int sizePerEnvelope = buffer.frame_count() / grain->nEnvelopes;
+		int env1 = (int)(grain->envelope.value* grain->nEnvelopes);
+		int env2 = env1+1;
+		float fade = grain->envelope.value* grain->nEnvelopes - env1;
+		auto frame = size_t((grainClock * sizePerEnvelope));
+		auto envelope = buffer.lookup((env1* sizePerEnvelope + frame) % buffer.frame_count(), 0) * (1-fade) + buffer.lookup((env2* sizePerEnvelope + frame) % buffer.frame_count(), 0) * fade;
+		return envelope;
+
 	}
 
 	/// <summary>
@@ -153,6 +170,7 @@ public:
 		SampleParamBuffer(Grainflow::windowBuffer, thisGrain, thisGrain->window, g);
 		Grainflow::SampleParam(thisGrain->space, g);
 		Grainflow::SampleParam(thisGrain->glisson, g);
+		Grainflow::SampleParam(thisGrain->envelope, g);
 		Grainflow::SampleDensity(thisGrain);
 
 		return grainReset;
@@ -240,17 +258,18 @@ public:
 	};
 
 	void Init() {
+		
 		for (int g = 0; g < maxGrains; g++) {
 			Grainflow::SetBufferRef(grainInfo[g], Grainflow::buffer, (int*)(new buffer_reference{ this }));
 			Grainflow::SetBufferRef(grainInfo[g], Grainflow::envelope, (int*)(new buffer_reference{ this }));
 			Grainflow::SetBufferRef(grainInfo[g], Grainflow::delayBuffer, (int*)(new buffer_reference{ this }));
 			Grainflow::SetBufferRef(grainInfo[g], Grainflow::windowBuffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::rateBuffer, (int*)(new buffer_reference{ this }));
+			Grainflow::SetBufferRef(grainInfo[g], Grainflow::rateBuffer, (int*)(new buffer_reference{ this }));	
 
-			if (bufferArg.empty() || bufferArg == "0") continue;
+			buffer_reference* env = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::envelope);
+			env->set(envArg);
 			buffer_reference* buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer);
-			if (buf == nullptr) continue;
-			buf->set(bufferArg); //To access ir must be converted to the correct type
+			buf->set(bufferArg); 
 		}
 	}
 
@@ -276,7 +295,7 @@ public:
 #pragma region MAX_ARGS
 	argument<symbol> buffer{ this, "buf", "Buffer~ from which to read.",
 	MIN_ARGUMENT_FUNCTION {
-	bufferArg = arg;
+	bufferArg = (string)arg;
 	if (bufferArg.empty() || (bufferArg.size() ==  1 && (int)bufferArg[0] == 0)) {
 		bufferArg = "__gfNone__";
 	}
@@ -284,14 +303,22 @@ public:
 	};
 
 	argument<int> grains{ this, "number-of-grains", "max number of grains",
-MIN_ARGUMENT_FUNCTION {
-	maxGrains = (int)arg;
-	if (maxGrains < 1) maxGrains = 2;
-	grainInfo = new Grainflow::GrainInfo[maxGrains];
+		MIN_ARGUMENT_FUNCTION {
+			maxGrains = (int)arg;
+			if (maxGrains < 1) maxGrains = 2;
+			grainInfo = new Grainflow::GrainInfo[maxGrains];
 
-	_ngrains = 0;
-	}
-	};
+			_ngrains = 0;
+			}
+			};
+
+	argument<symbol> env_arg{ this, "env", "default envelope buffer.",
+		MIN_ARGUMENT_FUNCTION {
+		envArg = (string)arg;
+		if (envArg.empty() || (envArg.size() == 1 && (int)envArg[0] == 0)) {
+			envArg = "__gfNone__";
+		}}
+			};
 
 #pragma endregion
 #pragma region MAX_MESSAGES
@@ -666,29 +693,39 @@ return{};
 		return{};
 		} };
 
-	//Buffers
+	//Envelope
 	message<> env{ this, "env","sets the envelope buffer",
 		MIN_FUNCTION {
 			string bname = (string)args[0];
 			BufferRefMessage(bname, Grainflow::envelope);
+			if (args.size() < 2) {
+				GrainMessage(1, Grainflow::nEnvelopes, Grainflow::base);
+			}
+			GrainMessage((int)args[1], Grainflow::nEnvelopes, Grainflow::base);
 		return{};
 		} };
 
-	message<> env2D{ this, "env2D","sets the envelope buffer",
+
+	message<> envPosition{ this, "envPosition","sets the 2D envelope position",
 		MIN_FUNCTION {
+		GrainMessage(args[0], Grainflow::envelopePosition, Grainflow::base);
 		return{};
 		} };
 
-	message<> envMode{ this, "envMode","sets the envelope mode",
-		MIN_FUNCTION {
-			return{};
-		} };
+	message<> envPositionOffset{ this, "envPositionOffset","sets the 2D envelope position",
+	MIN_FUNCTION {
+	GrainMessage(args[0], Grainflow::envelopePosition, Grainflow::offset);
+	return{};
+	} };
 
-	message<> env2DNumber{ this, "env2DNumber","sets the envelope buffer",
-		MIN_FUNCTION {
-		return{};
-		} };
+	message<> envPositionRandom{ this, "envPositionRandom","sets the 2D envelope position",
+	MIN_FUNCTION {
+	GrainMessage(args[0], Grainflow::envelopePosition, Grainflow::random);
+	return{};
+	} };
 
+
+	//Buffeers
 	message<> buf{ this, "buf","sets the granulation buffer",
 		MIN_FUNCTION {
 			string bname = (string)args[0];
@@ -745,6 +782,10 @@ return{};
 	int input_chans[4] = { 0,0,0,0 };
 	int maxGrains = 0;
 private:
+	Grainflow::GrainInfo* grainInfo = nullptr;
+	string bufferArg;
+	string envArg;
+
 	int _ngrains = 0;
 	float oneOverSamplerate = 1;
 
@@ -753,6 +794,7 @@ private:
 	int _channelTarget = 0;
 	int _nstreams = 0;
 	bool _livemode;
+
 };
 
 MIN_EXTERNAL(grainflow_voice_tilde);

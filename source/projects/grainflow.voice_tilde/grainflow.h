@@ -17,8 +17,10 @@ namespace Grainflow {
         rate,
         glisson,
         window,
-        amplitude, 
+        amplitude,
         space,
+        envelopePosition,
+        nEnvelopes,
     };
     /// <summary>
     /// Different paramter types using in the GfParam Struct
@@ -58,7 +60,6 @@ namespace Grainflow {
     enum GFBuffers {
         buffer=0,
         envelope,
-        envelope2D,
         rateBuffer,
         delayBuffer,
         windowBuffer
@@ -84,7 +85,6 @@ namespace Grainflow {
         std::unique_ptr<int> delayBufRef = nullptr;
         std::unique_ptr<int> rateBufRef = nullptr;
         std::unique_ptr<int> windowBufRef = nullptr;
-        std::unique_ptr<int> env2DBufRef = nullptr;
 
 
         GfParam delay;
@@ -94,6 +94,9 @@ namespace Grainflow {
         GfParam amplitude; 
         GfParam rate;
         GfParam glisson;
+        GfParam envelope;
+
+        int nEnvelopes = 1;
 
         size_t stream = 0;
         size_t bchan = 0;
@@ -127,8 +130,14 @@ namespace Grainflow {
         case(space):
             selectedParam = &grain.space;
             break;
+        case(envelopePosition):
+            selectedParam = &grain.envelope;
+            break;
+        case(nEnvelopes):
+            grain.nEnvelopes = (int)value;
+            return;
         default:
-            throw("param does not exist");
+            //throw("param does not exist");
             return;
         }
         switch (type) {
@@ -210,9 +219,6 @@ namespace Grainflow {
         case(envelope):
             grain.envelopeRef.reset(handle);
             break;
-        case(envelope2D):
-            grain.env2DBufRef.reset(handle);
-            break;
         case(rateBuffer):
             grain.rateBufRef.reset(handle);
             break;
@@ -231,8 +237,6 @@ namespace Grainflow {
             return grain.bufferRef.get();
         case(envelope):
             return grain.envelopeRef.get();
-        case(envelope2D):
-            return grain.env2DBufRef.get();
         case(rateBuffer):
             return grain.rateBufRef.get();
         case(delayBuffer):
@@ -261,9 +265,6 @@ namespace Grainflow {
         info->sourceSample = fmod(info->sourceSample + fm * info->sampleRateAdjustment * info->rate.value * ( 1+ info->glisson.value * grainClock), info->bufferFrames);
         info->lastGrainClock = grainClock;
     }
-
-
-
 
 
 }

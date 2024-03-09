@@ -34,6 +34,11 @@
 			<description>max number of grains </description>
 		</objarg>
 
+		<objarg name='env' optional='1' type='symbol'>
+			<digest>default envelope buffer</digest>
+			<description>default envelope buffer. </description>
+		</objarg>
+
 	</objarglist>
 
 
@@ -146,11 +151,6 @@
 			<description>the amound grains are delayed in ms </description>
 		</method>
 
-		<method name='env2DNumber'>
-			<digest>sets the envelope buffer </digest>
-			<description>sets the envelope buffer </description>
-		</method>
-
 		<method name='delayRandom'>
 			<digest></digest>
 			<description></description>
@@ -164,6 +164,11 @@
 		<method name='liveMode'>
 			<digest></digest>
 			<description></description>
+		</method>
+
+		<method name='envPositionRandom'>
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
 		</method>
 
 		<method name='streamTarget'>
@@ -216,11 +221,6 @@
 			<description>sets the granulation buffer </description>
 		</method>
 
-		<method name='env2D'>
-			<digest>sets the envelope buffer </digest>
-			<description>sets the envelope buffer </description>
-		</method>
-
 		<method name='spaceRandom'>
 			<digest></digest>
 			<description></description>
@@ -266,9 +266,14 @@
 			<description>sets the envelope buffer </description>
 		</method>
 
-		<method name='envMode'>
-			<digest>sets the envelope mode </digest>
-			<description>sets the envelope mode </description>
+		<method name='envPosition'>
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</method>
+
+		<method name='envPositionOffset'>
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
 		</method>
 
 		<method name='delayBuffer'>

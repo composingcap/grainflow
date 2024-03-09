@@ -9,14 +9,27 @@ This branch is used for developing the grainflow~ external
 ✔️ Set delay, window placement, and pitch using buffers\
 ✔️ Support for ganulating different buffer channels per grain\
 ✔️ Support  for granulating different buffers with each grain\
-✔️ Support for grouping grains into streams
+✔️ Support for grouping grains into streams\
+✔️ 2D envelope buffers
 ### In Progress
-🔲 The abilty to store configurations in dictionaries\
-🔲 2D envelope buffers
+🔲 The abilty to store configurations in dictionaries
+
 ###  Planned
 🔲 Replace JSUI gui elements with external versions
 ### Removed features
 ✖️ The abiltiy to manually trigger grains
+✖️ Pitch/Rate quantization  
+
+
+## Migrating old code
+For the most part, grainflow code *should* be more or less the same in this new version. There are a few names that have been changed and some that have been removed.
+The documentation has not yet been updated to reflect these changes.
+- Delay should be used instead of trav. 
+- Trav global has been removed (use delay)
+- Env2D has been folded into the general envelope reading. You should now specify the "env" message with a number of envelope. 
+- Env2DPosition is now EnvPosition
+- Windows are now places with  the window message (windowOffset,  windowOffsetRandom)
+
 
 ## Buidling
 Currently grainiflow has only ben tested on Windows 11.  
