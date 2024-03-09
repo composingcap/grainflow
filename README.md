@@ -9,7 +9,7 @@ This branch is used for developing the grainflow~ external
 ✔️ Set delay, window placement, and pitch using buffers\
 ✔️ Support for ganulating different buffer channels per grain\
 ✔️ Support  for granulating different buffers with each grain\
-✔️ Support for grouping grains into streams\
+✔️ Support for grouping grains into streams
 ### In Progress
 🔲 The abilty to store configurations in dictionaries\
 🔲 2D envelope buffers\ 
