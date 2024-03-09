@@ -6,6 +6,7 @@ git clone https://github.com/composingcap/grainflow.git -b f/external --recursiv
 ## Building grainflow.voice~
 cd to the current dirrectory
 ```
+cd ./grainflow
 mkdir ./build
 cd build
 cmake ../
