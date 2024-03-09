@@ -20,6 +20,7 @@ This branch is used for developing the grainflow~ external
 
 ## Buidling
 Currently grainiflow has only ben tested on Windows 11.  
+You must have [cmake](https://cmake.org/) and Visual Studio (Windows) or Xcode (Mac)  
 ### Downloading the repo
 Open a terminal window in the  directory you would like to place grainflow.
 If you would like to place grainflow in you Max Packages directory, make sure to remove any other grainflow folder.
