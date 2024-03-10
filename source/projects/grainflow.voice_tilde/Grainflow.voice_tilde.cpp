@@ -111,11 +111,11 @@ public:
 				auto envelope = envelopeSamples.valid() ? GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock) : 0;
 
 				//Set correct data into each outlet
-				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm);
+				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * thisGrain->amplitude.value;
 				out[g + grainState][v] = thisGrainClock!= 0;
 				out[g + grainProgress][v] = thisGrainClock;
 				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
-				out[g + grainAmp][v] = (1 - thisAm);
+				out[g + grainAmp][v] = (1 - thisAm)* thisGrain->amplitude.value;
 				out[g + grainEnvelope][v] = envelope;
 				out[g + grainBufferChannel][v] = chan + 1;
 				out[g + grainStreamChannel][v] = stream + 1;
@@ -163,6 +163,7 @@ public:
 		Grainflow::SampleParam(thisGrain->space, g);
 		Grainflow::SampleParam(thisGrain->glisson, g);
 		Grainflow::SampleParam(thisGrain->envelope, g);
+		Grainflow::SampleParam(thisGrain->amplitude, g);
 		Grainflow::SampleDensity(thisGrain);
 
 		return grainReset;
@@ -266,14 +267,6 @@ public:
 	}
 
 	void Cleanup() {
-		for (int g = 0; g < maxGrains; g++) {
-			//Need to figure how to do this better
-			//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::buffer));
-			//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::envelope));
-			//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::delayBuffer));
-			//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::windowBuffer));
-			//free((buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::rateBuffer));
-		}
 		delete[] grainInfo;
 	}
 
