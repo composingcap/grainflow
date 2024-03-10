@@ -3,9 +3,11 @@
 ///	@copyright	Copyright 2024 Christopher Poovey
 ///	@license	Use of this source code is governed by the MIT License found in the License.md file.
 ///
-
+//%compiler: clang
+//%cflags: -fopenmp
 #include "grainflow.h"
 #include "c74_min.h"
+#include <omp.h>
 
 using namespace c74::min;
 
@@ -68,7 +70,7 @@ public:
 		}
 
 		//Pre proccess
-
+		#pragma omp parallel for 
 		for (int g = 0; g < _ngrains; g++) {
 			//Vector Level operations
 
