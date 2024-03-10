@@ -3,11 +3,15 @@
 ///	@copyright	Copyright 2024 Christopher Poovey
 ///	@license	Use of this source code is governed by the MIT License found in the License.md file.
 ///
-//%compiler: clang
-//%cflags: -fopenmp
 #include "grainflow.h"
 #include "c74_min.h"
+#ifdef _WIN64
 #include <omp.h>
+#define USEOMP
+#elif __APPLE__
+	#if TARGET_OS_MAC
+	#endif
+#endif
 
 using namespace c74::min;
 
@@ -15,6 +19,7 @@ long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count)
 long simplemc_inputchanged(c74::max::t_object* x, long index, long count);
 
 class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<> {
+private: 
 public:
 
 	MIN_DESCRIPTION{ "the base object for grainflow" };
@@ -68,9 +73,10 @@ public:
 		for (int g = 0; g < (maxGrains - _ngrains) * 8; g++) {
 			memset(out[g], double(0), sizeof(double) * size);
 		}
-
+#ifdef USEOMP
 		//Pre proccess
 		#pragma omp parallel for 
+#endif
 		for (int g = 0; g < _ngrains; g++) {
 			//Vector Level operations
 
