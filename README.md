@@ -32,7 +32,7 @@ The documentation has not yet been updated to reflect these changes.
 
 
 ## Buidling
-Currently grainiflow has only ben tested on Windows 11.  
+Currently grainiflow has only ben tested on Windows 11  and Mac OS 14
 You must have [cmake](https://cmake.org/) and Visual Studio (Windows) or Xcode (Mac)  
 ### Downloading the repo
 Open a terminal window in the  directory you would like to place grainflow.
