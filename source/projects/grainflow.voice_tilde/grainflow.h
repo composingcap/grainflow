@@ -91,7 +91,7 @@ namespace Grainflow {
         GfParam window;
         GfParam space;
 
-        GfParam amplitude; 
+        GfParam amplitude;
         GfParam rate;
         GfParam glisson;
         GfParam envelope;
@@ -105,6 +105,7 @@ namespace Grainflow {
 
         GrainInfo() {
             rate.base = 1;
+            amplitude.base = 1;
        }
 
     };

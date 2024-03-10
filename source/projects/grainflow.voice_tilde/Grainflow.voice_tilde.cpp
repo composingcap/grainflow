@@ -412,12 +412,12 @@ return {};
 	} };
 	message<> ampRandom{ this, "ampRandom", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::amplitude, Grainflow::random);
+		GrainMessage(- (float)args[0], Grainflow::amplitude, Grainflow::random);
 		return{};
 	} };
 	message<> ampOffseet{ this, "ampOffset", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::amplitude, Grainflow::offset);
+		GrainMessage(- (float)args[0], Grainflow::amplitude, Grainflow::offset);
 		return{};
 	} };
 
