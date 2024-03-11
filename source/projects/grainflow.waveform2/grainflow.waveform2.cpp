@@ -13,28 +13,28 @@ public:
 	enum class waveformMode : int { scrub, selection, loop, enum_count };
 	enum_map waveformMode_range = { "scrub", "selection", "loop" };
 
-	MIN_DESCRIPTION{ "Show audio gain levels" };
+	MIN_DESCRIPTION{ "Visualize Grainflow granulation" };
 	MIN_TAGS{ "ui" };
 	MIN_AUTHOR{ "Christopher Poovey" };
 	MIN_RELATED{ "" };
 
-	inlet<>  input{ this, "(list) a" };
-	outlet<> output{ this, "(list) b" };
-	outlet<> output2{ this, "(list) b" };
+	inlet<>  input{ this, "(list) grain information" };
+	outlet<> output{ this, "(list) (dummy)" };
+	outlet<> output2{ this, "(list) click info" };
 
 	grainflow_waveform2(const atoms& args = {})
 		: ui_operator::ui_operator{ this, args } {
 		m_timer.delay(40);
 	};
 
-	void ComputeBufferDisplay() {
+	void ComputeBufferDisplay(int maxSamples) {
 		buffer_lock<> samples(m_buffer);
 		if (!samples.valid()) {
 			bufferDisplay.resize(0);
 			return;
 		}
 		if (samples.frame_count() < 1) return;
-		int dispSamples = m_maxSamples;
+		int dispSamples = maxSamples;
 		float lastSample = 0;
 		dispSamples = samples.frame_count() < dispSamples ? samples.frame_count() : dispSamples;
 		bufferDisplay.resize(dispSamples);
@@ -45,17 +45,18 @@ public:
 		}
 	}
 
-	attribute<numbers> m_range{ this, "range", { {0.0, 1.0}} };
-	attribute<numbers> m_offset{ this, "offset", { {10.0, 10.0}} };
+	attribute<int>     m_channel{ this, "chan",0, setter{MIN_FUNCTION{
+	ComputeBufferDisplay(m_maxSamples);
+	return args;
+	} } };
 
-	attribute<int>     m_channel{ this, "chan",0 };
 	attribute<symbol>  m_bufferName{ this, "buf", " ",
 		setter{MIN_FUNCTION{
 			if (args.empty()) return args;
 			string name = args[0];
 			if (name.empty()) return args;
 			m_buffer.set(name);
-			ComputeBufferDisplay();
+			ComputeBufferDisplay(args[0]);
 			return args;
 		}},
 		getter{MIN_GETTER_FUNCTION{
@@ -66,7 +67,11 @@ public:
 	attribute<number>  m_dotScale{ this, "dotScale", 1.0 };
 	attribute<number>  m_dotVJitter{ this, "dotVJitter", 0.0 };
 	attribute<int>  m_fps{ this, "fps", 30 };
-	attribute<int>  m_maxSamples{ this, "maxBufferDrawSamples", 1000 };
+	attribute<int>  m_maxSamples{ this, "maxBufferDrawSamples", 1000, setter{MIN_FUNCTION{
+
+	ComputeBufferDisplay(args[0]);
+	return args;
+	} } };
 	//Interaction mode
 	attribute<numbers> m_selection{ this, "selection", { {0.0, 1.0}} };
 	attribute<bool>  m_triangles{ this, "showTriangles", false };
@@ -101,7 +106,7 @@ public:
 	//ComputeBufferDisplay();
 
 	if (bufferDisplay.size() == 0) {
-		ComputeBufferDisplay();
+		ComputeBufferDisplay(m_maxSamples);
 	}
 	for (int i = 0; i < bufferDisplay.size(); i++) {
 		int dispSamples = bufferDisplay.size();
@@ -129,28 +134,63 @@ public:
 							m_dotcolor.get().green() * a + m_dotcolor2.get().green() * b,
 							m_dotcolor.get().blue() * a + m_dotcolor2.get().blue() * b,
 							m_dotcolor.get().alpha() * a + m_dotcolor2.get().alpha() * b,} },
-			position{ pos * t.width(), (1 - (std::clamp(abs(amp),0.0f,1.0f) * 0.99) - 0.01) * (t.height()) },
+			position{ pos * t.width(), (1 - (std::clamp(abs(amp),0.0f,1.0f) * 0.8) - 0.2) * (t.height()) }, //TODO Something is off here
 			size{ scale,scale },
 		};
 	}
+	if (m_triangles) {
+		tri<fill>{
+			t,
+				color{ m_triangleColor },
+				size{ t.width() * 0.025f, t.width() * 0.025f },
+				position{ trianglePosition[0], t.height() * 0.025 },
+		};
 
-	tri<fill>{
-		t,
-			color{ m_waveformColor },
-			size{ t.width() * 0.05f, t.height() * 0.05f },
-			position{ t.width() * 0.5f, t.width() * 0.05 },
-	};
-
-	tri<fill>{
-		t,
-			color{ m_waveformColor },
-			size{ t.width() * 0.05f, t.height() * 0.05f },
-			position{ t.width() * 0.05f, t.width() * 0.5f },
-			//rotation{ 90 },
-	};
+		tri<fill>{
+			t,
+				color{ m_triangleColor },
+				size{ t.width() * 0.025f , t.width() * 0.025f },
+				position{ 0.1f, trianglePosition[1] },
+				rotation{ -0.25f },
+		};
+	}
 
 	return {};
 } };
+
+	message<> mousedown{ this, "mousedown",
+		MIN_FUNCTION{
+			event   e { args };
+			auto    t { e.target() };
+			auto    x { e.x() };
+			auto    y { e.y() };
+			trianglePosition[0] = x;
+			trianglePosition[1] = y;
+		output2.send(atoms{ "clicking", (double)trianglePosition[0] / e.target().width() ,-(double)trianglePosition[1] / e.target().height()});
+			return{};
+			}
+	};
+
+	message<> mousedragdelta{ this, "mousedragdelta",
+		MIN_FUNCTION {
+			event   e { args };
+			auto    x { e.x() };
+			auto    y { e.y() };
+			number  factor { e.target().width() - 2.0 };    // how much precision (vs. immediacy) you have when dragging the knob
+
+
+
+			trianglePosition[0] += x;
+			trianglePosition[1] += y;
+
+			trianglePosition[0] = (number)clamp((double)trianglePosition[0], 0.0, (double)e.target().width());
+			trianglePosition[1] = (number)clamp((double)trianglePosition[1], 0.0, (double)e.target().height());
+
+
+			output2.send(atoms{"clicking", (double)trianglePosition[0]/ e.target().width() ,1-(double)trianglePosition[1] / e.target().height() });
+			return {};
+		}
+	};
 
 	message<> grainpos{ this, "grainPosition", "",
 		MIN_FUNCTION{
@@ -190,7 +230,7 @@ MIN_FUNCTION{
 		} };
 	message<> b{ this, "bang", "",
 		MIN_FUNCTION{
-			ComputeBufferDisplay();
+			ComputeBufferDisplay(m_maxSamples);
 			return{};
 		} };
 
@@ -199,6 +239,9 @@ private:
 	atoms grainWindows;
 	atoms grainAmps;
 	atoms grainStates;
+	numbers trianglePosition{ 0,0 };
+	numbers  m_anchor{};
+	number	m_range_delta{ 1.0 };
 };
 
 MIN_EXTERNAL(grainflow_waveform2);
