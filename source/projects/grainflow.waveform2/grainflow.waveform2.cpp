@@ -10,11 +10,8 @@ private:
 	std::vector<float> bufferDisplay;
 
 public:
-	enum mode {
-		scrub = 0,
-		selection,
-		loop
-	};
+	enum class waveformMode : int { scrub, selection, loop, enum_count };
+	enum_map waveformMode_range = { "scrub", "selection", "loop" };
 
 	MIN_DESCRIPTION{ "Show audio gain levels" };
 	MIN_TAGS{ "ui" };
@@ -23,6 +20,7 @@ public:
 
 	inlet<>  input{ this, "(list) a" };
 	outlet<> output{ this, "(list) b" };
+	outlet<> output2{ this, "(list) b" };
 
 	grainflow_waveform2(const atoms& args = {})
 		: ui_operator::ui_operator{ this, args } {
@@ -38,7 +36,7 @@ public:
 		if (samples.frame_count() < 1) return;
 		int dispSamples = m_maxSamples;
 		float lastSample = 0;
-		dispSamples = samples.frame_count() < dispSamples ? samples.frame_count() : dispSamples;		
+		dispSamples = samples.frame_count() < dispSamples ? samples.frame_count() : dispSamples;
 		bufferDisplay.resize(dispSamples);
 		int samplesPerFrame = samples.frame_count() / bufferDisplay.size();
 		for (int s = 0; s < bufferDisplay.size(); s++) {
@@ -49,7 +47,6 @@ public:
 
 	attribute<numbers> m_range{ this, "range", { {0.0, 1.0}} };
 	attribute<numbers> m_offset{ this, "offset", { {10.0, 10.0}} };
-
 
 	attribute<int>     m_channel{ this, "chan",0 };
 	attribute<symbol>  m_bufferName{ this, "buf", " ",
@@ -72,11 +69,14 @@ public:
 	attribute<int>  m_maxSamples{ this, "maxBufferDrawSamples", 1000 };
 	//Interaction mode
 	attribute<numbers> m_selection{ this, "selection", { {0.0, 1.0}} };
-	attribute<bool>  m_triangles{ this, "showTriangles", false };	
+	attribute<bool>  m_triangles{ this, "showTriangles", false };
 	attribute<number> m_trackerWidth{ this, "trackerWidth", 2.0 };
 
-	attribute<int>	   m_mode{ this, "mode", 0};
+	attribute<waveformMode> m_mode{ this, "mode", waveformMode::scrub, waveformMode_range,
+		description {""}
+	};	
 	attribute<color>   m_bgcolor{ this, "bgColor", {color{0,0,0,0}}, title {"Background Color"} };
+
 	attribute<color>   m_waveformColor{ this, "waveformColor", color::predefined::black, title {"Waveform Color"} };
 	attribute<color>   m_dotcolor{ this, "dotColor", {color{1.0,0.0,0.0,0.9}}, title {"Dot Color"} };
 	attribute<color>   m_dotcolor2{ this, "dotColorSecondary", {color{0.5, 0, 0, 0.9}}, title {"Dot Color Secondary"} };
@@ -84,19 +84,13 @@ public:
 	attribute<color>   m_trackerColor{ this, "trackerColor", {color{0.9, 0.9, 0.9, 0.75}}, title {"Tracker Color"} };
 	attribute<color>   m_triangleOutColor{ this, "triangleOutColor", {color{1,1,1,1}}, title {"Triangle Color"} };
 
-
-	
-
-
 	message<> setup{ this, "setup",
 		MIN_FUNCTION {
-			
 		return {};
 		} };
 	message<> paint{ this, "paint",
 		MIN_FUNCTION {
 			target t {args};
-
 
 	rect<fill> {// background
 		t,
@@ -123,27 +117,40 @@ public:
 	//Draw Grains
 	for (int g = 0; g < grainStates.size(); g++) {
 		if ((float)grainStates[g] < 0.01) continue;
-		float pos = g < grainPositions.size() ? (float)grainPositions[g] : 0;
-		float scale = g < grainWindows.size() ? (float)grainWindows[g] : 0;
-		float amp = g < grainAmps.size()  ? (float)grainAmps[g] + ((float)(rand() % 2000) - 1000) * 0.001 * m_dotVJitter : 0;
+		float pos = g < grainPositions.size() ? grainPositions[g] : 0;
+		float scale = g < grainWindows.size() ? grainWindows[g] : 0;
+		float amp = g < grainAmps.size() ? (float)grainAmps[g] + ((float)(rand() % 2000) - 1000) * 0.001 * m_dotVJitter : 0;
 		scale *= t.height() * 0.05 * m_dotScale;
 		float b = (float)g / grainStates.size();
-		float a = 1-b;
+		float a = 1 - b;
 		ellipse<fill>{
 			t,
-				color{ color{m_dotcolor.get().red() * a + m_dotcolor2.get().red() * b, 
-							m_dotcolor.get().green()* a + m_dotcolor2.get().green() * b,
-							m_dotcolor.get().blue()* a + m_dotcolor2.get().blue() * b,
-							m_dotcolor.get().alpha()* a + m_dotcolor2.get().alpha() * b,} },
+				color{ color{m_dotcolor.get().red() * a + m_dotcolor2.get().red() * b,
+							m_dotcolor.get().green() * a + m_dotcolor2.get().green() * b,
+							m_dotcolor.get().blue() * a + m_dotcolor2.get().blue() * b,
+							m_dotcolor.get().alpha() * a + m_dotcolor2.get().alpha() * b,} },
 			position{ pos * t.width(), (1 - (std::clamp(abs(amp),0.0f,1.0f) * 0.99) - 0.01) * (t.height()) },
 			size{ scale,scale },
 		};
 	}
 
+	tri<fill>{
+		t,
+			color{ m_waveformColor },
+			size{ t.width() * 0.05f, t.height() * 0.05f },
+			position{ t.width() * 0.5f, t.width() * 0.05 },
+	};
+
+	tri<fill>{
+		t,
+			color{ m_waveformColor },
+			size{ t.width() * 0.05f, t.height() * 0.05f },
+			position{ t.width() * 0.05f, t.width() * 0.5f },
+			//rotation{ 90 },
+	};
+
 	return {};
 } };
-
-
 
 	message<> grainpos{ this, "grainPosition", "",
 		MIN_FUNCTION{
@@ -172,7 +179,7 @@ MIN_FUNCTION{
 	timer<timer_options::defer_delivery> m_timer{ this,
 		MIN_FUNCTION {
 			redraw();
-			m_timer.delay((1000/m_fps));
+			m_timer.delay((1000 / m_fps));
 			return {};
 		}
 	};
