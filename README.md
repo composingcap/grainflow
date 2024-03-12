@@ -11,14 +11,13 @@ This branch is used for developing the grainflow~ external
 ✔️ Support  for granulating different buffers with each grain\
 ✔️ Support for grouping grains into streams\
 ✔️ 2D envelope buffers
-### In Progress
-🔲 The abilty to store configurations in dictionaries
-
-###  Planned
-🔲 Replace JSUI gui elements with external versions
+###  In Progress
+🔲 Replace Grainflow.Waveform~ with and external \
+🔲 Replace Grainflow.Spatview~ with and external
 ### Removed features
 ✖️ The abiltiy to manually trigger grains
 ✖️ Pitch/Rate quantization  
+✖️ The abilty to store configurations in dictionaries
 
 
 ## Migrating old code
