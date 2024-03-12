@@ -1,6 +1,7 @@
 #include "c74_min.h"
 #include <vector>
 #include <numeric>
+#include <algorithm>
 
 using namespace c74::min;
 using namespace c74::min::ui;
@@ -40,7 +41,7 @@ public:
 		bufferDisplay.resize(dispSamples);
 		int samplesPerFrame = samples.frame_count() / bufferDisplay.size();
 		for (int s = 0; s < bufferDisplay.size(); s++) {
-			lastSample = abs(samples.lookup(samplesPerFrame * s, m_channel) * 0.5 + lastSample * 0.5);
+			lastSample = clamp(abs(samples.lookup(samplesPerFrame * s, m_channel) * 0.5 + lastSample * 0.5),0.0,1.0);
 			bufferDisplay[s] = lastSample * 2;
 		}
 	}
@@ -88,6 +89,7 @@ public:
 	attribute<color>   m_triangleColor{ this, "triangleColor", {color{1,1,1,1}}, title {"Triangle Color"} };
 	attribute<color>   m_trackerColor{ this, "trackerColor", {color{0.9, 0.9, 0.9, 0.75}}, title {"Tracker Color"} };
 	attribute<color>   m_triangleOutColor{ this, "triangleOutColor", {color{1,1,1,1}}, title {"Triangle Color"} };
+	attribute<color>   m_selectColor{ this, "selectColor", {color{1,1,0,0.5}}, title {"Select Color"} };
 
 	message<> setup{ this, "setup",
 		MIN_FUNCTION {
@@ -111,6 +113,7 @@ public:
 	for (int i = 0; i < bufferDisplay.size(); i++) {
 		int dispSamples = bufferDisplay.size();
 		float height = bufferDisplay.at(i);
+		height = std::clamp(height,0.00001f,1.0f);
 		rect<fill>{
 			t,
 				color{ m_waveformColor },
@@ -134,11 +137,19 @@ public:
 							m_dotcolor.get().green() * a + m_dotcolor2.get().green() * b,
 							m_dotcolor.get().blue() * a + m_dotcolor2.get().blue() * b,
 							m_dotcolor.get().alpha() * a + m_dotcolor2.get().alpha() * b,} },
-			position{ pos * t.width(), (1 - (std::clamp(abs(amp),0.0f,1.0f) * 0.8) - 0.2) * (t.height()) }, //TODO Something is off here
+			position{ pos * t.width(), (1 - (std::clamp(abs(amp),0.0f,1.0f) * 0.8) - 0.1) * (t.height()) }, //TODO Something is off here
 			size{ scale,scale },
 		};
 	}
-	if (m_triangles) {
+	rect<fill>{
+		t,
+			color{ m_trackerColor },
+			size{ t.width()*0.005  * m_trackerWidth, t.height() },
+			position{ t.width() * recordHead, 0.0 },
+	};
+
+
+	if (m_triangles && m_mode == waveformMode::scrub) {
 		tri<fill>{
 			t,
 				color{ m_triangleColor },
@@ -155,6 +166,43 @@ public:
 		};
 	}
 
+	if (m_mode == waveformMode::selection || m_mode == waveformMode::loop) {
+		
+		auto selX1 = (m_selection[0] - 1);
+		auto selX2 = (m_selection[1] - 1);
+		auto anchor = std::min(selX1, selX2);
+		auto width = abs(selX1 - selX2);
+		rect<fill>{
+			t,
+				color{ m_selectColor },
+				size{ t.width() * width, t.height() },
+				position{ t.width()* (anchor), 0.0},
+		};
+
+		selX1 = (m_selection[0] + 1);
+		selX2 = (m_selection[1] + 1);
+		anchor = std::min(selX1, selX2);
+		width = abs(selX1 - selX2);
+		rect<fill>{
+			t,
+				color{ m_selectColor },
+				size{ t.width() * width, t.height() },
+				position{ t.width() * (anchor), 0.0 },
+		};
+
+		selX1 = (m_selection[0]);
+		selX2 = (m_selection[1]);
+		anchor = std::min(selX1, selX2);
+		width = abs(selX1 - selX2);
+		rect<fill>{
+			t,
+				color{ m_selectColor },
+				size{ t.width() * width, t.height() },
+				position{ t.width() * (anchor), 0.0 },
+		};
+
+	}
+
 	return {};
 } };
 
@@ -166,7 +214,23 @@ public:
 			auto    y { e.y() };
 			trianglePosition[0] = x;
 			trianglePosition[1] = y;
-		output2.send(atoms{ "clicking", (double)trianglePosition[0] / e.target().width() ,-(double)trianglePosition[1] / e.target().height()});
+			output2.send(atoms{ "clicking", (double)trianglePosition[0] / e.target().width() ,-(double)trianglePosition[1] / e.target().height() });
+			switch (m_mode) {
+			case(waveformMode::scrub):
+				
+				break;
+			case(waveformMode::selection):
+				m_selection[0] = x/ e.target().width();
+				m_selection[1] = x/ e.target().width() + 0.001f;
+				output.send(atoms{ "selection", (double)m_selection[0], (double)m_selection[1] });
+				break;
+			case(waveformMode::loop):
+				auto width = m_selection[1] - m_selection[0];
+				m_selection[0] = (x / e.target().width()) - width * 0.5;
+				m_selection[1] = (x / e.target().width()) + width * 0.5;
+				output.send(atoms{ "selection", (double)m_selection[0] ,(double)m_selection[1]});
+				break;
+			}
 			return{};
 			}
 	};
@@ -176,21 +240,49 @@ public:
 			event   e { args };
 			auto    x { e.x() };
 			auto    y { e.y() };
-			number  factor { e.target().width() - 2.0 };    // how much precision (vs. immediacy) you have when dragging the knob
+
+
+			switch (m_mode) {
+				trianglePosition[0] += x;
+				trianglePosition[1] += y;
+
+				trianglePosition[0] = (number)clamp((double)trianglePosition[0], 0.0, (double)e.target().width());
+				trianglePosition[1] = (number)clamp((double)trianglePosition[1], 0.0, (double)e.target().height());
+			case(waveformMode::scrub):
+				break;
+			case(waveformMode::selection):
+				m_selection[1] += x/ e.target().width();
+				m_selection[1] = fmod(m_selection[1], 2);
+				output.send(atoms{ "selection", (double)m_selection[0] ,(double)m_selection[1] });
+				break;
+			case(waveformMode::loop):
+				auto width = m_selection[1] - m_selection[0] - (y/ e.target().height());
+				auto center = m_selection[0] + width * 0.5 + (x/ e.target().width());
+				m_selection[0] = fmod(((center - width * 0.5)),2.0);
+				m_selection[1] = fmod(((center + width * 0.5)),2.0);
+
+
+				output.send(atoms{ "selection", (double)m_selection[0], (double)m_selection[1]});
+				break;
+			}
+
+			auto dist = std::min(1.0, abs(m_selection[0] - m_selection[1]));
+			int sign = m_selection[0] < m_selection[1] ? 1 : -1;
+			m_selection[1] = m_selection[0] + dist * sign;
 
 
 
-			trianglePosition[0] += x;
-			trianglePosition[1] += y;
-
-			trianglePosition[0] = (number)clamp((double)trianglePosition[0], 0.0, (double)e.target().width());
-			trianglePosition[1] = (number)clamp((double)trianglePosition[1], 0.0, (double)e.target().height());
-
-
-			output2.send(atoms{"clicking", (double)trianglePosition[0]/ e.target().width() ,1-(double)trianglePosition[1] / e.target().height() });
+			output2.send(atoms{ "clicking", (double)trianglePosition[0] / e.target().width() ,trianglePosition[1] - (double)y / e.target().height() });
 			return {};
 		}
 	};
+
+
+	message<> record_head{ this, "recordHead", "",
+	MIN_FUNCTION{
+		recordHead = args[0];
+		return{};
+	} };
 
 	message<> grainpos{ this, "grainPosition", "",
 		MIN_FUNCTION{
@@ -242,6 +334,7 @@ private:
 	numbers trianglePosition{ 0,0 };
 	numbers  m_anchor{};
 	number	m_range_delta{ 1.0 };
+	number recordHead = -100;
 };
 
 MIN_EXTERNAL(grainflow_waveform2);
