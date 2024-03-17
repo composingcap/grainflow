@@ -168,6 +168,7 @@ public:
 		Grainflow::SampleParam(thisGrain->envelope, g);
 		Grainflow::SampleParam(thisGrain->amplitude, g);
 		Grainflow::SampleDensity(thisGrain);
+		Grainflow::SampleDirection(thisGrain);
 
 		return grainReset;
 	}
@@ -359,13 +360,15 @@ return {};
 	};
 	message<> transposeRandom{ this, "transposeRandom", "randomization depth for the the transpose parameter",
 		MIN_FUNCTION{
-			GrainMessage(Grainflow::PitchToRate((float)args[0]), Grainflow::GfParamName::rate, Grainflow::GfParamType::random);
+			auto transpose = (abs(Grainflow::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+			GrainMessage(transpose, Grainflow::GfParamName::rate, Grainflow::GfParamType::random);
 			return{};
 			}
 	};
 	message<> transposeOffset{ this, "transposeOffset", "the amount of transposition to apply rate based on grain index",
 	MIN_FUNCTION{
-		GrainMessage(Grainflow::PitchToRate((float)args[0]), Grainflow::GfParamName::rate, Grainflow::GfParamType::offset);
+		auto transpose = (abs(Grainflow::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+		GrainMessage(transpose, Grainflow::GfParamName::rate, Grainflow::GfParamType::offset);
 		return{};
 		}
 	};
@@ -395,16 +398,25 @@ return {};
 	};
 	message<> glissonStRandom{ this, "glissonStRandom", "",
 		MIN_FUNCTION{
-			GrainMessage(Grainflow::PitchToRate((float)args[0]) - 1, Grainflow::GfParamName::glisson, Grainflow::GfParamType::random);
+			auto transpose =(abs(Grainflow::PitchToRate((float)args[0]))-1) * (((float)args[0] > 0) * 2 - 1);
+			GrainMessage(transpose, Grainflow::GfParamName::glisson, Grainflow::GfParamType::random);
 			return{};
 			}
 	};
 	message<> glissonStOffset{ this, "glissonStOffset", "",
 	MIN_FUNCTION{
-		GrainMessage(Grainflow::PitchToRate((float)args[0]) - 1, Grainflow::GfParamName::glisson, Grainflow::GfParamType::offset);
+		auto transpose = (abs(Grainflow::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+		GrainMessage(transpose, Grainflow::GfParamName::glisson, Grainflow::GfParamType::offset);
 		return{};
 		}
 	};
+	message<> direction{ this, "direction", "",
+	MIN_FUNCTION{
+		GrainMessage((float)args[0], Grainflow::GfParamName::direction, Grainflow::GfParamType::base);
+		return{};
+	}
+	};
+
 	//amp
 	message<> ampMess{ this, "amp", "",
 	MIN_FUNCTION {
@@ -773,7 +785,7 @@ private:
 	int _streamTarget = 0;
 	int _channelTarget = 0;
 	int _nstreams = 0;
-	bool _livemode;
+	bool _livemode = 0;
 	std::random_device rd;
 };
 

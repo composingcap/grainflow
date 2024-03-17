@@ -19,6 +19,7 @@ namespace Grainflow {
 		space,
 		envelopePosition,
 		nEnvelopes,
+		direction,
 	};
 	/// <summary>
 	/// Different paramter types using in the GfParam Struct
@@ -90,6 +91,7 @@ namespace Grainflow {
 		GfParam rate;
 		GfParam glisson;
 		GfParam envelope;
+		GfParam direction;
 
 		int nEnvelopes = 1;
 
@@ -99,6 +101,7 @@ namespace Grainflow {
 		GrainInfo() {
 			rate.base = 1;
 			amplitude.base = 1;
+			direction.base = 1;
 		}
 	};
 
@@ -254,7 +257,20 @@ namespace Grainflow {
 	}
 
 	void Increment(GrainInfo* info, float fm, float grainClock) {
-		info->sourceSample = fmod(info->sourceSample + fm * info->sampleRateAdjustment * info->rate.value * (1 + info->glisson.value * grainClock), info->bufferFrames);
+		info->sourceSample = fmod(info->sourceSample + fm * info->sampleRateAdjustment * info->rate.value * (1 + info->glisson.value * grainClock)*info->direction.value, info->bufferFrames);
 		info->lastGrainClock = grainClock;
+	}
+	void SampleDirection(GrainInfo* info) {
+		if (info->direction.base >= 1) info->direction.value = 1;
+		else if (info->direction.base <= -1)info->direction.value = -1;
+		else {
+			float randomDirection = (rand() % 1000) * 0.001f;
+			if (randomDirection > info->direction.base) {
+				info->direction.value = -1;
+			}
+			else {
+				info->direction.value = 1;
+			}
+		}
 	}
 }
