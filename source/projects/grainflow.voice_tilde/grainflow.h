@@ -257,7 +257,11 @@ namespace Grainflow {
 	}
 
 	void Increment(GrainInfo* info, float fm, float grainClock) {
-		info->sourceSample = fmod(info->sourceSample + fm * info->sampleRateAdjustment * info->rate.value * (1 + info->glisson.value * grainClock)*info->direction.value, info->bufferFrames);
+		info->sourceSample = ((size_t)((info->sourceSample + fm 
+				* info->sampleRateAdjustment * info->rate.value 
+				* (1 + info->glisson.value * grainClock)*info->direction.value 
+				+ info->bufferFrames)*100) % (info->bufferFrames*100))*0.01;
+
 		info->lastGrainClock = grainClock;
 	}
 	void SampleDirection(GrainInfo* info) {

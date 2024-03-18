@@ -100,7 +100,9 @@ public:
 
 			//Sample level
 			for (int v = 0; v < output.frame_count(); v++) {
-				double thisGrainClock = fmod(in[grainClock][v] + thisGrain->window.value, 1) / windowPortion;
+				double thisGrainClock = in[grainClock][v] + thisGrain->window.value;
+				thisGrainClock -= (int)thisGrainClock;
+				thisGrainClock /= windowPortion;
 				thisGrainClock *= thisGrainClock <= 1;
 				double thisTraversalPhasor = in[traversalPhasor][v];
 				double thisFm = in[fm][v];
@@ -108,8 +110,8 @@ public:
 				GrainReset(thisGrain, thisGrainClock, thisTraversalPhasor, g);
 
 				//Sample buffers
-				auto tween = (float)fmod(thisGrain->sourceSample, 1);
 				auto frame = size_t(thisGrain->sourceSample);
+				auto tween = thisGrain->sourceSample - frame;
 
 				//TODO how to make this more efficent? maybe memcopy in the outer loop?
 				//We are using linear interpolation here because cosine interpolation has too much overhead
@@ -160,7 +162,7 @@ public:
 		if (!grainReset) return grainReset;
 
 		SampleParamBuffer(Grainflow::GFBuffers::delayBuffer, thisGrain, thisGrain->delay, g);
-		thisGrain->sourceSample = (fmod((traversal + 10) * thisGrain->bufferFrames - thisGrain->delay.value, thisGrain->bufferFrames));
+		thisGrain->sourceSample = (size_t)((traversal + 10) * thisGrain->bufferFrames - thisGrain->delay.value) % thisGrain->bufferFrames;
 		SampleParamBuffer(Grainflow::GFBuffers::rateBuffer, thisGrain, thisGrain->rate, g);
 		SampleParamBuffer(Grainflow::GFBuffers::windowBuffer, thisGrain, thisGrain->window, g);
 		Grainflow::SampleParam(thisGrain->space, g);
