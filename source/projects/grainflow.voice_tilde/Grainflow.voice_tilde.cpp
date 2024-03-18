@@ -6,12 +6,14 @@
 #include "grainflow.h"
 #include "c74_min.h"
 #ifdef _WIN64
-#include <omp.h>
-#define USEOMP
+//#include <omp.h>
+//#define USEOMP
 #elif __APPLE__
 #if TARGET_OS_MAC
 #endif
 #endif
+
+constexpr auto GVEC = 4;
 
 using namespace c74::min;
 
@@ -99,40 +101,48 @@ public:
 			float windowPortion = std::clamp(1 - thisGrain->space.value, 0.0001f, 1.0f);
 
 			//Sample level
-			for (int v = 0; v < output.frame_count(); v++) {
-				double thisGrainClock = fmod(in[grainClock][v] + thisGrain->window.value, 1) / windowPortion;
+
+			for (int i = 0; i < output.frame_count()/ GVEC; i++) {
+
+				double thisFmStart = in[fm][i] * thisGrain->sampleRateAdjustment * thisGrain->rate.value * (1 + thisGrain->glisson.value * grainClock) * thisGrain->direction.value;
+				double thisFmEnd = in[fm][i+(GVEC-1)] * thisGrain->sampleRateAdjustment * thisGrain->rate.value * (1 + thisGrain->glisson.value * grainClock) * thisGrain->direction.value;
+
+				double thisAm = in[am][i]; 
+				double thisGrainClock = fmod(in[grainClock][i] + thisGrain->window.value, 1) / windowPortion;
 				thisGrainClock *= thisGrainClock <= 1;
-				double thisTraversalPhasor = in[traversalPhasor][v];
-				double thisFm = in[fm][v];
-				double thisAm = in[am][v];
+				double thisTraversalPhasor = in[traversalPhasor][i];
 				GrainReset(thisGrain, thisGrainClock, thisTraversalPhasor, g);
 
-				//Sample buffers
-				auto tween = (float)fmod(thisGrain->sourceSample, 1);
-				auto frame = size_t(thisGrain->sourceSample);
+				for (int j = 0; j < GVEC; j++) {
+					int  v = i* GVEC + j;
+					auto vecLerp = j / GVEC;
+					auto thisFm = thisFmStart * (1 - vecLerp) + thisFmEnd * vecLerp;
+					//Sample buffers
+					float samp = thisGrain->sourceSample + j * thisFm;
+					auto frame = size_t(samp);
+					auto tween = samp - frame;
 
-				//TODO how to make this more efficent? maybe memcopy in the outer loop?
-				//We are using linear interpolation here because cosine interpolation has too much overhead
-				auto sample = grainSamples.valid() ? grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween : 0;
-				auto envelope = envelopeSamples.valid() ? GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock) : 0;
+					auto sample = grainSamples.valid() ? grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween : 0;
+					auto envelope = envelopeSamples.valid() ? GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock, j) : 0;
 
-				//Set correct data into each outlet
-				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * thisGrain->amplitude.value;
-				out[g + grainState][v] = thisGrainClock != 0;
-				out[g + grainProgress][v] = thisGrainClock;
-				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
-				out[g + grainAmp][v] = (1 - thisAm) * thisGrain->amplitude.value;
-				out[g + grainEnvelope][v] = envelope;
-				out[g + grainBufferChannel][v] = chan + 1;
-				out[g + grainStreamChannel][v] = stream + 1;
+					//Set correct data into each outlet
+					out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * thisGrain->amplitude.value;
+					out[g + grainState][v] = thisGrainClock != 0;
+					out[g + grainProgress][v] = thisGrainClock;
+					out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
+					out[g + grainAmp][v] = (1 - thisAm) * thisGrain->amplitude.value;
+					out[g + grainEnvelope][v] = envelope;
+					out[g + grainBufferChannel][v] = chan + 1;
+					out[g + grainStreamChannel][v] = stream + 1;
+				}
 
-				//Increment playhead
-				Grainflow::Increment(thisGrain, thisFm, thisGrainClock);
+
+				Grainflow::Increment(thisGrain, (thisFmStart + thisFmEnd)* GVEC*0.5f, thisGrainClock);
 			}
 		}
 	}
 
-	float GetEnvelopeValue(buffer_lock<> buffer, Grainflow::GrainInfo* grain, float grainClock) {
+	float GetEnvelopeValue(buffer_lock<> buffer, Grainflow::GrainInfo* grain, float grainClock, int offset) {
 		if (grain->nEnvelopes <= 1) {
 			auto frame = size_t((grainClock * buffer.frame_count()));
 			auto envelope = buffer.lookup(frame, 0);
@@ -142,7 +152,7 @@ public:
 		int env1 = (int)(grain->envelope.value * grain->nEnvelopes);
 		int env2 = env1 + 1;
 		float fade = grain->envelope.value * grain->nEnvelopes - env1;
-		auto frame = size_t((grainClock * sizePerEnvelope));
+		auto frame = size_t((grainClock * sizePerEnvelope))+offset;
 		auto envelope = buffer.lookup((env1 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * (1 - fade) + buffer.lookup((env2 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * fade;
 		return envelope;
 	}
