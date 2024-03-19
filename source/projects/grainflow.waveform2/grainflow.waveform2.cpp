@@ -125,8 +125,8 @@ public:
 	//Draw Grains
 	for (int g = 0; g < grainStates.size(); g++) {
 		if ((float)grainStates[g] < 0.01) continue;
-		float pos = g < grainPositions.size() ? grainPositions[g] : 0;
-		float scale = g < grainWindows.size() ? grainWindows[g] : 0;
+		float pos = g < grainPositions.size() ? (float)grainPositions[g] : 0;
+		float scale = g < grainWindows.size() ? (float)grainWindows[g] : 0;
 		float amp = g < grainAmps.size() ? (float)grainAmps[g] + ((float)(rand() % 2000) - 1000) * 0.001 * m_dotVJitter : 0;
 		scale *= t.height() * 0.05 * m_dotScale;
 		float b = (float)g / grainStates.size();
