@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <random>
+#include "IGfBuffer.h"
 
 /// <summary>
 /// Contains enties and functions that modify said entities. This is the
@@ -70,7 +71,7 @@ namespace Grainflow
 		delayBuffer,
 		windowBuffer
 	};
-
+	template<typename T>
 	class GrainInfo
 	{
 	private:
@@ -83,11 +84,11 @@ namespace Grainflow
 		bool bufferDefined = false;
 		int index = 0;
 
-		std::unique_ptr<int> bufferRef = nullptr;
-		std::unique_ptr<int> envelopeRef = nullptr;
-		std::unique_ptr<int> delayBufRef = nullptr;
-		std::unique_ptr<int> rateBufRef = nullptr;
-		std::unique_ptr<int> windowBufRef = nullptr;
+		IGfBuffer<T>* bufferRef;
+		IGfBuffer<T>* envelopeRef;
+		IGfBuffer<T>* delayBufRef;
+		IGfBuffer<T>* rateBufRef;
+		IGfBuffer<T>* windowBufRef;
 
 		GfParam delay;
 		GfParam window;
@@ -119,11 +120,21 @@ public:
 			direction.base = 1;
 		}
 
+		~GrainInfo(){
+			// delete bufferRef;
+			// delete envelopeRef;
+			// delete delayBufRef;
+			// delete rateBufRef;
+			// delete windowBufRef;
+		}
+
 		float GetLastClock() {return lastGrainClock;}
 
 		void SetIndex(int index){this->index = index;}
 
-		void SetBufferFrames(int frames){
+		void SetBufferFrames(){
+			if (!bufferRef->Valid()) return;
+			auto frames= bufferRef->GetSize();
 			bufferFrames = frames;
 			oneOverBufferFrames = 1/frames;
 		}
@@ -152,6 +163,10 @@ public:
 				return &envelope;
 			case (GfParamName::nEnvelopes):
 				return &nEnvelopes;
+			case (GfParamName::direction):
+				return &direction;
+			default:
+			return nullptr;
 			}
 			
 			return nullptr;
@@ -207,66 +222,68 @@ public:
 			reset = true;
 		}
 
-		void SetBufferRef(GFBuffers bufferType, int *handle)
+		void SetBufferRef(GFBuffers bufferType, IGfBuffer<T>* buffer)
 		{
 			switch (bufferType)
 			{
 			case (GFBuffers::buffer):
-				bufferRef.reset(handle);
+				bufferRef = buffer;
 				break;
 			case (GFBuffers::envelope):
-				envelopeRef.reset(handle);
+				envelopeRef = buffer;
 				break;
 			case (GFBuffers::rateBuffer):
-				rateBufRef.reset(handle);
+				rateBufRef = buffer;
 				break;
 			case (GFBuffers::delayBuffer):
-				delayBufRef.reset(handle);
+				delayBufRef = buffer;
 				break;
 			case (GFBuffers::windowBuffer):
-				windowBufRef.reset(handle);
+				windowBufRef = buffer;
 				break;
 			};
 		};
 
-		int* GetBufferRef(GFBuffers bufferType){
+		IGfBuffer<T>*  PrepareBuffer(GFBuffers bufferType){
+			auto buffer = GetBufferRef(bufferType);
+			buffer->Prepare();
+			return buffer;
+		}
+
+		 IGfBuffer<T>* GetBufferRef(GFBuffers bufferType){
 			
 			switch(bufferType){
 			case (GFBuffers::buffer):
-				return bufferRef.get();
+				return bufferRef;
 			case (GFBuffers::envelope):
-				return envelopeRef.get();
+				return envelopeRef;
 			case (GFBuffers::rateBuffer):
-				return rateBufRef.get();
+				return rateBufRef;
 			case (GFBuffers::delayBuffer):
-				return delayBufRef.get();
+				return delayBufRef;
 			case (GFBuffers::windowBuffer):
-				return windowBufRef.get();
+				return windowBufRef;
 			};
 		}
+
+		float GetBufferSample(GFBuffers type, float position){
+			switch (type)
+			{
+			case GFBuffers::buffer:
+				return bufferRef->ReadNormalizedLerp(position, bchan);
+			default:
+				return GetBufferRef(type)->ReadNormalized(position,0);
+
+			}
+		}
+
+
 
 		void SetSampleRateAdjustment(float gloabalSampleRate, float bufferSampleRate)
 		{
 			sampleRateAdjustment = bufferSampleRate / gloabalSampleRate;
 		}
 
-		int *GetBuffer(GFBuffers bufferType)
-		{
-			switch (bufferType)
-			{
-			case (GFBuffers::buffer):
-				return bufferRef.get();
-			case (GFBuffers::envelope):
-				return envelopeRef.get();
-			case (GFBuffers::rateBuffer):
-				return rateBufRef.get();
-			case (GFBuffers::delayBuffer):
-				return delayBufRef.get();
-			case (GFBuffers::windowBuffer):
-				return windowBufRef.get();
-			}
-			return nullptr;
-		}
 
 		void SampleDensity()
 		{

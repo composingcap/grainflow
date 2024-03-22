@@ -1,22 +1,36 @@
-namespace Grainflow{
-    template  <typename T>
+#pragma once
+#include <string>
+namespace Grainflow
+{
+
+    template <typename T>
     class IGfBuffer
     {
     private:
-        T bufferRef;
-    
+        T *bufferRef;
+
     public:
-        IGfBuffer(T /* args */);
+        virtual void SetBufferRef(T *buffer) = 0;
 
-        float ReadNormalizedLerp(float position, int channel);
+        virtual float ReadNormalizedLerp(float position, int channel) = 0;
 
-        float ReadNormalized(float position, int channel);
+        virtual float ReadNormalized(float position, int channel)=0;
 
-        bool Valid();
+        virtual float ReadSample(int frame, int channel)=0;
 
-        int GetSize();
+        virtual int GetChannels()=0;
 
-        void SetByName(string name);
+        virtual bool Valid()= 0;
+
+        virtual int GetSize() = 0;
+
+        virtual int GetSamplerate() = 0;
+
+        virtual void SetByName(std::string name) = 0;
+
+        virtual void Prepare() = 0;
+
+        virtual std::string GetName() = 0;
     };
-     
+
 }
