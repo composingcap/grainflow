@@ -14,6 +14,7 @@
 #endif
 
 using namespace c74::min;
+using namespace Grainflow;
 
 long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
 long simplemc_inputchanged(c74::max::t_object* x, long index, long count);
@@ -80,13 +81,11 @@ public:
 		for (int g = 0; g < _ngrains; g++) {
 			//Vector Level operations
 
-			Grainflow::GrainInfo* thisGrain = &grainInfo[g];
-			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->bufferRef.get()));
-			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->envelopeRef.get()));
-			thisGrain->sampleRateAdjustment = _livemode ? 1 : grainSamples.samplerate() / samplerate();
-
-			thisGrain->bufferFrames = grainSamples.valid() ? grainSamples.frame_count() : 0;
-			thisGrain->oneOverBufferFrames = thisGrain->bufferFrames > 0 ? 1.0f / grainSamples.frame_count() : 0;
+			GrainInfo* thisGrain = &grainInfo[g];
+			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->GetBuffer(GFBuffers::buffer)));
+			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->GetBuffer(GFBuffers::envelope)));
+			thisGrain->SetSampleRateAdjustment(_livemode ? 1 : grainSamples.samplerate() / samplerate());
+			thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 0);
 
 			//Determine the channel to pull from for each grain.
 			int grainClock = grainClockCh + (g % input_chans[0]);
@@ -96,11 +95,11 @@ public:
 
 			size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
 			double stream = thisGrain->stream;
-			float windowPortion = std::clamp(1 - thisGrain->space.value, 0.0001f, 1.0f);
+			float windowPortion = std::clamp(1 - thisGrain->ParamGet(GfParamName::space), 0.0001f, 1.0f);
 
 			//Sample level
 			for (int v = 0; v < output.frame_count(); v++) {
-				double thisGrainClock = in[grainClock][v] + thisGrain->window.value;
+				double thisGrainClock = in[grainClock][v] + thisGrain->ParamGet(GfParamName::window);
 				thisGrainClock -= (int)thisGrainClock;
 				thisGrainClock /= windowPortion;
 				thisGrainClock *= thisGrainClock <= 1;
@@ -117,33 +116,34 @@ public:
 				//We are using linear interpolation here because cosine interpolation has too much overhead
 				auto sample = grainSamples.valid() ? grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween : 0;
 				auto envelope = envelopeSamples.valid() ? GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock) : 0;
-
+				auto amp = thisGrain->ParamGet(GfParamName::amplitude);
 				//Set correct data into each outlet
-				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * thisGrain->amplitude.value;
+				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
 				out[g + grainState][v] = thisGrainClock != 0;
 				out[g + grainProgress][v] = thisGrainClock;
 				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
-				out[g + grainAmp][v] = (1 - thisAm) * thisGrain->amplitude.value;
+				out[g + grainAmp][v] = (1 - thisAm) * amp;
 				out[g + grainEnvelope][v] = envelope;
 				out[g + grainBufferChannel][v] = chan + 1;
 				out[g + grainStreamChannel][v] = stream + 1;
 
 				//Increment playhead
-				Grainflow::Increment(thisGrain, thisFm, thisGrainClock);
+				thisGrain->Increment(thisFm, thisGrainClock);
 			}
 		}
 	}
 
-	float GetEnvelopeValue(buffer_lock<> buffer, Grainflow::GrainInfo* grain, float grainClock) {
-		if (grain->nEnvelopes <= 1) {
+	float GetEnvelopeValue(buffer_lock<> buffer, GrainInfo* grain, float grainClock) {
+		auto nEnvelopes = grain->ParamGet(GfParamName::nEnvelopes);
+		if (nEnvelopes <= 1) {
 			auto frame = size_t((grainClock * buffer.frame_count()));
 			auto envelope = buffer.lookup(frame, 0);
 			return envelope;
 		}
-		int sizePerEnvelope = buffer.frame_count() / grain->nEnvelopes;
-		int env1 = (int)(grain->envelope.value * grain->nEnvelopes);
+		int sizePerEnvelope = buffer.frame_count() / nEnvelopes;
+		int env1 = (int)(grain->ParamGet(GfParamName::envelopePosition) * nEnvelopes);
 		int env2 = env1 + 1;
-		float fade = grain->envelope.value * grain->nEnvelopes - env1;
+		float fade = grain->ParamGet(GfParamName::envelopePosition) * nEnvelopes - env1;
 		auto frame = size_t((grainClock * sizePerEnvelope));
 		auto envelope = buffer.lookup((env1 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * (1 - fade) + buffer.lookup((env2 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * fade;
 		return envelope;
@@ -157,43 +157,44 @@ public:
 	/// <param name="traversal">playback position that will be set if reset</param>
 	/// <param name="g">grain index</param>
 	/// <returns></returns>
-	bool GrainReset(Grainflow::GrainInfo* thisGrain, float grainClock, float traversal, int g) {
-		bool grainReset = thisGrain->lastGrainClock > grainClock;
+	bool GrainReset(GrainInfo* thisGrain, float grainClock, float traversal, int g) {
+		bool grainReset = thisGrain->GetLastClock() > grainClock;
 		if (!grainReset) return grainReset;
 
-		SampleParamBuffer(Grainflow::GFBuffers::delayBuffer, thisGrain, thisGrain->delay, g);
-		thisGrain->sourceSample = (size_t)((traversal + 10) * thisGrain->bufferFrames - thisGrain->delay.value) % thisGrain->bufferFrames;
-		SampleParamBuffer(Grainflow::GFBuffers::rateBuffer, thisGrain, thisGrain->rate, g);
-		SampleParamBuffer(Grainflow::GFBuffers::windowBuffer, thisGrain, thisGrain->window, g);
-		Grainflow::SampleParam(thisGrain->space, g);
-		Grainflow::SampleParam(thisGrain->glisson, g);
-		Grainflow::SampleParam(thisGrain->envelope, g);
-		Grainflow::SampleParam(thisGrain->amplitude, g);
-		Grainflow::SampleDensity(thisGrain);
-		Grainflow::SampleDirection(thisGrain);
+		SampleParamBuffer(GFBuffers::delayBuffer, thisGrain, GfParamName::delay, g);
+		thisGrain->sourceSample = (size_t)((traversal + 10) * thisGrain->bufferFrames - thisGrain->ParamGet(GfParamName::delay)) % thisGrain->bufferFrames;
+		SampleParamBuffer(GFBuffers::rateBuffer, thisGrain, GfParamName::rate, g);
+		SampleParamBuffer(GFBuffers::windowBuffer, thisGrain, GfParamName::window, g);
+		thisGrain->SampleParam(GfParamName::space);
+		thisGrain->SampleParam(GfParamName::glisson);
+		thisGrain->SampleParam(GfParamName::envelopePosition);
+		thisGrain->SampleParam(GfParamName::amplitude);
+		thisGrain->SampleDensity();
+		thisGrain->SampleDirection();
 
 		return grainReset;
 	}
 
 #pragma endregion
 
-	void SampleParamBuffer(Grainflow::GFBuffers bufferType, Grainflow::GrainInfo* grain, Grainflow::GfParam& param, int index) {
-		auto buf = (buffer_reference*)Grainflow::GetBuffer(*grain, bufferType);
-		if (param.mode == Grainflow::GfBufferMode::normal || buf == nullptr) {
-			Grainflow::SampleParam(param, index);
+	void SampleParamBuffer(GFBuffers bufferType, GrainInfo* grain, GfParamName paramName, int index) {
+		auto buf = (buffer_reference*)grain->GetBuffer(bufferType);
+		auto param = grain->ParamGetHandle(paramName);
+		if (param->mode == GfBufferMode::normal || buf == nullptr) {
+			grain->SampleParam(paramName);
 			return;
 		}
 		buffer_lock<> paramBuf(*buf);
 		if (!paramBuf.valid()) return;
 		size_t frame = 0;
-		if (param.mode == Grainflow::GfBufferMode::buffer_sequence) {
+		if (param->mode == GfBufferMode::buffer_sequence) {
 			frame = index % paramBuf.frame_count();
 		}
-		else if (param.mode == Grainflow::GfBufferMode::buffer_random) {
+		else if (param->mode == GfBufferMode::buffer_random) {
 			frame = rd() % paramBuf.frame_count();
 		}
 
-		param.value = paramBuf.lookup(frame, 0);
+		param->value = paramBuf.lookup(frame, 0);
 	}
 
 	/// <summary>
@@ -202,11 +203,11 @@ public:
 	/// <param name="value"></param>
 	/// <param name="param"></param>
 	/// <param name="type"></param>
-	void GrainMessage(float value, Grainflow::GfParamName param, Grainflow::GfParamType type) {
+	void GrainMessage(float value, GfParamName param, GfParamType type) {
 		if (_streamTarget > 0) {
 			for (int g = 0; g < maxGrains; g++) {
 				if (grainInfo[g].stream - 1 != _streamTarget) continue;
-				Grainflow::GfParamSet(value, grainInfo[g], param, type);
+				grainInfo[g].ParamSet(value, param, type);
 			}
 			return;
 		}
@@ -214,32 +215,37 @@ public:
 		if (_channelTarget > 0) {
 			for (int g = 0; g < maxGrains; g++) {
 				if (grainInfo[g].bchan - 1 != _channelTarget) continue;
-				Grainflow::GfParamSet(value, grainInfo[g], param, type);
+				grainInfo[g].ParamSet(value, param, type);
+
 			}
 			return;
 		}
 
 		if (_target > 0) {
 			if (_target >= maxGrains) return;
-			Grainflow::GfParamSet(value, grainInfo[_target - 1], param, type);
+			for (int g = 0; g < maxGrains; g++) {
+				grainInfo[g].ParamSet(value, param, type);
+			}
+
 			return;
 		}
 		for (int g = 0; g < maxGrains; g++) {
-			Grainflow::GfParamSet(value, grainInfo[g], param, type);
+			grainInfo[g].ParamSet(value, param, type);
+
 		}
 	};
 
-	void BufferRefMessage(string bname, Grainflow::GFBuffers type) {
+	void BufferRefMessage(string bname, GFBuffers type) {
 		if (bname.empty()) return;
 
 		if (_target > 0) {
-			auto buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[_target - 1], type);
+			auto buf = (buffer_reference*)grainInfo[_target - 1].GetBuffer(type);
 			buf->set(""); //This forces a refresh even if the name is the same
 			buf->set(bname);
 			return;
 		}
 		for (int g = 0; g < maxGrains; g++) {
-			auto buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], type); //To access ir must be converted to the correct type
+			auto buf = (buffer_reference*)grainInfo[g].GetBuffer( type); //To access ir must be converted to the correct type
 			buf->set("");
 			buf->set(bname);
 		}
@@ -247,9 +253,9 @@ public:
 	/// <summary>
 	/// Forces a refresh of a type of buffer.
 	/// </summary>
-	void BufferRefresh(Grainflow::GFBuffers type) {
+	void BufferRefresh(GFBuffers type) {
 		for (int g = 0; g < maxGrains; g++) {
-			auto buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], type); //To access ir must be converted to the correct type
+			auto buf = (buffer_reference*)grainInfo[g].GetBuffer(type); //To access ir must be converted to the correct type
 			auto name = buf->name();
 			buf->set("");
 			buf->set(name);
@@ -258,15 +264,16 @@ public:
 
 	void Init() {
 		for (int g = 0; g < maxGrains; g++) {
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::GFBuffers::buffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::GFBuffers::envelope, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::GFBuffers::delayBuffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::GFBuffers::windowBuffer, (int*)(new buffer_reference{ this }));
-			Grainflow::SetBufferRef(grainInfo[g], Grainflow::GFBuffers::rateBuffer, (int*)(new buffer_reference{ this }));
+			grainInfo[g].SetIndex(g);
+			grainInfo[g].SetBufferRef(GFBuffers::buffer, (int*)(new buffer_reference{ this }));
+			grainInfo[g].SetBufferRef(GFBuffers::envelope, (int*)(new buffer_reference{ this }));
+			grainInfo[g].SetBufferRef(GFBuffers::delayBuffer, (int*)(new buffer_reference{ this }));
+			grainInfo[g].SetBufferRef(GFBuffers::windowBuffer, (int*)(new buffer_reference{ this }));
+			grainInfo[g].SetBufferRef(GFBuffers::rateBuffer, (int*)(new buffer_reference{ this }));
 
-			buffer_reference* env = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::GFBuffers::envelope);
+			buffer_reference* env = (buffer_reference*)grainInfo[g].GetBuffer(GFBuffers::envelope);
 			env->set(envArg);
-			buffer_reference* buf = (buffer_reference*)Grainflow::GetBuffer(grainInfo[g], Grainflow::GFBuffers::buffer);
+			buffer_reference* buf = (buffer_reference*)grainInfo[g].GetBuffer(GFBuffers::buffer);
 			buf->set(bufferArg);
 		}
 	}
@@ -277,7 +284,7 @@ public:
 
 	void Reinit(int grains) {
 		Cleanup();
-		grainInfo = new Grainflow::GrainInfo[grains];
+		grainInfo = new GrainInfo[grains];
 		maxGrains = grains;
 		Init();
 	}
@@ -293,7 +300,7 @@ public:
 		MIN_ARGUMENT_FUNCTION {
 			maxGrains = (int)arg;
 			if (maxGrains < 1) maxGrains = 2;
-			grainInfo = new Grainflow::GrainInfo[maxGrains];
+			grainInfo = new GrainInfo[maxGrains];
 
 			_ngrains = 0;
 			}
@@ -329,7 +336,7 @@ return {};
 	message<> dspsetup{ this, "dspsetup",
 	MIN_FUNCTION {
 		oneOverSamplerate = 1 / samplerate();
-		BufferRefresh(Grainflow::GFBuffers::buffer); //This is needed so grainflow live can load buffers correctly.
+		BufferRefresh(GFBuffers::buffer); //This is needed so grainflow live can load buffers correctly.
 
 		return {};
 	}
@@ -340,37 +347,37 @@ return {};
 	//Rate
 	message<> rate{ this, "rate", "how fast a grain plays in relation to its normal playback rate",
 	MIN_FUNCTION {
-			GrainMessage(args[0], Grainflow::GfParamName::rate, Grainflow::GfParamType::base);
+			GrainMessage(args[0], GfParamName::rate, GfParamType::base);
 			return{};
 	} };
 	message<> rateRandom{ this, "rateRandom", "randomization depth for the rate parameter",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::rate, Grainflow::GfParamType::random);
+		GrainMessage(args[0], GfParamName::rate, GfParamType::random);
 	return{};
 	} };
 	message<> rateOffset{ this, "rateOffset", "the amount rate to apply rate based on grain index",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::rate, Grainflow::GfParamType::offset);
+		GrainMessage(args[0], GfParamName::rate, GfParamType::offset);
 	return{};
 	} };
 
 	message<> transpose{ this, "transpose", "control rate in semitones",
 		MIN_FUNCTION{
-			GrainMessage(Grainflow::PitchToRate((float)args[0]), Grainflow::GfParamName::rate, Grainflow::GfParamType::base);
+			GrainMessage(PitchToRate((float)args[0]), GfParamName::rate, GfParamType::base);
 			return{};
 			}
 	};
 	message<> transposeRandom{ this, "transposeRandom", "randomization depth for the the transpose parameter",
 		MIN_FUNCTION{
-			auto transpose = (abs(Grainflow::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
-			GrainMessage(transpose, Grainflow::GfParamName::rate, Grainflow::GfParamType::random);
+			auto transpose = (abs(PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+			GrainMessage(transpose, GfParamName::rate, GfParamType::random);
 			return{};
 			}
 	};
 	message<> transposeOffset{ this, "transposeOffset", "the amount of transposition to apply rate based on grain index",
 	MIN_FUNCTION{
-		auto transpose = (abs(Grainflow::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
-		GrainMessage(transpose, Grainflow::GfParamName::rate, Grainflow::GfParamType::offset);
+		auto transpose = (abs(PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+		GrainMessage(transpose, GfParamName::rate, GfParamType::offset);
 		return{};
 		}
 	};
@@ -378,43 +385,43 @@ return {};
 	//glisson
 	message<> glisson{ this, "glisson", "how much the pitch will change over the life of the grain based on rate",
 	MIN_FUNCTION {
-			GrainMessage(args[0], Grainflow::GfParamName::glisson, Grainflow::GfParamType::base);
+			GrainMessage(args[0], GfParamName::glisson, GfParamType::base);
 			return{};
 	} };
 	message<> glissonRandom{ this, "glissonRandom", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::glisson, Grainflow::GfParamType::random);
+		GrainMessage(args[0], GfParamName::glisson, GfParamType::random);
 	return{};
 	} };
 	message<> glissonOffset{ this, "glissonOffset", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::glisson, Grainflow::GfParamType::offset);
+		GrainMessage(args[0], GfParamName::glisson, GfParamType::offset);
 	return{};
 	} };
 
 	message<> glissonSt{ this, "glissonSt", "controls glisson in semitones",
 	MIN_FUNCTION{
-		GrainMessage(Grainflow::PitchToRate((float)args[0]) - 1, Grainflow::GfParamName::glisson, Grainflow::GfParamType::base);
+		GrainMessage(PitchToRate((float)args[0]) - 1, GfParamName::glisson, GfParamType::base);
 		return{};
 		}
 	};
 	message<> glissonStRandom{ this, "glissonStRandom", "",
 		MIN_FUNCTION{
-			auto transpose =(abs(Grainflow::PitchToRate((float)args[0]))-1) * (((float)args[0] > 0) * 2 - 1);
-			GrainMessage(transpose, Grainflow::GfParamName::glisson, Grainflow::GfParamType::random);
+			auto transpose =(abs(PitchToRate((float)args[0]))-1) * (((float)args[0] > 0) * 2 - 1);
+			GrainMessage(transpose, GfParamName::glisson, GfParamType::random);
 			return{};
 			}
 	};
 	message<> glissonStOffset{ this, "glissonStOffset", "",
 	MIN_FUNCTION{
-		auto transpose = (abs(Grainflow::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
-		GrainMessage(transpose, Grainflow::GfParamName::glisson, Grainflow::GfParamType::offset);
+		auto transpose = (abs(PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+		GrainMessage(transpose, GfParamName::glisson, GfParamType::offset);
 		return{};
 		}
 	};
 	message<> direction{ this, "direction", "",
 	MIN_FUNCTION{
-		GrainMessage((float)args[0], Grainflow::GfParamName::direction, Grainflow::GfParamType::base);
+		GrainMessage((float)args[0], GfParamName::direction, GfParamType::base);
 		return{};
 	}
 	};
@@ -422,17 +429,17 @@ return {};
 	//amp
 	message<> ampMess{ this, "amp", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::amplitude, Grainflow::GfParamType::base);
+		GrainMessage(args[0], GfParamName::amplitude, GfParamType::base);
 		return{};
 	} };
 	message<> ampRandom{ this, "ampRandom", "",
 	MIN_FUNCTION {
-		GrainMessage(-(float)args[0], Grainflow::GfParamName::amplitude, Grainflow::GfParamType::random);
+		GrainMessage(-(float)args[0], GfParamName::amplitude, GfParamType::random);
 		return{};
 	} };
 	message<> ampOffseet{ this, "ampOffset", "",
 	MIN_FUNCTION {
-		GrainMessage(-(float)args[0], Grainflow::GfParamName::amplitude, Grainflow::GfParamType::offset);
+		GrainMessage(-(float)args[0], GfParamName::amplitude, GfParamType::offset);
 		return{};
 	} };
 
@@ -440,20 +447,20 @@ return {};
 	message<> delay{ this, "delay", "the amound grains are delayed in ms",
 	MIN_FUNCTION {
 		auto value = (float)args[0] * 0.001f * samplerate();
-		GrainMessage(value, Grainflow::GfParamName::delay, Grainflow::GfParamType::base);
+		GrainMessage(value, GfParamName::delay, GfParamType::base);
 		return{};
 	} };
 	message<> delayRandom{ this, "delayRandom", "",
 	MIN_FUNCTION {
 			auto value = (float)args[0] * 0.001f * samplerate();
-			GrainMessage(value, Grainflow::GfParamName::delay, Grainflow::GfParamType::random);
+			GrainMessage(value, GfParamName::delay, GfParamType::random);
 
 	return{};
 	} };
 	message<> delayOffset{ this, "delayOffset", "",
 	MIN_FUNCTION {
 			auto value = (float)args[0] * 0.001f * samplerate();
-			GrainMessage(value, Grainflow::GfParamName::delay, Grainflow::GfParamType::offset);
+			GrainMessage(value, GfParamName::delay, GfParamType::offset);
 
 	return{};
 	} };
@@ -476,34 +483,34 @@ return{};
 	//Window
 	message<> window{ this, "window", "sets the position of the window",
 	MIN_FUNCTION {
-			GrainMessage(args[0], Grainflow::GfParamName::window, Grainflow::GfParamType::base);
+			GrainMessage(args[0], GfParamName::window, GfParamType::base);
 			return{};
 	} };
 	message<> windowRandom{ this, "windowRandom", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::window, Grainflow::GfParamType::random);
+		GrainMessage(args[0], GfParamName::window, GfParamType::random);
 	return{};
 	} };
 	message<> windowOffset{ this, "windowOffset", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::window, Grainflow::GfParamType::offset);
+		GrainMessage(args[0], GfParamName::window, GfParamType::offset);
 	return{};
 	} };
 
 	//Space
 	message<> space{ this, "space", "the amound of emty space at the end of each grains as a ratio of the total grain size",
 	MIN_FUNCTION {
-			GrainMessage(args[0], Grainflow::GfParamName::space, Grainflow::GfParamType::base);
+			GrainMessage(args[0], GfParamName::space, GfParamType::base);
 			return{};
 	} };
 	message<> spaceRandom{ this, "spaceRandom", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::space, Grainflow::GfParamType::random);
+		GrainMessage(args[0], GfParamName::space, GfParamType::random);
 	return{};
 	} };
 	message<> spaceOffset{ this, "spaceOffset", "",
 	MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::space, Grainflow::GfParamType::offset);
+		GrainMessage(args[0], GfParamName::space, GfParamType::offset);
 	return{};
 	} };
 
@@ -514,13 +521,14 @@ return{};
 			string modestr = args[0];
 			_nstreams = args[1];
 			if (_nstreams < 1) return{};
-			Grainflow::GfStreamSetType mode = Grainflow::GfStreamSetType::automaticStreams;
-			if (modestr == "auto") mode = Grainflow::GfStreamSetType::automaticStreams;
-			else if (modestr == "per")  mode = Grainflow::GfStreamSetType::perStreams;
-			else if (modestr == "random") mode = Grainflow::GfStreamSetType::randomStreams;
+			GfStreamSetType mode = GfStreamSetType::automaticStreams;
+			if (modestr == "auto") mode = GfStreamSetType::automaticStreams;
+			else if (modestr == "per")  mode = GfStreamSetType::perStreams;
+			else if (modestr == "random") mode = GfStreamSetType::randomStreams;
 			else return{};
-
-			Grainflow::StreamSet(grainInfo, maxGrains, mode, _nstreams);
+			for (int g =0; g< maxGrains; g++){
+				grainInfo[g].StreamSet(maxGrains, mode, _nstreams);
+			}
 			return{};
 	} };
 
@@ -563,7 +571,7 @@ return{};
 			_channelTarget = 0;
 			_streamTarget = 0;
 			for (int s = 0; s < _nstreams; s++) {
-				value = Grainflow::Deviate(args[1], args[2]);
+				value = Deviate(args[1], args[2]);
 				for (int g = 0; g < maxGrains; g++) {
 					if (grainInfo[g].stream != s) continue;
 					_target = g;
@@ -587,7 +595,7 @@ return{};
 			_streamTarget = 0;
 			_channelTarget = 0;
 			for (int s = 0; s < _nstreams; s++) {
-				value = Grainflow::Lerp(args[1], args[2], (float)s / _nstreams);
+				value = Lerp(args[1], args[2], (float)s / _nstreams);
 				for (int g = 0; g < maxGrains; g++) {
 					if (grainInfo[g].stream != s) continue;
 					_target = g;
@@ -675,17 +683,17 @@ return{};
 	//Param Modes
 	message<> delayMode{ this, "delayMode", "sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
 		MIN_FUNCTION{
-			GrainMessage(args[0], Grainflow::GfParamName::delay, Grainflow::GfParamType::mode);
+			GrainMessage(args[0], GfParamName::delay, GfParamType::mode);
 			return{};
 		} };
 	message<> rateMode{ this, "rateMode", "sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
 		MIN_FUNCTION{
-			GrainMessage(args[0], Grainflow::GfParamName::rate, Grainflow::GfParamType::mode);
+			GrainMessage(args[0], GfParamName::rate, GfParamType::mode);
 		return{};
 		} };
 	message<> windowMode{ this, "windowMode", "sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
 		MIN_FUNCTION{
-			GrainMessage(args[0], Grainflow::GfParamName::window, Grainflow::GfParamType::mode);
+			GrainMessage(args[0], GfParamName::window, GfParamType::mode);
 		return{};
 		} };
 
@@ -693,29 +701,29 @@ return{};
 	message<> env{ this, "env","sets the envelope buffer",
 		MIN_FUNCTION {
 			string bname = (string)args[0];
-			BufferRefMessage(bname, Grainflow::GFBuffers::envelope);
+			BufferRefMessage(bname, GFBuffers::envelope);
 			if (args.size() < 2) {
-				GrainMessage(1, Grainflow::GfParamName::nEnvelopes, Grainflow::GfParamType::base);
+				GrainMessage(1, GfParamName::nEnvelopes, GfParamType::value);
 			}
-			GrainMessage((int)args[1], Grainflow::GfParamName::nEnvelopes, Grainflow::GfParamType::base);
+			GrainMessage((int)args[1], GfParamName::nEnvelopes, GfParamType::value);
 		return{};
 		} };
 
 	message<> envPosition{ this, "envPosition","sets the 2D envelope position",
 		MIN_FUNCTION {
-		GrainMessage(args[0], Grainflow::GfParamName::envelopePosition, Grainflow::GfParamType::base);
+		GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::base);
 		return{};
 		} };
 
 	message<> envPositionOffset{ this, "envPositionOffset","sets the 2D envelope position",
 	MIN_FUNCTION {
-	GrainMessage(args[0], Grainflow::GfParamName::envelopePosition, Grainflow::GfParamType::offset);
+	GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::offset);
 	return{};
 	} };
 
 	message<> envPositionRandom{ this, "envPositionRandom","sets the 2D envelope position",
 	MIN_FUNCTION {
-	GrainMessage(args[0], Grainflow::GfParamName::envelopePosition, Grainflow::GfParamType::random);
+	GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::random);
 	return{};
 	} };
 
@@ -723,28 +731,28 @@ return{};
 	message<> buf{ this, "buf","sets the granulation buffer",
 		MIN_FUNCTION {
 			string bname = (string)args[0];
-			BufferRefMessage(bname, Grainflow::GFBuffers::buffer);
+			BufferRefMessage(bname, GFBuffers::buffer);
 
 			return{};
 		} };
 	message<> delayBuffer{ this, "delayBuffer", "sets the buffer for delay modes 1 and 2",
 		MIN_FUNCTION{
 			string bname = (string)args[0];
-			BufferRefMessage(bname, Grainflow::GFBuffers::delayBuffer);
+			BufferRefMessage(bname, GFBuffers::delayBuffer);
 			return{};
 		} };
 
 	message<> windowBuffer{ this, "windowBuffer", "sets the buffer for window modes 1 and 2",
 		MIN_FUNCTION{
 			string bname = (string)args[0];
-			BufferRefMessage(bname, Grainflow::GFBuffers::windowBuffer);
+			BufferRefMessage(bname, GFBuffers::windowBuffer);
 			return{};
 		} };
 
 	message<> rateBuffer{ this, "rateBuffer", "sets the buffer for rate modes 1 and 2",
 		MIN_FUNCTION{
 			string bname = (string)args[0];
-			BufferRefMessage(bname, Grainflow::GFBuffers::rateBuffer);
+			BufferRefMessage(bname, GFBuffers::rateBuffer);
 			return{};
 		} };
 
@@ -776,7 +784,7 @@ return{};
 	int input_chans[4] = { 0,0,0,0 };
 	int maxGrains = 0;
 private:
-	Grainflow::GrainInfo* grainInfo = nullptr;
+	GrainInfo* grainInfo = nullptr;
 	string bufferArg;
 	string envArg;
 
