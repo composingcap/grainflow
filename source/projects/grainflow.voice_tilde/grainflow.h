@@ -75,7 +75,6 @@ namespace Grainflow
 	class IGrain
 	{
 	private:
-		double playRate = 1;
 		bool reset = false;
 		float lastGrainClock = -999;
 		double sampleRateAdjustment = 1;
@@ -224,18 +223,24 @@ public:
 			std::random_device rd;
 			param->value = abs((rd() % 10000) * 0.0001f) * (param->random) + param->base + param->offset * index;
 		}
-		void GrainReset(double grainClock, double traversal)
+
+		bool GrainReset(double grainClock, double traversal)
 		{
-			if (grainClock > lastGrainClock)
-			{
-				reset = false;
-				lastGrainClock = grainClock;
-				return;
-			}
-			sourceSample = traversal * bufferFrames;
-			playRate = 1;
-			lastGrainClock = grainClock;
-			reset = true;
+			bool grainReset = GetLastClock() > grainClock;
+			if (!grainReset) return grainReset;
+
+			SampleParamBuffer(GFBuffers::delayBuffer, GfParamName::delay);
+			sourceSample = (size_t)((traversal + 10) * bufferFrames - ParamGet(GfParamName::delay)) % bufferFrames;
+			SampleParamBuffer(GFBuffers::rateBuffer, GfParamName::rate);
+			SampleParamBuffer(GFBuffers::windowBuffer, GfParamName::window);
+			SampleParam(GfParamName::space);
+			SampleParam(GfParamName::glisson);
+			SampleParam(GfParamName::envelopePosition);
+			SampleParam(GfParamName::amplitude);
+			SampleDensity();
+			SampleDirection();
+
+			return grainReset;
 		}
 
 		void SetBufferRef(GFBuffers bufferType, int *handle)
