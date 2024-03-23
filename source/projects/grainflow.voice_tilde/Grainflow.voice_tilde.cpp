@@ -75,7 +75,7 @@ public:
 			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->GetBuffer(GFBuffers::buffer)));
 			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->GetBuffer(GFBuffers::envelope)));
 			thisGrain->SetSampleRateAdjustment(_livemode ? 1 : grainSamples.samplerate() / samplerate());
-			thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 0);
+			thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 1);
 
 			//Determine the channel to pull from for each grain.
 			int grainClock = grainClockCh + (g % input_chans[0]);
@@ -107,7 +107,7 @@ public:
 				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
 				out[g + grainState][v] = thisGrainClock != 0;
 				out[g + grainProgress][v] = thisGrainClock;
-				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
+				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->bufferFrames;
 				out[g + grainAmp][v] = (1 - thisAm) * amp;
 				out[g + grainEnvelope][v] = envelope;
 				out[g + grainBufferChannel][v] = chan + 1;

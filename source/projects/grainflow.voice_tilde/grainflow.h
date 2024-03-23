@@ -136,7 +136,7 @@ public:
 
 		void SetBufferFrames(int frames){
 			bufferFrames = frames;
-			oneOverBufferFrames = 1/frames;
+			oneOverBufferFrames = 1.0f/bufferFrames;
 		}
 
 		void SetSampleRateAdjustment(float ratio){
