@@ -3,7 +3,7 @@
 ///	@copyright	Copyright 2024 Christopher Poovey
 ///	@license	Use of this source code is governed by the MIT License found in the License.md file.
 ///
-#include "grainflow.h"
+#include "grainflowMax.h"
 #include "c74_min.h"
 
 using namespace c74::min;
@@ -71,7 +71,7 @@ public:
 		for (int g = 0; g < _ngrains; g++) {
 			//Vector Level operations
 
-			GrainInfo* thisGrain = &grainInfo[g];
+			MspGrain* thisGrain = &grainInfo[g];
 			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->GetBuffer(GFBuffers::buffer)));
 			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->GetBuffer(GFBuffers::envelope)));
 			thisGrain->SetSampleRateAdjustment(_livemode ? 1 : grainSamples.samplerate() / samplerate());
@@ -96,16 +96,12 @@ public:
 				double thisTraversalPhasor = in[traversalPhasor][v];
 				double thisFm = in[fm][v];
 				double thisAm = in[am][v];
-				GrainReset(thisGrain, thisGrainClock, thisTraversalPhasor, g);
+				thisGrain->GrainReset(thisGrainClock, thisTraversalPhasor);
 
 				//Sample buffers
-				auto frame = size_t(thisGrain->sourceSample);
-				auto tween = thisGrain->sourceSample - frame;
+				auto sample = thisGrain->SampleBuffer(grainSamples);
 
-				//TODO how to make this more efficent? maybe memcopy in the outer loop?
-				//We are using linear interpolation here because cosine interpolation has too much overhead
-				auto sample = grainSamples.valid() ? grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween : 0;
-				auto envelope = envelopeSamples.valid() ? GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock) : 0;
+				auto envelope = thisGrain->SampleEnvelope(envelopeSamples, grainClock);
 				auto amp = thisGrain->ParamGet(GfParamName::amplitude);
 				//Set correct data into each outlet
 				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
@@ -123,69 +119,10 @@ public:
 		}
 	}
 
-	float GetEnvelopeValue(buffer_lock<> buffer, GrainInfo* grain, float grainClock) {
-		auto nEnvelopes = grain->ParamGet(GfParamName::nEnvelopes);
-		if (nEnvelopes <= 1) {
-			auto frame = size_t((grainClock * buffer.frame_count()));
-			auto envelope = buffer.lookup(frame, 0);
-			return envelope;
-		}
-		int sizePerEnvelope = buffer.frame_count() / nEnvelopes;
-		int env1 = (int)(grain->ParamGet(GfParamName::envelopePosition) * nEnvelopes);
-		int env2 = env1 + 1;
-		float fade = grain->ParamGet(GfParamName::envelopePosition) * nEnvelopes - env1;
-		auto frame = size_t((grainClock * sizePerEnvelope));
-		auto envelope = buffer.lookup((env1 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * (1 - fade) + buffer.lookup((env2 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * fade;
-		return envelope;
-	}
 
-	/// <summary>
-	/// Resets each grain when a zero crossing is detected
-	/// </summary>
-	/// <param name="thisGrain">Grain info of the current grain</param>
-	/// <param name="grainClock">The progress phasor for the current grain</param>
-	/// <param name="traversal">playback position that will be set if reset</param>
-	/// <param name="g">grain index</param>
-	/// <returns></returns>
-	bool GrainReset(GrainInfo* thisGrain, float grainClock, float traversal, int g) {
-		bool grainReset = thisGrain->GetLastClock() > grainClock;
-		if (!grainReset) return grainReset;
 
-		SampleParamBuffer(GFBuffers::delayBuffer, thisGrain, GfParamName::delay, g);
-		thisGrain->sourceSample = (size_t)((traversal + 10) * thisGrain->bufferFrames - thisGrain->ParamGet(GfParamName::delay)) % thisGrain->bufferFrames;
-		SampleParamBuffer(GFBuffers::rateBuffer, thisGrain, GfParamName::rate, g);
-		SampleParamBuffer(GFBuffers::windowBuffer, thisGrain, GfParamName::window, g);
-		thisGrain->SampleParam(GfParamName::space);
-		thisGrain->SampleParam(GfParamName::glisson);
-		thisGrain->SampleParam(GfParamName::envelopePosition);
-		thisGrain->SampleParam(GfParamName::amplitude);
-		thisGrain->SampleDensity();
-		thisGrain->SampleDirection();
-
-		return grainReset;
-	}
 
 #pragma endregion
-
-	void SampleParamBuffer(GFBuffers bufferType, GrainInfo* grain, GfParamName paramName, int index) {
-		auto buf = (buffer_reference*)grain->GetBuffer(bufferType);
-		auto param = grain->ParamGetHandle(paramName);
-		if (param->mode == GfBufferMode::normal || buf == nullptr) {
-			grain->SampleParam(paramName);
-			return;
-		}
-		buffer_lock<> paramBuf(*buf);
-		if (!paramBuf.valid()) return;
-		size_t frame = 0;
-		if (param->mode == GfBufferMode::buffer_sequence) {
-			frame = index % paramBuf.frame_count();
-		}
-		else if (param->mode == GfBufferMode::buffer_random) {
-			frame = rd() % paramBuf.frame_count();
-		}
-
-		param->value = paramBuf.lookup(frame, 0);
-	}
 
 	/// <summary>
 	/// Helper to make targeting grains easier
@@ -274,7 +211,7 @@ public:
 
 	void Reinit(int grains) {
 		Cleanup();
-		grainInfo = new GrainInfo[grains];
+		grainInfo = new MspGrain[grains];
 		maxGrains = grains;
 		Init();
 	}
@@ -290,7 +227,7 @@ public:
 		MIN_ARGUMENT_FUNCTION {
 			maxGrains = (int)arg;
 			if (maxGrains < 1) maxGrains = 2;
-			grainInfo = new GrainInfo[maxGrains];
+			grainInfo = new MspGrain[maxGrains];
 
 			_ngrains = 0;
 			}
@@ -774,7 +711,7 @@ return{};
 	int input_chans[4] = { 0,0,0,0 };
 	int maxGrains = 0;
 private:
-	GrainInfo* grainInfo = nullptr;
+	MspGrain* grainInfo = nullptr;
 	string bufferArg;
 	string envArg;
 

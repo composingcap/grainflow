@@ -21,6 +21,7 @@ include_directories(
 set( SOURCE_FILES
 	${PROJECT_NAME}.cpp
 	./grainflow.h
+	./grainflowMax.h
 )
 
 

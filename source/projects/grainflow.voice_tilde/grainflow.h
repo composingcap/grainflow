@@ -71,7 +71,8 @@ namespace Grainflow
 		windowBuffer
 	};
 
-	class GrainInfo
+	template <typename T>
+	class IGrain
 	{
 	private:
 		double playRate = 1;
@@ -81,7 +82,7 @@ namespace Grainflow
 		float sourcePositionNorm = 0;
 		bool grainEnabled = true;
 		bool bufferDefined = false;
-		int index = 0;
+
 
 		std::unique_ptr<int> bufferRef = nullptr;
 		std::unique_ptr<int> envelopeRef = nullptr;
@@ -101,7 +102,9 @@ namespace Grainflow
 
 		GfParam nEnvelopes;
 
-
+protected:
+		std::random_device rd;
+		int index = 0;
 public:
 		int bufferFrames = 441000;
 		float oneOverBufferFrames = 1;
@@ -112,12 +115,20 @@ public:
 
 
 
-		GrainInfo()
+
+
+		IGrain()
 		{
 			rate.base = 1;
 			amplitude.base = 1;
 			direction.base = 1;
 		}
+
+		virtual void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName)=0;
+
+		virtual float SampleBuffer(T sampleLock)= 0;
+
+		virtual float SampleEnvelope(T sampleLock, float grainClock) = 0;
 
 		float GetLastClock() {return lastGrainClock;}
 
@@ -131,6 +142,24 @@ public:
 		void SetSampleRateAdjustment(float ratio){
 			sampleRateAdjustment = ratio;
 		}
+
+		bool GrainReset(float grainClock, float traversal){
+        bool grainReset = GetLastClock() > grainClock;
+			if (!grainReset) return grainReset;
+
+			SampleParamBuffer(GFBuffers::rateBuffer, GfParamName::rate);
+			SampleParamBuffer(GFBuffers::windowBuffer,GfParamName::window);
+			SampleParamBuffer(GFBuffers::delayBuffer, GfParamName::delay);
+			sourceSample = (size_t)((traversal + 10) * bufferFrames - ParamGet(GfParamName::delay)) % bufferFrames;
+			SampleParam(GfParamName::space);
+			SampleParam(GfParamName::glisson);
+			SampleParam(GfParamName::envelopePosition);
+			SampleParam(GfParamName::amplitude);
+			SampleDensity();
+			SampleDirection();
+
+			return grainReset;
+    };
 
 		GfParam *ParamGetHandle(GfParamName param)
 		{
@@ -318,6 +347,8 @@ public:
 				}
 			}
 		}
+
+
 	};
 
 
