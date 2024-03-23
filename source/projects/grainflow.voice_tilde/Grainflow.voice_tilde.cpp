@@ -5,13 +5,6 @@
 ///
 #include "grainflow.h"
 #include "c74_min.h"
-#ifdef _WIN64
-#include <omp.h>
-#define USEOMP
-#elif __APPLE__
-#if TARGET_OS_MAC
-#endif
-#endif
 
 using namespace c74::min;
 using namespace Grainflow;
@@ -74,10 +67,7 @@ public:
 		for (int g = 0; g < (maxGrains - _ngrains) * 8; g++) {
 			memset(out[g], double(0), sizeof(double) * size);
 		}
-#ifdef USEOMP
-		//Pre proccess
-#pragma omp parallel for
-#endif
+
 		for (int g = 0; g < _ngrains; g++) {
 			//Vector Level operations
 
@@ -363,20 +353,20 @@ return {};
 
 	message<> transpose{ this, "transpose", "control rate in semitones",
 		MIN_FUNCTION{
-			GrainMessage(PitchToRate((float)args[0]), GfParamName::rate, GfParamType::base);
+			GrainMessage(GfUtils::PitchToRate((float)args[0]), GfParamName::rate, GfParamType::base);
 			return{};
 			}
 	};
 	message<> transposeRandom{ this, "transposeRandom", "randomization depth for the the transpose parameter",
 		MIN_FUNCTION{
-			auto transpose = (abs(PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+			auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
 			GrainMessage(transpose, GfParamName::rate, GfParamType::random);
 			return{};
 			}
 	};
 	message<> transposeOffset{ this, "transposeOffset", "the amount of transposition to apply rate based on grain index",
 	MIN_FUNCTION{
-		auto transpose = (abs(PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+		auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
 		GrainMessage(transpose, GfParamName::rate, GfParamType::offset);
 		return{};
 		}
@@ -401,20 +391,20 @@ return {};
 
 	message<> glissonSt{ this, "glissonSt", "controls glisson in semitones",
 	MIN_FUNCTION{
-		GrainMessage(PitchToRate((float)args[0]) - 1, GfParamName::glisson, GfParamType::base);
+		GrainMessage(GfUtils::PitchToRate((float)args[0]) - 1, GfParamName::glisson, GfParamType::base);
 		return{};
 		}
 	};
 	message<> glissonStRandom{ this, "glissonStRandom", "",
 		MIN_FUNCTION{
-			auto transpose =(abs(PitchToRate((float)args[0]))-1) * (((float)args[0] > 0) * 2 - 1);
+			auto transpose =(abs(GfUtils::PitchToRate((float)args[0]))-1) * (((float)args[0] > 0) * 2 - 1);
 			GrainMessage(transpose, GfParamName::glisson, GfParamType::random);
 			return{};
 			}
 	};
 	message<> glissonStOffset{ this, "glissonStOffset", "",
 	MIN_FUNCTION{
-		auto transpose = (abs(PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+		auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
 		GrainMessage(transpose, GfParamName::glisson, GfParamType::offset);
 		return{};
 		}
@@ -571,7 +561,7 @@ return{};
 			_channelTarget = 0;
 			_streamTarget = 0;
 			for (int s = 0; s < _nstreams; s++) {
-				value = Deviate(args[1], args[2]);
+				value = GfUtils::Deviate(args[1], args[2]);
 				for (int g = 0; g < maxGrains; g++) {
 					if (grainInfo[g].stream != s) continue;
 					_target = g;
@@ -595,7 +585,7 @@ return{};
 			_streamTarget = 0;
 			_channelTarget = 0;
 			for (int s = 0; s < _nstreams; s++) {
-				value = Lerp(args[1], args[2], (float)s / _nstreams);
+				value = GfUtils::Lerp(args[1], args[2], (float)s / _nstreams);
 				for (int g = 0; g < maxGrains; g++) {
 					if (grainInfo[g].stream != s) continue;
 					_target = g;
