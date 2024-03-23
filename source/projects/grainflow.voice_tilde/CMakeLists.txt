@@ -18,11 +18,9 @@ include_directories(
 )
 
 
-set(SOURCE_FILES
+set( SOURCE_FILES
 	${PROJECT_NAME}.cpp
 	./grainflow.h
-	./IGfBuffer.h 
-	./GfMaxBuffer.h
 )
 
 
