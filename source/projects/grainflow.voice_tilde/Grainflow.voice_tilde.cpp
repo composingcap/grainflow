@@ -88,7 +88,7 @@ public:
 			float windowPortion = std::clamp(1 - thisGrain->ParamGet(GfParamName::space), 0.0001f, 1.0f);
 
 			//Sample level
-			for (int v = 0; v < output.frame_count(); v++) {
+			for (int v = 0; v < size; v++) {
 				double thisGrainClock = in[grainClock][v] + thisGrain->ParamGet(GfParamName::window);
 				thisGrainClock -= (int)thisGrainClock;
 				thisGrainClock /= windowPortion;
@@ -99,15 +99,17 @@ public:
 				thisGrain->GrainReset(thisGrainClock, thisTraversalPhasor);
 
 				//Sample buffers
+				//auto sample = GetSampleValue(thisGrain, grainSamples);
 				auto sample = thisGrain->SampleBuffer(grainSamples);
 
-				auto envelope = thisGrain->SampleEnvelope(envelopeSamples, grainClock);
+				auto envelope = thisGrain->SampleEnvelope(envelopeSamples, thisGrainClock);
+				//auto envelope = GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock);
 				auto amp = thisGrain->ParamGet(GfParamName::amplitude);
 				//Set correct data into each outlet
 				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
 				out[g + grainState][v] = thisGrainClock != 0;
 				out[g + grainProgress][v] = thisGrainClock;
-				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->bufferFrames;
+				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
 				out[g + grainAmp][v] = (1 - thisAm) * amp;
 				out[g + grainEnvelope][v] = envelope;
 				out[g + grainBufferChannel][v] = chan + 1;
@@ -214,6 +216,30 @@ public:
 		grainInfo = new MspGrain[grains];
 		maxGrains = grains;
 		Init();
+	}
+
+	float GetEnvelopeValue(buffer_lock<> buffer, MspGrain* grain, float grainClock) {
+		auto nEnvelopes = grain->ParamGet(GfParamName::nEnvelopes);
+		if (nEnvelopes <= 1) {
+			auto frame = size_t((grainClock * buffer.frame_count()));
+			auto envelope = buffer.lookup(frame, 0);
+			return envelope;
+		}
+		int sizePerEnvelope = buffer.frame_count() / nEnvelopes;
+		int env1 = (int)(grain->ParamGet(GfParamName::envelopePosition) * nEnvelopes);
+		int env2 = env1 + 1;
+		float fade = grain->ParamGet(GfParamName::envelopePosition) * nEnvelopes - env1;
+		auto frame = size_t((grainClock * sizePerEnvelope));
+		auto envelope = buffer.lookup((env1 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * (1 - fade) + buffer.lookup((env2 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * fade;
+		return envelope;
+	}
+
+	float GetSampleValue(MspGrain* thisGrain, buffer_lock<> grainSamples){
+				size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
+				auto frame = size_t(thisGrain->sourceSample);
+				auto tween = thisGrain->sourceSample - frame;
+				auto sample = grainSamples.valid() ? grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween : 0;
+				return sample;
 	}
 
 #pragma region MAX_ARGS

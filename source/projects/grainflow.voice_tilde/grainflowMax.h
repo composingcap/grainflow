@@ -26,12 +26,13 @@ namespace Grainflow{
             param->value = paramBuf.lookup(frame, 0);
 	}
     float SampleBuffer(buffer_lock<> buffer){
-                //buffer_lock<>	buffer(*(buffer_reference*)(GetBuffer(GFBuffers::buffer)));
-                if (buffer.valid()) return 0;
-                auto frame = size_t(sourceSample);
+
+ 				size_t chan = buffer.valid() ? (bchan) % buffer.channel_count() : 0;
+				auto frame = size_t(sourceSample);
 				auto tween = sourceSample - frame;
-				auto sample = buffer.lookup(frame, bchan) * (1 - tween) + buffer.lookup((frame + 1), bchan) * tween;
-                return sample;
+				auto sample = buffer.valid() ? buffer.lookup(frame, chan) * (1 - tween) + buffer.lookup((frame + 1), chan) * tween : 0;
+				return sample;
+
     }
 
     float SampleEnvelope(buffer_lock<>  buffer, float grainClock){ 
