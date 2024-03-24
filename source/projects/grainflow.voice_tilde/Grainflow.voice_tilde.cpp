@@ -72,8 +72,8 @@ public:
 			//Vector Level operations
 
 			MspGrain* thisGrain = &grainInfo[g];
-			buffer_lock<>	grainSamples(*(buffer_reference*)(thisGrain->GetBuffer(GFBuffers::buffer)));
-			buffer_lock<>   envelopeSamples(*(buffer_reference*)(thisGrain->GetBuffer(GFBuffers::envelope)));
+			buffer_lock<>	grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
+			buffer_lock<>   envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
 			thisGrain->SetSampleRateAdjustment(_livemode ? 1 : grainSamples.samplerate() / samplerate());
 			thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 1);
 
@@ -99,11 +99,8 @@ public:
 				thisGrain->GrainReset(thisGrainClock, thisTraversalPhasor);
 
 				//Sample buffers
-				//auto sample = GetSampleValue(thisGrain, grainSamples);
 				auto sample = thisGrain->SampleBuffer(grainSamples);
-
 				auto envelope = thisGrain->SampleEnvelope(envelopeSamples, thisGrainClock);
-				//auto envelope = GetEnvelopeValue(envelopeSamples, thisGrain, thisGrainClock);
 				auto amp = thisGrain->ParamGet(GfParamName::amplitude);
 				//Set correct data into each outlet
 				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
@@ -168,13 +165,13 @@ public:
 		if (bname.empty()) return;
 
 		if (_target > 0) {
-			auto buf = (buffer_reference*)grainInfo[_target - 1].GetBuffer(type);
+			auto buf = grainInfo[_target - 1].GetBuffer(type);
 			buf->set(""); //This forces a refresh even if the name is the same
 			buf->set(bname);
 			return;
 		}
 		for (int g = 0; g < maxGrains; g++) {
-			auto buf = (buffer_reference*)grainInfo[g].GetBuffer( type); //To access ir must be converted to the correct type
+			auto buf = grainInfo[g].GetBuffer( type); //To access ir must be converted to the correct type
 			buf->set("");
 			buf->set(bname);
 		}
@@ -184,7 +181,7 @@ public:
 	/// </summary>
 	void BufferRefresh(GFBuffers type) {
 		for (int g = 0; g < maxGrains; g++) {
-			auto buf = (buffer_reference*)grainInfo[g].GetBuffer(type); //To access ir must be converted to the correct type
+			auto buf = grainInfo[g].GetBuffer(type); //To access ir must be converted to the correct type
 			auto name = buf->name();
 			buf->set("");
 			buf->set(name);
@@ -194,15 +191,15 @@ public:
 	void Init() {
 		for (int g = 0; g < maxGrains; g++) {
 			grainInfo[g].SetIndex(g);
-			grainInfo[g].SetBufferRef(GFBuffers::buffer, (int*)(new buffer_reference{ this }));
-			grainInfo[g].SetBufferRef(GFBuffers::envelope, (int*)(new buffer_reference{ this }));
-			grainInfo[g].SetBufferRef(GFBuffers::delayBuffer, (int*)(new buffer_reference{ this }));
-			grainInfo[g].SetBufferRef(GFBuffers::windowBuffer, (int*)(new buffer_reference{ this }));
-			grainInfo[g].SetBufferRef(GFBuffers::rateBuffer, (int*)(new buffer_reference{ this }));
+			grainInfo[g].SetBuffer(GFBuffers::buffer, (new buffer_reference{ this }));
+			grainInfo[g].SetBuffer(GFBuffers::envelope, (new buffer_reference{ this }));
+			grainInfo[g].SetBuffer(GFBuffers::delayBuffer, (new buffer_reference{ this }));
+			grainInfo[g].SetBuffer(GFBuffers::windowBuffer, (new buffer_reference{ this }));
+			grainInfo[g].SetBuffer(GFBuffers::rateBuffer, (new buffer_reference{ this }));
 
-			buffer_reference* env = (buffer_reference*)grainInfo[g].GetBuffer(GFBuffers::envelope);
+			auto env = grainInfo[g].GetBuffer(GFBuffers::envelope);
 			env->set(envArg);
-			buffer_reference* buf = (buffer_reference*)grainInfo[g].GetBuffer(GFBuffers::buffer);
+			auto buf = grainInfo[g].GetBuffer(GFBuffers::buffer);
 			buf->set(bufferArg);
 		}
 	}
@@ -216,30 +213,6 @@ public:
 		grainInfo = new MspGrain[grains];
 		maxGrains = grains;
 		Init();
-	}
-
-	float GetEnvelopeValue(buffer_lock<> buffer, MspGrain* grain, float grainClock) {
-		auto nEnvelopes = grain->ParamGet(GfParamName::nEnvelopes);
-		if (nEnvelopes <= 1) {
-			auto frame = size_t((grainClock * buffer.frame_count()));
-			auto envelope = buffer.lookup(frame, 0);
-			return envelope;
-		}
-		int sizePerEnvelope = buffer.frame_count() / nEnvelopes;
-		int env1 = (int)(grain->ParamGet(GfParamName::envelopePosition) * nEnvelopes);
-		int env2 = env1 + 1;
-		float fade = grain->ParamGet(GfParamName::envelopePosition) * nEnvelopes - env1;
-		auto frame = size_t((grainClock * sizePerEnvelope));
-		auto envelope = buffer.lookup((env1 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * (1 - fade) + buffer.lookup((env2 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * fade;
-		return envelope;
-	}
-
-	float GetSampleValue(MspGrain* thisGrain, buffer_lock<> grainSamples){
-				size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
-				auto frame = size_t(thisGrain->sourceSample);
-				auto tween = thisGrain->sourceSample - frame;
-				auto sample = grainSamples.valid() ? grainSamples.lookup(frame, chan) * (1 - tween) + grainSamples.lookup((frame + 1), chan) * tween : 0;
-				return sample;
 	}
 
 #pragma region MAX_ARGS

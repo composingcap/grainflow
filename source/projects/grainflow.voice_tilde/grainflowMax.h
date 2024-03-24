@@ -4,10 +4,11 @@
 
 using namespace c74::min;
 namespace Grainflow{
-    class MspGrain : public IGrain<buffer_lock<>>{
+    /// @brief Provides an interface for reading buffers in Max MSP 
+    class MspGrain : public IGrain<buffer_reference, buffer_lock<>>{
         public:
         void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName) {
-            auto buf = (buffer_reference*)GetBuffer(bufferType);
+            auto buf = GetBuffer(bufferType);
             auto param = ParamGetHandle(paramName);
             if (param->mode == GfBufferMode::normal || buf == nullptr) {
                 SampleParam(paramName);

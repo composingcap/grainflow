@@ -71,7 +71,14 @@ namespace Grainflow
 		windowBuffer
 	};
 
-	template <typename T>
+	/// <summary>
+	/// An interface that represents a grainflow grain.
+	/// To implement a grain, a valid interface needs to implement:
+	/// -SampleParamBuffer
+	/// -SampleEnvelope
+	/// -SampleParamBuffer
+	/// </summary>
+	template <typename T1, typename T2>
 	class IGrain
 	{
 	private:
@@ -82,23 +89,22 @@ namespace Grainflow
 		bool grainEnabled = true;
 		bool bufferDefined = false;
 
+		///Links to buffers - this can likely use a template argument and would be better
+		T1* bufferRef = nullptr;
+		T1* envelopeRef = nullptr;
+		T1* delayBufRef = nullptr;
+		T1* rateBufRef = nullptr;
+		T1* windowBufRef = nullptr;
 
-		std::unique_ptr<int> bufferRef = nullptr;
-		std::unique_ptr<int> envelopeRef = nullptr;
-		std::unique_ptr<int> delayBufRef = nullptr;
-		std::unique_ptr<int> rateBufRef = nullptr;
-		std::unique_ptr<int> windowBufRef = nullptr;
-
+		
 		GfParam delay;
 		GfParam window;
 		GfParam space;
-
 		GfParam amplitude;
 		GfParam rate;
 		GfParam glisson;
 		GfParam envelope;
 		GfParam direction;
-
 		GfParam nEnvelopes;
 
 protected:
@@ -112,22 +118,20 @@ public:
 		size_t bchan = 0;
 		float density = 1;
 
-
-
-
-
 		IGrain()
 		{
 			rate.base = 1;
 			amplitude.base = 1;
 			direction.base = 1;
 		}
-
+		/// @brief The function implements reading an external buffer for select parameters when the feature is enabled.
+		/// @param bufferType 
+		/// @param paramName 
 		virtual void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName)=0;
 
-		virtual float SampleBuffer(T sampleLock)= 0;
+		virtual float SampleBuffer(T2 sampleLock)= 0;
 
-		virtual float SampleEnvelope(T sampleLock, float grainClock) = 0;
+		virtual float SampleEnvelope(T2 sampleLock, float grainClock) = 0;
 
 		float GetLastClock() {return lastGrainClock;}
 
@@ -243,63 +247,48 @@ public:
 			return grainReset;
 		}
 
-		void SetBufferRef(GFBuffers bufferType, int *handle)
+		void SetBuffer(GFBuffers bufferType, T1 *buffer)
 		{
 			switch (bufferType)
 			{
 			case (GFBuffers::buffer):
-				bufferRef.reset(handle);
+				bufferRef = buffer;
 				break;
 			case (GFBuffers::envelope):
-				envelopeRef.reset(handle);
+				envelopeRef= buffer;
 				break;
 			case (GFBuffers::rateBuffer):
-				rateBufRef.reset(handle);
+				rateBufRef= buffer;
 				break;
 			case (GFBuffers::delayBuffer):
-				delayBufRef.reset(handle);
+				delayBufRef = buffer;
 				break;
 			case (GFBuffers::windowBuffer):
-				windowBufRef.reset(handle);
+				windowBufRef = buffer;
 				break;
 			};
 		};
 
-		int* GetBufferRef(GFBuffers bufferType){
-			
-			switch(bufferType){
-			case (GFBuffers::buffer):
-				return bufferRef.get();
-			case (GFBuffers::envelope):
-				return envelopeRef.get();
-			case (GFBuffers::rateBuffer):
-				return rateBufRef.get();
-			case (GFBuffers::delayBuffer):
-				return delayBufRef.get();
-			case (GFBuffers::windowBuffer):
-				return windowBufRef.get();
-			};
-		}
 
 		void SetSampleRateAdjustment(float gloabalSampleRate, float bufferSampleRate)
 		{
 			sampleRateAdjustment = bufferSampleRate / gloabalSampleRate;
 		}
 
-		int *GetBuffer(GFBuffers bufferType)
+		T1* GetBuffer(GFBuffers bufferType)
 		{
 			switch (bufferType)
 			{
 			case (GFBuffers::buffer):
-				return bufferRef.get();
+				return bufferRef;
 			case (GFBuffers::envelope):
-				return envelopeRef.get();
+				return envelopeRef;
 			case (GFBuffers::rateBuffer):
-				return rateBufRef.get();
+				return rateBufRef;;
 			case (GFBuffers::delayBuffer):
-				return delayBufRef.get();
+				return delayBufRef;
 			case (GFBuffers::windowBuffer):
-				return windowBufRef.get();
+				return windowBufRef;
 			}
 			return nullptr;
 		}
