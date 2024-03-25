@@ -89,14 +89,13 @@ namespace Grainflow
 		bool grainEnabled = true;
 		bool bufferDefined = false;
 
-		///Links to buffers - this can likely use a template argument and would be better
-		T1* bufferRef = nullptr;
-		T1* envelopeRef = nullptr;
-		T1* delayBufRef = nullptr;
-		T1* rateBufRef = nullptr;
-		T1* windowBufRef = nullptr;
+		/// Links to buffers - this can likely use a template argument and would be better
+		T1 *bufferRef = nullptr;
+		T1 *envelopeRef = nullptr;
+		T1 *delayBufRef = nullptr;
+		T1 *rateBufRef = nullptr;
+		T1 *windowBufRef = nullptr;
 
-		
 		GfParam delay;
 		GfParam window;
 		GfParam space;
@@ -107,10 +106,11 @@ namespace Grainflow
 		GfParam direction;
 		GfParam nEnvelopes;
 
-protected:
+	protected:
 		std::random_device rd;
 		int index = 0;
-public:
+
+	public:
 		int bufferFrames = 441000;
 		float oneOverBufferFrames = 1;
 		double sourceSample = 0;
@@ -125,33 +125,37 @@ public:
 			direction.base = 1;
 		}
 		/// @brief The function implements reading an external buffer for select parameters when the feature is enabled.
-		/// @param bufferType 
-		/// @param paramName 
-		virtual void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName)=0;
+		/// @param bufferType
+		/// @param paramName
+		virtual void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName) = 0;
 
-		virtual float SampleBuffer(T2 sampleLock)= 0;
+		virtual float SampleBuffer(T2 sampleLock) = 0;
 
 		virtual float SampleEnvelope(T2 sampleLock, float grainClock) = 0;
 
-		float GetLastClock() {return lastGrainClock;}
+		float GetLastClock() { return lastGrainClock; }
 
-		void SetIndex(int index){this->index = index;}
+		void SetIndex(int index) { this->index = index; }
 
-		void SetBufferFrames(int frames){
+		void SetBufferFrames(int frames)
+		{
 			bufferFrames = frames;
-			oneOverBufferFrames = 1.0f/bufferFrames;
+			oneOverBufferFrames = 1.0f / bufferFrames;
 		}
 
-		void SetSampleRateAdjustment(float ratio){
+		void SetSampleRateAdjustment(float ratio)
+		{
 			sampleRateAdjustment = ratio;
 		}
 
-		bool GrainReset(float grainClock, float traversal){
-        bool grainReset = GetLastClock() > grainClock;
-			if (!grainReset) return grainReset;
+		bool GrainReset(float grainClock, float traversal)
+		{
+			bool grainReset = GetLastClock() > grainClock;
+			if (!grainReset)
+				return grainReset;
 
 			SampleParamBuffer(GFBuffers::rateBuffer, GfParamName::rate);
-			SampleParamBuffer(GFBuffers::windowBuffer,GfParamName::window);
+			SampleParamBuffer(GFBuffers::windowBuffer, GfParamName::window);
 			SampleParamBuffer(GFBuffers::delayBuffer, GfParamName::delay);
 			sourceSample = (size_t)((traversal + 10) * bufferFrames - ParamGet(GfParamName::delay)) % bufferFrames;
 			SampleParam(GfParamName::space);
@@ -162,7 +166,7 @@ public:
 			SampleDirection();
 
 			return grainReset;
-    };
+		};
 
 		GfParam *ParamGetHandle(GfParamName param)
 		{
@@ -187,11 +191,12 @@ public:
 			case (GfParamName::direction):
 				return &direction;
 			}
-			
+
 			return nullptr;
 		}
 
-		float ParamGet(GfParamName param){
+		float ParamGet(GfParamName param)
+		{
 			return ParamGetHandle(param)->value;
 		}
 		void ParamSet(float value, GfParamName param, GfParamType type)
@@ -231,7 +236,8 @@ public:
 		bool GrainReset(double grainClock, double traversal)
 		{
 			bool grainReset = GetLastClock() > grainClock;
-			if (!grainReset) return grainReset;
+			if (!grainReset)
+				return grainReset;
 
 			SampleParamBuffer(GFBuffers::delayBuffer, GfParamName::delay);
 			sourceSample = (size_t)((traversal + 10) * bufferFrames - ParamGet(GfParamName::delay)) % bufferFrames;
@@ -255,10 +261,10 @@ public:
 				bufferRef = buffer;
 				break;
 			case (GFBuffers::envelope):
-				envelopeRef= buffer;
+				envelopeRef = buffer;
 				break;
 			case (GFBuffers::rateBuffer):
-				rateBufRef= buffer;
+				rateBufRef = buffer;
 				break;
 			case (GFBuffers::delayBuffer):
 				delayBufRef = buffer;
@@ -269,13 +275,12 @@ public:
 			};
 		};
 
-
 		void SetSampleRateAdjustment(float gloabalSampleRate, float bufferSampleRate)
 		{
 			sampleRateAdjustment = bufferSampleRate / gloabalSampleRate;
 		}
 
-		T1* GetBuffer(GFBuffers bufferType)
+		T1 *GetBuffer(GFBuffers bufferType)
 		{
 			switch (bufferType)
 			{
@@ -284,7 +289,8 @@ public:
 			case (GFBuffers::envelope):
 				return envelopeRef;
 			case (GFBuffers::rateBuffer):
-				return rateBufRef;;
+				return rateBufRef;
+				;
 			case (GFBuffers::delayBuffer):
 				return delayBufRef;
 			case (GFBuffers::windowBuffer):
@@ -341,13 +347,11 @@ public:
 				}
 			}
 		}
-
-
 	};
 
-
-	class GfUtils{
-		public:
+	class GfUtils
+	{
+	public:
 		static float Deviate(float center, float range)
 		{
 			std::random_device rd;
@@ -363,5 +367,5 @@ public:
 		{
 			return pow(2, pitch / 12);
 		}
-		};
+	};
 }
