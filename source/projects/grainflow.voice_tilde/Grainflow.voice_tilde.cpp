@@ -12,14 +12,61 @@ using namespace Grainflow;
 long simplemc_multichanneloutputs(c74::max::t_object *x, long index, long count);
 long simplemc_inputchanged(c74::max::t_object *x, long index, long count);
 
+struct IoConfig
+{
+	double **in;
+	double **out;
+	int grainClockCh = 0;
+	int traversalPhasorCh;
+	int fmCh;
+	int amCh;
+	int grainOutput = 0;
+	int grainState;
+	int grainProgress;
+	int grainPlayhead;
+	int grainAmp;
+	int grainEnvelope;
+	int grainBufferChannel;
+	int grainStreamChannel;
+
+	int grainClock;
+	int traversalPhasor;
+	int fm;
+	int am;
+
+	bool livemode;
+
+	int blockSize;
+};
+
 class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<>
 {
+
 private:
+	MspGrain *grainInfo = nullptr;
+	string bufferArg;
+	string envArg;
+
+	int _ngrains = 0;
+	float oneOverSamplerate = 1;
+
+	int _target = 0;
+	int _streamTarget = 0;
+	int _channelTarget = 0;
+	int _nstreams = 0;
+	bool _livemode = 0;
+	std::random_device rd;
+	IoConfig _ioConfig;
+
 public:
 	MIN_DESCRIPTION{"the base object for grainflow"};
 	MIN_TAGS{"grainulation, msp, grainflow"};
 	MIN_AUTHOR{"Christopher Poovey"};
 	MIN_RELATED{""};
+
+	int GetMaxGrains() { return maxGrains; }
+	int input_chans[4] = {0, 0, 0, 0};
+	int maxGrains = 0;
 
 	~grainflow_voice_tilde()
 	{
@@ -45,83 +92,87 @@ public:
 
 	void operator()(audio_bundle input, audio_bundle output)
 	{
-		auto in = input.samples();
-		auto out = output.samples();
+
+		_ioConfig.livemode = _livemode;
+		_ioConfig.in = input.samples();
+		_ioConfig.out = output.samples();
 
 		// These varible indicate the starting indices of each mc parameter
-		int grainClockCh = 0;
-		int traversalPhasorCh = input_chans[0];
-		int fmCh = traversalPhasorCh + input_chans[1];
-		int amCh = fmCh + input_chans[2];
+		_ioConfig.grainClockCh = 0;
+		_ioConfig.traversalPhasorCh = input_chans[0];
+		_ioConfig.fmCh = _ioConfig.traversalPhasorCh + input_chans[1];
+		_ioConfig.amCh = _ioConfig.fmCh + input_chans[2];
 
 		// Ouputs are constant because they are based on the max grain count
-		const int grainOutput = 0;
-		const int grainState = 1 * maxGrains;
-		const int grainProgress = 2 * maxGrains;
-		const int grainPlayhead = 3 * maxGrains;
-		const int grainAmp = 4 * maxGrains;
-		const int grainEnvelope = 5 * maxGrains;
-		const int grainBufferChannel = 6 * maxGrains;
-		const int grainStreamChannel = 7 * maxGrains;
+		_ioConfig.grainOutput = 0;
+		_ioConfig.grainState = 1 * maxGrains;
+		_ioConfig.grainProgress = 2 * maxGrains;
+		_ioConfig.grainPlayhead = 3 * maxGrains;
+		_ioConfig.grainAmp = 4 * maxGrains;
+		_ioConfig.grainEnvelope = 5 * maxGrains;
+		_ioConfig.grainBufferChannel = 6 * maxGrains;
+		_ioConfig.grainStreamChannel = 7 * maxGrains;
 
 		// Clear unused channels or we will get garbage
-		int size = output.frame_count();
+		_ioConfig.blockSize = output.frame_count();
 		for (int g = 0; g < (maxGrains) * 8; g++)
 		{
-			memset(out[g], double(0), sizeof(double) * size);
+			memset(_ioConfig.out[g], double(0), sizeof(double) * _ioConfig.blockSize);
 		}
 
 		for (int g = 0; g < _ngrains; g++)
 		{
-			// Vector Level operations
+			_ioConfig.grainClock = _ioConfig.grainClockCh + (g % input_chans[0]);
+			_ioConfig.traversalPhasor = _ioConfig.traversalPhasorCh + (g % input_chans[1]);
+			_ioConfig.fm = _ioConfig.fmCh + (g % input_chans[2]);
+			_ioConfig.am = _ioConfig.amCh + (g % input_chans[3]);
+			ProccessGrain(&grainInfo[g], g, _ioConfig);
+		}
+	}
 
-			MspGrain *thisGrain = &grainInfo[g];
-			buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
-			buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
-			thisGrain->SetSampleRateAdjustment(_livemode ? 1 : grainSamples.samplerate() / samplerate());
-			thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 1);
+	void ProccessGrain(MspGrain *thisGrain, int g, IoConfig ioConfig)
+	{
+		buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
+		buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
+		thisGrain->SetSampleRateAdjustment(ioConfig.livemode ? 1 : grainSamples.samplerate() / samplerate());
+		thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 1);
 
-			// Determine the channel to pull from for each grain.
-			int grainClock = grainClockCh + (g % input_chans[0]);
-			int traversalPhasor = traversalPhasorCh + (g % input_chans[1]);
-			int fm = fmCh + (g % input_chans[2]);
-			int am = amCh + (g % input_chans[3]);
+		// Determine the channel to pull from for each grain.
 
-			size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
-			double stream = thisGrain->stream;
-			float windowPortion = std::clamp(1 - thisGrain->ParamGet(GfParamName::space), 0.0001f, 1.0f);
-			// Check grain clock to make sure it is moving
-			if (in[grainClock][0] == in[grainClock][1])
-				continue;
-			// Sample level
-			for (int v = 0; v < size; v++)
-			{
-				double thisGrainClock = in[grainClock][v] + thisGrain->ParamGet(GfParamName::window);
-				thisGrainClock -= (int)thisGrainClock;
-				thisGrainClock /= windowPortion;
-				thisGrainClock *= thisGrainClock <= 1;
-				double thisTraversalPhasor = in[traversalPhasor][v];
-				double thisFm = in[fm][v];
-				double thisAm = in[am][v];
-				thisGrain->GrainReset(thisGrainClock, thisTraversalPhasor);
+		size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
+		double stream = thisGrain->stream;
+		float windowPortion = std::clamp(1 - thisGrain->ParamGet(GfParamName::space), 0.0001f, 1.0f);
+		// Check grain clock to make sure it is moving
+		if (ioConfig.in[ioConfig.grainClock][0] == ioConfig.in[ioConfig.grainClock][1])
+			return;
+		// Sample level
+		for (int v = 0; v < ioConfig.blockSize; v++)
+		{
+			double thisGrainClock = ioConfig.in[ioConfig.grainClock][v] + thisGrain->ParamGet(GfParamName::window);
+			thisGrainClock -= (int)thisGrainClock;
+			thisGrainClock /= windowPortion;
+			thisGrainClock *= thisGrainClock <= 1;
+			double thisTraversalPhasor = ioConfig.in[ioConfig.traversalPhasor][v];
+			double thisFm = ioConfig.in[ioConfig.fm][v];
+			double thisAm = ioConfig.in[ioConfig.am][v];
+			thisGrain->GrainReset(thisGrainClock, thisTraversalPhasor);
 
-				// Sample buffers
-				auto sample = thisGrain->SampleBuffer(grainSamples);
-				auto envelope = thisGrain->SampleEnvelope(envelopeSamples, thisGrainClock);
-				auto amp = thisGrain->ParamGet(GfParamName::amplitude);
-				// Set correct data into each outlet
-				out[g + grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
-				out[g + grainState][v] = thisGrainClock != 0;
-				out[g + grainProgress][v] = thisGrainClock;
-				out[g + grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
-				out[g + grainAmp][v] = (1 - thisAm) * amp;
-				out[g + grainEnvelope][v] = envelope;
-				out[g + grainBufferChannel][v] = chan + 1;
-				out[g + grainStreamChannel][v] = stream + 1;
+			// Sample buffers
+			auto sample = thisGrain->SampleBuffer(grainSamples);
+			auto envelope = thisGrain->SampleEnvelope(envelopeSamples, thisGrainClock);
+			auto amp = thisGrain->ParamGet(GfParamName::amplitude);
+			// Set correct data into each outlet
+			ioConfig.out[g + ioConfig.grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
+			ioConfig.out[g + ioConfig.grainState][v] = thisGrainClock != 0;
+			ioConfig.out[g + ioConfig.grainProgress][v] = thisGrainClock;
+			ioConfig.out[g + ioConfig.grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
+			ioConfig.out[g + ioConfig.grainAmp][v] = (1 - thisAm) * amp;
+			ioConfig.out[g + ioConfig.grainEnvelope][v] = envelope;
+			ioConfig.out[g + ioConfig.grainBufferChannel][v] = chan + 1;
+			ioConfig.out[g + ioConfig.grainStreamChannel][v] = stream + 1;
 
-				// Increment playhead
-				thisGrain->Increment(thisFm, thisGrainClock);
-			}
+			// Increment playhead
+			thisGrain->Increment(thisFm, thisGrainClock);
 		}
 	}
 
@@ -853,24 +904,6 @@ return {};
 // Attributes go here
 
 #pragma endregion
-int GetMaxGrains() { return maxGrains; }
-int input_chans[4] = {0, 0, 0, 0};
-int maxGrains = 0;
-
-private:
-MspGrain *grainInfo = nullptr;
-string bufferArg;
-string envArg;
-
-int _ngrains = 0;
-float oneOverSamplerate = 1;
-
-int _target = 0;
-int _streamTarget = 0;
-int _channelTarget = 0;
-int _nstreams = 0;
-bool _livemode = 0;
-std::random_device rd;
 }
 ;
 
