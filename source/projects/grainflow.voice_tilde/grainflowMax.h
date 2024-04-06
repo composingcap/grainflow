@@ -33,7 +33,7 @@ namespace Grainflow
 
             param->value = paramBuf.lookup(frame, 0);
         }
-        float SampleBuffer(buffer_lock<> buffer)
+        float SampleBuffer(buffer_lock<> &buffer)
         {
 
             size_t chan = buffer.valid() ? (bchan) % buffer.channel_count() : 0;
@@ -43,7 +43,7 @@ namespace Grainflow
             return sample;
         }
 
-        float SampleEnvelope(buffer_lock<> buffer, float grainClock)
+        float SampleEnvelope(buffer_lock<> &buffer, float grainClock)
         {
             // buffer_lock<>	buffer(*(buffer_reference*)(GetBuffer(GFBuffers::envelope)));
             if (!buffer.valid())

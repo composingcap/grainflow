@@ -129,9 +129,9 @@ namespace Grainflow
 		/// @param paramName
 		virtual void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName) = 0;
 
-		virtual float SampleBuffer(T2 sampleLock) = 0;
+		virtual float SampleBuffer(T2 &sampleLock) = 0;
 
-		virtual float SampleEnvelope(T2 sampleLock, float grainClock) = 0;
+		virtual float SampleEnvelope(T2 &sampleLock, float grainClock) = 0;
 
 		float GetLastClock() { return lastGrainClock; }
 

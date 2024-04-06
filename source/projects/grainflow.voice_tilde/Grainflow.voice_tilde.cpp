@@ -173,7 +173,8 @@ public:
 
 			// Increment playhead
 			thisGrain->Increment(thisFm, thisGrainClock);
-		}
+		}		
+		
 	}
 
 #pragma endregion
@@ -263,11 +264,11 @@ public:
 		for (int g = 0; g < maxGrains; g++)
 		{
 			grainInfo[g].SetIndex(g);
-			grainInfo[g].SetBuffer(GFBuffers::buffer, (new buffer_reference{this}));
-			grainInfo[g].SetBuffer(GFBuffers::envelope, (new buffer_reference{this}));
-			grainInfo[g].SetBuffer(GFBuffers::delayBuffer, (new buffer_reference{this}));
-			grainInfo[g].SetBuffer(GFBuffers::windowBuffer, (new buffer_reference{this}));
-			grainInfo[g].SetBuffer(GFBuffers::rateBuffer, (new buffer_reference{this}));
+			grainInfo[g].SetBuffer(GFBuffers::buffer, (new buffer_reference(this, nullptr, false)));
+			grainInfo[g].SetBuffer(GFBuffers::envelope, (new buffer_reference(this, nullptr, false)));
+			grainInfo[g].SetBuffer(GFBuffers::delayBuffer, (new buffer_reference(this, nullptr, false)));
+			grainInfo[g].SetBuffer(GFBuffers::windowBuffer, (new buffer_reference(this, nullptr, false)));
+			grainInfo[g].SetBuffer(GFBuffers::rateBuffer, (new buffer_reference(this, nullptr, false)));
 
 			auto env = grainInfo[g].GetBuffer(GFBuffers::envelope);
 			env->set(envArg);
