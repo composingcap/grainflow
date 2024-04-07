@@ -15,13 +15,16 @@ include(${C74_MIN_API_DIR}/script/min-pretarget.cmake)
 
 include_directories( 
 	"${C74_INCLUDES}"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include"
 )
 
 
 set( SOURCE_FILES
 	${PROJECT_NAME}.cpp
-	./grainflow.h
-	./grainflowMax.h
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/IGrain.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfParam.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfUtils.h"
+	./mspGrain.h
 )
 
 

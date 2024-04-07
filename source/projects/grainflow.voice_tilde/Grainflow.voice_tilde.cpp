@@ -3,7 +3,7 @@
 ///	@copyright	Copyright 2024 Christopher Poovey
 ///	@license	Use of this source code is governed by the MIT License found in the License.md file.
 ///
-#include "grainflowMax.h"
+#include "MspGrain.h"
 #include "c74_min.h"
 
 using namespace c74::min;

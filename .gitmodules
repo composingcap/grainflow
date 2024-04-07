@@ -4,3 +4,6 @@
 [submodule "source/min-lib"]
 	path = source/min-lib
 	url = https://github.com/Cycling74/min-lib.git
+[submodule "source/GrainflowLib"]
+	path = source/GrainflowLib
+	url = https://github.com/composingcap/GrainflowLib.git
