@@ -38,7 +38,7 @@ if(MSVC)
 	target_compile_options(${PROJECT_NAME} PRIVATE "/Oi")
 endif()
 if(APPLE)
-
+	target_compile_options(${PROJECT_NAME} PRIVATE "-ffast-math")
 endif()
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
