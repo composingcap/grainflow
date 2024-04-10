@@ -34,6 +34,12 @@ add_library(
 	${SOURCE_FILES}
 )
 
+if(MSVC)
+	target_compile_options(${PROJECT_NAME} PRIVATE "/Oi")
+endif()
+if(APPLE)
+
+endif()
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
 

@@ -141,14 +141,14 @@ public:
 
 		size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
 		double stream = thisGrain->stream;
-		float windowPortion = std::clamp(1 - thisGrain->ParamGet(GfParamName::space), 0.0001f, 1.0f);
+		float windowPortion = std::clamp(1 - thisGrain->space.value, 0.0001f, 1.0f);
 		// Check grain clock to make sure it is moving
 		if (ioConfig.in[ioConfig.grainClock][0] == ioConfig.in[ioConfig.grainClock][1])
 			return;
 		// Sample level
 		for (int v = 0; v < ioConfig.blockSize; v++)
 		{
-			double thisGrainClock = ioConfig.in[ioConfig.grainClock][v] + thisGrain->ParamGet(GfParamName::window);
+			double thisGrainClock = ioConfig.in[ioConfig.grainClock][v] + thisGrain->window.value;
 			thisGrainClock -= (int)thisGrainClock;
 			thisGrainClock /= windowPortion;
 			thisGrainClock *= thisGrainClock <= 1;
@@ -160,7 +160,7 @@ public:
 			// Sample buffers
 			auto sample = thisGrain->SampleBuffer(grainSamples);
 			auto envelope = thisGrain->SampleEnvelope(envelopeSamples, thisGrainClock);
-			auto amp = thisGrain->ParamGet(GfParamName::amplitude);
+			auto amp = thisGrain->amplitude.value;
 			// Set correct data into each outlet
 			ioConfig.out[g + ioConfig.grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
 			ioConfig.out[g + ioConfig.grainState][v] = thisGrainClock != 0;

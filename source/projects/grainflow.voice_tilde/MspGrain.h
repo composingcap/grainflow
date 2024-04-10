@@ -33,32 +33,31 @@ using namespace c74::min;
 
                 param->value = paramBuf.lookup(frame, 0);
             }
+
             float SampleBuffer(buffer_lock<>& buffer)
             {
-                size_t chan = buffer.valid() ? (bchan) % buffer.channel_count() : 0;
+                size_t chan =(bchan) % buffer.channel_count();
                 auto frame = size_t(sourceSample);
                 auto tween = sourceSample - frame;
-                auto sample = buffer.valid() ? buffer.lookup(frame, chan) * (1 - tween) + buffer.lookup((frame + 1), chan) * tween : 0;
+                auto sample = buffer[frame* buffer.channel_count() + chan] * (1 - tween) + buffer[(frame+1) * buffer.channel_count() + chan] * tween;
                 return sample;
             }
 
             float SampleEnvelope(buffer_lock<>& buffer, float grainClock)
             {
-                if (!buffer.valid())
-                    return 0;
-                auto nEnvelopes = ParamGet(GfParamName::nEnvelopes);
+                auto nEnvelopes = this->nEnvelopes.value;
                 if (nEnvelopes <= 1)
                 {
                     auto frame = size_t((grainClock * buffer.frame_count()));
-                    auto envelope = buffer.lookup(frame, 0);
+                    auto envelope = buffer[frame];
                     return envelope;
                 }
                 int sizePerEnvelope = buffer.frame_count() / nEnvelopes;
-                int env1 = (int)(ParamGet(GfParamName::envelopePosition) * nEnvelopes);
+                int env1 = (int)(envelope.value * nEnvelopes);
                 int env2 = env1 + 1;
-                float fade = ParamGet(GfParamName::envelopePosition) * nEnvelopes - env1;
+                float fade = envelope.value * nEnvelopes - env1;
                 auto frame = size_t((grainClock * sizePerEnvelope));
-                auto envelope = buffer.lookup((env1 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * (1 - fade) + buffer.lookup((env2 * sizePerEnvelope + frame) % buffer.frame_count(), 0) * fade;
+                auto envelope = buffer[(env1 * sizePerEnvelope + frame) % buffer.frame_count()] * (1 - fade) + buffer[(env2 * sizePerEnvelope + frame) % buffer.frame_count()] * fade;
                 return envelope;
             };
         };
