@@ -162,12 +162,12 @@ public:
 			auto envelope = thisGrain->SampleEnvelope(envelopeSamples, thisGrainClock);
 			auto amp = thisGrain->amplitude.value;
 			// Set correct data into each outlet
-			ioConfig.out[g + ioConfig.grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp;
+			ioConfig.out[g + ioConfig.grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp * (thisGrain->density);
 			ioConfig.out[g + ioConfig.grainState][v] = thisGrainClock != 0;
 			ioConfig.out[g + ioConfig.grainProgress][v] = thisGrainClock;
-			ioConfig.out[g + ioConfig.grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames;
-			ioConfig.out[g + ioConfig.grainAmp][v] = (1 - thisAm) * amp;
-			ioConfig.out[g + ioConfig.grainEnvelope][v] = envelope;
+			ioConfig.out[g + ioConfig.grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames * (thisGrain->density);
+			ioConfig.out[g + ioConfig.grainAmp][v] = (1 - thisAm) * amp * (thisGrain->density);
+			ioConfig.out[g + ioConfig.grainEnvelope][v] = envelope * (thisGrain->density);
 			ioConfig.out[g + ioConfig.grainBufferChannel][v] = chan + 1;
 			ioConfig.out[g + ioConfig.grainStreamChannel][v] = stream + 1;
 
@@ -807,6 +807,8 @@ BufferRefMessage(bname, GFBuffers::envelope);
 if (args.size() < 2)
 {
 	GrainMessage(1, GfParamName::nEnvelopes, GfParamType::value);
+	return {};
+
 }
 GrainMessage((int)args[1], GfParamName::nEnvelopes, GfParamType::value);
 return {};

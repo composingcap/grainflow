@@ -37,13 +37,14 @@ using namespace c74::min;
             float SampleBuffer(buffer_lock<>& buffer)
             {
                 if (!buffer.valid()) return 0;
-                int channels = buffer.channel_count();
-                int frames = buffer.frame_count();
-                size_t chan = (bchan) % channels;
-                auto frame = (size_t)(sourceSample);
+                auto channels = buffer.channel_count();
+                auto frames = buffer.frame_count();
+                auto chan = GfUtils::mod(bchan,channels);
+                auto frame = static_cast<size_t>((sourceSample));
                 auto tween = sourceSample - frame;
+
                 //frame %= frames;
-                auto sample = buffer[frame* channels + chan] * (1 - tween) + buffer[((frame+1)* ((frame + 1)>=frames)) * channels + chan] * tween;
+                auto sample = buffer[frame* channels + chan] * (1 - tween) + buffer[(GfUtils::mod(frame+1,frames) * channels + chan)] * tween;
                 return sample;
             }
 
