@@ -33,13 +33,16 @@ add_library(
 	MODULE
 	${SOURCE_FILES}
 )
-
-if(MSVC)
-	target_compile_options(${PROJECT_NAME} PRIVATE "/Oi")
+set(RELFLAGS )
+if (MSVC)
+set(RELFLAGS /Oi /O2 /Ot /Ob2 /GL /GT /LTGT)
 endif()
 if(APPLE)
-	target_compile_options(${PROJECT_NAME} PRIVATE "-ffast-math")
+set(RELFLAGS -Ofast)
 endif()
+target_compile_options(${PROJECT_NAME} PRIVATE
+"$<$<CONFIG:Release>:${RELFLAGS}>"
+)
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
 
