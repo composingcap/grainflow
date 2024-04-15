@@ -59,7 +59,7 @@ using namespace c74::min;
                 {
                     for (int i = 0; i < size; i++) {
                         auto frame = static_cast<size_t>((grainClock[i] * buffer.frame_count()));
-                        auto samples = buffer[frame];
+                        samples[i] = buffer[frame];
                     }
                     return;
                 }
@@ -69,7 +69,7 @@ using namespace c74::min;
                     int env2 = env1 + 1;
                     float fade = envelope.value * nEnvelopes - env1;
                     auto frame = static_cast<size_t>((grainClock[i] * sizePerEnvelope));
-                    auto envelope = buffer[(env1 * sizePerEnvelope + frame) % buffer.frame_count()] * (1 - fade) + buffer[(env2 * sizePerEnvelope + frame) % buffer.frame_count()] * fade;
+                    samples[i] = buffer[(env1 * sizePerEnvelope + frame) % buffer.frame_count()] * (1 - fade) + buffer[(env2 * sizePerEnvelope + frame) % buffer.frame_count()] * fade;
                 }
             };
         };

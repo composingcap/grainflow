@@ -3,8 +3,13 @@
 ///	@copyright	Copyright 2024 Christopher Poovey
 ///	@license	Use of this source code is governed by the MIT License found in the License.md file.
 ///
+/// 
+/// 
+const int INTERNALBLOCK =  16;
+
 #include "MspGrain.h"
 #include "c74_min.h"
+#include "gfUtils.h"
 
 using namespace c74::min;
 using namespace Grainflow;
@@ -43,7 +48,7 @@ class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_op
 {
 
 private:
-	MspGrain *grainInfo = nullptr;
+	std::unique_ptr<MspGrain[]> grainInfo;
 	string bufferArg;
 	string envArg;
 
@@ -57,9 +62,9 @@ private:
 	bool _livemode = 0;
 	std::random_device rd;
 	IoConfig _ioConfig;
-	double grainClockTemp[8];
-	double sampleIdTemp[8];
-	int densityTemp[8];
+	double grainClockTemp[INTERNALBLOCK];
+	double sampleIdTemp[INTERNALBLOCK];
+	int densityTemp[INTERNALBLOCK];
 
 public:
 	MIN_DESCRIPTION{"the base object for grainflow"};
@@ -135,12 +140,11 @@ public:
 
 	void ProccessGrain(MspGrain *thisGrain, int g, IoConfig ioConfig)
 	{
-		if (ioConfig.blockSize < 8) return;
+		if (ioConfig.blockSize < INTERNALBLOCK) return;
 		buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
 		buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
 		thisGrain->SetSampleRateAdjustment(ioConfig.livemode ? 1 : grainSamples.samplerate() / samplerate());
 		thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 1);
-
 		// Determine the channel to pull from for each grain.
 
 		size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
@@ -153,22 +157,22 @@ public:
 		memset(ioConfig.out[g + ioConfig.grainBufferChannel], chan + 1, sizeof(double) * _ioConfig.blockSize);
 		memset(ioConfig.out[g + ioConfig.grainStreamChannel], stream + 1, sizeof(double) * _ioConfig.blockSize);
 
-		const int oneOverBufferFrames = thisGrain->oneOverBufferFrames;
+		
 
-		for (int i = 0; i < ioConfig.blockSize/8; i++)
+		for (int i = 0; i < ioConfig.blockSize/ INTERNALBLOCK; i++)
 		{
 			auto amp = thisGrain->amplitude.value;
-
-			for (int j = 0; j < 8; j++) {
-				const int v = i * 8 + j;
+			for (int j = 0; j < INTERNALBLOCK; j++) {
+				const int v = i * INTERNALBLOCK + j;
 				grainClockTemp[j] = ioConfig.in[ioConfig.grainClock][v] + thisGrain->window.value;
 				grainClockTemp[j] -= (int)grainClockTemp[j];
 				grainClockTemp[j] /= windowPortion;
+				grainClockTemp[j] *= grainClockTemp[j] < 1;
 				ioConfig.out[g + ioConfig.grainProgress][v] = grainClockTemp[j];				
 			}
 
-			for (int j = 0; j < 8; j++) {
-				const int v = i * 8 + j;
+			for (int j = 0; j < INTERNALBLOCK; j++) {
+				const int v = i * INTERNALBLOCK + j;
 				double thisTraversalPhasor = ioConfig.in[ioConfig.traversalPhasor][v];
 				auto reset = thisGrain->GrainReset(grainClockTemp[j], thisTraversalPhasor);
 				ioConfig.out[g + ioConfig.grainState][v] = (int)!reset;
@@ -176,18 +180,19 @@ public:
 				sampleIdTemp[j] = thisGrain->sourceSample;
 				densityTemp[j] = thisGrain->density;				
 				thisGrain->Increment(thisFm, grainClockTemp[j]);
-				ioConfig.out[g + ioConfig.grainPlayhead][v] = grainClockTemp[j] * oneOverBufferFrames * densityTemp[j];
+				ioConfig.out[g + ioConfig.grainPlayhead][v] = sampleIdTemp[j] * thisGrain->oneOverBufferFrames * densityTemp[j];
 			}
 
 
-			thisGrain->SampleEnvelope(envelopeSamples, &ioConfig.out[g + ioConfig.grainEnvelope][i*8], grainClockTemp, 8);
-			thisGrain->SampleBuffer(grainSamples, &ioConfig.out[g + ioConfig.grainOutput][i * 8], sampleIdTemp, 8);
+			thisGrain->SampleEnvelope(envelopeSamples, &ioConfig.out[g + ioConfig.grainEnvelope][i* INTERNALBLOCK], grainClockTemp, INTERNALBLOCK);
+			thisGrain->SampleBuffer(grainSamples, &ioConfig.out[g + ioConfig.grainOutput][i * INTERNALBLOCK], sampleIdTemp, INTERNALBLOCK);
 
-			for (int j = 0; j < 8; j++) {
-				const int v = i * 8 + j;
+			for (int j = 0; j < INTERNALBLOCK; j++) {
+				const int v = i * INTERNALBLOCK + j;
 				ioConfig.out[g + ioConfig.grainAmp][v] = (1 - ioConfig.in[ioConfig.am][v]) * amp * densityTemp[j];
 				ioConfig.out[g + ioConfig.grainEnvelope][v] *= densityTemp[j];
 				ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainAmp][v] * 0.5;
+				ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainEnvelope][v];
 			}
 		}		
 		
@@ -296,13 +301,13 @@ public:
 
 	void Cleanup()
 	{
-		delete[] grainInfo;
+		grainInfo.reset();
 	}
 
 	void Reinit(int grains)
 	{
 		Cleanup();
-		grainInfo = new MspGrain[grains];
+		grainInfo = std::unique_ptr<MspGrain[]>(new MspGrain[grains]);
 		maxGrains = grains;
 		Init();
 	}
@@ -320,7 +325,7 @@ argument<int> grains{this, "number-of-grains", "max number of grains",
 						 maxGrains = (int)arg;
 if (maxGrains < 1)
 	maxGrains = 2;
-grainInfo = new MspGrain[maxGrains];
+	grainInfo = std::unique_ptr<MspGrain[]>(new MspGrain[maxGrains]);
 
 _ngrains = 0;
 }
