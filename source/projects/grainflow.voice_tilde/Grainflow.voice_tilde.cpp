@@ -57,6 +57,7 @@ private:
 	bool _livemode = 0;
 	std::random_device rd;
 	IoConfig _ioConfig;
+	double grainClockTemp[8];
 
 public:
 	MIN_DESCRIPTION{"the base object for grainflow"};
@@ -132,6 +133,7 @@ public:
 
 	void ProccessGrain(MspGrain *thisGrain, int g, IoConfig ioConfig)
 	{
+		if (ioConfig.blockSize < 8) return;
 		buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
 		buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
 		thisGrain->SetSampleRateAdjustment(ioConfig.livemode ? 1 : grainSamples.samplerate() / samplerate());
@@ -145,34 +147,50 @@ public:
 		// Check grain clock to make sure it is moving
 		if (ioConfig.in[ioConfig.grainClock][0] == ioConfig.in[ioConfig.grainClock][1])
 			return;
-		// Sample level
-		for (int v = 0; v < ioConfig.blockSize; v++)
+
+		memset(ioConfig.out[g + ioConfig.grainBufferChannel], chan + 1, sizeof(double) * _ioConfig.blockSize);
+		memset(ioConfig.out[g + ioConfig.grainStreamChannel], stream + 1, sizeof(double) * _ioConfig.blockSize);
+
+		const int oneOverBufferFrames = thisGrain->oneOverBufferFrames;
+
+		for (int i = 0; i < ioConfig.blockSize/8; i++)
 		{
-			double thisGrainClock = ioConfig.in[ioConfig.grainClock][v] + thisGrain->window.value;
-			thisGrainClock -= (int)thisGrainClock;
-			thisGrainClock /= windowPortion;
-			thisGrainClock *= thisGrainClock <= 1;
-			double thisTraversalPhasor = ioConfig.in[ioConfig.traversalPhasor][v];
-			double thisFm = ioConfig.in[ioConfig.fm][v];
-			double thisAm = ioConfig.in[ioConfig.am][v];
-			thisGrain->GrainReset(thisGrainClock, thisTraversalPhasor);
-
-			// Sample buffers
-			auto sample = thisGrain->SampleBuffer(grainSamples);
-			auto envelope = thisGrain->SampleEnvelope(envelopeSamples, thisGrainClock);
 			auto amp = thisGrain->amplitude.value;
-			// Set correct data into each outlet
-			ioConfig.out[g + ioConfig.grainOutput][v] = sample * 0.5f * envelope * (1 - thisAm) * amp * (thisGrain->density);
-			ioConfig.out[g + ioConfig.grainState][v] = thisGrainClock != 0;
-			ioConfig.out[g + ioConfig.grainProgress][v] = thisGrainClock;
-			ioConfig.out[g + ioConfig.grainPlayhead][v] = thisGrain->sourceSample * thisGrain->oneOverBufferFrames * (thisGrain->density);
-			ioConfig.out[g + ioConfig.grainAmp][v] = (1 - thisAm) * amp * (thisGrain->density);
-			ioConfig.out[g + ioConfig.grainEnvelope][v] = envelope * (thisGrain->density);
-			ioConfig.out[g + ioConfig.grainBufferChannel][v] = chan + 1;
-			ioConfig.out[g + ioConfig.grainStreamChannel][v] = stream + 1;
+			auto density = thisGrain->density; 
 
-			// Increment playhead
-			thisGrain->Increment(thisFm, thisGrainClock);
+			for (int j = 0; j < 8; j++) {
+				const int v = i * 8 + j;
+				ioConfig.out[g + ioConfig.grainAmp][v] = (1 - ioConfig.in[ioConfig.am][v]) * amp * density;
+			}
+
+			for (int j = 0; j < 8; j++) {
+				const int v = i * 8 + j;
+				grainClockTemp[j] = ioConfig.in[ioConfig.grainClock][v] + thisGrain->window.value;
+				grainClockTemp[j] -= (int)grainClockTemp[j];
+				grainClockTemp[j] /= windowPortion;
+				ioConfig.out[g + ioConfig.grainProgress][v] = grainClockTemp[j];
+			}
+
+			for (int j = 0; j < 8; j++) {
+				const int v = i * 8 + j;
+				auto envelope = thisGrain->SampleEnvelope(envelopeSamples, grainClockTemp[j]);
+				ioConfig.out[g + ioConfig.grainEnvelope][v] = envelope * (thisGrain->density);
+			}
+
+			for (int j = 0; j < 8; j++) {
+				const int v = i * 8 + j;
+				double thisTraversalPhasor = ioConfig.in[ioConfig.traversalPhasor][v];
+				double thisFm = ioConfig.in[ioConfig.fm][v];
+				auto reset = thisGrain->GrainReset(grainClockTemp[j], thisTraversalPhasor);
+				auto sample = thisGrain->SampleBuffer(grainSamples);
+				// Set correct data into each outlet
+				ioConfig.out[g + ioConfig.grainOutput][v] = sample * ioConfig.out[g + ioConfig.grainAmp][v] * 0.5;
+				ioConfig.out[g + ioConfig.grainState][v] = (int)!reset;
+				ioConfig.out[g + ioConfig.grainPlayhead][v] = thisGrain->sourceSample * oneOverBufferFrames * density;
+
+				// Increment playhead
+				thisGrain->Increment(thisFm, grainClockTemp[j]);
+			}
 		}		
 		
 	}
