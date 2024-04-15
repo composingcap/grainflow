@@ -161,6 +161,7 @@ public:
 
 		for (int i = 0; i < ioConfig.blockSize/ INTERNALBLOCK; i++)
 		{
+			int block = i * INTERNALBLOCK;
 			auto amp = thisGrain->amplitude.value;
 			for (int j = 0; j < INTERNALBLOCK; j++) {
 				const int v = i * INTERNALBLOCK + j;
@@ -170,27 +171,18 @@ public:
 				grainClockTemp[j] *= grainClockTemp[j] < 1;
 				ioConfig.out[g + ioConfig.grainProgress][v] = grainClockTemp[j];				
 			}
+			auto valueTable = thisGrain->GrainReset(grainClockTemp, &ioConfig.in[ioConfig.traversalPhasor][block], &ioConfig.out[g + ioConfig.grainState][block], INTERNALBLOCK);
+
+			thisGrain->Increment(&ioConfig.in[ioConfig.fm][block], grainClockTemp, sampleIdTemp, INTERNALBLOCK);
+			thisGrain->SampleEnvelope(envelopeSamples, &ioConfig.out[g + ioConfig.grainEnvelope][block], grainClockTemp, INTERNALBLOCK);
+			thisGrain->SampleBuffer(grainSamples, &ioConfig.out[g + ioConfig.grainOutput][block], sampleIdTemp, INTERNALBLOCK);
 
 			for (int j = 0; j < INTERNALBLOCK; j++) {
 				const int v = i * INTERNALBLOCK + j;
-				double thisTraversalPhasor = ioConfig.in[ioConfig.traversalPhasor][v];
-				auto reset = thisGrain->GrainReset(grainClockTemp[j], thisTraversalPhasor);
-				ioConfig.out[g + ioConfig.grainState][v] = (int)!reset;
-				double thisFm = ioConfig.in[ioConfig.fm][v];
-				sampleIdTemp[j] = thisGrain->sourceSample;
-				densityTemp[j] = thisGrain->density;				
-				thisGrain->Increment(thisFm, grainClockTemp[j]);
-				ioConfig.out[g + ioConfig.grainPlayhead][v] = sampleIdTemp[j] * thisGrain->oneOverBufferFrames * densityTemp[j];
-			}
-
-
-			thisGrain->SampleEnvelope(envelopeSamples, &ioConfig.out[g + ioConfig.grainEnvelope][i* INTERNALBLOCK], grainClockTemp, INTERNALBLOCK);
-			thisGrain->SampleBuffer(grainSamples, &ioConfig.out[g + ioConfig.grainOutput][i * INTERNALBLOCK], sampleIdTemp, INTERNALBLOCK);
-
-			for (int j = 0; j < INTERNALBLOCK; j++) {
-				const int v = i * INTERNALBLOCK + j;
-				ioConfig.out[g + ioConfig.grainAmp][v] = (1 - ioConfig.in[ioConfig.am][v]) * amp * densityTemp[j];
-				ioConfig.out[g + ioConfig.grainEnvelope][v] *= densityTemp[j];
+				auto valueFrame = valueTable[(int)ioConfig.out[g + ioConfig.grainState][v]];
+				ioConfig.out[g + ioConfig.grainPlayhead][v] = sampleIdTemp[j] * thisGrain->oneOverBufferFrames * valueFrame.density;
+				ioConfig.out[g + ioConfig.grainAmp][v] = (1 - ioConfig.in[ioConfig.am][v]) * valueFrame.amplitude * valueFrame.density;
+				ioConfig.out[g + ioConfig.grainEnvelope][v] *= valueFrame.density;
 				ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainAmp][v] * 0.5;
 				ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainEnvelope][v];
 			}
