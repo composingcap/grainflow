@@ -9,7 +9,7 @@ using namespace c74::min;
         class MspGrain : public IGrain<buffer_reference, buffer_lock<>>
         {
         public:
-            void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName)
+            inline void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName)
             {
                 auto buf = GetBuffer(bufferType);
                 auto param = ParamGetHandle(paramName);
@@ -34,7 +34,7 @@ using namespace c74::min;
                 param->value = paramBuf.lookup(frame, 0);
             }
 
-            void SampleBuffer(buffer_lock<>& buffer, double* samples, double* positions, const int size)
+            inline void SampleBuffer(buffer_lock<>& buffer, double* samples, double* positions, const int size)
             {
                 if (!buffer.valid()) return;
                 for (int i = 0; i < size; i++) {
@@ -51,7 +51,7 @@ using namespace c74::min;
                 }
             }
 
-            void SampleEnvelope(buffer_lock<>& buffer, double* samples, double* grainClock, const int size)
+            inline void SampleEnvelope(buffer_lock<>& buffer, double* samples, double* grainClock, const int size)
             {
                 if (!buffer.valid()) return;
                 auto nEnvelopes = this->nEnvelopes.value;
