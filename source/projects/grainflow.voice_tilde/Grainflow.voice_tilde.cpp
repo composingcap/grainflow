@@ -3,9 +3,9 @@
 ///	@copyright	Copyright 2024 Christopher Poovey
 ///	@license	Use of this source code is governed by the MIT License found in the License.md file.
 ///
-/// 
-/// 
-const int INTERNALBLOCK =  16;
+///
+///
+const int INTERNALBLOCK = 16;
 
 #include "MspGrain.h"
 #include "c74_min.h"
@@ -14,13 +14,13 @@ const int INTERNALBLOCK =  16;
 using namespace c74::min;
 using namespace Grainflow;
 
-long simplemc_multichanneloutputs(c74::max::t_object *x, long index, long count);
-long simplemc_inputchanged(c74::max::t_object *x, long index, long count);
+long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
+long simplemc_inputchanged(c74::max::t_object* x, long index, long count);
 
 struct IoConfig
 {
-	double **in;
-	double **out;
+	double** in;
+	double** out;
 	int grainClockCh = 0;
 	int traversalPhasorCh;
 	int fmCh;
@@ -46,7 +46,6 @@ struct IoConfig
 
 class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<>
 {
-
 private:
 	std::unique_ptr<MspGrain[]> grainInfo;
 	string bufferArg;
@@ -67,13 +66,13 @@ private:
 	int densityTemp[INTERNALBLOCK];
 
 public:
-	MIN_DESCRIPTION{"the base object for grainflow"};
-	MIN_TAGS{"grainulation, msp, grainflow"};
-	MIN_AUTHOR{"Christopher Poovey"};
-	MIN_RELATED{""};
+	MIN_DESCRIPTION{ "the base object for grainflow" };
+	MIN_TAGS{ "grainulation, msp, grainflow" };
+	MIN_AUTHOR{ "Christopher Poovey" };
+	MIN_RELATED{ "" };
 
 	int GetMaxGrains() { return maxGrains; }
-	int input_chans[4] = {0, 0, 0, 0};
+	int input_chans[4] = { 0, 0, 0, 0 };
 	int maxGrains = 0;
 
 	~grainflow_voice_tilde()
@@ -82,25 +81,24 @@ public:
 	}
 
 #pragma region MAX_IO
-	inlet<> grainClock{this, "(multichannelsignal) phasor input", "multichannelsignal"};
-	inlet<> traversalPhasor{this, "(multichannelsignal) where the grain should be sampled from the buffer", "multichannelsignal"};
-	inlet<> fm{this, "(multichannelsignal) grain playback rate", "multichannelsignal"};
-	inlet<> am{this, "(multichannelsignal) amplitude modulation", "multichannelsignal"};
+	inlet<> grainClock{ this, "(multichannelsignal) phasor input", "multichannelsignal" };
+	inlet<> traversalPhasor{ this, "(multichannelsignal) where the grain should be sampled from the buffer", "multichannelsignal" };
+	inlet<> fm{ this, "(multichannelsignal) grain playback rate", "multichannelsignal" };
+	inlet<> am{ this, "(multichannelsignal) amplitude modulation", "multichannelsignal" };
 
-	outlet<> output{this, "(multichannel) grain output", "multichannelsignal"};
-	outlet<> grainState{this, "(multichannel) grainState", "multichannelsignal"};
-	outlet<> grainProgress{this, "(multichannel) grainProgress", "multichannelsignal"};
-	outlet<> grainPlayhead{this, "(multichannel) grainPlayhead", "multichannelsignal"};
-	outlet<> grainAmp{this, "(multichannel) grainAmp (abs)", "multichannelsignal"};
-	outlet<> envelope{this, "(multichannel) grainEnvelope", "multichannelsignal"};
-	outlet<> channel{this, "(multichannel) channel", "multichannelsignal"};
-	outlet<> stream{this, "(multichannel) stream", "multichannelsignal"};
+	outlet<> output{ this, "(multichannel) grain output", "multichannelsignal" };
+	outlet<> grainState{ this, "(multichannel) grainState", "multichannelsignal" };
+	outlet<> grainProgress{ this, "(multichannel) grainProgress", "multichannelsignal" };
+	outlet<> grainPlayhead{ this, "(multichannel) grainPlayhead", "multichannelsignal" };
+	outlet<> grainAmp{ this, "(multichannel) grainAmp (abs)", "multichannelsignal" };
+	outlet<> envelope{ this, "(multichannel) grainEnvelope", "multichannelsignal" };
+	outlet<> channel{ this, "(multichannel) channel", "multichannelsignal" };
+	outlet<> stream{ this, "(multichannel) stream", "multichannelsignal" };
 #pragma endregion
 #pragma region DSP
 
 	void operator()(audio_bundle input, audio_bundle output)
 	{
-
 		_ioConfig.livemode = _livemode;
 		_ioConfig.in = input.samples();
 		_ioConfig.out = output.samples();
@@ -138,7 +136,7 @@ public:
 		}
 	}
 
-	void ProccessGrain(MspGrain *thisGrain, int g, IoConfig ioConfig)
+	void ProccessGrain(MspGrain* thisGrain, int g, IoConfig ioConfig)
 	{
 		if (ioConfig.blockSize < INTERNALBLOCK) return;
 		buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
@@ -157,9 +155,7 @@ public:
 		memset(ioConfig.out[g + ioConfig.grainBufferChannel], chan + 1, sizeof(double) * _ioConfig.blockSize);
 		memset(ioConfig.out[g + ioConfig.grainStreamChannel], stream + 1, sizeof(double) * _ioConfig.blockSize);
 
-		
-
-		for (int i = 0; i < ioConfig.blockSize/ INTERNALBLOCK; i++)
+		for (int i = 0; i < ioConfig.blockSize / INTERNALBLOCK; i++)
 		{
 			int block = i * INTERNALBLOCK;
 			auto amp = thisGrain->amplitude.value;
@@ -169,7 +165,7 @@ public:
 				grainClockTemp[j] -= (int)grainClockTemp[j];
 				grainClockTemp[j] /= windowPortion;
 				grainClockTemp[j] *= grainClockTemp[j] < 1;
-				ioConfig.out[g + ioConfig.grainProgress][v] = grainClockTemp[j];				
+				ioConfig.out[g + ioConfig.grainProgress][v] = grainClockTemp[j];
 			}
 			auto valueTable = thisGrain->GrainReset(grainClockTemp, &ioConfig.in[ioConfig.traversalPhasor][block], &ioConfig.out[g + ioConfig.grainState][block], INTERNALBLOCK);
 
@@ -186,8 +182,7 @@ public:
 				ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainAmp][v] * 0.5;
 				ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainEnvelope][v];
 			}
-		}		
-		
+		}
 	}
 
 #pragma endregion
@@ -243,7 +238,6 @@ public:
 	{
 		if (bname.empty())
 			return;
- 
 
 		if (_target > 0)
 		{
@@ -305,620 +299,739 @@ public:
 	}
 
 #pragma region MAX_ARGS
-	argument<symbol> buffer{this, "buf", "Buffer~ from which to read.",
+	argument<symbol> buffer{ this, "buf", "Buffer~ from which to read.",
 							MIN_ARGUMENT_FUNCTION{
 								bufferArg = (string)arg;
 }
-}
-;
+	}
+	;
 
-argument<int> grains{this, "number-of-grains", "max number of grains",
-					 MIN_ARGUMENT_FUNCTION{
-						 maxGrains = (int)arg;
-if (maxGrains < 1)
-	maxGrains = 2;
-	grainInfo = std::unique_ptr<MspGrain[]>(new MspGrain[maxGrains]);
-
-_ngrains = 0;
-}
-}
-;
-
-argument<symbol> env_arg{this, "env", "default envelope buffer.",
+	argument<int> grains{ this, "number-of-grains", "max number of grains",
 						 MIN_ARGUMENT_FUNCTION{
-							 envArg = (string)arg;
-}
-}
-;
+							 maxGrains = (int)arg;
+	if (maxGrains < 1)
+		maxGrains = 2;
+		grainInfo = std::unique_ptr<MspGrain[]>(new MspGrain[maxGrains]);
+
+	_ngrains = 0;
+	}
+	}
+	;
+
+	argument<symbol> env_arg{ this, "env", "default envelope buffer.",
+							 MIN_ARGUMENT_FUNCTION{
+								 envArg = (string)arg;
+	}
+	}
+	;
 
 #pragma endregion
 #pragma region MAX_MESSAGES
-// Setup functions
+	// Setup functions
 
-message<> setup{this, "setup",
-				MIN_FUNCTION{
-					Init();
+	message<> setup{ 
+		this,
+		"setup",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		Init();
+		return {};
+		}
+	};
 
-return {};
-}
-}
-;
-message<> maxclass_setup{this, "maxclass_setup",
-						 MIN_FUNCTION{
-							 c74::max::t_class *c = args[0];
-c74::max::class_addmethod(c, (c74::max::method)simplemc_multichanneloutputs, "multichanneloutputs", c74::max::A_CANT, 0);
-c74::max::class_addmethod(c, (c74::max::method)simplemc_inputchanged,
-						  "inputchanged", c74::max::A_CANT, 0);
-return {};
-}
-}
-;
+	message<> maxclass_setup{ 
+		this, 
+		"maxclass_setup",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			c74::max::t_class* c = args[0];
+			c74::max::class_addmethod(c, (c74::max::method)simplemc_multichanneloutputs, "multichanneloutputs", c74::max::A_CANT, 0);
+			c74::max::class_addmethod(c, (c74::max::method)simplemc_inputchanged, "inputchanged", c74::max::A_CANT, 0);
+			return {};
+		}
+	};
 
-message<> dspsetup{this, "dspsetup",
-				   MIN_FUNCTION{
-					   oneOverSamplerate = 1 / samplerate();
-BufferRefresh(GFBuffers::buffer); // This is needed so grainflow live can load buffers correctly.
+	message<> dspsetup{ 
+		this, 
+		"dspsetup",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			oneOverSamplerate = 1 / samplerate();
+			BufferRefresh(GFBuffers::buffer); // This is needed so grainflow live can load buffers correctly.
+			return {};
+		}
+	};
+#pragma endregion
+#pragma region GRAINFLOW_MESSAGES
+	// Grainflow Messages
 
-return {};
-}
-}
-;
+	// Rate
+	message<> rate{ 
+		this, 
+		"rate", 
+		"how fast a grain plays in relation to its normal playback rate",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::rate, GfParamType::base);
+			return {};
+		}
+	};
 
-// Grainflow Messages
+	message<> rateRandom{ 
+		this, 
+		"rateRandom", 
+		"randomization depth for the rate parameter",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::rate, GfParamType::random);
+			return {};
+		}
+	};
 
-// Rate
-message<> rate{this, "rate", "how fast a grain plays in relation to its normal playback rate",
-			   MIN_FUNCTION{
-				   GrainMessage(args[0], GfParamName::rate, GfParamType::base);
-return {};
-}
-}
-;
-message<> rateRandom{this, "rateRandom", "randomization depth for the rate parameter",
-					 MIN_FUNCTION{
-						 GrainMessage(args[0], GfParamName::rate, GfParamType::random);
-return {};
-}
-}
-;
-message<> rateOffset{this, "rateOffset", "the amount rate to apply rate based on grain index",
-					 MIN_FUNCTION{
-						 GrainMessage(args[0], GfParamName::rate, GfParamType::offset);
-return {};
-}
-}
-;
+	message<> rateOffset{ 
+		this, 
+		"rateOffset", 
+		"the amount rate to apply rate based on grain index",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::rate, GfParamType::offset);
+			return {};
+		}
+	};
 
-message<> transpose{this, "transpose", "control rate in semitones",
-					MIN_FUNCTION{
-						GrainMessage(GfUtils::PitchToRate((float)args[0]), GfParamName::rate, GfParamType::base);
-return {};
-}
-}
-;
-message<> transposeRandom{this, "transposeRandom", "randomization depth for the the transpose parameter",
-						  MIN_FUNCTION{
-							  auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
-GrainMessage(transpose, GfParamName::rate, GfParamType::random);
-return {};
-}
-}
-;
-message<> transposeOffset{this, "transposeOffset", "the amount of transposition to apply rate based on grain index",
-						  MIN_FUNCTION{
-							  auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
-GrainMessage(transpose, GfParamName::rate, GfParamType::offset);
-return {};
-}
-}
-;
+	message<> transpose{ 
+		this, 
+		"transpose", 
+		"control rate in semitones",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(GfUtils::PitchToRate((float)args[0]), GfParamName::rate, GfParamType::base);
+			return {};
+		}
+	};
 
-// glisson
-message<> glisson{this, "glisson", "how much the pitch will change over the life of the grain based on rate",
-				  MIN_FUNCTION{
-					  GrainMessage(args[0], GfParamName::glisson, GfParamType::base);
-return {};
-}
-}
-;
-message<> glissonRandom{this, "glissonRandom", "",
-						MIN_FUNCTION{
-							GrainMessage(args[0], GfParamName::glisson, GfParamType::random);
-return {};
-}
-}
-;
-message<> glissonOffset{this, "glissonOffset", "",
-						MIN_FUNCTION{
-							GrainMessage(args[0], GfParamName::glisson, GfParamType::offset);
-return {};
-}
-}
-;
+	message<> transposeRandom{
+		this, 
+		"transposeRandom", 
+		"randomization depth for the the transpose parameter",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+			GrainMessage(transpose, GfParamName::rate, GfParamType::random);
+			return {};
+		}
+	};
 
-message<> glissonSt{this, "glissonSt", "controls glisson in semitones",
-					MIN_FUNCTION{
-						GrainMessage(GfUtils::PitchToRate((float)args[0]) - 1, GfParamName::glisson, GfParamType::base);
-return {};
-}
-}
-;
-message<> glissonStRandom{this, "glissonStRandom", "",
-						  MIN_FUNCTION{
-							  auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
-GrainMessage(transpose, GfParamName::glisson, GfParamType::random);
-return {};
-}
-}
-;
-message<> glissonStOffset{this, "glissonStOffset", "",
-						  MIN_FUNCTION{
-							  auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
-GrainMessage(transpose, GfParamName::glisson, GfParamType::offset);
-return {};
-}
-}
-;
-message<> direction{this, "direction", "",
-					MIN_FUNCTION{
-						GrainMessage((float)args[0], GfParamName::direction, GfParamType::base);
-return {};
-}
-}
-;
+	message<> transposeOffset{ 
+		this, 
+		"transposeOffset", 
+		"the amount of transposition to apply rate based on grain index",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+			GrainMessage(transpose, GfParamName::rate, GfParamType::offset);
+			return {};
+		}
+	};
 
-// amp
-message<> ampMess{this, "amp", "",
-				  MIN_FUNCTION{
-					  GrainMessage(args[0], GfParamName::amplitude, GfParamType::base);
-return {};
-}
-}
-;
-message<> ampRandom{this, "ampRandom", "",
-					MIN_FUNCTION{
-						GrainMessage(-(float)args[0], GfParamName::amplitude, GfParamType::random);
-return {};
-}
-}
-;
-message<> ampOffseet{this, "ampOffset", "",
-					 MIN_FUNCTION{
-						 GrainMessage(-(float)args[0], GfParamName::amplitude, GfParamType::offset);
-return {};
-}
-}
-;
+	// glisson
+	message<> glisson{
+		this, 
+		"glisson", 
+		"how much the pitch will change over the life of the grain based on rate",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::glisson, GfParamType::base);
+			return {};
+		}
+	};
 
-// delay
-message<> delay{this, "delay", "the amound grains are delayed in ms",
-				MIN_FUNCTION{
-					auto value = (float)args[0] * 0.001f * samplerate();
-GrainMessage(value, GfParamName::delay, GfParamType::base);
-return {};
-}
-}
-;
-message<> delayRandom{this, "delayRandom", "",
-					  MIN_FUNCTION{
-						  auto value = (float)args[0] * 0.001f * samplerate();
-GrainMessage(value, GfParamName::delay, GfParamType::random);
+	message<> glissonRandom{
+		this, 
+		"glissonRandom", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::glisson, GfParamType::random);
+			return {};
+		}
+	};
 
-return {};
-}
-}
-;
-message<> delayOffset{this, "delayOffset", "",
-					  MIN_FUNCTION{
-						  auto value = (float)args[0] * 0.001f * samplerate();
-GrainMessage(value, GfParamName::delay, GfParamType::offset);
+	message<> glissonOffset{ 
+		this, 
+		"glissonOffset", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		GrainMessage(args[0], GfParamName::glisson, GfParamType::offset);
+		return {};
+		}
+	};
 
-return {};
-}
-}
-;
+	message<> glissonSt{ 
+		this, 
+		"glissonSt", 
+		"controls glisson in semitones",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(GfUtils::PitchToRate((float)args[0]) - 1, GfParamName::glisson, GfParamType::base);
+			return {};
+		}
+	};
 
-// Targets
-message<> grain{this, "g", "sends a message to a single grain",
-				MIN_FUNCTION{
-					_target = args[0];
-_streamTarget = 0;
-return {};
-}
-}
-;
+	message<> glissonStRandom{ 
+		this, 
+		"glissonStRandom",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+			GrainMessage(transpose, GfParamName::glisson, GfParamType::random);
+			return {};
+		}
+	};
 
-message<> target{this, "target", "sends a message to a single grain",
-				 MIN_FUNCTION{
-					 _target = args[0];
-_streamTarget = 0;
-return {};
-}
-}
-;
+	message<> glissonStOffset{ 
+		this, 
+		"glissonStOffset",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto transpose = (abs(GfUtils::PitchToRate((float)args[0])) - 1) * (((float)args[0] > 0) * 2 - 1);
+			GrainMessage(transpose, GfParamName::glisson, GfParamType::offset);
+			return {};
+		}
+	};
 
-// Window
-message<> window{this, "window", "sets the position of the window",
-				 MIN_FUNCTION{
-					 GrainMessage(args[0], GfParamName::window, GfParamType::base);
-return {};
-}
-}
-;
-message<> windowRandom{this, "windowRandom", "",
-					   MIN_FUNCTION{
-						   GrainMessage(args[0], GfParamName::window, GfParamType::random);
-return {};
-}
-}
-;
-message<> windowOffset{this, "windowOffset", "",
-					   MIN_FUNCTION{
-						   GrainMessage(args[0], GfParamName::window, GfParamType::offset);
-return {};
-}
-}
-;
+	message<> direction{ 
+		this, 
+		"direction", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage((float)args[0], GfParamName::direction, GfParamType::base);
+			return {};
+		}
+	};
 
-// Space
-message<> space{this, "space", "the amound of emty space at the end of each grains as a ratio of the total grain size",
-				MIN_FUNCTION{
-					GrainMessage(args[0], GfParamName::space, GfParamType::base);
-return {};
-}
-}
-;
-message<> spaceRandom{this, "spaceRandom", "",
-					  MIN_FUNCTION{
-						  GrainMessage(args[0], GfParamName::space, GfParamType::random);
-return {};
-}
-}
-;
-message<> spaceOffset{this, "spaceOffset", "",
-					  MIN_FUNCTION{
-						  GrainMessage(args[0], GfParamName::space, GfParamType::offset);
-return {};
-}
-}
-;
+	// amp
+	message<> ampMess{ 
+		this, 
+		"amp", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::amplitude, GfParamType::base);
+			return {};
+		}
+	};
 
-// Streams
+	message<> ampRandom{ 
+		this, 
+		"ampRandom",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(-(float)args[0], GfParamName::amplitude, GfParamType::random);
+			return {};
+		}
+	};
 
-message<> streamSet{this, "streamSet", "",
-					MIN_FUNCTION{
-						string modestr = args[0];
-_nstreams = args[1];
-if (_nstreams < 1)
-	return {};
-GfStreamSetType mode = GfStreamSetType::automaticStreams;
-if (modestr == "auto")
-	mode = GfStreamSetType::automaticStreams;
-else if (modestr == "per")
-	mode = GfStreamSetType::perStreams;
-else if (modestr == "random")
-	mode = GfStreamSetType::randomStreams;
-else
-	return {};
-for (int g = 0; g < maxGrains; g++)
-{
-	grainInfo[g].StreamSet(maxGrains, mode, _nstreams);
-}
-return {};
-}
-}
-;
+	message<> ampOffseet{ 
+		this, 
+		"ampOffset", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(-(float)args[0], GfParamName::amplitude, GfParamType::offset);
+			return {};
+		}
+	};
 
-message<> streamTarget{this, "streamTarget", "messages will target grains assigned to this stream",
-					   MIN_FUNCTION{
-						   _target = 0;
-_channelTarget = 0;
-_streamTarget = args[0];
-return {};
-}
-}
-;
+	// delay
+	message<> delay{
+		this, 
+		"delay", 
+		"the amound grains are delayed in ms",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto value = (float)args[0] * 0.001f * samplerate();
+			GrainMessage(value, GfParamName::delay, GfParamType::base);
+			return {};
+		}
+	};
 
-message<> streamMsg{this, "stream", "",
-					MIN_FUNCTION{
-						float value = 0;
-int lastTarget = _target;
-int lastStream = _streamTarget;
-int lastChannelTarget = _channelTarget;
-_channelTarget = 0;
-_streamTarget = args[0];
-for (int s = 0; s < _nstreams; s++)
-{
-	value = args[2];
-	for (int g = 0; g < maxGrains; g++)
-	{
-		if (grainInfo[g].stream != s)
-			continue;
-		_target = g;
-		this->try_call(args[1], value);
-	}
-}
-_target = lastTarget;
-_streamTarget = lastStream;
-_channelTarget = lastChannelTarget;
-return {};
-}
-}
-;
+	message<> delayRandom{ 
+		this, 
+		"delayRandom", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto value = (float)args[0] * 0.001f * samplerate();
+		GrainMessage(value, GfParamName::delay, GfParamType::random);
+		return {};
+		}
+	};
 
-message<> streamDeviate{this, "streamDeviate", "will deviate any parameter based on streams",
-						MIN_FUNCTION{
-							float value = 0;
-int lastTarget = _target;
-int lastStream = _streamTarget;
-int lastChannelTarget = _channelTarget;
-_channelTarget = 0;
-_streamTarget = 0;
-for (int s = 0; s < _nstreams; s++)
-{
-	value = GfUtils::Deviate(args[1], args[2]);
-	for (int g = 0; g < maxGrains; g++)
-	{
-		if (grainInfo[g].stream != s)
-			continue;
-		_target = g;
-		this->try_call((string)args[0], value);
-	}
-}
-_target = lastTarget;
-_streamTarget = lastStream;
-_channelTarget = lastChannelTarget;
+	message<> delayOffset{ 
+		this, 
+		"delayOffset",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto value = (float)args[0] * 0.001f * samplerate();
+			GrainMessage(value, GfParamName::delay, GfParamType::offset);
+			return {};
+		}
+	};
 
-return {};
-}
-}
-;
+	// Targets
+	message<> grain{ 
+		this, 
+		"g", 
+		"sends a message to a single grain",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			_target = args[0];
+			_streamTarget = 0;
+			return {};
+		}
+	};
 
-message<> streamSpread{this, "streamSpread", "will create evenly spaced values between each number based on streams",
-					   MIN_FUNCTION{
-						   float value = 0;
-int lastTarget = _target;
-int lastStream = _streamTarget;
-int lastChannelTarget = _channelTarget;
-_streamTarget = 0;
-_channelTarget = 0;
-for (int s = 0; s < _nstreams; s++)
-{
-	value = GfUtils::Lerp(args[1], args[2], (float)s / _nstreams);
-	for (int g = 0; g < maxGrains; g++)
-	{
-		if (grainInfo[g].stream != s)
-			continue;
-		_target = g;
-		this->try_call((string)args[0], value);
-	}
-}
-_target = lastTarget;
-_streamTarget = lastStream;
-_channelTarget = lastChannelTarget;
-return {};
-}
-}
-;
+	message<> target{ 
+		this, 
+		"target", 
+		"sends a message to a single grain",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			_target = args[0];
+			_streamTarget = 0;
+			return {};
+		}
+	};
 
-// Buffer Channels
-message<> bufChans{this, "bufChans", "",
-				   MIN_FUNCTION{
-					   int chans = args[0];
-for (int g = 0; g < maxGrains; g++)
-{
-	grainInfo[g].bchan = g % chans;
-}
+	// Window
+	message<> window{
+		this, 
+		"window", 
+		"sets the position of the window",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			 GrainMessage(args[0], GfParamName::window, GfParamType::base);
+			return {};
+		}
+	};
 
-return {};
-}
-}
-;
+	message<> windowRandom{ 
+		this, 
+		"windowRandom",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::window, GfParamType::random);
+			return {};
+		}
+	};
+	
+	message<> windowOffset{ 
+		this, 
+		"windowOffset",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::window, GfParamType::offset);
+			return {};
+		}
+	};
 
-message<> bufChan{this, "bufChan", "",
-				  MIN_FUNCTION{
-					  int g = 0;
-int chan = 0;
-if (args.size() == 1)
-{
-	g = _target - 1;
-	chan = args[0];
-}
-else
-{
-	g = (int)args[0] - 1;
-	chan = args[1];
-}
+	// Space
+	message<> space{ 
+		this, 
+		"space", 
+		"the amound of emty space at the end of each grains as a ratio of the total grain size",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::space, GfParamType::base);
+			return {};
+		}
+	};
 
-if (g >= maxGrains || g < 0)
-	return {};
-grainInfo[g].bchan = chan - 1;
+	message<> spaceRandom{ 
+		this, 
+		"spaceRandom", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::space, GfParamType::random);
+			return {};
+		}
+	};
 
-return {};
-}
-}
-;
+	message<> spaceOffset{
+		this, 
+		"spaceOffset", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::space, GfParamType::offset);
+			return {};
+		}
+	};
 
-message<> gchan{this, "gchan", "",
-				MIN_FUNCTION{
-					float value = 0;
-int lastTarget = _target;
-int lastStream = _streamTarget;
-int lastChannelTarget = _channelTarget;
-_channelTarget = args[0];
-_streamTarget = 0;
-_target = 0;
-value = args[2];
-for (int g = 0; g < maxGrains; g++)
-{
-	this->try_call((string)args[1], value);
-}
+	// Streams
 
-_target = lastTarget;
-_streamTarget = lastStream;
-_channelTarget = lastChannelTarget;
-return {};
+	message<> streamSet{ 
+		this, 
+		"streamSet",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			string modestr = args[0];
+			_nstreams = args[1];
+			if (_nstreams < 1)
+				return {};
+			GfStreamSetType mode = GfStreamSetType::automaticStreams;
+			if (modestr == "auto")
+				mode = GfStreamSetType::automaticStreams;
+			else if (modestr == "per")
+				mode = GfStreamSetType::perStreams;
+			else if (modestr == "random")
+				mode = GfStreamSetType::randomStreams;
+			else
+				return {};
+			for (int g = 0; g < maxGrains; g++)
+			{
+				grainInfo[g].StreamSet(maxGrains, mode, _nstreams);
+			}
+			return {};
+			}
+		};
 
-return {};
-}
-}
-;
+	message<> streamTarget{ 
+		this, 
+		"streamTarget", 
+		"messages will target grains assigned to this stream",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			_target = 0;
+			_channelTarget = 0;
+			_streamTarget = args[0];
+			return {};
+		}
+	};
 
-// State
+	message<> streamMsg{ 
+		this, 
+		"stream", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			int lastChannelTarget = _channelTarget;
+			_channelTarget = 0;
+			_streamTarget = args[0];
+			for (int s = 0; s < _nstreams; s++)
+			{
+				value = args[2];
+				for (int g = 0; g < maxGrains; g++)
+				{
+					if (grainInfo[g].stream != s)
+						continue;
+					_target = g;
+					this->try_call(args[1], value);
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			_channelTarget = lastChannelTarget;
+			return {};
+		}
+	};
 
-message<> density{this, "density", "the probability a grain will play",
-				  MIN_FUNCTION{
-					  if (_target > 0){
-						  grainInfo[_target - 1].density = args[0];
-return {};
-}
-for (int g = 0; g < maxGrains; g++)
-{
-	grainInfo[g].density = args[0];
-}
-return {};
-}
-}
-;
+	message<> streamDeviate{ 
+		this, 
+		"streamDeviate", 
+		"will deviate any parameter based on streams",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			int lastChannelTarget = _channelTarget;
+			_channelTarget = 0;
+			_streamTarget = 0;
+			for (int s = 0; s < _nstreams; s++)
+			{
+				value = GfUtils::Deviate(args[1], args[2]);
+				for (int g = 0; g < maxGrains; g++)
+				{
+					if (grainInfo[g].stream != s)
+						continue;
+					_target = g;
+					this->try_call((string)args[0], value);
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			_channelTarget = lastChannelTarget;
 
-message<> ngrains{this, "ngrains", "the number of active grains",
-				  MIN_FUNCTION{
-					  _ngrains = (int)(args[0]) <= maxGrains ? (int)(args[0]) : maxGrains;
-return {};
-}
-}
-;
+			return {};
+		}
+	};
 
-// Param Modes
-message<> delayMode{this, "delayMode", "sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
-					MIN_FUNCTION{
-						GrainMessage(args[0], GfParamName::delay, GfParamType::mode);
-return {};
-}
-}
-;
-message<> rateMode{this, "rateMode", "sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
-				   MIN_FUNCTION{
-					   GrainMessage(args[0], GfParamName::rate, GfParamType::mode);
-return {};
-}
-}
-;
-message<> windowMode{this, "windowMode", "sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
-					 MIN_FUNCTION{
-						 GrainMessage(args[0], GfParamName::window, GfParamType::mode);
-return {};
-}
-}
-;
+	message<> streamSpread{ 
+		this, 
+		"streamSpread",
+		"will create evenly spaced values between each number based on streams",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			int lastChannelTarget = _channelTarget;
+			_streamTarget = 0;
+			_channelTarget = 0;
+			for (int s = 0; s < _nstreams; s++)
+			{
+				value = GfUtils::Lerp(args[1], args[2], (float)s / _nstreams);
+				for (int g = 0; g < maxGrains; g++)
+				{
+					if (grainInfo[g].stream != s)
+						continue;
+					_target = g;
+					this->try_call((string)args[0], value);
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			_channelTarget = lastChannelTarget;
+			return {};
+		}
+	};
 
-// Envelope
-message<> env{this, "env", "sets the envelope buffer",
-			  MIN_FUNCTION{
-				  string bname = (string)args[0];
-BufferRefMessage(bname, GFBuffers::envelope);
-if (args.size() < 2)
-{
-	GrainMessage(1, GfParamName::nEnvelopes, GfParamType::value);
-	return {};
+	// Buffer Channels
+	message<> bufChans{ 
+		this, 
+		"bufChans", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			int chans = args[0];
+			for (int g = 0; g < maxGrains; g++)
+			{
+				grainInfo[g].bchan = g % chans;
+			}
 
-}
-GrainMessage((int)args[1], GfParamName::nEnvelopes, GfParamType::value);
-return {};
-}
-}
-;
+			return {};
+		}
+	};
 
-message<> envPosition{this, "envPosition", "sets the 2D envelope position",
-					  MIN_FUNCTION{
-						  GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::base);
-return {};
-}
-}
-;
+	message<> bufChan{ 
+		this, 
+		"bufChan", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			int g = 0;
+			int chan = 0;
+			if (args.size() == 1)
+			{
+				g = _target - 1;
+				chan = args[0];
+			}
+			else
+			{
+				g = (int)args[0] - 1;
+				chan = args[1];
+			}
 
-message<> envPositionOffset{this, "envPositionOffset", "sets the 2D envelope position",
-							MIN_FUNCTION{
-								GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::offset);
-return {};
-}
-}
-;
+			if (g >= maxGrains || g < 0)
+				return {};
+			grainInfo[g].bchan = chan - 1;
 
-message<> envPositionRandom{this, "envPositionRandom", "sets the 2D envelope position",
-							MIN_FUNCTION{
-								GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::random);
-return {};
-}
-}
-;
+			return {};
+		}
+	};
 
-// Buffeers
-message<> buf{this, "buf", "sets the granulation buffer",
-			  MIN_FUNCTION{
-				  string bname = (string)args[0];
-BufferRefMessage(bname, GFBuffers::buffer);
+	message<> gchan{ 
+		this, 
+		"gchan", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			int lastChannelTarget = _channelTarget;
+			_channelTarget = args[0];
+			_streamTarget = 0;
+			_target = 0;
+			value = args[2];
+			for (int g = 0; g < maxGrains; g++)
+			{
+				this->try_call((string)args[1], value);
+			}
 
-return {};
-}
-}
-;
-message<> delayBuffer{this, "delayBuffer", "sets the buffer for delay modes 1 and 2",
-					  MIN_FUNCTION{
-						  string bname = (string)args[0];
-BufferRefMessage(bname, GFBuffers::delayBuffer);
-return {};
-}
-}
-;
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			_channelTarget = lastChannelTarget;
+			return {};
 
-message<> windowBuffer{this, "windowBuffer", "sets the buffer for window modes 1 and 2",
-					   MIN_FUNCTION{
-						   string bname = (string)args[0];
-BufferRefMessage(bname, GFBuffers::windowBuffer);
-return {};
-}
-}
-;
+			return {};
+		}
+	};
 
-message<> rateBuffer{this, "rateBuffer", "sets the buffer for rate modes 1 and 2",
-					 MIN_FUNCTION{
-						 string bname = (string)args[0];
-BufferRefMessage(bname, GFBuffers::rateBuffer);
-return {};
-}
-}
-;
+	// State
 
-message<> done{this, "done", "",
-			   MIN_FUNCTION{
-				   return {};
-}
-}
-;
+	message<> density{
+		this,
+		"density",
+		"the probability a grain will play",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if (_target > 0) {
+				grainInfo[_target - 1].density = args[0];
+			return {};
+			}
+			for (int g = 0; g < maxGrains; g++)
+			{
+				grainInfo[g].density = args[0];
+			}
+			return {};
+			}
+	};
 
-message<> voices{this, "voices", "",
-				 MIN_FUNCTION{
-					 int grains = args[0];
-if (grains < 1)
-	return {};
-Reinit(grains);
-return {};
-}
-}
-;
+	message<> ngrains{
+		this,
+		"ngrains",
+		"the number of active grains",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			_ngrains = (int)(args[0]) <= maxGrains ? (int)(args[0]) : maxGrains;
+			return {};
+			}
+	};
 
-message<> liveMode{this, "liveMode", "",
-				   MIN_FUNCTION{
-					   _livemode = (int)args[0] > 0;
-return {};
-}
-}
-;
+	// Param Modes
+	message<> delayMode{ 
+		this,
+		"delayMode",
+		"sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::delay, GfParamType::mode);
+			return {};
+		}
+	};
+
+	message<> rateMode{ 
+		this, 
+		"rateMode", 
+		"sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::rate, GfParamType::mode);
+			return {};
+		}
+	};
+
+	message<> windowMode{ 
+		this, 
+		"windowMode", 
+		"sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::window, GfParamType::mode);
+			return {};
+		}
+	};
+
+	// Envelope
+	message<> env{ 
+		this, 
+		"env", 
+		"sets the envelope buffer",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			string bname = (string)args[0];
+			BufferRefMessage(bname, GFBuffers::envelope);
+			if (args.size() < 2)
+			{
+				GrainMessage(1, GfParamName::nEnvelopes, GfParamType::value);
+				return {};
+			}
+			GrainMessage((int)args[1], GfParamName::nEnvelopes, GfParamType::value);
+			return {};
+		}
+	};
+
+	message<> envPosition{ 
+		this, 
+		"envPosition", 
+		"sets the 2D envelope position",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::base);
+			return {};
+		}
+	};
+
+	message<> envPositionOffset{ 
+		this, 
+		"envPositionOffset", 
+		"sets the 2D envelope position",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::offset);
+			return {};
+		}
+	};
+
+	message<> envPositionRandom{
+		this, 
+		"envPositionRandom", 
+		"sets the 2D envelope position",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::random);
+			return {};
+		}
+	};
+
+	// Buffeers
+	message<> buf{ 
+		this, 
+		"buf", 
+		"sets the granulation buffer",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			string bname = (string)args[0];
+			BufferRefMessage(bname, GFBuffers::buffer);
+			return {};
+		}
+	};
+
+	message<> delayBuffer{ 
+		this, 
+		"delayBuffer", 
+		"sets the buffer for delay modes 1 and 2",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			string bname = (string)args[0];
+			BufferRefMessage(bname, GFBuffers::delayBuffer);
+			return {};
+		}
+	};
+
+	message<> windowBuffer{ 
+		this, 
+		"windowBuffer", 
+		"sets the buffer for window modes 1 and 2",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			string bname = (string)args[0];
+			BufferRefMessage(bname, GFBuffers::windowBuffer);
+			return {};
+		}
+	};
+
+	message<> rateBuffer{ 
+		this, 
+		"rateBuffer", 
+		"sets the buffer for rate modes 1 and 2",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			string bname = (string)args[0];
+			BufferRefMessage(bname, GFBuffers::rateBuffer);
+			return {};
+		}
+	};
+
+	message<> done{
+		this, 
+		"done", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		return {};
+		}
+	};
+
+	message<> voices{ 
+		this, 
+		"voices", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			int grains = args[0];
+			if (grains < 1)	return {};
+			Reinit(grains);
+			return {};
+		}
+	};
+
+	message<> liveMode{ 
+		this, 
+		"liveMode", 
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			_livemode = (int)args[0] > 0;
+			return {};
+		}
+	};
 
 #pragma endregion
 #pragma region MAX_ATTR
-// Attributes go here
+	// Attributes go here
 
 #pragma endregion
 }
@@ -934,9 +1047,9 @@ MIN_EXTERNAL(grainflow_voice_tilde);
 /// <param name="index"></param>
 /// <param name="count"></param>
 /// <returns></returns>
-long simplemc_multichanneloutputs(c74::max::t_object *x, long index, long count)
+long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count)
 {
-	minwrap<grainflow_voice_tilde> *ob = (minwrap<grainflow_voice_tilde> *)(x);
+	minwrap<grainflow_voice_tilde>* ob = (minwrap<grainflow_voice_tilde> *)(x);
 	return ob->m_min_object.GetMaxGrains();
 }
 /// <summary>
@@ -946,9 +1059,9 @@ long simplemc_multichanneloutputs(c74::max::t_object *x, long index, long count)
 /// <param name="index"></param>
 /// <param name="count"></param>
 /// <returns></returns>
-long simplemc_inputchanged(c74::max::t_object *x, long index, long count)
+long simplemc_inputchanged(c74::max::t_object* x, long index, long count)
 {
-	minwrap<grainflow_voice_tilde> *ob = (minwrap<grainflow_voice_tilde> *)(x);
+	minwrap<grainflow_voice_tilde>* ob = (minwrap<grainflow_voice_tilde> *)(x);
 	// auto chan_number = ob->m_min_object.GetMaxGrains(); //We should check for bonus channels and handle it
 	ob->m_min_object.input_chans[index] = count > 0 ? count : 1; // Tells us how many channels are in each inlet
 	return false;
