@@ -21,6 +21,7 @@ include_directories(
 
 set( SOURCE_FILES
 	${PROJECT_NAME}.cpp
+	${PROJECT_NAME}.h
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/IGrain.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfParam.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfUtils.h"
