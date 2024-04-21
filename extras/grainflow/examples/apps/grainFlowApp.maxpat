@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
+			"minor" : 6,
 			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 950.0, 600.0 ],
+		"rect" : [ 100.0, 100.0, 2400.0, 1230.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 10.0,
@@ -168,9 +168,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 791.25, 212.0, 44.0, 15.0 ],
+					"patching_rect" : [ 791.25, 212.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 426.0, 352.5, 44.0, 15.0 ],
+					"presentation_rect" : [ 426.0, 352.5, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0.0 ],
@@ -398,9 +398,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 901.0, 667.0, 44.0, 15.0 ],
+					"patching_rect" : [ 901.0, 667.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 206.25, 379.436666666666724, 44.0, 15.0 ],
+					"presentation_rect" : [ 206.25, 379.436666666666724, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 1 ],
@@ -659,7 +659,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -861,7 +861,6 @@
 								"box" : 								{
 									"fontsize" : 20.0,
 									"id" : "obj-2",
-									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
@@ -954,25 +953,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1011,7 +1010,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -1305,25 +1304,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1850,7 +1849,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -1918,7 +1917,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 284.0, 137.0, 54.0, 21.0 ],
-									"text" : "getRecFile"
+									"text" : "transposeRandom"
 								}
 
 							}
@@ -2135,25 +2134,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -2206,7 +2205,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -2250,7 +2249,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 284.0, 137.0, 54.0, 21.0 ],
-									"text" : "getRecFile"
+									"text" : "transposeRandom"
 								}
 
 							}
@@ -2325,7 +2324,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 2,
+											"minor" : 6,
 											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -2553,25 +2552,25 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontsize" : [ 10.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"bgfillcolor" : 													{
-														"type" : "color",
+														"angle" : 270.0,
+														"autogradient" : 0.0,
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"angle" : 270.0,
 														"proportion" : 0.39,
-														"autogradient" : 0.0
+														"type" : "color"
 													}
 ,
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -2781,25 +2780,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -3030,7 +3029,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -3218,9 +3217,8 @@
 									"headerheight" : 20,
 									"headerlabel" : "OSC Parameters",
 									"id" : "obj-43",
-									"items" : [ "grainflowbasic/recall", ",", "grainflowbasic/clickmode", ",", "grainflowbasic/GrainDelayRandom", ",", "grainflowbasic/clickmode", ",", "grainflowbasic/freeze", ",", "grainflowbasic/getRecFile", ",", "grainflowbasic/grainDirection", ",", "grainflowbasic/grainFreq", ",", "grainflowbasic/grainLength", ",", "grainflowbasic/grainPeriod", ",", "grainflowbasic/grainSizeRandom", ",", "grainflowbasic/grainTimeJitter", ",", "grainflowbasic/keyboardNotesOff", ",", "grainflowbasic/output", ",", "grainflowbasic/panningCenter", ",", "grainflowbasic/panningSpread", ",", "grainflowbasic/pitchbend", ",", "grainflowbasic/rate", ",", "grainflowbasic/record", ",", "grainflowbasic/soundfile", ",", "grainflowbasic/transpose", ",", "grainflowbasic/transposeRandom", ",", "grainflowbasic/transpositionMode", ",", "grainflowbasic/volume", ",", "grainflowbasic/volumeRandom", ",", "grainflowbasic/playReverse", ",", "grainflowbasic/play", ",", "grainflowbasic/stop", ",", "grainflowbasic/keyboardNotes", ",", "grainflowbasic/envelope/userEnvelope", ",", "grainflowbasic/envelope/envSelect" ],
+									"items" : [ "grainflowbasic/recall", ",", "grainflowbasic/GrainDelayRandom", ",", "grainflowbasic/clickmode", ",", "grainflowbasic/freeze", ",", "grainflowbasic/getRecFile", ",", "grainflowbasic/grainDirection", ",", "grainflowbasic/grainFreq", ",", "grainflowbasic/grainLength", ",", "grainflowbasic/grainPeriod", ",", "grainflowbasic/grainSizeRandom", ",", "grainflowbasic/grainTimeJitter", ",", "grainflowbasic/keyboardNotesOff", ",", "grainflowbasic/output", ",", "grainflowbasic/panningCenter", ",", "grainflowbasic/panningSpread", ",", "grainflowbasic/pitchbend", ",", "grainflowbasic/rate", ",", "grainflowbasic/record", ",", "grainflowbasic/soundfile", ",", "grainflowbasic/transpose", ",", "grainflowbasic/transposeRandom", ",", "grainflowbasic/transpositionMode", ",", "grainflowbasic/volume", ",", "grainflowbasic/volumeRandom", ",", "grainflowbasic/playReverse", ",", "grainflowbasic/play", ",", "grainflowbasic/stop", ",", "grainflowbasic/keyboardNotes", ",", "grainflowbasic/envelope/userEnvelope", ",", "grainflowbasic/envelope/envSelect" ],
 									"maxclass" : "chooser",
-									"multiselect" : 0,
 									"numinlets" : 1,
 									"numoutlets" : 6,
 									"outlettype" : [ "", "", "", "", "", "" ],
@@ -3810,25 +3808,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -3881,7 +3879,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 651.25, -7.0, 341.0, 22.0 ],
+					"patching_rect" : [ 651.25, -7.0, 341.0, 21.0 ],
 					"text" : "window flags grow, window size 100 100 2500 800, window exec"
 				}
 
@@ -3907,7 +3905,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 581.25, 23.0, 354.0, 22.0 ],
+					"patching_rect" : [ 581.25, 23.0, 354.0, 21.0 ],
 					"text" : "window size 100 100 1050 700, window flags nogrow, window exec"
 				}
 
@@ -3936,7 +3934,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -3994,7 +3992,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 2,
+											"minor" : 6,
 											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -4287,25 +4285,25 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontsize" : [ 10.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"bgfillcolor" : 													{
-														"type" : "color",
+														"angle" : 270.0,
+														"autogradient" : 0.0,
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"angle" : 270.0,
 														"proportion" : 0.39,
-														"autogradient" : 0.0
+														"type" : "color"
 													}
 ,
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -4440,25 +4438,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -4495,7 +4493,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -4708,7 +4706,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 2,
+											"minor" : 6,
 											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -4782,7 +4780,7 @@
 , 											{
 												"box" : 												{
 													"id" : "obj-38",
-													"linecount" : 24,
+													"linecount" : 16,
 													"maxclass" : "message",
 													"numinlets" : 2,
 													"numoutlets" : 1,
@@ -4869,7 +4867,6 @@
 , 											{
 												"box" : 												{
 													"id" : "obj-27",
-													"linecount" : 2,
 													"maxclass" : "message",
 													"numinlets" : 2,
 													"numoutlets" : 1,
@@ -5017,7 +5014,7 @@
 													"maxclass" : "newobj",
 													"numinlets" : 2,
 													"numoutlets" : 1,
-													"outlettype" : [ "int" ],
+													"outlettype" : [ "" ],
 													"patching_rect" : [ 85.5, 428.0, 82.0, 21.0 ],
 													"text" : "random 10000"
 												}
@@ -5410,25 +5407,25 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontsize" : [ 10.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"bgfillcolor" : 													{
-														"type" : "color",
+														"angle" : 270.0,
+														"autogradient" : 0.0,
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"angle" : 270.0,
 														"proportion" : 0.39,
-														"autogradient" : 0.0
+														"type" : "color"
 													}
 ,
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -5460,7 +5457,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "list" ],
+									"outlettype" : [ "multichannelsignal", "" ],
 									"patching_rect" : [ 50.0, 413.0, 168.0, 21.0 ],
 									"text" : "mcs.matrix~ 250 2 0. @ramp 1"
 								}
@@ -5555,8 +5552,8 @@
 									"id" : "obj-1",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 8,
-									"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 9,
+									"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 94.0, 195.0, 234.0, 21.0 ],
 									"text" : "grainFlow~ cp.grainflow.app 250 @ngrains 0"
 								}
@@ -5770,25 +5767,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -5824,7 +5821,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -6111,25 +6108,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -6188,7 +6185,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -6678,25 +6675,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -6744,7 +6741,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -6992,25 +6989,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -7046,7 +7043,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -7257,25 +7254,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -7312,7 +7309,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -7942,25 +7939,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -8005,7 +8002,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -8047,7 +8044,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 297.0, 42.0, 29.5, 21.0 ],
+									"patching_rect" : [ 297.0, 42.0, 29.5, 20.0 ],
 									"text" : "+ 1"
 								}
 
@@ -8059,7 +8056,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 76.0, 15.0, 85.0, 21.0 ],
+									"patching_rect" : [ 76.0, 15.0, 85.0, 20.0 ],
 									"restore" : [ 1 ],
 									"saved_object_attributes" : 									{
 										"parameter_enable" : 0,
@@ -8078,7 +8075,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 354.0, 332.0, 104.0, 21.0 ],
+									"patching_rect" : [ 354.0, 332.0, 104.0, 20.0 ],
 									"restore" : [ 47999.0, 0.0, 1.0, 0.0, 0.0, 0, 0.0, 31134.486486486486683, 1.0, 0, -0.3, 47350.364864864866831, 0.0, 2, -0.65, "curve" ],
 									"saved_object_attributes" : 									{
 										"parameter_enable" : 0,
@@ -8097,7 +8094,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 355.0, 87.0, 54.0, 21.0 ],
+									"patching_rect" : [ 355.0, 87.0, 54.0, 20.0 ],
 									"text" : "loadbang"
 								}
 
@@ -8109,7 +8106,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 243.0, 75.0, 29.5, 21.0 ],
+									"patching_rect" : [ 243.0, 75.0, 29.5, 20.0 ],
 									"text" : "- 1"
 								}
 
@@ -8121,7 +8118,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 231.0, 123.0, 123.0, 21.0 ],
+									"patching_rect" : [ 231.0, 123.0, 123.0, 20.0 ],
 									"text" : "ignoreclick 1, hidden 1"
 								}
 
@@ -8145,7 +8142,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 65.0, 182.0, 178.0, 21.0 ],
+									"patching_rect" : [ 65.0, 182.0, 178.0, 20.0 ],
 									"text" : "buffername cp.grainflow.app.user"
 								}
 
@@ -8157,7 +8154,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "float", "bang" ],
-									"patching_rect" : [ 408.0, 58.0, 220.0, 21.0 ],
+									"patching_rect" : [ 408.0, 58.0, 220.0, 20.0 ],
 									"text" : "buffer~ cp.grainflow.app.user @size 1000"
 								}
 
@@ -8169,7 +8166,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "bang", "bang" ],
-									"patching_rect" : [ 437.0, 95.0, 34.0, 21.0 ],
+									"patching_rect" : [ 437.0, 95.0, 34.0, 20.0 ],
 									"text" : "t b b"
 								}
 
@@ -8181,7 +8178,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 476.75, 207.0, 29.5, 21.0 ],
+									"patching_rect" : [ 476.75, 207.0, 29.5, 20.0 ],
 									"text" : "- 1"
 								}
 
@@ -8193,7 +8190,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 576.5, 198.0, 29.5, 21.0 ],
+									"patching_rect" : [ 576.5, 198.0, 29.5, 20.0 ],
 									"text" : "- 1"
 								}
 
@@ -8205,7 +8202,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "signal", "float" ],
-									"patching_rect" : [ 516.5, 164.0, 79.0, 21.0 ],
+									"patching_rect" : [ 516.5, 164.0, 79.0, 20.0 ],
 									"text" : "mstosamps~"
 								}
 
@@ -8216,9 +8213,9 @@
 									"linecount" : 2,
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 9,
-									"outlettype" : [ "float", "list", "float", "float", "float", "float", "float", "", "int" ],
-									"patching_rect" : [ 476.75, 95.0, 116.0, 33.0 ],
+									"numoutlets" : 10,
+									"outlettype" : [ "float", "list", "float", "float", "float", "float", "float", "", "int", "" ],
+									"patching_rect" : [ 476.75, 95.0, 116.0, 31.0 ],
 									"text" : "info~ cp.grainflow.app.user"
 								}
 
@@ -8230,7 +8227,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 3,
 									"outlettype" : [ "bang", "bang", "int" ],
-									"patching_rect" : [ 439.75, 164.0, 56.0, 21.0 ],
+									"patching_rect" : [ 439.75, 164.0, 56.0, 20.0 ],
 									"text" : "uzi 1000"
 								}
 
@@ -8241,7 +8238,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 3,
 									"numoutlets" : 0,
-									"patching_rect" : [ 378.0, 388.0, 152.0, 21.0 ],
+									"patching_rect" : [ 378.0, 388.0, 152.0, 20.0 ],
 									"text" : "poke~ cp.grainflow.app.user"
 								}
 
@@ -8253,7 +8250,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 569.5, 234.0, 82.0, 21.0 ],
+									"patching_rect" : [ 569.5, 234.0, 82.0, 20.0 ],
 									"text" : "setdomain $1"
 								}
 
@@ -8265,7 +8262,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 255.0, 182.0, 123.0, 21.0 ],
+									"patching_rect" : [ 255.0, 182.0, 123.0, 20.0 ],
 									"text" : "ignoreclick 0, hidden 0"
 								}
 
@@ -8274,6 +8271,7 @@
 								"box" : 								{
 									"addpoints_with_curve" : [ 0.0, 0.0, 0, 0.0, 31134.486486486486683, 1.0, 0, -0.3, 47350.364864864866831, 0.0, 2, -0.65 ],
 									"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"classic_curve" : 1,
 									"domain" : 47999.0,
 									"gridcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 									"hidden" : 1,
@@ -8304,7 +8302,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 2,
+											"minor" : 6,
 											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -8616,25 +8614,25 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontsize" : [ 10.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"bgfillcolor" : 													{
-														"type" : "color",
+														"angle" : 270.0,
+														"autogradient" : 0.0,
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"angle" : 270.0,
 														"proportion" : 0.39,
-														"autogradient" : 0.0
+														"type" : "color"
 													}
 ,
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -8644,7 +8642,7 @@
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 									}
 ,
-									"patching_rect" : [ 48.0, 114.0, 67.0, 21.0 ],
+									"patching_rect" : [ 48.0, 114.0, 67.0, 20.0 ],
 									"saved_object_attributes" : 									{
 										"description" : "",
 										"digest" : "",
@@ -8671,7 +8669,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 2,
+											"minor" : 6,
 											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -8968,25 +8966,25 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontsize" : [ 10.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"bgfillcolor" : 													{
-														"type" : "color",
+														"angle" : 270.0,
+														"autogradient" : 0.0,
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"angle" : 270.0,
 														"proportion" : 0.39,
-														"autogradient" : 0.0
+														"type" : "color"
 													}
 ,
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -8996,7 +8994,7 @@
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 									}
 ,
-									"patching_rect" : [ 26.0, 50.0, 53.0, 21.0 ],
+									"patching_rect" : [ 26.0, 50.0, 53.0, 20.0 ],
 									"saved_object_attributes" : 									{
 										"description" : "",
 										"digest" : "",
@@ -9021,9 +9019,9 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "int", "", "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 26.0, 75.0, 100.0, 21.0 ],
+									"patching_rect" : [ 26.0, 75.0, 100.0, 20.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 0.0, 51.0, 160.0, 21.0 ],
+									"presentation_rect" : [ 0.0, 51.0, 160.0, 20.0 ],
 									"varname" : "umenu"
 								}
 
@@ -9264,25 +9262,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -9633,7 +9631,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -10860,25 +10858,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -10960,7 +10958,7 @@
 						"panningCenter" : [ 0.0 ],
 						"panningSpread" : [ 0.0 ],
 						"pitchbend" : [ 64.0 ],
-						"presetName" : [ "many", "voices" ],
+						"presetName" : [ "many voices" ],
 						"rate" : [ 0.0 ],
 						"record" : [ 0.0 ],
 						"soundfile" : [ "FemVoice.aif" ],
@@ -11179,7 +11177,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -11222,7 +11220,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 481.5, 158.47247314453125, 132.0, 21.0 ],
+									"patching_rect" : [ 481.5, 158.47247314453125, 132.0, 20.0 ],
 									"text" : "0, active 1, ignoreclick 0"
 								}
 
@@ -11234,7 +11232,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "bang", "bang", "" ],
-									"patching_rect" : [ 453.5, 72.0, 42.0, 21.0 ],
+									"patching_rect" : [ 453.5, 72.0, 42.0, 20.0 ],
 									"text" : "sel 1 0"
 								}
 
@@ -11246,7 +11244,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 453.5, 112.47247314453125, 62.0, 21.0 ],
+									"patching_rect" : [ 453.5, 112.47247314453125, 62.0, 20.0 ],
 									"text" : "0, active 0"
 								}
 
@@ -11258,7 +11256,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 464.25, 41.0, 151.0, 21.0 ],
+									"patching_rect" : [ 464.25, 41.0, 151.0, 20.0 ],
 									"text" : "r cp.grainflow.app.clickMode"
 								}
 
@@ -11270,7 +11268,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 365.0, 62.0, 40.0, 21.0 ],
+									"patching_rect" : [ 365.0, 62.0, 40.0, 20.0 ],
 									"text" : "del 50"
 								}
 
@@ -11282,7 +11280,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 365.0, 85.0, 51.0, 21.0 ],
+									"patching_rect" : [ 365.0, 85.0, 51.0, 20.0 ],
 									"text" : "deferlow"
 								}
 
@@ -11294,7 +11292,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 362.5, 37.0, 54.0, 21.0 ],
+									"patching_rect" : [ 362.5, 37.0, 54.0, 20.0 ],
 									"text" : "loadbang"
 								}
 
@@ -11306,7 +11304,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 492.0, 221.0, 22.0, 21.0 ],
+									"patching_rect" : [ 492.0, 221.0, 22.0, 20.0 ],
 									"text" : "t 0"
 								}
 
@@ -11331,10 +11329,6 @@
 									"presentation_rect" : [ 95.5, 0.5, 31.0, 28.304347826086957 ],
 									"remapsvgcolors" : 1,
 									"saved_attribute_attributes" : 									{
-										"focusbordercolor" : 										{
-											"expression" : ""
-										}
-,
 										"activebgcolor" : 										{
 											"expression" : ""
 										}
@@ -11343,11 +11337,15 @@
 											"expression" : ""
 										}
 ,
+										"bgcolor" : 										{
+											"expression" : ""
+										}
+,
 										"bordercolor" : 										{
 											"expression" : ""
 										}
 ,
-										"bgcolor" : 										{
+										"focusbordercolor" : 										{
 											"expression" : ""
 										}
 ,
@@ -11379,7 +11377,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 460.5, 292.0, 150.0, 21.0 ],
+									"patching_rect" : [ 460.5, 292.0, 150.0, 20.0 ],
 									"text" : "s cp.grainflow.app.pingpong"
 								}
 
@@ -11466,7 +11464,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 212.0, 175.97247314453125, 29.5, 21.0 ],
+									"patching_rect" : [ 212.0, 175.97247314453125, 29.5, 20.0 ],
 									"text" : "0"
 								}
 
@@ -11477,7 +11475,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 260.25, 244.47247314453125, 128.0, 21.0 ],
+									"patching_rect" : [ 260.25, 244.47247314453125, 128.0, 20.0 ],
 									"text" : "s cp.grainflow.app.state"
 								}
 
@@ -11489,7 +11487,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 77.0, 150.47247314453125, 85.0, 21.0 ],
+									"patching_rect" : [ 77.0, 150.47247314453125, 85.0, 20.0 ],
 									"text" : "ignoreclick 0, 0"
 								}
 
@@ -11501,7 +11499,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 247.5, 108.47247314453125, 85.0, 21.0 ],
+									"patching_rect" : [ 247.5, 108.47247314453125, 85.0, 20.0 ],
 									"text" : "ignoreclick 0, 0"
 								}
 
@@ -11513,7 +11511,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "bang", "" ],
-									"patching_rect" : [ 243.5, 214.47247314453125, 32.0, 21.0 ],
+									"patching_rect" : [ 243.5, 214.47247314453125, 32.0, 20.0 ],
 									"text" : "sel 1"
 								}
 
@@ -11525,7 +11523,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "int", "int" ],
-									"patching_rect" : [ 305.5, 208.97247314453125, 32.0, 21.0 ],
+									"patching_rect" : [ 305.5, 208.97247314453125, 32.0, 20.0 ],
 									"text" : "t 1 1"
 								}
 
@@ -11537,7 +11535,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 254.0, 136.47247314453125, 72.0, 21.0 ],
+									"patching_rect" : [ 254.0, 136.47247314453125, 72.0, 20.0 ],
 									"text" : "ignoreclick 1"
 								}
 
@@ -11548,7 +11546,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 66.0, 276.47247314453125, 117.0, 21.0 ],
+									"patching_rect" : [ 66.0, 276.47247314453125, 117.0, 20.0 ],
 									"text" : "s cp.grainflow.app.dir"
 								}
 
@@ -11560,7 +11558,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "int", "int" ],
-									"patching_rect" : [ 50.0, 214.47247314453125, 32.0, 21.0 ],
+									"patching_rect" : [ 50.0, 214.47247314453125, 32.0, 20.0 ],
 									"text" : "t 1 0"
 								}
 
@@ -11571,7 +11569,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 50.0, 251.47247314453125, 128.0, 21.0 ],
+									"patching_rect" : [ 50.0, 251.47247314453125, 128.0, 20.0 ],
 									"text" : "s cp.grainflow.app.state"
 								}
 
@@ -11583,7 +11581,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 63.0, 175.97247314453125, 72.0, 21.0 ],
+									"patching_rect" : [ 63.0, 175.97247314453125, 72.0, 20.0 ],
 									"text" : "ignoreclick 1"
 								}
 
@@ -11595,7 +11593,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "bang", "" ],
-									"patching_rect" : [ 142.25, 214.47247314453125, 32.0, 21.0 ],
+									"patching_rect" : [ 142.25, 214.47247314453125, 32.0, 20.0 ],
 									"text" : "sel 1"
 								}
 
@@ -11607,7 +11605,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 155.5, 141.47247314453125, 85.0, 21.0 ],
+									"patching_rect" : [ 155.5, 141.47247314453125, 85.0, 20.0 ],
 									"text" : "0, ignoreclick 0"
 								}
 
@@ -11634,10 +11632,6 @@
 									"presentation_rect" : [ 31.5, 0.5, 31.0, 28.304347826086957 ],
 									"remapsvgcolors" : 1,
 									"saved_attribute_attributes" : 									{
-										"focusbordercolor" : 										{
-											"expression" : ""
-										}
-,
 										"activebgcolor" : 										{
 											"expression" : ""
 										}
@@ -11646,7 +11640,7 @@
 											"expression" : ""
 										}
 ,
-										"bordercolor" : 										{
+										"activetextoncolor" : 										{
 											"expression" : ""
 										}
 ,
@@ -11654,7 +11648,11 @@
 											"expression" : ""
 										}
 ,
-										"activetextoncolor" : 										{
+										"bordercolor" : 										{
+											"expression" : ""
+										}
+,
+										"focusbordercolor" : 										{
 											"expression" : ""
 										}
 ,
@@ -11700,10 +11698,6 @@
 									"presentation_rect" : [ 0.5, 0.5, 31.0, 28.304347826086957 ],
 									"remapsvgcolors" : 1,
 									"saved_attribute_attributes" : 									{
-										"focusbordercolor" : 										{
-											"expression" : ""
-										}
-,
 										"activebgcolor" : 										{
 											"expression" : ""
 										}
@@ -11712,7 +11706,7 @@
 											"expression" : ""
 										}
 ,
-										"bordercolor" : 										{
+										"activetextoncolor" : 										{
 											"expression" : ""
 										}
 ,
@@ -11720,7 +11714,11 @@
 											"expression" : ""
 										}
 ,
-										"activetextoncolor" : 										{
+										"bordercolor" : 										{
+											"expression" : ""
+										}
+,
+										"focusbordercolor" : 										{
 											"expression" : ""
 										}
 ,
@@ -11766,10 +11764,6 @@
 									"presentation_rect" : [ 62.5, 0.5, 31.0, 28.304347826086957 ],
 									"remapsvgcolors" : 1,
 									"saved_attribute_attributes" : 									{
-										"focusbordercolor" : 										{
-											"expression" : ""
-										}
-,
 										"activebgcolor" : 										{
 											"expression" : ""
 										}
@@ -11778,7 +11772,7 @@
 											"expression" : ""
 										}
 ,
-										"bordercolor" : 										{
+										"activetextoncolor" : 										{
 											"expression" : ""
 										}
 ,
@@ -11786,7 +11780,11 @@
 											"expression" : ""
 										}
 ,
-										"activetextoncolor" : 										{
+										"bordercolor" : 										{
+											"expression" : ""
+										}
+,
+										"focusbordercolor" : 										{
 											"expression" : ""
 										}
 ,
@@ -12164,25 +12162,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -12233,9 +12231,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 1114.66927083333303, 176.0, 44.0, 15.0 ],
+					"patching_rect" : [ 1114.66927083333303, 176.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 426.0, 306.0, 44.0, 15.0 ],
+					"presentation_rect" : [ 426.0, 306.0, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0.0 ],
@@ -12317,9 +12315,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 879.25, 217.0, 44.0, 15.0 ],
+					"patching_rect" : [ 879.25, 217.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 426.0, 381.436666666666724, 44.0, 15.0 ],
+					"presentation_rect" : [ 426.0, 381.436666666666724, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0.0 ],
@@ -12418,9 +12416,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 1114.66927083333303, 83.0, 44.0, 15.0 ],
+					"patching_rect" : [ 1114.66927083333303, 83.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 426.0, 330.063333333333333, 44.0, 15.0 ],
+					"presentation_rect" : [ 426.0, 330.063333333333333, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0.0 ],
@@ -12472,10 +12470,6 @@
 					"presentation_rect" : [ 545.25, 251.5, 33.0, 24.0 ],
 					"remapsvgcolors" : 1,
 					"saved_attribute_attributes" : 					{
-						"focusbordercolor" : 						{
-							"expression" : ""
-						}
-,
 						"activebgcolor" : 						{
 							"expression" : ""
 						}
@@ -12484,7 +12478,7 @@
 							"expression" : ""
 						}
 ,
-						"bordercolor" : 						{
+						"activetextoncolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -12496,7 +12490,11 @@
 							"expression" : ""
 						}
 ,
-						"activetextoncolor" : 						{
+						"bordercolor" : 						{
+							"expression" : ""
+						}
+,
+						"focusbordercolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -12733,9 +12731,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 1155.5, 617.25, 44.0, 15.0 ],
+					"patching_rect" : [ 1155.5, 617.25, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 206.25, 352.5, 44.0, 15.0 ],
+					"presentation_rect" : [ 206.25, 352.5, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0.0 ],
@@ -12761,8 +12759,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1155.5, 669.25, 134.0, 20.0 ],
-					"text" : "windowOffsetRandom $1"
+					"patching_rect" : [ 1155.5, 669.25, 94.0, 20.0 ],
+					"text" : "windowRandom $1"
 				}
 
 			}
@@ -12776,7 +12774,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -12832,7 +12830,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 15.0, 628.0, 50.0, 33.0 ],
-									"text" : "0.060392"
+									"text" : "-0.290658"
 								}
 
 							}
@@ -12905,7 +12903,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 447.0, 708.0, 50.0, 33.0 ],
-									"text" : "0.060392"
+									"text" : "-0.290658"
 								}
 
 							}
@@ -13334,8 +13332,8 @@
 									"id" : "obj-57",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 9,
-									"outlettype" : [ "float", "list", "float", "float", "float", "float", "float", "", "int" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "float", "list", "float", "float", "float", "float", "float", "", "int", "" ],
 									"patching_rect" : [ 228.916666666666686, 107.36865234375, 122.0, 21.0 ],
 									"text" : "info~ cp.grainflow.app"
 								}
@@ -13423,7 +13421,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 2,
+											"minor" : 6,
 											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -13746,25 +13744,25 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontsize" : [ 10.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"bgfillcolor" : 													{
-														"type" : "color",
+														"angle" : 270.0,
+														"autogradient" : 0.0,
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"angle" : 270.0,
 														"proportion" : 0.39,
-														"autogradient" : 0.0
+														"type" : "color"
 													}
 ,
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"fontface" : [ 0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -14357,25 +14355,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -14446,9 +14444,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 879.25, 88.0, 44.0, 15.0 ],
+					"patching_rect" : [ 879.25, 88.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 206.25, 328.436666666666667, 44.0, 15.0 ],
+					"presentation_rect" : [ 206.25, 328.436666666666667, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0.0 ],
@@ -14500,10 +14498,6 @@
 					"presentation_rect" : [ 499.25, 248.5, 44.0, 33.0 ],
 					"remapsvgcolors" : 1,
 					"saved_attribute_attributes" : 					{
-						"focusbordercolor" : 						{
-							"expression" : ""
-						}
-,
 						"activebgcolor" : 						{
 							"expression" : ""
 						}
@@ -14512,7 +14506,7 @@
 							"expression" : ""
 						}
 ,
-						"bordercolor" : 						{
+						"activetextoncolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -14524,7 +14518,11 @@
 							"expression" : ""
 						}
 ,
-						"activetextoncolor" : 						{
+						"bordercolor" : 						{
+							"expression" : ""
+						}
+,
+						"focusbordercolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -14581,9 +14579,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 1460.66927083333303, 532.0, 86.0, 15.0 ],
+					"patching_rect" : [ 1460.66927083333303, 532.0, 86.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 11.25, 470.436666666666724, 44.0, 15.0 ],
+					"presentation_rect" : [ 11.25, 470.436666666666724, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0.0 ],
@@ -14611,9 +14609,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 1663.41927083333303, 561.0, 92.0, 15.0 ],
+					"patching_rect" : [ 1663.41927083333303, 561.0, 92.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 11.25, 449.436666666666724, 44.0, 15.0 ],
+					"presentation_rect" : [ 11.25, 449.436666666666724, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"textcolor" : 						{
 							"expression" : ""
@@ -14670,9 +14668,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 1147.25, 485.5, 44.0, 15.0 ],
+					"patching_rect" : [ 1147.25, 485.5, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 11.25, 359.436666666666667, 44.0, 15.0 ],
+					"presentation_rect" : [ 11.25, 359.436666666666667, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_exponent" : 4.0,
@@ -14699,8 +14697,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1147.25, 507.5, 86.0, 20.0 ],
-					"text" : "travRandom $1"
+					"patching_rect" : [ 1147.25, 507.5, 83.0, 20.0 ],
+					"text" : "delayRandom $1"
 				}
 
 			}
@@ -14718,9 +14716,9 @@
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"overloadcolor" : [ 0.427, 0.843, 1.0, 1.0 ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 35.5, 251.0, 101.0, 47.0 ],
+					"patching_rect" : [ 35.5, 251.0, 101.0, 45.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 87.999998927116394, 532.0, 152.0, 47.0 ],
+					"presentation_rect" : [ 87.999998927116394, 532.0, 152.0, 45.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "output",
@@ -14765,11 +14763,11 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 352.25, 251.5, 145.0, 27.0 ],
 					"saved_attribute_attributes" : 					{
-						"tribordercolor" : 						{
+						"focusbordercolor" : 						{
 							"expression" : ""
 						}
 ,
-						"focusbordercolor" : 						{
+						"modulationcolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -14777,7 +14775,7 @@
 							"expression" : ""
 						}
 ,
-						"trioncolor" : 						{
+						"tribordercolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -14785,7 +14783,7 @@
 							"expression" : ""
 						}
 ,
-						"modulationcolor" : 						{
+						"trioncolor" : 						{
 							"expression" : ""
 						}
 ,
@@ -14859,9 +14857,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 883.5, 349.0, 44.0, 15.0 ],
+					"patching_rect" : [ 883.5, 349.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 11.25, 306.0, 44.0, 15.0 ],
+					"presentation_rect" : [ 11.25, 306.0, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_exponent" : 8.0,
@@ -14916,9 +14914,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 1086.5, 400.0, 44.0, 15.0 ],
+					"patching_rect" : [ 1086.5, 400.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 206.25, 304.0, 44.0, 15.0 ],
+					"presentation_rect" : [ 206.25, 304.0, 44.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
@@ -14962,9 +14960,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 992.5, 402.0, 44.0, 15.0 ],
+					"patching_rect" : [ 992.5, 402.0, 44.0, 14.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 11.25, 332.577499999999986, 45.0, 15.0 ],
+					"presentation_rect" : [ 11.25, 332.577499999999986, 45.0, 14.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_exponent" : 4.0,
@@ -15008,7 +15006,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 6,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -15050,7 +15048,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "int", "int" ],
-									"patching_rect" : [ 491.0, 542.0, 29.5, 21.0 ],
+									"patching_rect" : [ 491.0, 542.0, 29.5, 20.0 ],
 									"text" : "t i i"
 								}
 
@@ -15062,7 +15060,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 459.629629969596863, 660.0, 40.0, 21.0 ],
+									"patching_rect" : [ 459.629629969596863, 660.0, 40.0, 20.0 ],
 									"text" : "unjoin"
 								}
 
@@ -15075,7 +15073,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1081.0, 57.0, 180.0, 57.0 ],
+									"patching_rect" : [ 1081.0, 57.0, 168.0, 53.0 ],
 									"text" : "selectColor 0.7 0.943 1. 0.8, waveformColor 0.25 0.25 0.25 1, dotColor 0.5 0.743 0.9 0.95, mode 1"
 								}
 
@@ -15087,7 +15085,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 509.379629969596863, 39.0, 54.0, 21.0 ],
+									"patching_rect" : [ 509.379629969596863, 39.0, 54.0, 20.0 ],
 									"text" : "loadbang"
 								}
 
@@ -15099,7 +15097,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 383.796288549900055, 578.0, 54.0, 21.0 ],
+									"patching_rect" : [ 383.796288549900055, 578.0, 54.0, 20.0 ],
 									"text" : "loadbang"
 								}
 
@@ -15111,7 +15109,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 374.439809739589691, 605.962944507598877, 29.5, 21.0 ],
+									"patching_rect" : [ 374.439809739589691, 605.962944507598877, 29.5, 20.0 ],
 									"text" : "0 1"
 								}
 
@@ -15123,7 +15121,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "bang", "bang", "" ],
-									"patching_rect" : [ 374.439809739589691, 523.629628658294678, 42.0, 21.0 ],
+									"patching_rect" : [ 374.439809739589691, 523.629628658294678, 42.0, 20.0 ],
 									"text" : "sel 1 0"
 								}
 
@@ -15135,7 +15133,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 136.532407820224762, 455.55554062128067, 29.5, 21.0 ],
+									"patching_rect" : [ 136.532407820224762, 455.55554062128067, 29.5, 20.0 ],
 									"text" : "!- 1"
 								}
 
@@ -15147,7 +15145,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 524.444427251815796, 577.777758836746216, 29.5, 21.0 ],
+									"patching_rect" : [ 524.444427251815796, 577.777758836746216, 29.5, 20.0 ],
 									"text" : "> 0"
 								}
 
@@ -15159,7 +15157,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 245.032407820224762, 528.407409131526947, 37.0, 21.0 ],
+									"patching_rect" : [ 245.032407820224762, 528.407409131526947, 37.0, 20.0 ],
 									"text" : "zl.reg"
 								}
 
@@ -15171,7 +15169,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 136.532407820224762, 494.0, 50.0, 21.0 ],
+									"patching_rect" : [ 136.532407820224762, 494.0, 50.0, 20.0 ],
 									"text" : "gate 1 1"
 								}
 
@@ -15183,7 +15181,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 530.888885974884033, 672.666667103767395, 76.0, 21.0 ],
+									"patching_rect" : [ 530.888885974884033, 672.666667103767395, 76.0, 20.0 ],
 									"text" : "route clicking"
 								}
 
@@ -15194,7 +15192,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 521.629629969596863, 756.0, 168.0, 21.0 ],
+									"patching_rect" : [ 521.629629969596863, 756.0, 168.0, 20.0 ],
 									"text" : "s cp.grainflow.app.clickMessage"
 								}
 
@@ -15206,7 +15204,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1024.0, 494.0, 46.0, 21.0 ],
+									"patching_rect" : [ 1024.0, 494.0, 46.0, 20.0 ],
 									"text" : "mode 1"
 								}
 
@@ -15218,7 +15216,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "bang", "int" ],
-									"patching_rect" : [ 521.629629969596863, 500.407409131526947, 29.5, 21.0 ],
+									"patching_rect" : [ 521.629629969596863, 500.407409131526947, 29.5, 20.0 ],
 									"text" : "t b i"
 								}
 
@@ -15230,7 +15228,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 521.629629969596863, 547.407409131526947, 29.5, 21.0 ],
+									"patching_rect" : [ 521.629629969596863, 547.407409131526947, 29.5, 20.0 ],
 									"text" : "+"
 								}
 
@@ -15242,7 +15240,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 504.379629969596863, 473.407409131526947, 153.0, 21.0 ],
+									"patching_rect" : [ 504.379629969596863, 473.407409131526947, 153.0, 20.0 ],
 									"text" : "r cp.grainflow.app.shiftDown"
 								}
 
@@ -15254,7 +15252,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 161.125, 406.0, 83.0, 21.0 ],
+									"patching_rect" : [ 161.125, 406.0, 83.0, 20.0 ],
 									"text" : "route selection"
 								}
 
@@ -15265,7 +15263,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 140.0, 783.666667103767395, 149.0, 21.0 ],
+									"patching_rect" : [ 140.0, 783.666667103767395, 149.0, 20.0 ],
 									"text" : "s cp.grainflow.app.selRange"
 								}
 
@@ -15277,7 +15275,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 577.0, 81.0, 110.0, 21.0 ],
+									"patching_rect" : [ 577.0, 81.0, 110.0, 20.0 ],
 									"text" : "set cp.grainflow.app"
 								}
 
@@ -15289,7 +15287,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 459.629629969596863, 402.407409131526947, 172.25, 21.0 ],
+									"patching_rect" : [ 459.629629969596863, 402.407409131526947, 172.25, 20.0 ],
 									"text" : "r cp.grainflow.app.clickMode"
 								}
 
@@ -15301,7 +15299,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 535.013885974884033, 634.666667103767395, 31.0, 21.0 ],
+									"patching_rect" : [ 535.013885974884033, 634.666667103767395, 31.0, 20.0 ],
 									"text" : "gate"
 								}
 
@@ -15312,7 +15310,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 966.0, 519.0, 115.0, 21.0 ],
+									"patching_rect" : [ 966.0, 519.0, 115.0, 20.0 ],
 									"text" : "s grainflow.app.toGui"
 								}
 
@@ -15324,7 +15322,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 966.0, 494.0, 46.0, 21.0 ],
+									"patching_rect" : [ 966.0, 494.0, 46.0, 20.0 ],
 									"text" : "mode 0"
 								}
 
@@ -15336,7 +15334,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "bang", "bang", "" ],
-									"patching_rect" : [ 973.0, 462.0, 42.0, 21.0 ],
+									"patching_rect" : [ 973.0, 462.0, 42.0, 20.0 ],
 									"text" : "sel 1 0"
 								}
 
@@ -15348,7 +15346,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ -5.875, 57.0, 114.0, 21.0 ],
+									"patching_rect" : [ -5.875, 57.0, 114.0, 20.0 ],
 									"text" : "r grainflow.app.toGui"
 								}
 
@@ -15359,7 +15357,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 686.5, 779.0, 115.0, 21.0 ],
+									"patching_rect" : [ 686.5, 779.0, 115.0, 20.0 ],
 									"text" : "s grainflow.app.toGui"
 								}
 
@@ -15367,7 +15365,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "bgColor", 1, 1, 1, 0 ], [ "maxBufferDrawSamples", 4000 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "selection", 0.671111111111111, 0.463333333333333 ], [ "trackerWidth", 2 ], [ "dotScale", 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "dotVJitter", 0 ], [ "waveformColor", 0.25, 0.25, 0.25, 1 ], [ "displayRange", 0, 1 ], [ "fps", 24 ], [ "showTriangles", 0 ], [ "dotColor", 0.5, 0.743, 0.9, 0.95 ], [ "buffername", "cp.grainflow.app" ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selectColor", 0.7, 0.943, 1, 0.8 ], [ "mode", 1 ], [ "chan", 1 ] ],
+									"embedstate" : [ [ "showTriangles", 0 ], [ "maxBufferDrawSamples", 4000 ], [ "selection", 0.671111111111111, 0.463333333333333 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "dotColor", 0.5, 0.743, 0.9, 0.95 ], [ "dotScale", 1 ], [ "mode", 1 ], [ "waveformColor", 0.25, 0.25, 0.25, 1 ], [ "displayRange", 0, 1 ], [ "trackerWidth", 2 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selectColor", 0.7, 0.943, 1, 0.8 ], [ "bgColor", 1, 1, 1, 0 ], [ "chan", 1 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "fps", 24 ], [ "buffername", "cp.grainflow.app" ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ] ],
 									"filename" : "grainflow.waveform~.js",
 									"hint" : "Click and Drag to change loop points Alt+ Click and Drag to move the loop. Double Click to Select All Shit + Click and drag will move the playhead",
 									"id" : "obj-1",
@@ -15389,7 +15387,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 577.0, 39.0, 168.0, 21.0 ],
+									"patching_rect" : [ 577.0, 39.0, 168.0, 20.0 ],
 									"text" : "r cp.grainflow.app.loadedSound"
 								}
 
@@ -15401,7 +15399,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 748.0, 587.0, 50.0, 21.0 ],
+									"patching_rect" : [ 748.0, 587.0, 50.0, 20.0 ],
 									"text" : "0"
 								}
 
@@ -15413,7 +15411,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 153.0, 23.0, 148.0, 21.0 ],
+									"patching_rect" : [ 153.0, 23.0, 148.0, 20.0 ],
 									"text" : "r cp.grainflow.app.grainInfo"
 								}
 
@@ -15425,7 +15423,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 1049.0, 568.0, 54.0, 21.0 ],
+									"patching_rect" : [ 1049.0, 568.0, 54.0, 20.0 ],
 									"text" : "loadbang"
 								}
 
@@ -15437,7 +15435,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1045.0, 593.0, 29.5, 21.0 ],
+									"patching_rect" : [ 1045.0, 593.0, 29.5, 20.0 ],
 									"text" : "0"
 								}
 
@@ -15448,7 +15446,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 960.0, 660.0, 153.0, 21.0 ],
+									"patching_rect" : [ 960.0, 660.0, 153.0, 20.0 ],
 									"text" : "s cp.grainflow.app.shiftDown"
 								}
 
@@ -15460,7 +15458,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 759.5, 515.0, 50.0, 21.0 ],
+									"patching_rect" : [ 759.5, 515.0, 50.0, 20.0 ],
 									"text" : "gate 1 1"
 								}
 
@@ -15472,7 +15470,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "int", "int" ],
-									"patching_rect" : [ 808.0, 600.0, 45.0, 21.0 ],
+									"patching_rect" : [ 808.0, 600.0, 45.0, 20.0 ],
 									"text" : "change"
 								}
 
@@ -15484,7 +15482,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 808.5, 737.0, 46.0, 21.0 ],
+									"patching_rect" : [ 808.5, 737.0, 46.0, 20.0 ],
 									"text" : "mode 0"
 								}
 
@@ -15496,7 +15494,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 820.0, 698.0, 46.0, 21.0 ],
+									"patching_rect" : [ 820.0, 698.0, 46.0, 20.0 ],
 									"text" : "mode 1"
 								}
 
@@ -15508,7 +15506,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "bang", "bang", "" ],
-									"patching_rect" : [ 808.0, 660.0, 42.0, 21.0 ],
+									"patching_rect" : [ 808.0, 660.0, 42.0, 20.0 ],
 									"text" : "sel 1 0"
 								}
 
@@ -15520,7 +15518,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 912.0, 453.0, 29.5, 21.0 ],
+									"patching_rect" : [ 912.0, 453.0, 29.5, 20.0 ],
 									"text" : "!- 1"
 								}
 
@@ -15532,7 +15530,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 930.75, 406.0, 172.25, 21.0 ],
+									"patching_rect" : [ 930.75, 406.0, 172.25, 20.0 ],
 									"text" : "r cp.grainflow.app.clickMode"
 								}
 
@@ -15544,7 +15542,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 698.5, 509.0, 50.0, 21.0 ],
+									"patching_rect" : [ 698.5, 509.0, 50.0, 20.0 ],
 									"text" : "gate 1 1"
 								}
 
@@ -15556,7 +15554,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "int", "int" ],
-									"patching_rect" : [ 698.5, 540.0, 45.0, 21.0 ],
+									"patching_rect" : [ 698.5, 540.0, 45.0, 20.0 ],
 									"text" : "change"
 								}
 
@@ -15568,7 +15566,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 698.5, 689.0, 46.0, 21.0 ],
+									"patching_rect" : [ 698.5, 689.0, 46.0, 20.0 ],
 									"text" : "mode 2"
 								}
 
@@ -15580,7 +15578,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 710.5, 638.0, 46.0, 21.0 ],
+									"patching_rect" : [ 710.5, 638.0, 46.0, 20.0 ],
 									"text" : "mode 1"
 								}
 
@@ -15592,7 +15590,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "bang", "bang", "" ],
-									"patching_rect" : [ 698.5, 600.0, 42.0, 21.0 ],
+									"patching_rect" : [ 698.5, 600.0, 42.0, 20.0 ],
 									"text" : "sel 1 0"
 								}
 
@@ -15604,7 +15602,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 698.5, 421.0, 114.0, 21.0 ],
+									"patching_rect" : [ 698.5, 421.0, 114.0, 20.0 ],
 									"text" : "qmetro 10 @active 1"
 								}
 
@@ -15616,7 +15614,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 5,
 									"outlettype" : [ "int", "int", "int", "int", "int" ],
-									"patching_rect" : [ 698.5, 449.0, 61.0, 21.0 ],
+									"patching_rect" : [ 698.5, 449.0, 61.0, 20.0 ],
 									"text" : "modifiers"
 								}
 
@@ -16032,27 +16030,27 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontsize" : [ 10.0 ],
-									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
+									"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
 									"fontface" : [ 0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -17655,87 +17653,77 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "Grainflow.voice~.mxe64",
+				"type" : "mx64"
+			}
+, 			{
 				"name" : "grainFlow.waveform~.js",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
-				"patcherrelativepath" : "../../../jsui",
+				"patcherrelativepath" : "../../../../jsui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.icon.freeze.svg",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
-				"patcherrelativepath" : "../../../media",
-				"type" : "svg",
+				"name" : "grainflow.gfapp.defaultbank.json",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/extras/grainflow/examples/apps",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.icon.click.svg",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
-				"patcherrelativepath" : "../../../media",
+				"patcherrelativepath" : "../../../../media",
 				"type" : "svg",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.icon.playForward.svg",
+				"name" : "grainflow.icon.freeze.svg",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
-				"patcherrelativepath" : "../../../media",
-				"type" : "svg",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.icon.playBackward.svg",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
-				"patcherrelativepath" : "../../../media",
-				"type" : "svg",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.icon.stop.svg",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
-				"patcherrelativepath" : "../../../media",
-				"type" : "svg",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.icon.repeat.svg",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
-				"patcherrelativepath" : "../../../media",
+				"patcherrelativepath" : "../../../../media",
 				"type" : "svg",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.icon.pingpong.svg",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
-				"patcherrelativepath" : "../../../media",
+				"patcherrelativepath" : "../../../../media",
 				"type" : "svg",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.gfapp.defaultbank.json",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/extras/grainflow/examples",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
+				"name" : "grainflow.icon.playBackward.svg",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
+				"patcherrelativepath" : "../../../../media",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.icon.playForward.svg",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
+				"patcherrelativepath" : "../../../../media",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.icon.repeat.svg",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
+				"patcherrelativepath" : "../../../../media",
+				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.icon.stop.svg",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/media",
+				"patcherrelativepath" : "../../../../media",
+				"type" : "svg",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../../../patchers",
+				"patcherrelativepath" : "../../../../patchers",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../../../patchers/_private",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../../../code",
-				"type" : "gDSP",
 				"implicit" : 1
 			}
  ],
@@ -17743,25 +17731,25 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"fontname" : [ "Futura Medium" ],
+					"fontsize" : [ 10.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

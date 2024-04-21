@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 8,
+			"minor" : 6,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 80.0, 140.0, 745.0, 876.0 ],
+		"rect" : [ 394.0, 329.0, 745.0, 876.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -76,8 +76,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 8,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -367,26 +367,26 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontsize" : [ 11.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-									"fontname" : [ "Lato" ],
 									"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontface" : [ 0 ]
+									"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+									"fontface" : [ 0 ],
+									"fontname" : [ "Lato" ],
+									"fontsize" : [ 11.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -413,7 +413,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-70",
-					"items" : [ "01_Grainflow_Basics.maxpat", ",", "02_Live_Input.maxpat", ",", "03_Buffers.maxpat" ],
+					"items" : [ "01_Grainflow_Basics.maxpat", ",", "02_Live_Input.maxpat", ",", "03_Buffers.maxpat", ",", "04_Dynamic_Bussing.maxpat" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -480,7 +480,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 81.0, 725.0, 290.0, 20.0 ],
+					"patching_rect" : [ 81.0, 614.0, 290.0, 20.0 ],
 					"text" : "For more information see the grainflow~ help file."
 				}
 
@@ -536,29 +536,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-31",
-					"linecount" : 6,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 81.0, 627.0, 246.5, 86.0 ],
-					"text" : "rateMode, rates : uses the rates buffer to set the rate of each grain\n\nwindowOffsetMode, windowOffsets: used the windowOffsets buffer to set offsets on the grain phasor."
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-30",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 81.0, 601.0, 163.0, 20.0 ],
-					"text" : "Other buffer inputs include:"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"bubble" : 1,
 					"id" : "obj-28",
 					"linecount" : 2,
@@ -602,7 +579,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 103.0, 264.0, 213.0, 33.0 ],
-					"text" : "travMode 2 sets each grain to a random sample of the travOffsets buffer"
+					"text" : "delayMode 2 sets each grain to a random sample of the delayBuffer"
 				}
 
 			}
@@ -614,7 +591,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 88.0, 180.0, 210.0, 33.0 ],
-					"text" : "travMode 1 sets each grain to a set sample of the travOffsets buffer"
+					"text" : "delayMode 1 sets each grain to a set sample of the delayBuffer"
 				}
 
 			}
@@ -637,8 +614,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 76.0, 240.0, 182.0, 22.0 ],
-					"text" : "travMode 2, travOffsets gf.tut3.trav"
+					"patching_rect" : [ 76.0, 240.0, 197.0, 22.0 ],
+					"text" : "delayMode 2, delayBuffer gf.tut3.delay"
 				}
 
 			}
@@ -683,8 +660,8 @@
 					"id" : "obj-17",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 9,
-					"outlettype" : [ "float", "list", "float", "float", "float", "float", "float", "", "int" ],
+					"numoutlets" : 10,
+					"outlettype" : [ "float", "list", "float", "float", "float", "float", "float", "", "int", "" ],
 					"patching_rect" : [ 509.0, 323.5, 103.0, 22.0 ],
 					"text" : "info~ gf.tut3"
 				}
@@ -709,8 +686,8 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 433.0, 428.5, 95.0, 22.0 ],
-					"text" : "peek~ gf.tut3.trav"
+					"patching_rect" : [ 433.0, 428.5, 102.0, 22.0 ],
+					"text" : "peek~ gf.tut3.delay"
 				}
 
 			}
@@ -737,8 +714,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 433.0, 118.0, 160.0, 22.0 ],
-					"text" : "buffer~ gf.tut3.trav @samps 10"
+					"patching_rect" : [ 433.0, 119.0, 166.0, 22.0 ],
+					"text" : "buffer~ gf.tut3.delay @samps 10"
 				}
 
 			}
@@ -749,8 +726,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 56.0, 154.0, 182.0, 22.0 ],
-					"text" : "travMode 1, travOffsets gf.tut3.trav"
+					"patching_rect" : [ 56.0, 154.0, 197.0, 22.0 ],
+					"text" : "delayMode 1, delayBuffer gf.tut3.delay"
 				}
 
 			}
@@ -811,7 +788,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 56.0, 468.0, 196.0, 95.0 ],
+					"patching_rect" : [ 56.0, 468.0, 196.0, 93.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
@@ -847,7 +824,7 @@
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 56.0, 747.0, 45.0, 45.0 ]
+					"patching_rect" : [ 56.0, 645.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -856,8 +833,8 @@
 					"id" : "obj-10",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"numoutlets" : 2,
+					"outlettype" : [ "multichannelsignal", "" ],
 					"patching_rect" : [ 56.0, 573.0, 145.0, 22.0 ],
 					"text" : "grainflow.util.stereoPan~ 10"
 				}
@@ -868,8 +845,8 @@
 					"id" : "obj-4",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 7,
-					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"numoutlets" : 9,
+					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 56.0, 422.0, 111.0, 22.0 ],
 					"text" : "grainflow~ gf.tut3 10"
 				}
@@ -891,7 +868,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "dotScale", 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "buffername", "gf.tut3" ], [ "mode", 0 ], [ "maxBufferDrawSamples", 1920 ] ],
+					"embedstate" : [ [ "showTriangles", 0 ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "mode", 0 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "displayRange", 0, 1 ], [ "trackerWidth", 2 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "bgColor", 1, 1, 1, 0 ], [ "chan", 0 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "fps", 30 ], [ "buffername", "gf.tut3" ], [ "dotVJitter", 0 ], [ "triangleOutColor", 1, 1, 1, 1 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-6",
 					"maxclass" : "jsui",
@@ -1060,7 +1037,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-10", 1 ],
-					"midpoints" : [ 80.833333333333343, 464.0, 191.5, 464.0 ],
+					"midpoints" : [ 77.0, 464.0, 191.5, 464.0 ],
 					"order" : 1,
 					"source" : [ "obj-4", 1 ]
 				}
@@ -1076,7 +1053,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-6", 0 ],
-					"midpoints" : [ 80.833333333333343, 466.5, 444.0, 466.5 ],
+					"midpoints" : [ 77.0, 466.5, 444.0, 466.5 ],
 					"order" : 0,
 					"source" : [ "obj-4", 1 ]
 				}
@@ -1140,44 +1117,34 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "Grainflow.voice~.mxe64",
+				"type" : "mx64"
+			}
+, 			{
 				"name" : "grainFlow.waveform~.js",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/jsui",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
 				"patcherrelativepath" : "../../../jsui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../../../patchers",
+				"name" : "grainflow.util.randomRangeList.maxpat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"patcherrelativepath" : "../../../patchers/util",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../../../patchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../../../code",
-				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../../../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.util.randomRangeList.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/Grainflow/patchers/util",
-				"patcherrelativepath" : "../../../patchers/util",
+				"name" : "grainflow~.maxpat",
+				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"patcherrelativepath" : "../../../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -1186,26 +1153,26 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 11.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"fontname" : [ "Lato" ],
 					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ]
+					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"fontface" : [ 0 ],
+					"fontname" : [ "Lato" ],
+					"fontsize" : [ 11.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
