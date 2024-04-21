@@ -2,7 +2,7 @@
 #include "c74_min.h"
 #include "gfUtils.h"
 
-const int INTERNALBLOCK = 16;
+const int INTERNALBLOCK = 32;
 using namespace c74::min;
 using namespace Grainflow;
 long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
@@ -221,6 +221,17 @@ public:
 		}
 	};
 
+	message<> rateQuantizeSemi{
+		this,
+		"rateQuantizeSemi",
+		"locks transpositions to a set step in semitones",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			
+			GrainMessage(GfUtils::PitchToRate((float)args[0]), GfParamName::rateQuantizeSemi, GfParamType::value);
+			return {};
+		}
+	};
+
 	// glisson
 	message<> glisson{
 		this,
@@ -337,6 +348,17 @@ public:
 		}
 	};
 
+	message<> trav{
+		this,
+		"trav",
+		"the amound grains are delayed in ms",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto value = (float)args[0] * 0.001f * samplerate();
+			GrainMessage(value, GfParamName::delay, GfParamType::base);
+			return {};
+		}
+	};
+
 	message<> delayRandom{
 		this,
 		"delayRandom",
@@ -345,6 +367,17 @@ public:
 			auto value = (float)args[0] * 0.001f * samplerate();
 		GrainMessage(value, GfParamName::delay, GfParamType::random);
 		return {};
+		}
+	};
+
+	message<> travRandom{
+		this,
+		"travRandom",
+		"the amound grains are delayed in ms",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto value = (float)args[0] * 0.001f * samplerate();
+			GrainMessage(value, GfParamName::delay, GfParamType::random);
+			return {};
 		}
 	};
 
@@ -357,6 +390,17 @@ public:
 			GrainMessage(value, GfParamName::delay, GfParamType::offset);
 			return {};
 		}
+	};
+
+	message<> travOffset{
+	this,
+	"travOffset",
+	"the amound grains are delayed in ms",
+	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		auto value = (float)args[0] * 0.001f * samplerate();
+		GrainMessage(value, GfParamName::delay, GfParamType::offset);
+		return {};
+	}
 	};
 
 	// Targets
