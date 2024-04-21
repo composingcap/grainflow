@@ -820,10 +820,32 @@ public:
 		"liveMode",
 		"",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			_livemode = (int)args[0] > 0;
+			
 			return {};
 		}
 	};
+
+	message<> startPoint{
+	this,
+	"startPoint",
+	"",
+	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		GrainMessage(args[0], GfParamName::startPoint, GfParamType::base);
+		return {};
+	}
+	};
+
+	message<> stopPoint{
+		this,
+		"stopPoint",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::stopPoint, GfParamType::base);
+			return {};
+		}
+	};
+
+
 
 #pragma endregion
 #pragma region MAX_ATTR

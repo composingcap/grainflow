@@ -79,8 +79,8 @@ void grainflow_voice_tilde::ProccessGrain(MspGrain* thisGrain, int g, IoConfig i
 	if (ioConfig.in[ioConfig.grainClock][0] == ioConfig.in[ioConfig.grainClock][1])
 		return;
 
-	memset(ioConfig.out[g + ioConfig.grainBufferChannel], chan + 1, sizeof(double) * _ioConfig.blockSize);
-	memset(ioConfig.out[g + ioConfig.grainStreamChannel], stream + 1, sizeof(double) * _ioConfig.blockSize);
+	//memset(ioConfig.out[g + ioConfig.grainBufferChannel], chan + 1, sizeof(double) * _ioConfig.blockSize);
+	//memset(ioConfig.out[g + ioConfig.grainStreamChannel], stream + 1, sizeof(double) * _ioConfig.blockSize);
 
 	for (int i = 0; i < ioConfig.blockSize / INTERNALBLOCK; i++)
 	{
@@ -108,6 +108,9 @@ void grainflow_voice_tilde::ProccessGrain(MspGrain* thisGrain, int g, IoConfig i
 			ioConfig.out[g + ioConfig.grainEnvelope][v] *= valueFrame.density;
 			ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainAmp][v] * 0.5;
 			ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainEnvelope][v];
+			ioConfig.out[g + ioConfig.grainStreamChannel][v] = stream+1;
+			ioConfig.out[g + ioConfig.grainBufferChannel][v] = chan+1;
+
 		}
 	}
 }
@@ -126,7 +129,7 @@ void grainflow_voice_tilde::GrainMessage(float value, GfParamName param, GfParam
 	{
 		for (int g = 0; g < maxGrains; g++)
 		{
-			if (grainInfo[g].stream - 1 != _streamTarget)
+			if (grainInfo[g].stream + 1 != _streamTarget)
 				continue;
 			grainInfo[g].ParamSet(value, param, type);
 		}
@@ -137,7 +140,7 @@ void grainflow_voice_tilde::GrainMessage(float value, GfParamName param, GfParam
 	{
 		for (int g = 0; g < maxGrains; g++)
 		{
-			if (grainInfo[g].bchan - 1 != _channelTarget)
+			if (grainInfo[g].bchan + 1 != _channelTarget)
 				continue;
 			grainInfo[g].ParamSet(value, param, type);
 		}
