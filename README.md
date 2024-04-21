@@ -1,5 +1,12 @@
 This branch is used for developing the grainflow~ external 
 
+###  In Progress
+🔲 Replace Grainflow.Waveform~ with and external \
+🔲 Replace Grainflow.Spatview~ with and external \
+🔲 The ability to set loop points per grain \
+🔲 Ensuring legacy compatibility \
+🔲 Stress testing
+
 ## Features
 *If there is a feature not on this list that you use or would like, please open an issue* \
 ✔️ Soundfile granulation\
@@ -11,9 +18,7 @@ This branch is used for developing the grainflow~ external
 ✔️ Support  for granulating different buffers with each grain\
 ✔️ Support for grouping grains into streams\
 ✔️ 2D envelope buffers
-###  In Progress
-🔲 Replace Grainflow.Waveform~ with and external \
-🔲 Replace Grainflow.Spatview~ with and external
+
 ### Removed features
 ✖️ The abiltiy to manually trigger grains
 ✖️ Pitch/Rate quantization  
@@ -40,10 +45,21 @@ If you would like to place grainflow in you Max Packages directory, make sure to
 git clone https://github.com/composingcap/grainflow.git -b f/external --recursive
 ```
 ### Building grainflow.voice~
+#### Windows:
+*Windows builds should use the MSVC compiler*
 ```
 cd ./grainflow
 mkdir ./build
 cd build
 cmake ../
+cmake --build . --config Release
+```
+#### Mac:
+*Mac builds should use the Xcode compiler (not Apple clang)*
+```
+cd ./grainflow
+mkdir ./build
+cd build
+cmake ../ -G Xcode
 cmake --build . --config Release
 ```
