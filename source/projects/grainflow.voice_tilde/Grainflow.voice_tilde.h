@@ -896,6 +896,16 @@ public:
 		}
 	};
 
+	message<> loopMode{
+	this,
+	"loopMode",
+	"",
+	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		GrainMessage(args[0], GfParamName::loopMode, GfParamType::base);
+		return {};
+	}
+	};
+
 
 
 #pragma endregion
