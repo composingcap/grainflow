@@ -2,7 +2,8 @@
 #include "c74_min.h"
 #include "gfUtils.h"
 
-const int INTERNALBLOCK = 32;
+#define INTERNALBLOCK 32
+
 using namespace c74::min;
 using namespace Grainflow;
 long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
@@ -53,9 +54,10 @@ private:
 	bool _livemode = 0;
 	std::random_device rd;
 	IoConfig _ioConfig;
-	double grainClockTemp[INTERNALBLOCK];
 	double sampleIdTemp[INTERNALBLOCK];
-	int densityTemp[INTERNALBLOCK];
+	float densityTemp[INTERNALBLOCK];
+	float ampTemp[INTERNALBLOCK];
+	double tempDouble[INTERNALBLOCK];
 
 public:
 	int input_chans[4] = { 0, 0, 0, 0 };
@@ -89,6 +91,11 @@ public:
 	void Reinit(int grains);
 
 #pragma endregion
+
+
+
+
+
 
 #pragma region MAX_ARGS
 	argument<symbol> buffer{

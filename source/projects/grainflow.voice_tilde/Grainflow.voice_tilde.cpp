@@ -46,6 +46,7 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 	_ioConfig.grainBufferChannel = 6 * maxGrains;
 	_ioConfig.grainStreamChannel = 7 * maxGrains;
 
+
 	// Clear unused channels or we will get garbage
 	_ioConfig.blockSize = output.frame_count();
 	for (int g = 0; g < (maxGrains) * 8; g++)
@@ -66,56 +67,79 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 void grainflow_voice_tilde::ProccessGrain(MspGrain* thisGrain, int g, IoConfig ioConfig)
 {
 	if (ioConfig.blockSize < INTERNALBLOCK) return;
+	float emptyBuffer[1] = { 0 };
 	buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
 	buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
+
+	float* envelopeBuffer = emptyBuffer;
+	int envelopeFrames = 1;
+	if (envelopeSamples.valid()) {
+		envelopeBuffer = &envelopeSamples[0];
+		envelopeFrames = envelopeSamples.frame_count();
+	}
+
+	float* grainBuffer = emptyBuffer;
+	int grainFrames = 1;
+	int grainNChannels = 1;
+	if (envelopeSamples.valid()) {
+		grainBuffer = &grainSamples[0];
+		grainFrames = grainSamples.frame_count();
+		grainNChannels = grainSamples.channel_count();
+	}
+
 	thisGrain->SetSampleRateAdjustment(ioConfig.livemode ? 1 : grainSamples.samplerate() / samplerate());
 	thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 1);
+
+
+
 	// Determine the channel to pull from for each grain.
 
 	size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
 	double stream = thisGrain->stream;
-	float windowPortion = std::clamp(1 - thisGrain->space.value, 0.0001f, 1.0f);
+	float windowPortion = 1/std::clamp(1 - thisGrain->space.value, 0.0001f, 1.0f);
 	// Check grain clock to make sure it is moving
 	if (ioConfig.in[ioConfig.grainClock][0] == ioConfig.in[ioConfig.grainClock][1])
 		return;
 
 	//memset(ioConfig.out[g + ioConfig.grainBufferChannel], chan + 1, sizeof(double) * _ioConfig.blockSize);
 	//memset(ioConfig.out[g + ioConfig.grainStreamChannel], stream + 1, sizeof(double) * _ioConfig.blockSize);
+	float windowVal = thisGrain->window.value;
+
 
 	for (int i = 0; i < ioConfig.blockSize / INTERNALBLOCK; i++)
 	{
 		int block = i * INTERNALBLOCK;
 		auto amp = thisGrain->amplitude.value;
-		for (int j = 0; j < INTERNALBLOCK; j++) {
-			const int v = i * INTERNALBLOCK + j;
-			grainClockTemp[j] = ioConfig.in[ioConfig.grainClock][v] + thisGrain->window.value;
-			grainClockTemp[j] -= (int)grainClockTemp[j];
-			grainClockTemp[j] /= windowPortion;
-			grainClockTemp[j] *= grainClockTemp[j] < 1;
-			ioConfig.out[g + ioConfig.grainProgress][v] = grainClockTemp[j];
-		}
-		auto valueTable = thisGrain->GrainReset(grainClockTemp, &ioConfig.in[ioConfig.traversalPhasor][block], &ioConfig.out[g + ioConfig.grainState][block], INTERNALBLOCK);
+		double* grainClock = &ioConfig.in[ioConfig.grainClock][block];
+		double* inputAmp = &ioConfig.in[ioConfig.am][block];
+		double* fm = &ioConfig.in[ioConfig.fm][block];
+		double* traversalPhasor = &ioConfig.in[ioConfig.traversalPhasor][block];
+		
+		double* grainProgress = &ioConfig.out[g + ioConfig.grainProgress][block];
+		double* grainState = &ioConfig.out[g + ioConfig.grainState][block];
+		double* grainPlayhead = &ioConfig.out[g + ioConfig.grainPlayhead][block];
+		double* grainAmp = &ioConfig.out[g + ioConfig.grainAmp][block];
+		double* grainEnvelope = &ioConfig.out[g + ioConfig.grainEnvelope][block];
+		double* grainOutput = &ioConfig.out[g + ioConfig.grainOutput][block];
+		double* grainChannels = &ioConfig.out[g + ioConfig.grainBufferChannel][block];
+		double* grainStreams = &ioConfig.out[g + ioConfig.grainStreamChannel][block];
 
-		thisGrain->Increment(&ioConfig.in[ioConfig.fm][block], grainClockTemp, sampleIdTemp, INTERNALBLOCK);
-		thisGrain->SampleEnvelope(envelopeSamples, &ioConfig.out[g + ioConfig.grainEnvelope][block], grainClockTemp, INTERNALBLOCK);
-		thisGrain->SampleBuffer(grainSamples, &ioConfig.out[g + ioConfig.grainOutput][block], sampleIdTemp, INTERNALBLOCK);
-
-		for (int j = 0; j < INTERNALBLOCK; j++) {
-			const int v = i * INTERNALBLOCK + j;
-			auto valueFrame = valueTable[(int)ioConfig.out[g + ioConfig.grainState][v]];
-			ioConfig.out[g + ioConfig.grainPlayhead][v] = sampleIdTemp[j] * thisGrain->oneOverBufferFrames * valueFrame.density;
-			ioConfig.out[g + ioConfig.grainAmp][v] = (1 - ioConfig.in[ioConfig.am][v]) * valueFrame.amplitude * valueFrame.density;
-			ioConfig.out[g + ioConfig.grainEnvelope][v] *= valueFrame.density;
-			ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainAmp][v] * 0.5;
-			ioConfig.out[g + ioConfig.grainOutput][v] *= ioConfig.out[g + ioConfig.grainEnvelope][v];
-			ioConfig.out[g + ioConfig.grainStreamChannel][v] = stream+1;
-			ioConfig.out[g + ioConfig.grainBufferChannel][v] = chan+1;
-
-		}
+		thisGrain->ProccessGrainClock(grainClock, grainProgress, windowVal, windowPortion, INTERNALBLOCK);
+		auto valueFrames = thisGrain->GrainReset(grainProgress, traversalPhasor, grainState, INTERNALBLOCK);
+		thisGrain->Increment(fm, grainProgress, sampleIdTemp, tempDouble, INTERNALBLOCK);
+		thisGrain->SampleEnvelope(envelopeBuffer, envelopeFrames, grainEnvelope, grainProgress, INTERNALBLOCK);
+		thisGrain->SampleBuffer(grainBuffer, grainFrames, grainNChannels, grainOutput, sampleIdTemp, INTERNALBLOCK);
+		thisGrain->ExpandValueTable(valueFrames, grainState, ampTemp, densityTemp, INTERNALBLOCK);
+		thisGrain->OuputBlock(sampleIdTemp, ampTemp, densityTemp, thisGrain->oneOverBufferFrames, stream, chan, inputAmp, grainPlayhead, grainAmp, grainEnvelope, grainOutput, grainChannels, grainStreams, INTERNALBLOCK);
 	}
+
+
+	
 }
 
 #pragma endregion
+
+
 
 /// <summary>
 /// Helper to make targeting grains easier

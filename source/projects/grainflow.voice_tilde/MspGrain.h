@@ -34,42 +34,38 @@ using namespace c74::min;
                 param->value = paramBuf.lookup(frame, 0);
             }
 
-            inline void SampleBuffer(buffer_lock<>& buffer, double* samples, double* positions, const int size)
+            inline void SampleBuffer(const float* buffer, const int frames, const int channels, double* __restrict samples, double* positions, const int size)
             {
-                if (!buffer.valid()) return;
                 for (int i = 0; i < size; i++) {
-                    auto channels = buffer.channel_count();
-                    auto frames = buffer.frame_count();
+
                     auto chan = bchan < channels ? bchan : bchan % channels;
                     auto position = positions[i];
-                    auto frame = static_cast<size_t>((position));
+                    auto frame = (size_t)(position);
                     auto tween = position - frame;
-                    //frame %= frames;
                     samples[i] = buffer[frame * channels + chan] * (1 - tween) + buffer[((frame + 1) * ((frame + 1) < frames) * channels + chan)] * tween;
-            ;
-                    
+                   
                 }
             }
 
-            inline void SampleEnvelope(buffer_lock<>& buffer, double* samples, double* grainClock, const int size)
+
+            inline void SampleEnvelope(const float* buffer, const int frames,  double* __restrict samples, double* grainClock, const int size)
             {
-                if (!buffer.valid()) return;
                 auto nEnvelopes = this->nEnvelopes.value;
                 if (nEnvelopes <= 1)
                 {
                     for (int i = 0; i < size; i++) {
-                        auto frame = static_cast<size_t>((grainClock[i] * buffer.frame_count()));
+                        auto frame = (size_t)(grainClock[i] * frames);
                         samples[i] = buffer[frame];
                     }
                     return;
                 }
                 for (int i = 0; i < size; i++) {
-                    int sizePerEnvelope = buffer.frame_count() / nEnvelopes;
+                    int sizePerEnvelope = frames / nEnvelopes;
                     int env1 = (int)(envelope.value * nEnvelopes);
                     int env2 = env1 + 1;
                     float fade = envelope.value * nEnvelopes - env1;
                     auto frame = static_cast<size_t>((grainClock[i] * sizePerEnvelope));
-                    samples[i] = buffer[(env1 * sizePerEnvelope + frame) % buffer.frame_count()] * (1 - fade) + buffer[(env2 * sizePerEnvelope + frame) % buffer.frame_count()] * fade;
+                    samples[i] = buffer[(env1 * sizePerEnvelope + frame) % frames] * (1 - fade) + buffer[(env2 * sizePerEnvelope + frame) % frames] * fade;
                 }
             };
         };
