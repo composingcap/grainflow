@@ -58,6 +58,7 @@ private:
 	float densityTemp[INTERNALBLOCK];
 	float ampTemp[INTERNALBLOCK];
 	double tempDouble[INTERNALBLOCK];
+	float emptyBuffer[10] = {};
 
 public:
 	int input_chans[4] = { 0, 0, 0, 0 };

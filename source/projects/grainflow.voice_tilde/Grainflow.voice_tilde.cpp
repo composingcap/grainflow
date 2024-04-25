@@ -67,7 +67,7 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 void grainflow_voice_tilde::ProccessGrain(MspGrain* thisGrain, int g, IoConfig ioConfig)
 {
 	if (ioConfig.blockSize < INTERNALBLOCK) return;
-	float emptyBuffer[1] = { 0 };
+	
 	buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
 	buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
 
@@ -81,13 +81,13 @@ void grainflow_voice_tilde::ProccessGrain(MspGrain* thisGrain, int g, IoConfig i
 	float* grainBuffer = emptyBuffer;
 	int grainFrames = 1;
 	int grainNChannels = 1;
-	if (envelopeSamples.valid()) {
+	if (grainSamples.valid()) {
 		grainBuffer = &grainSamples[0];
 		grainFrames = grainSamples.frame_count();
 		grainNChannels = grainSamples.channel_count();
 	}
 
-	thisGrain->SetSampleRateAdjustment(ioConfig.livemode ? 1 : grainSamples.samplerate() / samplerate());
+	thisGrain->SetSampleRateAdjustment(ioConfig.livemode ? 1 : (grainSamples.valid()?grainSamples.samplerate(): samplerate()) / samplerate());
 	thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 1);
 
 
