@@ -66,28 +66,7 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 
 		auto thisGrain = &grainInfo[g];
 
-		buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer))); //These locks must be in the outer scope
-		buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
-
-		float* envelopeBuffer = emptyBuffer;
-		int envelopeFrames = 1;
-		if (envelopeSamples.valid()) {
-			envelopeBuffer = &envelopeSamples[0];
-			envelopeFrames = envelopeSamples.frame_count();
-		}
-
-		float* grainBuffer = emptyBuffer;
-		int grainFrames = 1;
-		int grainNChannels = 1;
-		int grainSr = samplerate();
-		if (grainSamples.valid()) {
-			grainBuffer = &grainSamples[0];
-			grainFrames = grainSamples.frame_count();
-			grainNChannels = grainSamples.channel_count();
-			grainSr = grainSamples.samplerate();
-		}
-
-		thisGrain->Proccess(_ioConfig, grainBuffer, envelopeBuffer, grainFrames, grainNChannels, grainSr, envelopeFrames);
+		thisGrain->Proccess(_ioConfig);
 		
 	}
 }

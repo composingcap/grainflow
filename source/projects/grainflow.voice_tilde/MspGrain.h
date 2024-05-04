@@ -35,28 +35,55 @@ using namespace c74::min;
                 param->value = paramBuf.lookup(frame, 0);
             }
 
-            inline void SampleBuffer(const float* buffer, const int frames, const int channels, double* __restrict samples, double* positions, const int size)
+            inline void SampleBuffer(buffer_reference* ref, double* __restrict samples, double* positions, const int size)
             {
+                buffer_lock<> sampleLock(*ref);
+                if (!sampleLock.valid()) return;
+                int frames = sampleLock.frame_count();
+                int channels = sampleLock.channel_count();
                 for (int i = 0; i < size; i++) {
 
                     auto chan = this->bchan < channels ? this->bchan : this->bchan % channels;
                     auto position = positions[i];
                     auto frame = (size_t)(position);
                     auto tween = position - frame;
-                    samples[i] = buffer[frame * channels + chan] * (1 - tween) + buffer[((frame + 1) * ((frame + 1) < frames) * channels + chan)] * tween;
+                    samples[i] = sampleLock[frame * channels + chan] * (1 - tween) + sampleLock[((frame + 1) * ((frame + 1) < frames) * channels + chan)] * tween;
                    
                 }
             }
 
+            inline void UpdateBufferInfo(buffer_reference* ref, gfIoConfig ioConfig) {
+              
+                buffer_lock<> sampleLock(*ref);
+                if (ioConfig.livemode || !sampleLock.valid()) {
+                    this->sampleRateAdjustment = 1;
+                    this->bufferFrames = 0;
+                    this->oneOverBufferFrames = 1;
+                    return;
+                }
+                this->bufferFrames = sampleLock.frame_count();
+                this->oneOverBufferFrames = 1.0f / this->bufferFrames;
+                this->sampleRateAdjustment = sampleLock.samplerate() / ioConfig.samplerate;
+                this -> chan = (this->bchan) % sampleLock.channel_count();
 
-            inline void SampleEnvelope(const float* buffer, const int frames,  double* __restrict samples, double* grainClock, const int size)
+
+
+
+            }
+
+
+            inline void SampleEnvelope(buffer_reference* ref, double* __restrict samples, double* grainClock, const int size)
             {
+                buffer_lock<> envelopeLock(*ref);
+                if (!envelopeLock.valid()) return;
                 auto nEnvelopes = this->nEnvelopes.value;
+                int frames = envelopeLock.frame_count();
+
                 if (nEnvelopes <= 1)
                 {
                     for (int i = 0; i < size; i++) {
                         auto frame = (size_t)(grainClock[i] * frames);
-                        samples[i] = buffer[frame];
+                        samples[i] = envelopeLock[frame];
                     }
                     return;
                 }
@@ -66,7 +93,7 @@ using namespace c74::min;
                     int env2 = env1 + 1;
                     float fade = this->envelope.value * nEnvelopes - env1;
                     auto frame = static_cast<size_t>((grainClock[i] * sizePerEnvelope));
-                    samples[i] = buffer[(env1 * sizePerEnvelope + frame) % frames] * (1 - fade) + buffer[(env2 * sizePerEnvelope + frame) % frames] * fade;
+                    samples[i] = envelopeLock[(env1 * sizePerEnvelope + frame) % frames] * (1 - fade) + envelopeLock[(env2 * sizePerEnvelope + frame) % frames] * fade;
                 }
             };
         };
