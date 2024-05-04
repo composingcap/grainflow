@@ -56,20 +56,11 @@ using namespace c74::min;
             inline void UpdateBufferInfo(buffer_reference* ref, gfIoConfig ioConfig) {
               
                 buffer_lock<> sampleLock(*ref);
-                if (ioConfig.livemode || !sampleLock.valid()) {
-                    this->sampleRateAdjustment = 1;
-                    this->bufferFrames = 0;
-                    this->oneOverBufferFrames = 1;
-                    return;
-                }
-                this->bufferFrames = sampleLock.frame_count();
-                this->oneOverBufferFrames = 1.0f / this->bufferFrames;
-                this->sampleRateAdjustment = sampleLock.samplerate() / ioConfig.samplerate;
-                this -> chan = (this->bchan) % sampleLock.channel_count();
 
-
-
-
+                this->bufferFrames = sampleLock.valid() ? sampleLock.frame_count(): 1;
+                this->oneOverBufferFrames = sampleLock.valid() ? 1.0f / this->bufferFrames : 0;
+                this->sampleRateAdjustment = sampleLock.valid() && !ioConfig.livemode ? sampleLock.samplerate() / ioConfig.samplerate : 1;
+                this->chan = sampleLock.valid() ? (this->bchan) % sampleLock.channel_count() : 1;
             }
 
 
