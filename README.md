@@ -4,7 +4,6 @@ This branch is used for developing the grainflow~ external
 🔲 Replace Grainflow.Waveform~ with and external \
 🔲 Replace Grainflow.Spatview~ with and external \
 🔲 The ability to set loop points per grain \
-🔲 Ensuring legacy compatibility \
 🔲 Stress testing
 
 ## Features
@@ -21,7 +20,6 @@ This branch is used for developing the grainflow~ external
 
 ### Removed features
 ✖️ The abiltiy to manually trigger grains
-✖️ Pitch/Rate quantization  
 ✖️ The abilty to store configurations in dictionaries
 
 
