@@ -25,7 +25,7 @@ using namespace c74::min;
                 size_t frame = 0;
                 if (param->mode == GfBufferMode::buffer_sequence)
                 {
-                    frame = this->index % paramBuf.frame_count();
+                    frame = this->g % paramBuf.frame_count();
                 }
                 else if (param->mode == GfBufferMode::buffer_random)
                 {
@@ -41,9 +41,10 @@ using namespace c74::min;
                 if (!sampleLock.valid()) return;
                 int frames = sampleLock.frame_count();
                 int channels = sampleLock.channel_count();
+                channels = std::max(channels, 1);
+                auto chan = this->bchan < channels ? this->bchan : this->bchan % channels;
                 for (int i = 0; i < size; i++) {
-
-                    auto chan = this->bchan < channels ? this->bchan : this->bchan % channels;
+                    if (!sampleLock.valid()) return;
                     auto position = positions[i];
                     auto frame = (size_t)(position);
                     auto tween = position - frame;
@@ -82,12 +83,14 @@ using namespace c74::min;
                 if (nEnvelopes <= 1)
                 {
                     for (int i = 0; i < size; i++) {
+                        if (!envelopeLock.valid()) return;
                         auto frame = (size_t)(grainClock[i] * frames);
                         samples[i] = envelopeLock[frame];
                     }
                     return;
                 }
                 for (int i = 0; i < size; i++) {
+                    if (!envelopeLock.valid()) return;
                     int sizePerEnvelope = frames / nEnvelopes;
                     int env1 = (int)(this->envelope.value * nEnvelopes);
                     int env2 = env1 + 1;

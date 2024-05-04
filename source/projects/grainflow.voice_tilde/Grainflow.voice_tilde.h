@@ -6,8 +6,8 @@ constexpr size_t INTERNALBLOCK = 16;
 
 using namespace c74::min;
 using namespace Grainflow;
-long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
-long simplemc_inputchanged(c74::max::t_object* x, long index, long count);
+long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count);
+long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 
 class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<>
 {
