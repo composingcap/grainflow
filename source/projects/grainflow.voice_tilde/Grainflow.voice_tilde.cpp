@@ -49,6 +49,7 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 
 	// Clear unused channels or we will get garbage
 	_ioConfig.blockSize = output.frame_count();
+	_ioConfig.samplerate = samplerate();
 	for (int g = 0; g < (maxGrains) * 8; g++)
 	{
 		memset(_ioConfig.out[g], double(0), sizeof(double) * _ioConfig.blockSize);
@@ -60,81 +61,35 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 		_ioConfig.traversalPhasor = _ioConfig.traversalPhasorCh + (g % input_chans[1]);
 		_ioConfig.fm = _ioConfig.fmCh + (g % input_chans[2]);
 		_ioConfig.am = _ioConfig.amCh + (g % input_chans[3]);
-		ProccessGrain(&grainInfo[g], g, _ioConfig);
-	}
-}
 
-void grainflow_voice_tilde::ProccessGrain(MspGrain* thisGrain, int g, IoConfig ioConfig)
-{
-	if (ioConfig.blockSize < INTERNALBLOCK) return;
-	
-	buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer)));
-	buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
+		if (_ioConfig.blockSize < INTERNALBLOCK) return;
 
-	float* envelopeBuffer = emptyBuffer;
-	int envelopeFrames = 1;
-	if (envelopeSamples.valid()) {
-		envelopeBuffer = &envelopeSamples[0];
-		envelopeFrames = envelopeSamples.frame_count();
-	}
+		auto thisGrain = &grainInfo[g];
 
-	float* grainBuffer = emptyBuffer;
-	int grainFrames = 1;
-	int grainNChannels = 1;
-	if (grainSamples.valid()) {
-		grainBuffer = &grainSamples[0];
-		grainFrames = grainSamples.frame_count();
-		grainNChannels = grainSamples.channel_count();
-	}
+		buffer_lock<> grainSamples(*(thisGrain->GetBuffer(GFBuffers::buffer))); //These locks must be in the outer scope
+		buffer_lock<> envelopeSamples(*(thisGrain->GetBuffer(GFBuffers::envelope)));
 
-	thisGrain->SetSampleRateAdjustment(ioConfig.livemode ? 1 : (grainSamples.valid()?grainSamples.samplerate(): samplerate()) / samplerate());
-	thisGrain->SetBufferFrames(grainSamples.valid() ? grainSamples.frame_count() : 1);
+		float* envelopeBuffer = emptyBuffer;
+		int envelopeFrames = 1;
+		if (envelopeSamples.valid()) {
+			envelopeBuffer = &envelopeSamples[0];
+			envelopeFrames = envelopeSamples.frame_count();
+		}
 
+		float* grainBuffer = emptyBuffer;
+		int grainFrames = 1;
+		int grainNChannels = 1;
+		int grainSr = samplerate();
+		if (grainSamples.valid()) {
+			grainBuffer = &grainSamples[0];
+			grainFrames = grainSamples.frame_count();
+			grainNChannels = grainSamples.channel_count();
+			grainSr = grainSamples.samplerate();
+		}
 
-
-	// Determine the channel to pull from for each grain.
-
-	size_t chan = grainSamples.valid() ? (thisGrain->bchan) % grainSamples.channel_count() : 0;
-	double stream = thisGrain->stream;
-	float windowPortion = 1/std::clamp(1 - thisGrain->space.value, 0.0001f, 1.0f);
-	// Check grain clock to make sure it is moving
-	if (ioConfig.in[ioConfig.grainClock][0] == ioConfig.in[ioConfig.grainClock][1])
-		return;
-
-	//memset(ioConfig.out[g + ioConfig.grainBufferChannel], chan + 1, sizeof(double) * _ioConfig.blockSize);
-	//memset(ioConfig.out[g + ioConfig.grainStreamChannel], stream + 1, sizeof(double) * _ioConfig.blockSize);
-	float windowVal = thisGrain->window.value;
-
-
-	for (int i = 0; i < ioConfig.blockSize / INTERNALBLOCK; i++)
-	{
-		int block = i * INTERNALBLOCK;
-		auto amp = thisGrain->amplitude.value;
-		double* grainClock = &ioConfig.in[ioConfig.grainClock][block];
-		double* inputAmp = &ioConfig.in[ioConfig.am][block];
-		double* fm = &ioConfig.in[ioConfig.fm][block];
-		double* traversalPhasor = &ioConfig.in[ioConfig.traversalPhasor][block];
+		thisGrain->Proccess(_ioConfig, grainBuffer, envelopeBuffer, grainFrames, grainNChannels, grainSr, envelopeFrames);
 		
-		double* grainProgress = &ioConfig.out[g + ioConfig.grainProgress][block];
-		double* grainState = &ioConfig.out[g + ioConfig.grainState][block];
-		double* grainPlayhead = &ioConfig.out[g + ioConfig.grainPlayhead][block];
-		double* grainAmp = &ioConfig.out[g + ioConfig.grainAmp][block];
-		double* grainEnvelope = &ioConfig.out[g + ioConfig.grainEnvelope][block];
-		double* grainOutput = &ioConfig.out[g + ioConfig.grainOutput][block];
-		double* grainChannels = &ioConfig.out[g + ioConfig.grainBufferChannel][block];
-		double* grainStreams = &ioConfig.out[g + ioConfig.grainStreamChannel][block];
-
-		thisGrain->ProccessGrainClock(grainClock, grainProgress, windowVal, windowPortion, INTERNALBLOCK);
-		auto valueFrames = thisGrain->GrainReset(grainProgress, traversalPhasor, grainState, INTERNALBLOCK);
-		thisGrain->Increment(fm, grainProgress, sampleIdTemp, tempDouble, INTERNALBLOCK);
-		thisGrain->SampleEnvelope(envelopeBuffer, envelopeFrames, grainEnvelope, grainProgress, INTERNALBLOCK);
-		thisGrain->SampleBuffer(grainBuffer, grainFrames, grainNChannels, grainOutput, sampleIdTemp, INTERNALBLOCK);
-		thisGrain->ExpandValueTable(valueFrames, grainState, ampTemp, densityTemp, INTERNALBLOCK);
-		thisGrain->OuputBlock(sampleIdTemp, ampTemp, densityTemp, thisGrain->oneOverBufferFrames, stream, chan, inputAmp, grainPlayhead, grainAmp, grainEnvelope, grainOutput, grainChannels, grainStreams, INTERNALBLOCK);
 	}
-
-
-	
 }
 
 #pragma endregion
@@ -247,7 +202,7 @@ void grainflow_voice_tilde::Cleanup()
 void grainflow_voice_tilde::Reinit(int grains)
 {
 	Cleanup();
-	grainInfo = std::unique_ptr<MspGrain[]>(new MspGrain[grains]);
+	grainInfo = std::unique_ptr<MspGrain<INTERNALBLOCK>[]>(new MspGrain<INTERNALBLOCK>[grains]);
 	maxGrains = grains;
 	Init();
 }

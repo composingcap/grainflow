@@ -2,36 +2,12 @@
 #include "c74_min.h"
 #include "gfUtils.h"
 
-#define INTERNALBLOCK 32
+constexpr size_t INTERNALBLOCK = 16;
 
 using namespace c74::min;
 using namespace Grainflow;
 long simplemc_multichanneloutputs(c74::max::t_object* x, long index, long count);
 long simplemc_inputchanged(c74::max::t_object* x, long index, long count);
-
-struct IoConfig
-{
-	double** in;
-	double** out;
-	int grainClockCh = 0;
-	int traversalPhasorCh;
-	int fmCh;
-	int amCh;
-	int grainOutput = 0;
-	int grainState;
-	int grainProgress;
-	int grainPlayhead;
-	int grainAmp;
-	int grainEnvelope;
-	int grainBufferChannel;
-	int grainStreamChannel;
-	int grainClock;
-	int traversalPhasor;
-	int fm;
-	int am;
-	bool livemode;
-	int blockSize;
-};
 
 class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<>
 {
@@ -42,7 +18,7 @@ public:
 	MIN_RELATED{ "" };
 
 private:
-	std::unique_ptr<MspGrain[]> grainInfo;
+	std::unique_ptr<MspGrain<INTERNALBLOCK>[]> grainInfo;
 	string bufferArg;
 	string envArg;
 	int _ngrains = 0;
@@ -53,11 +29,7 @@ private:
 	int _nstreams = 0;
 	bool _livemode = 0;
 	std::random_device rd;
-	IoConfig _ioConfig;
-	double sampleIdTemp[INTERNALBLOCK];
-	float densityTemp[INTERNALBLOCK];
-	float ampTemp[INTERNALBLOCK];
-	double tempDouble[INTERNALBLOCK];
+	gfIoConfig _ioConfig;
 	float emptyBuffer[10] = {};
 
 public:
@@ -83,7 +55,6 @@ public:
 	int GetMaxGrains();
 	~grainflow_voice_tilde();
 	void operator()(audio_bundle input, audio_bundle output);
-	void ProccessGrain(MspGrain* thisGrain, int g, IoConfig ioConfig);
 	void GrainMessage(float value, GfParamName param, GfParamType type);
 	void BufferRefMessage(string bname, GFBuffers type);
 	void BufferRefresh(GFBuffers type);
@@ -115,7 +86,7 @@ public:
 		[this](const c74::min::atom& arg) {
 			maxGrains = (int)arg;
 			if (maxGrains < 1) maxGrains = 2;
-			grainInfo = std::unique_ptr<MspGrain[]>(new MspGrain[maxGrains]);
+			grainInfo = std::unique_ptr<MspGrain<INTERNALBLOCK>[]>(new MspGrain<INTERNALBLOCK>[maxGrains]);
 			_ngrains = 0;
 		}	
 	};

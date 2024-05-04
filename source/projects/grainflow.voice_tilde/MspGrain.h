@@ -6,16 +6,17 @@
 using namespace c74::min;
     namespace Grainflow
     {
-        class MspGrain : public IGrain<buffer_reference, buffer_lock<>>
+        template<size_t BLOCKSIZE>
+        class MspGrain : public IGrain<buffer_reference, buffer_lock<>, BLOCKSIZE>
         {
         public:
             inline void SampleParamBuffer(GFBuffers bufferType, GfParamName paramName)
             {
-                auto buf = GetBuffer(bufferType);
-                auto param = ParamGetHandle(paramName);
+                auto buf = this->GetBuffer(bufferType);
+                auto param = this->ParamGetHandle(paramName);
                 if (param->mode == GfBufferMode::normal || buf == nullptr)
                 {
-                    SampleParam(paramName);
+                    this->SampleParam(paramName);
                     return;
                 }
                 buffer_lock<> paramBuf(*buf);
@@ -24,11 +25,11 @@ using namespace c74::min;
                 size_t frame = 0;
                 if (param->mode == GfBufferMode::buffer_sequence)
                 {
-                    frame = index % paramBuf.frame_count();
+                    frame = this->index % paramBuf.frame_count();
                 }
                 else if (param->mode == GfBufferMode::buffer_random)
                 {
-                    frame = rd() % paramBuf.frame_count();
+                    frame = this->rd() % paramBuf.frame_count();
                 }
 
                 param->value = paramBuf.lookup(frame, 0);
@@ -38,7 +39,7 @@ using namespace c74::min;
             {
                 for (int i = 0; i < size; i++) {
 
-                    auto chan = bchan < channels ? bchan : bchan % channels;
+                    auto chan = this->bchan < channels ? this->bchan : this->bchan % channels;
                     auto position = positions[i];
                     auto frame = (size_t)(position);
                     auto tween = position - frame;
@@ -61,9 +62,9 @@ using namespace c74::min;
                 }
                 for (int i = 0; i < size; i++) {
                     int sizePerEnvelope = frames / nEnvelopes;
-                    int env1 = (int)(envelope.value * nEnvelopes);
+                    int env1 = (int)(this->envelope.value * nEnvelopes);
                     int env2 = env1 + 1;
-                    float fade = envelope.value * nEnvelopes - env1;
+                    float fade = this->envelope.value * nEnvelopes - env1;
                     auto frame = static_cast<size_t>((grainClock[i] * sizePerEnvelope));
                     samples[i] = buffer[(env1 * sizePerEnvelope + frame) % frames] * (1 - fade) + buffer[(env2 * sizePerEnvelope + frame) % frames] * fade;
                 }
