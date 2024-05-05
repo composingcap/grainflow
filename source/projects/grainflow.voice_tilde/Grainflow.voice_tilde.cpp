@@ -93,7 +93,7 @@ void grainflow_voice_tilde::GrainMessage(float value, GfParamName param, GfParam
 	{
 		for (int g = 0; g < maxGrains; g++)
 		{
-			if (grainInfo[g].bchan + 1 != _channelTarget)
+			if ((int)grainInfo[g].channel.value + 1 != _channelTarget)
 				continue;
 			grainInfo[g].ParamSet(value, param, type);
 		}

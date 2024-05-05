@@ -42,7 +42,7 @@ using namespace c74::min;
                 int frames = sampleLock.frame_count();
                 int channels = sampleLock.channel_count();
                 channels = std::max(channels, 1);
-                auto chan = this->bchan < channels ? this->bchan : this->bchan % channels;
+                auto chan = (int)this->channel.value % nchannels;
                 for (int i = 0; i < size; i++) {
                     if (!sampleLock.valid()) return;
                     auto position = positions[i];
@@ -60,7 +60,7 @@ using namespace c74::min;
                 this->bufferFrames = sampleLock.valid() ? sampleLock.frame_count(): 1;
                 this->oneOverBufferFrames = sampleLock.valid() ? 1.0f / this->bufferFrames : 0;
                 this->sampleRateAdjustment = sampleLock.valid() && !ioConfig.livemode ? sampleLock.samplerate() / ioConfig.samplerate : 1;
-                this->chan = sampleLock.valid() ? (this->bchan) % sampleLock.channel_count() : 1;
+                this->nchannels = sampleLock.valid() ? sampleLock.channel_count() : 1;
             }
 
 

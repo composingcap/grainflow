@@ -604,7 +604,7 @@ public:
 			int chans = args[0];
 			for (int g = 0; g < maxGrains; g++)
 			{
-				grainInfo[g].bchan = g % chans;
+				grainInfo[g].channel.base = g % chans;
 			}
 
 			return {};
@@ -631,8 +631,22 @@ public:
 
 			if (g >= maxGrains || g < 0)
 				return {};
-			grainInfo[g].bchan = chan - 1;
+			grainInfo[g].channel.base = chan - 1;
 
+			return {};
+		}
+	};
+
+	message<> chanMode{
+		this,
+		"chanMode",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			int mode = (float)args[0] >= 0.999f ? 1 : 0;
+			for (int g = 0; g < maxGrains; g++)
+			{
+				grainInfo[g].channel.random = mode;
+			}
 			return {};
 		}
 	};
@@ -658,8 +672,6 @@ public:
 			_target = lastTarget;
 			_streamTarget = lastStream;
 			_channelTarget = lastChannelTarget;
-			return {};
-
 			return {};
 		}
 	};
