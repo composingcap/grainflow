@@ -42,7 +42,7 @@ using namespace c74::min;
                 int frames = sampleLock.frame_count();
                 int channels = sampleLock.channel_count();
                 channels = std::max(channels, 1);
-                auto chan = (int)this->channel.value % nchannels;
+                auto chan = (int)this->channel.value % this->nchannels;
                 for (int i = 0; i < size; i++) {
                     if (!sampleLock.valid()) return;
                     auto position = positions[i];
