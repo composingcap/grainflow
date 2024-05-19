@@ -1,6 +1,9 @@
 #include "MspGrain.h"
 #include "c74_min.h"
 #include "gfUtils.h"
+#include <mutex>
+#include <atomic>
+
 
 constexpr size_t INTERNALBLOCK = 16;
 
@@ -31,10 +34,13 @@ private:
 	std::random_device rd;
 	gfIoConfig _ioConfig;
 	float emptyBuffer[10] = {};
+	int _maxGrains = 0;
 
 public:
 	int input_chans[4] = { 0, 0, 0, 0 };
-	int maxGrains = 0;
+	int maxGrainsThisFrame = 0;
+	std::mutex lock;
+
 #pragma region MAX_IO
 	inlet<> grainClock{ this, "(multichannelsignal) phasor input", "multichannelsignal" };
 	inlet<> traversalPhasor{ this, "(multichannelsignal) where the grain should be sampled from the buffer", "multichannelsignal" };
@@ -84,9 +90,9 @@ public:
 		"number-of-grains", 
 		"max number of grains",
 		[this](const c74::min::atom& arg) {
-			maxGrains = (int)arg;
-			if (maxGrains < 1) maxGrains = 2;
-			grainInfo = std::unique_ptr<MspGrain<INTERNALBLOCK>[]>(new MspGrain<INTERNALBLOCK>[maxGrains]);
+			_maxGrains =(int)arg;
+			if (_maxGrains < 1) _maxGrains = 2;
+			grainInfo = std::unique_ptr<MspGrain<INTERNALBLOCK>[]>(new MspGrain<INTERNALBLOCK>[_maxGrains]);
 			_ngrains = 0;
 		}	
 	};
@@ -128,8 +134,10 @@ public:
 		this,
 		"dspsetup",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			this->lock.lock();
 			oneOverSamplerate = 1 / samplerate();
 			BufferRefresh(GFBuffers::buffer); // This is needed so grainflow live can load buffers correctly.
+			this->lock.unlock();
 			return {};
 		}
 	};
@@ -487,9 +495,9 @@ public:
 				mode = GfStreamSetType::randomStreams;
 			else
 				return {};
-			for (int g = 0; g < maxGrains; g++)
+			for (int g = 0; g < _maxGrains; g++)
 			{
-				grainInfo[g].StreamSet(maxGrains, mode, _nstreams);
+				grainInfo[g].StreamSet(_maxGrains, mode, _nstreams);
 			}
 			return {};
 			}
@@ -521,7 +529,7 @@ public:
 			for (int s = 0; s < _nstreams; s++)
 			{
 				value = args[2];
-				for (int g = 0; g < maxGrains; g++)
+				for (int g = 0; g < _maxGrains; g++)
 				{
 					if (grainInfo[g].stream != s)
 						continue;
@@ -550,7 +558,7 @@ public:
 			for (int s = 0; s < _nstreams; s++)
 			{
 				value = GfUtils::Deviate(args[1], args[2]);
-				for (int g = 0; g < maxGrains; g++)
+				for (int g = 0; g < _maxGrains; g++)
 				{
 					if (grainInfo[g].stream != s)
 						continue;
@@ -580,7 +588,7 @@ public:
 			for (int s = 0; s < _nstreams; s++)
 			{
 				value = GfUtils::Lerp(args[1], args[2], (float)s / _nstreams);
-				for (int g = 0; g < maxGrains; g++)
+				for (int g = 0; g < _maxGrains; g++)
 				{
 					if (grainInfo[g].stream != s)
 						continue;
@@ -602,7 +610,7 @@ public:
 		"",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			int chans = args[0];
-			for (int g = 0; g < maxGrains; g++)
+			for (int g = 0; g < _maxGrains; g++)
 			{
 				grainInfo[g].channel.base = g % chans;
 			}
@@ -629,7 +637,7 @@ public:
 				chan = args[1];
 			}
 
-			if (g >= maxGrains || g < 0)
+			if (g >= _maxGrains || g < 0)
 				return {};
 			grainInfo[g].channel.base = chan - 1;
 
@@ -643,7 +651,7 @@ public:
 		"",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			int mode = (float)args[0] >= 0.999f ? 1 : 0;
-			for (int g = 0; g < maxGrains; g++)
+			for (int g = 0; g < _maxGrains; g++)
 			{
 				grainInfo[g].channel.random = mode;
 			}
@@ -664,7 +672,7 @@ public:
 			_streamTarget = 0;
 			_target = 0;
 			value = args[2];
-			for (int g = 0; g < maxGrains; g++)
+			for (int g = 0; g < _maxGrains; g++)
 			{
 				this->try_call((string)args[1], value);
 			}
@@ -687,7 +695,7 @@ public:
 				grainInfo[_target - 1].density = args[0];
 			return {};
 			}
-			for (int g = 0; g < maxGrains; g++)
+			for (int g = 0; g < _maxGrains; g++)
 			{
 				grainInfo[g].density = args[0];
 			}
@@ -700,7 +708,7 @@ public:
 		"ngrains",
 		"the number of active grains",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			_ngrains = (int)(args[0]) <= maxGrains ? (int)(args[0]) : maxGrains;
+			_ngrains = (int)(args[0]) <= _maxGrains ? (int)(args[0]) : _maxGrains;
 			return {};
 			}
 	};
