@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 3,
-			"revision" : 1,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -40,13 +40,24 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 15.0, 136.0, 56.0, 23.0 ],
+					"text" : "deferlow"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"bubble" : 1,
 					"id" : "obj-75",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 409.5, 107.0, 186.0, 25.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Meta grain length in ms"
 				}
 
@@ -109,7 +120,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 868.0, 226.0, 140.0, 39.0 ],
-					"presentation_linecount" : 3,
 					"text" : "Length of each loop in ms"
 				}
 
@@ -434,7 +444,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 15.0, 118.0, 56.0, 23.0 ],
+					"patching_rect" : [ 15.0, 107.0, 56.0, 23.0 ],
 					"text" : "loadbang"
 				}
 
@@ -519,8 +529,8 @@
 					"id" : "obj-1",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 8,
-					"outlettype" : [ "multichannelsignal", "bang", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"numoutlets" : 9,
+					"outlettype" : [ "multichannelsignal", "bang", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 73.833333333333343, 495.0, 141.0, 23.0 ],
 					"text" : "grainflow.live~ 60000 16"
 				}
@@ -529,7 +539,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "fps", 30 ], [ "chan", 0 ], [ "dotScale", 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "trackerWidth", 2 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "dotVJitter", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "mode", 0 ], [ "displayRange", 0, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "maxBufferDrawSamples", 1920 ], [ "buffername", "1448_flow_1" ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "showTriangles", 0 ], [ "selection", 0, 1 ] ],
+					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "trackerWidth", 2 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "chan", 0 ], [ "fps", 30 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "displayRange", 0, 1 ], [ "dotVJitter", 0 ], [ "showTriangles", 0 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "1066_flow_1" ], [ "maxBufferDrawSamples", 1920 ] ],
 					"filename" : "grainflow.waveform~",
 					"id" : "obj-55",
 					"maxclass" : "jsui",
@@ -552,7 +562,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-30", 0 ],
-					"midpoints" : [ 100.761904761904773, 528.0, 979.630952380952408, 528.0, 979.630952380952408, 351.0, 698.5, 351.0 ],
+					"midpoints" : [ 98.583333333333343, 528.0, 979.630952380952408, 528.0, 979.630952380952408, 351.0, 698.5, 351.0 ],
 					"order" : 0,
 					"source" : [ "obj-1", 1 ]
 				}
@@ -583,7 +593,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
+					"destination" : [ "obj-7", 0 ],
 					"source" : [ "obj-13", 0 ]
 				}
 
@@ -793,6 +803,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
 					"source" : [ "obj-70", 0 ]
 				}
@@ -820,11 +837,8 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../../../../patchers/_private",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "Grainflow.voice~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "grainFlow.waveform~.js",
@@ -859,13 +873,6 @@
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../../../../patchers/util",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../../../../code",
-				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{

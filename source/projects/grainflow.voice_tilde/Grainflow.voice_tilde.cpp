@@ -48,8 +48,8 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 	_ioConfig.grainPlayhead = 3 * maxGrainsThisFrame;
 	_ioConfig.grainAmp = 4 * maxGrainsThisFrame;
 	_ioConfig.grainEnvelope = 5 * maxGrainsThisFrame;
-	_ioConfig.grainBufferChannel = 6 * maxGrainsThisFrame;
-	_ioConfig.grainStreamChannel = 7 * maxGrainsThisFrame;
+	_ioConfig.grainStreamChannel = 6 * maxGrainsThisFrame;
+	_ioConfig.grainBufferChannel = 7 * maxGrainsThisFrame;
 
 
 	// Clear unused channels or we will get garbage
