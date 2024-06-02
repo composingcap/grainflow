@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 0,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 481.0, 278.0, 618.0, 744.0 ],
+		"rect" : [ 1454.0, 316.0, 618.0, 744.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -51,7 +51,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -289,12 +289,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 13.0, 429.0, 115.0, 45.0 ],
+									"patching_rect" : [ 13.0, 429.0, 115.0, 47.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[3]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "mc.live.gain~",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -530,7 +531,6 @@
 					}
 ,
 					"patching_rect" : [ 213.0, 62.0, 54.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -555,13 +555,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 481.0, 304.0, 618.0, 718.0 ],
+						"rect" : [ 0.0, 26.0, 618.0, 718.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -652,7 +652,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1232,12 +1232,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 20.0, 500.0, 115.0, 45.0 ],
+									"patching_rect" : [ 20.0, 500.0, 115.0, 47.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[2]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "mc.live.gain~",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -1504,7 +1505,6 @@
 					}
 ,
 					"patching_rect" : [ 90.0, 13.0, 87.0, 22.0 ],
-					"presentation_linecount" : 4,
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1529,13 +1529,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 618.0, 718.0 ],
+						"rect" : [ 1454.0, 342.0, 618.0, 718.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1565,6 +1565,18 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"buffername" : " ",
+									"id" : "obj-2",
+									"maxclass" : "grainflow.waveform~",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 218.0, 552.5, 300.0, 100.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-46",
 									"maxclass" : "comment",
@@ -1886,21 +1898,6 @@
 							}
 , 							{
 								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "bgColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0.5, 0, 0.9 ], [ "selection", 0, 1 ], [ "displayRange", 0, 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "dotScale", 5 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "mode", 0 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "buffername", "1010_flow_1" ], [ "dotColorSecondary", 0, 0.1, 0, 0.9 ], [ "chan", 0 ], [ "fps", 30 ], [ "trackerWidth", 2 ], [ "dotVJitter", 0 ], [ "maxBufferDrawSamples", 1920 ], [ "showTriangles", 0 ] ],
-									"filename" : "grainFlow.waveform~.js",
-									"id" : "obj-2",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 182.0, 561.0, 326.0, 97.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-8",
 									"maxclass" : "toggle",
 									"numinlets" : 1,
@@ -1921,12 +1918,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 9.0, 579.0, 115.0, 45.0 ],
+									"patching_rect" : [ 9.0, 579.0, 115.0, 47.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[1]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "mc.live.gain~",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -2029,7 +2027,6 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-2", 0 ],
-									"midpoints" : [ 32.0, 542.5, 191.5, 542.5 ],
 									"source" : [ "obj-1", 1 ]
 								}
 
@@ -2265,13 +2262,6 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainFlow.waveform~.js",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
-				"patcherrelativepath" : "../jsui",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "grainFlow~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
@@ -2305,6 +2295,10 @@
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.waveform~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "thru.maxpat",

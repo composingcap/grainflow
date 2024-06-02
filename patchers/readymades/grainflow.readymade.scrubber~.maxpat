@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
-			"revision" : 0,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -39,6 +39,19 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-43",
+					"maxclass" : "grainflow.waveform~",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 162.0, 132.75, 300.0, 100.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 186.25, 5.25, 452.0, 86.75 ]
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-73",
 					"maxclass" : "newobj",
@@ -113,6 +126,7 @@
 							"parameter_linknames" : 1,
 							"parameter_longname" : "grainSizeRandom[1]",
 							"parameter_mmax" : 100.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "grainSizeRandom",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 5
@@ -199,6 +213,7 @@
 							"parameter_linknames" : 1,
 							"parameter_longname" : "grainSizeRandom",
 							"parameter_mmax" : 100.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "grainSizeRandom",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 5
@@ -286,6 +301,7 @@
 							"parameter_linknames" : 1,
 							"parameter_longname" : "grainAmplitudeRandom",
 							"parameter_mmax" : 100.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "grainAmplitudeRandom",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 5
@@ -357,6 +373,7 @@
 							"parameter_linknames" : 1,
 							"parameter_longname" : "samplePositionRandom",
 							"parameter_mmax" : 500.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "samplePositionRandom",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 2
@@ -443,6 +460,7 @@
 							"parameter_linknames" : 1,
 							"parameter_longname" : "transpositionRandom",
 							"parameter_mmax" : 24.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "transpositionRandom",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 7
@@ -541,6 +559,7 @@
 							"parameter_longname" : "transposition",
 							"parameter_mmax" : 24.0,
 							"parameter_mmin" : -24.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "transposition",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 7
@@ -576,8 +595,8 @@
 					"id" : "obj-47",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"numoutlets" : 2,
+					"outlettype" : [ "multichannelsignal", "" ],
 					"patching_rect" : [ 362.0, 707.0, 157.0, 22.0 ],
 					"text" : "grainflow.util.stereoPan~ 100"
 				}
@@ -710,6 +729,7 @@
 							"parameter_linknames" : 1,
 							"parameter_longname" : "state",
 							"parameter_mmax" : 1,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "state",
 							"parameter_type" : 2
 						}
@@ -778,6 +798,7 @@
 							"parameter_longname" : "grainSize",
 							"parameter_mmax" : 5000.0,
 							"parameter_mmin" : 10.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "grainSize",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 2
@@ -845,6 +866,7 @@
 							"parameter_longname" : "grainRate",
 							"parameter_mmax" : 1000.0,
 							"parameter_mmin" : 1.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "grainRate",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 3
@@ -1092,6 +1114,7 @@
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "grainAmplitude",
 							"parameter_mmax" : 100.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "grainAmplitude",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 5
@@ -1139,6 +1162,7 @@
 						"valueof" : 						{
 							"parameter_longname" : "samplePosition",
 							"parameter_mmax" : 100.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "samplePosition",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 5
@@ -1172,8 +1196,8 @@
 					"id" : "obj-7",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 8,
-					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"numoutlets" : 9,
+					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 361.0, 662.5, 209.0, 22.0 ],
 					"style" : "Minimal",
 					"text" : "grainflow~ ---grainflow 100"
@@ -1229,6 +1253,7 @@
 						"valueof" : 						{
 							"parameter_invisible" : 1,
 							"parameter_longname" : "soundfile",
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "live.drop",
 							"parameter_type" : 4
 						}
@@ -1236,23 +1261,6 @@
 					}
 ,
 					"varname" : "soundfile"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"border" : 0,
-					"embedstate" : [ [ "dotColorSecondary", 0.1, 1, 0.1, 0.9 ], [ "dotVJitter", 0 ], [ "buffername", "---grainflow" ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "displayRange", 0, 1 ], [ "dotColor", 0.392, 1, 0.663, 1 ], [ "fps", 30 ], [ "triangleColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "chan", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "maxBufferDrawSamples", 1920 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "trackerWidth", 2 ], [ "mode", 0 ], [ "dotScale", 1 ], [ "bgColor", 1, 1, 1, 0 ] ],
-					"filename" : "grainFlow.waveform~.js",
-					"id" : "obj-3",
-					"maxclass" : "jsui",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 102.5, 156.25, 446.0, 90.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 189.0, 3.0, 446.0, 90.0 ]
 				}
 
 			}
@@ -1277,7 +1285,7 @@
 					"maxclass" : "panel",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 113.5, 127.5, 462.5, 101.5 ],
+					"patching_rect" : [ 147.25, 132.0, 462.5, 101.5 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 186.25, 3.0, 451.5, 92.5 ],
 					"rounded" : 0,
@@ -1448,22 +1456,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-12", 0 ],
-					"order" : 1,
-					"source" : [ "obj-3", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-17", 0 ],
-					"order" : 0,
-					"source" : [ "obj-3", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-32", 0 ],
 					"source" : [ "obj-30", 0 ]
 				}
@@ -1492,8 +1484,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"midpoints" : [ 268.0, 525.5, 35.5, 525.5, 35.5, 116.5, 112.0, 116.5 ],
+					"destination" : [ "obj-43", 0 ],
+					"midpoints" : [ 268.0, 525.5, 35.5, 525.5, 35.5, 116.5, 171.5, 116.5 ],
 					"source" : [ "obj-35", 0 ]
 				}
 
@@ -1577,16 +1569,16 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"order" : 1,
+					"destination" : [ "obj-35", 0 ],
+					"order" : 0,
 					"source" : [ "obj-5", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"order" : 0,
+					"destination" : [ "obj-43", 0 ],
+					"order" : 1,
 					"source" : [ "obj-5", 1 ]
 				}
 
@@ -1670,8 +1662,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"midpoints" : [ 397.64285714285711, 698.611113250255585, 52.0, 698.611113250255585, 52.0, 115.5, 112.0, 115.5 ],
+					"destination" : [ "obj-43", 0 ],
+					"midpoints" : [ 394.25, 698.611113250255585, 52.0, 698.611113250255585, 52.0, 115.5, 171.5, 115.5 ],
 					"source" : [ "obj-7", 1 ]
 				}
 
@@ -1736,26 +1728,26 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"fontface" : [ 0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
+					"fontname" : [ "Futura Medium" ],
+					"fontsize" : [ 10.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ]
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

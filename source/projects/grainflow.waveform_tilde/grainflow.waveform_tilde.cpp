@@ -5,7 +5,7 @@
 
 using namespace c74::min;
 using namespace c74::min::ui;
-class grainflow_waveform2 : public object<grainflow_waveform2>, public ui_operator<300, 100>
+class grainflow_waveform_tilde : public object<grainflow_waveform_tilde>, public ui_operator<300, 100>
 {
 private:
 	buffer_reference m_buffer{ this };
@@ -30,7 +30,7 @@ public:
 	outlet<> output{ this, "(list) grainInfo" };
 	outlet<> output2{ this, "(list) click info" };
 
-	grainflow_waveform2(const atoms& args = {})
+	grainflow_waveform_tilde(const atoms& args = {})
 		: ui_operator::ui_operator{ this, args }
 	{
 		m_timer.delay(40);
@@ -38,6 +38,7 @@ public:
 
 	void ComputeBufferDisplay(int maxSamples)
 	{
+		if (m_buffer.name().empty()) return;
 		buffer_lock<> samples(m_buffer);
 		if (!samples.valid())
 		{
@@ -62,6 +63,7 @@ public:
 	}
 
 	void DrawTracker(target t) {
+		if (recordHead < 0) return;
 		rect<fill>{
 			t,
 				color{ m_trackerColor },
@@ -119,6 +121,12 @@ public:
 			};
 		}
 	}
+
+	void SetBufferByName(string name) {
+		if (name.empty()) return;
+		m_buffer.set(name);
+		ComputeBufferDisplay(m_maxSamples);
+	};
 
 	void Clear(target t) {
 		rect<fill>{
@@ -206,13 +214,11 @@ public:
 	attribute<symbol> m_bufferName{ 
 		this, 
 		"buffername", 
-		" ",
+		"",
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			 if (args.empty()) return args;
 			string name = args[0];
-			if (name.empty()) return args;
-			m_buffer.set(name);
-			ComputeBufferDisplay(args[0]);
+			SetBufferByName(name);
 			return args;
 	}
 	},
@@ -222,6 +228,8 @@ public:
 			}
 		},
 	};
+
+
 
 	attribute<numbers> m_disprange{ this, "displayRange", {{0.0, 1.0}} };
 	attribute<number> m_dotScale{ this, "dotScale", 1.0 };
@@ -241,7 +249,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			auto name = (string)args[0];
 			if (name.compare(static_cast<string>(m_buffer.name().c_str())) != 0) {
-				this->try_call("buffername", name);
+				SetBufferByName(name);
 			}
 			else ComputeBufferDisplay(m_maxSamples);
 			return{};
@@ -441,8 +449,8 @@ private:
 	numbers trianglePosition{ 0, 0 };
 	numbers m_anchor{};
 	number m_range_delta{ 1.0 };
-	number recordHead = -100;
+	number recordHead = -1;
 }
 ;
 
-MIN_EXTERNAL(grainflow_waveform2);
+MIN_EXTERNAL(grainflow_waveform_tilde);

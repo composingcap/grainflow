@@ -86,6 +86,21 @@
 			<description>the amount of transposition to apply rate based on grain index </description>
 		</method>
 
+		<method name='g'>
+			<digest>sends a message to a single grain </digest>
+			<description>sends a message to a single grain </description>
+		</method>
+
+		<method name='ampOffset'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='rateQuantizeSemi'>
+			<digest>locks transpositions to a set step in semitones </digest>
+			<description>locks transpositions to a set step in semitones </description>
+		</method>
+
 		<method name='glisson'>
 			<digest>how much the pitch will change over the life of the grain based on rate </digest>
 			<description>how much the pitch will change over the life of the grain based on rate </description>
@@ -131,17 +146,22 @@
 			<description></description>
 		</method>
 
-		<method name='ampRandom'>
+		<method name='spaceOffset'>
 			<digest></digest>
 			<description></description>
 		</method>
 
-		<method name='g'>
-			<digest>sends a message to a single grain </digest>
-			<description>sends a message to a single grain </description>
+		<method name='direction'>
+			<digest></digest>
+			<description></description>
 		</method>
 
-		<method name='ampOffset'>
+		<method name='chanMode'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='ampRandom'>
 			<digest></digest>
 			<description></description>
 		</method>
@@ -151,14 +171,39 @@
 			<description>the amound grains are delayed in ms </description>
 		</method>
 
+		<method name='trav'>
+			<digest>the amound grains are delayed in ms </digest>
+			<description>the amound grains are delayed in ms </description>
+		</method>
+
 		<method name='delayRandom'>
 			<digest></digest>
 			<description></description>
 		</method>
 
+		<method name='startPoint'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='travRandom'>
+			<digest>the amound grains are delayed in ms </digest>
+			<description>the amound grains are delayed in ms </description>
+		</method>
+
 		<method name='delayOffset'>
 			<digest></digest>
 			<description></description>
+		</method>
+
+		<method name='windowBuffer'>
+			<digest>sets the buffer for window modes 1 and 2 </digest>
+			<description>sets the buffer for window modes 1 and 2 </description>
+		</method>
+
+		<method name='travOffset'>
+			<digest>the amound grains are delayed in ms </digest>
+			<description>the amound grains are delayed in ms </description>
 		</method>
 
 		<method name='liveMode'>
@@ -192,8 +237,8 @@
 		</method>
 
 		<method name='windowMode'>
-			<digest>sets  the delay mode</digest>
-			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+			<digest>sets  the window mode</digest>
+			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
 		</method>
 
 		<method name='bufChan'>
@@ -222,11 +267,6 @@
 		</method>
 
 		<method name='spaceRandom'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='spaceOffset'>
 			<digest></digest>
 			<description></description>
 		</method>
@@ -281,17 +321,22 @@
 			<description>sets the buffer for delay modes 1 and 2 </description>
 		</method>
 
-		<method name='windowBuffer'>
-			<digest>sets the buffer for window modes 1 and 2 </digest>
-			<description>sets the buffer for window modes 1 and 2 </description>
-		</method>
-
 		<method name='done'>
 			<digest></digest>
 			<description></description>
 		</method>
 
 		<method name='voices'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='stopPoint'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='loopMode'>
 			<digest></digest>
 			<description></description>
 		</method>

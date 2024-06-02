@@ -104,7 +104,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 319.25, 131.0, 75.0, 22.0 ],
+									"patching_rect" : [ 319.25, 131.0, 75.0, 37.0 ],
 									"text" : "routepass buf"
 								}
 
@@ -117,7 +117,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 319.25, 107.0, 106.0, 22.0 ],
+									"patching_rect" : [ 319.25, 107.0, 106.0, 52.0 ],
 									"text" : "r #0_toGrainFlow"
 								}
 
@@ -130,7 +130,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 315.25, 207.0, 39.0, 22.0 ],
+									"patching_rect" : [ 315.25, 207.0, 39.0, 37.0 ],
 									"text" : "zlclear"
 								}
 
@@ -142,7 +142,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "int", "int" ],
-									"patching_rect" : [ 212.25, 126.0, 29.5, 22.0 ],
+									"patching_rect" : [ 212.25, 126.0, 29.5, 23.0 ],
 									"text" : "t i i"
 								}
 
@@ -155,7 +155,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "bang", "bang", "" ],
-									"patching_rect" : [ 319.25, 171.0, 40.0, 22.0 ],
+									"patching_rect" : [ 319.25, 171.0, 40.0, 37.0 ],
 									"text" : "sel 0 1"
 								}
 
@@ -167,7 +167,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 50.0, 153.0, 99.0, 22.0 ],
+									"patching_rect" : [ 50.0, 153.0, 99.0, 37.0 ],
 									"text" : "s #0_messages"
 								}
 
@@ -179,7 +179,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 212.25, 107.0, 76.0, 22.0 ],
+									"patching_rect" : [ 212.25, 107.0, 76.0, 23.0 ],
 									"text" : "r #0_state"
 								}
 
@@ -192,7 +192,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 212.25, 163.0, 67.0, 22.0 ],
+									"patching_rect" : [ 212.25, 163.0, 67.0, 37.0 ],
 									"text" : "qmetro 500"
 								}
 
@@ -205,7 +205,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 222.25, 232.0, 56.0, 22.0 ],
+									"patching_rect" : [ 222.25, 232.0, 56.0, 37.0 ],
 									"text" : "zl.change"
 								}
 
@@ -218,7 +218,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 212.25, 192.0, 99.0, 22.0 ],
+									"patching_rect" : [ 212.25, 192.0, 99.0, 37.0 ],
 									"text" : "v #0_bufName"
 								}
 
@@ -231,7 +231,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 222.25, 260.0, 55.0, 22.0 ],
+									"patching_rect" : [ 222.25, 260.0, 55.0, 37.0 ],
 									"text" : "route buf"
 								}
 
@@ -239,13 +239,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-65",
-									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 222.25, 303.0, 83.0, 22.0 ],
-									"text" : "buffername $1"
+									"patching_rect" : [ 222.25, 303.0, 43.0, 23.0 ],
+									"text" : "buf $1"
 								}
 
 							}
@@ -257,7 +256,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 62.25, 126.0, 99.0, 22.0 ],
+									"patching_rect" : [ 62.25, 126.0, 99.0, 37.0 ],
 									"text" : "v #0_bufName"
 								}
 
@@ -269,7 +268,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 62.25, 100.0, 74.5, 22.0 ],
+									"patching_rect" : [ 62.25, 100.0, 74.5, 23.0 ],
 									"text" : "prepend buf"
 								}
 
@@ -775,7 +774,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 8,
 					"outlettype" : [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 133.0, 434.0, 182.0, 22.0 ],
+					"patching_rect" : [ 133.0, 434.0, 198.0, 22.0 ],
 					"text" : "grainflow.voice~ #1 #2 #0_hanning"
 				}
 
@@ -3004,7 +3003,7 @@
 									"maxclass" : "inlet",
 									"numinlets" : 0,
 									"numoutlets" : 1,
-									"outlettype" : [ "multichannelsignal" ],
+									"outlettype" : [ "int" ],
 									"patching_rect" : [ 50.0, 11.0, 30.0, 30.0 ]
 								}
 
@@ -5673,7 +5672,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"outlettype" : [ "int" ],
 					"patching_rect" : [ 55.333333333333371, 69.0, 30.0, 30.0 ]
 				}
 
@@ -5686,7 +5685,7 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 173.000434027777828, 383.0, 30.0, 30.0 ],
 					"varname" : "traversal"
 				}

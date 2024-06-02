@@ -40,6 +40,24 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"buffername" : "1842_grainflow.shuffle",
+					"dotColor" : [ 0.0, 1.0, 0.83921568627451, 0.901960784313726 ],
+					"dotColorSecondary" : [ 0.925490196078431, 0.996078431372549, 1.0, 0.901960784313726 ],
+					"dotScale" : 5.0,
+					"id" : "obj-20",
+					"maxclass" : "grainflow.waveform~",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 226.0, 566.0, 300.0, 100.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 14.0, 13.0, 486.0, 34.0 ],
+					"waveformColor" : [ 1.0, 1.0, 1.0, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-16",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -1924,7 +1942,7 @@
 							"parameter_longname" : "grainSizeRandom",
 							"parameter_mmax" : 100.0,
 							"parameter_modmode" : 0,
-							"parameter_shortname" : "Size Random",
+							"parameter_shortname" : "grainSizeRandom",
 							"parameter_steps" : 241,
 							"parameter_type" : 0,
 							"parameter_units" : "st",
@@ -3682,23 +3700,6 @@
 			}
 , 			{
 				"box" : 				{
-					"border" : 0,
-					"embedstate" : [ [ "fps", 30 ], [ "showTriangles", 0 ], [ "selection", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "dotColor", 0.51, 0.992, 1, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "chan", 1 ], [ "triangleColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 500 ], [ "displayRange", 0, 1 ], [ "buffername", "1000_grainflow.shuffle" ], [ "dotVJitter", 20 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "mode", 0 ], [ "waveformColor", 1, 1, 1, 1 ], [ "dotColorSecondary", 0.51, 0.992, 1, 0.5 ], [ "trackerWidth", 5 ], [ "dotScale", 40 ], [ "trackerColor", 0.8, 0.8, 1, 0.75 ] ],
-					"filename" : "grainFlow.waveform~.js",
-					"id" : "obj-10",
-					"maxclass" : "jsui",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 231.0, 603.0, 489.0, 33.5 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 14.0, 14.25, 489.0, 33.5 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"angle" : 270.0,
 					"background" : 1,
 					"bgcolor" : [ 0.223529411764706, 0.223529411764706, 0.223529411764706, 1.0 ],
@@ -3756,7 +3757,7 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
+					"destination" : [ "obj-20", 0 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -3871,7 +3872,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
+					"destination" : [ "obj-20", 0 ],
 					"source" : [ "obj-19", 0 ]
 				}
 
@@ -4036,19 +4037,19 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
-					"midpoints" : [ 184.125, 387.5, 240.5, 387.5 ],
-					"source" : [ "obj-8", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
 					"destination" : [ "obj-14", 0 ],
 					"midpoints" : [ 147.5, 379.0, 118.083333333333314, 379.0, 118.083333333333314, 176.0, 260.666666666666629, 176.0 ],
 					"order" : 0,
 					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-20", 0 ],
+					"midpoints" : [ 184.125, 387.5, 235.5, 387.5 ],
+					"source" : [ "obj-8", 1 ]
 				}
 
 			}

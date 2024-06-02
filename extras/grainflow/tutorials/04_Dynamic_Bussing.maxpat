@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 0,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -88,7 +88,7 @@
 					"patching_rect" : [ 388.5, 483.0, 100.0, 39.0 ],
 					"setminmax" : [ 0.0, 1.0 ],
 					"setstyle" : 1,
-					"size" : 20
+					"size" : 1000
 				}
 
 			}
@@ -179,7 +179,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -499,7 +499,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -893,12 +893,13 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 71.0, 666.0, 136.0, 45.0 ],
+					"patching_rect" : [ 71.0, 666.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "mc.live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
@@ -965,8 +966,8 @@
 					"numinlets" : 4,
 					"numoutlets" : 9,
 					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 71.0, 235.0, 423.0, 22.0 ],
-					"text" : "grainflow~ gf.tut.bussing 20 @ampRandom 0.5 @space 0.5 @windowOffsetRandom 1"
+					"patching_rect" : [ 71.0, 235.0, 392.0, 22.0 ],
+					"text" : "grainflow~ gf.tut.bussing 20 @ampRandom 0.5 @space 0.5 @windowRandom 1"
 				}
 
 			}
@@ -975,7 +976,7 @@
 				"patchline" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-16", 1 ],
-					"midpoints" : [ 131.0, 268.5, 519.5, 268.5 ],
+					"midpoints" : [ 127.125, 268.5, 519.5, 268.5 ],
 					"order" : 0,
 					"source" : [ "obj-1", 1 ]
 				}
@@ -994,7 +995,7 @@
 				"patchline" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-32", 0 ],
-					"midpoints" : [ 131.0, 267.0, 404.5, 267.0 ],
+					"midpoints" : [ 127.125, 267.0, 404.5, 267.0 ],
 					"order" : 1,
 					"source" : [ "obj-1", 1 ]
 				}

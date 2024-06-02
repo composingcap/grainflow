@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 0,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -52,7 +52,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -359,7 +359,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -769,11 +769,11 @@
 								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-5",
-									"linecount" : 3,
+									"linecount" : 4,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 570.0, 625.0, 93.0, 50.0 ],
+									"patching_rect" : [ 543.0, 613.25, 63.0, 63.0 ],
 									"text" : "Grain windows as a signal"
 								}
 
@@ -922,12 +922,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 22.0, 584.5, 123.0, 57.0 ],
+									"patching_rect" : [ 22.0, 584.5, 123.0, 59.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[5]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "grains",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -1211,7 +1212,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1370,7 +1371,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1669,12 +1670,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 16.0, 336.0, 123.0, 63.0 ],
+									"patching_rect" : [ 16.0, 336.0, 123.0, 65.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[4]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "grains",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -1954,7 +1956,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2248,12 +2250,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 19.499999999999943, 595.0, 155.0, 45.0 ],
+									"patching_rect" : [ 19.499999999999943, 595.0, 155.0, 47.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[7]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "mc.live.gain~[6]",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -2707,7 +2710,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2743,6 +2746,32 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"buffername" : "_help_grainBuf1",
+									"chan" : 2,
+									"id" : "obj-5",
+									"maxclass" : "grainflow.waveform~",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 287.0, 625.0, 432.0, 61.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"buffername" : "_help_grainBuf1",
+									"chan" : 1,
+									"id" : "obj-18",
+									"maxclass" : "grainflow.waveform~",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 287.0, 570.0, 432.0, 61.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-6",
 									"linecount" : 3,
@@ -2787,12 +2816,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 32.666666666666629, 591.0, 155.0, 45.0 ],
+									"patching_rect" : [ 32.666666666666629, 591.0, 155.0, 47.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[6]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "mc.live.gain~[6]",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -2937,21 +2967,6 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 287.0, 531.0, 41.0, 22.0 ],
 									"text" : "chan 1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "dotVJitter", 0 ], [ "trackerWidth", 2 ], [ "triangleColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "chan", 2 ], [ "fps", 30 ], [ "mode", 0 ], [ "dotScale", 5 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
-									"filename" : "grainFlow.waveform~.js",
-									"id" : "obj-1",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 330.0, 628.0, 376.0, 45.0 ]
 								}
 
 							}
@@ -3142,21 +3157,6 @@
 								}
 
 							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "dotVJitter", 0 ], [ "trackerWidth", 2 ], [ "triangleColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "chan", 1 ], [ "fps", 30 ], [ "mode", 0 ], [ "dotScale", 5 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
-									"filename" : "grainFlow.waveform~.js",
-									"id" : "obj-46",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 287.0, 581.0, 376.0, 42.0 ]
-								}
-
-							}
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
@@ -3167,14 +3167,14 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-46", 0 ],
+									"destination" : [ "obj-18", 0 ],
 									"source" : [ "obj-11", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
+									"destination" : [ "obj-5", 0 ],
 									"source" : [ "obj-13", 0 ]
 								}
 
@@ -3195,17 +3195,17 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
+									"destination" : [ "obj-17", 0 ],
 									"order" : 0,
-									"source" : [ "obj-2", 1 ]
+									"source" : [ "obj-2", 7 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-17", 0 ],
-									"order" : 0,
-									"source" : [ "obj-2", 7 ]
+									"destination" : [ "obj-18", 0 ],
+									"order" : 1,
+									"source" : [ "obj-2", 1 ]
 								}
 
 							}
@@ -3226,8 +3226,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-46", 0 ],
-									"order" : 1,
+									"destination" : [ "obj-5", 0 ],
+									"order" : 0,
 									"source" : [ "obj-2", 1 ]
 								}
 
@@ -3419,7 +3419,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -3455,6 +3455,18 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"buffername" : "_help_grainBuf1",
+									"id" : "obj-15",
+									"maxclass" : "grainflow.waveform~",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 271.6640625, 602.0, 432.0, 61.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-18",
 									"maxclass" : "comment",
@@ -3596,21 +3608,6 @@
 							}
 , 							{
 								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "dotVJitter", 0 ], [ "trackerWidth", 2 ], [ "triangleColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "chan", 1 ], [ "fps", 30 ], [ "mode", 0 ], [ "dotScale", 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "buffername", "_help_grainBuf2" ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
-									"filename" : "grainFlow.waveform~.js",
-									"id" : "obj-7",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 271.6640625, 604.0, 374.8359375, 60.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-49",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -3680,12 +3677,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 18.6640625, 525.0, 123.0, 63.0 ],
+									"patching_rect" : [ 18.6640625, 525.0, 123.0, 65.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[3]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "grains",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -4119,6 +4117,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "number[8]",
 											"parameter_mmax" : 1.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[1]",
 											"parameter_type" : 0
 										}
@@ -4172,6 +4171,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "number[9]",
 											"parameter_mmax" : 1.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[2]",
 											"parameter_type" : 0
 										}
@@ -4212,6 +4212,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "number[10]",
 											"parameter_mmax" : 1.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[3]",
 											"parameter_type" : 0
 										}
@@ -4441,18 +4442,18 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-3", 1 ],
-									"midpoints" : [ 74.6640625, 524.0, 139.1640625, 524.0 ],
-									"source" : [ "obj-52", 2 ]
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"destination" : [ "obj-15", 0 ],
+									"midpoints" : [ 51.4140625, 520.5, 281.1640625, 520.5 ],
+									"source" : [ "obj-52", 1 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 51.4140625, 520.5, 281.1640625, 520.5 ],
-									"source" : [ "obj-52", 1 ]
+									"destination" : [ "obj-3", 1 ],
+									"midpoints" : [ 74.6640625, 524.0, 139.1640625, 524.0 ],
+									"source" : [ "obj-52", 2 ]
 								}
 
 							}
@@ -4641,13 +4642,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 638.0, 848.0 ],
+						"rect" : [ 100.0, 126.0, 638.0, 848.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -4679,6 +4680,18 @@
 						"title" : "Param Buffers",
 						"boxes" : [ 							{
 								"box" : 								{
+									"buffername" : "_help_grainBuf1",
+									"id" : "obj-2",
+									"maxclass" : "grainflow.waveform~",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 165.0, 539.0, 432.0, 61.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-8",
 									"maxclass" : "newobj",
 									"numinlets" : 0,
@@ -4688,7 +4701,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -4725,6 +4738,7 @@
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-70",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 1,
 													"numoutlets" : 2,
@@ -4749,6 +4763,7 @@
 , 											{
 												"box" : 												{
 													"id" : "obj-16",
+													"linecount" : 2,
 													"maxclass" : "newobj",
 													"numinlets" : 1,
 													"numoutlets" : 2,
@@ -4869,7 +4884,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -5163,7 +5178,7 @@
 										"appversion" : 										{
 											"major" : 8,
 											"minor" : 6,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -5411,21 +5426,6 @@
 									"patching_rect" : [ 511.0, 245.25, 162.0, 75.0 ],
 									"setminmax" : [ 0.0, 1.0 ],
 									"size" : 5
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "dotVJitter", 0 ], [ "trackerWidth", 2 ], [ "triangleColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "chan", 1 ], [ "fps", 30 ], [ "mode", 0 ], [ "dotScale", 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
-									"filename" : "grainFlow.waveform~.js",
-									"id" : "obj-1",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 162.0, 550.0, 376.0, 47.0 ]
 								}
 
 							}
@@ -5699,12 +5699,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 18.0, 521.0, 123.0, 57.0 ],
+									"patching_rect" : [ 18.0, 521.0, 123.0, 59.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[2]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "grains",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -5845,8 +5846,8 @@
 , 							{
 								"patchline" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 44.0, 517.0, 171.5, 517.0 ],
+									"destination" : [ "obj-2", 0 ],
+									"midpoints" : [ 44.0, 517.0, 174.5, 517.0 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -5966,7 +5967,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -6004,6 +6005,18 @@
 						"title" : "Mutichannel and Voices",
 						"boxes" : [ 							{
 								"box" : 								{
+									"buffername" : "_help_grainBuf1",
+									"id" : "obj-18",
+									"maxclass" : "grainflow.waveform~",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 163.5, 518.0, 415.0, 111.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-2",
 									"maxclass" : "newobj",
 									"numinlets" : 2,
@@ -6038,21 +6051,6 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 59.0, 98.5, 150.0, 37.0 ],
 									"text" : "Turn this on to start the granulator"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "dotVJitter", 0 ], [ "trackerWidth", 2 ], [ "triangleColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "chan", 1 ], [ "fps", 30 ], [ "mode", 0 ], [ "dotScale", 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
-									"filename" : "grainFlow.waveform~.js",
-									"id" : "obj-1",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 173.169270833333258, 531.5, 471.0, 126.0 ]
 								}
 
 							}
@@ -6346,6 +6344,7 @@
 											"parameter_longname" : "mc.live.gain~[1]",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "grains",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -6487,8 +6486,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 85.710937499999986, 450.25, 182.669270833333258, 450.25 ],
+									"destination" : [ "obj-18", 0 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -6594,13 +6592,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 638.0, 848.0 ],
+						"rect" : [ 0.0, 26.0, 638.0, 848.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -6631,6 +6629,18 @@
 						"assistshowspatchername" : 0,
 						"title" : "General Usage",
 						"boxes" : [ 							{
+								"box" : 								{
+									"buffername" : "_help_grainBuf1",
+									"id" : "obj-18",
+									"maxclass" : "grainflow.waveform~",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 159.414062500000114, 603.0, 432.0, 61.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-21",
 									"maxclass" : "newobj",
@@ -6665,20 +6675,6 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 146.589843749999773, 559.5, 152.0, 37.0 ],
 									"text" : "This patch chord contains data about each grain"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"bubble" : 1,
-									"bubbleside" : 2,
-									"id" : "obj-17",
-									"linecount" : 3,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 363.332031250000057, 531.5, 187.0, 65.0 ],
-									"text" : "This is grainflow.waveform~.  It is a graphical JSUI object that visualizes grains"
 								}
 
 							}
@@ -6752,6 +6748,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "number[6]",
 											"parameter_mmax" : 1.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[1]",
 											"parameter_type" : 0
 										}
@@ -6783,21 +6780,6 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 214.664062499999886, 179.5, 61.0, 22.0 ],
 									"text" : "density $1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "showTriangles", 0 ], [ "dotVJitter", 0 ], [ "trackerWidth", 2 ], [ "triangleColor", 1, 1, 1, 1 ], [ "maxBufferDrawSamples", 1920 ], [ "selection", 0, 1 ], [ "bgColor", 1, 1, 1, 0 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "chan", 1 ], [ "fps", 30 ], [ "mode", 0 ], [ "dotScale", 1 ], [ "triangleOutColor", 1, 1, 1, 1 ], [ "buffername", "_help_grainBuf1" ], [ "displayRange", 0, 1 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ] ],
-									"filename" : "grainFlow.waveform~.js",
-									"id" : "obj-7",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 134.4921875, 599.0, 415.83984375, 72.0 ]
 								}
 
 							}
@@ -6878,6 +6860,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[5]",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[5]",
 											"parameter_type" : 3
 										}
@@ -6941,6 +6924,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[1]",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[1]",
 											"parameter_type" : 3
 										}
@@ -7080,6 +7064,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[4]",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[4]",
 											"parameter_type" : 3
 										}
@@ -7107,6 +7092,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "number",
 											"parameter_mmax" : 5.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number",
 											"parameter_type" : 0
 										}
@@ -7200,12 +7186,13 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 8.328125, 573.5, 123.0, 63.0 ],
+									"patching_rect" : [ 8.328125, 573.5, 123.0, 65.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~",
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "grains",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -7319,18 +7306,16 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-3", 1 ],
-									"midpoints" : [ 52.578125, 501.5, 128.828125, 501.5 ],
-									"source" : [ "obj-52", 2 ]
+									"destination" : [ "obj-18", 0 ],
+									"source" : [ "obj-52", 1 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 35.203125, 510.5, 143.9921875, 510.5 ],
-									"source" : [ "obj-52", 1 ]
+									"destination" : [ "obj-3", 1 ],
+									"midpoints" : [ 52.578125, 501.5, 128.828125, 501.5 ],
+									"source" : [ "obj-52", 2 ]
 								}
 
 							}
@@ -7499,13 +7484,6 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainFlow.waveform~.js",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
-				"patcherrelativepath" : "../jsui",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "grainflow.util.genEnv2D.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
@@ -7525,6 +7503,10 @@
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.waveform~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "grainflow~.maxpat",

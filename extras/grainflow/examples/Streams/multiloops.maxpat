@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"buffername" : "1909_flow_1",
+					"id" : "obj-9",
+					"maxclass" : "grainflow.waveform~",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 174.0, 577.0, 709.0, 83.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -536,21 +548,6 @@
 				}
 
 			}
-, 			{
-				"box" : 				{
-					"border" : 0,
-					"embedstate" : [ [ "triangleOutColor", 1, 1, 1, 1 ], [ "selection", 0, 1 ], [ "dotColor", 1, 0, 0, 0.9 ], [ "dotScale", 1 ], [ "trackerColor", 0.9, 0.9, 0.9, 0.75 ], [ "trackerWidth", 2 ], [ "dotColorSecondary", 0.5, 0, 0, 0.9 ], [ "bgColor", 1, 1, 1, 0 ], [ "chan", 0 ], [ "fps", 30 ], [ "selectColor", 1, 1, 1, 0.75 ], [ "displayRange", 0, 1 ], [ "dotVJitter", 0 ], [ "showTriangles", 0 ], [ "mode", 0 ], [ "triangleColor", 1, 1, 1, 1 ], [ "waveformColor", 0.1, 0.1, 0.1, 1 ], [ "buffername", "1066_flow_1" ], [ "maxBufferDrawSamples", 1920 ] ],
-					"filename" : "grainflow.waveform~",
-					"id" : "obj-55",
-					"maxclass" : "jsui",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 136.0, 565.0, 400.0, 100.0 ]
-				}
-
-			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
@@ -570,7 +567,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-55", 0 ],
+					"destination" : [ "obj-9", 0 ],
 					"order" : 1,
 					"source" : [ "obj-1", 1 ]
 				}
@@ -841,13 +838,6 @@
 				"type" : "mx64"
 			}
 , 			{
-				"name" : "grainFlow.waveform~.js",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
-				"patcherrelativepath" : "../../../../jsui",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "grainFlow~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../../../../patchers",
@@ -874,6 +864,10 @@
 				"patcherrelativepath" : "../../../../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
+			}
+, 			{
+				"name" : "grainflow.waveform~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "thru.maxpat",
