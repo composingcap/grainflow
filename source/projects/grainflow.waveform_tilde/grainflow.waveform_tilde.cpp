@@ -5,7 +5,7 @@
 
 using namespace c74::min;
 using namespace c74::min::ui;
-class grainflow_waveform_tilde : public object<grainflow_waveform_tilde>, public ui_operator<300, 100>
+class grainflow_spatview : public object<grainflow_spatview>, public ui_operator<300, 100>
 {
 private:
 	buffer_reference m_buffer{ this };
@@ -30,7 +30,7 @@ public:
 	outlet<> output{ this, "(list) grainInfo" };
 	outlet<> output2{ this, "(list) click info" };
 
-	grainflow_waveform_tilde(const atoms& args = {})
+	grainflow_spatview(const atoms& args = {})
 		: ui_operator::ui_operator{ this, args }
 	{
 		m_timer.delay(40);
@@ -194,9 +194,10 @@ public:
 	void PaintInternal(target t) {
 		Clear(t);
 		DrawWaveform(t);
+		DrawSelection(t);
 		DrawTracker(t);
 		DrawGrains(t);
-		DrawSelection(t);
+		
 	}
 
 	attribute<int> m_channel{ 
@@ -453,4 +454,4 @@ private:
 }
 ;
 
-MIN_EXTERNAL(grainflow_waveform_tilde);
+MIN_EXTERNAL(grainflow_spatview);

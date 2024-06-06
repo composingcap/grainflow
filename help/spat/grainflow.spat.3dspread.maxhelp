@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 4,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 563.0, 246.0, 942.0, 589.0 ],
+		"rect" : [ 100.0, 100.0, 942.0, 589.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -40,6 +40,17 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "grainflow.spatview~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 240.666666666666629, 364.0, 300.0, 120.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"bubble" : 1,
 					"id" : "obj-3",
 					"linecount" : 2,
@@ -60,7 +71,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 256.333333333333371, 94.0, 134.0, 52.0 ],
+					"patching_rect" : [ 256.333333333333371, 94.0, 135.0, 52.0 ],
 					"text" : "Define the center in x y z coordinates"
 				}
 
@@ -183,13 +194,13 @@
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "dictionary" ],
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -242,7 +253,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "", "clear" ],
+									"outlettype" : [ "dictionary", "clear" ],
 									"patching_rect" : [ 50.0, 131.5, 134.0, 22.0 ],
 									"text" : "grainflow.spat.speakers"
 								}
@@ -301,8 +312,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -549,6 +560,7 @@
 							"parameter_initial_enable" : 1,
 							"parameter_invisible" : 1,
 							"parameter_longname" : "number[3]",
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "number[3]",
 							"parameter_type" : 3
 						}
@@ -575,6 +587,7 @@
 							"parameter_initial_enable" : 1,
 							"parameter_invisible" : 1,
 							"parameter_longname" : "number[2]",
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "number[2]",
 							"parameter_type" : 3
 						}
@@ -601,6 +614,7 @@
 							"parameter_initial_enable" : 1,
 							"parameter_invisible" : 1,
 							"parameter_longname" : "number[1]",
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "number[1]",
 							"parameter_type" : 3
 						}
@@ -730,23 +744,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 23.0, 59.0, 344.833333333333258, 33.0 ],
+					"patching_rect" : [ 23.0, 59.0, 345.0, 33.0 ],
 					"text" : "The most straightforward grainflow spatializer that moves grains to a distance around a central point"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"border" : 0,
-					"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
-					"filename" : "grainflow.spatview~.js",
-					"id" : "obj-5",
-					"maxclass" : "jsui",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 220.333333333333258, 349.0, 374.0, 149.0 ]
 				}
 
 			}
@@ -902,8 +901,8 @@
 , 			{
 				"patchline" : 				{
 					"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
-					"destination" : [ "obj-5", 0 ],
-					"midpoints" : [ 155.5, 427.5, 199.5, 427.5, 199.5, 332.0, 229.833333333333258, 332.0 ],
+					"destination" : [ "obj-6", 0 ],
+					"midpoints" : [ 155.5, 427.5, 199.5, 427.5, 199.5, 332.0, 250.166666666666629, 332.0 ],
 					"source" : [ "obj-2", 1 ]
 				}
 
@@ -1039,65 +1038,52 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "_grainflow.aed2xyz.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "Grainflow.voice~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
-				"name" : "_grainflow.poly.maxpat",
+				"name" : "_grainflow.aed2xyz.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.spat.pointparse.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.3dspread.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.pan~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.speakers.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.spatview~.js",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
-				"patcherrelativepath" : "../jsui",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
-				"implicit" : 1
+				"name" : "grainflow.spatview~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "grainflow~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
+				"patcherrelativepath" : "../../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}

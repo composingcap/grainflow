@@ -1,4 +1,4 @@
-
+error("The JSUI version of grainflow.spatview~ is now depricates. Please use the new external version");
 var outPos;
 var inPos = new Dict("inPos" + String(Math.floor(Math.random()*100000+1000)));
 var falloffD = 1.1;
@@ -333,3 +333,4 @@ function grainReset(){
 	inPos.clear();
 	
 	}
+

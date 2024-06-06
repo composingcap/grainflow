@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 4,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 569.0, 218.0, 935.0, 906.0 ],
+		"rect" : [ 100.0, 100.0, 935.0, 906.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -50,14 +50,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 935.0, 880.0 ],
+						"rect" : [ 100.0, 126.0, 935.0, 880.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -288,8 +288,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -326,13 +326,23 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-1",
+									"maxclass" : "grainflow.spatview~",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 176.0, 507.0, 375.0, 150.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-15",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 206.666666666666742, 419.0, 218.666666666666458, 24.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Samples signals for xyz coordinates"
 								}
 
@@ -371,8 +381,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 5,
-											"revision" : 4,
+											"minor" : 6,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -447,11 +457,12 @@
 													"id" : "obj-10",
 													"maxclass" : "newobj",
 													"numinlets" : 2,
-													"numoutlets" : 4,
-													"outlettype" : [ "dictionary", "", "", "" ],
+													"numoutlets" : 5,
+													"outlettype" : [ "dictionary", "", "", "", "" ],
 													"patching_rect" : [ 50.0, 148.5, 211.0, 22.0 ],
 													"saved_object_attributes" : 													{
 														"embed" : 0,
+														"legacy" : 1,
 														"parameter_enable" : 0,
 														"parameter_mappable" : 0
 													}
@@ -547,21 +558,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 30.0, 120.5, 45.0, 45.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
-									"filename" : "grainflow.spatview~.js",
-									"id" : "obj-5",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 171.0, 492.0, 402.0, 160.0 ]
 								}
 
 							}
@@ -892,16 +888,16 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-25", 0 ],
-									"source" : [ "obj-4", 0 ]
+									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 134.5, 524.0, 157.5, 524.0, 157.5, 495.0, 185.5, 495.0 ],
+									"source" : [ "obj-4", 1 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-5", 0 ],
-									"midpoints" : [ 134.5, 524.0, 157.5, 524.0, 157.5, 481.0, 180.5, 481.0 ],
-									"source" : [ "obj-4", 1 ]
+									"destination" : [ "obj-25", 0 ],
+									"source" : [ "obj-4", 0 ]
 								}
 
 							}
@@ -1004,8 +1000,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1042,6 +1038,17 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-14",
+									"maxclass" : "grainflow.spatview~",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 138.0, 416.0, 364.0, 145.599999999999994 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-3",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -1075,8 +1082,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 5,
-											"revision" : 4,
+											"minor" : 6,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1297,7 +1304,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 529.833333333333258, 441.0, 305.0, 24.0 ],
+									"patching_rect" : [ 504.0, 457.0, 305.0, 24.0 ],
 									"text" : "grainflow.spatview~ sends a center message when clicked"
 								}
 
@@ -1308,7 +1315,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "", "clear" ],
+									"outlettype" : [ "dictionary", "clear" ],
 									"patching_rect" : [ 613.833333333333258, 150.5, 134.0, 22.0 ],
 									"text" : "grainflow.spat.speakers"
 								}
@@ -1446,6 +1453,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[3]",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[3]",
 											"parameter_type" : 3
 										}
@@ -1472,6 +1480,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[2]",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[2]",
 											"parameter_type" : 3
 										}
@@ -1498,6 +1507,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[1]",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[1]",
 											"parameter_type" : 3
 										}
@@ -1603,7 +1613,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 228.0, 556.5, 274.0, 39.0 ],
+									"patching_rect" : [ 228.0, 566.0, 274.0, 39.0 ],
 									"text" : "grainflow.spatview~ is used to visualize grains in space"
 								}
 
@@ -1654,21 +1664,6 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 15.0, 51.0, 716.833333333333258, 20.0 ],
 									"text" : "Allows for granular panning in 3D speaker setups and incorperates panning methods for distance and vector based amplitude panning"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
-									"filename" : "grainflow.spatview~.js",
-									"id" : "obj-5",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 158.0, 417.5, 344.0, 137.0 ]
 								}
 
 							}
@@ -1787,6 +1782,15 @@
 							}
 , 							{
 								"patchline" : 								{
+									"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
+									"destination" : [ "obj-51", 0 ],
+									"midpoints" : [ 147.5, 572.0, 539.833333333333485, 572.0, 539.833333333333485, 82.0, 229.166666666666686, 82.0 ],
+									"source" : [ "obj-14", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-47", 0 ],
 									"source" : [ "obj-16", 0 ]
 								}
@@ -1825,18 +1829,18 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-33", 0 ],
-									"midpoints" : [ 54.5, 579.25, 133.0, 579.25 ],
-									"order" : 1,
-									"source" : [ "obj-2", 0 ]
+									"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
+									"destination" : [ "obj-14", 0 ],
+									"source" : [ "obj-2", 1 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
-									"destination" : [ "obj-5", 0 ],
-									"source" : [ "obj-2", 1 ]
+									"destination" : [ "obj-33", 0 ],
+									"midpoints" : [ 54.5, 579.25, 133.0, 579.25 ],
+									"order" : 1,
+									"source" : [ "obj-2", 0 ]
 								}
 
 							}
@@ -1923,15 +1927,6 @@
 								"patchline" : 								{
 									"destination" : [ "obj-20", 0 ],
 									"source" : [ "obj-47", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"color" : [ 0.874509803921569, 0.250980392156863, 0.717647058823529, 1.0 ],
-									"destination" : [ "obj-51", 0 ],
-									"midpoints" : [ 167.5, 561.0, 539.833333333333485, 561.0, 539.833333333333485, 82.0, 229.166666666666686, 82.0 ],
-									"source" : [ "obj-5", 0 ]
 								}
 
 							}
@@ -2067,14 +2062,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 569.0, 244.0, 935.0, 880.0 ],
+						"rect" : [ 0.0, 26.0, 935.0, 880.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -2104,6 +2099,17 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-7",
+									"maxclass" : "grainflow.spatview~",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 175.0, 350.0, 472.0, 189.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"fontface" : 1,
 									"fontname" : "Arial",
@@ -2137,7 +2143,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 2,
-									"outlettype" : [ "", "clear" ],
+									"outlettype" : [ "dictionary", "clear" ],
 									"patching_rect" : [ 82.0, 161.0, 134.0, 22.0 ],
 									"text" : "grainflow.spat.speakers"
 								}
@@ -2286,6 +2292,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number",
 											"parameter_type" : 3
 										}
@@ -2374,21 +2381,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 19.0, 372.0, 116.333333333333314, 137.5 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
-									"filename" : "grainflow.spatview~.js",
-									"id" : "obj-5",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 174.833333333333258, 347.0, 415.0, 166.0 ]
 								}
 
 							}
@@ -2558,7 +2550,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-5", 0 ],
+									"destination" : [ "obj-7", 0 ],
 									"source" : [ "obj-6", 1 ]
 								}
 
@@ -2634,114 +2626,101 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "_grainflow.aed2xyz.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "Grainflow.voice~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
-				"name" : "_grainflow.poly.maxpat",
+				"name" : "_grainflow.aed2xyz.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.snapshot~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.spat.pointparse.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.spreadlist.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.xyz2aed.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
+				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.3dspread.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.pan~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.phys.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat/phys",
-				"patcherrelativepath" : "../patchers/spat/phys",
+				"patcherrelativepath" : "../../patchers/spat/phys",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.speakers.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.spirograph.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.transformOverLife.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.volume.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
-				"patcherrelativepath" : "../patchers/spat",
+				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.spatview~.js",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
-				"patcherrelativepath" : "../jsui",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
-				"implicit" : 1
+				"name" : "grainflow.spatview~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "grainflow~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
+				"patcherrelativepath" : "../../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}

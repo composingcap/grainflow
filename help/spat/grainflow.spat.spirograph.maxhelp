@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 4,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 352.0, 190.0, 635.0, 511.0 ],
+		"rect" : [ 100.0, 100.0, 635.0, 511.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -50,14 +50,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 635.0, 485.0 ],
+						"rect" : [ 100.0, 126.0, 635.0, 485.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -87,6 +87,17 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-6",
+									"maxclass" : "grainflow.spatview~",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 184.166666666666657, 317.0, 300.0, 120.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-12",
 									"maxclass" : "newobj",
@@ -252,8 +263,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 5,
-											"revision" : 4,
+											"minor" : 6,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -444,11 +455,12 @@
 													"id" : "obj-10",
 													"maxclass" : "newobj",
 													"numinlets" : 2,
-													"numoutlets" : 4,
-													"outlettype" : [ "dictionary", "", "", "" ],
+													"numoutlets" : 5,
+													"outlettype" : [ "dictionary", "", "", "", "" ],
 													"patching_rect" : [ 50.0, 148.5, 171.0, 22.0 ],
 													"saved_object_attributes" : 													{
 														"embed" : 1,
+														"legacy" : 1,
 														"parameter_enable" : 0,
 														"parameter_mappable" : 0
 													}
@@ -561,21 +573,6 @@
 								}
 
 							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
-									"filename" : "grainflow.spatview~.js",
-									"id" : "obj-21",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 174.0, 309.0, 300.0, 120.0 ]
-								}
-
-							}
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
@@ -632,8 +629,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-21", 0 ],
-									"midpoints" : [ 112.5, 359.0, 165.0, 359.0, 165.0, 298.0, 183.5, 298.0 ],
+									"destination" : [ "obj-6", 0 ],
+									"midpoints" : [ 112.5, 359.0, 165.0, 359.0, 165.0, 298.0, 193.666666666666657, 298.0 ],
 									"source" : [ "obj-18", 1 ]
 								}
 
@@ -773,14 +770,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 4,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 352.0, 216.0, 635.0, 485.0 ],
+						"rect" : [ 0.0, 26.0, 635.0, 485.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -811,14 +808,24 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-5",
+									"maxclass" : "grainflow.spatview~",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 176.0, 297.0, 300.0, 120.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"bubble" : 1,
 									"id" : "obj-3",
 									"linecount" : 3,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 356.5, 221.85714316368103, 150.0, 50.0 ],
-									"presentation_linecount" : 3,
+									"patching_rect" : [ 356.5, 221.85714316368103, 151.0, 50.0 ],
 									"text" : "New positions are output whenever a grain is spawned"
 								}
 
@@ -834,8 +841,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 5,
-											"revision" : 4,
+											"minor" : 6,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1008,7 +1015,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 65.0, 397.85714316368103, 64.0, 37.0 ],
+									"patching_rect" : [ 65.0, 397.85714316368103, 66.0, 37.0 ],
 									"text" : "Turn on audio"
 								}
 
@@ -1054,6 +1061,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[2]",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[2]",
 											"parameter_type" : 3
 										}
@@ -1080,6 +1088,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[1]",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number[1]",
 											"parameter_type" : 3
 										}
@@ -1106,6 +1115,7 @@
 											"parameter_initial_enable" : 1,
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number",
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "number",
 											"parameter_type" : 3
 										}
@@ -1221,8 +1231,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 5,
-											"revision" : 4,
+											"minor" : 6,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1425,11 +1435,12 @@
 													"id" : "obj-10",
 													"maxclass" : "newobj",
 													"numinlets" : 2,
-													"numoutlets" : 4,
-													"outlettype" : [ "dictionary", "", "", "" ],
+													"numoutlets" : 5,
+													"outlettype" : [ "dictionary", "", "", "", "" ],
 													"patching_rect" : [ 50.0, 148.5, 171.0, 22.0 ],
 													"saved_object_attributes" : 													{
 														"embed" : 1,
+														"legacy" : 1,
 														"parameter_enable" : 0,
 														"parameter_mappable" : 0
 													}
@@ -1561,21 +1572,6 @@
 								}
 
 							}
-, 							{
-								"box" : 								{
-									"border" : 0,
-									"embedstate" : [ [ "drawCenter", 0 ], [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ] ],
-									"filename" : "grainflow.spatview~.js",
-									"id" : "obj-34",
-									"maxclass" : "jsui",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 156.833333333333286, 291.250000178813934, 324.0, 129.0 ]
-								}
-
-							}
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
@@ -1629,8 +1625,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-34", 0 ],
-									"midpoints" : [ 104.5, 351.85714316368103, 153.273809353510501, 351.85714316368103, 153.273809353510501, 278.464285910129547, 166.333333333333286, 278.464285910129547 ],
+									"destination" : [ "obj-5", 0 ],
+									"midpoints" : [ 104.5, 351.85714316368103, 153.273809353510501, 351.85714316368103, 153.273809353510501, 278.464285910129547, 185.5, 278.464285910129547 ],
 									"source" : [ "obj-18", 1 ]
 								}
 
@@ -1758,14 +1754,11 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "_grainflow.aed2xyz.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../../patchers/_private",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "Grainflow.voice~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
-				"name" : "_grainflow.poly.maxpat",
+				"name" : "_grainflow.aed2xyz.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
@@ -1800,18 +1793,8 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.spatview~.js",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
-				"patcherrelativepath" : "../../jsui",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../../code",
-				"type" : "gDSP",
-				"implicit" : 1
+				"name" : "grainflow.spatview~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "grainflow~.maxpat",
