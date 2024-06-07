@@ -250,7 +250,7 @@ public:
 		clickPosition[0] = x;
 		clickPosition[1] = y;
 		region = (x < t.height() * 1.2) ? 0 : 1;
-		clickToCenter(&e.target());
+		clickToCenter(e.target());
 
 		output.send(atoms{"center", (double)centerPosition[0], (double)centerPosition[1], (double)centerPosition[2] });
 
@@ -270,15 +270,15 @@ public:
 			clickPosition[1] += y;
 
 
-			clickToCenter(&e.target());
+			clickToCenter(e.target());
 
 			output.send(atoms{"center", (double)centerPosition[0], (double)centerPosition[1], (double)centerPosition[2]});
 			return {};
 		}
 	};
 
-	void clickToCenter(target* t) {
-		float h = 1/t->height();
+	void clickToCenter(target t) {
+		float h = 1/t.height();
 		if (region == 0) {
 			centerPosition[0] = clamp((clickPosition[0]*h - 0.5f)*4, -2.0f, 2.0f);
 			centerPosition[1] = clamp((1-(clickPosition[1])*h-0.5f)*4, -2.0f, 2.0f);
@@ -431,8 +431,8 @@ public:
 						int idx = std::stoi(subkeys[j]->s_name)-1;
 						if (idx > speakers.keyCount() || idx < 0) continue;
 						speakerPositions_[idx * 3] = e[0];
-						speakerPositions_[idx * 3+1] = e.size() > 1 ? e[1] : 0;
-						speakerPositions_[idx * 3+2] = e.size() > 2 ? e[2] : 0;
+						speakerPositions_[idx * 3+1] = e.size() > 1 ? (float)e[1] : 0;
+						speakerPositions_[idx * 3+2] = e.size() > 2 ? (float)e[2] : 0;
 					}
 					m_speakerPositions.set(speakerPositions_);
 					continue;
