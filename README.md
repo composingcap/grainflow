@@ -1,11 +1,5 @@
 This branch is used for developing the grainflow~ external 
 
-###  In Progress
-🔲 Replace Grainflow.Waveform~ with and external \
-🔲 Replace Grainflow.Spatview~ with and external \
-🔲 The ability to set loop points per grain \
-🔲 Stress testing
-
 ## Features
 *If there is a feature not on this list that you use or would like, please open an issue* \
 ✔️ Soundfile granulation\
@@ -17,6 +11,9 @@ This branch is used for developing the grainflow~ external
 ✔️ Support  for granulating different buffers with each grain\
 ✔️ Support for grouping grains into streams\
 ✔️ 2D envelope buffers
+✔️ Replace Grainflow.Spatview~ with and external \
+✔️ Replace Grainflow.Waveform~ with and external \
+✔️ The ability to set loop points per grain \
 
 ### Removed features
 ✖️ The abiltiy to manually trigger grains
