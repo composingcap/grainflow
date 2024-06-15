@@ -36,6 +36,8 @@ private:
 	float emptyBuffer[10] = {};
 	int _maxGrains = 0;
 
+	
+
 public:
 	int input_chans[4] = { 0, 0, 0, 0 };
 	int maxGrainsThisFrame = 0;
@@ -444,6 +446,16 @@ public:
 		}
 	};
 
+	message<> windowOffsetRandom{
+		this,
+		"windowOffsetRandom",
+		"",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::window, GfParamType::random);
+			return {};
+		}
+	};
+
 	// Space
 	message<> space{
 		this,
@@ -748,7 +760,7 @@ public:
 	message<> env{
 		this,
 		"env",
-		"sets the envelope buffer",
+		"sets the envelope buffer with a second argument defining the number of envelopes in the buffer",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			string bname = (string)args[0];
 			BufferRefMessage(bname, GFBuffers::envelope);
@@ -762,9 +774,48 @@ public:
 		}
 	};
 
+	message<> env2D{
+		this,
+		"env",
+		"sets the envelope buffer with a second argument defining the number of envelopes in the buffer",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			string bname = (string)args[0];
+			BufferRefMessage(bname, GFBuffers::envelope);
+			if (args.size() < 2)
+			{
+				GrainMessage(1, GfParamName::nEnvelopes, GfParamType::value);
+				return {};
+			}
+			GrainMessage((int)args[1], GfParamName::nEnvelopes, GfParamType::value);
+			return {};
+		}
+	};
+
+	message<> nEnvelopes{
+		this,
+		"nEnvelopes",
+		"sets the number of envelopes in the 2d envelope buffer",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			
+			GrainMessage((int)args[0], GfParamName::nEnvelopes, GfParamType::value);
+			return {};
+		}
+	};
+
+
 	message<> envPosition{
 		this,
 		"envPosition",
+		"sets the 2D envelope position",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::base);
+			return {};
+		}
+	};
+
+	message<> env2DPosition{
+		this,
+		"env2DPosition",
 		"sets the 2D envelope position",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::base);

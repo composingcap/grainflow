@@ -17,3 +17,4 @@ tmp
 .vs
 package-info.json
 
+externals/codesign.sh
