@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm> 
 #include "IGrain.h"
 #include "c74_min.h"
 
@@ -66,6 +67,14 @@ using namespace c74::min;
 
             inline void SampleEnvelope(buffer_reference* ref, double* __restrict samples, double* grainClock, const int size)
             {
+                if (this->useDefaultEnvelope){
+                    for (int i = 0; i < size; i++) {
+                    auto frame = (size_t)(std::min((grainClock[i] * 1024.0),1024.0));
+                    samples[i] = Grainflow::HanningEnvelope[frame];
+                    }
+                    return;
+                }
+                
                 buffer_lock<> envelopeLock(*ref);
                 if (!envelopeLock.valid()) return;
                 auto nEnvelopes = this->nEnvelopes.value;

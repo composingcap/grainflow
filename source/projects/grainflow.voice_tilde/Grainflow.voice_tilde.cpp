@@ -142,6 +142,20 @@ void grainflow_voice_tilde::BufferRefMessage(string bname, GFBuffers type)
 		buf->set(bname);
 	}
 }
+
+void grainflow_voice_tilde::UseDefaultEnvelope(bool state){
+
+	if (_target > 0)
+	{
+		grainInfo[_target - 1].useDefaultEnvelope = state;
+		return;
+	}
+	for (int g = 0; g < _maxGrains; g++)
+	{
+		grainInfo[g].useDefaultEnvelope = state;// To access ir must be converted to the correct type
+
+	}
+}
 /// <summary>
 /// Forces a refresh of a type of buffer.
 /// </summary>

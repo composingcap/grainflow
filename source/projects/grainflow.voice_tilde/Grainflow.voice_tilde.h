@@ -69,6 +69,7 @@ public:
 	void Init();
 	void Cleanup();
 	void Reinit(int grains);
+	void UseDefaultEnvelope(bool state);
 
 #pragma endregion
 
@@ -99,18 +100,9 @@ public:
 		}	
 	};
 
-	argument<symbol> env_arg{ 
-		this,
-		"env", 
-		"default envelope buffer.",
-		[this](const c74::min::atom& arg) {
-			envArg = (string)arg;
-		}
-	};
-
 #pragma endregion
 #pragma region MAX_MESSAGES
-	// Setup functions
+	// Setup functionsf
 
 	message<> setup{
 		this,
@@ -762,32 +754,32 @@ public:
 		"env",
 		"sets the envelope buffer with a second argument defining the number of envelopes in the buffer",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if (args.size() < 1) return{};
 			string bname = (string)args[0];
+			if(bname.empty() || bname.compare("0") == 0 || bname.compare("_") == 0 || bname.compare("default") == 0){
+				UseDefaultEnvelope(true);
+				return {};
+			}
 			BufferRefMessage(bname, GFBuffers::envelope);
+			UseDefaultEnvelope(false);
 			if (args.size() < 2)
 			{
 				GrainMessage(1, GfParamName::nEnvelopes, GfParamType::value);
 				return {};
 			}
 			GrainMessage((int)args[1], GfParamName::nEnvelopes, GfParamType::value);
+			
+
 			return {};
 		}
 	};
 
 	message<> env2D{
 		this,
-		"env",
+		"env2D",
 		"sets the envelope buffer with a second argument defining the number of envelopes in the buffer",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			string bname = (string)args[0];
-			BufferRefMessage(bname, GFBuffers::envelope);
-			if (args.size() < 2)
-			{
-				GrainMessage(1, GfParamName::nEnvelopes, GfParamType::value);
-				return {};
-			}
-			GrainMessage((int)args[1], GfParamName::nEnvelopes, GfParamType::value);
-			return {};
+			this->try_call("env", args);
 		}
 	};
 
