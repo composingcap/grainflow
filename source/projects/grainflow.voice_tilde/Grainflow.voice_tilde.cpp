@@ -60,6 +60,13 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 		memset(_ioConfig.out[g], double(0), sizeof(double) * _ioConfig.blockSize);
 	}
 
+
+	if (!_state) 
+	{
+		lock.unlock();
+		return;
+	}
+
 	for (int g = 0; g < ngrains; g++)
 	{
 		_ioConfig.grainClock = _ioConfig.grainClockCh + (g % input_chans[0]);

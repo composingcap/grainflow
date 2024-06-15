@@ -58,7 +58,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 638.0, 822.0 ],
+						"rect" : [ 0.0, 26.0, 638.0, 822.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -97,9 +97,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 49.0, 395.5, 69.0, 65.0 ],
-									"presentation_linecount" : 2,
-									"text" : "default envelope is hanning",
-									"textjustification" : 0
+									"text" : "default envelope is hanning"
 								}
 
 							}
@@ -6615,7 +6613,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 638.0, 822.0 ],
+						"rect" : [ 100.0, 126.0, 638.0, 822.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -7107,6 +7105,7 @@
 										"valueof" : 										{
 											"parameter_initial" : [ 5 ],
 											"parameter_initial_enable" : 1,
+											"parameter_invisible" : 1,
 											"parameter_longname" : "number",
 											"parameter_mmax" : 5.0,
 											"parameter_modmode" : 0,

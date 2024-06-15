@@ -35,6 +35,8 @@ private:
 	gfIoConfig _ioConfig;
 	float emptyBuffer[10] = {};
 	int _maxGrains = 0;
+	bool _state = false;
+	bool _autoOverlap = true;
 
 	
 
@@ -95,8 +97,10 @@ public:
 		[this](const c74::min::atom& arg) {
 			_maxGrains =(int)arg;
 			if (_maxGrains < 1) _maxGrains = 2;
+
 			grainInfo = std::unique_ptr<MspGrain<INTERNALBLOCK>[]>(new MspGrain<INTERNALBLOCK>[_maxGrains]);
-			_ngrains = 0;
+			_ngrains = _maxGrains;
+			if(_autoOverlap) this->try_call("windowOffset", "auto");
 		}	
 	};
 
@@ -138,6 +142,16 @@ public:
 #pragma endregion
 #pragma region GRAINFLOW_MESSAGES
 	// Grainflow Messages
+	message<> m_int{
+		this,
+		"int",
+		"enables and disables the granulator",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			_state = (int)args[0] >= 1;
+			return{};
+		}
+	};
+
 
 	// Rate
 	message<> rate{
@@ -433,7 +447,11 @@ public:
 		"windowOffset",
 		"",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage(args[0], GfParamName::window, GfParamType::offset);
+			if (args[0].type() == message_type::symbol_argument){
+				GrainMessage(_ngrains >= 1 ? 1.0f/(float)_ngrains : 0, GfParamName::window, GfParamType::offset);
+				return{};
+			}
+			GrainMessage((float)args[0], GfParamName::window, GfParamType::offset);
 			return {};
 		}
 	};
@@ -713,6 +731,7 @@ public:
 		"the number of active grains",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			_ngrains = (int)(args[0]) <= _maxGrains ? (int)(args[0]) : _maxGrains;
+			if(_autoOverlap) this->try_call("windowOffset", "auto");
 			return {};
 			}
 	};
