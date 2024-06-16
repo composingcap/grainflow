@@ -31,7 +31,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 	//This is a hack to get around some wierd ordering issues when playing the first frame when the number of voices has changed
 	maxGrainsThisFrame = std::min((int)(output.channel_count() / 8), _maxGrains); 
 	auto ngrains= clamp(_ngrains, 0, maxGrainsThisFrame);
-	_ioConfig.livemode = _livemode;
+	_ioConfig.livemode = liveMode;
 	_ioConfig.in = input.samples();
 	_ioConfig.out = output.samples();
 
@@ -81,7 +81,49 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 
 #pragma endregion
 
+atoms grainflow_tilde::GetGrainParams(GfParamName param, GfParamType type) {
+	atoms values;
+	values.clear();
+	values.resize(_maxGrains);
+	for (int g = 0; g < _maxGrains; g++) {
+		auto p = grainInfo[g].ParamGetHandle(param);
+		switch (type) {
+		case GfParamType::base:
+			values[g] = ((atom)p->base);
+			break;
+		case GfParamType::random:
+			values[g] = ((atom)p->random);
+			break;
+		case GfParamType::offset:
+			values[g] = ((atom)p->offset);
+			break;
+		case GfParamType::value:
+			values[g] = ((atom)p->value);
+			break;
+		}
+	}
+	return values;
+}
+atoms grainflow_tilde::SetGrainParams(atoms args, GfParamName param, GfParamType type) {
+	if (args.size() <= 1) {
+		GrainMessage(args[0], param, type);
+		return args;
+	}
+	for (int i = 0; i < _maxGrains; i++) {
+		grainInfo[i].ParamSet((float)args[i % args.size()], param, type);
+	}
+	return args;
+}
 
+
+void grainflow_tilde::TrySetAttributeOrMessage(string name, atoms args) {
+	if (auto get = this->attributes().find(name); get != this->attributes().end()) {
+		get->second->set(args);
+		return;
+	}
+	this->try_call(name, args);
+	return;
+}
 
 /// <summary>
 /// Helper to make targeting grains easier

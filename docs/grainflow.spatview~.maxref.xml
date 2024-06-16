@@ -29,7 +29,17 @@
 
 	<methodlist>
 
+		<method name='speakers'>
+			<digest></digest>
+			<description></description>
+		</method>
+
 		<method name='xyz'>
+			<digest>grain positions </digest>
+			<description>grain positions </description>
+		</method>
+
+		<method name='pos'>
 			<digest>grain positions </digest>
 			<description>grain positions </description>
 		</method>
@@ -39,17 +49,7 @@
 			<description>set grain amplitudes </description>
 		</method>
 
-		<method name='pos'>
-			<digest>grain positions </digest>
-			<description>grain positions </description>
-		</method>
-
 		<method name='anything'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='speakers'>
 			<digest></digest>
 			<description></description>
 		</method>
@@ -66,7 +66,37 @@
 
 	<attributelist>
 
-		<attribute name='centerColor' get='1' set='1' type='float64' size='1' >
+		<attribute name='falloffDistance' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='speakerPositions' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='dimmask' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='falloffCurve' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='zoneColor' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='drawCenter' get='1' set='1' type='long' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='backgroundColor' get='1' set='1' type='float64' size='1' >
 			<digest></digest>
 			<description></description>
 		</attribute>
@@ -81,42 +111,12 @@
 			<description></description>
 		</attribute>
 
-		<attribute name='backgroundColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='falloffDistance' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='drawCenter' get='1' set='1' type='long' size='1' >
+		<attribute name='centerColor' get='1' set='1' type='float64' size='1' >
 			<digest></digest>
 			<description></description>
 		</attribute>
 
 		<attribute name='speakerOnColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='falloffCurve' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='dimmask' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='zoneColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='speakerPositions' get='1' set='1' type='float64' size='1' >
 			<digest></digest>
 			<description></description>
 		</attribute>

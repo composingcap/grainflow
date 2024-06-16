@@ -34,12 +34,22 @@
 			<description>max number of grains </description>
 		</objarg>
 
+		<objarg name='envelope-buffer' optional='1' type='int'>
+			<digest>(optional) the initial envelope buffer for all grains </digest>
+			<description>(optional) the initial envelope buffer for all grains </description>
+		</objarg>
+
 	</objarglist>
 
 
 	<!--MESSAGES-->
 
 	<methodlist>
+
+		<method name='g'>
+			<digest>sends a message to a single grain </digest>
+			<description>sends a message to a single grain </description>
+		</method>
 
 		<method name='voices'>
 			<digest></digest>
@@ -51,134 +61,9 @@
 			<description>enables and disables the granulator </description>
 		</method>
 
-		<method name='transpose'>
-			<digest>control rate in semitones </digest>
-			<description>control rate in semitones </description>
-		</method>
-
-		<method name='rateMode'>
-			<digest>sets  the delay mode</digest>
-			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='rateRandom'>
-			<digest>randomization depth for the rate parameter </digest>
-			<description>randomization depth for the rate parameter </description>
-		</method>
-
-		<method name='rateOffset'>
-			<digest>the amount rate to apply rate based on grain index </digest>
-			<description>the amount rate to apply rate based on grain index </description>
-		</method>
-
-		<method name='transposeRandom'>
-			<digest>randomization depth for the the transpose parameter </digest>
-			<description>randomization depth for the the transpose parameter </description>
-		</method>
-
-		<method name='streamSet'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='transposeOffset'>
-			<digest>the amount of transposition to apply rate based on grain index </digest>
-			<description>the amount of transposition to apply rate based on grain index </description>
-		</method>
-
-		<method name='g'>
-			<digest>sends a message to a single grain </digest>
-			<description>sends a message to a single grain </description>
-		</method>
-
-		<method name='ampOffset'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='rateQuantizeSemi'>
-			<digest>locks transpositions to a set step in semitones </digest>
-			<description>locks transpositions to a set step in semitones </description>
-		</method>
-
-		<method name='glisson'>
-			<digest>how much the pitch will change over the life of the grain based on rate </digest>
-			<description>how much the pitch will change over the life of the grain based on rate </description>
-		</method>
-
-		<method name='amp'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='glissonRandom'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='ngrains'>
-			<digest>the number of active grains </digest>
-			<description>the number of active grains </description>
-		</method>
-
-		<method name='glissonOffset'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='glissonSt'>
-			<digest>controls glisson in semitones </digest>
-			<description>controls glisson in semitones </description>
-		</method>
-
-		<method name='gchan'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='glissonStOffset'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='glissonStRandom'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='spaceOffset'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='direction'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='ampRandom'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='chanMode'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='delay'>
-			<digest>the amound grains are delayed in ms </digest>
-			<description>the amound grains are delayed in ms </description>
-		</method>
-
 		<method name='trav'>
 			<digest>the amound grains are delayed in ms </digest>
 			<description>the amound grains are delayed in ms </description>
-		</method>
-
-		<method name='delayRandom'>
-			<digest></digest>
-			<description></description>
 		</method>
 
 		<method name='startPoint'>
@@ -191,24 +76,14 @@
 			<description>the amound grains are delayed in ms </description>
 		</method>
 
-		<method name='delayOffset'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='travOffset'>
-			<digest>the amound grains are delayed in ms </digest>
-			<description>the amound grains are delayed in ms </description>
-		</method>
-
 		<method name='windowBuffer'>
 			<digest>sets the buffer for window modes 1 and 2 </digest>
 			<description>sets the buffer for window modes 1 and 2 </description>
 		</method>
 
-		<method name='liveMode'>
-			<digest></digest>
-			<description></description>
+		<method name='travOffset'>
+			<digest>depricated message to set the amound grains are delayed in ms </digest>
+			<description>depricated message to set the amound grains are delayed in ms </description>
 		</method>
 
 		<method name='envPositionRandom'>
@@ -232,33 +107,8 @@
 		</method>
 
 		<method name='windowOffsetRandom'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='window'>
-			<digest>sets the position of the window </digest>
-			<description>sets the position of the window </description>
-		</method>
-
-		<method name='windowMode'>
-			<digest>sets  the window mode</digest>
-			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='bufChan'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='windowRandom'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='windowOffset'>
-			<digest></digest>
-			<description></description>
+			<digest>DEPRICATED message for setting the window offset attribute </digest>
+			<description>DEPRICATED message for setting the window offset attribute </description>
 		</method>
 
 		<method name='space'>
@@ -277,6 +127,16 @@
 		</method>
 
 		<method name='spaceRandom'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='spaceOffset'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='streamSet'>
 			<digest></digest>
 			<description></description>
 		</method>
@@ -306,7 +166,37 @@
 			<description></description>
 		</method>
 
+		<method name='windowMode'>
+			<digest>sets  the window mode</digest>
+			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='bufChan'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='chanMode'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='gchan'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='ngrains'>
+			<digest>the number of active grains </digest>
+			<description>the number of active grains </description>
+		</method>
+
 		<method name='delayMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='rateMode'>
 			<digest>sets  the delay mode</digest>
 			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
 		</method>
@@ -364,6 +254,126 @@
 	<attributelist>
 
 		<attribute name='rate' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='transposeRandom' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='transpose' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='rateRandom' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='rateOffset' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='transposeOffset' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='glisson' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='ampOffset' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='rateQuantizeSemi' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='autoOverlap' get='1' set='1' type='long' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='amp' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='glissonRandom' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='glissonOffset' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='glissonSt' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='glissonStOffset' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='glissonStRandom' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='direction' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='ampRandom' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='delay' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='delayRandom' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='delayOffset' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='window' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='windowRandom' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='windowOffset' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='liveMode' get='1' set='1' type='long' size='1' >
 			<digest></digest>
 			<description></description>
 		</attribute>
