@@ -60,9 +60,9 @@ public:
 		
 		for (int i = 0; i < grainIndices.size(); i++) {
 			auto res = grains.find(grainIndices[i]);
-
+			if (res->second.size <= 0.01) continue;
 			float scale = t->height() * 0.05f * res->second.size;
-			if (scale <= 0.01) continue;
+			
 
 			auto x = res->second.x;
 			auto y = res->second.y;

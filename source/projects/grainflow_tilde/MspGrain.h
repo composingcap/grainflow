@@ -69,7 +69,7 @@ using namespace c74::min;
             {
                 if (this->useDefaultEnvelope){
                     for (int i = 0; i < size; i++) {
-                    auto frame = (size_t)(std::min((grainClock[i] * 1024.0),1024.0));
+                        size_t frame = std::fmax(((std::fmin((grainClock[i] * 1024.0),1023.0))),0.0);
                     samples[i] = Grainflow::HanningEnvelope[frame];
                     }
                     return;

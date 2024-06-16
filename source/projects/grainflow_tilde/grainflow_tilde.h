@@ -12,7 +12,7 @@ using namespace Grainflow;
 long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count);
 long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 
-class grainflow_voice_tilde : public object<grainflow_voice_tilde>, public mc_operator<>
+class grainflow_tilde : public object<grainflow_tilde>, public mc_operator<>
 {
 public:
 	MIN_DESCRIPTION{ "the base object for grainflow" };
@@ -38,6 +38,44 @@ private:
 	bool _state = false;
 	bool _autoOverlap = true;
 
+atoms GetGrainParams(GfParamName param, GfParamType type) {
+		atoms values;
+		values.clear();
+		values.resize(_maxGrains);
+		for (int g = 0; g < _maxGrains; g++) {
+			auto p = grainInfo[g].ParamGetHandle(param);
+			switch (type) {
+			case GfParamType::base:
+				values[g] = ((atom)p->base);
+				break;
+			case GfParamType::random:
+				values[g] = ((atom)p->random);
+				break;
+			case GfParamType::offset:
+				values[g] = ((atom)p->offset);
+				break;
+			case GfParamType::value:
+				values[g] = ((atom)p->value);
+				break;
+			}
+		}
+		return values;
+	}
+
+	void SetPararamList(atoms args, GfParamName param, GfParamType type) {
+		for (int i = 0; i < _maxGrains; i++) {
+			grainInfo[i].ParamSet((float)args[i%args.size()], param, type);
+		}
+	}
+
+	void TrySetAttributeOrMessage(string name, atoms args) {
+		if (auto get = this->attributes().find(name); get != this->attributes().end()) {
+			get->second->set(args);
+			return;
+		}
+		this->try_call(name, args);
+		return;
+	}
 	
 
 public:
@@ -52,6 +90,10 @@ public:
 	inlet<> am{ this, "(multichannelsignal) amplitude modulation", "multichannelsignal" };
 
 	outlet<> output{ this, "(multichannel) grain output", "multichannelsignal" };
+
+	outlet<> o_grainInfo{ this, "(list) grain info", "list" };
+
+
 	outlet<> grainState{ this, "(multichannel) grainState", "multichannelsignal" };
 	outlet<> grainProgress{ this, "(multichannel) grainProgress", "multichannelsignal" };
 	outlet<> grainPlayhead{ this, "(multichannel) grainPlayhead", "multichannelsignal" };
@@ -63,7 +105,7 @@ public:
 #pragma region DSP
 
 	int GetMaxGrains();
-	~grainflow_voice_tilde();
+	~grainflow_tilde();
 	void operator()(audio_bundle input, audio_bundle output);
 	void GrainMessage(float value, GfParamName param, GfParamType type);
 	void BufferRefMessage(string bname, GFBuffers type);
@@ -103,6 +145,7 @@ public:
 			if(_autoOverlap) this->try_call("windowOffset", "auto");
 		}	
 	};
+
 
 #pragma endregion
 #pragma region MAX_MESSAGES
@@ -154,15 +197,28 @@ public:
 
 
 	// Rate
-	message<> rate{
+	attribute<vector<number>> rate{
 		this,
 		"rate",
-		"how fast a grain plays in relation to its normal playback rate",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		{1},
+		//description{"how fast a grain plays in relation to its normal playback rate"},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if (args.size() <= 1) {
 			GrainMessage(args[0], GfParamName::rate, GfParamType::base);
-			return {};
+			return args;
+			}
+			SetPararamList(args, GfParamName::rate, GfParamType::base);
+			return args;
+		}},
+		getter{
+			[this]() -> atoms {
+				return GetGrainParams(GfParamName::rate, GfParamType::base);
+			}
 		}
+		
 	};
+
+
 
 	message<> rateRandom{
 		this,
@@ -406,6 +462,12 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			_target = args[0];
 			_streamTarget = 0;
+			_channelTarget = 0;
+			if (args.size() <= 1) return {};
+			auto newArgs = atoms(args.begin() + 2, args.end());
+			TrySetAttributeOrMessage((string)args[1], newArgs);
+			
+			_target = 0;
 			return {};
 		}
 	};
@@ -416,6 +478,7 @@ public:
 		"sends a message to a single grain",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			_target = args[0];
+			_channelTarget = 0;
 			_streamTarget = 0;
 			return {};
 		}
@@ -799,6 +862,7 @@ public:
 		"sets the envelope buffer with a second argument defining the number of envelopes in the buffer",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			this->try_call("env", args);
+			return{};
 		}
 	};
 

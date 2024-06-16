@@ -6,7 +6,7 @@
 ///
 ///
 
-#include "Grainflow.voice_tilde.h"
+#include "grainflow_tilde.h"
 
 using namespace c74::min;
 using namespace Grainflow;
@@ -16,15 +16,15 @@ long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 
 
 
-int grainflow_voice_tilde::GetMaxGrains() { return _maxGrains; }
+int grainflow_tilde::GetMaxGrains() { return _maxGrains; }
 
-grainflow_voice_tilde::~grainflow_voice_tilde()
+grainflow_tilde::~grainflow_tilde()
 {
 	grainInfo.release();
 }
 #pragma region DSP
 
-void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
+void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 {
 	auto lockAvalible = lock.try_lock();
 	if (!lockAvalible) return;
@@ -89,7 +89,7 @@ void grainflow_voice_tilde::operator()(audio_bundle input, audio_bundle output)
 /// <param name="value"></param>
 /// <param name="param"></param>
 /// <param name="type"></param>
-void grainflow_voice_tilde::GrainMessage(float value, GfParamName param, GfParamType type)
+void grainflow_tilde::GrainMessage(float value, GfParamName param, GfParamType type)
 {
 	if (_streamTarget > 0)
 	{
@@ -115,22 +115,24 @@ void grainflow_voice_tilde::GrainMessage(float value, GfParamName param, GfParam
 
 	if (_target > 0)
 	{
-		if (_target >= _maxGrains)
+		if (_target > _maxGrains)
 			return;
+
+		grainInfo[_target - 1].ParamSet(value, param, type);
+		return;
+	}
+
 		for (int g = 0; g < _maxGrains; g++)
 		{
 			grainInfo[g].ParamSet(value, param, type);
 		}
 
 		return;
-	}
-	for (int g = 0; g < _maxGrains; g++)
-	{
-		grainInfo[g].ParamSet(value, param, type);
-	}
+	
+
 };
 
-void grainflow_voice_tilde::BufferRefMessage(string bname, GFBuffers type)
+void grainflow_tilde::BufferRefMessage(string bname, GFBuffers type)
 {
 	if (bname.empty())
 		return;
@@ -150,7 +152,7 @@ void grainflow_voice_tilde::BufferRefMessage(string bname, GFBuffers type)
 	}
 }
 
-void grainflow_voice_tilde::UseDefaultEnvelope(bool state){
+void grainflow_tilde::UseDefaultEnvelope(bool state){
 
 	if (_target > 0)
 	{
@@ -166,7 +168,7 @@ void grainflow_voice_tilde::UseDefaultEnvelope(bool state){
 /// <summary>
 /// Forces a refresh of a type of buffer.
 /// </summary>
-void grainflow_voice_tilde::BufferRefresh(GFBuffers type)
+void grainflow_tilde::BufferRefresh(GFBuffers type)
 {
 	for (int g = 0; g < _maxGrains; g++)
 	{
@@ -177,7 +179,7 @@ void grainflow_voice_tilde::BufferRefresh(GFBuffers type)
 	}
 };
 
-void grainflow_voice_tilde::Init()
+void grainflow_tilde::Init()
 {
 	for (int g = 0; g < _maxGrains; g++)
 	{
@@ -196,7 +198,7 @@ void grainflow_voice_tilde::Init()
 }
 
 
-void grainflow_voice_tilde::Reinit(int grains)
+void grainflow_tilde::Reinit(int grains)
 {
  	lock.lock();
 	grainInfo.reset((new MspGrain<INTERNALBLOCK>[grains]));
@@ -215,7 +217,7 @@ void grainflow_voice_tilde::Reinit(int grains)
 /// <returns></returns>
 long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 {
-	minwrap<grainflow_voice_tilde>* ob = (minwrap<grainflow_voice_tilde> *)(x);
+	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde> *)(x);
 	return ob->m_min_object.GetMaxGrains();
 }
 /// <summary>
@@ -227,11 +229,11 @@ long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 /// <returns></returns>
 long simplemc_inputchanged(c74::max::t_object* x, long g, long count)
 {
-	minwrap<grainflow_voice_tilde>* ob = (minwrap<grainflow_voice_tilde> *)(x);
+	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde> *)(x);
 	// auto chan_number = ob->m_min_object.GetMaxGrains(); //We should check for bonus channels and handle it
 	ob->m_min_object.input_chans[g] = count > 0 ? count : 1; // Tells us how many channels are in each inlet
 	return false;
 }
 #pragma endregion
 
-MIN_EXTERNAL(grainflow_voice_tilde);
+MIN_EXTERNAL(grainflow_tilde);
