@@ -18,6 +18,10 @@ long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 
 int grainflow_tilde::GetMaxGrains() { return _maxGrains; }
 
+grainflow_tilde::grainflow_tilde() {
+	grainInfoOutput.delay(33);
+}
+
 grainflow_tilde::~grainflow_tilde()
 {
 	grainInfo.release();
@@ -61,7 +65,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 	}
 
 
-	if (!_state) 
+	if (!state) 
 	{
 		lock.unlock();
 		return;
@@ -74,14 +78,29 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 		_ioConfig.fm = _ioConfig.fmCh + (g % input_chans[2]);
 		_ioConfig.am = _ioConfig.amCh + (g % input_chans[3]);
 
-		grainInfo[g].Proccess(_ioConfig);		
+		grainInfo[g].Proccess(_ioConfig);	
+
 	}
+	if (!hasUpdate) {
+		for (int g = 0; g < ngrains; g++) {
+			m_grainState[g] = _ioConfig.out[_ioConfig.grainState + g][0];
+			m_grainProgress[g] = _ioConfig.out[_ioConfig.grainProgress + g][0];
+			m_grainPlayhead[g] = _ioConfig.out[_ioConfig.grainPlayhead + g][0];
+			m_grainAmp[g] = _ioConfig.out[_ioConfig.grainAmp + g][0];
+			m_grainEnvelope[g] = _ioConfig.out[_ioConfig.grainEnvelope + g][0];
+			m_grainStreamChannel[g] = _ioConfig.out[_ioConfig.grainStreamChannel + g][0];
+			m_grainBufferChannel[g] = _ioConfig.out[_ioConfig.grainBufferChannel + g][0];
+		}
+		hasUpdate = true;
+	}
+
 	lock.unlock();
 }
 
 #pragma endregion
 
 atoms grainflow_tilde::GetGrainParams(GfParamName param, GfParamType type) {
+	if (_maxGrains <= 0) return{};
 	atoms values;
 	values.clear();
 	values.resize(_maxGrains);
@@ -105,6 +124,7 @@ atoms grainflow_tilde::GetGrainParams(GfParamName param, GfParamType type) {
 	return values;
 }
 atoms grainflow_tilde::SetGrainParams(atoms args, GfParamName param, GfParamType type) {
+	if (_maxGrains <= 0) return{};
 	if (args.size() <= 1) {
 		GrainMessage(args[0], param, type);
 		return args;
@@ -123,6 +143,14 @@ void grainflow_tilde::TrySetAttributeOrMessage(string name, atoms args) {
 	}
 	this->try_call(name, args);
 	return;
+}
+
+void grainflow_tilde::ouputGrainInfo(string name, atoms data) {
+	auto mess = atoms({ name });
+	for (int g = 0; g < data.size(); g++) {
+		mess.push_back(data[g]);
+	}
+	o_grainInfo.send(mess);
 }
 
 /// <summary>
@@ -245,6 +273,13 @@ void grainflow_tilde::Reinit(int grains)
  	lock.lock();
 	grainInfo.reset((new MspGrain<INTERNALBLOCK>[grains]));
 	_maxGrains = grains;
+	m_grainState.resize(_maxGrains);
+	m_grainProgress.resize(_maxGrains);
+	m_grainPlayhead.resize(_maxGrains);
+	m_grainAmp.resize(_maxGrains);
+	m_grainEnvelope.resize(_maxGrains);
+	m_grainStreamChannel.resize(_maxGrains);
+	m_grainBufferChannel.resize(_maxGrains);
 	Init();
 	lock.unlock();
 }

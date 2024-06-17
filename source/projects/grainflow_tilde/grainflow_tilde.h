@@ -23,7 +23,7 @@ private:
 	std::unique_ptr<MspGrain<INTERNALBLOCK>[]> grainInfo;
 	string bufferArg;
 	string envArg;
-	int _ngrains = 0;
+
 	float oneOverSamplerate = 1;
 	int _target = 0;
 	int _streamTarget = 0;
@@ -33,7 +33,16 @@ private:
 	gfIoConfig _ioConfig;
 	float emptyBuffer[10] = {};
 	int _maxGrains = 0;
-	bool _state = false;
+	int _ngrains = 0;
+	bool hasUpdate;
+
+	atoms m_grainState;
+	atoms m_grainProgress;
+	atoms m_grainPlayhead;
+	atoms m_grainAmp;
+	atoms m_grainEnvelope;
+	atoms m_grainStreamChannel;
+	atoms m_grainBufferChannel;
 
 	atoms GetGrainParams(GfParamName param, GfParamType type);
 	atoms SetGrainParams(atoms args, GfParamName param, GfParamType type);
@@ -65,6 +74,7 @@ public:
 #pragma region DSP
 
 	int GetMaxGrains();
+	grainflow_tilde();
 	~grainflow_tilde();
 	void operator()(audio_bundle input, audio_bundle output);
 	void GrainMessage(float value, GfParamName param, GfParamType type);
@@ -74,6 +84,7 @@ public:
 	void Cleanup();
 	void Reinit(int grains);
 	void UseDefaultEnvelope(bool state);
+	void ouputGrainInfo(string name, atoms data);
 
 #pragma endregion
 
@@ -97,6 +108,13 @@ public:
 			grainInfo = std::unique_ptr<MspGrain<INTERNALBLOCK>[]>(new MspGrain<INTERNALBLOCK>[_maxGrains]);
 			_ngrains = _maxGrains;
 			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / _ngrains });
+			m_grainState.resize(_maxGrains);
+			m_grainProgress.resize(_maxGrains);
+			m_grainPlayhead.resize(_maxGrains);
+			m_grainAmp.resize(_maxGrains);
+			m_grainEnvelope.resize(_maxGrains);
+			m_grainStreamChannel.resize(_maxGrains);
+			m_grainBufferChannel.resize(_maxGrains);
 		}
 	};
 
@@ -146,13 +164,27 @@ public:
 	};
 #pragma endregion
 #pragma region GRAINFLOW_MESSAGES
+	attribute<bool> state{
+		this, "state", false,
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if (!args[0]) return args;
+			if (!grainInfo) return args;
+			auto buf = grainInfo[0].GetBuffer(GFBuffers::buffer);
+			if (buf == nullptr) return args;
+			o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
+			return args;
+			}}
+		
+	};
 	// Grainflow Messages
 	message<> m_int{
 		this,
 		"int",
 		"enables and disables the granulator",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			_state = (int)args[0] >= 1;
+			state = (int)args[0] >= 1;
+			//o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
 			return{};
 		}
 	};
@@ -1056,6 +1088,27 @@ public:
 		GrainMessage(args[0], GfParamName::loopMode, GfParamType::base);
 		return {};
 	}
+	};
+
+	timer<timer_options::defer_delivery> grainInfoOutput{
+		this,
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if (hasUpdate) {
+				hasUpdate = false;
+			if (state) {
+				ouputGrainInfo("grainState", m_grainState);
+				ouputGrainInfo("grainPosition", m_grainPlayhead);
+				ouputGrainInfo("grainWindow", m_grainEnvelope);
+				ouputGrainInfo("grainAmp", m_grainAmp);
+				ouputGrainInfo("grainProgress", m_grainProgress);
+				ouputGrainInfo("grainBufferChannel", m_grainBufferChannel);
+				ouputGrainInfo("grainStreamChannel", m_grainStreamChannel);
+			}
+			}
+			grainInfoOutput.delay(33);
+
+			return{};
+		}
 	};
 
 #pragma endregion
