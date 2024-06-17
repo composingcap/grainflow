@@ -180,7 +180,8 @@ public:
 		if (buf == nullptr) return args;
 		o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
 		return args;
-		}}
+		}},
+		description{"Determines if grainflow is on or off"}
 
 	};
 
@@ -197,7 +198,8 @@ public:
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::rate, GfParamType::base);
 			}
-		}
+		},
+		description{"Controls the rate of playback of each grain. This will modify pitch."}
 	};
 	attribute<vector<number>> rateRandom{
 		this,
@@ -210,7 +212,8 @@ public:
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::rate, GfParamType::random);
 			}
-		}
+		},
+		description{"Adds a unipolar random amount to the playback rate on each grains start."}
 	};
 	attribute<vector<number>> rateOffset{
 		this,
@@ -223,7 +226,8 @@ public:
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::rate, GfParamType::offset);
 			}
-		}
+		},
+		description{"Adds an amount to the playback rate based on the grains index."}
 	};
 
 	attribute<vector<number>> transpose{
@@ -241,8 +245,9 @@ public:
 				auto res = GetGrainParams(GfParamName::rate, GfParamType::base);
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateToPitch((float)res[i])); }
 				return res;
-			}
-}
+			}},
+			description{"Controls each grains playback rate in terms of the pitch change that will occur"}
+
 	};
 
 	attribute<vector<number>> transposeRandom{
@@ -260,8 +265,8 @@ public:
 				auto res = GetGrainParams(GfParamName::rate, GfParamType::random);
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 				return res;
-			}
-}
+			}},
+			description{"Adds a unipolar random amount to each grains transposition when a grain starts"}
 	};
 
 	attribute<vector<number>> transposeOffset{
@@ -279,7 +284,9 @@ public:
 				auto res = GetGrainParams(GfParamName::rate, GfParamType::offset);
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 				return res;
-			}}
+			}},
+			description{"Adds an amount to each grains transposition based on grain index"}
+
 	};
 
 	attribute<vector<number>> rateQuantizeSemi{
@@ -297,7 +304,8 @@ public:
 				auto res = GetGrainParams(GfParamName::rateQuantizeSemi, GfParamType::value);
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateToPitch(res[i])); }
 				return res;
-			}}
+			}},
+		description{"Snaps grain playback rates to a semitone grid. 0 provides no snapping. Fractional amounts are allowed."}
 	};
 
 	// glisson
@@ -311,7 +319,9 @@ public:
 		getter{
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::glisson, GfParamType::base);
-			}}
+			}},
+		description{"How much the playback rate will change over the life of the grain. Creates a glissando effect"}
+
 	};
 
 	attribute<vector<number>> glissonRandom{
@@ -324,7 +334,9 @@ public:
 		getter{
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::glisson, GfParamType::random);
-			}}
+			}},
+		description{"A unipolar random amount added to each grains glisson destination. Determined at the start of each grain."}
+
 	};
 
 	attribute<vector<number>> glissonOffset{
@@ -337,7 +349,9 @@ public:
 		getter{
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::glisson, GfParamType::offset);
-			}}
+			}},
+		description{"An amount added to each grains glisson destination based on the grain index"}
+
 	};
 
 	attribute<vector<number>> glissonSt{
@@ -355,7 +369,8 @@ public:
 				auto res = GetGrainParams(GfParamName::glisson, GfParamType::base);
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 				return res;
-			}}
+			}},
+		description{"Controls the glisson attribute in terms of the pitch change that will occur"}
 	};
 
 	attribute<vector<number>> glissonStRandom{
@@ -365,18 +380,17 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			atoms transposed;
 			transposed.resize(args.size());
-			for (int i = 0; i < args.size(); i++) {
- transposed[i] = GfUtils::PitchOffsetToRateOffset((float)args[i]);
-}
-return SetGrainParams(transposed, GfParamName::glisson, GfParamType::random);
-}},
-getter{
-	[this]() -> atoms {
-		auto res = GetGrainParams(GfParamName::glisson, GfParamType::random);
-		for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
-		return res;
-	}}
-	};
+			for (int i = 0; i < args.size(); i++) {transposed[i] = GfUtils::PitchOffsetToRateOffset((float)args[i]);}
+			return SetGrainParams(transposed, GfParamName::glisson, GfParamType::random);
+		}},
+		getter{[this]() -> atoms {
+			auto res = GetGrainParams(GfParamName::glisson, GfParamType::random);
+			for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
+			return res;
+		}},
+		description{"A unipolar random amount added to the glissonSt value. Determined at the start of each grain."}
+
+		};
 
 	attribute<vector<number>> glissonStOffset{
 		this,
@@ -393,7 +407,9 @@ getter{
 				auto res = GetGrainParams(GfParamName::glisson, GfParamType::offset);
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 				return res;
-			}}
+			}},
+		description{"An amount added to the glissonSt value based on each grain's index"}
+
 	};
 
 	attribute<vector<number>> direction{
@@ -403,7 +419,8 @@ getter{
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::direction, GfParamType::base);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::direction, GfParamType::base); }}
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::direction, GfParamType::base); }},
+		description{"The probabilty a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards"}
 	};
 
 	// amp
@@ -414,7 +431,8 @@ getter{
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::amplitude, GfParamType::base);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::base); }}
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::base); }},
+		description{"The amplitude of each grain as a value from 0-1"}
 	};
 
 	attribute<vector<number>>  ampRandom{
@@ -424,7 +442,8 @@ getter{
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::amplitude, GfParamType::random);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::random); }}
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::random); }},
+		description{"A unipolar random amount subtracted from each grains amplitude. Determined at the start of each grain"}
 	};
 
 	attribute<vector<number>>  ampOffseet{
@@ -434,7 +453,9 @@ getter{
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::amplitude, GfParamType::offset);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::offset); }}
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::offset); }},
+		description{"An amount subtracted from each grains amplitude based on each grains index."}
+
 	};
 
 	// delay
@@ -452,7 +473,8 @@ getter{
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::base);
 			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
-		}}
+		}},
+		description{"An offset from the traversal phasor in milliseconds"}
 	};
 
 	attribute<vector<number>> delayRandom{
@@ -469,7 +491,8 @@ getter{
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::random);
 			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
-		}}
+		}},
+		description{"A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain"}
 	};
 
 
@@ -487,7 +510,9 @@ getter{
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::offset);
 			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
-			}}
+			}},
+		description{"An offset from the traversal phasor in milliseconds based on the index of each grain"}
+
 	};
 	// Window
 	attribute<vector<number>> window{
@@ -497,7 +522,8 @@ getter{
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::window, GfParamType::base);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::base); }}
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::base); }},
+		description{"Sets the position of each grains starting point on the grain clock from 0-1"}
 	};
 
 	attribute<vector<number>> windowRandom{
@@ -507,7 +533,8 @@ getter{
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::window, GfParamType::random);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::random); }}
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::random); }},
+		description{"Adds a unipolar random amount to each grains window"}
 	};
 
 	attribute<vector<number>> windowOffset{
@@ -517,13 +544,16 @@ getter{
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::window, GfParamType::offset);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::offset); }}
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::offset); }},
+		description{"Adds an offset to the base grain window position based on each grains index. When autoOverlap is enabled this is set based on the number of grains"}
 	};
 
 	attribute<bool> autoOverlap{
 		this,
 		"autoOverlap",
-		true
+		true,
+		description{"Automatically sets windowOffset based on the number of grains when nGrains is changed"}
+
 	};
 #pragma endregion
 
