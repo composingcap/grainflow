@@ -128,6 +128,10 @@ public:
 	};
 
 #pragma endregion
+
+
+
+
 #pragma region MAX_MESSAGES
 	// Setup functionsf
 
@@ -163,30 +167,21 @@ public:
 		}
 	};
 #pragma endregion
-#pragma region GRAINFLOW_MESSAGES
+
+#pragma region GRAINFLOW_ATTRIBUTES
+
 	attribute<bool> state{
-		this, "state", false,
-		setter{
-			[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			if (!args[0]) return args;
-			if (!grainInfo) return args;
-			auto buf = grainInfo[0].GetBuffer(GFBuffers::buffer);
-			if (buf == nullptr) return args;
-			o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
-			return args;
-			}}
-		
-	};
-	// Grainflow Messages
-	message<> m_int{
-		this,
-		"int",
-		"enables and disables the granulator",
+	this, "state", false,
+	setter{
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			state = (int)args[0] >= 1;
-			//o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
-			return{};
-		}
+		if (!args[0]) return args;
+		if (!grainInfo) return args;
+		auto buf = grainInfo[0].GetBuffer(GFBuffers::buffer);
+		if (buf == nullptr) return args;
+		o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
+		return args;
+		}}
+
 	};
 
 	// Rate
@@ -370,16 +365,17 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			atoms transposed;
 			transposed.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { transposed[i] = GfUtils::PitchOffsetToRateOffset((float)args[i]);
-			}
-			return SetGrainParams(transposed, GfParamName::glisson, GfParamType::random);
-		}},
-		getter{
-			[this]() -> atoms {
-				auto res = GetGrainParams(GfParamName::glisson, GfParamType::random);
-				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
-				return res;
-			}}
+			for (int i = 0; i < args.size(); i++) {
+ transposed[i] = GfUtils::PitchOffsetToRateOffset((float)args[i]);
+}
+return SetGrainParams(transposed, GfParamName::glisson, GfParamType::random);
+}},
+getter{
+	[this]() -> atoms {
+		auto res = GetGrainParams(GfParamName::glisson, GfParamType::random);
+		for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
+		return res;
+	}}
 	};
 
 	attribute<vector<number>> glissonStOffset{
@@ -459,17 +455,6 @@ public:
 		}}
 	};
 
-	message<> trav{
-		this,
-		"trav",
-		"the amound grains are delayed in ms",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			auto value = (float)args[0] * 0.001f * samplerate();
-			GrainMessage(value, GfParamName::delay, GfParamType::base);
-			return {};
-		}
-	};
-
 	attribute<vector<number>> delayRandom{
 		this,
 		"delayRandom",
@@ -487,16 +472,6 @@ public:
 		}}
 	};
 
-	message<> travRandom{
-		this,
-		"travRandom",
-		"the amound grains are delayed in ms",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			auto value = (float)args[0] * 0.001f * samplerate();
-			GrainMessage(value, GfParamName::delay, GfParamType::random);
-			return {};
-		}
-	};
 
 	attribute<vector<number>> delayOffset{
 		this,
@@ -514,6 +489,81 @@ public:
 			return ms;
 			}}
 	};
+	// Window
+	attribute<vector<number>> window{
+		this,
+		"window",
+		{0},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::window, GfParamType::base);
+		}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::base); }}
+	};
+
+	attribute<vector<number>> windowRandom{
+		this,
+		"windowRandom",
+		{0},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::window, GfParamType::random);
+		}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::random); }}
+	};
+
+	attribute<vector<number>> windowOffset{
+		this,
+		"windowOffset",
+		{0},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::window, GfParamType::offset);
+		}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::offset); }}
+	};
+
+	attribute<bool> autoOverlap{
+		this,
+		"autoOverlap",
+		true
+	};
+#pragma endregion
+
+#pragma region GRAINFLOW_MESSAGES
+
+	// Grainflow Messages
+	message<> m_int{
+		this,
+		"int",
+		"enables and disables the granulator",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			state = (int)args[0] >= 1;
+			//o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
+			return{};
+		}
+	};		
+
+	message<> trav{
+		this,
+		"trav",
+		"the amound grains are delayed in ms",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto value = (float)args[0] * 0.001f * samplerate();
+			GrainMessage(value, GfParamName::delay, GfParamType::base);
+			return {};
+		}
+	};
+
+
+	message<> travRandom{
+		this,
+		"travRandom",
+		"the amound grains are delayed in ms",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			auto value = (float)args[0] * 0.001f * samplerate();
+			GrainMessage(value, GfParamName::delay, GfParamType::random);
+			return {};
+		}
+	};
+
 
 	message<> travOffset{
 	this,
@@ -556,42 +606,7 @@ public:
 		}
 	};
 
-	// Window
-	attribute<vector<number>> window{
-		this,
-		"window",
-		{0},
-		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::window, GfParamType::base);
-		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::base); }}
-	};
-
-	attribute<vector<number>> windowRandom{
-		this,
-		"windowRandom",
-		{0},
-		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::window, GfParamType::random);
-		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::random); }}
-	};
-
-	attribute<vector<number>> windowOffset{
-		this,
-		"windowOffset",
-		{0},
-		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::window, GfParamType::offset);
-		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::offset); }}
-	};
-
-	attribute<bool> autoOverlap{
-	this,
-	"autoOverlap",
-	true
-	};
+	
 
 	message<> windowOffsetRandom{
 		this,
@@ -1090,6 +1105,9 @@ public:
 	}
 	};
 
+
+#pragma endregion
+#pragma region GRAINFLOW_OTHER
 	timer<timer_options::defer_delivery> grainInfoOutput{
 		this,
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
@@ -1110,10 +1128,5 @@ public:
 			return{};
 		}
 	};
-
-#pragma endregion
-#pragma region MAX_ATTR
-	// Attributes go here
-
 #pragma endregion
 };
