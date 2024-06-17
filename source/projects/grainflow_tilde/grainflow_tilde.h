@@ -1111,6 +1111,8 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			string bname = (string)args[0];
 			BufferRefMessage(bname, GFBuffers::buffer);
+			auto b = grainInfo[0].GetBuffer(GFBuffers::buffer);
+			if (b != nullptr) { o_grainInfo.send({ "buf", b->name() }); };
 			return {};
 		}
 	};
