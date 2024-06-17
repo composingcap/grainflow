@@ -439,9 +439,20 @@ public:
 		"ampRandom",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::amplitude, GfParamType::random);
+			atoms amps;
+			amps.resize(args.size());
+			for (int i = 0; i < args.size(); i++) {
+				amps[i] = std::max( std::min(- (float)args[i],0.0f), -1.0f);
+			}
+			return SetGrainParams(amps, GfParamName::amplitude, GfParamType::random);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::random); }},
+		getter {[this]() -> atoms {
+			auto amps = GetGrainParams(GfParamName::amplitude, GfParamType::random);;
+			for (int i = 0; i < amps.size(); i++) {
+				amps[i] = std::max(std::min(-(float)amps[i], 1.0f),0.0f);
+			}
+			return amps;
+		}},
 		description{"A unipolar random amount subtracted from each grains amplitude. Determined at the start of each grain"}
 	};
 
@@ -449,10 +460,21 @@ public:
 		this,
 		"ampOffset",
 		{0},
-		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::amplitude, GfParamType::offset);
+	setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			atoms amps;
+			amps.resize(args.size());
+			for (int i = 0; i < args.size(); i++) {
+				amps[i] = std::max(1.0f - (float)args[i],0.0f);
+			}
+			return SetGrainParams(amps, GfParamName::amplitude, GfParamType::offset);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::offset); }},
+		getter {[this]() -> atoms {
+			auto amps = GetGrainParams(GfParamName::amplitude, GfParamType::offset);;
+			for (int i = 0; i < amps.size(); i++) {
+				amps[i] = std::max(1.0f - (float)amps[i], 0.0f);
+			}
+			return amps;
+		}},
 		description{"An amount subtracted from each grains amplitude based on each grains index."}
 
 	};
