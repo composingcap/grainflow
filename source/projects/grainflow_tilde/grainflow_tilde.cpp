@@ -34,7 +34,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 	if (!lockAvalible) return;
 	//This is a hack to get around some wierd ordering issues when playing the first frame when the number of voices has changed
 	maxGrainsThisFrame = std::min((int)(output.channel_count() / 8), _maxGrains); 
-	auto ngrains= clamp(_ngrains, 0, maxGrainsThisFrame);
+	auto currentNgrains= clamp((int)ngrains, 0, maxGrainsThisFrame);
 	_ioConfig.livemode = liveMode;
 	_ioConfig.in = input.samples();
 	_ioConfig.out = output.samples();
@@ -71,7 +71,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 		return;
 	}
 
-	for (int g = 0; g < ngrains; g++)
+	for (int g = 0; g < currentNgrains; g++)
 	{
 		_ioConfig.grainClock = _ioConfig.grainClockCh + (g % input_chans[0]);
 		_ioConfig.traversalPhasor = _ioConfig.traversalPhasorCh + (g % input_chans[1]);
@@ -82,7 +82,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 
 	}
 	if (!hasUpdate) {
-		for (int g = 0; g < ngrains; g++) {
+		for (int g = 0; g < currentNgrains; g++) {
 			m_grainState[g] = _ioConfig.out[_ioConfig.grainState + g][0];
 			m_grainProgress[g] = _ioConfig.out[_ioConfig.grainProgress + g][0];
 			m_grainPlayhead[g] = _ioConfig.out[_ioConfig.grainPlayhead + g][0];

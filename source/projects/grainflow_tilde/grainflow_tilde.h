@@ -33,7 +33,6 @@ private:
 	gfIoConfig _ioConfig;
 	float emptyBuffer[10] = {};
 	int _maxGrains = 0;
-	int _ngrains = 0;
 	bool hasUpdate;
 
 	atoms m_grainState;
@@ -106,8 +105,8 @@ public:
 			_maxGrains = (int)arg;
 			if (_maxGrains < 1) _maxGrains = 2;
 			grainInfo = std::unique_ptr<MspGrain<INTERNALBLOCK>[]>(new MspGrain<INTERNALBLOCK>[_maxGrains]);
-			_ngrains = _maxGrains;
-			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / _ngrains });
+			ngrains = _maxGrains;
+			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / ngrains });
 			m_grainState.resize(_maxGrains);
 			m_grainProgress.resize(_maxGrains);
 			m_grainPlayhead.resize(_maxGrains);
@@ -555,6 +554,112 @@ public:
 		description{"Automatically sets windowOffset based on the number of grains when nGrains is changed"}
 
 	};
+
+	// Space
+	attribute<vector<number>> space{
+		this,
+		"space",
+		{0},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::space, GfParamType::base);
+		}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::base); }},
+		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
+
+	};
+
+	attribute<vector<number>> spaceRandom{
+		this,
+		"spaceRandom",
+		{0},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::space, GfParamType::base);
+		}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::random); }},
+		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
+
+	};
+
+	attribute<vector<number>> spaceOffset{
+		this,
+		"spaceOffset",
+		{0},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::space, GfParamType::offset);
+		}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::base); }},
+		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
+
+	};
+
+	attribute<number> density{
+	this,
+	"density",
+	1,
+	setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		if (_target > 0) {
+			grainInfo[_target - 1].density = args[0];
+			return {};
+			}
+		for (int g = 0; g < _maxGrains; g++)
+			{
+				grainInfo[g].density = args[0];
+			}
+			return args;
+		}},
+		description{"the probability a grain will play"},
+		
+	};
+
+	attribute<int> ngrains{
+		this,
+		"ngrains",
+		_maxGrains,
+		setter {[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		auto val = (int)(args[0]) <= _maxGrains ? (int)(args[0]) : _maxGrains;
+		if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / (ngrains > 0 ? ngrains : 1) });
+		return { val };
+		} },
+		description{"the number of active grains"},
+
+
+	};
+
+	attribute<vector<number>>  startPoint{
+		this,
+		"startPoint",
+		{0},
+		setter{ [this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			SetGrainParams(args, GfParamName::startPoint, GfParamType::base);
+			return args;
+			}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::startPoint, GfParamType::base); }},
+		description{"the start of the loop from 0-1"},
+	};
+
+	attribute<vector<number>> stopPoint{
+		this,
+		"stopPoint",
+		{1},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			SetGrainParams(args, GfParamName::stopPoint, GfParamType::base);
+			return args;
+		}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::stopPoint, GfParamType::base); }},
+		description{"the end of the loop from 0-1"},
+	};
+
+	attribute<vector<int>> loopMode{
+		this,
+		"loopMode",
+		{0},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			SetGrainParams(args, GfParamName::loopMode, GfParamType::base);
+			return args;
+		}},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::loopMode, GfParamType::base); }},
+		description{"how the loops is handled by each grain. 0: ignore the loop. 1: wrap 2: fold "},
+	};
 #pragma endregion
 
 #pragma region GRAINFLOW_MESSAGES
@@ -574,7 +679,7 @@ public:
 	message<> trav{
 		this,
 		"trav",
-		"the amound grains are delayed in ms",
+		"DEPRICATED the amound grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			auto value = (float)args[0] * 0.001f * samplerate();
 			GrainMessage(value, GfParamName::delay, GfParamType::base);
@@ -586,7 +691,7 @@ public:
 	message<> travRandom{
 		this,
 		"travRandom",
-		"the amound grains are delayed in ms",
+		"DEPRICATED the amound grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			auto value = (float)args[0] * 0.001f * samplerate();
 			GrainMessage(value, GfParamName::delay, GfParamType::random);
@@ -598,7 +703,7 @@ public:
 	message<> travOffset{
 	this,
 	"travOffset",
-	"depricated message to set the amound grains are delayed in ms",
+	"DEPRICATED message to set the amound grains are delayed in ms",
 	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 		auto value = (float)args[0] * 0.001f * samplerate();
 		GrainMessage(value, GfParamName::delay, GfParamType::offset);
@@ -647,36 +752,6 @@ public:
 		}
 	};
 
-	// Space
-	message<> space{
-		this,
-		"space",
-		"the amound of emty space at the end of each grains as a ratio of the total grain size",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage(args[0], GfParamName::space, GfParamType::base);
-			return {};
-		}
-	};
-
-	message<> spaceRandom{
-		this,
-		"spaceRandom",
-		"",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage(args[0], GfParamName::space, GfParamType::random);
-			return {};
-		}
-	};
-
-	message<> spaceOffset{
-		this,
-		"spaceOffset",
-		"",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage(args[0], GfParamName::space, GfParamType::offset);
-			return {};
-		}
-	};
 
 	// Streams
 
@@ -721,7 +796,7 @@ public:
 	message<> streamMsg{
 		this,
 		"stream",
-		"",
+		"sets an attribute or message for all grains in a stream",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			float value = 0;
 			int lastTarget = _target;
@@ -810,7 +885,7 @@ public:
 	message<> bufChans{
 		this,
 		"bufChans",
-		"",
+		"sets buffer channels to all grains in an interleved fashion",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			int chans = args[0];
 			for (int g = 0; g < _maxGrains; g++)
@@ -825,7 +900,7 @@ public:
 	message<> bufChan{
 		this,
 		"bufChan",
-		"",
+		"sets the channel of grains with a certain channel. Should be used with the g message",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			int g = 0;
 			int chan = 0;
@@ -851,7 +926,7 @@ public:
 	message<> chanMode{
 		this,
 		"chanMode",
-		"",
+		"If greater than 1, channels are assigned at random",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			int mode = (float)args[0] >= 0.999f ? 1 : 0;
 			for (int g = 0; g < _maxGrains; g++)
@@ -865,7 +940,7 @@ public:
 	message<> gchan{
 		this,
 		"gchan",
-		"",
+		"sets an attribute of message for all grains assigned to a buffer channel",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			float value = 0;
 			int lastTarget = _target;
@@ -887,35 +962,8 @@ public:
 		}
 	};
 
-	// State
 
-	message<> density{
-		this,
-		"density",
-		"the probability a grain will play",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			if (_target > 0) {
-				grainInfo[_target - 1].density = args[0];
-			return {};
-			}
-			for (int g = 0; g < _maxGrains; g++)
-			{
-				grainInfo[g].density = args[0];
-			}
-			return {};
-			}
-	};
 
-	message<> ngrains{
-		this,
-		"ngrains",
-		"the number of active grains",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			_ngrains = (int)(args[0]) <= _maxGrains ? (int)(args[0]) : _maxGrains;
-			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / _ngrains });
-			return {};
-			}
-	};
 
 	// Param Modes
 	message<> delayMode{
@@ -1105,35 +1153,7 @@ public:
 		false
 	};
 
-	message<> startPoint{
-	this,
-	"startPoint",
-	"",
-	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-		GrainMessage(args[0], GfParamName::startPoint, GfParamType::base);
-		return {};
-	}
-	};
 
-	message<> stopPoint{
-		this,
-		"stopPoint",
-		"",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage(args[0], GfParamName::stopPoint, GfParamType::base);
-			return {};
-		}
-	};
-
-	message<> loopMode{
-	this,
-	"loopMode",
-	"",
-	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-		GrainMessage(args[0], GfParamName::loopMode, GfParamType::base);
-		return {};
-	}
-	};
 
 
 #pragma endregion
