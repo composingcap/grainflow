@@ -45,8 +45,10 @@ public:
 			bufferDisplay.resize(0);
 			return;
 		}
-		if (samples.frame_count() < 1)
+		if (samples.frame_count() < 1) {
+			bufferDisplay.resize(0);
 			return;
+		}
 		int dispSamples = maxSamples;
 		float lastSample = 0;
 		dispSamples = samples.frame_count() < dispSamples ? samples.frame_count() : dispSamples;
@@ -64,6 +66,7 @@ public:
 
 	void DrawTracker(target t) {
 		if (recordHead < 0) return;
+		if (recordHead > 1) return;
 		rect<fill>{
 			t,
 				color{ m_trackerColor },
