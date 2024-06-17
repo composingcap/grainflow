@@ -61,7 +61,7 @@ public:
 		for (int i = 0; i < grainIndices.size(); i++) {
 			auto res = grains.find(grainIndices[i]);
 			if (res->second.size <= 0.01) continue;
-			float scale = t->height() * 0.05f * res->second.size;
+			float scale = t->height() * 0.05f * res->second.size * m_grainscale;
 			
 
 			auto x = res->second.x;
@@ -366,6 +366,14 @@ public:
 		"speakerOnColor",
 		color(0,1,0,1),
 		title{"speaker on color"}
+	};
+
+
+	attribute<number> m_grainscale{
+		this,
+		"grainScale",
+		1,
+		title{"grain scale"}
 	};
 
 
