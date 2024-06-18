@@ -8,6 +8,7 @@
 	"homepatcher" : "grainflowOverview.maxpat",
 	"max_version_max" : "none",
 	"max_version_min" : "8.5",
+	"LegalCopyright":	"Copyright (c) Christopher Poovey 2024",
 	"name" : "Grainflow",
 	"os" : 	{
 		"macintosh" : 		{
@@ -27,7 +28,7 @@
 	}
 ,
 	"tags" : [ "granulation", "mc" ],
-	"version" : "2.b1",
+	"version" : "2.0",
 	"website" : "https://github.com/composingcap/grainflow",
 	"filelist" : 	{
 		"externals" : [ ],
