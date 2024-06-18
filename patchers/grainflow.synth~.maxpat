@@ -1176,7 +1176,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 348.0, 469.0, 114.0, 22.0 ],
+					"patching_rect" : [ 435.0, 493.0, 114.0, 22.0 ],
 					"text" : "qmetro 33 @active 1"
 				}
 
@@ -1320,7 +1320,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 230.0, 274.0, 248.0, 21.0 ]
+									"patching_rect" : [ 278.0, 268.0, 248.0, 21.0 ]
 								}
 
 							}
@@ -1419,7 +1419,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "float" ],
-									"patching_rect" : [ 115.0, 199.0, 29.5, 21.0 ],
+									"patching_rect" : [ 136.25, 189.0, 29.5, 21.0 ],
 									"text" : "* 1."
 								}
 
@@ -1494,16 +1494,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-7", 0 ],
-									"order" : 0,
-									"source" : [ "obj-28", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-8", 0 ],
-									"order" : 1,
 									"source" : [ "obj-28", 0 ]
 								}
 
@@ -1561,6 +1552,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-29", 0 ],
 									"source" : [ "obj-5", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-30", 0 ],
+									"source" : [ "obj-7", 0 ]
 								}
 
 							}
@@ -1771,8 +1769,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 4,
 					"outlettype" : [ "signal", "signal", "", "" ],
-					"patching_rect" : [ 40.0, 469.0, 280.0, 22.0 ],
-					"text" : "poly~ _grainflow.synth_voice 1 @target 0 @parallel 1"
+					"patching_rect" : [ 40.0, 469.0, 382.0, 22.0 ],
+					"text" : "poly~ _grainflow.synth_voice 1 @target 0 @parallel 1 @args #1"
 				}
 
 			}

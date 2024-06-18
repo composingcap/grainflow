@@ -40,13 +40,16 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"bgColor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"buffername" : "_gflowSynthHelp",
 					"id" : "obj-7",
 					"maxclass" : "grainflow.waveform~",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 9.0, 112.0, 484.0, 77.0 ]
+					"patching_rect" : [ 9.0, 112.0, 484.0, 77.0 ],
+					"showTriangles" : 1,
+					"triangleColor" : [ 0.2, 0.2, 0.2, 1.0 ]
 				}
 
 			}
@@ -843,7 +846,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 86.0, 91.0, 640.0, 480.0 ],
+						"rect" : [ 1664.0, 216.0, 640.0, 461.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -879,7 +882,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 135.0, 271.0, 30.0, 30.0 ]
+									"patching_rect" : [ 119.0, 243.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -1316,6 +1319,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-62", 0 ],
+					"source" : [ "obj-7", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-72", 0 ]
 				}
@@ -1393,10 +1403,6 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "Grainflow.voice~.mxe64",
-				"type" : "mx64"
-			}
-, 			{
 				"name" : "_grainflow.synth_voice.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
@@ -1415,11 +1421,8 @@
 				"type" : "mx64"
 			}
 , 			{
-				"name" : "grainflow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow~.mxe64",
+				"type" : "mx64"
 			}
  ],
 		"autosave" : 0,

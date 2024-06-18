@@ -362,7 +362,7 @@ public:
 			int sign = m_selection[0] < m_selection[1] ? 1 : -1;
 			m_selection[1] = m_selection[0] + dist * sign;
 
-			output2.send(atoms{"clicking", (double)trianglePosition[0] / e.target().width(), trianglePosition[1] - (double)y / e.target().height()});
+			output2.send(atoms{"clicking", (double)trianglePosition[0] / e.target().width(), 1-((trianglePosition[1] - (double)y) / e.target().height())});
 			return {};
 		}
 	};

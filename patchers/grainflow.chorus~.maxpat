@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 11,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -49,8 +49,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -162,7 +162,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 1,
-									"outlettype" : [ "int" ],
+									"outlettype" : [ "" ],
 									"patching_rect" : [ 125.166666666666629, 109.0, 76.0, 21.0 ],
 									"text" : "random 5000"
 								}
@@ -329,25 +329,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
-									"fontface" : [ 0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ]
+									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -384,8 +384,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -430,8 +430,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 1,
-											"revision" : 11,
+											"minor" : 6,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -577,25 +577,25 @@
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"fontname" : [ "Futura Medium" ],
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 													"bgfillcolor" : 													{
-														"type" : "color",
+														"angle" : 270.0,
+														"autogradient" : 0.0,
 														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"angle" : 270.0,
 														"proportion" : 0.39,
-														"autogradient" : 0.0
+														"type" : "color"
 													}
 ,
-													"fontface" : [ 0 ],
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontsize" : [ 10.0 ]
+													"fontface" : [ 0 ],
+													"fontname" : [ "Futura Medium" ],
+													"fontsize" : [ 10.0 ],
+													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -663,7 +663,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 1,
-									"outlettype" : [ "int" ],
+									"outlettype" : [ "" ],
 									"patching_rect" : [ 98.0, 158.0, 70.0, 22.0 ],
 									"text" : "random 500"
 								}
@@ -852,25 +852,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
-									"fontface" : [ 0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ]
+									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -880,7 +880,7 @@
 						"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 					}
 ,
-					"patching_rect" : [ 250.333333333333314, 278.0, 46.333333666666647, 22.0 ],
+					"patching_rect" : [ 328.333333166666421, 364.0, 46.333333666666647, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -906,8 +906,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1079,25 +1079,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
-									"fontface" : [ 0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ]
+									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1153,7 +1153,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 213.0, 350.0, 140.0, 22.0 ],
+					"patching_rect" : [ 213.0, 349.0, 140.0, 22.0 ],
 					"text" : "receive~ #0_grainClock"
 				}
 
@@ -1169,14 +1169,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 86.0, 91.0, 640.0, 480.0 ],
+						"rect" : [ 822.0, 306.0, 640.0, 480.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -1291,8 +1291,8 @@
 									"numinlets" : 6,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 316.0, 175.0, 94.0, 22.0 ],
-									"text" : "scale 0. 1. 0. 50."
+									"patching_rect" : [ 316.0, 175.0, 90.0, 22.0 ],
+									"text" : "scale 0. 1. 0. -50."
 								}
 
 							}
@@ -1387,8 +1387,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 310.0, 232.0, 106.0, 22.0 ],
-									"text" : "travGlobalOffset $1"
+									"patching_rect" : [ 310.0, 232.0, 50.0, 22.0 ],
+									"text" : "delay $1"
 								}
 
 							}
@@ -1588,25 +1588,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
-									"fontface" : [ 0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ]
+									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1638,7 +1638,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 180.0, 184.0, 122.0, 22.0 ],
+					"patching_rect" : [ 182.333333333333258, 175.0, 122.0, 22.0 ],
 					"text" : "s #0_chorusAmount"
 				}
 
@@ -1665,8 +1665,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 6,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1821,25 +1821,25 @@
 						"styles" : [ 							{
 								"name" : "Minimal",
 								"default" : 								{
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"fontname" : [ "Futura Medium" ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 									"bgfillcolor" : 									{
-										"type" : "color",
+										"angle" : 270.0,
+										"autogradient" : 0.0,
 										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0.0
+										"type" : "color"
 									}
 ,
-									"fontface" : [ 0 ],
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-									"fontsize" : [ 10.0 ]
+									"fontface" : [ 0 ],
+									"fontname" : [ "Futura Medium" ],
+									"fontsize" : [ 10.0 ],
+									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1929,8 +1929,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 331.833333333333258, 87.0, 90.0, 22.0 ],
-					"text" : "prepend gvoices"
+					"patching_rect" : [ 333.333333333333258, 88.0, 82.0, 22.0 ],
+					"text" : "prepend voices"
 				}
 
 			}
@@ -2059,8 +2059,8 @@
 					"id" : "obj-1",
 					"maxclass" : "newobj",
 					"numinlets" : 4,
-					"numoutlets" : 2,
-					"outlettype" : [ "multichannelsignal", "" ],
+					"numoutlets" : 9,
+					"outlettype" : [ "multichannelsignal", "bang", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 175.666666666666657, 376.0, 131.0, 22.0 ],
 					"text" : "grainFlow.live~ 5000 10"
 				}
@@ -2275,25 +2275,25 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
-					"fontface" : [ 0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontsize" : [ 10.0 ]
+					"fontface" : [ 0 ],
+					"fontname" : [ "Futura Medium" ],
+					"fontsize" : [ 10.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
