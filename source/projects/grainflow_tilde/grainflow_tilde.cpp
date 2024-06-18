@@ -283,6 +283,7 @@ void grainflow_tilde::Reinit(int grains)
  	lock.lock();
 	grainInfo.reset((new MspGrain<INTERNALBLOCK>[grains]));
 	_maxGrains = grains;
+	if(autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / ngrains });
 	m_grainState.resize(_maxGrains);
 	m_grainProgress.resize(_maxGrains);
 	m_grainPlayhead.resize(_maxGrains);

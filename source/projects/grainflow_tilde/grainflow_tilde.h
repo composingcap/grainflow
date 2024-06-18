@@ -170,24 +170,6 @@ public:
 
 #pragma region GRAINFLOW_ATTRIBUTES
 
-	attribute<bool> state{
-	this, "state", false,
-	setter{
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-
-		if (!args[0]) {
-			GrainInfoReset();
-			return args;
-		}
-		if (!grainInfo) return args;
-		auto buf = grainInfo[0].GetBuffer(GFBuffers::buffer);
-		if (buf == nullptr) return args;
-		o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
-		return args;
-		}},
-		description{"Determines if grainflow is on or off"}
-
-	};
 
 	// Rate
 	attribute<vector<number>> rate{
@@ -203,7 +185,8 @@ public:
 				return GetGrainParams(GfParamName::rate, GfParamType::base);
 			}
 		},
-		description{"Controls the rate of playback of each grain. This will modify pitch."}
+		description{"Controls the rate of playback of each grain. This will modify pitch."},
+		category{"Pitch and Rate"},
 	};
 	attribute<vector<number>> rateRandom{
 		this,
@@ -217,7 +200,8 @@ public:
 				return GetGrainParams(GfParamName::rate, GfParamType::random);
 			}
 		},
-		description{"Adds a unipolar random amount to the playback rate on each grains start."}
+		description{"Adds a unipolar random amount to the playback rate on each grains start."},
+		category{"Pitch and Rate"},
 	};
 	attribute<vector<number>> rateOffset{
 		this,
@@ -231,7 +215,8 @@ public:
 				return GetGrainParams(GfParamName::rate, GfParamType::offset);
 			}
 		},
-		description{"Adds an amount to the playback rate based on the grains index."}
+		description{"Adds an amount to the playback rate based on the grains index."},
+		category{"Pitch and Rate"},
 	};
 
 	attribute<vector<number>> transpose{
@@ -250,7 +235,8 @@ public:
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateToPitch((float)res[i])); }
 				return res;
 			}},
-			description{"Controls each grains playback rate in terms of the pitch change that will occur"}
+			description{"Controls each grains playback rate in terms of the pitch change that will occur"},
+			category{"Pitch and Rate"},
 
 	};
 
@@ -270,7 +256,8 @@ public:
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 				return res;
 			}},
-			description{"Adds a unipolar random amount to each grains transposition when a grain starts"}
+			description{"Adds a unipolar random amount to each grains transposition when a grain starts"},
+			category{"Pitch and Rate"},
 	};
 
 	attribute<vector<number>> transposeOffset{
@@ -289,7 +276,8 @@ public:
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 				return res;
 			}},
-			description{"Adds an amount to each grains transposition based on grain index"}
+			description{"Adds an amount to each grains transposition based on grain index"},
+			category{"Pitch and Rate"},
 
 	};
 
@@ -309,7 +297,8 @@ public:
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateToPitch(res[i])); }
 				return res;
 			}},
-		description{"Snaps grain playback rates to a semitone grid. 0 provides no snapping. Fractional amounts are allowed."}
+		description{"Snaps grain playback rates to a semitone grid. 0 provides no snapping. Fractional amounts are allowed."},
+		category{"Pitch and Rate"},
 	};
 
 	// glisson
@@ -324,7 +313,8 @@ public:
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::glisson, GfParamType::base);
 			}},
-		description{"How much the playback rate will change over the life of the grain. Creates a glissando effect"}
+		description{"How much the playback rate will change over the life of the grain. Creates a glissando effect"},
+		category{"Pitch and Rate"},
 
 	};
 
@@ -339,7 +329,8 @@ public:
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::glisson, GfParamType::random);
 			}},
-		description{"A unipolar random amount added to each grains glisson destination. Determined at the start of each grain."}
+		description{"A unipolar random amount added to each grains glisson destination. Determined at the start of each grain."},
+		category{"Pitch and Rate"},
 
 	};
 
@@ -354,7 +345,8 @@ public:
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::glisson, GfParamType::offset);
 			}},
-		description{"An amount added to each grains glisson destination based on the grain index"}
+		description{"An amount added to each grains glisson destination based on the grain index"},
+		category{"Pitch and Rate"},
 
 	};
 
@@ -374,7 +366,8 @@ public:
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 				return res;
 			}},
-		description{"Controls the glisson attribute in terms of the pitch change that will occur"}
+		description{"Controls the glisson attribute in terms of the pitch change that will occur"},
+		category{"Pitch and Rate"},
 	};
 
 	attribute<vector<number>> glissonStRandom{
@@ -392,7 +385,8 @@ public:
 			for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 			return res;
 		}},
-		description{"A unipolar random amount added to the glissonSt value. Determined at the start of each grain."}
+		description{"A unipolar random amount added to the glissonSt value. Determined at the start of each grain."},
+		category{"Pitch and Rate"},
 
 		};
 
@@ -412,7 +406,8 @@ public:
 				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateOffsetToPitchOffset((float)res[i])); }
 				return res;
 			}},
-		description{"An amount added to the glissonSt value based on each grain's index"}
+		description{"An amount added to the glissonSt value based on each grain's index"},
+		category{"Pitch and Rate"},
 
 	};
 
@@ -424,7 +419,8 @@ public:
 			return SetGrainParams(args, GfParamName::direction, GfParamType::base);
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::direction, GfParamType::base); }},
-		description{"The probabilty a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards"}
+		description{"The probabilty a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards"},
+		category{"Time and Space"},
 	};
 
 	// amp
@@ -436,7 +432,8 @@ public:
 			return SetGrainParams(args, GfParamName::amplitude, GfParamType::base);
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::base); }},
-		description{"The amplitude of each grain as a value from 0-1"}
+		description{"The amplitude of each grain as a value from 0-1"},
+		category{"Amplitude"},
 	};
 
 	attribute<vector<number>>  ampRandom{
@@ -458,7 +455,8 @@ public:
 			}
 			return amps;
 		}},
-		description{"A unipolar random amount subtracted from each grains amplitude. Determined at the start of each grain"}
+		description{"A unipolar random amount subtracted from each grains amplitude. Determined at the start of each grain"},
+		category{"Amplitude"},
 	};
 
 	attribute<vector<number>>  ampOffseet{
@@ -480,8 +478,8 @@ public:
 			}
 			return amps;
 		}},
-		description{"An amount subtracted from each grains amplitude based on each grains index."}
-
+		description{"An amount subtracted from each grains amplitude based on each grains index."},
+		category{"Amplitude"},
 	};
 
 	// delay
@@ -500,7 +498,8 @@ public:
 			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 		}},
-		description{"An offset from the traversal phasor in milliseconds"}
+		description{"An offset from the traversal phasor in milliseconds"},
+		category{"Time and Space"},
 	};
 
 	attribute<vector<number>> delayRandom{
@@ -518,7 +517,8 @@ public:
 			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 		}},
-		description{"A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain"}
+		description{"A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain"},
+		category{"Time and Space"},
 	};
 
 
@@ -537,7 +537,8 @@ public:
 			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 			}},
-		description{"An offset from the traversal phasor in milliseconds based on the index of each grain"}
+		description{"An offset from the traversal phasor in milliseconds based on the index of each grain"},
+		category{"Time and Space"},
 
 	};
 	// Window
@@ -549,7 +550,8 @@ public:
 			return SetGrainParams(args, GfParamName::window, GfParamType::base);
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::base); }},
-		description{"Sets the position of each grains starting point on the grain clock from 0-1"}
+		description{"Sets the position of each grains starting point on the grain clock from 0-1"},
+		category{"Time and Space"},
 	};
 
 	attribute<vector<number>> windowRandom{
@@ -560,7 +562,8 @@ public:
 			return SetGrainParams(args, GfParamName::window, GfParamType::random);
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::random); }},
-		description{"Adds a unipolar random amount to each grains window"}
+		description{"Adds a unipolar random amount to each grains window"},
+		category{"Time and Space"},
 	};
 
 	attribute<vector<number>> windowOffset{
@@ -571,14 +574,16 @@ public:
 			return SetGrainParams(args, GfParamName::window, GfParamType::offset);
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::offset); }},
-		description{"Adds an offset to the base grain window position based on each grains index. When autoOverlap is enabled this is set based on the number of grains"}
+		description{"Adds an offset to the base grain window position based on each grains index. When autoOverlap is enabled this is set based on the number of grains"},
+		category{"Time and Space"},
 	};
 
 	attribute<bool> autoOverlap{
 		this,
 		"autoOverlap",
 		true,
-		description{"Automatically sets windowOffset based on the number of grains when nGrains is changed"}
+		description{"Automatically sets windowOffset based on the number of grains when nGrains is changed"},
+		category{"Grainflow Settings"},
 
 	};
 
@@ -592,6 +597,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::base); }},
 		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
+		category{"Time and Space"},
 
 	};
 
@@ -604,6 +610,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::random); }},
 		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
+		category{"Time and Space"},
 
 	};
 
@@ -616,6 +623,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::base); }},
 		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
+		category{"Time and Space"},
 
 	};
 
@@ -635,6 +643,7 @@ public:
 			return args;
 		}},
 		description{"the probability a grain will play"},
+		category{"Time and Space"},
 		
 	};
 
@@ -648,6 +657,7 @@ public:
 		return { val };
 		} },
 		description{"the number of active grains"},
+		category{"Grainflow Settings"},
 
 
 	};
@@ -662,6 +672,7 @@ public:
 			}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::startPoint, GfParamType::base); }},
 		description{"the start of the loop from 0-1"},
+		category{"Time and Space"},
 	};
 
 	attribute<vector<number>> stopPoint{
@@ -674,6 +685,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::stopPoint, GfParamType::base); }},
 		description{"the end of the loop from 0-1"},
+		category{"Time and Space"},
 	};
 
 	attribute<vector<int>> loopMode{
@@ -686,6 +698,75 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::loopMode, GfParamType::base); }},
 		description{"how the loops is handled by each grain. 0: ignore the loop. 1: wrap 2: fold "},
+		category{"Time and Space"},
+	};
+
+
+	attribute<bool> state{
+	this, "state", false,
+	setter{
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+
+		if (!args[0]) {
+			if (state)GrainInfoReset();
+			return args;
+		}
+		if (!grainInfo) return args;
+		auto buf = grainInfo[0].GetBuffer(GFBuffers::buffer);
+		if (buf == nullptr) return args;
+		o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
+		return args;
+		}},
+		description{"Determines if grainflow is on or off"},
+		category{"Grainflow Settings"},
+
+	};
+
+
+	// Buffer Channels
+	attribute<int> bufChans{
+		this,
+		"bufChans",
+		1,
+		description{"sets buffer channels to all grains in an interleved fashion"},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			int chans = args[0];
+			for (int g = 0; g < _maxGrains; g++)
+			{
+				grainInfo[g].channel.base = g % chans;
+			}
+
+			return args;
+			}
+		},
+		category{"Grainflow Settings"},
+	};
+
+
+	attribute<int> voices{
+		this,
+		"voices",
+		_maxGrains,
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if (args.size() < 1) return{};
+			if (args[0] == _maxGrains) return {};
+			int grains = args[0];
+			if (grains < 1)	return { _maxGrains };
+			Reinit(grains);
+			return args;
+		}},
+		getter {[this]() -> atoms {return {_maxGrains}; } },
+		category{"Grainflow Settings"},
+
+
+	};
+
+
+	attribute<bool> liveMode{
+		this,
+		"liveMode",
+		false,
+		category{"Grainflow Settings"},
 	};
 #pragma endregion
 
@@ -908,21 +989,7 @@ public:
 		}
 	};
 
-	// Buffer Channels
-	message<> bufChans{
-		this,
-		"bufChans",
-		"sets buffer channels to all grains in an interleved fashion",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			int chans = args[0];
-			for (int g = 0; g < _maxGrains; g++)
-			{
-				grainInfo[g].channel.base = g % chans;
-			}
 
-			return {};
-		}
-	};
 
 	message<> bufChan{
 		this,
@@ -1164,23 +1231,7 @@ public:
 		}
 	};
 
-	message<> voices{
-		this,
-		"voices",
-		"",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			int grains = args[0];
-			if (grains < 1)	return {};
-			Reinit(grains);
-			return {};
-		}
-	};
 
-	attribute<bool> liveMode{
-		this,
-		"liveMode",
-		false
-	};
 
 
 
