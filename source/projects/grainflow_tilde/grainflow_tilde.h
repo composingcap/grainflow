@@ -600,7 +600,7 @@ public:
 		"spaceRandom",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::space, GfParamType::base);
+			return SetGrainParams(args, GfParamName::space, GfParamType::random);
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::random); }},
 		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
