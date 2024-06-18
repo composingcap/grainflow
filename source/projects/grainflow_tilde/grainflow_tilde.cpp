@@ -147,10 +147,20 @@ void grainflow_tilde::TrySetAttributeOrMessage(string name, atoms args) {
 
 void grainflow_tilde::ouputGrainInfo(string name, atoms data) {
 	auto mess = atoms({ name });
-	for (int g = 0; g < data.size(); g++) {
+	for (int g = 0; g < std::min((int)data.size(), (int)ngrains); g++) {
 		mess.push_back(data[g]);
 	}
 	o_grainInfo.send(mess);
+}
+
+void grainflow_tilde::GrainInfoReset() {
+	ouputGrainInfo("grainState", { 0 });
+	ouputGrainInfo("grainPosition", { 0 });
+	ouputGrainInfo("grainWindow", { 0 });
+	ouputGrainInfo("grainAmp", { 0 });
+	ouputGrainInfo("grainProgress", { 0 });
+	ouputGrainInfo("grainBufferChannel", { 0 });
+	ouputGrainInfo("grainStreamChannel", { 0 });
 }
 
 /// <summary>

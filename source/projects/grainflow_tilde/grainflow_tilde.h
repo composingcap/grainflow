@@ -46,6 +46,7 @@ private:
 	atoms GetGrainParams(GfParamName param, GfParamType type);
 	atoms SetGrainParams(atoms args, GfParamName param, GfParamType type);
 	void TrySetAttributeOrMessage(string name, atoms args);
+	void GrainInfoReset();
 
 public:
 	int input_chans[4] = { 0, 0, 0, 0 };
@@ -173,7 +174,11 @@ public:
 	this, "state", false,
 	setter{
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-		if (!args[0]) return args;
+
+		if (!args[0]) {
+			GrainInfoReset();
+			return args;
+		}
 		if (!grainInfo) return args;
 		auto buf = grainInfo[0].GetBuffer(GFBuffers::buffer);
 		if (buf == nullptr) return args;
@@ -639,7 +644,7 @@ public:
 		_maxGrains,
 		setter {[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 		auto val = (int)(args[0]) <= _maxGrains ? (int)(args[0]) : _maxGrains;
-		if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / (ngrains > 0 ? ngrains : 1) });
+		if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / (val > 0 ? val : 1) });
 		return { val };
 		} },
 		description{"the number of active grains"},
