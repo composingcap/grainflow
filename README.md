@@ -1,7 +1,12 @@
-This branch is used for developing the grainflow~ external 
+# Grainflow 2!
+Grainflow 2.0 improves on the original grainflow by implementing grainflow code into a much more efficient Max external created using the Min API.
+
+The external is single threaded (rather than multithreaded in a poly~) which means grainflow instances can be placed in a poly for multithreaded management. This also means grainflow is now suitable for using in Max for Live.
+
+This update also has externals for grainflow.waveform~ and grainflow.spatview~ with much more performant external version replacing the previous jsui versions.
+
 
 ## Features
-*If there is a feature not on this list that you use or would like, please open an issue* \
 ✔️ Soundfile granulation\
 ✔️ Live granulation\
 ✔️ Control of grains using mc signals\
@@ -10,15 +15,18 @@ This branch is used for developing the grainflow~ external
 ✔️ Support for ganulating different buffer channels per grain\
 ✔️ Support  for granulating different buffers with each grain\
 ✔️ Support for grouping grains into streams\
-✔️ 2D envelope buffers
+✔️ 2D envelope buffers \
 ✔️ Replace Grainflow.Spatview~ with and external \
 ✔️ Replace Grainflow.Waveform~ with and external \
-✔️ The ability to set loop points per grain \
+✔️ The ability to set loop points per grain 
 
 ### Removed features
-✖️ The abiltiy to manually trigger grains
-✖️ The abilty to store configurations in dictionaries
+✖️ The ability to manually trigger grains (alternate solution available) \
+✖️ The ability to store configurations in dictionaries
 
+### Planned Features
+- External of grainflow.live~. This will allow for 0 latency between input and granulation. Currently a signal vector of delay is needed. 
+- External version of grainflow.moddial 
 
 ## Migrating old code
 For the most part, grainflow code *should* be more or less the same in this new version. There are a few names that have been changed and some that have been removed.
@@ -31,7 +39,7 @@ The documentation has not yet been updated to reflect these changes.
 
 
 ## Buidling
-Currently grainiflow has only ben tested on Windows 11  and Mac OS 14
+Currently grainflow has only ben tested on Windows 11  and Mac OS 14
 You must have [cmake](https://cmake.org/) and Visual Studio (Windows) or Xcode (Mac)  
 ### Downloading the repo
 Open a terminal window in the  directory you would like to place grainflow.
@@ -50,7 +58,7 @@ cmake ../
 cmake --build . --config Release
 ```
 #### Mac:
-*Mac builds should use the Xcode compiler (not Apple clang)*
+*Mac builds should use the Xcode compiler (not clang)*
 ```
 cd ./grainflow
 mkdir ./build
