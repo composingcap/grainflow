@@ -1,9 +1,14 @@
-# Grainflow 2!
+# Grainflow 2 Beta!
 Grainflow 2.0 improves on the original grainflow by implementing grainflow code into a much more efficient Max external created using the Min API.
 
 The external is single threaded (rather than multithreaded in a poly~) which means grainflow instances can be placed in a poly for multithreaded management. This also means grainflow is now suitable for using in Max for Live.
 
 This update also has externals for grainflow.waveform~ and grainflow.spatview~ with much more performant external version replacing the previous jsui versions.
+
+## Installation 
+1. Download this repo or the latest preview release
+2. (Optional) If you are using the repo rather an a release, you should build the externals for your platform
+3. Unzip it and place it in your Max/Packages folder
 
 
 ## Features
@@ -38,7 +43,9 @@ The documentation has not yet been updated to reflect these changes.
 - Windows are now places with  the window message (windowOffset,  windowOffsetRandom)
 
 
-## Buidling
+## Buidling from source
+Building from source is the best way to ensure you get the most up-to-date changes
+
 Currently grainflow has only ben tested on Windows 11  and Mac OS 14
 You must have [cmake](https://cmake.org/) and Visual Studio (Windows) or Xcode (Mac)  
 ### Downloading the repo
