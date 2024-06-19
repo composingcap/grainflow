@@ -3,7 +3,7 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
+			"minor" : 6,
 			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
@@ -39,6 +39,18 @@
 		"subpatcher_template" : "minimal",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-48",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 172.0, 330.0, 67.0, 21.0 ],
+					"text" : "- vectorsize"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-25",
 					"maxclass" : "newobj",
@@ -262,7 +274,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 271.0, 169.0, 71.0, 21.0 ],
+					"patching_rect" : [ 274.0, 169.0, 71.0, 21.0 ],
 					"text" : "+ vectorsize"
 				}
 
@@ -286,7 +298,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 271.0, 191.0, 58.0, 21.0 ],
+					"patching_rect" : [ 231.0, 213.0, 58.0, 21.0 ],
 					"text" : "selector 2"
 				}
 
@@ -358,7 +370,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 173.0, 307.0, 70.0, 21.0 ],
+					"patching_rect" : [ 172.0, 360.0, 70.0, 21.0 ],
 					"text" : "/ (dim(buf))"
 				}
 
@@ -370,7 +382,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 188.5, 238.0, 236.0, 21.0 ],
+					"patching_rect" : [ 196.0, 243.0, 236.0, 21.0 ],
 					"text" : "wrap startPoint*dim(buf) stopPoint*dim(buf)"
 				}
 
@@ -404,7 +416,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 332.5, 442.0, 35.0, 21.0 ],
+					"patching_rect" : [ 332.0, 484.0, 35.0, 21.0 ],
 					"text" : "out 2"
 				}
 
@@ -416,7 +428,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 332.5, 327.0, 27.0, 21.0 ],
+					"patching_rect" : [ 332.0, 369.0, 27.0, 21.0 ],
 					"text" : "+ 1"
 				}
 
@@ -428,7 +440,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 148.5, 380.0, 68.0, 21.0 ],
+					"patching_rect" : [ 148.0, 422.0, 68.0, 21.0 ],
 					"text" : "selector 2 1"
 				}
 
@@ -440,7 +452,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 197.5, 353.0, 43.0, 21.0 ],
+					"patching_rect" : [ 197.0, 395.0, 43.0, 21.0 ],
 					"text" : "history"
 				}
 
@@ -558,7 +570,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 148.5, 433.0, 35.0, 21.0 ],
+					"patching_rect" : [ 148.0, 503.0, 35.0, 21.0 ],
 					"text" : "out 1"
 				}
 
@@ -654,7 +666,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-22", 0 ],
+					"destination" : [ "obj-48", 0 ],
 					"order" : 1,
 					"source" : [ "obj-21", 0 ]
 				}
@@ -701,7 +713,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 0 ],
-					"midpoints" : [ 616.5, 173.0, 280.5, 173.0 ],
+					"midpoints" : [ 616.5, 173.0, 240.5, 173.0 ],
 					"source" : [ "obj-26", 0 ]
 				}
 
@@ -778,7 +790,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-22", 0 ],
+					"destination" : [ "obj-48", 0 ],
 					"order" : 0,
 					"source" : [ "obj-36", 0 ]
 				}
@@ -836,6 +848,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-22", 0 ],
+					"source" : [ "obj-48", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-24", 1 ],
 					"source" : [ "obj-7", 0 ]
 				}
@@ -879,13 +898,13 @@
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
 					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
