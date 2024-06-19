@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 4,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -40,6 +40,17 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "grainflow.spatview~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 187.0, 296.0, 510.0, 204.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-22",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -69,7 +80,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 104.5, 172.0, 172.0, 37.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Refresh the list of premade setups"
 				}
 
@@ -83,7 +93,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 187.0, 134.5, 122.0, 37.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Select a premade speaker setup"
 				}
 
@@ -93,11 +102,12 @@
 					"id" : "obj-17",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
-					"numoutlets" : 4,
-					"outlettype" : [ "dictionary", "", "", "" ],
+					"numoutlets" : 5,
+					"outlettype" : [ "dictionary", "", "", "", "" ],
 					"patching_rect" : [ 353.0, 190.0, 242.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"embed" : 0,
+						"legacy" : 1,
 						"parameter_enable" : 0,
 						"parameter_mappable" : 0
 					}
@@ -126,7 +136,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 534.5, 166.0, 172.0, 24.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Read a json file from the disk"
 				}
 
@@ -151,7 +160,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 325.5, 166.0, 202.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "readjson grainflow.speakerExample.json"
 				}
 
@@ -225,21 +233,6 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 23.0, 59.0, 320.833333333333258, 20.0 ],
 					"text" : "Sets up speakers with preset configurations"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"border" : 0,
-					"embedstate" : [ [ "grainColor", 1, 1, 0 ], [ "bgColor", 0.5, 0.5, 0.5 ], [ "drawCenter", 0 ] ],
-					"filename" : "grainflow.spatview~.js",
-					"id" : "obj-5",
-					"maxclass" : "jsui",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 187.0, 300.0, 544.0, 217.0 ]
 				}
 
 			}
@@ -350,11 +343,8 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.spatview~.js",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/jsui",
-				"patcherrelativepath" : "../../jsui",
-				"type" : "TEXT",
-				"implicit" : 1
+				"name" : "grainflow.spatview~.mxe64",
+				"type" : "mx64"
 			}
  ],
 		"autosave" : 0,

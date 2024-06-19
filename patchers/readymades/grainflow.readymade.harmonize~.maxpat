@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 8,
+			"minor" : 6,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -69,6 +69,7 @@
 							"parameter_linknames" : 1,
 							"parameter_longname" : "pitchJitter",
 							"parameter_mmax" : 6.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "timeJitter",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
@@ -159,8 +160,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 734.0, 417.0, 134.0, 22.0 ],
-					"text" : "windowOffsetRandom $1"
+					"patching_rect" : [ 734.0, 417.0, 102.0, 22.0 ],
+					"text" : "windowRandom $1"
 				}
 
 			}
@@ -195,6 +196,7 @@
 							"parameter_linknames" : 1,
 							"parameter_longname" : "timeJitter",
 							"parameter_mmax" : 100.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "timeJitter",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 5
@@ -276,6 +278,7 @@
 							"parameter_longname" : "grainsize",
 							"parameter_mmax" : 1000.0,
 							"parameter_mmin" : 50.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "grainsize",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 2
@@ -415,8 +418,8 @@
 					"id" : "obj-21",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "int" ],
+					"numoutlets" : 2,
+					"outlettype" : [ "int", "signal" ],
 					"patching_rect" : [ 170.0, 166.0, 102.0, 22.0 ],
 					"text" : "mc.channelcount~"
 				}
@@ -956,25 +959,25 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"fontface" : [ 0 ],
 					"fontname" : [ "Futura Medium" ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"fontsize" : [ 10.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

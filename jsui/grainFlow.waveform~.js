@@ -745,3 +745,4 @@ function recordHead(progress){
 
 
 	}
+error("The JSUI version of grainflow.waveform~ is depricated. Please replace with the external version");

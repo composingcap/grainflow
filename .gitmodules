@@ -1,0 +1,9 @@
+[submodule "source/min-api"]
+	path = source/min-api
+	url = https://github.com/composingcap/min-api.git
+[submodule "source/min-lib"]
+	path = source/min-lib
+	url = https://github.com/Cycling74/min-lib.git
+[submodule "source/GrainflowLib"]
+	path = source/GrainflowLib
+	url = https://github.com/composingcap/GrainflowLib.git
