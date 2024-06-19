@@ -81,12 +81,17 @@
 
 	<attributelist>
 
-		<attribute name='bgColor' get='1' set='1' type='float64' size='1' >
+		<attribute name='dotScale' get='1' set='1' type='float64' size='1' >
 			<digest></digest>
 			<description></description>
 		</attribute>
 
-		<attribute name='chan' get='1' set='1' type='long' size='1' >
+		<attribute name='displayRange' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='buffername' get='1' set='1' type='symbol' size='1' >
 			<digest></digest>
 			<description></description>
 		</attribute>
@@ -101,22 +106,17 @@
 			<description></description>
 		</attribute>
 
-		<attribute name='buffername' get='1' set='1' type='symbol' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='dotScale' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='displayRange' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
 		<attribute name='maxBufferDrawSamples' get='1' set='1' type='long' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='bgColor' get='1' set='1' type='float64' size='1' >
+			<digest></digest>
+			<description></description>
+		</attribute>
+
+		<attribute name='chan' get='1' set='1' type='long' size='1' >
 			<digest></digest>
 			<description></description>
 		</attribute>
