@@ -979,7 +979,7 @@ public:
 					if (grainInfo[g].stream != s)
 						continue;
 					_target = g;
-					this->try_call(args[1], value);
+					this->TrySetAttributeOrMessage((string)args[1], atoms{ value });
 				}
 			}
 			_target = lastTarget;
@@ -1008,7 +1008,7 @@ public:
 					if (grainInfo[g].stream != s)
 						continue;
 					_target = g;
-					this->try_call((string)args[0], value);
+					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
 				}
 			}
 			_target = lastTarget;
@@ -1038,7 +1038,7 @@ public:
 					if (grainInfo[g].stream != s)
 						continue;
 					_target = g;
-					this->try_call((string)args[0], value);
+					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
 				}
 			}
 			_target = lastTarget;
