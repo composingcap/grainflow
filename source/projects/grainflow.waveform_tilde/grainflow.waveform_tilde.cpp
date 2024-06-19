@@ -203,6 +203,18 @@ public:
 		
 	}
 
+
+	attribute<numbers> m_disprange{ this, "displayRange", {{0.0, 1.0}} };
+	attribute<number> m_dotScale{ this, "dotScale", 1.0 };
+	attribute<number> m_dotVJitter{ this, "dotVJitter", 0.0 };
+	attribute<int> m_fps{ this, "fps", 30 };
+	attribute<int> m_maxSamples{ this, "maxBufferDrawSamples", 1000, setter{
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			ComputeBufferDisplay(args[0]);
+			return args;
+		}
+	} };
+
 	attribute<int> m_channel{ 
 		this, 
 		"chan", 
@@ -235,16 +247,6 @@ public:
 
 
 
-	attribute<numbers> m_disprange{ this, "displayRange", {{0.0, 1.0}} };
-	attribute<number> m_dotScale{ this, "dotScale", 1.0 };
-	attribute<number> m_dotVJitter{ this, "dotVJitter", 0.0 };
-	attribute<int> m_fps{ this, "fps", 30 };
-	attribute<int> m_maxSamples{ this, "maxBufferDrawSamples", 1000, setter{
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			ComputeBufferDisplay(args[0]);
-			return args;
-		}
-	} };
 
 	message<> bufName{
 		this,
@@ -292,6 +294,19 @@ public:
 		}
 	};
 
+	message<> mouseup{
+		this,
+		"mouseup",
+		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
+			event e {args};
+			auto t{e.target()};
+			auto x{e.x()};
+			auto y{e.y()};
+			output2.send(atoms{"clicking", (double)x / e.target().width(), -(double)y / e.target().height(), 0});
+			return{};
+			}
+	};
+
 	message<> mousedown{ 
 		this,
 		"mousedown",
@@ -302,7 +317,7 @@ public:
 			auto y{e.y()};
 			trianglePosition[0] = x;
 			trianglePosition[1] = y;
-			output2.send(atoms{"clicking", (double)trianglePosition[0] / e.target().width(), -(double)trianglePosition[1] / e.target().height()});
+			output2.send(atoms{"clicking", (double)trianglePosition[0] / e.target().width(), -(double)trianglePosition[1] / e.target().height(), 1});
 			switch (m_mode)
 			{
 			case (waveformMode::scrub):
@@ -362,7 +377,7 @@ public:
 			int sign = m_selection[0] < m_selection[1] ? 1 : -1;
 			m_selection[1] = m_selection[0] + dist * sign;
 
-			output2.send(atoms{"clicking", (double)trianglePosition[0] / e.target().width(), 1-((trianglePosition[1] - (double)y) / e.target().height())});
+			output2.send(atoms{"clicking", (double)trianglePosition[0] / e.target().width(), 1-((trianglePosition[1] - (double)y) / e.target().height()), 1});
 			return {};
 		}
 	};

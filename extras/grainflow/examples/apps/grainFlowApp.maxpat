@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 343.0, 407.0, 950.0, 600.0 ],
+		"rect" : [ 552.0, 139.0, 950.0, 600.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 10.0,
@@ -1918,12 +1918,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-138",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 284.0, 137.0, 54.0, 21.0 ],
-									"text" : "envelope"
+									"text" : "clickmode"
 								}
 
 							}
@@ -2249,12 +2250,13 @@
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-138",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 284.0, 137.0, 54.0, 21.0 ],
-									"text" : "envelope"
+									"text" : "clickmode"
 								}
 
 							}
@@ -5561,7 +5563,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 4,
 									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 94.0, 195.0, 234.0, 21.0 ],
 									"text" : "grainFlow~ cp.grainflow.app 250 @ngrains 0"
 								}
@@ -7361,7 +7363,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 481.0, 571.0, 58.0, 45.0 ],
-									"text" : "windowOffset 0.030303"
+									"text" : "windowOffset 0.011364"
 								}
 
 							}
@@ -7422,7 +7424,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 312.0, 164.0, 57.0, 21.0 ],
-									"text" : "0.005992"
+									"text" : "0.002244"
 								}
 
 							}
@@ -10953,14 +10955,14 @@
 					"outlettype" : [ "", "", "", "" ],
 					"patching_rect" : [ 505.75, 5.0, 55.0, 20.0 ],
 					"restore" : 					{
-						"GrainDelayRandom" : [ 108.62268733031577 ],
-						"clickmode" : [ 0.0 ],
+						"GrainDelayRandom" : [ 281.059643277450391 ],
+						"clickmode" : [ 1.0 ],
 						"freeze" : [ 0.0 ],
 						"getRecFile" : [ 0.0 ],
-						"grainDirection" : [ 0.196850393700785 ],
-						"grainFreq" : [ 166.890931282215377 ],
+						"grainDirection" : [ 1.0 ],
+						"grainFreq" : [ 445.582277809406264 ],
 						"grainLength" : [ 197.378967790600825 ],
-						"grainPeriod" : [ 5.991937322879354 ],
+						"grainPeriod" : [ 2.244254427972876 ],
 						"grainSizeRandom" : [ 55.118110236220438 ],
 						"grainTimeJitter" : [ 100.0 ],
 						"keyboardNotesOff" : [ 0.0 ],
@@ -10969,7 +10971,7 @@
 						"panningSpread" : [ 0.0 ],
 						"pitchbend" : [ 64.0 ],
 						"presetName" : [ "many voices" ],
-						"rate" : [ -1.062992125984255 ],
+						"rate" : [ 0.0 ],
 						"record" : [ 0.0 ],
 						"soundfile" : [ "FemVoice.aif" ],
 						"transpose" : [ 0.0 ],
@@ -12851,7 +12853,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 15.0, 628.0, 50.0, 33.0 ],
-									"text" : "0.105956"
+									"text" : "0.060392"
 								}
 
 							}
@@ -12924,7 +12926,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 447.0, 708.0, 50.0, 33.0 ],
-									"text" : "0.105956"
+									"text" : "0.060392"
 								}
 
 							}
@@ -15080,7 +15082,6 @@
 									"dotScale" : 5.0,
 									"id" : "obj-4",
 									"maxclass" : "grainflow.waveform~",
-									"mode" : 1,
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
@@ -15088,7 +15089,7 @@
 									"presentation" : 1,
 									"presentation_rect" : [ -1.0, 0.0, 894.0, 158.0 ],
 									"selectColor" : [ 0.7, 0.943, 1.0, 0.8 ],
-									"selection" : [ 0.345637583892617, 0.618449664477029 ],
+									"selection" : [ 0.181208053691275, 0.182208053738773 ],
 									"waveformColor" : [ 0.25, 0.25, 0.25, 1.0 ]
 								}
 
@@ -15793,6 +15794,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-18", 0 ],
 									"source" : [ "obj-39", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-29", 1 ],
+									"source" : [ "obj-4", 1 ]
 								}
 
 							}
@@ -17681,10 +17689,6 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "Grainflow.voice~.mxe64",
-				"type" : "mx64"
-			}
-, 			{
 				"name" : "grainflow.gfapp.defaultbank.json",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/extras/grainflow/examples/apps",
 				"patcherrelativepath" : ".",
@@ -17745,11 +17749,8 @@
 				"type" : "mx64"
 			}
 , 			{
-				"name" : "grainflow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../../../../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow~.mxe64",
+				"type" : "mx64"
 			}
  ],
 		"autosave" : 0,
