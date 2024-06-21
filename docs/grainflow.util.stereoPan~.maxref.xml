@@ -86,9 +86,11 @@
 
 	<!--ATTRIBUTES-->
 
-	<attributelist>
-
-	</attributelist>
+    <attributelist>
+        <attribute name='autogain' type='int' size='1' >
+            <digest>If autogain should be applied to the output based on the number of input channels</digest>
+        </attribute>
+    </attributelist>
 
 
 	<!--RELATED-->
