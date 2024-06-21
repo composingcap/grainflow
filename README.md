@@ -54,7 +54,7 @@ If you would like to place grainflow in you Max Packages directory, make sure to
 ```
 git clone https://github.com/composingcap/grainflow.git -b f/external --recursive
 ```
-### Building grainflow.voice~
+### Building grainflow externals 
 #### Windows:
 *Windows builds should use the MSVC compiler*
 ```
