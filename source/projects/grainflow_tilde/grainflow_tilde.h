@@ -802,7 +802,7 @@ public:
 	attribute<int> voices{
 		this,
 		"voices",
-		_maxGrains,
+		2,
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			if (args.size() < 1) return{};
 			if (args[0] == _maxGrains) return {};
