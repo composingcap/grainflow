@@ -81,10 +81,12 @@ public:
 	void BufferRefMessage(string bname, GFBuffers type);
 	void BufferRefresh(GFBuffers type);
 	void Init();
-	void Cleanup();
 	void Reinit(int grains);
 	void UseDefaultEnvelope(bool state);
 	void ouputGrainInfo(string name, atoms data);
+	void SetupOutputs(gfIoConfig& ioConfig, double** outputs);
+	void SetupInputs(int grainIndex, gfIoConfig& ioConfig, int* inputChannels, double** inputs);
+
 
 #pragma endregion
 

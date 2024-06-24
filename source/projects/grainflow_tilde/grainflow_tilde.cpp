@@ -36,24 +36,8 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 	maxGrainsThisFrame = std::min((int)(output.channel_count() / 8), _maxGrains); 
 	auto currentNgrains= clamp((int)ngrains, 0, maxGrainsThisFrame);
 	_ioConfig.livemode = liveMode;
-	_ioConfig.in = input.samples();
-	_ioConfig.out = output.samples();
 
-	// These varible indicate the starting indices of each mc parameter
-	_ioConfig.grainClockCh = 0;
-	_ioConfig.traversalPhasorCh = input_chans[0];
-	_ioConfig.fmCh = _ioConfig.traversalPhasorCh + input_chans[1];
-	_ioConfig.amCh = _ioConfig.fmCh + input_chans[2];
-
-	// Ouputs are constant because they are based on the max grain count
-	_ioConfig.grainOutput = 0;
-	_ioConfig.grainState = 1 * maxGrainsThisFrame;
-	_ioConfig.grainProgress = 2 * maxGrainsThisFrame;
-	_ioConfig.grainPlayhead = 3 * maxGrainsThisFrame;
-	_ioConfig.grainAmp = 4 * maxGrainsThisFrame;
-	_ioConfig.grainEnvelope = 5 * maxGrainsThisFrame;
-	_ioConfig.grainStreamChannel = 6 * maxGrainsThisFrame;
-	_ioConfig.grainBufferChannel = 7 * maxGrainsThisFrame;
+	SetupOutputs(_ioConfig, output.samples());
 
 
 	// Clear unused channels or we will get garbage
@@ -61,7 +45,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 	_ioConfig.samplerate = samplerate();
 	for (int g = 0; g < output.channel_count(); g++)
 	{
-		memset(_ioConfig.out[g], double(0), sizeof(double) * _ioConfig.blockSize);
+		memset(output.samples()[g], double(0), sizeof(double) * _ioConfig.blockSize);
 	}
 
 
@@ -71,25 +55,23 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 		return;
 	}
 
+
+
 	for (int g = 0; g < currentNgrains; g++)
 	{
-		_ioConfig.grainClock = _ioConfig.grainClockCh + (g % input_chans[0]);
-		_ioConfig.traversalPhasor = _ioConfig.traversalPhasorCh + (g % input_chans[1]);
-		_ioConfig.fm = _ioConfig.fmCh + (g % input_chans[2]);
-		_ioConfig.am = _ioConfig.amCh + (g % input_chans[3]);
-
-		grainInfo[g].Proccess(_ioConfig);	
+		SetupInputs(g, _ioConfig, input_chans, input.samples());
+		grainInfo[g].Proccess(_ioConfig);
 
 	}
 	if (!hasUpdate) {
 		for (int g = 0; g < currentNgrains; g++) {
-			m_grainState[g] = _ioConfig.out[_ioConfig.grainState + g][0];
-			m_grainProgress[g] = _ioConfig.out[_ioConfig.grainProgress + g][0];
-			m_grainPlayhead[g] = _ioConfig.out[_ioConfig.grainPlayhead + g][0];
-			m_grainAmp[g] = _ioConfig.out[_ioConfig.grainAmp + g][0];
-			m_grainEnvelope[g] = _ioConfig.out[_ioConfig.grainEnvelope + g][0];
-			m_grainStreamChannel[g] = _ioConfig.out[_ioConfig.grainStreamChannel + g][0];
-			m_grainBufferChannel[g] = _ioConfig.out[_ioConfig.grainBufferChannel + g][0];
+			m_grainState[g] = _ioConfig.grainState[g][0];
+			m_grainProgress[g] = _ioConfig.grainProgress[g][0];
+			m_grainPlayhead[g] = _ioConfig.grainPlayhead[g][0];
+			m_grainAmp[g] = _ioConfig.grainAmp[g][0];
+			m_grainEnvelope[g] = _ioConfig.grainEnvelope[g][0];
+			m_grainStreamChannel[g] = _ioConfig.grainStreamChannel[g][0];
+			m_grainBufferChannel[g] = _ioConfig.grainBufferChannel[g][0];
 		}
 		hasUpdate = true;
 	}
@@ -151,6 +133,33 @@ void grainflow_tilde::ouputGrainInfo(string name, atoms data) {
 		mess.push_back(data[g]);
 	}
 	o_grainInfo.send(mess);
+}
+
+void grainflow_tilde::SetupOutputs(gfIoConfig& ioConfig, double** outputs) {
+
+	// Ouputs are constant because they are based on the max grain count
+	ioConfig.grainOutput = &outputs[0 * maxGrainsThisFrame];
+	ioConfig.grainState = &outputs[1 * maxGrainsThisFrame];
+	ioConfig.grainProgress = &outputs[2 * maxGrainsThisFrame];
+	ioConfig.grainPlayhead = &outputs[3 * maxGrainsThisFrame];
+	ioConfig.grainAmp = &outputs[4 * maxGrainsThisFrame];
+	ioConfig.grainEnvelope = &outputs[5 * maxGrainsThisFrame];
+	ioConfig.grainStreamChannel = &outputs[6 * maxGrainsThisFrame];
+	ioConfig.grainBufferChannel = &outputs[7 * maxGrainsThisFrame];
+}
+
+void grainflow_tilde::SetupInputs(int grainIndex, gfIoConfig& ioConfig, int* inputChannels, double** inputs) {
+
+	// These varible indicate the starting indices of each mc parameter
+	auto grainClockCh = 0;
+	auto traversalPhasorCh = inputChannels[0];
+	auto fmCh = traversalPhasorCh + inputChannels[1];
+	auto amCh = fmCh + inputChannels[2];
+
+	ioConfig.grainClock = inputs[grainClockCh + (grainIndex % inputChannels[0])];
+	ioConfig.traversalPhasor = inputs[traversalPhasorCh + (grainIndex % inputChannels[1])];
+	ioConfig.fm = inputs[fmCh + (grainIndex % inputChannels[2])];
+	ioConfig.am = inputs[amCh + (grainIndex % inputChannels[3])];
 }
 
 void grainflow_tilde::GrainInfoReset() {
