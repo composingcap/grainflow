@@ -1,7 +1,7 @@
 {
 	"author" : "Christopher Poovey",
 	"authors" : [  ],
-	"description" : "A suite of granulation tools that leverage the multichannel system in Max to allow for the rapid creation of creative granular tool.",
+	"description" : "A suite of granulation tools that leverage the multichannel system in Max to allow for the rapid creation of creative granular tool. Grainflow 2.0 introduces new externals for grainflow~, grainflow.waveform~, and grainflow.spatview~. These are big changes that come with some breaking of backwards compatability and liekly some bugs. Please report any bugs to https://github.com/composingcap/grainflow/issues or to the grainflow discord channel",
 	"displayname" : "Grainflow",
 	"extends" : "",
 	"extensible" : 0,
@@ -17,7 +17,7 @@
 		}
 ,
 		"windows" : 		{
-			"platform" : [ "ia32", "x64" ],
+			"platform" : [ "x64" ],
 			"min_version" : "none"
 		}
 
@@ -31,7 +31,7 @@
 	"version" : "2.0",
 	"website" : "https://github.com/composingcap/grainflow",
 	"filelist" : 	{
-		"externals" : [ ],
+		"externals" : ["grainflow~, grainflow.waveform~, grainflow.spatview~"],
 		"patchers" : [],
 		"help" : [  ],
 		"misc" : [ ],
