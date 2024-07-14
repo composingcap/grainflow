@@ -20,3 +20,5 @@ package-info.json
 externals/codesign.sh
 externals/grainflowExternals.zip
 .vscode
+grainflow.zip
+.secrets
