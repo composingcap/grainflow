@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 3,
-			"revision" : 1,
+			"minor" : 6,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -72,7 +72,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 166.0, 407.5, 105.0, 54.0 ],
-					"presentation_linecount" : 3,
 					"text" : "Change the color of each grain"
 				}
 
@@ -110,7 +109,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 530.5, 255.0, 105.0, 39.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Select a different chord"
 				}
 
@@ -160,7 +158,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 410.0, 487.0, 193.0, 39.0 ],
-					"presentation_linecount" : 4,
 					"text" : "Adds a slight glissando. Lower filter = more gliss"
 				}
 
@@ -211,7 +208,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 469.5, 222.0, 86.0, 23.0 ],
-					"presentation_linecount" : 2,
 					"text" : "0 5 7 10 14 19"
 				}
 
@@ -350,6 +346,7 @@
 							"parameter_longname" : "mc.live.gain~",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "mc.live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
@@ -376,12 +373,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-1",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 196.5, 205.0, 147.0, 37.0 ],
+					"patching_rect" : [ 175.0, 212.0, 272.0, 23.0 ],
 					"text" : "buffer~ pastaSauce CP_Bubbling_Pasta_Sauce"
 				}
 
@@ -393,8 +389,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 22.5, 383.0, 66.0, 23.0 ],
-					"text" : "mc.*~ 0.25"
+					"patching_rect" : [ 22.5, 383.0, 49.0, 23.0 ],
+					"text" : "mc.*~ 3"
 				}
 
 			}
@@ -500,7 +496,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 4,
 					"numoutlets" : 9,
-					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 22.5, 212.0, 137.0, 23.0 ],
 					"text" : "grainflow~ pastaSauce 4"
 				}
@@ -603,6 +599,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-29", 3 ],
+					"midpoints" : [ 70.666666666666657, 539.0, 148.0, 539.0 ],
 					"order" : 0,
 					"source" : [ "obj-32", 0 ]
 				}
@@ -735,13 +732,6 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../../../../patchers/_private",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "grainflow.util.list~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../../../../patchers/util",
@@ -749,18 +739,8 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../../../../code",
-				"type" : "gDSP",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../../../../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow~.mxe64",
+				"type" : "mx64"
 			}
  ],
 		"autosave" : 0,
