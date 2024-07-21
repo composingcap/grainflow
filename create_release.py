@@ -10,7 +10,7 @@ import sys
 keystorePath = "./.secrets/keystore.json"
 paths_to_remove = ["/build", "/source", "/CMakeLists.txt", "/create_release.py", "/.git", "/.gitmodules", "/.gitignore", "/.vscode", "/.gitattributes"]
 paths_to_include  = ["/code", "/data", "/docs", "/help", "/javascript", "/jsui", "/externals", "/media", "/misc", "/patchers", "/icon.png", "/license.txt", "/README.md", "/package-info.json"]
-
+externals = ["grainflow~", "grainflow.spatview~", "grainflow.waveform~"]
 
 generator = "-G Xcode" if (platform.system() == "Darwin") else ""
 
@@ -55,30 +55,27 @@ def macos_codesign():
         
 
         
-        print("zipping into archive for submission...")
-        if os.path.isfile(archive+".zip"):  
-            os.remove(archive+".zip")
-        shutil.make_archive(archive, "zip", dest)
-
-        print("Uploading for approval...")
-
-        cmd = f'xcrun notarytool submit {archive}.zip --keychain-profile grainflow' 
-        p = subprocess.Popen(cmd, shell=True)  
-        p.wait()
-        output, error = p.communicate()
-        submissionid = input("ID: ")
-        cmd = f'xcrun notarytool wait --keychain-profile grainflow {submissionid}'
-        p = subprocess.Popen(cmd, shell=True)  
-        p.wait()
-        for external in externals:
-            shutil.rmtree(f'./externals/{external}.mxo')
-        shutil.unpack_archive(archive+".zip", "./externals")
-
-        for external in externals:
-            cmd = f'xcrun stapler staple ./externals{external}.mxo'
-
-        shutil.rmtree(dest)
+    print("zipping into archive for submission...")
+    if os.path.isfile(archive+".zip"):  
         os.remove(archive+".zip")
+    shutil.make_archive(archive, "zip", dest)
+
+    print("Uploading for approval...")
+
+    cmd = f'xcrun notarytool submit {archive}.zip --keychain-profile grainflow' 
+    p = subprocess.Popen(cmd, shell=True)  
+    p.wait()
+    output, error = p.communicate()
+    submissionid = input("ID: ")
+    cmd = f'xcrun notarytool wait --keychain-profile grainflow {submissionid}'
+    p = subprocess.Popen(cmd, shell=True)  
+    p.wait()
+    for external in externals:
+        shutil.rmtree(f'./externals/{external}.mxo')
+    shutil.unpack_archive(archive+".zip", "./externals")
+    mac_staple()
+    shutil.rmtree(dest)
+    os.remove(archive+".zip")
 
 def package_release():
     src = "./"
@@ -105,6 +102,18 @@ def package_release():
 
     shutil.rmtree(dest)
 
+def mac_staple():
+    if (platform.system() != "Darwin"): return
+    for external in externals:
+        cmd = f'xcrun stapler staple ./externals/{external}.mxo'
+        p = subprocess.Popen(cmd, shell=True)  
+
+def mac_validate():
+    if (platform.system() != "Darwin"): return
+    for external in externals:
+        cmd = f'codesign -verify -verbose ./externals/{external}.mxo'
+        p = subprocess.Popen(cmd, shell=True)  
+
 def main():
     args = sys.argv
     modes = []
@@ -119,6 +128,8 @@ def main():
     if ('build' in modes): cmake_build()
     if ('sign' in modes): macos_codesign()
     if ('pack' in modes): package_release()
+    if ('staple' in modes): mac_staple()
+    if('validate' in modes): mac_validate()
 
     if len(args) <= 1:
         res = input("Would you like to build for your current platform? (Y/N)" )
