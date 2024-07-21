@@ -1,4 +1,4 @@
-# Grainflow 2 Beta!
+# Grainflow 2 
 Grainflow 2.0 improves on the original grainflow by implementing grainflow code into a much more efficient Max external created using the Min API.
 
 The external is single threaded (rather than multithreaded in a poly~) which means grainflow instances can be placed in a poly for multithreaded management. This also means grainflow is now suitable for using in Max for Live.
