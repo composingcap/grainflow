@@ -5,33 +5,32 @@
 ///
 ///
 ///
-#include "grainflow.phasor_tilde.h"
+#include "grainflow.sin_tilde.h"
 
 using namespace c74::min;
 using namespace Grainflow;
 
-grainflow_phasor_tilde::grainflow_phasor_tilde() {
+grainflow_sin_tilde::grainflow_sin_tilde() {
 	
 }
 
-grainflow_phasor_tilde::~grainflow_phasor_tilde()
+grainflow_sin_tilde::~grainflow_sin_tilde()
 {
 
 }
 #pragma region DSP
 
-void grainflow_phasor_tilde::operator()(audio_bundle input, audio_bundle output)
+void grainflow_sin_tilde::operator()(audio_bundle input, audio_bundle output)
 {
 	for (int ch = 0; ch < input.channel_count();  ch++) {
 		phasorFrequencies[ch] = input.samples()[ch][0];
 	}
-	GfSyn::Phasor<INTERNALBLOCK>(phasorFrequencies.data(), output.samples(), output.frame_count(), output.channel_count(), oneOverSamplerate, lastPhasorValue.data());
-
+	GfSyn::Sine<INTERNALBLOCK>(phasorFrequencies.data(), output.samples(), output.frame_count(), output.channel_count(), oneOverSamplerate, lastPhasorValue.data());
 }
 
 #pragma endregion
 
-void grainflow_phasor_tilde::Resize()
+void grainflow_sin_tilde::Resize()
 {
 	lastPhasorValue.clear();
 	lastPhasorValue.resize(input_chans);
@@ -48,7 +47,7 @@ void grainflow_phasor_tilde::Resize()
 /// <returns></returns>
 long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 {
-	minwrap<grainflow_phasor_tilde>* ob = (minwrap<grainflow_phasor_tilde> *)(x);
+	minwrap<grainflow_sin_tilde>* ob = (minwrap<grainflow_sin_tilde> *)(x);
 	return ob->m_min_object.input_chans;
 }
 /// <summary>
@@ -60,7 +59,7 @@ long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 /// <returns></returns>
 long simplemc_inputchanged(c74::max::t_object* x, long g, long count)
 {
-	minwrap<grainflow_phasor_tilde>* ob = (minwrap<grainflow_phasor_tilde> *)(x);
+	minwrap<grainflow_sin_tilde>* ob = (minwrap<grainflow_sin_tilde> *)(x);
 	int chans = count > 0 ? count : 1;
 	ob->m_min_object.input_chans = chans; // Tells us how many channels are in each inlet
 	ob->m_min_object.Resize();
@@ -68,4 +67,4 @@ long simplemc_inputchanged(c74::max::t_object* x, long g, long count)
 }
 #pragma endregion
 
-MIN_EXTERNAL(grainflow_phasor_tilde);
+MIN_EXTERNAL(grainflow_sin_tilde);

@@ -7,14 +7,14 @@
 #include  <cmath>
 #include <vector>
 
-constexpr size_t INTERNALBLOCK = 8;
+constexpr size_t INTERNALBLOCK = 16;
 
 using namespace c74::min;
 using namespace Grainflow;
 long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count);
 long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 
-class grainflow_phasor_tilde : public object<grainflow_phasor_tilde>, public mc_operator<>
+class grainflow_sin_tilde : public object<grainflow_sin_tilde>, public mc_operator<>
 {
 public:
 	MIN_DESCRIPTION{ "the base object for grainflow" };
@@ -32,16 +32,16 @@ public:
 	void Resize();
 
 #pragma region MAX_IO
-	inlet<> frequencies{ this, "(multichannelsignal) phasor frequencies", "multichannelsignal" };
-	outlet<> output{ this, "(multichannel) phasor output", "multichannelsignal" };
+	inlet<> frequencies{ this, "(multichannelsignal) frequencies", "multichannelsignal" };
+	outlet<> output{ this, "(multichannel) sine wave output", "multichannelsignal" };
 
 
 #pragma endregion
 #pragma region DSP
 #pragma region DSP
 
-	grainflow_phasor_tilde();
-	~grainflow_phasor_tilde();
+	grainflow_sin_tilde();
+	~grainflow_sin_tilde();
 	void operator()(audio_bundle input, audio_bundle output);
 
 #pragma endregion
