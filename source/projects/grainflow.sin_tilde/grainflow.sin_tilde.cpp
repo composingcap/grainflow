@@ -25,7 +25,8 @@ void grainflow_sin_tilde::operator()(audio_bundle input, audio_bundle output)
 	for (int ch = 0; ch < input.channel_count();  ch++) {
 		phasorFrequencies[ch] = input.samples()[ch][0];
 	}
-	GfSyn::Sine<INTERNALBLOCK>(phasorFrequencies.data(), output.samples(), output.frame_count(), output.channel_count(), oneOverSamplerate, lastPhasorValue.data());
+	//GfSyn::SineTable<INTERNALBLOCK>(phasorFrequencies.data(), output.samples(), output.frame_count(), output.channel_count(), oneOverSamplerate, positions.data(), extra.data(), lastPhasorValue.data());
+	GfSyn::ChevySine<INTERNALBLOCK>((double*)phasorFrequencies.data(), output.samples(), output.frame_count(), output.channel_count(), oneOverSamplerate, positions.data(), (double*)lastPhasorValue.data());
 }
 
 #pragma endregion

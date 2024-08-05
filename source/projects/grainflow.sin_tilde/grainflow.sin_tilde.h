@@ -26,6 +26,9 @@ private:
 double oneOverSamplerate = 1;
 std::vector<double> lastPhasorValue;
 std::vector<double> phasorFrequencies;
+std::array<double, INTERNALBLOCK> positions;
+std::array<double, INTERNALBLOCK> extra;
+
 
 public:
 	int input_chans = 1;
