@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 2,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 588.0, 887.0 ],
+		"rect" : [ 100.0, 100.0, 588.0, 848.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -40,24 +40,75 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-17",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 73.0, 142.0, 17.0, 17.0 ],
+					"text" : "2",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-19",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 73.0, 142.0, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-3",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 48.5, 114.5, 17.0, 17.0 ],
+					"text" : "1",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-29",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 48.5, 114.5, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"buffername" : "_help-stream-buf",
 					"id" : "obj-16",
 					"maxclass" : "grainflow.waveform~",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 208.666666666666657, 609.75, 300.0, 100.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-40",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 104.0, 554.0, 19.0 ],
-					"text" : "this is a newer version of streams. To use the old one use grainflow.streamsclassic~"
+					"patching_rect" : [ 209.0, 590.0, 300.0, 100.0 ]
 				}
 
 			}
@@ -68,7 +119,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 72.5, 402.0, 65.0, 21.0 ],
+					"patching_rect" : [ 179.0, 356.0, 65.0, 21.0 ],
 					"text" : "deviate 4 8"
 				}
 
@@ -80,7 +131,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 218.0, 402.0, 85.0, 21.0 ],
+					"patching_rect" : [ 324.0, 362.0, 85.0, 21.0 ],
 					"text" : "deviate 0.5 0.5"
 				}
 
@@ -92,18 +143,17 @@
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 20.0, 722.75, 45.0, 45.0 ]
+					"patching_rect" : [ 20.0, 693.0, 45.0, 45.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-10",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 45.166666666666657, 140.5, 150.0, 23.0 ],
+					"patching_rect" : [ 67.5, 113.5, 150.0, 19.0 ],
 					"text" : "Turn on the granulator"
 				}
 
@@ -115,7 +165,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 126.5, 201.0, 54.0, 21.0 ],
+					"patching_rect" : [ 84.0, 195.5, 54.0, 21.0 ],
 					"text" : "loadbang"
 				}
 
@@ -128,18 +178,17 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 45.166666666666657, 224.0, 24.0, 24.0 ]
+					"patching_rect" : [ 45.0, 194.0, 24.0, 24.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-18",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 72.5, 176.0, 150.0, 23.0 ],
+					"patching_rect" : [ 95.0, 142.0, 150.0, 19.0 ],
 					"text" : "Randomize Parameters"
 				}
 
@@ -152,7 +201,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 45.166666666666657, 176.0, 24.0, 24.0 ]
+					"patching_rect" : [ 45.0, 138.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -166,7 +215,7 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 20.0, 662.75, 136.0, 47.0 ],
+					"patching_rect" : [ 20.0, 633.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
@@ -191,7 +240,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 208.666666666666657, 550.5, 54.0, 21.0 ],
+					"patching_rect" : [ 222.0, 521.0, 54.0, 21.0 ],
 					"text" : "loadbang"
 				}
 
@@ -203,7 +252,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 208.666666666666657, 575.5, 158.0, 21.0 ],
+					"patching_rect" : [ 222.0, 550.0, 158.0, 21.0 ],
 					"text" : "buffername _help-stream-buf"
 				}
 
@@ -215,8 +264,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 20.0, 620.0, 151.0, 21.0 ],
-					"text" : "grainflow.util.stereoPan~ 25"
+					"patching_rect" : [ 20.0, 590.0, 160.0, 21.0 ],
+					"text" : "grainflow.util.stereoPan~"
 				}
 
 			}
@@ -228,7 +277,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 254.666666666666629, 300.0, 240.0, 47.0 ],
+					"patching_rect" : [ 170.0, 284.0, 240.0, 49.0 ],
 					"text" : "The stream message will address a specific stream and set a grainflow parameter for that stream"
 				}
 
@@ -241,13 +290,14 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 160.666666666666686, 263.0, 342.666666666666629, 35.0 ],
+					"patching_rect" : [ 152.0, 233.0, 342.666666666666629, 36.0 ],
 					"text" : "The deviate message will deviate any grainflow parameter from a center point similar to mc deviate"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bgcolor" : [ 0.996078431372549, 1.0, 0.580392156862745, 1.0 ],
 					"id" : "obj-45",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -258,13 +308,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 86.0, 91.0, 640.0, 480.0 ],
+						"rect" : [ 134.0, 172.0, 271.0, 372.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -292,14 +342,27 @@
 						"style" : "Minimal",
 						"subpatcher_template" : "minimal",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-2",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 47.0, 18.0, 240.0, 32.0 ],
+									"text" : "Stream messages need to be in the format \n( stream {index} {param} {value} )"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-42",
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "float" ],
-									"patching_rect" : [ 111.5, 202.0, 30.0, 21.0 ],
+									"patching_rect" : [ 79.0, 168.0, 30.0, 21.0 ],
 									"text" : "+ 1."
 								}
 
@@ -311,7 +374,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "bang", "bang" ],
-									"patching_rect" : [ 50.0, 100.0, 32.0, 21.0 ],
+									"patching_rect" : [ 10.0, 74.0, 32.0, 21.0 ],
 									"text" : "t b b"
 								}
 
@@ -323,7 +386,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 52.5, 222.0, 29.5, 21.0 ],
+									"patching_rect" : [ 10.0, 196.0, 29.5, 21.0 ],
 									"text" : "join"
 								}
 
@@ -335,7 +398,7 @@
 									"numinlets" : 6,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 115.5, 179.0, 110.0, 21.0 ],
+									"patching_rect" : [ 79.0, 142.0, 110.0, 21.0 ],
 									"text" : "scale 0. 999. -12 12"
 								}
 
@@ -347,7 +410,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 111.5, 150.0, 76.0, 21.0 ],
+									"patching_rect" : [ 79.0, 113.0, 76.0, 21.0 ],
 									"text" : "random 1000"
 								}
 
@@ -359,7 +422,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 52.5, 154.0, 29.5, 21.0 ],
+									"patching_rect" : [ 10.0, 136.0, 29.5, 21.0 ],
 									"text" : "+ 1"
 								}
 
@@ -371,7 +434,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 52.5, 127.0, 57.0, 21.0 ],
+									"patching_rect" : [ 10.0, 109.0, 57.0, 21.0 ],
 									"text" : "random 5"
 								}
 
@@ -383,7 +446,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 52.5, 263.0, 129.0, 21.0 ],
+									"patching_rect" : [ 10.0, 237.0, 129.0, 21.0 ],
 									"text" : "stream $1 transpose $2"
 								}
 
@@ -397,7 +460,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 50.00001066666664, 40.0, 30.0, 30.0 ]
+									"patching_rect" : [ 10.0, 14.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -409,7 +472,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 52.50001066666664, 331.0, 30.0, 30.0 ]
+									"patching_rect" : [ 10.0, 278.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -516,7 +579,7 @@
 						"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 					}
 ,
-					"patching_rect" : [ 141.000000000000028, 313.0, 96.0, 21.0 ],
+					"patching_rect" : [ 67.5, 298.0, 96.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -534,6 +597,7 @@
 			}
 , 			{
 				"box" : 				{
+					"bgcolor" : [ 0.996078431372549, 1.0, 0.580392156862745, 1.0 ],
 					"id" : "obj-32",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -544,13 +608,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 268.0, 207.0, 866.0, 480.0 ],
+						"rect" : [ 268.0, 207.0, 454.0, 332.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -580,12 +644,23 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-4",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 42.0, 20.0, 363.0, 19.0 ],
+									"text" : "Deviate messages need to be in the format ( deviate {param} deviation base )"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-3",
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 594.0, 104.0, 149.0, 21.0 ],
+									"patching_rect" : [ 193.0, 209.0, 149.0, 21.0 ],
 									"text" : "deviate delayRandom 0 100"
 								}
 
@@ -597,7 +672,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 469.0, 100.0, 112.0, 21.0 ],
+									"patching_rect" : [ 147.0, 184.0, 112.0, 21.0 ],
 									"text" : "deviate direction 1 0"
 								}
 
@@ -609,7 +684,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 325.0, 100.0, 117.0, 21.0 ],
+									"patching_rect" : [ 100.0, 153.0, 117.0, 21.0 ],
 									"text" : "deviate space 0.1 0.5"
 								}
 
@@ -621,7 +696,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 188.0, 100.0, 114.0, 21.0 ],
+									"patching_rect" : [ 53.0, 122.0, 114.0, 21.0 ],
 									"text" : "deviate delay 0 5000"
 								}
 
@@ -633,7 +708,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 50.0, 100.0, 107.0, 21.0 ],
+									"patching_rect" : [ 10.0, 89.0, 107.0, 21.0 ],
 									"text" : "deviate amp 0.25 1"
 								}
 
@@ -647,7 +722,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 50.0, 30.0, 30.0, 30.0 ]
+									"patching_rect" : [ 10.0, 14.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -659,7 +734,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 50.0, 226.0, 30.0, 30.0 ]
+									"patching_rect" : [ 10.0, 265.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -667,6 +742,7 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-31", 0 ],
+									"midpoints" : [ 156.5, 234.5, 19.5, 234.5 ],
 									"source" : [ "obj-2", 0 ]
 								}
 
@@ -674,6 +750,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-31", 0 ],
+									"midpoints" : [ 19.5, 187.0, 19.5, 187.0 ],
 									"source" : [ "obj-26", 0 ]
 								}
 
@@ -681,6 +758,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-31", 0 ],
+									"midpoints" : [ 62.5, 203.5, 19.5, 203.5 ],
 									"source" : [ "obj-28", 0 ]
 								}
 
@@ -688,6 +766,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-31", 0 ],
+									"midpoints" : [ 109.5, 219.0, 19.5, 219.0 ],
 									"source" : [ "obj-29", 0 ]
 								}
 
@@ -695,6 +774,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-31", 0 ],
+									"midpoints" : [ 202.5, 247.0, 19.5, 247.0 ],
 									"source" : [ "obj-3", 0 ]
 								}
 
@@ -702,6 +782,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-2", 0 ],
+									"midpoints" : [ 19.5, 60.0, 156.5, 60.0 ],
 									"order" : 1,
 									"source" : [ "obj-30", 0 ]
 								}
@@ -710,6 +791,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-26", 0 ],
+									"midpoints" : [ 19.5, 68.5, 19.5, 68.5 ],
 									"order" : 4,
 									"source" : [ "obj-30", 0 ]
 								}
@@ -718,6 +800,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-28", 0 ],
+									"midpoints" : [ 19.5, 85.0, 62.5, 85.0 ],
 									"order" : 3,
 									"source" : [ "obj-30", 0 ]
 								}
@@ -726,6 +809,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-29", 0 ],
+									"midpoints" : [ 19.5, 72.5, 109.5, 72.5 ],
 									"order" : 2,
 									"source" : [ "obj-30", 0 ]
 								}
@@ -734,6 +818,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-3", 0 ],
+									"midpoints" : [ 19.5, 53.5, 202.5, 53.5 ],
 									"order" : 0,
 									"source" : [ "obj-30", 0 ]
 								}
@@ -771,7 +856,7 @@
 						"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 					}
 ,
-					"patching_rect" : [ 45.166666666666657, 270.0, 98.0, 21.0 ],
+					"patching_rect" : [ 45.0, 241.0, 98.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -794,7 +879,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 45.166666666666657, 201.0, 61.0, 21.0 ],
+					"patching_rect" : [ 45.0, 163.0, 61.0, 21.0 ],
 					"text" : "metro 125"
 				}
 
@@ -806,7 +891,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 218.0, 440.0, 112.0, 21.0 ],
+					"patching_rect" : [ 324.0, 394.0, 112.0, 21.0 ],
 					"text" : "mc.sig~ 1 @chans 5"
 				}
 
@@ -818,7 +903,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 72.5, 436.0, 132.0, 21.0 ],
+					"patching_rect" : [ 179.0, 394.0, 132.0, 21.0 ],
 					"text" : "mc.phasor~ 8 @chans 5"
 				}
 
@@ -831,7 +916,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 20.0, 140.5, 24.0, 24.0 ]
+					"patching_rect" : [ 20.0, 111.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -842,7 +927,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 31.0, 550.5, 114.0, 67.0 ],
+					"patching_rect" : [ 31.0, 521.0, 108.0, 71.0 ],
 					"text" : "Channels are interleaved by stream, so 1,2,3,4,5,1,2,3,4,5 ect.",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -855,7 +940,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 254.666666666666629, 494.5, 187.0, 31.0 ],
+					"patching_rect" : [ 255.0, 465.0, 187.0, 32.0 ],
 					"text" : "arguments: streams grains_per_stream buffer",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -868,7 +953,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 54.0, 554.0, 43.0 ],
+					"patching_rect" : [ 13.0, 56.0, 554.0, 45.0 ],
 					"text" : "grainflow.streams~ allows you to control groups of grains using a single grainflow instance. Streams will create a grainflow object with the needed number of grains and allow communication wtih each stream using the stream message. Deviation and spread messages allow you to set all of the streams prociduarally."
 				}
 
@@ -880,7 +965,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 9.0, 427.0, 43.0 ],
+					"patching_rect" : [ 13.0, 9.0, 427.0, 45.0 ],
 					"text" : "grainflow.streams~"
 				}
 
@@ -892,7 +977,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 378.666666666666629, 575.5, 186.0, 21.0 ],
+					"patching_rect" : [ 287.0, 521.0, 186.0, 21.0 ],
 					"text" : "buffer~ _help-stream-buf anton.aif"
 				}
 
@@ -903,8 +988,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 4,
 					"numoutlets" : 9,
-					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 20.0, 494.5, 217.0, 21.0 ],
+					"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"patching_rect" : [ 20.0, 465.0, 217.0, 21.0 ],
 					"text" : "grainflow.streams~ 5 5 _help-stream-buf"
 				}
 
@@ -912,9 +997,9 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-16", 0 ],
-					"midpoints" : [ 54.25, 528.5, 218.166666666666657, 528.5 ],
-					"order" : 0,
+					"midpoints" : [ 54.25, 499.0, 218.5, 499.0 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -922,9 +1007,8 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-5", 1 ],
-					"midpoints" : [ 54.25, 534.75, 161.5, 534.75 ],
-					"order" : 1,
-					"source" : [ "obj-1", 1 ]
+					"midpoints" : [ 79.0, 510.75, 170.5, 510.75 ],
+					"source" : [ "obj-1", 2 ]
 				}
 
 			}
@@ -944,6 +1028,7 @@
 			}
 , 			{
 				"patchline" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-12", 0 ]
 				}
@@ -952,7 +1037,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 82.0, 475.25, 29.5, 475.25 ],
+					"midpoints" : [ 188.5, 445.75, 29.5, 445.75 ],
 					"source" : [ "obj-13", 0 ]
 				}
 
@@ -960,7 +1045,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 1 ],
-					"midpoints" : [ 227.5, 477.25, 95.5, 477.25 ],
+					"midpoints" : [ 333.5, 455.75, 95.5, 455.75 ],
 					"source" : [ "obj-14", 0 ]
 				}
 
@@ -977,7 +1062,7 @@
 				"patchline" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-35", 0 ],
-					"midpoints" : [ 54.666666666666657, 370.0, 227.5, 370.0 ],
+					"midpoints" : [ 54.5, 232.5, 333.5, 232.5 ],
 					"order" : 0,
 					"source" : [ "obj-21", 0 ]
 				}
@@ -985,9 +1070,10 @@
 			}
 , 			{
 				"patchline" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-36", 0 ],
-					"midpoints" : [ 54.666666666666657, 319.0, 82.0, 319.0 ],
-					"order" : 2,
+					"midpoints" : [ 54.5, 233.5, 188.5, 233.5 ],
+					"order" : 1,
 					"source" : [ "obj-21", 0 ]
 				}
 
@@ -995,8 +1081,8 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-45", 0 ],
-					"midpoints" : [ 54.666666666666657, 263.5, 150.500000000000028, 263.5 ],
-					"order" : 1,
+					"midpoints" : [ 54.5, 231.0, 77.0, 231.0 ],
+					"order" : 2,
 					"source" : [ "obj-21", 0 ]
 				}
 
@@ -1011,15 +1097,16 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-21", 0 ],
+					"midpoints" : [ 93.5, 228.0, 79.5, 228.0, 79.5, 193.0, 54.5, 193.0 ],
 					"source" : [ "obj-23", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.985541582107544, 0.009453177452087, 0.999180555343628, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 54.666666666666657, 392.25, 29.5, 392.25 ],
+					"midpoints" : [ 54.5, 411.75, 29.5, 411.75 ],
 					"source" : [ "obj-32", 0 ]
 				}
 
@@ -1040,8 +1127,9 @@
 			}
 , 			{
 				"patchline" : 				{
+					"color" : [ 0.985541582107544, 0.009453177452087, 0.999180555343628, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 150.500000000000028, 389.75, 29.5, 389.75 ],
+					"midpoints" : [ 77.0, 429.25, 29.5, 429.25 ],
 					"source" : [ "obj-45", 0 ]
 				}
 
@@ -1085,36 +1173,36 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "Grainflow.voice~.mxe64",
-				"type" : "mx64"
-			}
-, 			{
 				"name" : "grainflow.streams~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.waveform~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.waveform~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
-				"name" : "grainflow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow~.mxo",
+				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0,
+		"boxgroups" : [ 			{
+				"boxes" : [ "obj-29", "obj-3" ]
+			}
+, 			{
+				"boxes" : [ "obj-19", "obj-17" ]
+			}
+ ],
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
