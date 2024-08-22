@@ -9,7 +9,7 @@ import sys
 
 keystorePath = "./.secrets/keystore.json"
 paths_to_remove = ["/build", "/source", "/CMakeLists.txt", "/create_release.py", "/.git", "/.gitmodules", "/.gitignore", "/.vscode", "/.gitattributes"]
-paths_to_include  = ["/code", "/data", "/docs", "/help", "/javascript", "/jsui", "/externals", "/media", "/misc", "/patchers", "/icon.png", "/license.txt", "/README.md", "/package-info.json"]
+paths_to_include  = ["/code", "/data", "/docs", "/help", "/javascript", "/jsui", "/externals", "/media", "/misc", "/patchers", "/extras" "/icon.png", "/license.txt", "/README.md", "/package-info.json"]
 externals = ["grainflow~", "grainflow.spatview~", "grainflow.waveform~"]
 
 generator = "-G Xcode" if (platform.system() == "Darwin") else ""
@@ -83,8 +83,8 @@ def package_release():
     archive = "./grainflow"
     if os.path.isdir(dest):
         shutil.rmtree(dest)
-    if os.path.isfile(archive+".zip"):  
-        os.remove(archive+".zip")
+    if os.path.isfile(archive+".maxpack"):  
+        os.remove(archive+".maxpack")
 
     print("copying all files into release folder")
 
@@ -96,23 +96,49 @@ def package_release():
             shutil.copytree(src_path, dest_path)
         if os.path.isfile(src_path):
             shutil.copy2(src_path, dest_path)
+
+    reposition_max_patches(dest, 20,20)
     print("zipping...")
     shutil.make_archive(archive, 'zip', dest)
+    os.rename(f"{archive}.zip", f"{archive}.maxpack")
+    print(f"Created {archive}.maxpack")
     print("cleaning up")
-
     shutil.rmtree(dest)
+
+def reposition_max_patches(dir, x, y):
+    #Reposition all windows
+    print(f"Repositioning all patcher windows to {x},{y}")
+    for root, dirs, files in  os.walk(dir):
+        for file in files:
+            if file.endswith(".maxpat") or file.endswith(".maxhelp"):
+                path = os.path.join(root, file)
+                maxfile = open(path)
+                maxtxt = maxfile.read()
+                maxfile.close()
+                maxjson = json.loads(maxtxt)
+                bounds = maxjson['patcher']['rect']
+                bounds[0] = x
+                bounds[1] = y
+                maxjson['patcher']['rect'] = bounds
+                maxtxt = json.dumps(maxjson, indent= 4)
+                os.remove(path)
+                maxfile = open(path, 'w')
+                maxfile.write(maxtxt)
+                maxfile.close()
 
 def mac_staple():
     if (platform.system() != "Darwin"): return
     for external in externals:
         cmd = f'xcrun stapler staple ./externals/{external}.mxo'
-        p = subprocess.Popen(cmd, shell=True)  
+        p = subprocess.Popen(cmd, shell=True)
+        p.wait()  
 
 def mac_validate():
     if (platform.system() != "Darwin"): return
     for external in externals:
         cmd = f'codesign -verify -verbose ./externals/{external}.mxo'
         p = subprocess.Popen(cmd, shell=True)  
+        p.wait()
 
 def main():
     args = sys.argv
