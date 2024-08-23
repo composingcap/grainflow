@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 0,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -13,9 +13,9 @@
 		"rect" : [ 100.0, 100.0, 684.0, 740.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
-		"default_fontsize" : 10.0,
+		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Futura Medium",
+		"default_fontname" : "Lato Medium",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -45,7 +45,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 23.0, 453.0, 88.0, 20.0 ],
+					"patching_rect" : [ 23.0, 453.0, 88.0, 22.0 ],
 					"text" : "latencyMode $1"
 				}
 
@@ -57,7 +57,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 343.0, 417.0, 162.0, 22.0 ],
+					"patching_rect" : [ 343.0, 417.0, 162.0, 24.0 ],
 					"text" : "Force all notes off"
 				}
 
@@ -70,7 +70,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 79.0, 272.0, 177.0, 33.0 ],
+					"patching_rect" : [ 79.0, 272.0, 181.0, 37.0 ],
 					"text" : "EDO tunings can be set using the notesPerOctave message"
 				}
 
@@ -82,7 +82,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 322.0, 281.5, 197.0, 29.0 ],
+					"patching_rect" : [ 322.0, 281.5, 197.0, 33.0 ],
 					"text" : "Non-integer values with result in a pitch bend.",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -95,7 +95,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 332.0, 82.5, 246.0, 22.0 ],
+					"patching_rect" : [ 332.0, 82.5, 246.0, 24.0 ],
 					"text" : "Send a note-on message to the harmonizer"
 				}
 
@@ -170,7 +170,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 157.5, 120.0, 109.5, 33.0 ],
+					"patching_rect" : [ 157.5, 120.0, 112.0, 37.0 ],
 					"text" : "Play sound into the harmonizer"
 				}
 
@@ -213,7 +213,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 280.5, 381.0, 75.0, 20.0 ],
+					"patching_rect" : [ 280.5, 381.0, 75.0, 22.0 ],
 					"text" : "prepend adsr"
 				}
 
@@ -240,7 +240,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 0,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -344,7 +344,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "float" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 145.0, 5.0, 44.0, 47.0 ],
+									"patching_rect" : [ 145.0, 5.0, 44.0, 48.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 500 ],
@@ -353,6 +353,7 @@
 											"parameter_longname" : "R",
 											"parameter_mmax" : 5000.0,
 											"parameter_mmin" : 10.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "R",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 0
@@ -372,7 +373,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "float" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 99.0, 5.0, 44.0, 47.0 ],
+									"patching_rect" : [ 99.0, 5.0, 44.0, 48.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 1 ],
@@ -380,6 +381,7 @@
 											"parameter_linknames" : 1,
 											"parameter_longname" : "S",
 											"parameter_mmax" : 1.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "S",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 1
@@ -399,12 +401,13 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "float" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 53.0, 5.0, 44.0, 47.0 ],
+									"patching_rect" : [ 53.0, 5.0, 44.0, 48.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_linknames" : 1,
 											"parameter_longname" : "D",
 											"parameter_mmax" : 1000.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "D",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 0
@@ -424,7 +427,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "float" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 7.0, 5.0, 44.0, 47.0 ],
+									"patching_rect" : [ 7.0, 5.0, 44.0, 48.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 500 ],
@@ -433,6 +436,7 @@
 											"parameter_longname" : "A",
 											"parameter_mmax" : 5000.0,
 											"parameter_mmin" : 10.0,
+											"parameter_modmode" : 0,
 											"parameter_shortname" : "A",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 0
@@ -513,7 +517,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 280.0, 163.5, 72.0, 20.0 ],
+					"patching_rect" : [ 280.0, 163.5, 72.0, 22.0 ],
 					"text" : "loadmess 60"
 				}
 
@@ -525,7 +529,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 25.0, 252.0, 72.0, 20.0 ],
+					"patching_rect" : [ 25.0, 252.0, 72.0, 22.0 ],
 					"text" : "loadmess 12"
 				}
 
@@ -539,7 +543,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 25.0, 279.0, 50.0, 20.0 ]
+					"patching_rect" : [ 25.0, 279.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -550,7 +554,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 25.0, 312.0, 103.0, 20.0 ],
+					"patching_rect" : [ 25.0, 312.0, 103.0, 22.0 ],
 					"text" : "notesPerOctave $1"
 				}
 
@@ -563,7 +567,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 55.0, 410.0, 205.0, 33.0 ],
+					"patching_rect" : [ 55.0, 410.0, 205.0, 37.0 ],
 					"text" : "Will sync all voices to the maximum amount of latency"
 				}
 
@@ -588,7 +592,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 496.5, 328.0, 162.0, 33.0 ],
+					"patching_rect" : [ 496.5, 328.0, 162.0, 37.0 ],
 					"text" : "adsr message will set the voice envelope"
 				}
 
@@ -603,7 +607,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 25.0, 353.0, 50.0, 20.0 ]
+					"patching_rect" : [ 25.0, 353.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -614,7 +618,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 25.0, 381.0, 84.0, 20.0 ],
+					"patching_rect" : [ 25.0, 381.0, 95.0, 22.0 ],
 					"text" : "delayRandom $1"
 				}
 
@@ -623,11 +627,11 @@
 				"box" : 				{
 					"bubble" : 1,
 					"id" : "obj-46",
-					"linecount" : 4,
+					"linecount" : 5,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 89.0, 334.0, 175.0, 55.0 ],
+					"patching_rect" : [ 113.5, 322.0, 138.0, 76.0 ],
 					"text" : "Any message you can send grainflow~ can overwrite settings in the harmonizer (except for rate)"
 				}
 
@@ -639,7 +643,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 99.5, 211.5, 150.0, 51.0 ],
+					"patching_rect" : [ 99.5, 211.5, 152.0, 59.0 ],
 					"text" : "Smaller grains sizes can and should be used with higher notes.  This will improve latency.",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -653,7 +657,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 307.0, 259.5, 206.0, 22.0 ],
+					"patching_rect" : [ 307.0, 259.5, 206.0, 24.0 ],
 					"text" : "trasposition in semitones, velocity "
 				}
 
@@ -664,7 +668,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 139.5, 549.0, 166.0, 18.0 ],
+					"patching_rect" : [ 189.5, 535.0, 166.0, 20.0 ],
 					"text" : "args: buffer-size, max-voices",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -677,7 +681,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 82.5, 86.5, 157.0, 22.0 ],
+					"patching_rect" : [ 82.5, 86.5, 157.0, 24.0 ],
 					"text" : "Enable the harmonizer"
 				}
 
@@ -690,7 +694,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 231.0, 479.0, 204.0, 33.0 ],
+					"patching_rect" : [ 231.0, 479.0, 221.0, 37.0 ],
 					"text" : "Additional Latency in ms.  Useful when adding vibrato"
 				}
 
@@ -704,7 +708,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 131.5, 456.0, 50.0, 20.0 ]
+					"patching_rect" : [ 131.5, 456.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -714,7 +718,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 79.0, 184.5, 157.0, 18.0 ],
+					"patching_rect" : [ 79.0, 184.5, 157.0, 20.0 ],
 					"text" : "Grain Size in ms (defaul 125)"
 				}
 
@@ -728,7 +732,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 25.0, 184.5, 50.0, 20.0 ]
+					"patching_rect" : [ 25.0, 184.5, 50.0, 22.0 ]
 				}
 
 			}
@@ -739,7 +743,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 131.5, 486.0, 94.0, 20.0 ],
+					"patching_rect" : [ 131.5, 486.0, 94.0, 22.0 ],
 					"text" : "addedLatency $1"
 				}
 
@@ -751,7 +755,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 25.0, 217.5, 71.0, 20.0 ],
+					"patching_rect" : [ 25.0, 217.5, 71.0, 22.0 ],
 					"text" : "grainSize $1"
 				}
 
@@ -762,7 +766,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 4.0, 56.0, 334.0, 18.0 ],
+					"patching_rect" : [ 4.0, 56.0, 334.0, 20.0 ],
 					"text" : "Basic granular harmonizer that adapts latency to a set grain size"
 				}
 
@@ -774,7 +778,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 4.0, 4.0, 431.0, 40.0 ],
+					"patching_rect" : [ 4.0, 4.0, 431.0, 42.0 ],
 					"text" : "grainflow.harmonize~"
 				}
 
@@ -788,7 +792,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 280.0, 184.5, 50.0, 20.0 ]
+					"patching_rect" : [ 280.0, 184.5, 50.0, 22.0 ]
 				}
 
 			}
@@ -815,12 +819,13 @@
 					"orientation" : 1,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 23.0, 594.0, 136.0, 45.0 ],
+					"patching_rect" : [ 23.0, 594.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "live.gain~",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
@@ -834,6 +839,7 @@
 			}
 , 			{
 				"box" : 				{
+					"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
 					"id" : "obj-7",
 					"local" : 1,
 					"maxclass" : "ezdac~",
@@ -901,7 +907,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
-					"patching_rect" : [ 269.5, 236.5, 29.5, 20.0 ],
+					"patching_rect" : [ 269.5, 236.5, 29.5, 22.0 ],
 					"text" : "- 60"
 				}
 
@@ -913,7 +919,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 269.5, 264.5, 29.5, 20.0 ],
+					"patching_rect" : [ 269.5, 264.5, 29.5, 22.0 ],
 					"text" : "join"
 				}
 
@@ -925,7 +931,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "int", "int" ],
-					"patching_rect" : [ 269.5, 85.5, 40.0, 20.0 ],
+					"patching_rect" : [ 269.5, 85.5, 40.0, 22.0 ],
 					"text" : "notein"
 				}
 
@@ -937,7 +943,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 280.0, 417.0, 61.0, 20.0 ],
+					"patching_rect" : [ 280.0, 417.0, 61.0, 22.0 ],
 					"text" : "allnotesoff"
 				}
 
@@ -949,7 +955,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 23.0, 559.0, 90.0, 20.0 ],
+					"patching_rect" : [ 23.0, 559.0, 90.0, 22.0 ],
 					"text" : "mc.mixdown~ 1"
 				}
 
@@ -973,7 +979,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 23.0, 534.0, 157.0, 20.0 ],
+					"patching_rect" : [ 23.0, 534.0, 157.0, 22.0 ],
 					"text" : "grainflow.harmonize~ 1000 8"
 				}
 
@@ -1204,43 +1210,36 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "Grainflow.voice~.mxe64",
-				"type" : "mx64"
-			}
-, 			{
 				"name" : "_grainflow.harmVoice.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.harmonize~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.record.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
 				"name" : "vibes-a1.aif",
@@ -1251,20 +1250,20 @@
  ],
 		"autosave" : 0,
 		"boxgroups" : [ 			{
-				"boxes" : [ "obj-25", "obj-19" ]
-			}
-, 			{
 				"boxes" : [ "obj-30", "obj-26" ]
 			}
 , 			{
 				"boxes" : [ "obj-60", "obj-42" ]
+			}
+, 			{
+				"boxes" : [ "obj-25", "obj-19" ]
 			}
  ],
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"angle" : 270.0,
 						"autogradient" : 0.0,
@@ -1275,13 +1274,13 @@
 						"type" : "color"
 					}
 ,
-					"clearcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
+					"bubble_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"elementcolor" : [ 0.796078431372549, 0.796078431372549, 0.796078431372549, 1.0 ],
 					"fontface" : [ 0 ],
-					"fontname" : [ "Futura Medium" ],
-					"fontsize" : [ 10.0 ],
+					"fontname" : [ "Lato Medium" ],
+					"fontsize" : [ 11.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}

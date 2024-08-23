@@ -4,18 +4,18 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 2,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 86.0, 91.0, 582.0, 638.0 ],
+		"rect" : [ 134.0, 172.0, 582.0, 638.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
 		"default_fontface" : 0,
-		"default_fontname" : "Lato",
+		"default_fontname" : "Lato Medium",
 		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 1,
@@ -40,7 +40,7 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"buffername" : "1579_flow_1",
+					"buffername" : "1491_flow_1",
 					"id" : "obj-12",
 					"maxclass" : "grainflow.waveform~",
 					"numinlets" : 1,
@@ -119,7 +119,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 192.0, 148.5, 237.0, 24.0 ],
+					"patching_rect" : [ 192.0, 148.5, 237.0, 25.0 ],
 					"text" : "Play this sound file into grainflow.chorus~"
 				}
 
@@ -131,7 +131,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 63.0, 105.0, 255.0, 24.0 ],
+					"patching_rect" : [ 63.0, 105.0, 255.0, 25.0 ],
 					"text" : "Enable the chorus"
 				}
 
@@ -183,7 +183,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 438.0, 232.0, 142.0, 76.0 ],
+					"patching_rect" : [ 438.0, 232.0, 142.0, 82.0 ],
 					"text" : "As with other grainflow abstractions, you are able to use grainflow messages with chorus as well"
 				}
 
@@ -195,7 +195,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 337.0, 190.0, 76.0, 22.0 ],
+					"patching_rect" : [ 337.0, 190.0, 76.0, 23.0 ],
 					"text" : "loadmess 0.1"
 				}
 
@@ -209,7 +209,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 337.0, 224.0, 50.0, 22.0 ]
+					"patching_rect" : [ 337.0, 224.0, 50.0, 23.0 ]
 				}
 
 			}
@@ -220,7 +220,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 337.0, 259.0, 88.0, 22.0 ],
+					"patching_rect" : [ 337.0, 259.0, 88.0, 23.0 ],
 					"text" : "ampRandom $1"
 				}
 
@@ -232,7 +232,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 188.0, 317.0, 299.0, 33.0 ],
+					"patching_rect" : [ 188.0, 317.0, 299.0, 35.0 ],
 					"text" : "Arguments are chorus value, buffersize, and number of voices",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -245,7 +245,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 36.0, 242.0, 180.0, 33.0 ],
+					"patching_rect" : [ 36.0, 242.0, 180.0, 35.0 ],
 					"text" : "The best values for a chorus effect are between zero and one",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -258,7 +258,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 15.0, 186.0, 76.0, 22.0 ],
+					"patching_rect" : [ 15.0, 186.0, 76.0, 23.0 ],
 					"text" : "loadmess 0.5"
 				}
 
@@ -270,7 +270,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1.0, 58.0, 427.0, 33.0 ],
+					"patching_rect" : [ 1.0, 58.0, 427.0, 35.0 ],
 					"text" : "A granular chorusing effect where grains are modulated in terms of rate and delay based on a single value.  Random panning is also applied."
 				}
 
@@ -282,7 +282,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1.0, 3.0, 426.0, 42.0 ],
+					"patching_rect" : [ 1.0, 3.0, 426.0, 45.0 ],
 					"text" : "grainflow.chorus~"
 				}
 
@@ -294,7 +294,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.0, 218.0, 268.0, 24.0 ],
+					"patching_rect" : [ 67.0, 218.0, 268.0, 25.0 ],
 					"text" : "Chorus value- higher is more extreme."
 				}
 
@@ -308,7 +308,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 15.0, 218.0, 50.0, 22.0 ]
+					"patching_rect" : [ 15.0, 218.0, 50.0, 23.0 ]
 				}
 
 			}
@@ -457,10 +457,6 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "Grainflow.voice~.mxe64",
-				"type" : "mx64"
-			}
-, 			{
 				"name" : "anton.aif",
 				"bootpath" : "C74:/media/msp",
 				"type" : "AIFF",
@@ -468,42 +464,39 @@
 			}
 , 			{
 				"name" : "grainFlow.live~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainFlow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.chorus~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.record.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.waveform~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.waveform~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "grainflow~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
 				"name" : "thru.maxpat",
@@ -524,7 +517,7 @@
 				"name" : "Minimal",
 				"default" : 				{
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgfillcolor" : 					{
 						"angle" : 270.0,
 						"autogradient" : 0.0,
@@ -535,11 +528,13 @@
 						"type" : "color"
 					}
 ,
+					"bubble_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
+					"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"elementcolor" : [ 0.796078431372549, 0.796078431372549, 0.796078431372549, 1.0 ],
 					"fontface" : [ 0 ],
-					"fontname" : [ "Futura Medium" ],
-					"fontsize" : [ 10.0 ],
+					"fontname" : [ "Lato Medium" ],
+					"fontsize" : [ 11.0 ],
 					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}

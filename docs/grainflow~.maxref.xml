@@ -71,54 +71,14 @@
 			<description>sets the 2D envelope position </description>
 		</method>
 
+		<method name='nEnvelopes'>
+			<digest>sets the number of envelopes in the 2d envelope buffer </digest>
+			<description>sets the number of envelopes in the 2d envelope buffer </description>
+		</method>
+
 		<method name='env2D'>
 			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
 			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
-		</method>
-
-		<method name='windowMode'>
-			<digest>sets  the window mode</digest>
-			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='streamDeviate'>
-			<digest>will deviate any parameter based on streams </digest>
-			<description>will deviate any parameter based on streams </description>
-		</method>
-
-		<method name='gchan'>
-			<digest>sets an attribute of message for all grains assigned to a buffer channel </digest>
-			<description>sets an attribute of message for all grains assigned to a buffer channel </description>
-		</method>
-
-		<method name='bufChan'>
-			<digest>sets the channel of grains with a certain channel</digest>
-			<description>sets the channel of grains with a certain channel. Should be used with the g message </description>
-		</method>
-
-		<method name='delayMode'>
-			<digest>sets  the delay mode</digest>
-			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='streamSpread'>
-			<digest>will create evenly spaced values between each number based on streams </digest>
-			<description>will create evenly spaced values between each number based on streams </description>
-		</method>
-
-		<method name='stream'>
-			<digest>sets an attribute or message for all grains in a stream </digest>
-			<description>sets an attribute or message for all grains in a stream </description>
-		</method>
-
-		<method name='done'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='streamTarget'>
-			<digest>messages will target grains assigned to this stream </digest>
-			<description>messages will target grains assigned to this stream </description>
 		</method>
 
 		<method name='windowBuffer'>
@@ -134,6 +94,56 @@
 		<method name='env'>
 			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
 			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
+		</method>
+
+		<method name='windowMode'>
+			<digest>sets  the window mode</digest>
+			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='bufChan'>
+			<digest>sets the channel of grains with a certain channel</digest>
+			<description>sets the channel of grains with a certain channel. Should be used with the g message </description>
+		</method>
+
+		<method name='delayMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='stream'>
+			<digest>sets an attribute or message for all grains in a stream </digest>
+			<description>sets an attribute or message for all grains in a stream </description>
+		</method>
+
+		<method name='streamSpread'>
+			<digest>will create evenly spaced values between each number based on streams </digest>
+			<description>will create evenly spaced values between each number based on streams </description>
+		</method>
+
+		<method name='streamDeviate'>
+			<digest>will deviate any parameter based on streams </digest>
+			<description>will deviate any parameter based on streams </description>
+		</method>
+
+		<method name='gchan'>
+			<digest>sets an attribute of message for all grains assigned to a buffer channel </digest>
+			<description>sets an attribute of message for all grains assigned to a buffer channel </description>
+		</method>
+
+		<method name='randomrange'>
+			<digest>picks a randomvalue between two points for each parameter </digest>
+			<description>picks a randomvalue between two points for each parameter </description>
+		</method>
+
+		<method name='done'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='streamTarget'>
+			<digest>messages will target grains assigned to this stream </digest>
+			<description>messages will target grains assigned to this stream </description>
 		</method>
 
 		<method name='int'>
@@ -171,9 +181,19 @@
 			<description>DEPRICATED message to set the amound grains are delayed in ms </description>
 		</method>
 
+		<method name='spread'>
+			<digest>spread a parameter {1} by between values {2} and {3} </digest>
+			<description>spread a parameter {1} by between values {2} and {3} </description>
+		</method>
+
 		<method name='travRandom'>
 			<digest>DEPRICATED the amound grains are delayed in ms </digest>
 			<description>DEPRICATED the amound grains are delayed in ms </description>
+		</method>
+
+		<method name='deviate'>
+			<digest>deviate a parameter {1} from a center value {2} in the amount of a bipolar depth {3} </digest>
+			<description>deviate a parameter {1} from a center value {2} in the amount of a bipolar depth {3} </description>
 		</method>
 
 		<method name='rateMode'>
@@ -186,9 +206,9 @@
 			<description>DEPRICATED the amound grains are delayed in ms </description>
 		</method>
 
-		<method name='nEnvelopes'>
-			<digest>sets the number of envelopes in the 2d envelope buffer </digest>
-			<description>sets the number of envelopes in the 2d envelope buffer </description>
+		<method name='streamRandomrange'>
+			<digest>will deviate any parameter based on streams </digest>
+			<description>will deviate any parameter based on streams </description>
 		</method>
 
 	</methodlist>

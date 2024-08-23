@@ -1004,7 +1004,7 @@ public:
 			_streamTarget = 0;
 			for (int s = 0; s < _nstreams; s++)
 			{
-				value = GfUtils::Deviate(args[1], args[2]);
+				value = GfUtils::Deviate(args[2], args[1]);
 				for (int g = 0; g < _maxGrains; g++)
 				{
 					if (grainInfo[g].stream != s)
@@ -1018,6 +1018,70 @@ public:
 			_channelTarget = lastChannelTarget;
 
 			return {};
+		}
+	};
+
+	message<> deviate{
+		this,
+		"deviate",
+		"deviate a parameter {1} from a center value {2} in the amount of a bipolar depth {3}",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			int lastTarget = _target;
+			for (int g = 0; g < ngrains; g++)
+				{
+					auto value = GfUtils::Deviate(args[2], args[1]);
+					_target = g;
+					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
+				}
+			_target = lastTarget;
+			return args;
+		}
+	};
+
+	message<> streamRandomRange{
+		this,
+		"streamRandomrange",
+		"will deviate any parameter based on streams",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			float value = 0;
+			int lastTarget = _target;
+			int lastStream = _streamTarget;
+			int lastChannelTarget = _channelTarget;
+			_channelTarget = 0;
+			_streamTarget = 0;
+			for (int s = 0; s < _nstreams; s++)
+			{
+				value = GfUtils::RandomRange(args[1], args[2]);
+				for (int g = 0; g < _maxGrains; g++)
+				{
+					if (grainInfo[g].stream != s)
+						continue;
+					_target = g;
+					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
+				}
+			}
+			_target = lastTarget;
+			_streamTarget = lastStream;
+			_channelTarget = lastChannelTarget;
+
+			return {};
+		}
+	};
+
+	message<> randomRange{
+		this,
+		"randomrange",
+		"picks a randomvalue between two points for each parameter",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			int lastTarget = _target;
+			for (int g = 0; g < ngrains; g++)
+				{
+					auto value = GfUtils::RandomRange(args[1], args[2]);
+					_target = g;
+					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
+				}
+			_target = lastTarget;
+			return args;
 		}
 	};
 
@@ -1035,11 +1099,11 @@ public:
 			for (int s = 0; s < _nstreams; s++)
 			{
 				value = GfUtils::Lerp(args[1], args[2], (float)s / _nstreams);
-				for (int g = 0; g < _maxGrains; g++)
+				for (int g = 0; g < ngrains; g++)
 				{
 					if (grainInfo[g].stream != s)
 						continue;
-					_target = g;
+					_target = (g+1);
 					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
 				}
 			}
@@ -1047,6 +1111,23 @@ public:
 			_streamTarget = lastStream;
 			_channelTarget = lastChannelTarget;
 			return {};
+		}
+	};
+
+	message<> spread{
+		this,
+		"spread",
+		"spread a parameter {1} by between values {2} and {3}",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			int lastTarget = _target;
+			for (int g = 0; g < ngrains; g++)
+				{
+					auto value = GfUtils::Lerp(args[1], args[2], (float)g /(ngrains) );
+					_target = (g+1);
+					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
+				}
+			_target = lastTarget;
+			return args;
 		}
 	};
 

@@ -21,10 +21,10 @@ public:
 	};
 	enum_map waveformMode_range = { "scrub", "selection", "loop" };
 
-	MIN_DESCRIPTION{ "Visualize Grainflow granulation" };
+	MIN_DESCRIPTION{ "Visualize Grainflow granulation on a waveform display" };
 	MIN_TAGS{ "ui" };
 	MIN_AUTHOR{ "Christopher Poovey" };
-	MIN_RELATED{ "" };
+	MIN_RELATED{ "grainflow~, grainflow.live~" };
 
 	inlet<> input{ this, "(list) grain information" };
 	outlet<> output{ this, "(list) grainInfo" };
@@ -203,12 +203,11 @@ public:
 		
 	}
 
-
-	attribute<numbers> m_disprange{ this, "displayRange", {{0.0, 1.0}} };
 	attribute<number> m_dotScale{ this, "dotScale", 1.0 };
 	attribute<number> m_dotVJitter{ this, "dotVJitter", 0.0 };
 	attribute<int> m_fps{ this, "fps", 30 };
-	attribute<int> m_maxSamples{ this, "maxBufferDrawSamples", 1000, setter{
+	attribute<int> m_maxSamples{ this, "maxBufferDrawSamples", 1000, 
+	setter{
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			if ((int)args[0] <= 0) {
 				ComputeBufferDisplay(1); 
@@ -228,13 +227,14 @@ public:
 				ComputeBufferDisplay(m_maxSamples);
 				return args;
 			}
-		}
+		},
+		description{"The channel that the waveform will draw. Grains are also filtered by channel. 0 will draw the first channel and all grains"}
 	};
 
 	attribute<symbol> m_bufferName{ 
 		this, 
 		"buffername", 
-		"",
+		"name of the buffer to draw",
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			 if (args.empty()) return args;
 			string name = args[0];
@@ -255,7 +255,6 @@ public:
 	message<> bufName{
 		this,
 		"buf",
-		"",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			auto name = (string)args[0];
 			if (name.compare(static_cast<string>(m_buffer.name().c_str())) != 0) {
@@ -266,21 +265,20 @@ public:
 		}
 	};
 	// Interaction mode
-	attribute<numbers> m_selection{ this, "selection", {{0.0, 1.0}} };
-	attribute<bool> m_triangles{ this, "showTriangles", false };
-	attribute<number> m_trackerWidth{ this, "trackerWidth", 2.0 };
+	attribute<numbers> m_selection{ this, "selection", {{0.0, 1.0}}, description{"The selected range of the waveform display"} };
+	attribute<bool> m_triangles{ this, "showTriangles", false, description{"shows triangles pointing at the selection position"} };
+	attribute<number> m_trackerWidth{ this, "trackerWidth", 2.0, description{"How thick the position tracker is"} };
 
 	attribute<waveformMode> m_mode{ this, "mode", waveformMode::scrub, waveformMode_range,
-								   description{""} };
-	attribute<color> m_bgcolor{ this, "bgColor", {color{0, 0, 0, 0}}, title{"Background Color"} };
+		description{"The interaction mode for the waveform. Scrub -> click and drag to change selected position. Selection -> click and drag to select a range. Loop -> click and drag to move a selection, hold option/alt to change the selection size"} };
+	attribute<color> m_bgcolor{ this, "bgColor", {color{0, 0, 0, 0}}, title{"Background Color"},  description{"Changed the backgroun color"}};
 
-	attribute<color> m_waveformColor{ this, "waveformColor", color::predefined::black, title{"Waveform Color"} };
-	attribute<color> m_dotcolor{ this, "dotColor", {color{1.0, 0.0, 0.0, 0.9}}, title{"Dot Color"} };
-	attribute<color> m_dotcolor2{ this, "dotColorSecondary", {color{0.5, 0, 0, 0.9}}, title{"Dot Color Secondary"} };
-	attribute<color> m_triangleColor{ this, "triangleColor", {color{1, 1, 1, 1}}, title{"Triangle Color"} };
-	attribute<color> m_trackerColor{ this, "trackerColor", {color{0.9, 0.9, 0.9, 0.75}}, title{"Tracker Color"} };
-	attribute<color> m_triangleOutColor{ this, "triangleOutColor", {color{1, 1, 1, 1}}, title{"Triangle Color"} };
-	attribute<color> m_selectColor{ this, "selectColor", {color{1, 1, 0, 0.5}}, title{"Select Color"} };
+	attribute<color> m_waveformColor{ this, "waveformColor", color::predefined::black, title{"Waveform Color"}, description{"Changes the color of the waveform"} };
+	attribute<color> m_dotcolor{ this, "dotColor", {color{1.0, 0.0, 0.0, 0.9}}, title{"Dot Color"}, description{"changes the primary grain display color"}};
+	attribute<color> m_dotcolor2{ this, "dotColorSecondary", {color{0.5, 0, 0, 0.9}}, title{"Dot Color Secondary"},  description{"changes the secondary grain display color"} };
+	attribute<color> m_triangleColor{ this, "triangleColor", {color{1, 1, 1, 1}}, title{"Triangle Color"},  description{"changes the selection triangles"} };
+	attribute<color> m_trackerColor{ this, "trackerColor", {color{0.9, 0.9, 0.9, 0.75}}, title{"Tracker Color"},  description{"changes color of the position tracker"} };
+	attribute<color> m_selectColor{ this, "selectColor", {color{1, 1, 0, 0.5}}, title{"Select Color"}, description{"changes color of the selection range"}};
 
 	message<> setup{ this, "setup",
 					[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
@@ -308,7 +306,8 @@ public:
 			auto y{e.y()};
 			output2.send(atoms{"clicking", (double)x / e.target().width(), -(double)y / e.target().height(), 0});
 			return{};
-			}
+			},
+			"On mouse up the position will stop changing with the mouse"
 	};
 
 	message<> mousedown{ 
@@ -341,7 +340,8 @@ public:
 			}
 
 			return {};
-		}
+		},
+		"On mousedown the waveform will recieve interactions from the mouse"
 	};
 
 	message<> mousedragdelta{
@@ -383,13 +383,14 @@ public:
 
 			output2.send(atoms{"clicking", (double)trianglePosition[0] / e.target().width(), 1-((trianglePosition[1] - (double)y) / e.target().height()), 1});
 			return {};
-		}
+		},
+		"Dragging the mouse will interact with the waveform depending on the mode"
 	};
 
 	message<> record_head{ 
 		this, 
 		"recordHead", 
-		"",
+		"sets the tracker position",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 			recordHead = args[0];
 			return {};
@@ -399,7 +400,7 @@ public:
 	message<> grainpos{ 
 		this, 
 		"grainPosition", 
-		"",
+		"sets the positions of the grain dots",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 			grainPositions = args;
 			return {};
@@ -409,7 +410,7 @@ public:
 	message<> grain_win{ 
 		this, 
 		"grainWindow", 
-		"",
+		"sets the size of the grain dots",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 			grainWindows = args;
 			return {};
@@ -419,7 +420,7 @@ public:
 	message<> grain_state{ 
 		this, 
 		"grainState", 
-		"",			  
+		"sets if the grain dots should draw at all",			  
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 			grainStates = args;
 			return {};
@@ -429,7 +430,7 @@ public:
 	message<> grain_amp{ 
 		this, 
 		"grainAmp", 
-		"",
+		"sets the vertical position of the grain dots",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 			grainAmps = args;
 			return {};
@@ -457,7 +458,7 @@ public:
 	message<> b{ 
 		this,
 		"bang",
-		"",
+		"redraws the buffer display",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 			ComputeBufferDisplay(m_maxSamples);
 			return {};
