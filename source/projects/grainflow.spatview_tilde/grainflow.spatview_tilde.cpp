@@ -95,8 +95,6 @@ public:
 					position{ x - scale * 0.5f, y - scale * 0.5f }
 			};
 		}
-
-
 	};
 
 	void DrawSpeakers(target* t, int axis1, int axis2, float offset, float scale, color c) {
@@ -182,8 +180,6 @@ public:
 			if (strcmp(name->s_name, "setSpeakerAmps") == 0) {
 				m_speakerAmps = vizDict[name];
 			}
-
-
 			};
 
 	}
@@ -251,7 +247,6 @@ public:
 		DrawSpeakers(t, 0, 1, 0.1, m_falloffDistance, m_speakerZoneColor);
 		DrawSpeakers(t, 0, 2, 1.375, m_falloffDistance, m_speakerZoneColor);
 		DrawCenter(t, 0.1, 1.375);
-
 		DrawGrains(t, 0.1, 1.375);
 		DrawUi(t, 1.25f);
 	}
@@ -333,70 +328,80 @@ public:
 		this,
 		"speakerPositions",
 		{-1, 1, 0, 1, 1, 0},
-		title{"Speaker Positions"}
+		title{"Speaker Positions"},
+		description{"Speaker positions in a list of XYZ coordinates"}
 	};
 
 	attribute<vector<double>> m_dimmask{
 	this,
 	"dimmask",
 	{1,1,0},
-	title{"dim mask"}
+	title{"dim mask"},
+	description{"A mask for what dimentions are used in spatialization"}
 	};
 
 	attribute<number> m_falloffCurve{
 		this,
 		"falloffCurve",
 		-1,
-		title{"falloff curve"}
+		title{"falloff curve"},
+		description{"Used in grainflow.span.pan~ to control the falloff curve for the distance panning"}
 	};
 
 	attribute<bool> m_showCenter{
 	this,
 	"drawCenter",
 	false,
-	title{"draw center"}
+	title{"draw center"},
+	description{"Enables/Disables the center handle"}
 	};
 
 	attribute<number> m_falloffDistance{
 		this,
 		"falloffDistance",
 		1.5,
-		title{"falloff distance"}
+		title{"falloff distance"},
+		description{"Used in grainflow.span.pan~ to control the the distance a sound will be put into a speaker for distance based panning"}
 	};
 
 	attribute<color> m_speakerZoneColor{
 	this,
 	"zoneColor",
 	color(1,1,1,0.05),
-	title{"zone color"}
+	title{"zone color"},
+	description{"the color of the speaker zone"}
 	};
 
 	attribute<color> m_backgroundColor{
 		this,
 		"backgroundColor",
 		color(0.5,0.5,0.5,1),
-		title{"background color"}
+		title{"background color"},
+		description{"the color of the background"}
 	};
 
 	attribute<color> m_grainColor{
 	this,
 	"grainColor",
 	color(1,1,0,1),
-	title{"grain color"}
+	title{"grain color"},
+	description{"The primary grain color"}
 	};
 
 	attribute<color> m_grainColor2{
 	this,
 	"grainColor2",
 	color(0.8,0.7,0,1),
-	title{"grain color 2"}
+	title{"grain color 2"},
+	description{"The secondary grain color"}
 	};
 
 	attribute<color> m_centerColor{
 	this,
 	"centerColor",
 	color(0,0,0,1),
-	title{"center color"}
+	title{"center color"},
+	description{"Color of the center handle"}
 	};
 
 
@@ -405,7 +410,8 @@ public:
 		this,
 		"speakerOnColor",
 		color(0,1,0,1),
-		title{"speaker on color"}
+		title{"speaker on color"},
+		description{"speaker on color when sounding"}
 	};
 
 
@@ -413,7 +419,8 @@ public:
 		this,
 		"grainScale",
 		1,
-		title{"grain scale"}
+		title{"grain scale"},
+		description{"Size of the grains"}
 	};
 	
 	message<> vizInfo{
@@ -432,7 +439,7 @@ public:
 	message<> pos{
 		this,
 		"pos",
-		"grain positions",
+		"grain positions for an individual grain in the format of (index x y z)",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 			parsePosition(args);
 			return {};
@@ -442,7 +449,7 @@ public:
 	message<> xyz{
 	this,
 	"xyz",
-	"grain positions",
+	"grain positions for an individual grain in the format of (index x y z)",
 	[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 		parsePosition(args);
 		return {};
@@ -452,22 +459,17 @@ public:
 	message<> grainAmps{
 		this,
 		"grainAmp",
-		"set grain amplitudes",
+		"set grain amplitudes in the format of grain value",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 				ParseGrainAmps(args);
 				return{};
 		}
 	};
 
-
-
-
-	
-
 	message<> speakers{
 	this,
 	"speakers",
-	"",
+	"Sets speakers using a dictionary",
 	[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 		if (args.size() <= 0) return {};
 		if (args[0].type() == message_type::symbol_argument) {
@@ -514,15 +516,12 @@ public:
 		
 		return {};
 	}
-
-
 	};
-
 
 	message<> speakerAmp{
 	this,
 	"setSpeakerAmps",
-	"set speaker amplitudes",
+	"set speaker amplitudes for display in the format speaker value",
 	[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms {
 		if (args.size() < 1) return {};
 			m_speakerAmps = args;		
