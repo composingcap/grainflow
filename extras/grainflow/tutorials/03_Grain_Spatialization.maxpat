@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 138.0, 100.0, 907.0, 848.0 ],
+		"rect" : [ 95.0, 100.0, 907.0, 720.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -47,7 +47,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 477.0, 139.5, 150.0, 37.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Feel free to replace the sound file"
 				}
 
@@ -96,7 +95,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 722.0, 428.0, 50.0, 22.0 ]
+					"patching_rect" : [ 729.0, 420.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -107,7 +106,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 722.0, 455.0, 56.0, 22.0 ],
+					"patching_rect" : [ 729.0, 447.0, 56.0, 22.0 ],
 					"text" : "spread $1"
 				}
 
@@ -157,7 +156,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 667.0, 352.0, 174.0, 33.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Random panning using the grainflow.spat system"
 				}
 
@@ -205,7 +203,7 @@
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
 					"parameter_mappable" : 0,
-					"patching_rect" : [ 551.0, 423.0, 45.0, 19.0 ],
+					"patching_rect" : [ 552.0, 423.0, 45.0, 19.0 ],
 					"triangle" : 0
 				}
 
@@ -301,7 +299,7 @@
 					"patching_rect" : [ 429.0, 395.0, 125.0, 23.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_initial" : [ 0.5 ],
+							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "slider[1]",
 							"parameter_mmax" : 4.0,
@@ -350,7 +348,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 453.0, 352.0, 174.0, 33.0 ],
-					"presentation_linecount" : 2,
 					"text" : "Random circular panning for a multichannel setup"
 				}
 
@@ -450,7 +447,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 344.0, 447.0, 75.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "panSpread $1"
 				}
 
@@ -476,7 +472,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 230.0, 352.0, 174.0, 33.0 ],
-					"presentation_linecount" : 3,
 					"text" : "Random stereo panning using grainflow.util.stereoPan~"
 				}
 
@@ -1089,7 +1084,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-70",
-					"items" : [ "01_Grainflow_Basics.maxpat", ",", "02_Live_Input.maxpat", ",", "03_Grain_Spatialization.maxpat", ",", "04_Parameter_Buffers.maxpat", ",", "05_Dynamic_Bussing.maxpat", ",", "06_Grainflow_With_Snowphasor.maxpat" ],
+					"items" : [ "01_Grainflow_Basics.maxpat", ",", "02_Live_Input.maxpat", ",", "03_Grain_Spatialization.maxpat", ",", "04_Granular_Synthesis.maxpat", ",", "05_Parameter_Buffers.maxpat", ",", "06_Dynamic_Bussing.maxpat", ",", "07_Grainflow_With_Snowphasor.maxpat" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -1294,6 +1289,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 39.0, 187.5, 27.5, 187.5 ],
 					"source" : [ "obj-23", 0 ]
 				}
 
@@ -1315,6 +1311,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
+					"midpoints" : [ 220.5, 490.0, 203.5, 490.0 ],
 					"source" : [ "obj-34", 0 ]
 				}
 
@@ -1322,6 +1319,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
+					"midpoints" : [ 353.5, 490.0, 203.5, 490.0 ],
 					"source" : [ "obj-36", 0 ]
 				}
 
@@ -1379,6 +1377,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
+					"midpoints" : [ 561.5, 490.0, 424.5, 490.0 ],
 					"source" : [ "obj-50", 0 ]
 				}
 
@@ -1386,6 +1385,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
+					"midpoints" : [ 438.5, 490.0, 424.5, 490.0 ],
 					"source" : [ "obj-51", 0 ]
 				}
 
@@ -1429,7 +1429,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-9", 0 ],
-					"midpoints" : [ 634.5, 703.0, 888.5, 703.0, 888.5, 473.0, 703.5, 473.0 ],
+					"midpoints" : [ 634.5, 703.0, 888.5, 703.0, 888.5, 480.0, 703.5, 480.0 ],
 					"source" : [ "obj-62", 0 ]
 				}
 
@@ -1437,6 +1437,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-9", 0 ],
+					"midpoints" : [ 738.5, 476.0, 703.5, 476.0 ],
 					"source" : [ "obj-69", 0 ]
 				}
 

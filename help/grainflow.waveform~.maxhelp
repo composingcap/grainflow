@@ -37,7 +37,8 @@
 		"tags" : "",
 		"style" : "Minimal",
 		"subpatcher_template" : "minimal",
-		"showontab" : 1,
+		"showrootpatcherontab" : 0,
+		"showontab" : 0,
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
@@ -89,7 +90,6 @@
 								"box" : 								{
 									"buffername" : "_gf.wf.help",
 									"chan" : 1,
-									"displayRange" : [ 0.01, 0.07 ],
 									"id" : "obj-7",
 									"maxclass" : "grainflow.waveform~",
 									"numinlets" : 1,
@@ -1591,7 +1591,6 @@
 					}
 ,
 					"patching_rect" : [ 13.0, 38.0, 87.0, 22.0 ],
-					"presentation_linecount" : 3,
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1623,7 +1622,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 641.0, 822.0 ],
+						"rect" : [ 0.0, 26.0, 641.0, 822.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -1687,7 +1686,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 426.0, 86.0, 152.0, 90.0 ],
+									"patching_rect" : [ 426.0, 86.0, 153.0, 90.0 ],
 									"text" : "A bang can be used to tell grainflow to redraw the buffer image. This should only be used in live granulation and is rather expensive."
 								}
 
@@ -2334,6 +2333,8 @@
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
+						"fontname" : "Lato Medium",
+						"fontsize" : 11.0,
 						"globalpatchername" : "",
 						"style" : "Minimal",
 						"tags" : ""
@@ -2360,7 +2361,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 641.0, 822.0 ],
+						"rect" : [ 100.0, 126.0, 641.0, 822.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -2397,7 +2398,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 221.0, 156.0, 313.0, 72.0 ],
-									"presentation_linecount" : 9,
 									"text" : "The interaction mode for the waveform.\nScrub -> click and drag to change selected position\nSelection -> click and drag to select a range\nLoop -> click and drag to move a selection on the x axis and the size changes on the y axis."
 								}
 
@@ -2417,10 +2417,8 @@
 								"box" : 								{
 									"buffername" : "_gf.wf.help",
 									"chan" : 1,
-									"displayRange" : [ 0.01, 0.07 ],
 									"id" : "obj-7",
 									"maxclass" : "grainflow.waveform~",
-									"mode" : 2,
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
@@ -3255,7 +3253,7 @@
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 									}
 ,
-									"patching_rect" : [ 11.0, 290.0, 70.0, 20.0 ],
+									"patching_rect" : [ 11.0, 290.0, 70.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"description" : "",
 										"digest" : "",
@@ -3302,7 +3300,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 37.0, 257.0, 150.0, 22.0 ],
+									"patching_rect" : [ 37.0, 257.0, 150.0, 24.0 ],
 									"text" : "Turn on the granulator"
 								}
 
@@ -3630,12 +3628,11 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-5",
-									"linecount" : 2,
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 185.0, 423.0, 80.0, 35.0 ],
+									"patching_rect" : [ 185.0, 423.0, 95.0, 22.0 ],
 									"text" : "route selection"
 								}
 
@@ -3794,6 +3791,8 @@
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
+						"fontname" : "Lato Medium",
+						"fontsize" : 11.0,
 						"globalpatchername" : "",
 						"style" : "Minimal",
 						"tags" : ""
