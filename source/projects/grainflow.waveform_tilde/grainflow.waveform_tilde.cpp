@@ -210,9 +210,13 @@ public:
 	attribute<int> m_fps{ this, "fps", 30 };
 	attribute<int> m_maxSamples{ this, "maxBufferDrawSamples", 1000, setter{
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if ((int)args[0] <= 0) {
+				ComputeBufferDisplay(1); 
+				return {1};
+				}
 			ComputeBufferDisplay(args[0]);
 			return args;
-		}
+		},
 	} };
 
 	attribute<int> m_channel{ 
