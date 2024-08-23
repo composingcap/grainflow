@@ -549,6 +549,9 @@ public:
 		"space",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if((float)args[0] >= 1) {
+				return SetGrainParams({0.999}, GfParamName::space, GfParamType::base);
+			}
 			return SetGrainParams(args, GfParamName::space, GfParamType::base);
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::base); }},

@@ -61,7 +61,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 85.5, 436.0, 163.0, 62.0 ],
+					"patching_rect" : [ 106.75, 431.0, 163.0, 46.0 ],
 					"text" : "Sets the period of the grain clock in ms. This determines the grain size as well as speed."
 				}
 
@@ -75,7 +75,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 371.0, 299.0, 17.0, 17.0 ],
+					"patching_rect" : [ 410.0, 299.5, 17.0, 17.0 ],
 					"text" : "2",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textjustification" : 1
@@ -91,7 +91,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 371.0, 299.0, 16.0, 17.0 ],
+					"patching_rect" : [ 410.0, 299.5, 16.0, 17.0 ],
 					"proportion" : 0.39,
 					"shape" : 1
 				}
@@ -130,13 +130,12 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-18",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 396.0, 288.0, 163.0, 36.0 ],
+					"patching_rect" : [ 432.0, 299.5, 163.0, 30.0 ],
 					"text" : "Create a note by pressing the keyboard"
 				}
 
@@ -290,7 +289,7 @@
 						"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 					}
 ,
-					"patching_rect" : [ 9.0, 89.0, 117.0, 21.0 ],
+					"patching_rect" : [ 9.0, 89.0, 117.0, 20.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -341,7 +340,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 381.0, 559.0, 75.0, 21.0 ],
+					"patching_rect" : [ 381.0, 559.0, 75.0, 20.0 ],
 					"text" : "prepend adsr"
 				}
 
@@ -646,7 +645,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 472.0, 559.0, 151.0, 36.0 ],
+					"patching_rect" : [ 472.0, 559.0, 151.0, 34.0 ],
 					"text" : "adsr message will set the voice envelope"
 				}
 
@@ -658,7 +657,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.5, 422.0, 78.0, 21.0 ],
+					"patching_rect" : [ 41.75, 409.0, 78.0, 20.0 ],
 					"text" : "loadmess 150"
 				}
 
@@ -671,7 +670,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 69.5, 530.0, 237.0, 36.0 ],
+					"patching_rect" : [ 91.5, 519.0, 237.0, 34.0 ],
 					"text" : "Most grainflow parameters will work in conjunction with the synth"
 				}
 
@@ -685,7 +684,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 107.0, 229.0, 57.0, 21.0 ]
+					"patching_rect" : [ 107.0, 229.0, 57.0, 20.0 ]
 				}
 
 			}
@@ -696,7 +695,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 107.0, 261.0, 47.0, 21.0 ],
+					"patching_rect" : [ 107.0, 261.0, 47.0, 20.0 ],
 					"text" : "amp $1"
 				}
 
@@ -710,7 +709,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 20.5, 229.0, 57.0, 21.0 ]
+					"patching_rect" : [ 20.5, 229.0, 57.0, 20.0 ]
 				}
 
 			}
@@ -721,7 +720,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.5, 261.0, 45.0, 21.0 ],
+					"patching_rect" : [ 20.5, 261.0, 45.0, 20.0 ],
 					"text" : "trav $1"
 				}
 
@@ -735,7 +734,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 281.5, 455.0, 50.0, 21.0 ]
+					"patching_rect" : [ 327.5, 431.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -747,7 +746,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 336.5, 444.0, 219.0, 36.0 ],
+					"patching_rect" : [ 379.5, 424.0, 219.0, 34.0 ],
 					"text" : "Without update, they will update in accordance to the autoUpdate state"
 				}
 
@@ -759,7 +758,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 281.5, 489.0, 93.0, 21.0 ],
+					"patching_rect" : [ 327.5, 465.0, 93.0, 20.0 ],
 					"text" : "delayRandom $1"
 				}
 
@@ -773,7 +772,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 285.0, 380.0, 50.0, 21.0 ]
+					"patching_rect" : [ 343.0, 368.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -785,7 +784,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 337.0, 373.0, 188.0, 36.0 ],
+					"patching_rect" : [ 395.0, 361.0, 188.0, 34.0 ],
 					"text" : "Messages prepended by update will update in all voices"
 				}
 
@@ -797,7 +796,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 285.0, 414.0, 131.0, 21.0 ],
+					"patching_rect" : [ 343.0, 402.0, 131.0, 20.0 ],
 					"text" : "update delayRandom $1"
 				}
 
@@ -810,20 +809,19 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 216.0, 198.0, 347.0, 49.0 ],
+					"patching_rect" : [ 216.0, 198.0, 347.0, 34.0 ],
 					"text" : "By default, new parameters are triggered when a new voice is set.  If you use autoUpdate, the parameters on all grain will update as they change"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-64",
-					"linecount" : 3,
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 498.0, 76.0, 161.0, 49.0 ],
+					"patching_rect" : [ 496.0, 85.0, 161.0, 30.0 ],
 					"text" : "Click on the waveform to select a position and amplitude"
 				}
 
@@ -996,7 +994,7 @@
 						"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 					}
 ,
-					"patching_rect" : [ 20.5, 198.0, 105.5, 21.0 ],
+					"patching_rect" : [ 20.5, 198.0, 105.5, 20.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1018,7 +1016,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 203.5, 660.0, 107.0, 21.0 ],
+					"patching_rect" : [ 203.5, 660.0, 107.0, 20.0 ],
 					"text" : "s __gf.helpsynthgui"
 				}
 
@@ -1030,7 +1028,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 54.0, 385.0, 215.0, 32.0 ],
+					"patching_rect" : [ 112.5, 363.0, 215.0, 30.0 ],
 					"text" : "Midi notes set the rate by transposing based on midi note 60",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
 				}
@@ -1043,7 +1041,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 9.0, 54.0, 422.0, 32.0 ],
+					"patching_rect" : [ 9.0, 54.0, 422.0, 30.0 ],
 					"text" : "grainflow.synth~ is an implementation of grainflow that should allow for easy creation of granular synthesizers "
 				}
 
@@ -1055,7 +1053,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 9.0, 9.0, 422.0, 45.0 ],
+					"patching_rect" : [ 9.0, 9.0, 422.0, 42.0 ],
 					"text" : "grainflow.synth~"
 				}
 
@@ -1079,7 +1077,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 181.5, 254.0, 83.0, 21.0 ],
+					"patching_rect" : [ 181.5, 254.0, 83.0, 20.0 ],
 					"text" : "autoUpdate $1"
 				}
 
@@ -1105,7 +1103,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 20.5, 447.0, 57.0, 21.0 ]
+					"patching_rect" : [ 41.75, 442.0, 57.0, 20.0 ]
 				}
 
 			}
@@ -1116,7 +1114,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.5, 474.0, 63.0, 21.0 ],
+					"patching_rect" : [ 41.75, 469.0, 63.0, 20.0 ],
 					"text" : "period $1"
 				}
 
@@ -1130,7 +1128,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 20.5, 530.0, 50.0, 21.0 ]
+					"patching_rect" : [ 42.5, 519.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -1141,7 +1139,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.5, 568.0, 104.0, 21.0 ],
+					"patching_rect" : [ 42.5, 557.0, 104.0, 20.0 ],
 					"text" : "windowRandom $1"
 				}
 
@@ -1153,7 +1151,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "clearGrains" ],
-					"patching_rect" : [ 20.5, 620.0, 202.0, 21.0 ],
+					"patching_rect" : [ 20.5, 620.0, 202.0, 20.0 ],
 					"text" : "grainflow.synth~ _gflowSynthHelp 8 4"
 				}
 
@@ -1165,7 +1163,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.5, 385.0, 29.5, 21.0 ],
+					"patching_rect" : [ 66.0, 363.0, 29.5, 20.0 ],
 					"text" : "join"
 				}
 
@@ -1179,7 +1177,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 20.5, 299.0, 336.0, 53.0 ]
+					"patching_rect" : [ 66.0, 299.0, 336.0, 53.0 ]
 				}
 
 			}
@@ -1190,7 +1188,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 141.0, 696.0, 183.0, 21.0 ],
+					"patching_rect" : [ 141.0, 696.0, 183.0, 20.0 ],
 					"text" : "buffer~ _gflowSynthHelp anton.aif"
 				}
 
@@ -1213,6 +1211,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 51.25, 499.0, 30.0, 499.0 ],
 					"source" : [ "obj-10", 0 ]
 				}
 
@@ -1220,6 +1219,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 52.0, 598.0, 30.0, 598.0 ],
 					"source" : [ "obj-11", 0 ]
 				}
 
@@ -1262,6 +1262,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 75.5, 391.0, 30.0, 391.0 ],
 					"source" : [ "obj-4", 0 ]
 				}
 
@@ -1327,6 +1328,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 352.5, 605.5, 30.0, 605.5 ],
 					"source" : [ "obj-72", 0 ]
 				}
 
@@ -1348,6 +1350,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 337.0, 605.0, 30.0, 605.0 ],
 					"source" : [ "obj-80", 0 ]
 				}
 

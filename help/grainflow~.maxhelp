@@ -120,7 +120,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 568.0, 406.0, 120.0, 33.0 ],
+									"patching_rect" : [ 583.0, 406.0, 103.0, 33.0 ],
 									"text" : "it can be randomized as well!"
 								}
 
@@ -136,7 +136,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 516.0, 417.0, 50.0, 22.0 ]
+									"patching_rect" : [ 531.0, 417.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -147,7 +147,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 516.0, 441.0, 121.0, 22.0 ],
+									"patching_rect" : [ 531.0, 441.0, 121.0, 22.0 ],
 									"text" : "envPositionRandom $1"
 								}
 
@@ -202,7 +202,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 323.0, 401.0, 150.0, 59.0 ],
+									"patching_rect" : [ 313.0, 398.0, 150.0, 59.0 ],
 									"text" : "Load the buffer with a second argumnet that is the number of envelopes in the 2D envelope"
 								}
 
@@ -1129,7 +1129,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 525.5, 484.75, 31.5, 484.75 ],
+									"midpoints" : [ 540.5, 484.75, 31.5, 484.75 ],
 									"source" : [ "obj-60", 0 ]
 								}
 
@@ -1157,16 +1157,16 @@
 							}
  ],
 						"boxgroups" : [ 							{
-								"boxes" : [ "obj-29", "obj-35" ]
-							}
-, 							{
-								"boxes" : [ "obj-49", "obj-48" ]
+								"boxes" : [ "obj-57", "obj-56" ]
 							}
 , 							{
 								"boxes" : [ "obj-51", "obj-50" ]
 							}
 , 							{
-								"boxes" : [ "obj-57", "obj-56" ]
+								"boxes" : [ "obj-49", "obj-48" ]
+							}
+, 							{
+								"boxes" : [ "obj-29", "obj-35" ]
 							}
  ],
 						"styles" : [ 							{
@@ -2045,7 +2045,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 293.0, 609.0, 274.0, 33.0 ],
-									"presentation_linecount" : 2,
 									"text" : "You can also use the stream output index to do things to the grains after they are created"
 								}
 
@@ -2088,7 +2087,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 67.499999999999943, 321.0, 274.0, 20.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Control grain parameters through their assigned stream"
 								}
 
@@ -2131,7 +2129,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 128.0, 123.0, 252.0, 20.0 ],
-									"presentation_linecount" : 3,
 									"text" : "Select how you want to setup your streams"
 								}
 
@@ -3030,7 +3027,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 315.5, 479.0, 348.0, 20.0 ],
-									"presentation_linecount" : 2,
 									"text" : "You can retain channel spatialization using the buffer channel outlet"
 								}
 
@@ -4749,7 +4745,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 82.0, 183.0, 248.0, 20.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Edit values to be put into the parameter buffers"
 								}
 
@@ -4793,7 +4788,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 124.0, 140.5, 163.0, 33.0 ],
-									"presentation_linecount" : 2,
 									"text" : "Set the correct modes to use param buffers"
 								}
 
@@ -5250,7 +5244,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 381.0, 461.0, 170.0, 50.0 ],
+									"patching_rect" : [ 421.0, 450.0, 170.0, 50.0 ],
 									"text" : "Some random grainflow messages will act differently when using different modes."
 								}
 
@@ -5587,7 +5581,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 293.0, 461.0, 50.0, 22.0 ]
+									"patching_rect" : [ 333.0, 450.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -5598,7 +5592,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 293.0, 485.0, 86.0, 22.0 ],
+									"patching_rect" : [ 333.0, 474.0, 86.0, 22.0 ],
 									"text" : "travRandom $1"
 								}
 
@@ -5612,7 +5606,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 188.0, 461.0, 50.0, 22.0 ]
+									"patching_rect" : [ 228.0, 450.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -5623,7 +5617,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 188.0, 485.0, 86.0, 22.0 ],
+									"patching_rect" : [ 228.0, 474.0, 86.0, 22.0 ],
 									"text" : "rateRandom $1"
 								}
 
@@ -5967,6 +5961,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
+									"midpoints" : [ 237.5, 509.0, 27.5, 509.0 ],
 									"source" : [ "obj-39", 0 ]
 								}
 
@@ -5988,6 +5983,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
+									"midpoints" : [ 342.5, 509.0, 27.5, 509.0 ],
 									"source" : [ "obj-47", 0 ]
 								}
 
@@ -6011,6 +6007,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
+									"midpoints" : [ 54.5, 502.5, 27.5, 502.5 ],
 									"source" : [ "obj-6", 0 ]
 								}
 
@@ -6170,7 +6167,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 533.0, 336.0, 182.0, 46.0 ],
-									"presentation_linecount" : 3,
 									"text" : "You can also use multichannel signals for any audio input to grainflow"
 								}
 
@@ -6387,7 +6383,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 648.0, 127.0, 91.0, 59.0 ],
+									"patching_rect" : [ 648.0, 127.0, 94.0, 59.0 ],
 									"text" : "Similarly, you can set each grain's amplitude as a list"
 								}
 

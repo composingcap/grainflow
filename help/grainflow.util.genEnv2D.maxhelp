@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 11,
+			"minor" : 6,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 50.0, 185.0, 601.0, 460.0 ],
+		"rect" : [ 50.0, 100.0, 601.0, 460.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -84,8 +84,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 1,
-							"revision" : 11,
+							"minor" : 6,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -522,17 +522,17 @@
 			}
  ],
 		"dependency_cache" : [ 			{
-				"name" : "grainflow.util.genEnv2D.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
-				"patcherrelativepath" : "../patchers/util",
-				"type" : "JSON",
+				"name" : "_grainflowutil.js",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/javascript",
+				"patcherrelativepath" : "../javascript",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "_grainflowutil.js",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/javascript",
-				"patcherrelativepath" : "../javascript",
-				"type" : "TEXT",
+				"name" : "grainflow.util.genEnv2D.maxpat",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
+				"patcherrelativepath" : "../patchers/util",
+				"type" : "JSON",
 				"implicit" : 1
 			}
  ],
@@ -540,26 +540,27 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"fontname" : [ "Lato Medium" ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.741176470588235, 0.741176470588235, 0.741176470588235, 1.0 ],
-					"fontsize" : [ 11.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ]
+					"bubble_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"elementcolor" : [ 0.796078431372549, 0.796078431372549, 0.796078431372549, 1.0 ],
+					"fontface" : [ 0 ],
+					"fontname" : [ "Lato Medium" ],
+					"fontsize" : [ 11.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 658.0, 693.0 ],
+						"rect" : [ 130.0, 176.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,
@@ -1765,11 +1765,36 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 248.0, 138.0, 304.0, 18.0 ],
+									"text" : "Automatic stereo panning on new grains"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 11.0,
+									"id" : "obj-10",
+									"maxclass" : "textbutton",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 20.0, 135.0, 205.0, 21.0 ],
+									"text" : "grainflow.util.stereoPan~"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-8",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 272.499999999999943, 304.0, 18.0 ],
+									"patching_rect" : [ 248.0, 303.0, 304.0, 18.0 ],
 									"text" : "Detects changes in a list"
 								}
 
@@ -1780,7 +1805,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 334.0, 304.0, 18.0 ],
+									"patching_rect" : [ 248.0, 364.0, 304.0, 18.0 ],
 									"text" : "Accesses a list using a normalized range"
 								}
 
@@ -1794,7 +1819,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 334.0, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 364.0, 203.0, 23.0 ],
 									"text" : "grainflow.util.list~"
 								}
 
@@ -1805,7 +1830,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 304.0, 304.0, 18.0 ],
+									"patching_rect" : [ 248.0, 334.0, 304.0, 18.0 ],
 									"text" : "Generates 2D envelopes from a collection of buffers"
 								}
 
@@ -1819,7 +1844,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 302.0, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 332.0, 203.0, 23.0 ],
 									"text" : "grainflow.util.genEnv2D"
 								}
 
@@ -1830,7 +1855,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 235.333333333333314, 304.0, 18.0 ],
+									"patching_rect" : [ 248.0, 265.0, 304.0, 18.0 ],
 									"text" : "Generates a list of random numbers"
 								}
 
@@ -1841,7 +1866,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 199.5, 282.0, 18.0 ],
+									"patching_rect" : [ 248.0, 230.0, 282.0, 18.0 ],
 									"text" : "A phasor that can wrap at different loop points in various ways"
 								}
 
@@ -1853,7 +1878,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 166.0, 304.0, 30.0 ],
+									"patching_rect" : [ 248.0, 196.0, 304.0, 30.0 ],
 									"text" : "Outputs parameters and a grainclock to interact with grainflow using grain size and grain rate"
 								}
 
@@ -1864,8 +1889,8 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 247.5, 138.5, 304.0, 18.0 ],
-									"text" : "Automatic stereo panning on new grains"
+									"patching_rect" : [ 248.0, 169.0, 304.0, 18.0 ],
+									"text" : "Automatic multichannel circular panning on new grains"
 								}
 
 							}
@@ -1901,7 +1926,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 231.333333333333314, 203.0, 27.0 ],
+									"patching_rect" : [ 20.0, 261.0, 203.0, 27.0 ],
 									"text" : "grainflow.util.randomRangeList"
 								}
 
@@ -1915,7 +1940,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 198.166666666666657, 203.0, 23.0 ],
+									"patching_rect" : [ 20.0, 228.0, 203.0, 23.0 ],
 									"text" : "grainflow.util.phasor~"
 								}
 
@@ -1943,7 +1968,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 167.0, 205.0, 21.0 ],
+									"patching_rect" : [ 20.0, 197.0, 205.0, 21.0 ],
 									"text" : "grainflow.util.rateSizePhasor~"
 								}
 
@@ -1957,8 +1982,8 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 135.833333333333343, 205.0, 21.0 ],
-									"text" : "grainflow.util.stereoPan~"
+									"patching_rect" : [ 20.0, 166.0, 205.0, 21.0 ],
+									"text" : "grainflow.util.multiPan~"
 								}
 
 							}
@@ -1970,7 +1995,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 112.0, 375.5, 74.0, 20.0 ],
+									"patching_rect" : [ 112.0, 406.0, 74.0, 20.0 ],
 									"text" : "prepend help"
 								}
 
@@ -1983,7 +2008,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 112.0, 398.5, 49.0, 20.0 ],
+									"patching_rect" : [ 112.0, 429.0, 49.0, 20.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -2011,7 +2036,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 268.5, 203.0, 23.000000000000028 ],
+									"patching_rect" : [ 20.0, 299.0, 203.0, 23.000000000000028 ],
 									"text" : "grainflow.util.listChange"
 								}
 
@@ -2033,7 +2058,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.5, 156.0, 6.0, 156.0, 6.0, 426.0, 121.5, 426.0 ],
+									"midpoints" : [ 122.5, 190.0, 6.0, 190.0, 6.0, 426.0, 121.5, 426.0 ],
 									"source" : [ "obj-1", 1 ]
 								}
 
@@ -2042,7 +2067,16 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 225.0, 6.0, 225.0, 6.0, 426.0, 121.5, 426.0 ],
+									"midpoints" : [ 122.5, 157.0, 6.0, 157.0, 6.0, 417.0, 121.5, 417.0 ],
+									"source" : [ "obj-10", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-35", 0 ],
+									"hidden" : 1,
+									"midpoints" : [ 121.5, 255.0, 6.0, 255.0, 6.0, 456.0, 121.5, 456.0 ],
 									"source" : [ "obj-11", 1 ]
 								}
 
@@ -2060,7 +2094,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 264.0, 6.0, 264.0, 6.0, 426.0, 121.5, 426.0 ],
+									"midpoints" : [ 121.5, 294.0, 6.0, 294.0, 6.0, 456.0, 121.5, 456.0 ],
 									"source" : [ "obj-22", 1 ]
 								}
 
@@ -2069,7 +2103,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 121.5, 297.0, 6.0, 297.0, 6.0, 426.0, 121.5, 426.0 ],
+									"midpoints" : [ 121.5, 327.0, 6.0, 327.0, 6.0, 456.0, 121.5, 456.0 ],
 									"source" : [ "obj-27", 1 ]
 								}
 
@@ -2078,7 +2112,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 122.5, 192.0, 6.0, 192.0, 6.0, 426.0, 121.5, 426.0 ],
+									"midpoints" : [ 122.5, 222.0, 6.0, 222.0, 6.0, 456.0, 121.5, 456.0 ],
 									"source" : [ "obj-3", 1 ]
 								}
 
@@ -2209,7 +2243,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 130.0, 176.0, 658.0, 693.0 ],
+						"rect" : [ 0.0, 26.0, 658.0, 693.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 10.0,

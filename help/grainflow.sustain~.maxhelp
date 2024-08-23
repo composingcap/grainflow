@@ -88,13 +88,150 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
-									"id" : "obj-50",
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-28",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 154.5, 365.5, 17.0, 17.0 ],
+									"text" : "6",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-31",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 154.5, 365.5, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-16",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 143.0, 304.5, 17.0, 17.0 ],
+									"text" : "5",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-24",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 143.0, 304.5, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-12",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 136.0, 239.5, 17.0, 17.0 ],
+									"text" : "4",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-14",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 136.0, 239.5, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-2",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 121.0, 178.5, 17.0, 17.0 ],
+									"text" : "3",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-7",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 121.0, 178.5, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-8",
 									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 136.0, 337.0, 150.0, 33.0 ],
-									"text" : "The argument is the grain count"
+									"patching_rect" : [ 143.0, 176.5, 176.0, 33.0 ],
+									"presentation_linecount" : 2,
+									"text" : "Adjust the decay time to change how long a sound is sustained"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-50",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 142.5, 432.0, 150.0, 20.0 ],
+									"text" : "args: grain-count",
+									"textcolor" : [ 0.501960784313725, 0.501960784313725, 0.501960784313725, 1.0 ]
 								}
 
 							}
@@ -106,60 +243,44 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 311.0, 140.0, 81.0, 22.0 ],
+									"patching_rect" : [ 177.0, 273.0, 81.0, 22.0 ],
 									"text" : "loadmess 100"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"bubble" : 1,
-									"id" : "obj-28",
+									"id" : "obj-27",
 									"linecount" : 3,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 246.0, 244.0, 115.0, 50.0 ],
-									"text" : "The speed at which sound decays"
+									"patching_rect" : [ 162.0, 225.0, 186.0, 46.0 ],
+									"text" : "Change the mix between random panning and kepping the original image"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"bubble" : 1,
-									"id" : "obj-27",
-									"linecount" : 4,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 461.0, 231.0, 115.0, 63.0 ],
-									"text" : "The mix of random panning to maintaining the stereo field."
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"bubble" : 1,
 									"id" : "obj-26",
 									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 448.0, 176.0, 115.0, 37.0 ],
-									"text" : "Pitch shift in semitones"
+									"patching_rect" : [ 181.0, 357.5, 213.0, 33.0 ],
+									"text" : "You can also change the pitch of the sustained sound"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"bubble" : 1,
 									"id" : "obj-25",
 									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 236.0, 176.0, 115.0, 37.0 ],
-									"text" : "The size of each grain in ms"
+									"patching_rect" : [ 162.0, 302.0, 259.0, 33.0 ],
+									"text" : "You should change the size of the grain based on the kind of content you are sustaining"
 								}
 
 							}
@@ -173,7 +294,7 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 15.0, 379.0, 115.0, 47.0 ],
+									"patching_rect" : [ 15.0, 459.0, 115.0, 47.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[1]",
@@ -197,7 +318,7 @@
 									"maxclass" : "mc.ezdac~",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 455.0, 45.0, 45.0 ]
+									"patching_rect" : [ 15.0, 515.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -210,7 +331,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 136.0, 159.0, 17.0, 17.0 ],
+									"patching_rect" : [ 155.0, 138.5, 17.0, 17.0 ],
 									"text" : "2",
 									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 									"textjustification" : 1
@@ -226,7 +347,7 @@
 									"mode" : 0,
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 136.0, 159.0, 16.0, 17.0 ],
+									"patching_rect" : [ 155.0, 138.5, 16.0, 17.0 ],
 									"proportion" : 0.39,
 									"shape" : 1
 								}
@@ -234,13 +355,13 @@
 							}
 , 							{
 								"box" : 								{
-									"bubble" : 1,
 									"id" : "obj-18",
+									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 160.0, 155.0, 139.0, 24.0 ],
-									"text" : "Play this sound file"
+									"patching_rect" : [ 177.0, 137.0, 261.0, 33.0 ],
+									"text" : "Play a sound into the effect the sustain effect accepts a mono or stereo signal"
 								}
 
 							}
@@ -253,7 +374,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 50.0, 115.0, 17.0, 17.0 ],
+									"patching_rect" : [ 50.0, 104.0, 17.0, 17.0 ],
 									"text" : "1",
 									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 									"textjustification" : 1
@@ -269,7 +390,7 @@
 									"mode" : 0,
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 50.0, 115.0, 16.0, 17.0 ],
+									"patching_rect" : [ 50.0, 104.0, 16.0, 17.0 ],
 									"proportion" : 0.39,
 									"shape" : 1
 								}
@@ -277,13 +398,12 @@
 							}
 , 							{
 								"box" : 								{
-									"bubble" : 1,
 									"id" : "obj-9",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 72.0, 111.0, 76.0, 24.0 ],
-									"text" : "Enable"
+									"patching_rect" : [ 72.0, 100.0, 121.0, 20.0 ],
+									"text" : "Enable the effect"
 								}
 
 							}
@@ -294,7 +414,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 11.0, 55.0, 493.0, 33.0 ],
+									"patching_rect" : [ 7.0, 55.0, 496.0, 33.0 ],
 									"text" : "A stereo granular hold effect that overdubs a short (250 ms) buffer with audio based on its amplitude and plays thed buffer back with random grain positions. "
 								}
 
@@ -322,7 +442,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 371.0, 244.0, 50.0, 22.0 ]
+									"patching_rect" : [ 80.0, 237.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -333,7 +453,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 371.0, 276.0, 86.0, 22.0 ],
+									"patching_rect" : [ 80.0, 269.0, 86.0, 22.0 ],
 									"text" : "randomPan $1"
 								}
 
@@ -347,7 +467,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 371.0, 184.0, 50.0, 22.0 ]
+									"patching_rect" : [ 101.0, 363.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -358,7 +478,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 371.0, 210.0, 75.0, 22.0 ],
+									"patching_rect" : [ 101.0, 389.0, 75.0, 22.0 ],
 									"text" : "pitchshift $1"
 								}
 
@@ -374,7 +494,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 181.0, 184.0, 50.0, 22.0 ]
+									"patching_rect" : [ 87.0, 302.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -389,7 +509,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 185.0, 250.0, 50.0, 22.0 ]
+									"patching_rect" : [ 66.0, 176.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -400,7 +520,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 185.0, 283.0, 56.0, 22.0 ],
+									"patching_rect" : [ 66.0, 209.0, 56.0, 22.0 ],
 									"text" : "decay $1"
 								}
 
@@ -412,7 +532,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 181.0, 219.0, 73.0, 22.0 ],
+									"patching_rect" : [ 87.0, 337.0, 73.0, 22.0 ],
 									"text" : "grainSize $1"
 								}
 
@@ -424,7 +544,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 15.0, 288.0, 58.0, 22.0 ],
+									"patching_rect" : [ 2.0, 176.0, 58.0, 22.0 ],
 									"text" : "mc.pack~"
 								}
 
@@ -459,7 +579,7 @@
 									"originaltempo" : 120.0,
 									"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 184.0, 150.0, 30.0 ],
+									"patching_rect" : [ 2.0, 132.0, 150.0, 30.0 ],
 									"pitchcorrection" : 0,
 									"quality" : "basic",
 									"timestretch" : [ 0 ]
@@ -474,7 +594,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 111.0, 24.0, 24.0 ]
+									"patching_rect" : [ 15.0, 100.0, 24.0, 24.0 ]
 								}
 
 							}
@@ -485,7 +605,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 15.0, 337.0, 115.0, 22.0 ],
+									"patching_rect" : [ 15.0, 432.0, 115.0, 22.0 ],
 									"text" : "grainflow.sustain~ 8"
 								}
 
@@ -501,6 +621,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 96.5, 371.0, 24.5, 371.0 ],
 									"source" : [ "obj-10", 0 ]
 								}
 
@@ -508,6 +629,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 75.5, 243.5, 24.5, 243.5 ],
 									"source" : [ "obj-11", 0 ]
 								}
 
@@ -529,6 +651,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 110.5, 421.0, 24.5, 421.0 ],
 									"source" : [ "obj-17", 0 ]
 								}
 
@@ -543,6 +666,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 89.5, 302.5, 24.5, 302.5 ],
 									"source" : [ "obj-21", 0 ]
 								}
 
@@ -593,6 +717,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 11.5, 420.0, 24.5, 420.0 ],
 									"source" : [ "obj-6", 0 ]
 								}
 
@@ -603,6 +728,18 @@
 							}
 , 							{
 								"boxes" : [ "obj-39", "obj-38" ]
+							}
+, 							{
+								"boxes" : [ "obj-7", "obj-2" ]
+							}
+, 							{
+								"boxes" : [ "obj-14", "obj-12" ]
+							}
+, 							{
+								"boxes" : [ "obj-24", "obj-16" ]
+							}
+, 							{
+								"boxes" : [ "obj-31", "obj-28" ]
 							}
  ],
 						"styles" : [ 							{
@@ -641,6 +778,8 @@
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
+						"fontname" : "Lato Medium",
+						"fontsize" : 11.0,
 						"globalpatchername" : "",
 						"style" : "Minimal",
 						"tags" : ""

@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 2,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -111,12 +111,11 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-37",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 374.0, 161.0, 237.0, 24.0 ],
+					"patching_rect" : [ 374.0, 161.0, 237.0, 20.0 ],
 					"text" : "Trigger a MIDI note to start a freeze"
 				}
 
@@ -185,24 +184,22 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-26",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 196.0, 130.0, 237.0, 24.0 ],
+					"patching_rect" : [ 196.0, 130.0, 237.0, 20.0 ],
 					"text" : "Play this sound file into grainflow.freeze~"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-28",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 74.0, 95.0, 255.0, 24.0 ],
+					"patching_rect" : [ 74.0, 95.0, 255.0, 20.0 ],
 					"text" : "Enable recording and playback"
 				}
 
@@ -397,7 +394,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 2,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1094,43 +1091,36 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "Grainflow.voice~.mxe64",
-				"type" : "mx64"
-			}
-, 			{
 				"name" : "_grainflow.poly.freezer.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.freeze~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.record.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow~.mxo",
+				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0,

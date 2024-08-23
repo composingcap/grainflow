@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 1,
-			"revision" : 8,
+			"minor" : 6,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 86.0, 91.0, 511.0, 606.0 ],
+		"rect" : [ 134.0, 172.0, 511.0, 606.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -53,12 +53,11 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-8",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 201.5, 146.0, 132.0, 24.0 ],
+					"patching_rect" : [ 195.5, 154.0, 132.0, 20.0 ],
 					"text" : "Play a soundfile"
 				}
 
@@ -72,7 +71,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 174.5, 149.0, 17.0, 17.0 ],
+					"patching_rect" : [ 174.5, 155.0, 17.0, 17.0 ],
 					"text" : "2",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textjustification" : 1
@@ -88,7 +87,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 174.5, 149.0, 16.0, 17.0 ],
+					"patching_rect" : [ 174.5, 155.0, 16.0, 17.0 ],
 					"proportion" : 0.39,
 					"shape" : 1
 				}
@@ -127,12 +126,11 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-25",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 63.5, 113.0, 132.0, 24.0 ],
+					"patching_rect" : [ 63.5, 113.0, 132.0, 20.0 ],
 					"text" : "Start recording"
 				}
 
@@ -371,7 +369,7 @@
 				"box" : 				{
 					"id" : "obj-1",
 					"maxclass" : "newobj",
-					"numinlets" : 1,
+					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "" ],
 					"patching_rect" : [ 19.0, 267.0, 205.0, 22.0 ],
@@ -463,23 +461,23 @@
 			}
  ],
 		"dependency_cache" : [ 			{
-				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
-				"patcherrelativepath" : "../patchers/util",
-				"type" : "JSON",
+				"name" : "anton.aif",
+				"bootpath" : "C74:/media/msp",
+				"type" : "AIFF",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.record.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "anton.aif",
-				"bootpath" : "C74:/media/msp",
-				"type" : "AIFF",
+				"name" : "grainflow.util.record~.maxpat",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
+				"patcherrelativepath" : "../patchers/util",
+				"type" : "JSON",
 				"implicit" : 1
 			}
  ],
@@ -494,25 +492,25 @@
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontsize" : [ 10.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
+					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "color",
+						"angle" : 270.0,
+						"autogradient" : 0.0,
 						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
 						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0.0
+						"type" : "color"
 					}
 ,
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
 					"fontface" : [ 0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"fontname" : [ "Futura Medium" ],
+					"fontsize" : [ 10.0 ],
+					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

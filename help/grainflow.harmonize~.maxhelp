@@ -40,6 +40,37 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-9",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 488.0, 322.0, 17.0, 17.0 ],
+					"text" : "4",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-10",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 488.0, 322.0, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-73",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -57,7 +88,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 343.0, 417.0, 162.0, 24.0 ],
+					"patching_rect" : [ 358.0, 417.5, 162.0, 24.0 ],
 					"text" : "Force all notes off"
 				}
 
@@ -77,25 +108,11 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-67",
-					"linecount" : 2,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 322.0, 281.5, 197.0, 33.0 ],
-					"text" : "Non-integer values with result in a pitch bend.",
-					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-62",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 332.0, 82.5, 246.0, 24.0 ],
+					"patching_rect" : [ 332.0, 82.5, 246.0, 20.0 ],
 					"text" : "Send a note-on message to the harmonizer"
 				}
 
@@ -140,7 +157,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 139.5, 126.5, 17.0, 17.0 ],
+					"patching_rect" : [ 130.0, 125.5, 17.0, 17.0 ],
 					"text" : "2",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textjustification" : 1
@@ -156,7 +173,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 139.5, 126.5, 16.0, 17.0 ],
+					"patching_rect" : [ 130.0, 125.5, 16.0, 17.0 ],
 					"proportion" : 0.39,
 					"shape" : 1
 				}
@@ -164,13 +181,12 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-32",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 157.5, 120.0, 112.0, 37.0 ],
+					"patching_rect" : [ 148.0, 118.5, 112.0, 33.0 ],
 					"text" : "Play sound into the harmonizer"
 				}
 
@@ -517,7 +533,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 280.0, 163.5, 72.0, 22.0 ],
+					"patching_rect" : [ 282.0, 173.0, 72.0, 22.0 ],
 					"text" : "loadmess 60"
 				}
 
@@ -586,14 +602,13 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-22",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 496.5, 328.0, 162.0, 37.0 ],
-					"text" : "adsr message will set the voice envelope"
+					"patching_rect" : [ 507.0, 322.0, 162.0, 33.0 ],
+					"text" : "Change the envelope shape for new notes."
 				}
 
 			}
@@ -631,7 +646,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 113.5, 322.0, 138.0, 76.0 ],
+					"patching_rect" : [ 113.5, 322.0, 139.0, 76.0 ],
 					"text" : "Any message you can send grainflow~ can overwrite settings in the harmonizer (except for rate)"
 				}
 
@@ -643,22 +658,9 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 99.5, 211.5, 152.0, 59.0 ],
+					"patching_rect" : [ 100.5, 212.5, 152.0, 59.0 ],
 					"text" : "Smaller grains sizes can and should be used with higher notes.  This will improve latency.",
 					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"bubble" : 1,
-					"id" : "obj-51",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 307.0, 259.5, 206.0, 24.0 ],
-					"text" : "trasposition in semitones, velocity "
 				}
 
 			}
@@ -676,12 +678,11 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-43",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 82.5, 86.5, 157.0, 24.0 ],
+					"patching_rect" : [ 82.5, 86.5, 157.0, 20.0 ],
 					"text" : "Enable the harmonizer"
 				}
 
@@ -694,7 +695,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 231.0, 479.0, 221.0, 37.0 ],
+					"patching_rect" : [ 411.0, 479.0, 221.0, 37.0 ],
 					"text" : "Additional Latency in ms.  Useful when adding vibrato"
 				}
 
@@ -708,17 +709,18 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 131.5, 456.0, 50.0, 22.0 ]
+					"patching_rect" : [ 312.0, 456.0, 50.0, 22.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bubble" : 1,
 					"id" : "obj-38",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 79.0, 184.5, 157.0, 20.0 ],
+					"patching_rect" : [ 79.0, 184.5, 173.5, 24.0 ],
 					"text" : "Grain Size in ms (defaul 125)"
 				}
 
@@ -731,8 +733,22 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 25.0, 184.5, 50.0, 22.0 ]
+					"parameter_enable" : 1,
+					"patching_rect" : [ 25.0, 184.5, 50.0, 22.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 125 ],
+							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 1,
+							"parameter_longname" : "number",
+							"parameter_modmode" : 0,
+							"parameter_shortname" : "number",
+							"parameter_type" : 3
+						}
+
+					}
+,
+					"varname" : "number"
 				}
 
 			}
@@ -743,7 +759,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 131.5, 486.0, 94.0, 22.0 ],
+					"patching_rect" : [ 312.0, 486.0, 94.0, 22.0 ],
 					"text" : "addedLatency $1"
 				}
 
@@ -792,7 +808,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 280.0, 184.5, 50.0, 22.0 ]
+					"patching_rect" : [ 282.0, 200.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -893,7 +909,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 25.0, 120.0, 113.0, 30.0 ],
+					"patching_rect" : [ 9.5, 120.0, 113.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -907,7 +923,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
-					"patching_rect" : [ 269.5, 236.5, 29.5, 22.0 ],
+					"patching_rect" : [ 272.0, 231.0, 29.5, 22.0 ],
 					"text" : "- 60"
 				}
 
@@ -919,7 +935,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 269.5, 264.5, 29.5, 22.0 ],
+					"patching_rect" : [ 272.0, 259.0, 29.5, 22.0 ],
 					"text" : "join"
 				}
 
@@ -943,7 +959,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 280.0, 417.0, 61.0, 22.0 ],
+					"patching_rect" : [ 295.0, 417.5, 61.0, 22.0 ],
 					"text" : "allnotesoff"
 				}
 
@@ -1023,7 +1039,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-5", 1 ],
-					"midpoints" : [ 596.0, 257.0, 289.5, 257.0 ],
+					"midpoints" : [ 596.0, 254.0, 292.0, 254.0 ],
 					"source" : [ "obj-16", 1 ]
 				}
 
@@ -1045,7 +1061,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 289.5, 490.25, 32.5, 490.25 ],
+					"midpoints" : [ 304.5, 490.25, 32.5, 490.25 ],
 					"source" : [ "obj-27", 0 ]
 				}
 
@@ -1053,6 +1069,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 19.0, 520.5, 32.5, 520.5 ],
 					"source" : [ "obj-3", 0 ]
 				}
 
@@ -1067,7 +1084,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 141.0, 522.5, 32.5, 522.5 ],
+					"midpoints" : [ 321.5, 522.5, 32.5, 522.5 ],
 					"source" : [ "obj-34", 0 ]
 				}
 
@@ -1131,7 +1148,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 279.0, 488.0, 32.5, 488.0 ],
+					"midpoints" : [ 281.5, 488.0, 32.5, 488.0 ],
 					"source" : [ "obj-5", 0 ]
 				}
 
@@ -1202,6 +1219,7 @@
 			"obj-2::obj-36" : [ "D", "D", 0 ],
 			"obj-2::obj-37" : [ "S", "S", 0 ],
 			"obj-2::obj-38" : [ "R", "R", 0 ],
+			"obj-36" : [ "number", "number", 0 ],
 			"parameterbanks" : 			{
 
 			}
@@ -1257,6 +1275,9 @@
 			}
 , 			{
 				"boxes" : [ "obj-25", "obj-19" ]
+			}
+, 			{
+				"boxes" : [ "obj-10", "obj-9" ]
 			}
  ],
 		"styles" : [ 			{

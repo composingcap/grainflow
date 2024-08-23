@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 548.0, 617.0 ],
+		"rect" : [ 435.0, 119.0, 548.0, 617.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -40,6 +40,81 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-16",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 42.0, 138.5, 254.0, 20.0 ],
+					"presentation_linecount" : 2,
+					"text" : "Adjust the parameters and find some cool sounds"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-14",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 19.0, 140.0, 17.0, 17.0 ],
+					"text" : "2",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-15",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 19.0, 140.0, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-12",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 31.5, 110.5, 17.0, 17.0 ],
+					"text" : "1",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-29",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 31.5, 110.5, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"buffername" : "name",
 					"id" : "obj-6",
 					"maxclass" : "grainflow.waveform~",
 					"numinlets" : 1,
@@ -90,12 +165,11 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-8",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 26.25, 109.0, 182.0, 24.0 ],
+					"patching_rect" : [ 53.0, 109.0, 182.0, 20.0 ],
 					"text" : "Turn on the scrubSynth"
 				}
 
@@ -220,11 +294,10 @@
 				"box" : 				{
 					"bubble" : 1,
 					"id" : "obj-44",
-					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 119.25, 183.0, 184.0, 37.0 ],
+					"patching_rect" : [ 119.0, 198.0, 264.0, 24.0 ],
 					"text" : "small offset from phasor frequency to traversal"
 				}
 
@@ -236,7 +309,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 69.0, 151.0, 150.0, 24.0 ],
+					"patching_rect" : [ 69.0, 166.0, 150.0, 24.0 ],
 					"text" : "Grain Phasor Frequency "
 				}
 
@@ -250,7 +323,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 66.75, 182.0, 50.0, 22.0 ],
+					"patching_rect" : [ 67.0, 197.0, 50.0, 22.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
@@ -277,7 +350,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 15.0, 151.0, 50.0, 22.0 ],
+					"patching_rect" : [ 15.0, 166.0, 50.0, 22.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 100.0 ],
@@ -579,6 +652,13 @@
 			}
  ],
 		"autosave" : 0,
+		"boxgroups" : [ 			{
+				"boxes" : [ "obj-29", "obj-12" ]
+			}
+, 			{
+				"boxes" : [ "obj-15", "obj-14" ]
+			}
+ ],
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{

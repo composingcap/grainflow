@@ -153,9 +153,10 @@ def main():
         package_release()
     if ('build' in modes): cmake_build()
     if ('sign' in modes): macos_codesign()
-    if ('pack' in modes): package_release()
     if ('staple' in modes): mac_staple()
     if('validate' in modes): mac_validate()
+    if ('pack' in modes): package_release()
+
 
     if len(args) <= 1:
         res = input("Would you like to build for your current platform? (Y/N)" )

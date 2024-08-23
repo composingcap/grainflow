@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 0,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 680.0, 319.0, 445.0, 737.0 ],
+		"rect" : [ 100.0, 100.0, 445.0, 737.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 11.0,
@@ -40,13 +40,147 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"bubble" : 1,
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-32",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 145.5, 291.5, 17.0, 17.0 ],
+					"text" : "4",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-33",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 145.5, 291.5, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-30",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 141.5, 235.5, 17.0, 17.0 ],
+					"text" : "3",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-31",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 141.5, 235.5, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-23",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 131.5, 146.5, 17.0, 17.0 ],
+					"text" : "2",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-27",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 131.5, 146.5, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Lato",
+					"fontsize" : 9.0,
+					"id" : "obj-13",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 90.0, 17.0, 17.0 ],
+					"text" : "1",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"id" : "obj-19",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 49.0, 90.0, 16.0, 17.0 ],
+					"proportion" : 0.39,
+					"shape" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 167.333333333333343, 234.0, 230.0, 20.0 ],
+					"text" : "Change the central panning channel"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-29",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 179.5, 320.0, 168.0, 37.0 ],
+					"patching_rect" : [ 178.0, 314.5, 168.0, 33.0 ],
 					"text" : "Or select an tween amount to quantize to"
 				}
 
@@ -66,12 +200,11 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-22",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 152.0, 290.0, 168.0, 24.0 ],
+					"patching_rect" : [ 167.333333333333343, 290.0, 168.0, 20.0 ],
 					"text" : "Pan to descrete output"
 				}
 
@@ -107,19 +240,18 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 17.0, 608.0, 122.0, 22.0 ],
+					"patching_rect" : [ 21.333333333333343, 607.0, 122.0, 22.0 ],
 					"text" : "mc.dac~ 1 2 3 4 5 6 7 8"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-9",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 53.0, 85.0, 150.0, 24.0 ],
+					"patching_rect" : [ 68.0, 88.5, 150.0, 20.0 ],
 					"text" : "Start the granulator"
 				}
 
@@ -145,12 +277,13 @@
 					"orientation" : 1,
 					"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 17.0, 506.0, 136.0, 81.0 ],
+					"patching_rect" : [ 21.333333333333343, 505.0, 136.0, 83.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "mc.live.gain~",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
+							"parameter_modmode" : 0,
 							"parameter_shortname" : "mc.live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
@@ -176,18 +309,6 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
-					"id" : "obj-27",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 142.5, 233.0, 168.0, 24.0 ],
-					"text" : "The panning center "
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-25",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -200,14 +321,13 @@
 			}
 , 			{
 				"box" : 				{
-					"bubble" : 1,
 					"id" : "obj-24",
-					"linecount" : 2,
+					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 117.5, 144.0, 230.0, 37.0 ],
-					"text" : "Spread the panning is from the center point (0-number of outputs)"
+					"patching_rect" : [ 160.0, 140.0, 230.0, 46.0 ],
+					"text" : "Change the randomness of the panning. Each number repesents an additional channel that can be panned to."
 				}
 
 			}
@@ -268,7 +388,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 17.0, 300.0, 57.0, 22.0 ],
+					"patching_rect" : [ 21.333333333333343, 300.0, 57.0, 22.0 ],
 					"text" : "phasor~ 8"
 				}
 
@@ -307,7 +427,7 @@
 					"maxclass" : "mc.ezdac~",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 167.0, 524.0, 45.0, 45.0 ]
+					"patching_rect" : [ 171.333333333333343, 523.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -319,7 +439,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 17.0, 85.0, 24.0, 24.0 ],
+					"patching_rect" : [ 21.333333333333343, 86.0, 24.0, 24.0 ],
 					"uncheckedcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 				}
 
@@ -342,7 +462,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 4,
 					"numoutlets" : 9,
-					"outlettype" : [ "multichannelsignal", "", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+					"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 					"patching_rect" : [ 21.333333333333343, 399.0, 132.0, 22.0 ],
 					"text" : "grainflow~ _gf.multipan 5"
 				}
@@ -355,7 +475,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 17.0, 457.0, 132.0, 22.0 ],
+					"patching_rect" : [ 21.333333333333343, 456.0, 132.0, 22.0 ],
 					"text" : "grainflow.util.multiPan~ 8"
 				}
 
@@ -372,6 +492,7 @@
 				"patchline" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 80.5, 207.0, 6.0, 207.0, 6.0, 444.0, 30.833333333333343, 444.0 ],
 					"source" : [ "obj-10", 0 ]
 				}
 
@@ -385,7 +506,9 @@
 			}
 , 			{
 				"patchline" : 				{
+					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 127.0, 384.0, 6.0, 384.0, 6.0, 444.0, 30.833333333333343, 444.0 ],
 					"source" : [ "obj-14", 0 ]
 				}
 
@@ -415,6 +538,7 @@
 				"patchline" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 95.0, 294.0, 6.0, 294.0, 6.0, 444.0, 30.833333333333343, 444.0 ],
 					"source" : [ "obj-18", 0 ]
 				}
 
@@ -457,7 +581,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 1 ],
-					"midpoints" : [ 59.083333333333343, 434.5, 139.5, 434.5 ],
+					"midpoints" : [ 59.083333333333343, 434.5, 143.833333333333343, 434.5 ],
 					"source" : [ "obj-3", 2 ]
 				}
 
@@ -487,35 +611,31 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "_grainflow.poly.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
-				"patcherrelativepath" : "../patchers/_private",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "grainflow.util.multiPan~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
+				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.voice.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "grainflow~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow~.mxo",
+				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0,
+		"boxgroups" : [ 			{
+				"boxes" : [ "obj-19", "obj-13" ]
+			}
+, 			{
+				"boxes" : [ "obj-27", "obj-23" ]
+			}
+, 			{
+				"boxes" : [ "obj-31", "obj-30" ]
+			}
+, 			{
+				"boxes" : [ "obj-33", "obj-32" ]
+			}
+ ],
 		"styles" : [ 			{
 				"name" : "Minimal",
 				"default" : 				{
