@@ -1,6 +1,7 @@
 #include "MspGrain.h"
 #include "c74_min.h"
 #include "gfUtils.h"
+#include "grainCollection.h"
 #include <mutex>
 #include <atomic>
 
@@ -20,7 +21,7 @@ public:
 	MIN_RELATED{ "" };
 
 private:
-	std::unique_ptr<MspGrain<INTERNALBLOCK>[]> grainInfo;
+	std::unique_ptr<GrainCollection<MspGrain<INTERNALBLOCK>>> grainCollection;
 	string bufferArg;
 	string envArg;
 
@@ -34,6 +35,7 @@ private:
 	float emptyBuffer[10] = {};
 	int _maxGrains = 0;
 	bool hasUpdate;
+
 
 	atoms m_grainState;
 	atoms m_grainProgress;
@@ -85,7 +87,7 @@ public:
 	void UseDefaultEnvelope(bool state);
 	void ouputGrainInfo(string name, atoms data);
 	void SetupOutputs(gfIoConfig& ioConfig, double** outputs);
-	void SetupInputs(int grainIndex, gfIoConfig& ioConfig, int* inputChannels, double** inputs);
+	void SetupInputs(gfIoConfig& ioConfig, int* inputChannels, double** inputs);
 
 
 #pragma endregion
@@ -107,7 +109,7 @@ public:
 		[this](const c74::min::atom& arg) {
 			_maxGrains = (int)arg;
 			if (_maxGrains < 1) _maxGrains = 2;
-			grainInfo = std::unique_ptr<MspGrain<INTERNALBLOCK>[]>(new MspGrain<INTERNALBLOCK>[_maxGrains]);
+			grainCollection.reset(new GrainCollection<MspGrain<INTERNALBLOCK>>(_maxGrains));
 			ngrains = _maxGrains;
 			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / ngrains });
 			m_grainState.resize(_maxGrains);
@@ -594,16 +596,10 @@ public:
 	"density",
 	1,
 	setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-		if (_target > 0) {
-			grainInfo[_target - 1].density = args[0];
-			return {};
-			}
-		for (int g = 0; g < _maxGrains; g++)
-			{
-				grainInfo[g].density = args[0];
-			}
-			return args;
-		}},
+        if(grainCollection == nullptr)return args;
+		grainCollection->SetDensity(_target, args[0]);
+		return args;
+	}},
 		description{"the probability a grain will play"},
 		category{"Time | Space | Volume"},
 		order{4},
@@ -754,10 +750,12 @@ public:
 			if (state)GrainInfoReset();
 			return args;
 		}
-		if (!grainInfo) return args;
-		auto buf = grainInfo[0].GetBuffer(GFBuffers::buffer);
+		if (grainCollection == nullptr) return args;
+		if (grainCollection->Grains() <= 0) return args;
+
+		auto buf = grainCollection->GetGrain(0)->GetBuffer(GFBuffers::buffer);
 		if (buf == nullptr) return args;
-		o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
+		o_grainInfo.send(atoms{ "buf", grainCollection->GetGrain(0)->GetBuffer(GFBuffers::buffer)->name() });
 		return args;
 		}},
 		description{"Determines if grainflow is on or off"},
@@ -772,12 +770,14 @@ public:
 		this,
 		"bufChans",
 		1,
-		description{"sets buffer channels to all grains in an interleved fashion"},
+		description{"channels of the buffer associated to each grain"},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if(grainCollection == nullptr)return args;
 			int chans = args[0];
+
 			for (int g = 0; g < _maxGrains; g++)
 			{
-				grainInfo[g].channel.base = g % chans;
+				grainCollection->GetGrain(g)->channel.base = g % chans;
 			}
 
 			return args;
@@ -794,10 +794,12 @@ public:
 	0,
 	description{"If greater than 1, channels are assigned at random"},
 	setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		if(grainCollection == nullptr)return args;
 		int mode = (float)args[0] >= 0.999f ? 1 : 0;
+		
 		for (int g = 0; g < _maxGrains; g++)
 		{
-			grainInfo[g].channel.random = mode;
+			grainCollection->GetGrain(g)->channel.random = mode;
 		}
 		return { mode };
 		}
@@ -932,6 +934,7 @@ public:
 		"streamSet",
 		"",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if(grainCollection == nullptr)return args;
 			string modestr = args[0];
 			_nstreams = args[1];
 			if (_nstreams < 1)
@@ -947,7 +950,7 @@ public:
 				return {};
 			for (int g = 0; g < _maxGrains; g++)
 			{
-				grainInfo[g].StreamSet(_maxGrains, mode, _nstreams);
+				grainCollection->GetGrain(g)->StreamSet(_maxGrains, mode, _nstreams);
 			}
 			return {};
 			}
@@ -970,6 +973,7 @@ public:
 		"stream",
 		"sets an attribute or message for all grains in a stream",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if(grainCollection == nullptr)return args;
 			float value = 0;
 			int lastTarget = _target;
 			int lastStream = _streamTarget;
@@ -981,7 +985,7 @@ public:
 				value = args[2];
 				for (int g = 0; g < _maxGrains; g++)
 				{
-					if (grainInfo[g].stream != s)
+					if (grainCollection->GetGrain(g)->stream != s)
 						continue;
 					_target = g;
 					this->TrySetAttributeOrMessage((string)args[1], atoms{ value });
@@ -999,6 +1003,7 @@ public:
 		"streamDeviate",
 		"will deviate any parameter based on streams",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if(grainCollection == nullptr)return args;
 			float value = 0;
 			int lastTarget = _target;
 			int lastStream = _streamTarget;
@@ -1010,8 +1015,7 @@ public:
 				value = GfUtils::Deviate(args[2], args[1]);
 				for (int g = 0; g < _maxGrains; g++)
 				{
-					if (grainInfo[g].stream != s)
-						continue;
+					if (grainCollection->GetGrain(g)->stream != s) continue;
 					_target = g;
 					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
 				}
@@ -1046,6 +1050,7 @@ public:
 		"streamRandomrange",
 		"will deviate any parameter based on streams",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if(grainCollection == nullptr)return args;
 			float value = 0;
 			int lastTarget = _target;
 			int lastStream = _streamTarget;
@@ -1057,7 +1062,7 @@ public:
 				value = GfUtils::RandomRange(args[1], args[2]);
 				for (int g = 0; g < _maxGrains; g++)
 				{
-					if (grainInfo[g].stream != s)
+					if (grainCollection->GetGrain(g)->stream != s)
 						continue;
 					_target = g;
 					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
@@ -1093,6 +1098,7 @@ public:
 		"streamSpread",
 		"will create evenly spaced values between each number based on streams",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if(grainCollection == nullptr)return args;
 			float value = 0;
 			int lastTarget = _target;
 			int lastStream = _streamTarget;
@@ -1104,7 +1110,7 @@ public:
 				value = GfUtils::Lerp(args[1], args[2], (float)s / _nstreams);
 				for (int g = 0; g < ngrains; g++)
 				{
-					if (grainInfo[g].stream != s)
+					if (grainCollection->GetGrain(g)->stream != s)
 						continue;
 					_target = (g+1);
 					this->TrySetAttributeOrMessage((string)args[0], atoms{ value });
@@ -1156,7 +1162,8 @@ public:
 
 			if (g >= _maxGrains || g < 0)
 				return {};
-			grainInfo[g].channel.base = chan - 1;
+			if(grainCollection == nullptr)return {};
+			grainCollection->GetGrain(g)->channel.base = chan - 1;
 
 			return {};
 		}
@@ -1312,9 +1319,10 @@ public:
 		"buf",
 		"sets the granulation buffer",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if(grainCollection == nullptr)return args;
 			string bname = (string)args[0];
 			BufferRefMessage(bname, GFBuffers::buffer);
-			auto b = grainInfo[0].GetBuffer(GFBuffers::buffer);
+			auto b = grainCollection->GetGrain(0)->GetBuffer(GFBuffers::buffer);
 			if (b != nullptr) { o_grainInfo.send({ "buf", b->name() }); };
 			return {};
 		}
