@@ -16,7 +16,7 @@ long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 
 
 
-int grainflow_tilde::GetMaxGrains() { return _maxGrains; }
+int grainflow_tilde::GetMaxGrains() { return grainCollection!= nullptr ? grainCollection->Grains() : 0; }
 
 grainflow_tilde::grainflow_tilde() {
 	grainInfoOutput.delay(33);
@@ -33,7 +33,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 	auto lockAvalible = lock.try_lock();
 	if (!lockAvalible) return;
 	//This is a hack to get around some wierd ordering issues when playing the first frame when the number of voices has changed
-	maxGrainsThisFrame = std::min((int)(output.channel_count() / 8), _maxGrains); 
+	maxGrainsThisFrame = std::min((int)(output.channel_count() / 8), grainCollection->Grains()); 
 	auto currentNgrains= clamp((int)ngrains, 0, maxGrainsThisFrame);
 	_ioConfig.livemode = liveMode;
 	SetupInputs(_ioConfig, input_chans, input.samples());
@@ -77,7 +77,11 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 
 atoms grainflow_tilde::GetGrainParams(GfParamName param, GfParamType type) {
 	if (grainCollection == nullptr) return{};
-	atoms values = {grainCollection->ParamGet(_target,param, type)};
+	atoms values = {};
+	values.resize(grainCollection->Grains());
+	for (int i = 0; i < grainCollection->Grains(); i++){
+			values[i] = grainCollection->ParamGet(i+1,param, type);
+	}
 	return values;
 }
 
@@ -148,6 +152,7 @@ void grainflow_tilde::GrainInfoReset() {
 	ouputGrainInfo("grainStreamChannel", { 0 });
 }
 
+
 /// <summary>
 /// Helper to make targeting grains easier
 /// </summary>
@@ -182,7 +187,7 @@ void grainflow_tilde::BufferRefMessage(string bname, GFBuffers type)
 		buf->set(bname);
 		return;
 	}
-	for (int g = 0; g < _maxGrains; g++)
+	for (int g = 0; g < grainCollection->Grains(); g++)
 	{
 		auto buf = grainCollection->GetGrain(g)->GetBuffer(type); // To access ir must be converted to the correct type
 		buf->set("");
@@ -197,7 +202,7 @@ void grainflow_tilde::UseDefaultEnvelope(bool state){
 		grainCollection->GetGrain(_target - 1)->useDefaultEnvelope = state;
 		return;
 	}
-	for (int g = 0; g < _maxGrains; g++)
+	for (int g = 0; g < grainCollection->Grains(); g++)
 	{
 		grainCollection->GetGrain(g)->useDefaultEnvelope = state;// To access ir must be converted to the correct type
 
@@ -208,7 +213,7 @@ void grainflow_tilde::UseDefaultEnvelope(bool state){
 /// </summary>
 void grainflow_tilde::BufferRefresh(GFBuffers type)
 {
-	for (int g = 0; g < _maxGrains; g++)
+	for (int g = 0; g < grainCollection->Grains(); g++)
 	{
 		auto buf = grainCollection->GetGrain(g)->GetBuffer(type); // To access ir must be converted to the correct type
 		auto name = buf->name();
@@ -219,7 +224,8 @@ void grainflow_tilde::BufferRefresh(GFBuffers type)
 
 void grainflow_tilde::Init()
 {
-	for (int g = 0; g < _maxGrains; g++)
+    if(grainCollection == nullptr) return;
+	for (int g = 0; g < grainCollection->Grains(); g++)
 	{
 		grainCollection->GetGrain(g)->SetIndex(g);
 		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::buffer, (new buffer_reference(this, nullptr, false)));
@@ -239,16 +245,17 @@ void grainflow_tilde::Init()
 void grainflow_tilde::Reinit(int grains)
 {
  	lock.lock();
-	grainCollection.reset(new GrainCollection<MspGrain<INTERNALBLOCK>>(grains));
-	_maxGrains = grains;
+	grainCollection.reset(new GrainCollection<buffer_reference,MspGrain<INTERNALBLOCK>>(grains));
+	auto maxGrains = grains;
+	if (ngrains > maxGrains) ngrains = maxGrains;
 	if(autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / ngrains });
-	m_grainState.resize(_maxGrains);
-	m_grainProgress.resize(_maxGrains);
-	m_grainPlayhead.resize(_maxGrains);
-	m_grainAmp.resize(_maxGrains);
-	m_grainEnvelope.resize(_maxGrains);
-	m_grainStreamChannel.resize(_maxGrains);
-	m_grainBufferChannel.resize(_maxGrains);
+	m_grainState.resize(maxGrains);
+	m_grainProgress.resize(maxGrains);
+	m_grainPlayhead.resize(maxGrains);
+	m_grainAmp.resize(maxGrains);
+	m_grainEnvelope.resize(maxGrains);
+	m_grainStreamChannel.resize(maxGrains);
+	m_grainBufferChannel.resize(maxGrains);
 	Init();
 	lock.unlock();
 }
