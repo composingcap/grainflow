@@ -48,7 +48,8 @@ private:
 	atoms SetGrainParams(atoms args, GfParamName param, GfParamType type);
 	void TrySetAttributeOrMessage(string name, atoms args);
 	void GrainInfoReset();
-	void SetStreamByReflection(std::string reflectionString, int stream, float value);
+	void RefreshNamedAttributes(std::string name);
+	void RefreshAllAttributes();
 
 public:
 	int input_chans[4] = { 0, 0, 0, 0 };
@@ -886,14 +887,10 @@ public:
 		"g",
 		"sends a message to a single grain",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			_target = args[0];
-			_streamTarget = 0;
-			_channelTarget = 0;
 			if (args.size() <= 1) return {};
-			auto newArgs = atoms(args.begin() + 2, args.end());
-			TrySetAttributeOrMessage((string)args[1], newArgs);
-
-			_target = 0;
+			if (grainCollection == nullptr) return {}; 
+			grainCollection->ParamSet((int)args[0], (std::string)args[1], (float)args[2]);
+			RefreshNamedAttributes((std::string)args[1]);
 			return {};
 		}
 	};
@@ -909,8 +906,6 @@ public:
 			return {};
 		}
 	};
-
-	
 
 	message<> windowOffsetRandom{
 		this,
@@ -984,7 +979,7 @@ public:
 					cout << stderr << "Stream not found";
 					break;
 			}
-
+			RefreshNamedAttributes(reflectionString);
 			return {};
 		}
 	};
@@ -997,7 +992,8 @@ public:
 			if(grainCollection == nullptr)return args;
 			float value = 0;
 			auto reflectionString = args[0];
-			grainCollection->StreamParamDeviate(reflectionString, (float)args[1], (float)args[2]);
+			grainCollection->StreamParamFunc(reflectionString, &GfUtils::Deviate,(float)args[1], (float)args[2]);
+			RefreshNamedAttributes(reflectionString);
 			return {};
 		}
 	};
@@ -1007,12 +1003,12 @@ public:
 		"deviate",
 		"deviate a parameter {1} from a center value {2} in the amount of a bipolar depth {3}",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			std::string reflectionString = args[0];
-			for (int g = 0; g < ngrains; g++)
-				{
-					auto value = GfUtils::Deviate(args[2], args[1]);
-					grainCollection->StreamParamSet(reflectionString, g, value);
-				}
+			std::string reflectionString = args[0];		
+			float dev = args[1];
+			float center = args[2];
+			auto res = grainCollection->GrainParamFunc(reflectionString, &GfUtils::Deviate, center, dev);
+			if (res != GF_RETURN_CODE::GF_SUCCESS) cout << stderr << "Parameter " << reflectionString << " not found" << "\n";
+			RefreshNamedAttributes(reflectionString);
 			return args;
 		}
 	};
@@ -1025,7 +1021,8 @@ public:
 			if(grainCollection == nullptr)return args;
 			float value = 0;
 			auto reflectionString = args[0];
-			grainCollection->StreamParamRandomRange(reflectionString, (float)args[1], (float)args[2]);
+			grainCollection->StreamParamFunc(reflectionString, &GfUtils::RandomRange ,(float)args[1], (float)args[2]);
+			RefreshNamedAttributes(reflectionString);
 			return {};
 			}
 	};
@@ -1038,11 +1035,11 @@ public:
 			std::string reflectionString = args[0];
 			GfParamName paramName;
 			GfParamType paramType;
-			float deviation = args[1];
-			float center = args[2];
-			auto success = Grainflow::ParamReflection(reflectionString, paramName, paramType);
-			if (success) grainCollection->ParamRandomRange(paramName, paramType, deviation, center);
-			else cout << stderr << "Parameter " << reflectionString << " not found" << "\n";
+			float low = args[1];
+			float high = args[2];
+			auto res = grainCollection->GrainParamFunc(reflectionString, &GfUtils::RandomRange, low, high);
+			if (res != GF_RETURN_CODE::GF_SUCCESS) cout << stderr << "Parameter " << reflectionString << " not found" << "\n";
+			RefreshNamedAttributes(reflectionString);
 			return args;
 		}
 	};
@@ -1055,7 +1052,8 @@ public:
 			if(grainCollection == nullptr)return {};
 			float value = 0;
 			auto reflectionString = args[0];
-			grainCollection->StreamParamSpread(reflectionString, (float)args[1], (float)args[2]);
+			grainCollection->StreamParamFunc(reflectionString, &GfUtils::Lerp,(float)args[1], (float)args[2]);
+			RefreshNamedAttributes(reflectionString);
 			return {};
 		}
 	};
@@ -1070,9 +1068,9 @@ public:
 			GfParamType paramType;
 			float low = args[1];
 			float high = args[2];
-			auto success = Grainflow::ParamReflection(reflectionString, paramName, paramType);
-			if (success) grainCollection->ParamSpread(paramName, paramType, low, high);
-			else cout << stderr << "Parameter " << reflectionString << " not found" << "\n";
+			auto res = grainCollection->GrainParamFunc(reflectionString, &GfUtils::Lerp, low, high);
+			if (res != GF_RETURN_CODE::GF_SUCCESS) cout << stderr << "Parameter " << reflectionString << " not found" << "\n";
+			RefreshNamedAttributes(reflectionString);
 			return args;
 		}
 	};
@@ -1103,7 +1101,7 @@ public:
 				return {};
 			if(grainCollection == nullptr)return {};
 			grainCollection->ChannelSet(g, chan);
-
+			bufChans.touch();
 			return {};
 		}
 	};
@@ -1113,23 +1111,13 @@ public:
 		"gchan",
 		"sets an attribute of message for all grains assigned to a buffer channel",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			float value = 0;
-			int lastTarget = _target;
-			int lastStream = _streamTarget;
-			int lastChannelTarget = _channelTarget;
-			_channelTarget = args[0];
-			_streamTarget = 0;
-			_target = 0;			
 			if (grainCollection == nullptr) return args;
-
-			for (int g = 0; g < grainCollection->Grains(); g++)
-			{
-				this->TrySetAttributeOrMessage((string)args[1], atoms(args.begin() + 1, args.end()));
-			}
-
-			_target = lastTarget;
-			_streamTarget = lastStream;
-			_channelTarget = lastChannelTarget;
+			int chan = args[0];
+			std::string reflectionString = args[1];
+			float value = args[2];
+			auto res = grainCollection->ChannelParamSet(chan, reflectionString, value);
+			if (res != GF_RETURN_CODE::GF_SUCCESS) cout << stderr << "Parameter " << reflectionString << " not found" << "\n";
+			RefreshNamedAttributes(reflectionString);
 			return {};
 		}
 	};

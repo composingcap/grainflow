@@ -260,6 +260,17 @@ void grainflow_tilde::Reinit(int grains)
 	lock.unlock();
 }
 
+void grainflow_tilde::RefreshAllAttributes() {
+	auto a = this->attributes();
+	for (auto i = a.begin(); i != a.end(); i++) {
+		i->second->touch();
+	}
+}
+
+void grainflow_tilde::RefreshNamedAttributes(std::string name) {
+	this->attributes().find(name)->second->touch();
+}
+
 #pragma region MAX_API_EX
 /// <summary>
 /// Allows for the use of mc outlets. Must be added as an event at the objects startup
