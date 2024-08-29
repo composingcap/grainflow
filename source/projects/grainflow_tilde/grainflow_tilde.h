@@ -183,7 +183,10 @@ public:
 		{1},
 		//description{"how fast a grain plays in relation to its normal playback rate"},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::rate, GfParamType::base);
+			SetGrainParams(args, GfParamName::rate, GfParamType::base);
+			//if(transpose.writable())transpose.touch();
+			return args;
+
 		}},
 		getter{
 			[this]() -> atoms {
@@ -199,7 +202,11 @@ public:
 		"rateRandom",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::rate, GfParamType::random);
+			SetGrainParams(args, GfParamName::rate, GfParamType::random);
+			//if(transposeRandom.writable())transposeRandom.touch();
+			return args;
+
+
 		}},
 		getter{
 			[this]() -> atoms {
@@ -215,7 +222,9 @@ public:
 		"rateOffset",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::rate, GfParamType::offset);
+			SetGrainParams(args, GfParamName::rate, GfParamType::offset);
+			//if(transposeOffset.writable())transposeOffset.touch();
+			return args;
 		}},
 		getter{
 			[this]() -> atoms {
@@ -232,10 +241,10 @@ public:
 		"transpose",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms transposed;
-			transposed.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { transposed[i] = (atom)(GfUtils::PitchToRate(args[i])); }
-			return SetGrainParams(transposed, GfParamName::rate, GfParamType::base);
+			SetGrainParams(args, GfParamName::transpose, GfParamType::base);
+			//if(rate.writable())rate.touch();
+			return args;
+
 		}},
 		getter{
 			[this]() -> atoms {
@@ -254,10 +263,9 @@ public:
 		"transposeRandom",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms transposed;
-			transposed.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { transposed[i] = GfUtils::PitchOffsetToRateOffset(args[i]); }
-			return SetGrainParams(transposed, GfParamName::rate, GfParamType::random);
+			SetGrainParams(args, GfParamName::transpose, GfParamType::random);
+			//if (rateRandom.writable())rateRandom.touch();
+			return args;
 		}},
 		getter{
 			[this]() -> atoms {
@@ -275,10 +283,9 @@ public:
 		"transposeOffset",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms transposed;
-			transposed.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { transposed[i] = GfUtils::PitchOffsetToRateOffset(args[i]); }
-			return SetGrainParams(transposed, GfParamName::rate, GfParamType::offset);
+			SetGrainParams(args, GfParamName::transpose, GfParamType::offset);
+			//if(rateOffset.writable())rateOffset.touch();
+			return args;
 			}},
 		getter{
 			[this]() -> atoms {
@@ -319,7 +326,10 @@ public:
 		"glisson",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::glisson, GfParamType::base);
+			SetGrainParams(args, GfParamName::glisson, GfParamType::base);
+			// if (glissonSt.writable())glissonSt.touch();
+			return args;
+
 		}},
 		getter{
 			[this]() -> atoms {
@@ -336,11 +346,15 @@ public:
 		"glissonRandom",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::glisson, GfParamType::random);
+			SetGrainParams(args, GfParamName::glisson, GfParamType::random);
+			//if (glissonStRandom.writable())glissonStRandom.touch();
+			return args;
+
 		}},
 		getter{
 			[this]() -> atoms {
 				return GetGrainParams(GfParamName::glisson, GfParamType::random);
+
 			}},
 		description{"A unipolar random amount added to each grains glisson destination. Determined at the start of each grain."},
 		category{"Pitch | Rate"},
@@ -353,7 +367,10 @@ public:
 		"glissonOffset",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			return SetGrainParams(args, GfParamName::glisson, GfParamType::offset);
+			SetGrainParams(args, GfParamName::glisson, GfParamType::offset);
+			//if (glissonStOffset.writable())glissonStOffset.touch();
+			return args;
+
 		}},
 		getter{
 			[this]() -> atoms {
@@ -370,10 +387,11 @@ public:
 		"glissonSt",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms transposed;
-			transposed.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { transposed[i] = (number)GfUtils::PitchOffsetToRateOffset((float)args[i]); }
-			return SetGrainParams(transposed, GfParamName::glisson, GfParamType::base);
+			SetGrainParams(args, GfParamName::glissonSt, GfParamType::base);
+			//if (glisson.writable())glisson.touch();
+			return args;
+
+
 		}},
 		getter{
 			[this]() -> atoms {
@@ -391,10 +409,9 @@ public:
 		"glissonStRandom",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms transposed;
-			transposed.resize(args.size());
-			for (int i = 0; i < args.size(); i++) {transposed[i] = GfUtils::PitchOffsetToRateOffset((float)args[i]);}
-			return SetGrainParams(transposed, GfParamName::glisson, GfParamType::random);
+			SetGrainParams(args, GfParamName::glissonSt, GfParamType::random);
+			//if (glissonRandom.writable())glissonRandom.touch();
+			return args;
 		}},
 		getter{[this]() -> atoms {
 			auto res = GetGrainParams(GfParamName::glisson, GfParamType::random);
@@ -412,10 +429,10 @@ public:
 		"glissonStOffset",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms transposed;
-			transposed.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { transposed[i] = GfUtils::PitchOffsetToRateOffset(args[i]); }
-			return SetGrainParams(transposed, GfParamName::glisson, GfParamType::offset);
+			SetGrainParams(args, GfParamName::glissonSt, GfParamType::offset);
+			//if (glissonOffset.writable())glissonOffset.touch();
+			return args;
+
 		}},
 		getter{
 			[this]() -> atoms {
@@ -444,15 +461,12 @@ public:
 	};
 
 	// delay
-	attribute<vector<number>>  delay{
+	attribute<vector<number>> delay{
 		this,
 		"delay",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms samps;
-			samps.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { samps[i] = (float)args[i] * 0.001f * samplerate(); }
-			return SetGrainParams(samps, GfParamName::delay, GfParamType::base);
+			return SetGrainParams(args, GfParamName::delay, GfParamType::base);
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::base);
@@ -469,10 +483,7 @@ public:
 		"delayRandom",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms samps;
-			samps.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { samps[i] = (float)args[i] * 0.001f * samplerate(); }
-			return SetGrainParams(samps, GfParamName::delay, GfParamType::random);
+			return SetGrainParams(args, GfParamName::delay, GfParamType::random);
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::random);
@@ -490,10 +501,7 @@ public:
 		"delayOffset",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms samps;
-			samps.resize(args.size());
-			for (int i = 0; i < args.size(); i++) { samps[i] = (float)args[i] * 0.001f * samplerate(); }
-			return SetGrainParams(samps, GfParamName::delay, GfParamType::offset);
+			return SetGrainParams(args, GfParamName::delay, GfParamType::offset);
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::offset);
@@ -670,12 +678,7 @@ public:
 		"ampRandom",
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms amps;
-			amps.resize(args.size());
-			for (int i = 0; i < args.size(); i++) {
-				amps[i] = std::max( std::min(- (float)args[i],0.0f), -1.0f);
-			}
-			return SetGrainParams(amps, GfParamName::amplitude, GfParamType::random);
+			return SetGrainParams(args, GfParamName::amplitude, GfParamType::random);
 		}},
 		getter {[this]() -> atoms {
 			auto amps = GetGrainParams(GfParamName::amplitude, GfParamType::random);;
@@ -694,12 +697,8 @@ public:
 		"ampOffset",
 		{0},
 	setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			atoms amps;
-			amps.resize(args.size());
-			for (int i = 0; i < args.size(); i++) {
-				amps[i] = std::max(1.0f - (float)args[i],0.0f);
-			}
-			return SetGrainParams(amps, GfParamName::amplitude, GfParamType::offset);
+			
+			return SetGrainParams(args, GfParamName::amplitude, GfParamType::offset);
 		}},
 		getter {[this]() -> atoms {
 			auto amps = GetGrainParams(GfParamName::amplitude, GfParamType::offset);;
@@ -913,7 +912,7 @@ public:
 		"DEPRICATED message for setting the window offset attribute",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::window, GfParamType::offset);
-		}
+		},
 	};
 
 
