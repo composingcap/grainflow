@@ -30,10 +30,12 @@ private:
 	int _streamTarget = 0;
 	int _channelTarget = 0;
 	int _nstreams = 0;
+	int _maxGrains;
 	std::random_device rd;
 	gfIoConfig _ioConfig;
 	float emptyBuffer[10] = {};
 	bool hasUpdate;
+	bool _linkedParamsDirty = false;
 
 
 	atoms m_grainState;
@@ -50,6 +52,7 @@ private:
 	void GrainInfoReset();
 	void RefreshNamedAttributes(std::string name);
 	void RefreshAllAttributes();
+	void OuputAllGrainInfo();
 
 public:
 	int input_chans[4] = { 0, 0, 0, 0 };
@@ -89,6 +92,7 @@ public:
 	void ouputGrainInfo(string name, atoms data);
 	void SetupOutputs(gfIoConfig& ioConfig, double** outputs);
 	void SetupInputs(gfIoConfig& ioConfig, int* inputChannels, double** inputs);
+	void RefreshLinkedAttribute();
 
 
 #pragma endregion
@@ -108,19 +112,8 @@ public:
 		"number-of-grains",
 		"max number of grains",
 		[this](const c74::min::atom& arg) {
-			int maxGrains = (int)arg;
-			if (maxGrains < 1) maxGrains = 2;
-			grainCollection.reset(new GrainCollection<buffer_reference, MspGrain<INTERNALBLOCK>>(maxGrains));
-			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / maxGrains });
-			m_grainState.resize(maxGrains);
-			m_grainProgress.resize(maxGrains);
-			m_grainPlayhead.resize(maxGrains);
-			m_grainAmp.resize(maxGrains);
-			m_grainEnvelope.resize(maxGrains);
-			m_grainStreamChannel.resize(maxGrains);
-			m_grainBufferChannel.resize(maxGrains);
-			ngrains = maxGrains;
-            Init();
+			_maxGrains = (int)arg;
+			if (_maxGrains < 1) _maxGrains = 2;
 		}
 	};
 
@@ -145,6 +138,17 @@ public:
 		this,
 		"setup",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			grainCollection.reset(new GrainCollection<buffer_reference, MspGrain<INTERNALBLOCK>>(_maxGrains));
+			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / _maxGrains });
+			m_grainState.resize(_maxGrains);
+			m_grainProgress.resize(_maxGrains);
+			m_grainPlayhead.resize(_maxGrains);
+			m_grainAmp.resize(_maxGrains);
+			m_grainEnvelope.resize(_maxGrains);
+			m_grainStreamChannel.resize(_maxGrains);
+			m_grainBufferChannel.resize(_maxGrains);
+			ngrains = _maxGrains;
+			Init();
 		return {};
 		}
 	};
@@ -167,6 +171,7 @@ public:
 			this->lock.lock();
 			oneOverSamplerate = 1 / samplerate();
 			BufferRefresh(GFBuffers::buffer); // This is needed so grainflow live can load buffers correctly.
+			grainCollection->samplerate = samplerate();
 			this->lock.unlock();
 			return {};
 		}
@@ -185,6 +190,7 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::rate, GfParamType::base);
 			//if(transpose.writable())transpose.touch();
+			_linkedParamsDirty = true;
 			return args;
 
 		}},
@@ -203,6 +209,7 @@ public:
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::rate, GfParamType::random);
+			_linkedParamsDirty = true;
 			//if(transposeRandom.writable())transposeRandom.touch();
 			return args;
 
@@ -223,6 +230,7 @@ public:
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::rate, GfParamType::offset);
+			_linkedParamsDirty = true;
 			//if(transposeOffset.writable())transposeOffset.touch();
 			return args;
 		}},
@@ -243,6 +251,7 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::transpose, GfParamType::base);
 			//if(rate.writable())rate.touch();
+			_linkedParamsDirty = true;
 			return args;
 
 		}},
@@ -265,6 +274,7 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::transpose, GfParamType::random);
 			//if (rateRandom.writable())rateRandom.touch();
+			_linkedParamsDirty = true;
 			return args;
 		}},
 		getter{
@@ -285,6 +295,7 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::transpose, GfParamType::offset);
 			//if(rateOffset.writable())rateOffset.touch();
+			_linkedParamsDirty = true;
 			return args;
 			}},
 		getter{
@@ -328,6 +339,7 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glisson, GfParamType::base);
 			// if (glissonSt.writable())glissonSt.touch();
+			_linkedParamsDirty = true;
 			return args;
 
 		}},
@@ -348,6 +360,7 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glisson, GfParamType::random);
 			//if (glissonStRandom.writable())glissonStRandom.touch();
+			_linkedParamsDirty = true;
 			return args;
 
 		}},
@@ -369,6 +382,7 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glisson, GfParamType::offset);
 			//if (glissonStOffset.writable())glissonStOffset.touch();
+			_linkedParamsDirty = true;
 			return args;
 
 		}},
@@ -389,6 +403,7 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glissonSt, GfParamType::base);
 			//if (glisson.writable())glisson.touch();
+			_linkedParamsDirty = true;
 			return args;
 
 
@@ -410,6 +425,7 @@ public:
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glissonSt, GfParamType::random);
+			_linkedParamsDirty = true;
 			//if (glissonRandom.writable())glissonRandom.touch();
 			return args;
 		}},
@@ -430,6 +446,7 @@ public:
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glissonSt, GfParamType::offset);
+			_linkedParamsDirty = true;
 			//if (glissonOffset.writable())glissonOffset.touch();
 			return args;
 
@@ -1304,25 +1321,14 @@ public:
 
 #pragma endregion
 #pragma region GRAINFLOW_OTHER
-	timer<timer_options::defer_delivery> grainInfoOutput{
+	timer<timer_options::defer_delivery> internalUpdate{
 		this,
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			if (hasUpdate) {
-				hasUpdate = false;
-			if (state) {
-				ouputGrainInfo("grainState", m_grainState);
-				ouputGrainInfo("grainPosition", m_grainPlayhead);
-				ouputGrainInfo("grainWindow", m_grainEnvelope);
-				ouputGrainInfo("grainAmp", m_grainAmp);
-				ouputGrainInfo("grainProgress", m_grainProgress);
-				ouputGrainInfo("grainBufferChannel", m_grainBufferChannel);
-				ouputGrainInfo("grainStreamChannel", m_grainStreamChannel);
-			}
-			}
-			grainInfoOutput.delay(33);
-
+			OuputAllGrainInfo();
+			RefreshLinkedAttribute();
+			internalUpdate.delay(33);
 			return{};
 		}
-	};
+	};	
 #pragma endregion
 };

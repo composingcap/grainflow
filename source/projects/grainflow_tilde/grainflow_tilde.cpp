@@ -19,7 +19,7 @@ long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 int grainflow_tilde::GetMaxGrains() { return grainCollection!= nullptr ? grainCollection->Grains() : 0; }
 
 grainflow_tilde::grainflow_tilde() {
-	grainInfoOutput.delay(33);
+	internalUpdate.delay(33);
 }
 
 grainflow_tilde::~grainflow_tilde()
@@ -213,6 +213,7 @@ void grainflow_tilde::UseDefaultEnvelope(bool state){
 /// </summary>
 void grainflow_tilde::BufferRefresh(GFBuffers type)
 {
+	if (grainCollection == nullptr) return;
 	for (int g = 0; g < grainCollection->Grains(); g++)
 	{
 		auto buf = grainCollection->GetGrain(g)->GetBuffer(type); // To access ir must be converted to the correct type
@@ -224,7 +225,6 @@ void grainflow_tilde::BufferRefresh(GFBuffers type)
 
 void grainflow_tilde::Init()
 {
-    if(grainCollection == nullptr) return;
 	for (int g = 0; g < grainCollection->Grains(); g++)
 	{
 		grainCollection->GetGrain(g)->SetIndex(g);
@@ -239,6 +239,8 @@ void grainflow_tilde::Init()
 		auto buf = grainCollection->GetGrain(g)->GetBuffer(GFBuffers::buffer);
 		buf->set(bufferArg);
 	}
+	grainCollection->samplerate = samplerate();
+
 }
 
 
@@ -270,6 +272,42 @@ void grainflow_tilde::RefreshAllAttributes() {
 void grainflow_tilde::RefreshNamedAttributes(std::string name) {
 	this->attributes().find(name)->second->touch();
 }
+
+void grainflow_tilde::OuputAllGrainInfo() {
+	if (hasUpdate) {
+		hasUpdate = false;
+		if (state) {
+			ouputGrainInfo("grainState", m_grainState);
+			ouputGrainInfo("grainPosition", m_grainPlayhead);
+			ouputGrainInfo("grainWindow", m_grainEnvelope);
+			ouputGrainInfo("grainAmp", m_grainAmp);
+			ouputGrainInfo("grainProgress", m_grainProgress);
+			ouputGrainInfo("grainBufferChannel", m_grainBufferChannel);
+			ouputGrainInfo("grainStreamChannel", m_grainStreamChannel);
+		}
+	}
+}
+
+	void grainflow_tilde::RefreshLinkedAttribute() {
+		//This is needed to reflect interanl changes- running touch in the setter causes a crash unfortunatly
+		if (!_linkedParamsDirty)return;
+		transpose.touch();
+		transposeRandom.touch();
+		transposeOffset.touch();
+
+		rate.touch();
+		rateRandom.touch();
+		rateOffset.touch();
+
+		glisson.touch();
+		glissonRandom.touch();
+		glissonOffset.touch();
+
+		glissonSt.touch();
+		glissonStRandom.touch();
+		glissonStOffset.touch();
+		_linkedParamsDirty = false;
+	}
 
 #pragma region MAX_API_EX
 /// <summary>
