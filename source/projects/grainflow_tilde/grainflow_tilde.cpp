@@ -55,7 +55,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 		return;
 	}
 
-	grainCollection->Proccess(_ioConfig);
+	grainCollection->Process(_ioConfig);
 
 	if (!hasUpdate) {
 		for (int g = 0; g < currentNgrains; g++) {

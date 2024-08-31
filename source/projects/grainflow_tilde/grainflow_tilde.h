@@ -4,6 +4,7 @@
 #include "gfGrainCollection.h"
 #include "maxBufferReader.h"
 #include <mutex>
+#include <map>
 constexpr size_t INTERNALBLOCK = 16;
 
 using namespace c74::min;
@@ -20,6 +21,7 @@ public:
 	MIN_RELATED{ "" };
 
 private:
+
 	std::unique_ptr<GfGrainCollection<buffer_reference,INTERNALBLOCK>> grainCollection;
 	string bufferArg;
 	string envArg;
@@ -40,8 +42,8 @@ private:
 	atoms m_grainState;
 	atoms m_grainProgress;
 	atoms m_grainPlayhead;
-	atoms m_grainAmp;
 	atoms m_grainEnvelope;
+	atoms m_grainAmp;
 	atoms m_grainStreamChannel;
 	atoms m_grainBufferChannel;
 
@@ -94,6 +96,7 @@ public:
 	void SetupOutputs(gfIoConfig& ioConfig, double** outputs);
 	void SetupInputs(gfIoConfig& ioConfig, int* inputChannels, double** inputs);
 	void RefreshLinkedAttribute();
+	
 
 
 #pragma endregion
@@ -910,7 +913,14 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			if (args.size() <= 1) return {};
 			if (grainCollection == nullptr) return {}; 
-			grainCollection->ParamSet((int)args[0], (std::string)args[1], (float)args[2]);
+			if (args[2].a_type == 3) { //is symbol
+				auto lastTarget = _target;
+				_target = (int)args[0];
+				this->try_call((std::string)args[1], (std::string)args[2]);
+				_target = lastTarget;
+				return{};
+			}
+			auto res = grainCollection->ParamSet((int)args[0], (std::string)args[1], (float)args[2]);	
 			RefreshNamedAttributes((std::string)args[1]);
 			return {};
 		}

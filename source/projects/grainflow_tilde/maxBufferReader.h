@@ -11,12 +11,21 @@ using namespace c74::min;
        class MaxBufferReader{
        public:
            static void UpdateBufferInfo(buffer_reference* buffer, gfIoConfig ioConfig, GfBufferInfo* bufferInfo) {
-                buffer_lock<> sampleLock(*buffer);
-                if (!sampleLock.valid()) return;
-                bufferInfo->bufferFrames = sampleLock.frame_count();
-                bufferInfo->oneOverBufferFrames = 1.0f / bufferInfo->bufferFrames;
-                bufferInfo->sampleRateAdjustment = !ioConfig.livemode ? sampleLock.samplerate() / ioConfig.samplerate : 1;
-                bufferInfo->nchannels = sampleLock.channel_count();
+               if (buffer == nullptr) return;
+               try {
+                   buffer_lock<> sampleLock(*buffer);
+
+                   if (!sampleLock.valid()) return;
+                   if (bufferInfo == nullptr) return;
+                   bufferInfo->bufferFrames = sampleLock.frame_count();
+                   bufferInfo->oneOverBufferFrames = 1.0f / bufferInfo->bufferFrames;
+                   bufferInfo->sampleRateAdjustment = !ioConfig.livemode ? sampleLock.samplerate() / ioConfig.samplerate : 1;
+                   bufferInfo->nchannels = sampleLock.channel_count();
+               }
+               catch(...) {
+                   buffer->set("");
+                   buffer = nullptr;
+               }
             }
            static bool SampleParamBuffer(buffer_reference* buffer, GfParam *param, int grainId) {
                 if (param->mode == GfBufferMode::normal || buffer == nullptr)
@@ -39,6 +48,7 @@ using namespace c74::min;
                 return true;
             }
            static void SampleBuffer(buffer_reference* buffer, int channel, double* __restrict samples, double* positions, const int size) {
+               if (buffer == nullptr) return;
                 buffer_lock<> sampleLock(*buffer);
                 if (!sampleLock.valid()) return;
                 int frames = sampleLock.frame_count();
@@ -61,6 +71,7 @@ using namespace c74::min;
                         return;
                     }
 
+                    if (buffer == nullptr)return;
                     buffer_lock<> envelopeLock(*buffer);
                     if (!envelopeLock.valid()) return;
                     int frames = envelopeLock.frame_count();
