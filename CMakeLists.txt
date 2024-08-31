@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(Min-DevKit)
+project(Grainflow)
 set(CMAKE_OSX_ARCHITECTURES x86_64;arm64)
 enable_testing()
 

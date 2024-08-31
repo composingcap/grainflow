@@ -1,10 +1,9 @@
-#include "MspGrain.h"
+#pragma once 
 #include "c74_min.h"
 #include "gfUtils.h"
-#include "grainCollection.h"
+#include "gfGrainCollection.h"
+#include "maxBufferReader.h"
 #include <mutex>
-#include <atomic>
-
 constexpr size_t INTERNALBLOCK = 16;
 
 using namespace c74::min;
@@ -16,12 +15,12 @@ class grainflow_tilde : public object<grainflow_tilde>, public mc_operator<>
 {
 public:
 	MIN_DESCRIPTION{ "the base object for grainflow" };
-	MIN_TAGS{ "grainulation, msp, grainflow" };
+	MIN_TAGS{ "granulation, msp, grainflow" };
 	MIN_AUTHOR{ "Christopher Poovey" };
 	MIN_RELATED{ "" };
 
 private:
-	std::unique_ptr<GrainCollection<buffer_reference, MspGrain<INTERNALBLOCK>>> grainCollection;
+	std::unique_ptr<GfGrainCollection<buffer_reference,INTERNALBLOCK>> grainCollection;
 	string bufferArg;
 	string envArg;
 
@@ -45,6 +44,8 @@ private:
 	atoms m_grainEnvelope;
 	atoms m_grainStreamChannel;
 	atoms m_grainBufferChannel;
+
+	GfIBufferReader<buffer_reference> bufferReader;
 
 	atoms GetGrainParams(GfParamName param, GfParamType type);
 	atoms SetGrainParams(atoms args, GfParamName param, GfParamType type);
@@ -138,7 +139,11 @@ public:
 		this,
 		"setup",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			grainCollection.reset(new GrainCollection<buffer_reference, MspGrain<INTERNALBLOCK>>(_maxGrains));
+			bufferReader.SampleBuffer = MaxBufferReader::SampleBuffer;
+			bufferReader.SampleEnvelope = MaxBufferReader::SampleEnvelope;
+			bufferReader.UpdateBufferInfo = MaxBufferReader::UpdateBufferInfo;
+			bufferReader.SampleParamBuffer = MaxBufferReader::SampleParamBuffer;
+			grainCollection.reset(new GfGrainCollection<buffer_reference,INTERNALBLOCK>(bufferReader, _maxGrains));
 			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / _maxGrains });
 			m_grainState.resize(_maxGrains);
 			m_grainProgress.resize(_maxGrains);

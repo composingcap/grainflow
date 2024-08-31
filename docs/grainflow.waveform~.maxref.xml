@@ -6,8 +6,8 @@
 
 <c74object name='grainflow.waveform~' category='ui'>
 
-	<digest>Visualize Grainflow granulation </digest>
-	<description>Visualize Grainflow granulation </description>
+	<digest>Visualize Grainflow granulation on a waveform display </digest>
+	<description>Visualize Grainflow granulation on a waveform display </description>
 
 
 	<!--METADATA-->
@@ -30,33 +30,33 @@
 	<methodlist>
 
 		<method name='bang'>
-			<digest></digest>
-			<description></description>
+			<digest>redraws the buffer display </digest>
+			<description>redraws the buffer display </description>
 		</method>
 
 		<method name='grainAmp'>
-			<digest></digest>
-			<description></description>
+			<digest>sets the vertical position of the grain dots </digest>
+			<description>sets the vertical position of the grain dots </description>
 		</method>
 
 		<method name='grainWindow'>
-			<digest></digest>
-			<description></description>
+			<digest>sets the size of the grain dots </digest>
+			<description>sets the size of the grain dots </description>
 		</method>
 
 		<method name='recordHead'>
-			<digest></digest>
-			<description></description>
+			<digest>sets the tracker position </digest>
+			<description>sets the tracker position </description>
 		</method>
 
 		<method name='grainPosition'>
-			<digest></digest>
-			<description></description>
+			<digest>sets the positions of the grain dots </digest>
+			<description>sets the positions of the grain dots </description>
 		</method>
 
 		<method name='grainState'>
-			<digest></digest>
-			<description></description>
+			<digest>sets if the grain dots should draw at all </digest>
+			<description>sets if the grain dots should draw at all </description>
 		</method>
 
 		<method name='buf'>
@@ -82,48 +82,53 @@
 	<attributelist>
 
 		<attribute name='selectColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='triangleOutColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>changes color of the selection range </digest>
+			<description>changes color of the selection range </description>
 		</attribute>
 
 		<attribute name='dotColorSecondary' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>changes the secondary grain display color </digest>
+			<description>changes the secondary grain display color </description>
 		</attribute>
 
 		<attribute name='waveformColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='bgColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>Changes the color of the waveform </digest>
+			<description>Changes the color of the waveform </description>
 		</attribute>
 
 		<attribute name='trackerWidth' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>How thick the position tracker is </digest>
+			<description>How thick the position tracker is </description>
 		</attribute>
 
 		<attribute name='showTriangles' get='1' set='1' type='long' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>shows triangles pointing at the selection position </digest>
+			<description>shows triangles pointing at the selection position </description>
 		</attribute>
 
 		<attribute name='selection' get='1' set='1' type='float64' size='1' >
+			<digest>The selected range of the waveform display </digest>
+			<description>The selected range of the waveform display </description>
+		</attribute>
+
+		<attribute name='bgColor' get='1' set='1' type='float64' size='1' >
+			<digest>Changed the backgroun color </digest>
+			<description>Changed the backgroun color </description>
+		</attribute>
+
+		<attribute name='dotScale' get='1' set='1' type='float64' size='1' >
 			<digest></digest>
 			<description></description>
 		</attribute>
 
+		<attribute name='chan' get='1' set='1' type='long' size='1' >
+			<digest>The channel that the waveform will draw</digest>
+			<description>The channel that the waveform will draw. Grains are also filtered by channel. 0 will draw the first channel and all grains </description>
+		</attribute>
+
 		<attribute name='dotColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>changes the primary grain display color </digest>
+			<description>changes the primary grain display color </description>
 		</attribute>
 
 		<attribute name='maxBufferDrawSamples' get='1' set='1' type='long' size='1' >
@@ -132,18 +137,13 @@
 		</attribute>
 
 		<attribute name='triangleColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>changes the selection triangles </digest>
+			<description>changes the selection triangles </description>
 		</attribute>
 
 		<attribute name='mode' get='1' set='1' type='long' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='displayRange' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>The interaction mode for the waveform</digest>
+			<description>The interaction mode for the waveform. Scrub -> click and drag to change selected position. Selection -> click and drag to select a range. Loop -> click and drag to move a selection, hold option/alt to change the selection size </description>
 		</attribute>
 
 		<attribute name='buffername' get='1' set='1' type='symbol' size='1' >
@@ -152,8 +152,8 @@
 		</attribute>
 
 		<attribute name='trackerColor' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
+			<digest>changes color of the position tracker </digest>
+			<description>changes color of the position tracker </description>
 		</attribute>
 
 		<attribute name='fps' get='1' set='1' type='long' size='1' >
@@ -166,22 +166,14 @@
 			<description></description>
 		</attribute>
 
-		<attribute name='chan' get='1' set='1' type='long' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
-		<attribute name='dotScale' get='1' set='1' type='float64' size='1' >
-			<digest></digest>
-			<description></description>
-		</attribute>
-
 	</attributelist>
 
 
 	<!--RELATED-->
 
 	<seealsolist>
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.live~' />
 	</seealsolist>
 
 

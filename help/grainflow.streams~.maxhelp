@@ -923,8 +923,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 45.0, 169.5, 65.0, 22.0 ],
-					"text" : "qmetro 125"
+					"patching_rect" : [ 45.0, 169.5, 59.0, 22.0 ],
+					"text" : "metro 125"
 				}
 
 			}
@@ -1080,7 +1080,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 188.5, 445.75, 29.5, 445.75 ],
+					"midpoints" : [ 188.5, 440.0, 29.5, 440.0 ],
 					"source" : [ "obj-13", 0 ]
 				}
 

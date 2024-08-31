@@ -19,13 +19,15 @@ include_directories(
 )
 
 
-set( SOURCE_FILES
+set(SOURCE_FILES
 	${PROJECT_NAME}.cpp
 	${PROJECT_NAME}.h
-	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/IGrain.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfGrain.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfParam.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfUtils.h"
-	./mspGrain.h
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfIBufferReader.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfGrainCollection.h"
+	./maxBufferReader.h
 )
 
 
@@ -36,7 +38,7 @@ add_library(
 )
 set(RELFLAGS )
 if (MSVC)
-set(RELFLAGS /Oi /O2 /Ot /Ob2 /GL /GT /LTGT)
+set(RELFLAGS /Oi /O2 /Ot /Ob2 /GL /GT)
 endif()
 if(APPLE)
 set(RELFLAGS -Ofast)
