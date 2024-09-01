@@ -28,7 +28,7 @@
 	}
 ,
 	"tags" : [ "granulation", "mc" ],
-	"version" : "2.0",
+	"version" : "2.02",
 	"website" : "https://github.com/composingcap/grainflow",
 	"filelist" : 	{
 		"externals" : ["grainflow~, grainflow.waveform~, grainflow.spatview~"],

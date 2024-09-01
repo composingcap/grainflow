@@ -18,11 +18,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLongVersionString</key>
-	<string>grainflow~ 2.0 - Copyright (c) 1974 Acme Inc</string>
+	<string>grainflow~ 2.02 - Copyright (c) 1974 Acme Inc</string>
 	<key>CFBundlePackageType</key>
 	<string>iLaX</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.02</string>
 	<key>CFBundleSignature</key>
 	<string>max2</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -30,7 +30,7 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.0</string>
+	<string>2.02</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
 	<key>DTCompiler</key>

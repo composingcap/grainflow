@@ -1023,7 +1023,7 @@ public:
 			if(grainCollection == nullptr)return args;
 			float value = 0;
 			auto reflectionString = args[0];
-			grainCollection->StreamParamFunc(reflectionString, &GfUtils::Deviate,(float)args[1], (float)args[2]);
+			grainCollection->StreamParamFunc(reflectionString, &GfUtils::Deviate,(float)args[2], (float)args[1]);
 			RefreshNamedAttributes(reflectionString);
 			return {};
 		}

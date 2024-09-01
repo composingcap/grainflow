@@ -9,7 +9,7 @@ import sys
 
 keystorePath = "./.secrets/keystore.json"
 paths_to_remove = ["/build", "/source", "/CMakeLists.txt", "/create_release.py", "/.git", "/.gitmodules", "/.gitignore", "/.vscode", "/.gitattributes"]
-paths_to_include  = ["/code", "/data", "/docs", "/help", "/javascript", "/jsui", "/externals", "/media", "/misc", "/patchers", "/extras" "/icon.png", "/license.txt", "/README.md", "/package-info.json"]
+paths_to_include  = ["/code", "/data", "/docs", "/help", "/javascript", "/jsui", "/externals", "/media", "/misc", "/patchers", "/extras", "/icon.png", "/license.txt", "/README.md", "/package-info.json"]
 externals = ["grainflow~", "grainflow.spatview~", "grainflow.waveform~"]
 
 generator = "-G Xcode" if (platform.system() == "Darwin") else ""

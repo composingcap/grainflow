@@ -23,6 +23,7 @@ using namespace c74::min;
                    bufferInfo->nchannels = sampleLock.channel_count();
                }
                catch(...) {
+                //Occasionally the min api does not read a buffer correctly when it is deleted and this causes crash. We check for this and set the pointer to null 
                    buffer->set("");
                    buffer = nullptr;
                }
@@ -36,13 +37,15 @@ using namespace c74::min;
                 if (!paramBuf.valid())
                     return false;
                 size_t frame = 0;
+                size_t frames = paramBuf.frame_count();
+                if (frames <= 0) return false;
                 if (param->mode == GfBufferMode::buffer_sequence)
                 {
-                    frame = grainId % paramBuf.frame_count();
+                    frame = grainId % frames;
                 }
                 else if (param->mode == GfBufferMode::buffer_random)
                 {
-                    frame = grainId % paramBuf.frame_count();
+                    frame = (std::rand()%frames);
                 }
                 param->value = paramBuf.lookup(frame, 0);
                 return true;
