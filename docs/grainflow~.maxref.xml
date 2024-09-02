@@ -46,34 +46,9 @@
 
 	<methodlist>
 
-		<method name='g'>
-			<digest>sends a message to a single grain </digest>
-			<description>sends a message to a single grain </description>
-		</method>
-
-		<method name='int'>
-			<digest>enables and disables the granulator </digest>
-			<description>enables and disables the granulator </description>
-		</method>
-
-		<method name='trav'>
-			<digest>DEPRICATED the amound grains are delayed in ms </digest>
-			<description>DEPRICATED the amound grains are delayed in ms </description>
-		</method>
-
-		<method name='travRandom'>
-			<digest>DEPRICATED the amound grains are delayed in ms </digest>
-			<description>DEPRICATED the amound grains are delayed in ms </description>
-		</method>
-
-		<method name='windowBuffer'>
-			<digest>sets the buffer for window modes 1 and 2 </digest>
-			<description>sets the buffer for window modes 1 and 2 </description>
-		</method>
-
-		<method name='travOffset'>
-			<digest>DEPRICATED message to set the amound grains are delayed in ms </digest>
-			<description>DEPRICATED message to set the amound grains are delayed in ms </description>
+		<method name='delayBuffer'>
+			<digest>sets the buffer for delay modes 1 and 2 </digest>
+			<description>sets the buffer for delay modes 1 and 2 </description>
 		</method>
 
 		<method name='envPositionRandom'>
@@ -81,119 +56,9 @@
 			<description>sets the 2D envelope position </description>
 		</method>
 
-		<method name='streamTarget'>
-			<digest>messages will target grains assigned to this stream </digest>
-			<description>messages will target grains assigned to this stream </description>
-		</method>
-
-		<method name='target'>
-			<digest>sends a message to a single grain </digest>
-			<description>sends a message to a single grain </description>
-		</method>
-
 		<method name='rateBuffer'>
 			<digest>sets the buffer for rate modes 1 and 2 </digest>
 			<description>sets the buffer for rate modes 1 and 2 </description>
-		</method>
-
-		<method name='windowOffsetRandom'>
-			<digest>DEPRICATED message for setting the window offset attribute </digest>
-			<description>DEPRICATED message for setting the window offset attribute </description>
-		</method>
-
-		<method name='streamSet'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='stream'>
-			<digest>sets an attribute or message for all grains in a stream </digest>
-			<description>sets an attribute or message for all grains in a stream </description>
-		</method>
-
-		<method name='deviate'>
-			<digest>deviate a parameter {1} from a center value {2} in the amount of a bipolar depth {3} </digest>
-			<description>deviate a parameter {1} from a center value {2} in the amount of a bipolar depth {3} </description>
-		</method>
-
-		<method name='streamDeviate'>
-			<digest>will deviate any parameter based on streams </digest>
-			<description>will deviate any parameter based on streams </description>
-		</method>
-
-		<method name='randomrange'>
-			<digest>picks a randomvalue between two points for each parameter </digest>
-			<description>picks a randomvalue between two points for each parameter </description>
-		</method>
-
-		<method name='streamRandomrange'>
-			<digest>will deviate any parameter based on streams </digest>
-			<description>will deviate any parameter based on streams </description>
-		</method>
-
-		<method name='spread'>
-			<digest>spread a parameter {1} by between values {2} and {3} </digest>
-			<description>spread a parameter {1} by between values {2} and {3} </description>
-		</method>
-
-		<method name='streamSpread'>
-			<digest>will create evenly spaced values between each number based on streams </digest>
-			<description>will create evenly spaced values between each number based on streams </description>
-		</method>
-
-		<method name='windowMode'>
-			<digest>sets  the window mode</digest>
-			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='bufChan'>
-			<digest>sets the channel of grains with a certain channel</digest>
-			<description>sets the channel of grains with a certain channel. Should be used with the g message </description>
-		</method>
-
-		<method name='gchan'>
-			<digest>sets an attribute of message for all grains assigned to a buffer channel </digest>
-			<description>sets an attribute of message for all grains assigned to a buffer channel </description>
-		</method>
-
-		<method name='delayMode'>
-			<digest>sets  the delay mode</digest>
-			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='rateMode'>
-			<digest>sets  the delay mode</digest>
-			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='env'>
-			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
-			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
-		</method>
-
-		<method name='buf'>
-			<digest>sets the granulation buffer </digest>
-			<description>sets the granulation buffer </description>
-		</method>
-
-		<method name='env2D'>
-			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
-			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
-		</method>
-
-		<method name='nEnvelopes'>
-			<digest>sets the number of envelopes in the 2d envelope buffer </digest>
-			<description>sets the number of envelopes in the 2d envelope buffer </description>
-		</method>
-
-		<method name='envPosition'>
-			<digest>sets the 2D envelope position </digest>
-			<description>sets the 2D envelope position </description>
-		</method>
-
-		<method name='env2DPosition'>
-			<digest>sets the 2D envelope position </digest>
-			<description>sets the 2D envelope position </description>
 		</method>
 
 		<method name='envPositionOffset'>
@@ -201,14 +66,154 @@
 			<description>sets the 2D envelope position </description>
 		</method>
 
-		<method name='delayBuffer'>
-			<digest>sets the buffer for delay modes 1 and 2 </digest>
-			<description>sets the buffer for delay modes 1 and 2 </description>
+		<method name='envPosition'>
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</method>
+
+		<method name='nEnvelopes'>
+			<digest>sets the number of envelopes in the 2d envelope buffer </digest>
+			<description>sets the number of envelopes in the 2d envelope buffer </description>
+		</method>
+
+		<method name='env2D'>
+			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
+			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
+		</method>
+
+		<method name='windowBuffer'>
+			<digest>sets the buffer for window modes 1 and 2 </digest>
+			<description>sets the buffer for window modes 1 and 2 </description>
+		</method>
+
+		<method name='buf'>
+			<digest>sets the granulation buffer </digest>
+			<description>sets the granulation buffer </description>
+		</method>
+
+		<method name='env'>
+			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
+			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
+		</method>
+
+		<method name='windowMode'>
+			<digest>sets  the window mode</digest>
+			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='rateMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='bufChan'>
+			<digest>sets the channel of grains with a certain channel</digest>
+			<description>sets the channel of grains with a certain channel. Should be used with the g message </description>
+		</method>
+
+		<method name='delayMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='stream'>
+			<digest>sets an attribute or message for all grains in a stream </digest>
+			<description>sets an attribute or message for all grains in a stream </description>
+		</method>
+
+		<method name='streamSpread'>
+			<digest>will create evenly spaced values between each number based on streams </digest>
+			<description>will create evenly spaced values between each number based on streams </description>
+		</method>
+
+		<method name='streamDeviate'>
+			<digest>will deviate any parameter based on streams </digest>
+			<description>will deviate any parameter based on streams </description>
+		</method>
+
+		<method name='gchan'>
+			<digest>sets an attribute of message for all grains assigned to a buffer channel </digest>
+			<description>sets an attribute of message for all grains assigned to a buffer channel </description>
+		</method>
+
+		<method name='randomrange'>
+			<digest>picks a randomvalue between two points for each parameter </digest>
+			<description>picks a randomvalue between two points for each parameter </description>
 		</method>
 
 		<method name='done'>
 			<digest></digest>
 			<description></description>
+		</method>
+
+		<method name='streamTarget'>
+			<digest>messages will target grains assigned to this stream </digest>
+			<description>messages will target grains assigned to this stream </description>
+		</method>
+
+		<method name='env2DPosition'>
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</method>
+
+		<method name='travOffset'>
+			<digest>DEPRICATED message to set the amound grains are delayed in ms </digest>
+			<description>DEPRICATED message to set the amound grains are delayed in ms </description>
+		</method>
+
+		<method name='nstreams'>
+			<digest>Sets the number of streams </digest>
+			<description>Sets the number of streams </description>
+		</method>
+
+		<method name='int'>
+			<digest>enables and disables the granulator </digest>
+			<description>enables and disables the granulator </description>
+		</method>
+
+		<method name='windowOffsetRandom'>
+			<digest>DEPRICATED message for setting the window offset attribute </digest>
+			<description>DEPRICATED message for setting the window offset attribute </description>
+		</method>
+
+		<method name='target'>
+			<digest>sends a message to a single grain </digest>
+			<description>sends a message to a single grain </description>
+		</method>
+
+		<method name='g'>
+			<digest>sends a message to a single grain </digest>
+			<description>sends a message to a single grain </description>
+		</method>
+
+		<method name='streamSet'>
+			<digest>Sets the number of stream and asigns each grain to a stream depending on the mode</digest>
+			<description>Sets the number of stream and asigns each grain to a stream depending on the mode. auto: rotate grains around max grains. per: grains are assigned to streams in chunks. random: grains are assigned to random streams. </description>
+		</method>
+
+		<method name='spread'>
+			<digest>spread a parameter {1} by between values {2} and {3} </digest>
+			<description>spread a parameter {1} by between values {2} and {3} </description>
+		</method>
+
+		<method name='travRandom'>
+			<digest>DEPRICATED the amound grains are delayed in ms </digest>
+			<description>DEPRICATED the amound grains are delayed in ms </description>
+		</method>
+
+		<method name='deviate'>
+			<digest>deviate a parameter {1} from a center value {2} in the amount of a bipolar depth {3} </digest>
+			<description>deviate a parameter {1} from a center value {2} in the amount of a bipolar depth {3} </description>
+		</method>
+
+		<method name='trav'>
+			<digest>DEPRICATED the amound grains are delayed in ms </digest>
+			<description>DEPRICATED the amound grains are delayed in ms </description>
+		</method>
+
+		<method name='streamRandomrange'>
+			<digest>will deviate any parameter based on streams </digest>
+			<description>will deviate any parameter based on streams </description>
 		</method>
 
 	</methodlist>
@@ -218,9 +223,119 @@
 
 	<attributelist>
 
-		<attribute name='rate' get='1' set='1' type='float64' size='1' >
-			<digest>Controls the rate of playback of each grain</digest>
-			<description>Controls the rate of playback of each grain. This will modify pitch. </description>
+		<attribute name='bufChans' get='1' set='1' type='long' size='1' >
+			<digest>channels of the buffer associated to each grain </digest>
+			<description>channels of the buffer associated to each grain </description>
+		</attribute>
+
+		<attribute name='state' get='1' set='1' type='long' size='1' >
+			<digest>Determines if grainflow is on or off </digest>
+			<description>Determines if grainflow is on or off </description>
+		</attribute>
+
+		<attribute name='autoOverlap' get='1' set='1' type='long' size='1' >
+			<digest>Automatically sets windowOffset based on the number of grains when nGrains is changed </digest>
+			<description>Automatically sets windowOffset based on the number of grains when nGrains is changed </description>
+		</attribute>
+
+		<attribute name='ampOffset' get='1' set='1' type='float64' size='1' >
+			<digest>An amount subtracted from each grains amplitude based on each grains index</digest>
+			<description>An amount subtracted from each grains amplitude based on each grains index. </description>
+		</attribute>
+
+		<attribute name='ampRandom' get='1' set='1' type='float64' size='1' >
+			<digest>A unipolar random amount subtracted from each grains amplitude</digest>
+			<description>A unipolar random amount subtracted from each grains amplitude. Determined at the start of each grain </description>
+		</attribute>
+
+		<attribute name='amp' get='1' set='1' type='float64' size='1' >
+			<digest>The amplitude of each grain as a value from 0-1 </digest>
+			<description>The amplitude of each grain as a value from 0-1 </description>
+		</attribute>
+
+		<attribute name='voices' get='1' set='1' type='long' size='1' >
+			<digest>the maximum number of voices/grains</digest>
+			<description>the maximum number of voices/grains. You will need to restart audio after setting this. </description>
+		</attribute>
+
+		<attribute name='chanMode' get='1' set='1' type='long' size='1' >
+			<digest>If greater than 1, channels are assigned at random </digest>
+			<description>If greater than 1, channels are assigned at random </description>
+		</attribute>
+
+		<attribute name='loopMode' get='1' set='1' type='float64' size='1' >
+			<digest>how the loops is handled by each grain</digest>
+			<description>how the loops is handled by each grain. 0: ignore the loop. 1: wrap 2: fold </description>
+		</attribute>
+
+		<attribute name='startPoint' get='1' set='1' type='float64' size='1' >
+			<digest>the start of the loop from 0-1 </digest>
+			<description>the start of the loop from 0-1 </description>
+		</attribute>
+
+		<attribute name='density' get='1' set='1' type='float64' size='1' >
+			<digest>the probability a grain will play </digest>
+			<description>the probability a grain will play </description>
+		</attribute>
+
+		<attribute name='spaceOffset' get='1' set='1' type='float64' size='1' >
+			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
+			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
+		</attribute>
+
+		<attribute name='stopPoint' get='1' set='1' type='float64' size='1' >
+			<digest>the end of the loop from 0-1 </digest>
+			<description>the end of the loop from 0-1 </description>
+		</attribute>
+
+		<attribute name='space' get='1' set='1' type='float64' size='1' >
+			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
+			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
+		</attribute>
+
+		<attribute name='rateQuantizeSemi' get='1' set='1' type='float64' size='1' >
+			<digest>Snaps grain playback rates to a semitone grid</digest>
+			<description>Snaps grain playback rates to a semitone grid. 0 provides no snapping. Fractional amounts are allowed. </description>
+		</attribute>
+
+		<attribute name='windowOffset' get='1' set='1' type='float64' size='1' >
+			<digest>Adds an offset to the base grain window position based on each grains index</digest>
+			<description>Adds an offset to the base grain window position based on each grains index. When autoOverlap is enabled this is set based on the number of grains </description>
+		</attribute>
+
+		<attribute name='windowRandom' get='1' set='1' type='float64' size='1' >
+			<digest>Adds a unipolar random amount to each grains window </digest>
+			<description>Adds a unipolar random amount to each grains window </description>
+		</attribute>
+
+		<attribute name='delayRandom' get='1' set='1' type='float64' size='1' >
+			<digest>A unipolar random offset from the traversal phasor in milliseconds</digest>
+			<description>A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain </description>
+		</attribute>
+
+		<attribute name='ngrains' get='1' set='1' type='long' size='1' >
+			<digest>the number of active grains </digest>
+			<description>the number of active grains </description>
+		</attribute>
+
+		<attribute name='delay' get='1' set='1' type='float64' size='1' >
+			<digest>An offset from the traversal phasor in milliseconds </digest>
+			<description>An offset from the traversal phasor in milliseconds </description>
+		</attribute>
+
+		<attribute name='glissonStRandom' get='1' set='1' type='float64' size='1' >
+			<digest>A unipolar random amount added to the glissonSt value</digest>
+			<description>A unipolar random amount added to the glissonSt value. Determined at the start of each grain. </description>
+		</attribute>
+
+		<attribute name='direction' get='1' set='1' type='float64' size='1' >
+			<digest>The probabilty a grain will play forwards or backwards</digest>
+			<description>The probabilty a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards </description>
+		</attribute>
+
+		<attribute name='window' get='1' set='1' type='float64' size='1' >
+			<digest>Sets the position of each grains starting point on the grain clock from 0-1 </digest>
+			<description>Sets the position of each grains starting point on the grain clock from 0-1 </description>
 		</attribute>
 
 		<attribute name='transposeRandom' get='1' set='1' type='float64' size='1' >
@@ -228,19 +343,39 @@
 			<description>Adds a unipolar random amount to each grains transposition when a grain starts </description>
 		</attribute>
 
-		<attribute name='transpose' get='1' set='1' type='float64' size='1' >
-			<digest>Controls each grains playback rate in terms of the pitch change that will occur </digest>
-			<description>Controls each grains playback rate in terms of the pitch change that will occur </description>
+		<attribute name='delayOffset' get='1' set='1' type='float64' size='1' >
+			<digest>An offset from the traversal phasor in milliseconds based on the index of each grain </digest>
+			<description>An offset from the traversal phasor in milliseconds based on the index of each grain </description>
+		</attribute>
+
+		<attribute name='glissonStOffset' get='1' set='1' type='float64' size='1' >
+			<digest>An amount added to the glissonSt value based on each grain's index </digest>
+			<description>An amount added to the glissonSt value based on each grain's index </description>
+		</attribute>
+
+		<attribute name='glissonSt' get='1' set='1' type='float64' size='1' >
+			<digest>Controls the glisson attribute in terms of the pitch change that will occur </digest>
+			<description>Controls the glisson attribute in terms of the pitch change that will occur </description>
+		</attribute>
+
+		<attribute name='glissonRandom' get='1' set='1' type='float64' size='1' >
+			<digest>A unipolar random amount added to each grains glisson destination</digest>
+			<description>A unipolar random amount added to each grains glisson destination. Determined at the start of each grain. </description>
+		</attribute>
+
+		<attribute name='glissonOffset' get='1' set='1' type='float64' size='1' >
+			<digest>An amount added to each grains glisson destination based on the grain index </digest>
+			<description>An amount added to each grains glisson destination based on the grain index </description>
+		</attribute>
+
+		<attribute name='spaceRandom' get='1' set='1' type='float64' size='1' >
+			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
+			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
 		</attribute>
 
 		<attribute name='rateRandom' get='1' set='1' type='float64' size='1' >
 			<digest>Adds a unipolar random amount to the playback rate on each grains start</digest>
 			<description>Adds a unipolar random amount to the playback rate on each grains start. </description>
-		</attribute>
-
-		<attribute name='rateOffset' get='1' set='1' type='float64' size='1' >
-			<digest>Adds an amount to the playback rate based on the grains index</digest>
-			<description>Adds an amount to the playback rate based on the grains index. </description>
 		</attribute>
 
 		<attribute name='transposeOffset' get='1' set='1' type='float64' size='1' >
@@ -253,154 +388,24 @@
 			<description>How much the playback rate will change over the life of the grain. Creates a glissando effect </description>
 		</attribute>
 
-		<attribute name='ampOffset' get='1' set='1' type='float64' size='1' >
-			<digest>An amount subtracted from each grains amplitude based on each grains index</digest>
-			<description>An amount subtracted from each grains amplitude based on each grains index. </description>
+		<attribute name='transpose' get='1' set='1' type='float64' size='1' >
+			<digest>Controls each grains playback rate in terms of the pitch change that will occur </digest>
+			<description>Controls each grains playback rate in terms of the pitch change that will occur </description>
 		</attribute>
 
-		<attribute name='rateQuantizeSemi' get='1' set='1' type='float64' size='1' >
-			<digest>Snaps grain playback rates to a semitone grid</digest>
-			<description>Snaps grain playback rates to a semitone grid. 0 provides no snapping. Fractional amounts are allowed. </description>
-		</attribute>
-
-		<attribute name='autoOverlap' get='1' set='1' type='long' size='1' >
-			<digest>Automatically sets windowOffset based on the number of grains when nGrains is changed </digest>
-			<description>Automatically sets windowOffset based on the number of grains when nGrains is changed </description>
-		</attribute>
-
-		<attribute name='amp' get='1' set='1' type='float64' size='1' >
-			<digest>The amplitude of each grain as a value from 0-1 </digest>
-			<description>The amplitude of each grain as a value from 0-1 </description>
-		</attribute>
-
-		<attribute name='glissonRandom' get='1' set='1' type='float64' size='1' >
-			<digest>A unipolar random amount added to each grains glisson destination</digest>
-			<description>A unipolar random amount added to each grains glisson destination. Determined at the start of each grain. </description>
-		</attribute>
-
-		<attribute name='ngrains' get='1' set='1' type='long' size='1' >
-			<digest>the number of active grains </digest>
-			<description>the number of active grains </description>
-		</attribute>
-
-		<attribute name='glissonOffset' get='1' set='1' type='float64' size='1' >
-			<digest>An amount added to each grains glisson destination based on the grain index </digest>
-			<description>An amount added to each grains glisson destination based on the grain index </description>
-		</attribute>
-
-		<attribute name='glissonSt' get='1' set='1' type='float64' size='1' >
-			<digest>Controls the glisson attribute in terms of the pitch change that will occur </digest>
-			<description>Controls the glisson attribute in terms of the pitch change that will occur </description>
-		</attribute>
-
-		<attribute name='glissonStOffset' get='1' set='1' type='float64' size='1' >
-			<digest>An amount added to the glissonSt value based on each grain's index </digest>
-			<description>An amount added to the glissonSt value based on each grain's index </description>
-		</attribute>
-
-		<attribute name='glissonStRandom' get='1' set='1' type='float64' size='1' >
-			<digest>A unipolar random amount added to the glissonSt value</digest>
-			<description>A unipolar random amount added to the glissonSt value. Determined at the start of each grain. </description>
-		</attribute>
-
-		<attribute name='spaceOffset' get='1' set='1' type='float64' size='1' >
-			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
-			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
-		</attribute>
-
-		<attribute name='direction' get='1' set='1' type='float64' size='1' >
-			<digest>The probabilty a grain will play forwards or backwards</digest>
-			<description>The probabilty a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards </description>
-		</attribute>
-
-		<attribute name='delay' get='1' set='1' type='float64' size='1' >
-			<digest>An offset from the traversal phasor in milliseconds </digest>
-			<description>An offset from the traversal phasor in milliseconds </description>
-		</attribute>
-
-		<attribute name='delayRandom' get='1' set='1' type='float64' size='1' >
-			<digest>A unipolar random offset from the traversal phasor in milliseconds</digest>
-			<description>A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain </description>
-		</attribute>
-
-		<attribute name='delayOffset' get='1' set='1' type='float64' size='1' >
-			<digest>An offset from the traversal phasor in milliseconds based on the index of each grain </digest>
-			<description>An offset from the traversal phasor in milliseconds based on the index of each grain </description>
-		</attribute>
-
-		<attribute name='window' get='1' set='1' type='float64' size='1' >
-			<digest>Sets the position of each grains starting point on the grain clock from 0-1 </digest>
-			<description>Sets the position of each grains starting point on the grain clock from 0-1 </description>
-		</attribute>
-
-		<attribute name='windowRandom' get='1' set='1' type='float64' size='1' >
-			<digest>Adds a unipolar random amount to each grains window </digest>
-			<description>Adds a unipolar random amount to each grains window </description>
-		</attribute>
-
-		<attribute name='windowOffset' get='1' set='1' type='float64' size='1' >
-			<digest>Adds an offset to the base grain window position based on each grains index</digest>
-			<description>Adds an offset to the base grain window position based on each grains index. When autoOverlap is enabled this is set based on the number of grains </description>
-		</attribute>
-
-		<attribute name='space' get='1' set='1' type='float64' size='1' >
-			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
-			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
-		</attribute>
-
-		<attribute name='spaceRandom' get='1' set='1' type='float64' size='1' >
-			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
-			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
-		</attribute>
-
-		<attribute name='bufChans' get='1' set='1' type='long' size='1' >
-			<digest>channels of the buffer associated to each grain </digest>
-			<description>channels of the buffer associated to each grain </description>
-		</attribute>
-
-		<attribute name='density' get='1' set='1' type='float64' size='1' >
-			<digest>the probability a grain will play </digest>
-			<description>the probability a grain will play </description>
-		</attribute>
-
-		<attribute name='startPoint' get='1' set='1' type='float64' size='1' >
-			<digest>the start of the loop from 0-1 </digest>
-			<description>the start of the loop from 0-1 </description>
-		</attribute>
-
-		<attribute name='stopPoint' get='1' set='1' type='float64' size='1' >
-			<digest>the end of the loop from 0-1 </digest>
-			<description>the end of the loop from 0-1 </description>
-		</attribute>
-
-		<attribute name='loopMode' get='1' set='1' type='float64' size='1' >
-			<digest>how the loops is handled by each grain</digest>
-			<description>how the loops is handled by each grain. 0: ignore the loop. 1: wrap 2: fold </description>
-		</attribute>
-
-		<attribute name='chanMode' get='1' set='1' type='long' size='1' >
-			<digest>If greater than 1, channels are assigned at random </digest>
-			<description>If greater than 1, channels are assigned at random </description>
-		</attribute>
-
-		<attribute name='ampRandom' get='1' set='1' type='float64' size='1' >
-			<digest>A unipolar random amount subtracted from each grains amplitude</digest>
-			<description>A unipolar random amount subtracted from each grains amplitude. Determined at the start of each grain </description>
-		</attribute>
-
-		<attribute name='state' get='1' set='1' type='long' size='1' >
-			<digest>Determines if grainflow is on or off </digest>
-			<description>Determines if grainflow is on or off </description>
-		</attribute>
-
-		<attribute name='voices' get='1' set='1' type='long' size='1' >
-			<digest>the maximum number of voices/grains</digest>
-			<description>the maximum number of voices/grains. You will need to restart audio after setting this. </description>
+		<attribute name='rate' get='1' set='1' type='float64' size='1' >
+			<digest>Controls the rate of playback of each grain</digest>
+			<description>Controls the rate of playback of each grain. This will modify pitch. </description>
 		</attribute>
 
 		<attribute name='liveMode' get='1' set='1' type='long' size='1' >
 			<digest>removes samplerate correction from a buffers samplerate</digest>
 			<description>removes samplerate correction from a buffers samplerate. This is useful with live granulation if a buffer is created them Max's samplerate changes. </description>
+		</attribute>
+
+		<attribute name='rateOffset' get='1' set='1' type='float64' size='1' >
+			<digest>Adds an amount to the playback rate based on the grains index</digest>
+			<description>Adds an amount to the playback rate based on the grains index. </description>
 		</attribute>
 
 	</attributelist>

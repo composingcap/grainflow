@@ -270,7 +270,10 @@ void grainflow_tilde::RefreshAllAttributes() {
 }
 
 void grainflow_tilde::RefreshNamedAttributes(std::string name) {
-	this->attributes().find(name)->second->touch();
+	auto attrMap = this->attributes();
+	if (auto attr = attrMap.find(name); attr != attrMap.end()) {
+		attr->second->touch();
+	}
 }
 
 void grainflow_tilde::OuputAllGrainInfo() {

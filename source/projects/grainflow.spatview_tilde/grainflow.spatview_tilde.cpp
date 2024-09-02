@@ -136,7 +136,7 @@ public:
 		if (amps.size() < 1) return;
 		for (int i = 0; i < amps.size(); i++) {
 			if (auto search = grains.find(i); search != grains.end()) {
-				search->second.size = amps[i];
+				search->second.size = (float)amps[i];
 			}
 		}
 		return;

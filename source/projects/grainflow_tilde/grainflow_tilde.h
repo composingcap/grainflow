@@ -953,7 +953,7 @@ public:
 	message<> streamSet{
 		this,
 		"streamSet",
-		"",
+		"Sets the number of stream and asigns each grain to a stream depending on the mode. auto: rotate grains around max grains. per: grains are assigned to streams in chunks. random: grains are assigned to random streams.",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			if(grainCollection == nullptr)return args;
 			string modestr = args[0];
@@ -971,6 +971,22 @@ public:
 				return {};
 			grainCollection->StreamSet(mode, nstreams);
 			_nstreams = nstreams;
+			return {};
+			}
+	};
+
+	message<> numberOfStreams{
+		this,
+		"nstreams",
+		"Sets the number of streams",
+		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			if (args.size() <= 0) return{};
+			int nstreams = args[0];
+
+			if (nstreams < 1)
+				return {};
+			_nstreams = nstreams;
+			grainCollection->StreamSet(GfStreamSetType::manualStreams, _nstreams);
 			return {};
 			}
 	};
