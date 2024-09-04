@@ -1747,7 +1747,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
 									"patching_rect" : [ 64.0, 258.0, 43.0, 23.0 ],
-									"text" : "noise~"
+									"text" : "sig~"
 								}
 
 							}
@@ -1977,7 +1977,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 762.0, 822.0 ],
+						"rect" : [ 0.0, 26.0, 762.0, 822.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -4696,7 +4696,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 762.0, 822.0 ],
+						"rect" : [ 100.0, 126.0, 762.0, 822.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 11.0,
@@ -4851,150 +4851,6 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 165.0, 539.0, 432.0, 61.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-8",
-									"maxclass" : "newobj",
-									"numinlets" : 0,
-									"numoutlets" : 0,
-									"patcher" : 									{
-										"fileversion" : 1,
-										"appversion" : 										{
-											"major" : 8,
-											"minor" : 6,
-											"revision" : 4,
-											"architecture" : "x64",
-											"modernui" : 1
-										}
-,
-										"classnamespace" : "box",
-										"rect" : [ 1375.0, 517.0, 640.0, 480.0 ],
-										"bglocked" : 0,
-										"openinpresentation" : 0,
-										"default_fontsize" : 10.0,
-										"default_fontface" : 0,
-										"default_fontname" : "Futura Medium",
-										"gridonopen" : 1,
-										"gridsize" : [ 15.0, 15.0 ],
-										"gridsnaponopen" : 1,
-										"objectsnaponopen" : 1,
-										"statusbarvisible" : 2,
-										"toolbarvisible" : 1,
-										"lefttoolbarpinned" : 0,
-										"toptoolbarpinned" : 0,
-										"righttoolbarpinned" : 0,
-										"bottomtoolbarpinned" : 0,
-										"toolbars_unpinned_last_save" : 0,
-										"tallnewobj" : 0,
-										"boxanimatetime" : 200,
-										"enablehscroll" : 1,
-										"enablevscroll" : 1,
-										"devicewidth" : 0.0,
-										"description" : "",
-										"digest" : "",
-										"tags" : "",
-										"style" : "Minimal",
-										"subpatcher_template" : "minimal",
-										"assistshowspatchername" : 0,
-										"boxes" : [ 											{
-												"box" : 												{
-													"id" : "obj-70",
-													"linecount" : 2,
-													"maxclass" : "newobj",
-													"numinlets" : 1,
-													"numoutlets" : 2,
-													"outlettype" : [ "float", "bang" ],
-													"patching_rect" : [ 169.830729166666742, 171.0, 162.0, 20.0 ],
-													"text" : "buffer~ _help_windows @samps 5"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"id" : "obj-2",
-													"maxclass" : "newobj",
-													"numinlets" : 1,
-													"numoutlets" : 2,
-													"outlettype" : [ "float", "bang" ],
-													"patching_rect" : [ 165.0, 71.5, 194.0, 20.0 ],
-													"text" : "buffer~ env2D grainflow.2DEnvelope"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"id" : "obj-16",
-													"linecount" : 2,
-													"maxclass" : "newobj",
-													"numinlets" : 1,
-													"numoutlets" : 2,
-													"outlettype" : [ "float", "bang" ],
-													"patching_rect" : [ 162.0, 107.0, 152.0, 20.0 ],
-													"text" : "buffer~ _help_delays @samps 5"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"id" : "obj-14",
-													"maxclass" : "newobj",
-													"numinlets" : 1,
-													"numoutlets" : 2,
-													"outlettype" : [ "float", "bang" ],
-													"patching_rect" : [ 168.330729166666742, 137.0, 165.0, 20.0 ],
-													"text" : "buffer~ _help_rates @samps 5"
-												}
-
-											}
- ],
-										"lines" : [  ],
-										"styles" : [ 											{
-												"name" : "Minimal",
-												"default" : 												{
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"bgfillcolor" : 													{
-														"angle" : 270.0,
-														"autogradient" : 0.0,
-														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"proportion" : 0.39,
-														"type" : "color"
-													}
-,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontface" : [ 0 ],
-													"fontname" : [ "Futura Medium" ],
-													"fontsize" : [ 10.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
-												}
-,
-												"parentstyle" : "",
-												"multi" : 0
-											}
- ],
-										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
-									}
-,
-									"patching_rect" : [ 277.0, 111.0, 52.0, 22.0 ],
-									"saved_object_attributes" : 									{
-										"description" : "",
-										"digest" : "",
-										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-										"fontname" : "Futura Medium",
-										"fontsize" : 10.0,
-										"globalpatchername" : "",
-										"style" : "Minimal",
-										"tags" : ""
-									}
-,
-									"text" : "p buffers"
 								}
 
 							}
@@ -5825,6 +5681,42 @@
 									"outlettype" : [ "multichannelsignal" ],
 									"patching_rect" : [ 18.0, 620.0, 90.0, 22.0 ],
 									"text" : "mc.mixdown~ 2"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-70",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "float", "bang" ],
+									"patching_rect" : [ 405.0, 489.0, 222.0, 22.0 ],
+									"text" : "buffer~ _help_windows @samps 5"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-8",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "float", "bang" ],
+									"patching_rect" : [ 226.0, 462.0, 208.0, 22.0 ],
+									"text" : "buffer~ _help_delays @samps 5"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-11",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "float", "bang" ],
+									"patching_rect" : [ 226.0, 489.0, 165.0, 22.0 ],
+									"text" : "buffer~ _help_rates @samps 5"
 								}
 
 							}

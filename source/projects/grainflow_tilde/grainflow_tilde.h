@@ -820,8 +820,9 @@ public:
 		grainCollection->ChannelModeSet(mode);
 	
 		return { mode };
-		}
-	}
+		},
+	},
+		category{"Grainflow Settings"},
 	};
 
 	attribute<int> voices{

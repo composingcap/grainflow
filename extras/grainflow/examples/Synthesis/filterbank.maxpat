@@ -108,7 +108,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 530.5, 255.0, 105.0, 39.0 ],
+					"patching_rect" : [ 552.0, 256.0, 105.0, 39.0 ],
 					"text" : "Select a different chord"
 				}
 
@@ -219,7 +219,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 469.5, 263.0, 59.0, 23.0 ],
+					"patching_rect" : [ 491.0, 264.0, 59.0, 23.0 ],
 					"text" : "0 4 10 15"
 				}
 
