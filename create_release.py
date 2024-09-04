@@ -136,9 +136,11 @@ def mac_staple():
 def mac_validate():
     if (platform.system() != "Darwin"): return
     for external in externals:
-        cmd = f'codesign -verify -verbose ./externals/{external}.mxo'
+        print(f"===== {external}.mxo ======")
+        cmd = f'codesign -dv --verbose=4 ./externals/{external}.mxo'
         p = subprocess.Popen(cmd, shell=True)  
         p.wait()
+        print("\n")
 
 def main():
     args = sys.argv
