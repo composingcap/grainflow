@@ -917,7 +917,7 @@ public:
 			if (args[2].a_type == 3) { //is symbol
 				auto lastTarget = _target;
 				_target = (int)args[0];
-				this->try_call((std::string)args[1], (std::string)args[2]);
+				this->try_call((std::string)args[1], atoms(args.begin() + 2, args.end()));
 				_target = lastTarget;
 				return{};
 			}
