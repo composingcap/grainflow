@@ -26,7 +26,7 @@ private:
 	string bufferArg;
 	string envArg;
 
-	float oneOverSamplerate = 1;
+	float oneOverSamplerate = 1/48000;
 	int _target = 0;
 	int _streamTarget = 0;
 	int _channelTarget = 0;
@@ -91,7 +91,7 @@ public:
 	void BufferRefresh(GFBuffers type);
 	void Init();
 	void Reinit(int grains);
-	void UseDefaultEnvelope(bool state);
+	void UseDefaultEnvelope(bool state, int target = 0);
 	void ouputGrainInfo(string name, atoms data);
 	void SetupOutputs(gfIoConfig& ioConfig, double** outputs);
 	void SetupInputs(gfIoConfig& ioConfig, int* inputChannels, double** inputs);
@@ -156,6 +156,8 @@ public:
 			m_grainStreamChannel.resize(_maxGrains);
 			m_grainBufferChannel.resize(_maxGrains);
 			ngrains = _maxGrains;
+			oneOverSamplerate = 1 / samplerate();
+
 			Init();
 		return {};
 		}
@@ -481,7 +483,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::direction, GfParamType::base); }},
 		description{"The probabilty a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards"},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{4},
 	};
 
@@ -499,7 +501,7 @@ public:
 			return ms;
 		}},
 		description{"An offset from the traversal phasor in milliseconds"},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{4},
 	};
 
@@ -516,7 +518,7 @@ public:
 			return ms;
 		}},
 		description{"A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain"},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{4},
 	};
 
@@ -534,7 +536,7 @@ public:
 			return ms;
 			}},
 		description{"An offset from the traversal phasor in milliseconds based on the index of each grain"},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{4},
 
 	};
@@ -548,7 +550,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::base); }},
 		description{"Sets the position of each grains starting point on the grain clock from 0-1"},
-		category{"Time | Space | Volume"},
+		category{"Envelope"},
 		order{4},
 	};
 
@@ -561,7 +563,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::random); }},
 		description{"Adds a unipolar random amount to each grains window"},
-		category{"Time | Space | Volume"},
+		category{"Envelope"},
 		order{4},
 	};
 
@@ -574,7 +576,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::window, GfParamType::offset); }},
 		description{"Adds an offset to the base grain window position based on each grains index. When autoOverlap is enabled this is set based on the number of grains"},
-		category{"Time | Space | Volume"},
+		category{"Envelope"},
 		order{4},
 	};
 
@@ -592,7 +594,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::base); }},
 		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
-		category{"Time | Space | Volume"},
+		category{"Envelope"},
 		order{4},
 
 	};
@@ -606,7 +608,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::random); }},
 		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
-		category{"Time | Space | Volume"},
+		category{"Envelope"},
 		order{4},
 
 	};
@@ -618,9 +620,9 @@ public:
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			return SetGrainParams(args, GfParamName::space, GfParamType::offset);
 		}},
-		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::base); }},
+		getter {[this]() -> atoms {return GetGrainParams(GfParamName::space, GfParamType::offset); }},
 		description{"the amound of emty space at the end of each grains as a ratio of the total grain size"},
-		category{"Time | Space | Volume"},
+		category{"Envelope"},
 		order{4},
 
 	};
@@ -635,7 +637,7 @@ public:
 		return args;
 	}},
 		description{"the probability a grain will play"},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{4},
 
 	};
@@ -650,7 +652,7 @@ public:
 		}},
 	getter {[this]() -> atoms {return GetGrainParams(GfParamName::startPoint, GfParamType::base); }},
 	description{"the start of the loop from 0-1"},
-	category{"Time | Space | Volume"},
+	category{"Time | Volume"},
 		order{4},
 	};
 
@@ -664,7 +666,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::stopPoint, GfParamType::base); }},
 		description{"the end of the loop from 0-1"},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{4},
 	};
 
@@ -678,7 +680,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::loopMode, GfParamType::base); }},
 		description{"how the loops is handled by each grain. 0: ignore the loop. 1: wrap 2: fold "},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{4},
 	};
 
@@ -694,7 +696,7 @@ public:
 		}},
 		getter {[this]() -> atoms {return GetGrainParams(GfParamName::amplitude, GfParamType::base); }},
 		description{"The amplitude of each grain as a value from 0-1"},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{5},
 	};
 
@@ -713,7 +715,7 @@ public:
 			return amps;
 		}},
 		description{"A unipolar random amount subtracted from each grains amplitude. Determined at the start of each grain"},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{5},
 	};
 
@@ -733,7 +735,7 @@ public:
 			return amps;
 		}},
 		description{"An amount subtracted from each grains amplitude based on each grains index."},
-		category{"Time | Space | Volume"},
+		category{"Time | Volume"},
 		order{5},
 	};
 
@@ -854,6 +856,66 @@ public:
 		order{2},
 		description{"removes samplerate correction from a buffers samplerate. This is useful with live granulation if a buffer is created them Max's samplerate changes."},
 
+	};
+
+	attribute<vector<number>> nEnvelopes{
+		this,
+		"nEnvelopes",
+		{1},
+		description{"sets the number of envelopes in the 2d envelope buffer"},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::nEnvelopes, GfParamType::value);
+		}},
+		getter{
+			[this]() -> atoms {
+			 return GetGrainParams(GfParamName::nEnvelopes, GfParamType::value);;
+		}},
+		category{"Envelope"},
+	};
+
+	attribute<vector<number>> envPosition{
+		this,
+		"envPosition",
+		{0},
+		description{"sets the 2D envelope position"},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::envelopePosition, GfParamType::base);
+		}},
+		getter{
+			[this]() -> atoms {
+			 return GetGrainParams(GfParamName::envelopePosition, GfParamType::base);;
+		}},
+		category{"Envelope"},
+	};
+
+	attribute<vector<number>> envPositionOffset{
+		this,
+		"envPositionOffset",
+		{0},
+		description{"sets the 2D envelope position"},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::envelopePosition, GfParamType::offset);
+		}},
+		getter{
+			[this]() -> atoms {
+			 return GetGrainParams(GfParamName::envelopePosition, GfParamType::offset);;
+		}},
+		category{"Envelope"},
+	};
+
+	attribute<vector<number>> envPositionRandom{
+		this,
+		"envPositionRandom",
+		{0},
+		description{"sets the 2D envelope position"},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::envelopePosition, GfParamType::random);
+		}},
+		getter{
+			[this]() -> atoms {
+			 return GetGrainParams(GfParamName::envelopePosition, GfParamType::random);;
+		}},
+		category{"Envelope"},
 	};
 #pragma endregion
 
@@ -1213,11 +1275,11 @@ public:
 			if (args.size() < 1) return{};
 			string bname = (string)args[0];
 			if (bname.empty() || bname.compare("0") == 0 || bname.compare("_") == 0 || bname.compare("default") == 0) {
-				UseDefaultEnvelope(true);
+				UseDefaultEnvelope(true, _target);
 				return {};
 			}
 			BufferRefMessage(bname, GFBuffers::envelope);
-			UseDefaultEnvelope(false);
+			UseDefaultEnvelope(false, _target);
 			if (args.size() < 2)
 			{
 				GrainMessage(1, GfParamName::nEnvelopes, GfParamType::value);
@@ -1239,52 +1301,12 @@ public:
 		}
 	};
 
-	message<> nEnvelopes{
-		this,
-		"nEnvelopes",
-		"sets the number of envelopes in the 2d envelope buffer",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage((int)args[0], GfParamName::nEnvelopes, GfParamType::value);
-			return {};
-		}
-	};
-
-	message<> envPosition{
-		this,
-		"envPosition",
-		"sets the 2D envelope position",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::base);
-			return {};
-		}
-	};
-
 	message<> env2DPosition{
 		this,
 		"env2DPosition",
 		"sets the 2D envelope position",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::base);
-			return {};
-		}
-	};
-
-	message<> envPositionOffset{
-		this,
-		"envPositionOffset",
-		"sets the 2D envelope position",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::offset);
-			return {};
-		}
-	};
-
-	message<> envPositionRandom{
-		this,
-		"envPositionRandom",
-		"sets the 2D envelope position",
-		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			GrainMessage(args[0], GfParamName::envelopePosition, GfParamType::random);
 			return {};
 		}
 	};

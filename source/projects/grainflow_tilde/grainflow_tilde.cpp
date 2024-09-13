@@ -195,11 +195,11 @@ void grainflow_tilde::BufferRefMessage(string bname, GFBuffers type)
 	}
 }
 
-void grainflow_tilde::UseDefaultEnvelope(bool state){
+void grainflow_tilde::UseDefaultEnvelope(bool state, int target){
 
-	if (_target > 0)
+	if (target > 0)
 	{
-		grainCollection->GetGrain(_target - 1)->useDefaultEnvelope = state;
+		grainCollection->GetGrain(target - 1)->useDefaultEnvelope = state;
 		return;
 	}
 	for (int g = 0; g < grainCollection->Grains(); g++)
