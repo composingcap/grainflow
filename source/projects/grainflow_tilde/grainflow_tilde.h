@@ -146,7 +146,7 @@ public:
 			bufferReader.SampleEnvelope = MaxBufferReader::SampleEnvelope;
 			bufferReader.UpdateBufferInfo = MaxBufferReader::UpdateBufferInfo;
 			bufferReader.SampleParamBuffer = MaxBufferReader::SampleParamBuffer;
-			grainCollection.reset(new GfGrainCollection<buffer_reference,INTERNALBLOCK>(bufferReader, _maxGrains));
+			grainCollection = std::make_unique<GfGrainCollection<buffer_reference, INTERNALBLOCK>>(bufferReader, _maxGrains);
 			if (autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / _maxGrains });
 			m_grainState.resize(_maxGrains);
 			m_grainProgress.resize(_maxGrains);

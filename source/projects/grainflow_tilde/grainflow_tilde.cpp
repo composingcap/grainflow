@@ -247,7 +247,8 @@ void grainflow_tilde::Init()
 void grainflow_tilde::Reinit(int grains)
 {
  	lock.lock();
-	grainCollection.reset(new GfGrainCollection<buffer_reference,INTERNALBLOCK>(bufferReader, grains));
+	grainCollection.release();
+	grainCollection = std::make_unique<GfGrainCollection<buffer_reference, INTERNALBLOCK>>(bufferReader, grains);
 	auto maxGrains = grains;
 	if (ngrains > maxGrains) ngrains = maxGrains;
 	if(autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / ngrains });
