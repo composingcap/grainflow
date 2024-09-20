@@ -42,7 +42,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 
 	// Clear unused channels or we will get garbage
 	_ioConfig.blockSize = output.frame_count();
-	_ioConfig.samplerate = samplerate();
+	_ioConfig.samplerate = _samplerate;
 	for (int g = 0; g < output.channel_count(); g++)
 	{
 		memset(output.samples()[g], double(0), sizeof(double) * _ioConfig.blockSize);
@@ -87,7 +87,15 @@ atoms grainflow_tilde::GetGrainParams(GfParamName param, GfParamType type) {
 
 atoms grainflow_tilde::SetGrainParams(atoms args, GfParamName param, GfParamType type) {
     if (grainCollection == nullptr) return args;
-	grainCollection->ParamSet(_target, param, type, (float)args[0]);
+	if (args.size() <= 1) {
+		grainCollection->ParamSet(_target, param, type, (float)args[0]);
+		return args;
+	}
+
+	for (int g = 0; g < grainCollection->Grains(); g++) {
+		grainCollection->ParamSet(g+1, param, type, (float)args[g%args.size()]);
+	}
+
 	return args;
 }
 
@@ -239,7 +247,7 @@ void grainflow_tilde::Init()
 		auto buf = grainCollection->GetGrain(g)->GetBuffer(GFBuffers::buffer);
 		buf->set(bufferArg);
 	}
-	grainCollection->samplerate = samplerate();
+	grainCollection->samplerate = _samplerate;
 
 }
 

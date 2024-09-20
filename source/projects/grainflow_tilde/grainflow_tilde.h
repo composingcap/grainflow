@@ -26,7 +26,8 @@ private:
 	string bufferArg;
 	string envArg;
 
-	float oneOverSamplerate = 1/48000;
+	float _oneOverSamplerate = 1/48000;
+	int _samplerate = 48000;
 	int _target = 0;
 	int _streamTarget = 0;
 	int _channelTarget = 0;
@@ -156,8 +157,8 @@ public:
 			m_grainStreamChannel.resize(_maxGrains);
 			m_grainBufferChannel.resize(_maxGrains);
 			ngrains = _maxGrains;
-			oneOverSamplerate = 1 / samplerate();
-
+			_oneOverSamplerate = 1.0f / _samplerate;
+			grainCollection->samplerate = _samplerate;
 			Init();
 		return {};
 		}
@@ -179,9 +180,12 @@ public:
 		"dspsetup",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			this->lock.lock();
-			oneOverSamplerate = 1 / samplerate();
 			BufferRefresh(GFBuffers::buffer); // This is needed so grainflow live can load buffers correctly.
-			grainCollection->samplerate = samplerate();
+			_samplerate = samplerate();
+			grainCollection->samplerate = _samplerate;
+			_oneOverSamplerate = 1.0f / _samplerate;
+
+
 			this->lock.unlock();
 			return {};
 		}
@@ -304,7 +308,6 @@ public:
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::transpose, GfParamType::offset);
-			//if(rateOffset.writable())rateOffset.touch();
 			_linkedParamsDirty = true;
 			return args;
 			}},
@@ -348,7 +351,6 @@ public:
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glisson, GfParamType::base);
-			// if (glissonSt.writable())glissonSt.touch();
 			_linkedParamsDirty = true;
 			return args;
 
@@ -369,7 +371,6 @@ public:
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glisson, GfParamType::random);
-			//if (glissonStRandom.writable())glissonStRandom.touch();
 			_linkedParamsDirty = true;
 			return args;
 
@@ -391,7 +392,6 @@ public:
 		{0},
 		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
 			SetGrainParams(args, GfParamName::glisson, GfParamType::offset);
-			//if (glissonStOffset.writable())glissonStOffset.touch();
 			_linkedParamsDirty = true;
 			return args;
 
@@ -497,7 +497,7 @@ public:
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::base);
-			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
+			for (int i = 0; i < ms.size(); i++) { ms[i] = GfUtils::round(((float)ms[i] * _oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 		}},
 		description{"An offset from the traversal phasor in milliseconds"},
@@ -514,7 +514,7 @@ public:
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::random);
-			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
+			for (int i = 0; i < ms.size(); i++) { ms[i] = GfUtils::round( ((float)ms[i] * _oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 		}},
 		description{"A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain"},
@@ -532,7 +532,7 @@ public:
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::offset);
-			for (int i = 0; i < ms.size(); i++) { GfUtils::round(ms[i] = ((float)ms[i] * oneOverSamplerate) * 1000.0f, 1e-3); }
+			for (int i = 0; i < ms.size(); i++) { ms[i] = GfUtils::round(((float)ms[i] * _oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 			}},
 		description{"An offset from the traversal phasor in milliseconds based on the index of each grain"},
@@ -938,7 +938,7 @@ public:
 		"trav",
 		"DEPRICATED the amound grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			auto value = (float)args[0] * 0.001f * samplerate();
+			auto value = (float)args[0] * 0.001f * _samplerate;
 			GrainMessage(value, GfParamName::delay, GfParamType::base);
 			return {};
 		}
@@ -950,7 +950,7 @@ public:
 		"travRandom",
 		"DEPRICATED the amound grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			auto value = (float)args[0] * 0.001f * samplerate();
+			auto value = (float)args[0] * 0.001f * _samplerate;
 			GrainMessage(value, GfParamName::delay, GfParamType::random);
 			return {};
 		}
@@ -962,7 +962,7 @@ public:
 	"travOffset",
 	"DEPRICATED message to set the amound grains are delayed in ms",
 	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-		auto value = (float)args[0] * 0.001f * samplerate();
+		auto value = (float)args[0] * 0.001f * _samplerate;
 		GrainMessage(value, GfParamName::delay, GfParamType::offset);
 		return {};
 	}
