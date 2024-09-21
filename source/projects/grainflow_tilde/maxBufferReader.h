@@ -21,6 +21,8 @@ using namespace c74::min;
                    bufferInfo->oneOverBufferFrames = 1.0f / bufferInfo->bufferFrames;
                    bufferInfo->sampleRateAdjustment = !ioConfig.livemode ? sampleLock.samplerate() / ioConfig.samplerate : 1;
                    bufferInfo->nchannels = sampleLock.channel_count();
+                   bufferInfo->samplerate = sampleLock.samplerate();
+                   bufferInfo->oneOverSamplerate = 1/ sampleLock.samplerate();
                }
                catch(...) {
                 //Occasionally the min api does not read a buffer correctly when it is deleted and this causes crash. We check for this and set the pointer to null 

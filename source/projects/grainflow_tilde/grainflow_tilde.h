@@ -497,7 +497,6 @@ public:
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::base);
-			for (int i = 0; i < ms.size(); i++) { ms[i] = GfUtils::round(((float)ms[i] * _oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 		}},
 		description{"An offset from the traversal phasor in milliseconds"},
@@ -514,7 +513,6 @@ public:
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::random);
-			for (int i = 0; i < ms.size(); i++) { ms[i] = GfUtils::round( ((float)ms[i] * _oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 		}},
 		description{"A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain"},
@@ -532,7 +530,6 @@ public:
 		}},
 		getter {[this]() -> atoms {
 			auto ms = GetGrainParams(GfParamName::delay, GfParamType::offset);
-			for (int i = 0; i < ms.size(); i++) { ms[i] = GfUtils::round(((float)ms[i] * _oneOverSamplerate) * 1000.0f, 1e-3); }
 			return ms;
 			}},
 		description{"An offset from the traversal phasor in milliseconds based on the index of each grain"},
@@ -938,8 +935,7 @@ public:
 		"trav",
 		"DEPRICATED the amound grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			auto value = (float)args[0] * 0.001f * _samplerate;
-			GrainMessage(value, GfParamName::delay, GfParamType::base);
+			GrainMessage(static_cast<float>(args[0]), GfParamName::delay, GfParamType::base);
 			return {};
 		}
 	};
@@ -950,8 +946,7 @@ public:
 		"travRandom",
 		"DEPRICATED the amound grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-			auto value = (float)args[0] * 0.001f * _samplerate;
-			GrainMessage(value, GfParamName::delay, GfParamType::random);
+			GrainMessage(static_cast<float>(args[0]), GfParamName::delay, GfParamType::random);
 			return {};
 		}
 	};
@@ -962,8 +957,7 @@ public:
 	"travOffset",
 	"DEPRICATED message to set the amound grains are delayed in ms",
 	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
-		auto value = (float)args[0] * 0.001f * _samplerate;
-		GrainMessage(value, GfParamName::delay, GfParamType::offset);
+		GrainMessage(static_cast<float>(args[0]), GfParamName::delay, GfParamType::offset);
 		return {};
 	}
 	};
