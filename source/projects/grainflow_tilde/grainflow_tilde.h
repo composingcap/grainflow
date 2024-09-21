@@ -472,6 +472,51 @@ public:
 		order{3},
 
 	};
+
+	attribute<vector<number>> glissonPosition{
+	this,
+	"glissonBufferPosition",
+	{0},
+	description{"sets the 2D envelope position"},
+	setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		return SetGrainParams(args, GfParamName::glissonPosition, GfParamType::base);
+	}},
+	getter{
+		[this]() -> atoms {
+		 return GetGrainParams(GfParamName::glissonPosition, GfParamType::base);;
+	}},
+	category{"Pitch | Rate"},
+	};
+
+	attribute<vector<number>> glissonPositionOffset{
+		this,
+		"glissonBufferPositionOffset",
+		{0},
+		description{"sets the 2D envelope position"},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::glissonPosition, GfParamType::offset);
+		}},
+		getter{
+			[this]() -> atoms {
+			 return GetGrainParams(GfParamName::glissonPosition, GfParamType::offset);;
+		}},
+		category{"Pitch | Rate"},
+	};
+
+	attribute<vector<number>> glissonPositionRandom{
+		this,
+		"glissonBufferPositionRandom",
+		{0},
+		description{"sets the 2D envelope position"},
+		setter{[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+			return SetGrainParams(args, GfParamName::glissonPosition, GfParamType::random);
+		}},
+		getter{
+			[this]() -> atoms {
+			 return GetGrainParams(GfParamName::glissonPosition, GfParamType::random);;
+		}},
+		category{"Pitch | Rate"},
+	};
 #pragma endregion
 #pragma region ATTRIBUTES_TIME_AND_SPACE
 	attribute<vector<number>> direction{
@@ -1260,6 +1305,17 @@ public:
 		}
 	};
 
+	message<> glissonMode{
+	this,
+	"glissonMode",
+	"sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
+	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		GrainMessage(args[0], GfParamName::glisson, GfParamType::mode);
+		return {};
+	}
+	};
+
+
 	// Envelope
 	message<> env{
 		this,
@@ -1351,6 +1407,23 @@ public:
 			BufferRefMessage(bname, GFBuffers::rateBuffer);
 			return {};
 		}
+	};
+
+	message<> glissonBuffer{
+	this,
+	"glissonBuffer",
+	"sets the buffer for glisson modes 1 and 2",
+	[this](const c74::min::atoms& args, const int inlet)->c74::min::atoms {
+		string bname = (string)args[0];
+		BufferRefMessage(bname, GFBuffers::glissonBuffer);
+		if (args.size() < 2)
+		{
+			GrainMessage(1, GfParamName::glissonRows, GfParamType::value);
+			return {};
+		}
+		GrainMessage((int)args[1], GfParamName::glissonRows, GfParamType::value);
+		return {};
+	}
 	};
 
 	message<> done{

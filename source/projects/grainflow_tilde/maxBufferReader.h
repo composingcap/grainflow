@@ -67,7 +67,7 @@ using namespace c74::min;
                     samples[i] = sampleLock[frame * channels + chan] * (1 - tween) + sampleLock[((frame + 1) * ((frame + 1) < frames) * channels + chan)] * tween;
                 }
             };
-           static void SampleEnvelope(buffer_reference* buffer, const bool useDefault, const int nEnvelopes, const float env2dPos, double* __restrict samples, double* grainClock, const int size) {
+           static void SampleEnvelope(buffer_reference* buffer, const bool useDefault, const int nEnvelopes, const float env2dPos, double* __restrict samples, const double* __restrict grainClock, const int size) {
                     if (useDefault) {
                         for (int i = 0; i < size; i++) {
                             size_t frame = std::fmax(((std::fmin((grainClock[i] * 1024.0), 1023.0))), 0.0);

@@ -241,6 +241,7 @@ void grainflow_tilde::Init()
 		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::delayBuffer, (new buffer_reference(this, nullptr, false)));
 		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::windowBuffer, (new buffer_reference(this, nullptr, false)));
 		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::rateBuffer, (new buffer_reference(this, nullptr, false)));
+		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::glissonBuffer, (new buffer_reference(this, nullptr, false)));
 
 		auto env = grainCollection->GetGrain(g)->GetBuffer(GFBuffers::envelope);
 		env->set(envArg);
