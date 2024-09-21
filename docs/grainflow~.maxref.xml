@@ -76,11 +76,6 @@
 			<description>DEPRICATED message to set the amound grains are delayed in ms </description>
 		</method>
 
-		<method name='envPositionRandom'>
-			<digest>sets the 2D envelope position </digest>
-			<description>sets the 2D envelope position </description>
-		</method>
-
 		<method name='streamTarget'>
 			<digest>messages will target grains assigned to this stream </digest>
 			<description>messages will target grains assigned to this stream </description>
@@ -186,22 +181,7 @@
 			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
 		</method>
 
-		<method name='nEnvelopes'>
-			<digest>sets the number of envelopes in the 2d envelope buffer </digest>
-			<description>sets the number of envelopes in the 2d envelope buffer </description>
-		</method>
-
-		<method name='envPosition'>
-			<digest>sets the 2D envelope position </digest>
-			<description>sets the 2D envelope position </description>
-		</method>
-
 		<method name='env2DPosition'>
-			<digest>sets the 2D envelope position </digest>
-			<description>sets the 2D envelope position </description>
-		</method>
-
-		<method name='envPositionOffset'>
 			<digest>sets the 2D envelope position </digest>
 			<description>sets the 2D envelope position </description>
 		</method>
@@ -403,9 +383,29 @@
 			<description>the maximum number of voices/grains. You will need to restart audio after setting this. </description>
 		</attribute>
 
+		<attribute name='envPositionRandom' get='1' set='1' type='float64' size='1' >
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</attribute>
+
 		<attribute name='liveMode' get='1' set='1' type='long' size='1' >
 			<digest>removes samplerate correction from a buffers samplerate</digest>
 			<description>removes samplerate correction from a buffers samplerate. This is useful with live granulation if a buffer is created them Max's samplerate changes. </description>
+		</attribute>
+
+		<attribute name='nEnvelopes' get='1' set='1' type='float64' size='1' >
+			<digest>sets the number of envelopes in the 2d envelope buffer </digest>
+			<description>sets the number of envelopes in the 2d envelope buffer </description>
+		</attribute>
+
+		<attribute name='envPosition' get='1' set='1' type='float64' size='1' >
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</attribute>
+
+		<attribute name='envPositionOffset' get='1' set='1' type='float64' size='1' >
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
 		</attribute>
 
 	</attributelist>
