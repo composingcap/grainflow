@@ -8,66 +8,66 @@
 
 #include "grainflow_tilde.h"
 
+#include <utility>
+
 using namespace c74::min;
 using namespace Grainflow;
 
-long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count);
-long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 
+int grainflow_tilde::get_max_grains() const { return grain_collection_ != nullptr ? grain_collection_->Grains() : 0; }
 
-
-int grainflow_tilde::GetMaxGrains() { return grainCollection!= nullptr ? grainCollection->Grains() : 0; }
-
-grainflow_tilde::grainflow_tilde() {
-	internalUpdate.delay(33);
+grainflow_tilde::grainflow_tilde(): max_grains_(0), io_config_(), has_update_(false)
+{
+	internal_update.delay(33);
 }
 
 grainflow_tilde::~grainflow_tilde()
 {
-	grainCollection.release();
+	grain_collection_.release();
 }
 #pragma region DSP
 
 void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 {
-	auto lockAvalible = lock.try_lock();
-	if (!lockAvalible) return;
+	if (const auto lock_available = lock.try_lock(); !lock_available) return;
 	//This is a hack to get around some wierd ordering issues when playing the first frame when the number of voices has changed
-	maxGrainsThisFrame = std::min((int)(output.channel_count() / 8), grainCollection->Grains()); 
-	auto currentNgrains= clamp((int)ngrains, 0, maxGrainsThisFrame);
-	_ioConfig.livemode = liveMode;
-	SetupInputs(_ioConfig, input_chans, input.samples());
-	SetupOutputs(_ioConfig, output.samples());
+	max_grains_this_frame = std::min(static_cast<int>(output.channel_count() / 8), grain_collection_->Grains());
+	const auto current_grains = clamp(static_cast<int>(n_grains), 0, max_grains_this_frame);
+	io_config_.livemode = live_mode;
+	setup_inputs(io_config_, input_chans, input.samples());
+	setup_outputs(io_config_, output.samples());
 
 
 	// Clear unused channels or we will get garbage
-	_ioConfig.blockSize = output.frame_count();
-	_ioConfig.samplerate = _samplerate;
+	io_config_.blockSize = output.frame_count();
+	io_config_.samplerate = samplerate_;
 	for (int g = 0; g < output.channel_count(); g++)
 	{
-		memset(output.samples()[g], double(0), sizeof(double) * _ioConfig.blockSize);
+		memset(output.samples()[g], static_cast<double>(0), sizeof(double) * io_config_.blockSize);
 	}
 
 
-	if (!state) 
+	if (!state)
 	{
 		lock.unlock();
 		return;
 	}
 
-	grainCollection->Process(_ioConfig);
+	grain_collection_->Process(io_config_);
 
-	if (!hasUpdate) {
-		for (int g = 0; g < currentNgrains; g++) {
-			m_grainState[g] = _ioConfig.grainState[g][0];
-			m_grainProgress[g] = _ioConfig.grainProgress[g][0];
-			m_grainPlayhead[g] = _ioConfig.grainPlayhead[g][0];
-			m_grainAmp[g] = _ioConfig.grainAmp[g][0];
-			m_grainEnvelope[g] = _ioConfig.grainEnvelope[g][0];
-			m_grainStreamChannel[g] = _ioConfig.grainStreamChannel[g][0];
-			m_grainBufferChannel[g] = _ioConfig.grainBufferChannel[g][0];
+	if (!has_update_)
+	{
+		for (int g = 0; g < current_grains; g++)
+		{
+			m_grain_state_[g] = io_config_.grainState[g][0];
+			m_grain_progress_[g] = io_config_.grainProgress[g][0];
+			m_grain_playhead_[g] = io_config_.grainPlayhead[g][0];
+			m_grain_amp_[g] = io_config_.grainAmp[g][0];
+			m_grain_envelope_[g] = io_config_.grainEnvelope[g][0];
+			m_grain_stream_channel_[g] = io_config_.grainStreamChannel[g][0];
+			m_grain_buffer_channel_[g] = io_config_.grainBufferChannel[g][0];
 		}
-		hasUpdate = true;
+		has_update_ = true;
 	}
 
 	lock.unlock();
@@ -75,33 +75,40 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 
 #pragma endregion
 
-atoms grainflow_tilde::GetGrainParams(GfParamName param, GfParamType type) {
-	if (grainCollection == nullptr) return{};
+atoms grainflow_tilde::get_grain_params(GfParamName param, GfParamType type) const
+{
+	if (grain_collection_ == nullptr) return {};
 	atoms values = {};
-	values.resize(grainCollection->Grains());
-	for (int i = 0; i < grainCollection->Grains(); i++){
-			values[i] = grainCollection->ParamGet(i+1,param, type);
+	values.resize(grain_collection_->Grains());
+	for (int i = 0; i < grain_collection_->Grains(); i++)
+	{
+		values[i] = grain_collection_->ParamGet(i + 1, param, type);
 	}
 	return values;
 }
 
-atoms grainflow_tilde::SetGrainParams(atoms args, GfParamName param, GfParamType type) {
-    if (grainCollection == nullptr) return args;
-	if (args.size() <= 1) {
-		grainCollection->ParamSet(_target, param, type, (float)args[0]);
+atoms grainflow_tilde::set_grain_params(atoms args, GfParamName param, GfParamType type) const
+{
+	if (grain_collection_ == nullptr) return args;
+	if (args.size() <= 1)
+	{
+		grain_collection_->ParamSet(target_, param, type, (float)args[0]);
 		return args;
 	}
 
-	for (int g = 0; g < grainCollection->Grains(); g++) {
-		grainCollection->ParamSet(g+1, param, type, (float)args[g%args.size()]);
+	for (int g = 0; g < grain_collection_->Grains(); g++)
+	{
+		grain_collection_->ParamSet(g + 1, param, type, (float)args[g % args.size()]);
 	}
 
 	return args;
 }
 
 
-void grainflow_tilde::TrySetAttributeOrMessage(string name, atoms args) {
-	if (auto get = this->attributes().find(name); get != this->attributes().end()) {
+void grainflow_tilde::try_set_attribute_or_message(const string& name, const atoms& args)
+{
+	if (auto get = this->attributes().find(name); get != this->attributes().end())
+	{
 		get->second->set(args);
 		return;
 	}
@@ -109,55 +116,57 @@ void grainflow_tilde::TrySetAttributeOrMessage(string name, atoms args) {
 	return;
 }
 
-void grainflow_tilde::ouputGrainInfo(string name, atoms data) {
-	auto mess = atoms({ name });
-	for (int g = 0; g < std::min((int)data.size(), (int)ngrains); g++) {
+void grainflow_tilde::output_grain_info(string name, const atoms& data)
+{
+	auto mess = atoms({std::move(name)});
+	for (int g = 0; g < std::min(static_cast<int>(data.size()), static_cast<int>(n_grains)); g++)
+	{
 		mess.push_back(data[g]);
 	}
-	o_grainInfo.send(mess);
+	o_grain_info.send(mess);
 }
 
-void grainflow_tilde::SetupOutputs(gfIoConfig& ioConfig, double** outputs) {
-
-	// Ouputs are constant because they are based on the max grain count
-	ioConfig.grainOutput = &outputs[0 * maxGrainsThisFrame];
-	ioConfig.grainState = &outputs[1 * maxGrainsThisFrame];
-	ioConfig.grainProgress = &outputs[2 * maxGrainsThisFrame];
-	ioConfig.grainPlayhead = &outputs[3 * maxGrainsThisFrame];
-	ioConfig.grainAmp = &outputs[4 * maxGrainsThisFrame];
-	ioConfig.grainEnvelope = &outputs[5 * maxGrainsThisFrame];
-	ioConfig.grainStreamChannel = &outputs[6 * maxGrainsThisFrame];
-	ioConfig.grainBufferChannel = &outputs[7 * maxGrainsThisFrame];
+void grainflow_tilde::setup_outputs(gfIoConfig& io_config, double** outputs) const
+{
+	// Outputs are constant because they are based on the max grain count
+	io_config.grainOutput = &outputs[0 * max_grains_this_frame];
+	io_config.grainState = &outputs[1 * max_grains_this_frame];
+	io_config.grainProgress = &outputs[2 * max_grains_this_frame];
+	io_config.grainPlayhead = &outputs[3 * max_grains_this_frame];
+	io_config.grainAmp = &outputs[4 * max_grains_this_frame];
+	io_config.grainEnvelope = &outputs[5 * max_grains_this_frame];
+	io_config.grainStreamChannel = &outputs[6 * max_grains_this_frame];
+	io_config.grainBufferChannel = &outputs[7 * max_grains_this_frame];
 }
 
-void grainflow_tilde::SetupInputs(gfIoConfig& ioConfig, int* inputChannels, double** inputs) {
+void grainflow_tilde::setup_inputs(gfIoConfig& io_config, const int* input_channels, double** inputs)
+{
+	io_config.grainClockChans = input_channels[0];
+	io_config.traversalPhasorChans = input_channels[1];
+	io_config.fmChans = input_channels[2];
+	io_config.amChans = input_channels[3];
 
-	ioConfig.grainClockChans = inputChannels[0];
-	ioConfig.traversalPhasorChans = inputChannels[1];
-	ioConfig.fmChans = inputChannels[2];
-	ioConfig.amChans = inputChannels[3];
+	// These variable indicate the starting indices of each mc parameter
+	constexpr auto grain_clock_ch = 0;
+	auto traversal_phasor_ch = io_config.grainClockChans;
+	const auto fm_ch = traversal_phasor_ch + io_config.traversalPhasorChans;
+	const auto am_ch = fm_ch + io_config.fmChans;
 
-	// These varible indicate the starting indices of each mc parameter
-	auto grainClockCh = 0;
-	auto traversalPhasorCh = ioConfig.grainClockChans;
-	auto fmCh = traversalPhasorCh + ioConfig.traversalPhasorChans;
-	auto amCh = fmCh + ioConfig.fmChans;
-
-	ioConfig.grainClock = &inputs[grainClockCh];
-	ioConfig.traversalPhasor = &inputs[traversalPhasorCh];
-	ioConfig.fm = &inputs[fmCh];
-	ioConfig.am = &inputs[amCh];
-
+	io_config.grainClock = &inputs[grain_clock_ch];
+	io_config.traversalPhasor = &inputs[traversal_phasor_ch];
+	io_config.fm = &inputs[fm_ch];
+	io_config.am = &inputs[am_ch];
 }
 
-void grainflow_tilde::GrainInfoReset() {
-	ouputGrainInfo("grainState", { 0 });
-	ouputGrainInfo("grainPosition", { 0 });
-	ouputGrainInfo("grainWindow", { 0 });
-	ouputGrainInfo("grainAmp", { 0 });
-	ouputGrainInfo("grainProgress", { 0 });
-	ouputGrainInfo("grainBufferChannel", { 0 });
-	ouputGrainInfo("grainStreamChannel", { 0 });
+void grainflow_tilde::grain_info_reset()
+{
+	output_grain_info("grainState", {0});
+	output_grain_info("grainPosition", {0});
+	output_grain_info("grainWindow", {0});
+	output_grain_info("grainAmp", {0});
+	output_grain_info("grainProgress", {0});
+	output_grain_info("grainBufferChannel", {0});
+	output_grain_info("grainStreamChannel", {0});
 }
 
 
@@ -167,160 +176,176 @@ void grainflow_tilde::GrainInfoReset() {
 /// <param name="value"></param>
 /// <param name="param"></param>
 /// <param name="type"></param>
-void grainflow_tilde::GrainMessage(float value, GfParamName param, GfParamType type)
+void grainflow_tilde::grain_message(const float value, const GfParamName param, const GfParamType type)
 {
-	if (_streamTarget > 0)
+	if (stream_target_ > 0)
 	{
-		grainCollection->StreamParamSet(_streamTarget, param, type, value);
+		grain_collection_->StreamParamSet(stream_target_, param, type, value);
 	}
 
-	if (_channelTarget > 0)
+	if (channel_target_ > 0)
 	{
-		grainCollection->ChannelParamSet(_channelTarget, param, type, value);
+		grain_collection_->ChannelParamSet(channel_target_, param, type, value);
 	}
 
-	grainCollection->ParamSet(_target, param, type, value);	
-
+	grain_collection_->ParamSet(target_, param, type, value);
 }
 
-void grainflow_tilde::BufferRefMessage(string bname, GFBuffers type)
+void grainflow_tilde::buffer_ref_message(const string& buffer_name, const GFBuffers type)
 {
-	if (bname.empty())
+	if (buffer_name.empty())
 		return;
 
-	if (_target > 0)
+	if (target_ > 0)
 	{
-		auto buf = grainCollection->GetGrain(_target - 1)->GetBuffer(type);
+		auto buf = grain_collection_->GetGrain(target_ - 1)->GetBuffer(type);
 		buf->set(""); // This forces a refresh even if the name is the same
-		buf->set(bname);
+		buf->set(buffer_name);
 		return;
 	}
-	for (int g = 0; g < grainCollection->Grains(); g++)
+	for (int g = 0; g < grain_collection_->Grains(); g++)
 	{
-		auto buf = grainCollection->GetGrain(g)->GetBuffer(type); // To access ir must be converted to the correct type
+		auto buf = grain_collection_->GetGrain(g)->GetBuffer(type);
+		// To access ir must be converted to the correct type
 		buf->set("");
-		buf->set(bname);
+		buf->set(buffer_name);
 	}
 }
 
-void grainflow_tilde::UseDefaultEnvelope(bool state, int target){
-
+void grainflow_tilde::use_default_envelope(const bool state, const int target)
+{
 	if (target > 0)
 	{
-		grainCollection->GetGrain(target - 1)->useDefaultEnvelope = state;
+		grain_collection_->GetGrain(target - 1)->useDefaultEnvelope = state;
 		return;
 	}
-	for (int g = 0; g < grainCollection->Grains(); g++)
+	for (int g = 0; g < grain_collection_->Grains(); g++)
 	{
-		grainCollection->GetGrain(g)->useDefaultEnvelope = state;// To access ir must be converted to the correct type
-
+		grain_collection_->GetGrain(g)->useDefaultEnvelope = state;
+		// To access ir must be converted to the correct type
 	}
 }
+
 /// <summary>
 /// Forces a refresh of a type of buffer.
 /// </summary>
-void grainflow_tilde::BufferRefresh(GFBuffers type)
+void grainflow_tilde::buffer_refresh(const GFBuffers type)
 {
-	if (grainCollection == nullptr) return;
-	for (int g = 0; g < grainCollection->Grains(); g++)
+	if (grain_collection_ == nullptr) return;
+	for (int g = 0; g < grain_collection_->Grains(); g++)
 	{
-		auto buf = grainCollection->GetGrain(g)->GetBuffer(type); // To access ir must be converted to the correct type
-		auto name = buf->name();
+		const auto buf = grain_collection_->GetGrain(g)->GetBuffer(type);
+		// To access ir must be converted to the correct type
+		const auto name = buf->name();
 		buf->set("");
 		buf->set(name);
 	}
 };
 
-void grainflow_tilde::Init()
+void grainflow_tilde::init()
 {
-	for (int g = 0; g < grainCollection->Grains(); g++)
+	for (int g = 0; g < grain_collection_->Grains(); g++)
 	{
-		grainCollection->GetGrain(g)->SetIndex(g);
-		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::buffer, (new buffer_reference(this, nullptr, false)));
-		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::envelope, (new buffer_reference(this, nullptr, false)));
-		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::delayBuffer, (new buffer_reference(this, nullptr, false)));
-		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::windowBuffer, (new buffer_reference(this, nullptr, false)));
-		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::rateBuffer, (new buffer_reference(this, nullptr, false)));
-		grainCollection->GetGrain(g)->SetBuffer(GFBuffers::glissonBuffer, (new buffer_reference(this, nullptr, false)));
+		grain_collection_->GetGrain(g)->SetIndex(g);
+		grain_collection_->GetGrain(g)->SetBuffer(GFBuffers::buffer, (new buffer_reference(this, nullptr, false)));
+		grain_collection_->GetGrain(g)->SetBuffer(GFBuffers::envelope, (new buffer_reference(this, nullptr, false)));
+		grain_collection_->GetGrain(g)->SetBuffer(GFBuffers::delayBuffer, (new buffer_reference(this, nullptr, false)));
+		grain_collection_->GetGrain(g)->
+		                   SetBuffer(GFBuffers::windowBuffer, (new buffer_reference(this, nullptr, false)));
+		grain_collection_->GetGrain(g)->SetBuffer(GFBuffers::rateBuffer, (new buffer_reference(this, nullptr, false)));
+		grain_collection_->GetGrain(g)->SetBuffer(GFBuffers::glissonBuffer,
+		                                          (new buffer_reference(this, nullptr, false)));
 
-		auto env = grainCollection->GetGrain(g)->GetBuffer(GFBuffers::envelope);
-		env->set(envArg);
-		auto buf = grainCollection->GetGrain(g)->GetBuffer(GFBuffers::buffer);
-		buf->set(bufferArg);
+		auto env = grain_collection_->GetGrain(g)->GetBuffer(GFBuffers::envelope);
+		env->set(env_arg_);
+		auto buf = grain_collection_->GetGrain(g)->GetBuffer(GFBuffers::buffer);
+		buf->set(buffer_arg_);
 	}
-	grainCollection->samplerate = _samplerate;
-
+	grain_collection_->samplerate = samplerate_;
 }
 
 
-void grainflow_tilde::Reinit(int grains)
+void grainflow_tilde::reinit(int grains)
 {
- 	lock.lock();
-	grainCollection.release();
-	grainCollection = std::make_unique<GfGrainCollection<buffer_reference, INTERNALBLOCK>>(bufferReader, grains);
+	lock.lock();
+	grain_collection_.release();
+	grain_collection_ = std::make_unique<GfGrainCollection<buffer_reference, internal_block>>(buffer_reader_, grains);
 	auto maxGrains = grains;
-	if (ngrains > maxGrains) ngrains = maxGrains;
-	if(autoOverlap) this->TrySetAttributeOrMessage("windowOffset", atoms{ 1.0f / ngrains });
-	m_grainState.resize(maxGrains);
-	m_grainProgress.resize(maxGrains);
-	m_grainPlayhead.resize(maxGrains);
-	m_grainAmp.resize(maxGrains);
-	m_grainEnvelope.resize(maxGrains);
-	m_grainStreamChannel.resize(maxGrains);
-	m_grainBufferChannel.resize(maxGrains);
-	Init();
+	if (n_grains > maxGrains) n_grains = maxGrains;
+	if (auto_overlap) this->try_set_attribute_or_message("windowOffset", atoms{1.0f / n_grains});
+	m_grain_state_.resize(maxGrains);
+	m_grain_progress_.resize(maxGrains);
+	m_grain_playhead_.resize(maxGrains);
+	m_grain_amp_.resize(maxGrains);
+	m_grain_envelope_.resize(maxGrains);
+	m_grain_stream_channel_.resize(maxGrains);
+	m_grain_buffer_channel_.resize(maxGrains);
+	init();
 	lock.unlock();
 }
 
-void grainflow_tilde::RefreshAllAttributes() {
+void grainflow_tilde::refresh_all_attributes()
+{
 	auto a = this->attributes();
-	for (auto i = a.begin(); i != a.end(); i++) {
+	for (auto i = a.begin(); i != a.end(); ++i)
+	{
 		i->second->touch();
 	}
 }
 
-void grainflow_tilde::RefreshNamedAttributes(std::string name) {
-	auto attrMap = this->attributes();
-	if (auto attr = attrMap.find(name); attr != attrMap.end()) {
+void grainflow_tilde::refresh_named_attributes(const std::string& name)
+{
+	auto attr_map = this->attributes();
+	if (const auto attr = attr_map.find(name); attr != attr_map.end())
+	{
 		attr->second->touch();
 	}
 }
 
-void grainflow_tilde::OuputAllGrainInfo() {
-	if (hasUpdate) {
-		hasUpdate = false;
-		if (state) {
-			ouputGrainInfo("grainState", m_grainState);
-			ouputGrainInfo("grainPosition", m_grainPlayhead);
-			ouputGrainInfo("grainWindow", m_grainEnvelope);
-			ouputGrainInfo("grainAmp", m_grainAmp);
-			ouputGrainInfo("grainProgress", m_grainProgress);
-			ouputGrainInfo("grainBufferChannel", m_grainBufferChannel);
-			ouputGrainInfo("grainStreamChannel", m_grainStreamChannel);
+void grainflow_tilde::output_all_grain_info()
+{
+	if (has_update_)
+	{
+		has_update_ = false;
+		if (state)
+		{
+			output_grain_info("grainState", m_grain_state_);
+			output_grain_info("grainPosition", m_grain_playhead_);
+			output_grain_info("grainWindow", m_grain_envelope_);
+			output_grain_info("grainAmp", m_grain_amp_);
+			output_grain_info("grainProgress", m_grain_progress_);
+			output_grain_info("grainBufferChannel", m_grain_buffer_channel_);
+			output_grain_info("grainStreamChannel", m_grain_stream_channel_);
 		}
 	}
 }
 
-	void grainflow_tilde::RefreshLinkedAttribute() {
-		//This is needed to reflect interanl changes- running touch in the setter causes a crash unfortunatly
-		if (!_linkedParamsDirty)return;
-		transpose.touch();
-		transposeRandom.touch();
-		transposeOffset.touch();
+void grainflow_tilde::refresh_linked_attribute()
+{
+	//This is needed to reflect internal changes-running touch in the setter causes a crash unfortunately
+	if (!linked_params_dirty_)return;
+	transpose.touch();
+	transposeRandom.touch();
+	transpose_offset.touch();
 
-		rate.touch();
-		rateRandom.touch();
-		rateOffset.touch();
+	rate.touch();
+	rateRandom.touch();
+	rateOffset.touch();
 
-		glisson.touch();
-		glissonRandom.touch();
-		glissonOffset.touch();
+	glisson.touch();
+	glisson_random.touch();
+	glisson_offset.touch();
 
-		glissonSt.touch();
-		glissonStRandom.touch();
-		glissonStOffset.touch();
-		_linkedParamsDirty = false;
-	}
+	glisson_st.touch();
+	glisson_st_random.touch();
+	glisson_st_offset.touch();
+
+	delay.touch();
+	delay_random.touch();
+	delay_offset.touch();
+
+	linked_params_dirty_ = false;
+}
 
 #pragma region MAX_API_EX
 /// <summary>
@@ -332,9 +357,10 @@ void grainflow_tilde::OuputAllGrainInfo() {
 /// <returns></returns>
 long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 {
-	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde> *)(x);
-	return ob->m_min_object.GetMaxGrains();
+	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde>*)(x);
+	return ob->m_min_object.get_max_grains();
 }
+
 /// <summary>
 /// Allows for the use of mc inputs. Must be added as an event at the objects startup. Also requires an input channels regester
 /// </summary>
@@ -344,7 +370,7 @@ long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 /// <returns></returns>
 long simplemc_inputchanged(c74::max::t_object* x, long g, long count)
 {
-	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde> *)(x);
+	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde>*)(x);
 	// auto chan_number = ob->m_min_object.GetMaxGrains(); //We should check for bonus channels and handle it
 	ob->m_min_object.input_chans[g] = count > 0 ? count : 1; // Tells us how many channels are in each inlet
 	return false;
