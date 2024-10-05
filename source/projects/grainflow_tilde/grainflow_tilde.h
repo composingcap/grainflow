@@ -22,7 +22,7 @@ public:
 	MIN_RELATED{""};
 
 private:
-	std::unique_ptr<GfGrainCollection<buffer_reference, internal_block>> grain_collection_;
+	std::unique_ptr<gf_grain_collection<buffer_reference, internal_block>> grain_collection_;
 	string buffer_arg_;
 	string env_arg_;
 
@@ -34,7 +34,7 @@ private:
 	int n_streams_ = 0;
 	int max_grains_;
 	std::random_device rd_;
-	gfIoConfig io_config_;
+	gf_io_config io_config_;
 	float empty_buffer_[10] = {};
 	bool has_update_;
 	bool linked_params_dirty_ = false;
@@ -48,10 +48,10 @@ private:
 	atoms m_grain_stream_channel_;
 	atoms m_grain_buffer_channel_;
 
-	GfIBufferReader<buffer_reference> buffer_reader_;
+	gf_i_buffer_reader<buffer_reference> buffer_reader_;
 
-	atoms get_grain_params(GfParamName param, GfParamType type) const;
-	atoms set_grain_params(atoms args, GfParamName param, GfParamType type) const;
+	atoms get_grain_params(gf_param_name param, gf_param_type type) const;
+	atoms set_grain_params(atoms args, gf_param_name param, gf_param_type type) const;
 	void try_set_attribute_or_message(const string& name, const atoms& args);
 	void grain_info_reset();
 	void refresh_named_attributes(const std::string& name);
@@ -89,15 +89,15 @@ public:
 	grainflow_tilde();
 	~grainflow_tilde() override;
 	void operator()(audio_bundle input, audio_bundle output);
-	void grain_message(float value, GfParamName param, GfParamType type);
-	void buffer_ref_message(const string& buffer_name, GFBuffers type);
-	void buffer_refresh(GFBuffers type);
+	void grain_message(float value, gf_param_name param, gf_param_type type);
+	void buffer_ref_message(const string& buffer_name, gf_buffers type);
+	void buffer_refresh(gf_buffers type);
 	auto init() -> void;
 	void reinit(int grains);
 	void use_default_envelope(bool state, int target = 0);
 	void output_grain_info(string name, const atoms& data);
-	void setup_outputs(gfIoConfig& io_config, double** outputs) const;
-	static void setup_inputs(gfIoConfig& io_config, const int* input_channels, double** inputs);
+	void setup_outputs(gf_io_config& io_config, double** outputs) const;
+	static void setup_inputs(gf_io_config& io_config, const int* input_channels, double** inputs);
 	void refresh_linked_attribute();
 
 
@@ -146,13 +146,13 @@ public:
 		"setup",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			buffer_reader_.SampleBuffer = MaxBufferReader::SampleBuffer;
-			buffer_reader_.SampleEnvelope = MaxBufferReader::SampleEnvelope;
-			buffer_reader_.UpdateBufferInfo = MaxBufferReader::UpdateBufferInfo;
-			buffer_reader_.SampleParamBuffer = MaxBufferReader::SampleParamBuffer;
-			grain_collection_ = std::make_unique<GfGrainCollection<buffer_reference, internal_block>>(
+			buffer_reader_.sample_buffer = max_buffer_reader::sample_buffer;
+			buffer_reader_.sample_envelope = max_buffer_reader::sample_envelope;
+			buffer_reader_.update_buffer_info = max_buffer_reader::update_buffer_info;
+			buffer_reader_.sample_param_buffer = max_buffer_reader::sample_param_buffer;
+			grain_collection_ = std::make_unique<gf_grain_collection<buffer_reference, internal_block>>(
 				buffer_reader_, max_grains_);
-			if (auto_overlap) set_grain_params(atoms{1.0f / max_grains_}, GfParamName::window, GfParamType::offset);
+			if (auto_overlap) set_grain_params(atoms{1.0f / max_grains_}, gf_param_name::window, gf_param_type::offset);
 			m_grain_state_.resize(max_grains_);
 			m_grain_progress_.resize(max_grains_);
 			m_grain_playhead_.resize(max_grains_);
@@ -188,7 +188,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			this->lock.lock();
-			buffer_refresh(GFBuffers::buffer); // This is needed so grainflow live can load buffers correctly.
+			buffer_refresh(gf_buffers::buffer); // This is needed so grainflow live can load buffers correctly.
 			samplerate_ = samplerate();
 			grain_collection_->samplerate = samplerate_;
 			one_over_samplerate_ = 1.0f / samplerate_;
@@ -212,7 +212,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::rate, GfParamType::base);
+				set_grain_params(args, gf_param_name::rate, gf_param_type::base);
 				//if(transpose.writable())transpose.touch();
 				linked_params_dirty_ = true;
 				return args;
@@ -221,7 +221,7 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::rate, GfParamType::base);
+				return get_grain_params(gf_param_name::rate, gf_param_type::base);
 			}
 		},
 		description{"Controls the rate of playback of each grain. This will modify pitch."},
@@ -235,7 +235,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::rate, GfParamType::random);
+				set_grain_params(args, gf_param_name::rate, gf_param_type::random);
 				linked_params_dirty_ = true;
 				//if(transposeRandom.writable())transposeRandom.touch();
 				return args;
@@ -244,7 +244,7 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::rate, GfParamType::random);
+				return get_grain_params(gf_param_name::rate, gf_param_type::random);
 			}
 		},
 		description{"Adds a unipolar random amount to the playback rate on each grains start."},
@@ -258,7 +258,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::rate, GfParamType::offset);
+				set_grain_params(args, gf_param_name::rate, gf_param_type::offset);
 				linked_params_dirty_ = true;
 				//if(transposeOffset.writable())transposeOffset.touch();
 				return args;
@@ -267,7 +267,7 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::rate, GfParamType::offset);
+				return get_grain_params(gf_param_name::rate, gf_param_type::offset);
 			}
 		},
 		description{"Adds an amount to the playback rate based on the grains index."},
@@ -282,7 +282,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::transpose, GfParamType::base);
+				set_grain_params(args, gf_param_name::transpose, gf_param_type::base);
 				//if(rate.writable())rate.touch();
 				linked_params_dirty_ = true;
 				return args;
@@ -291,8 +291,8 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				auto res = get_grain_params(GfParamName::rate, GfParamType::base);
-				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(GfUtils::RateToPitch((float)res[i])); }
+				auto res = get_grain_params(gf_param_name::rate, gf_param_type::base);
+				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(gf_utils::rate_to_pitch((float)res[i])); }
 				return res;
 			}
 		},
@@ -309,7 +309,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::transpose, GfParamType::random);
+				set_grain_params(args, gf_param_name::transpose, gf_param_type::random);
 				//if (rateRandom.writable())rateRandom.touch();
 				linked_params_dirty_ = true;
 				return args;
@@ -318,10 +318,10 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				auto res = get_grain_params(GfParamName::rate, GfParamType::random);
+				auto res = get_grain_params(gf_param_name::rate, gf_param_type::random);
 				for (int i = 0; i < res.size(); i++)
 				{
-					res[i] = static_cast<atom>(GfUtils::RateOffsetToPitchOffset((float)res[i]));
+					res[i] = static_cast<atom>(gf_utils::rate_offset_to_pitch_offset((float)res[i]));
 				}
 				return res;
 			}
@@ -338,7 +338,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::transpose, GfParamType::offset);
+				set_grain_params(args, gf_param_name::transpose, gf_param_type::offset);
 				linked_params_dirty_ = true;
 				return args;
 			}
@@ -346,10 +346,10 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				auto res = get_grain_params(GfParamName::rate, GfParamType::offset);
+				auto res = get_grain_params(gf_param_name::rate, gf_param_type::offset);
 				for (auto& re : res)
 				{
-					re = static_cast<atom>(GfUtils::RateOffsetToPitchOffset((float)re));
+					re = static_cast<atom>(gf_utils::rate_offset_to_pitch_offset((float)re));
 				}
 				return res;
 			}
@@ -371,16 +371,16 @@ public:
 				transposed.resize(args.size());
 				for (int i = 0; i < args.size(); i++)
 				{
-					transposed[i] = static_cast<atom>(GfUtils::PitchToRate(args[i]));
+					transposed[i] = static_cast<atom>(gf_utils::pitch_to_rate(args[i]));
 				}
-				return set_grain_params(transposed, GfParamName::rateQuantizeSemi, GfParamType::value);
+				return set_grain_params(transposed, gf_param_name::rate_quantize_semi, gf_param_type::value);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				auto res = get_grain_params(GfParamName::rateQuantizeSemi, GfParamType::value);
-				for (auto& re : res) { re = static_cast<atom>(GfUtils::RateToPitch(re)); }
+				auto res = get_grain_params(gf_param_name::rate_quantize_semi, gf_param_type::value);
+				for (auto& re : res) { re = static_cast<atom>(gf_utils::rate_to_pitch(re)); }
 				return res;
 			}
 		},
@@ -399,7 +399,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::glisson, GfParamType::base);
+				set_grain_params(args, gf_param_name::glisson, gf_param_type::base);
 				linked_params_dirty_ = true;
 				return args;
 			}
@@ -407,7 +407,7 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::glisson, GfParamType::base);
+				return get_grain_params(gf_param_name::glisson, gf_param_type::base);
 			}
 		},
 		description{"How much the playback rate will change over the life of the grain. Creates a glissando effect"},
@@ -423,7 +423,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::glisson, GfParamType::random);
+				set_grain_params(args, gf_param_name::glisson, gf_param_type::random);
 				linked_params_dirty_ = true;
 				return args;
 			}
@@ -431,7 +431,7 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::glisson, GfParamType::random);
+				return get_grain_params(gf_param_name::glisson, gf_param_type::random);
 			}
 		},
 		description{
@@ -449,7 +449,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::glisson, GfParamType::offset);
+				set_grain_params(args, gf_param_name::glisson, gf_param_type::offset);
 				linked_params_dirty_ = true;
 				return args;
 			}
@@ -457,7 +457,7 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::glisson, GfParamType::offset);
+				return get_grain_params(gf_param_name::glisson, gf_param_type::offset);
 			}
 		},
 		description{"An amount added to each grains glisson destination based on the grain index"},
@@ -473,7 +473,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::glissonSt, GfParamType::base);
+				set_grain_params(args, gf_param_name::glisson_st, gf_param_type::base);
 				linked_params_dirty_ = true;
 				return args;
 			}
@@ -481,10 +481,10 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				auto res = get_grain_params(GfParamName::glisson, GfParamType::base);
+				auto res = get_grain_params(gf_param_name::glisson, gf_param_type::base);
 				for (auto& re : res)
 				{
-					re = static_cast<atom>(GfUtils::RateOffsetToPitchOffset((float)re));
+					re = static_cast<atom>(gf_utils::rate_offset_to_pitch_offset((float)re));
 				}
 				return res;
 			}
@@ -501,7 +501,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::glissonSt, GfParamType::random);
+				set_grain_params(args, gf_param_name::glisson_st, gf_param_type::random);
 				linked_params_dirty_ = true;
 				return args;
 			}
@@ -509,10 +509,10 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				auto res = get_grain_params(GfParamName::glisson, GfParamType::random);
+				auto res = get_grain_params(gf_param_name::glisson, gf_param_type::random);
 				for (auto& re : res)
 				{
-					re = static_cast<atom>(GfUtils::RateOffsetToPitchOffset((float)re));
+					re = static_cast<atom>(gf_utils::rate_offset_to_pitch_offset((float)re));
 				}
 				return res;
 			}
@@ -530,7 +530,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::glissonSt, GfParamType::offset);
+				set_grain_params(args, gf_param_name::glisson_st, gf_param_type::offset);
 				linked_params_dirty_ = true;
 				return args;
 			}
@@ -538,10 +538,10 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				auto res = get_grain_params(GfParamName::glisson, GfParamType::offset);
+				auto res = get_grain_params(gf_param_name::glisson, gf_param_type::offset);
 				for (auto& re : res)
 				{
-					re = static_cast<atom>(GfUtils::RateOffsetToPitchOffset((float)re));
+					re = static_cast<atom>(gf_utils::rate_offset_to_pitch_offset((float)re));
 				}
 				return res;
 			}
@@ -560,13 +560,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::glissonPosition, GfParamType::base);
+				return set_grain_params(args, gf_param_name::glisson_position, gf_param_type::base);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::glissonPosition, GfParamType::base);;
+				return get_grain_params(gf_param_name::glisson_position, gf_param_type::base);;
 			}
 		},
 		category{"Pitch | Rate"},
@@ -580,13 +580,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::glissonPosition, GfParamType::offset);
+				return set_grain_params(args, gf_param_name::glisson_position, gf_param_type::offset);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::glissonPosition, GfParamType::offset);;
+				return get_grain_params(gf_param_name::glisson_position, gf_param_type::offset);;
 			}
 		},
 		category{"Pitch | Rate"},
@@ -600,13 +600,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::glissonPosition, GfParamType::random);
+				return set_grain_params(args, gf_param_name::glisson_position, gf_param_type::random);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::glissonPosition, GfParamType::random);;
+				return get_grain_params(gf_param_name::glisson_position, gf_param_type::random);;
 			}
 		},
 		category{"Pitch | Rate"},
@@ -620,10 +620,10 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::direction, GfParamType::base);
+				return set_grain_params(args, gf_param_name::direction, gf_param_type::base);
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::direction, GfParamType::base); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::direction, gf_param_type::base); }},
 		description{
 			"The probability a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards"
 		},
@@ -639,13 +639,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::delay, GfParamType::base);
+				return set_grain_params(args, gf_param_name::delay, gf_param_type::base);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				auto ms = get_grain_params(GfParamName::delay, GfParamType::base);
+				auto ms = get_grain_params(gf_param_name::delay, gf_param_type::base);
 				return ms;
 			}
 		},
@@ -661,13 +661,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::delay, GfParamType::random);
+				return set_grain_params(args, gf_param_name::delay, gf_param_type::random);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				auto ms = get_grain_params(GfParamName::delay, GfParamType::random);
+				auto ms = get_grain_params(gf_param_name::delay, gf_param_type::random);
 				return ms;
 			}
 		},
@@ -686,13 +686,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::delay, GfParamType::offset);
+				return set_grain_params(args, gf_param_name::delay, gf_param_type::offset);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				auto ms = get_grain_params(GfParamName::delay, GfParamType::offset);
+				auto ms = get_grain_params(gf_param_name::delay, gf_param_type::offset);
 				return ms;
 			}
 		},
@@ -709,10 +709,10 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::window, GfParamType::base);
+				return set_grain_params(args, gf_param_name::window, gf_param_type::base);
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::window, GfParamType::base); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::window, gf_param_type::base); }},
 		description{"Sets the position of each grains starting point on the grain clock from 0-1"},
 		category{"Envelope"},
 		order{4},
@@ -725,10 +725,10 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::window, GfParamType::random);
+				return set_grain_params(args, gf_param_name::window, gf_param_type::random);
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::window, GfParamType::random); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::window, gf_param_type::random); }},
 		description{"Adds a unipolar random amount to each grains window"},
 		category{"Envelope"},
 		order{4},
@@ -741,10 +741,10 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::window, GfParamType::offset);
+				return set_grain_params(args, gf_param_name::window, gf_param_type::offset);
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::window, GfParamType::offset); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::window, gf_param_type::offset); }},
 		description{
 			"Adds an offset to the base grain window position based on each grains index. When autoOverlap is enabled this is set based on the number of grains"
 		},
@@ -763,12 +763,12 @@ public:
 			{
 				if (static_cast<float>(args[0]) >= 1)
 				{
-					return set_grain_params({0.999}, GfParamName::space, GfParamType::base);
+					return set_grain_params({0.999}, gf_param_name::space, gf_param_type::base);
 				}
-				return set_grain_params(args, GfParamName::space, GfParamType::base);
+				return set_grain_params(args, gf_param_name::space, gf_param_type::base);
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::space, GfParamType::base); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::space, gf_param_type::base); }},
 		description{"the amount of empty space at the end of each grains as a ratio of the total grain size"},
 		category{"Envelope"},
 		order{4},
@@ -782,10 +782,10 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::space, GfParamType::random);
+				return set_grain_params(args, gf_param_name::space, gf_param_type::random);
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::space, GfParamType::random); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::space, gf_param_type::random); }},
 		description{"the amount of empty space at the end of each grains as a ratio of the total grain size"},
 		category{"Envelope"},
 		order{4},
@@ -799,10 +799,10 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::space, GfParamType::offset);
+				return set_grain_params(args, gf_param_name::space, gf_param_type::offset);
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::space, GfParamType::offset); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::space, gf_param_type::offset); }},
 		description{"the amount of empty space at the end of each grains as a ratio of the total grain size"},
 		category{"Envelope"},
 		order{4},
@@ -817,7 +817,7 @@ public:
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
 				if (grain_collection_ == nullptr)return args;
-				grain_collection_->SetDensity(target_, args[0]);
+				grain_collection_->set_density(target_, args[0]);
 				return args;
 			}
 		},
@@ -834,11 +834,11 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::startPoint, GfParamType::base);
+				set_grain_params(args, gf_param_name::start_point, gf_param_type::base);
 				return args;
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::startPoint, GfParamType::base); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::start_point, gf_param_type::base); }},
 		description{"the start of the loop from 0-1"},
 		category{"Time | Volume"},
 		order{4},
@@ -851,11 +851,11 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::stopPoint, GfParamType::base);
+				set_grain_params(args, gf_param_name::stop_point, gf_param_type::base);
 				return args;
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::stopPoint, GfParamType::base); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::stop_point, gf_param_type::base); }},
 		description{"the end of the loop from 0-1"},
 		category{"Time | Volume"},
 		order{4},
@@ -868,11 +868,11 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, GfParamName::loopMode, GfParamType::base);
+				set_grain_params(args, gf_param_name::loop_mode, gf_param_type::base);
 				return args;
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::loopMode, GfParamType::base); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::loop_mode, gf_param_type::base); }},
 		description{"how the loops is handled by each grain. 0: ignore the loop. 1: wrap 2: fold "},
 		category{"Time | Volume"},
 		order{4},
@@ -888,10 +888,10 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::amplitude, GfParamType::base);
+				return set_grain_params(args, gf_param_name::amplitude, gf_param_type::base);
 			}
 		},
-		getter{[this]() -> atoms { return get_grain_params(GfParamName::amplitude, GfParamType::base); }},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::amplitude, gf_param_type::base); }},
 		description{"The amplitude of each grain as a value from 0-1"},
 		category{"Time | Volume"},
 		order{5},
@@ -904,13 +904,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::amplitude, GfParamType::random);
+				return set_grain_params(args, gf_param_name::amplitude, gf_param_type::random);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				auto amps = get_grain_params(GfParamName::amplitude, GfParamType::random);;
+				auto amps = get_grain_params(gf_param_name::amplitude, gf_param_type::random);;
 				for (auto& amp : amps)
 				{
 					amp = std::max(std::min(-static_cast<float>(amp), 1.0f), 0.0f);
@@ -933,13 +933,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::amplitude, GfParamType::offset);
+				return set_grain_params(args, gf_param_name::amplitude, gf_param_type::offset);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				auto amps = get_grain_params(GfParamName::amplitude, GfParamType::offset);;
+				auto amps = get_grain_params(gf_param_name::amplitude, gf_param_type::offset);;
 				for (auto& amp : amps)
 				{
 					amp = std::max(1.0f - static_cast<float>(amp), 0.0f);
@@ -973,8 +973,8 @@ public:
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
 				if (grain_collection_ == nullptr) return {0};
-				grain_collection_->SetActiveGrains((int)args[0]);
-				return {grain_collection_->ActiveGrains()};
+				grain_collection_->set_active_grains((int)args[0]);
+				return {grain_collection_->active_grains()};
 			}
 		},
 		description{"the number of active grains"},
@@ -995,9 +995,9 @@ public:
 					return args;
 				}
 				if (grain_collection_ == nullptr) return args;
-				if (grain_collection_->Grains() <= 0) return args;
+				if (grain_collection_->grains() <= 0) return args;
 
-				auto buf = grain_collection_->GetBuffer(GFBuffers::buffer);
+				auto buf = grain_collection_->get_buffer(gf_buffers::buffer);
 				if (buf == nullptr) return args;
 				o_grain_info.send(atoms{"buf", buf->name()});
 				return args;
@@ -1021,7 +1021,7 @@ public:
 			{
 				if (grain_collection_ == nullptr)return args;
 				const int chans = args[0];
-				grain_collection_->ChannelsSetInterleaved(chans);
+				grain_collection_->channels_set_interleaved(chans);
 				return args;
 			}
 		},
@@ -1041,7 +1041,7 @@ public:
 				if (grain_collection_ == nullptr)return args;
 				int mode = static_cast<float>(args[0]) >= 0.999f ? 1 : 0;
 
-				grain_collection_->ChannelModeSet(mode);
+				grain_collection_->channel_mode_set(mode);
 
 				return {mode};
 			},
@@ -1059,14 +1059,14 @@ public:
 				if (args.empty()) return {};
 				if (grain_collection_ == nullptr) return args;
 
-				if (args[0] == grain_collection_->Grains()) return {};
+				if (args[0] == grain_collection_->grains()) return {};
 				int grains = args[0];
-				if (grains < 1) return {grain_collection_->Grains()};
+				if (grains < 1) return {grain_collection_->grains()};
 				reinit(grains);
 				return args;
 			}
 		},
-		getter{[this]() -> atoms { return {grain_collection_->Grains()}; }},
+		getter{[this]() -> atoms { return {grain_collection_->grains()}; }},
 		category{"Grainflow Settings"},
 		description{"the maximum number of voices/grains. You will need to restart audio after setting this."},
 		order{2},
@@ -1093,13 +1093,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::nEnvelopes, GfParamType::value);
+				return set_grain_params(args, gf_param_name::n_envelopes, gf_param_type::value);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::nEnvelopes, GfParamType::value);;
+				return get_grain_params(gf_param_name::n_envelopes, gf_param_type::value);;
 			}
 		},
 		category{"Envelope"},
@@ -1113,13 +1113,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::envelopePosition, GfParamType::base);
+				return set_grain_params(args, gf_param_name::envelope_position, gf_param_type::base);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::envelopePosition, GfParamType::base);;
+				return get_grain_params(gf_param_name::envelope_position, gf_param_type::base);;
 			}
 		},
 		category{"Envelope"},
@@ -1133,13 +1133,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::envelopePosition, GfParamType::offset);
+				return set_grain_params(args, gf_param_name::envelope_position, gf_param_type::offset);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::envelopePosition, GfParamType::offset);;
+				return get_grain_params(gf_param_name::envelope_position, gf_param_type::offset);;
 			}
 		},
 		category{"Envelope"},
@@ -1153,13 +1153,13 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				return set_grain_params(args, GfParamName::envelopePosition, GfParamType::random);
+				return set_grain_params(args, gf_param_name::envelope_position, gf_param_type::random);
 			}
 		},
 		getter{
 			[this]() -> atoms
 			{
-				return get_grain_params(GfParamName::envelopePosition, GfParamType::random);;
+				return get_grain_params(gf_param_name::envelope_position, gf_param_type::random);;
 			}
 		},
 		category{"Envelope"},
@@ -1187,7 +1187,7 @@ public:
 		"DEPRECATED the amount grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			grain_message(static_cast<float>(args[0]), GfParamName::delay, GfParamType::base);
+			grain_message(static_cast<float>(args[0]), gf_param_name::delay, gf_param_type::base);
 			linked_params_dirty_ = true;
 			return {};
 		}
@@ -1200,7 +1200,7 @@ public:
 		"DEPRECATED the amount grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			grain_message(static_cast<float>(args[0]), GfParamName::delay, GfParamType::random);
+			grain_message(static_cast<float>(args[0]), gf_param_name::delay, gf_param_type::random);
 			linked_params_dirty_ = true;
 			return {};
 		}
@@ -1213,7 +1213,7 @@ public:
 		"DEPRECATED message to set the amount grains are delayed in ms",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			grain_message(static_cast<float>(args[0]), GfParamName::delay, GfParamType::offset);
+			grain_message(static_cast<float>(args[0]), gf_param_name::delay, gf_param_type::offset);
 			linked_params_dirty_ = true;
 			return {};
 		}
@@ -1236,7 +1236,7 @@ public:
 				target_ = last_target;
 				return {};
 			}
-			auto res = grain_collection_->ParamSet((int)args[0], (std::string)args[1], (float)args[2]);
+			auto res = grain_collection_->param_set((int)args[0], (std::string)args[1], (float)args[2]);
 			refresh_named_attributes((std::string)args[1]);
 			return {};
 		}
@@ -1261,7 +1261,7 @@ public:
 		"DEPRECATED message for setting the window offset attribute",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			return set_grain_params(args, GfParamName::window, GfParamType::offset);
+			return set_grain_params(args, gf_param_name::window, gf_param_type::offset);
 		},
 	};
 
@@ -1279,16 +1279,16 @@ public:
 			const int n_streams = args[1];
 			if (n_streams < 1)
 				return {};
-			auto mode = GfStreamSetType::automaticStreams;
+			auto mode = gf_stream_set_type::automatic_streams;
 			if (mode_str == "auto")
-				mode = GfStreamSetType::automaticStreams;
+				mode = gf_stream_set_type::automatic_streams;
 			else if (mode_str == "per")
-				mode = GfStreamSetType::perStreams;
+				mode = gf_stream_set_type::per_streams;
 			else if (mode_str == "random")
-				mode = GfStreamSetType::randomStreams;
+				mode = gf_stream_set_type::random_streams;
 			else
 				return {};
-			grain_collection_->StreamSet(mode, n_streams);
+			grain_collection_->stream_set(mode, n_streams);
 			n_streams_ = n_streams;
 			return {};
 		}
@@ -1306,7 +1306,7 @@ public:
 			if (n_streams < 1)
 				return {};
 			n_streams_ = n_streams;
-			grain_collection_->StreamSet(GfStreamSetType::manualStreams, n_streams_);
+			grain_collection_->stream_set(gf_stream_set_type::manual_streams, n_streams_);
 			return {};
 		}
 	};
@@ -1335,7 +1335,7 @@ public:
 			const float value = args[2];
 			const auto reflection_string = static_cast<string>(args[1]);
 
-			switch (grain_collection_->StreamParamSet(reflection_string, stream_target, value))
+			switch (grain_collection_->stream_param_set(reflection_string, stream_target, value))
 			{
 			case GF_RETURN_CODE::GF_PARAM_NOT_FOUND:
 				cout << stderr << "Parameter " << reflection_string << " not found";
@@ -1360,7 +1360,7 @@ public:
 			if (grain_collection_ == nullptr)return args;
 			float value = 0;
 			const auto reflection_string = args[0];
-			grain_collection_->StreamParamFunc(reflection_string, &GfUtils::Deviate, (float)args[2], (float)args[1]);
+			grain_collection_->stream_param_func(reflection_string, &gf_utils::deviate, (float)args[2], (float)args[1]);
 			refresh_named_attributes(reflection_string);
 			return {};
 		}
@@ -1375,7 +1375,8 @@ public:
 			const std::string reflection_string = args[0];
 			const float dev = args[1];
 			const float center = args[2];
-			if (const auto res = grain_collection_->GrainParamFunc(reflection_string, &GfUtils::Deviate, center, dev);
+			if (const auto res = grain_collection_->grain_param_func(reflection_string, &gf_utils::deviate, center, dev)
+				;
 				res
 				!= GF_RETURN_CODE::GF_SUCCESS)
 				cout << stderr << "Parameter " << reflection_string << " not found" <<
@@ -1394,7 +1395,8 @@ public:
 			if (grain_collection_ == nullptr)return args;
 			float value = 0;
 			auto reflectionString = args[0];
-			grain_collection_->StreamParamFunc(reflectionString, &GfUtils::RandomRange, (float)args[1], (float)args[2]);
+			grain_collection_->stream_param_func(reflectionString, &gf_utils::random_range, (float)args[1],
+			                                     (float)args[2]);
 			refresh_named_attributes(reflectionString);
 			return {};
 		}
@@ -1409,7 +1411,8 @@ public:
 			const std::string reflection_string = args[0];
 			const float low = args[1];
 			const float high = args[2];
-			if (const auto res = grain_collection_->GrainParamFunc(reflection_string, &GfUtils::RandomRange, low, high);
+			if (const auto res = grain_collection_->grain_param_func(reflection_string, &gf_utils::random_range, low,
+			                                                         high);
 				res != GF_RETURN_CODE::GF_SUCCESS)
 				cout << stderr << "Parameter " << reflection_string << " not found" <<
 					"\n";
@@ -1427,7 +1430,7 @@ public:
 			if (grain_collection_ == nullptr)return {};
 			float value = 0;
 			const auto reflection_string = args[0];
-			grain_collection_->StreamParamFunc(reflection_string, &GfUtils::Lerp, (float)args[1], (float)args[2]);
+			grain_collection_->stream_param_func(reflection_string, &gf_utils::lerp, (float)args[1], (float)args[2]);
 			refresh_named_attributes(reflection_string);
 			return {};
 		}
@@ -1442,7 +1445,8 @@ public:
 			const std::string reflection_string = args[0];
 			const float low = args[1];
 			const float high = args[2];
-			if (const auto res = grain_collection_->GrainParamFunc(reflection_string, &GfUtils::Lerp, low, high); res !=
+			if (const auto res = grain_collection_->grain_param_func(reflection_string, &gf_utils::lerp, low, high); res
+				!=
 				GF_RETURN_CODE::GF_SUCCESS)
 				cout << stderr << "Parameter " << reflection_string << " not found" << "\n";
 			refresh_named_attributes(reflection_string);
@@ -1472,10 +1476,10 @@ public:
 				chan = args[1];
 			}
 
-			if (g >= grain_collection_->Grains() || g < 0)
+			if (g >= grain_collection_->grains() || g < 0)
 				return {};
 			if (grain_collection_ == nullptr)return {};
-			grain_collection_->ChannelSet(g, chan);
+			grain_collection_->channel_set(g, chan);
 			buf_chans.touch();
 			return {};
 		}
@@ -1491,7 +1495,7 @@ public:
 			const int chan = args[0];
 			const std::string reflection_string = args[1];
 			const float value = args[2];
-			if (const auto res = grain_collection_->ChannelParamSet(chan, reflection_string, value); res !=
+			if (const auto res = grain_collection_->channel_param_set(chan, reflection_string, value); res !=
 				GF_RETURN_CODE::GF_SUCCESS)
 				cout << stderr << "Parameter " << reflection_string << " not found" << "\n";
 			refresh_named_attributes(reflection_string);
@@ -1507,7 +1511,7 @@ public:
 		"sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			grain_message(args[0], GfParamName::delay, GfParamType::mode);
+			grain_message(args[0], gf_param_name::delay, gf_param_type::mode);
 			return {};
 		}
 	};
@@ -1518,7 +1522,7 @@ public:
 		"sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			grain_message(args[0], GfParamName::rate, GfParamType::mode);
+			grain_message(args[0], gf_param_name::rate, gf_param_type::mode);
 			return {};
 		}
 	};
@@ -1529,7 +1533,7 @@ public:
 		"sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			grain_message(args[0], GfParamName::window, GfParamType::mode);
+			grain_message(args[0], gf_param_name::window, gf_param_type::mode);
 			return {};
 		}
 	};
@@ -1540,7 +1544,7 @@ public:
 		"sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			grain_message(args[0], GfParamName::glisson, GfParamType::mode);
+			grain_message(args[0], gf_param_name::glisson, gf_param_type::mode);
 			return {};
 		}
 	};
@@ -1561,14 +1565,14 @@ public:
 				use_default_envelope(true, target_);
 				return {};
 			}
-			buffer_ref_message(b_name, GFBuffers::envelope);
+			buffer_ref_message(b_name, gf_buffers::envelope);
 			use_default_envelope(false, target_);
 			if (args.size() < 2)
 			{
-				grain_message(1, GfParamName::nEnvelopes, GfParamType::value);
+				grain_message(1, gf_param_name::n_envelopes, gf_param_type::value);
 				return {};
 			}
-			grain_message((int)args[1], GfParamName::nEnvelopes, GfParamType::value);
+			grain_message((int)args[1], gf_param_name::n_envelopes, gf_param_type::value);
 
 			return {};
 		}
@@ -1591,7 +1595,7 @@ public:
 		"sets the 2D envelope position",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			grain_message(args[0], GfParamName::envelopePosition, GfParamType::base);
+			grain_message(args[0], gf_param_name::envelope_position, gf_param_type::base);
 			return {};
 		}
 	};
@@ -1605,8 +1609,8 @@ public:
 		{
 			if (grain_collection_ == nullptr)return args;
 			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, GFBuffers::buffer);
-			auto b = grain_collection_->GetBuffer(GFBuffers::buffer);
+			buffer_ref_message(b_name, gf_buffers::buffer);
+			auto b = grain_collection_->get_buffer(gf_buffers::buffer);
 			if (b != nullptr) { o_grain_info.send({"buf", b->name()}); };
 			return {};
 		}
@@ -1619,7 +1623,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, GFBuffers::delayBuffer);
+			buffer_ref_message(b_name, gf_buffers::delay_buffer);
 			return {};
 		}
 	};
@@ -1631,7 +1635,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, GFBuffers::windowBuffer);
+			buffer_ref_message(b_name, gf_buffers::window_buffer);
 			return {};
 		}
 	};
@@ -1643,7 +1647,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, GFBuffers::rateBuffer);
+			buffer_ref_message(b_name, gf_buffers::rate_buffer);
 			return {};
 		}
 	};
@@ -1655,13 +1659,13 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, GFBuffers::glissonBuffer);
+			buffer_ref_message(b_name, gf_buffers::glisson_buffer);
 			if (args.size() < 2)
 			{
-				grain_message(1, GfParamName::glissonRows, GfParamType::value);
+				grain_message(1, gf_param_name::glisson_rows, gf_param_type::value);
 				return {};
 			}
-			grain_message((int)args[1], GfParamName::glissonRows, GfParamType::value);
+			grain_message((int)args[1], gf_param_name::glisson_rows, gf_param_type::value);
 			return {};
 		}
 	};
