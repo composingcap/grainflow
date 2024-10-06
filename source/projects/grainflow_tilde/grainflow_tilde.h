@@ -1,10 +1,11 @@
 #pragma once
-#include "c74_min.h"
+#include <c74_min.h>
+#include <mutex>
+#include <map>
 #include "gfUtils.h"
 #include "gfGrainCollection.h"
 #include "maxBufferReader.h"
-#include <mutex>
-#include <map>
+
 constexpr size_t internal_block = 16;
 
 using namespace c74::min;

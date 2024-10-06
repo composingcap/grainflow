@@ -28,6 +28,7 @@ set(SOURCE_FILES
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfIBufferReader.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfGrainCollection.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfIoConfig.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfEnvelopes.h"
 	./maxBufferReader.h
 )
 

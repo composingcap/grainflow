@@ -1,8 +1,9 @@
 #pragma once
 #include <algorithm>
+#include <c74_min.h>
 #include "gfGrain.h"
-#include "c74_min.h"
 #include "gfIBufferReader.h"
+#include "gfEnvelopes.h"
 
 ///Provides an interface to grainflow using Max Min API
 
@@ -99,7 +100,7 @@ namespace Grainflow
 				{
 					const auto frame = static_cast<int>(
 						std::fmax(((std::fmin((grain_clock[i] * 1024.0), 1023.0))), 0.0));
-					samples[i] = Grainflow::hanning_envelope[frame];
+					samples[i] = Grainflow::gf_envelopes::hanning_envelope[frame];
 				}
 				return;
 			}
