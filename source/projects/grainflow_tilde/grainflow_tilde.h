@@ -10,8 +10,7 @@ constexpr size_t internal_block = 16;
 
 using namespace c74::min;
 using namespace Grainflow;
-long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count);
-long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
+
 
 class grainflow_tilde final : public object<grainflow_tilde>, public mc_operator<>
 	// NOLINT(cppcoreguidelines-special-member-functions)
@@ -58,6 +57,9 @@ private:
 	void refresh_named_attributes(const std::string& name);
 	void refresh_all_attributes();
 	void output_all_grain_info();
+
+	static long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count);
+	static long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 
 public:
 	int input_chans[4] = {0, 0, 0, 0};
