@@ -2,42 +2,18 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 5,
-			"revision" : 4,
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
 		"rect" : [ 100.0, 100.0, 669.0, 480.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 11.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Lato",
-		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "Minimal",
+		"style" : "Grainflow",
 		"subpatcher_template" : "minimal",
-		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
 					"bubble" : 1,
@@ -46,7 +22,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 345.0, 241.5, 150.0, 37.0 ],
+					"patching_rect" : [ 345.0, 241.5, 172.0, 39.0 ],
 					"text" : "use udpsend to send messages over osc"
 				}
 
@@ -57,7 +33,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 219.0, 249.0, 124.0, 22.0 ],
+					"patching_rect" : [ 200.5, 248.0, 136.0, 23.0 ],
 					"text" : "udpsend localhost 4048"
 				}
 
@@ -65,11 +41,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-23",
-					"linecount" : 2,
+					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 58.0, 370.0, 33.0 ],
+					"patching_rect" : [ 13.0, 58.0, 370.0, 32.0 ],
 					"text" : "Formats spatial coordinates for other spatialization systems. Note that some of these systems are Max externals and others work over OSC."
 				}
 
@@ -81,7 +57,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 13.0, 7.0, 389.0, 42.0 ],
+					"patching_rect" : [ 13.0, 7.0, 389.0, 41.0 ],
 					"text" : "grainflow.spat.format"
 				}
 
@@ -93,7 +69,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "" ],
-					"patching_rect" : [ 39.0, 221.0, 29.5, 22.0 ],
+					"patching_rect" : [ 39.0, 221.0, 35.0, 23.0 ],
 					"text" : "t b l"
 				}
 
@@ -105,7 +81,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 49.5, 282.0, 47.0, 22.0 ],
+					"patching_rect" : [ 50.0, 282.0, 62.0, 23.0 ],
 					"text" : "zl.group"
 				}
 
@@ -119,7 +95,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 109.0, 150.0, 50.0, 22.0 ]
+					"patching_rect" : [ 122.0, 153.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -132,7 +108,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 91.5, 126.0, 50.0, 22.0 ]
+					"patching_rect" : [ 101.25, 127.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -145,7 +121,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 74.0, 102.0, 50.0, 22.0 ]
+					"patching_rect" : [ 74.0, 102.0, 50.0, 21.0 ]
 				}
 
 			}
@@ -156,7 +132,7 @@
 					"numinlets" : 5,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 39.0, 182.0, 89.0, 22.0 ],
+					"patching_rect" : [ 39.0, 182.0, 102.0, 23.0 ],
 					"text" : "pak xyz 0 0. 0. 0."
 				}
 
@@ -168,7 +144,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 188.0, 184.0, 79.0, 22.0 ],
+					"patching_rect" : [ 188.0, 184.0, 100.0, 23.0 ],
 					"text" : "prepend mode"
 				}
 
@@ -182,7 +158,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 188.0, 157.0, 100.0, 22.0 ]
+					"patching_rect" : [ 188.0, 157.0, 100.0, 23.0 ]
 				}
 
 			}
@@ -193,7 +169,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 49.5, 310.0, 66.0, 22.0 ],
+					"patching_rect" : [ 49.5, 342.0, 78.0, 23.0 ],
 					"text" : "prepend set"
 				}
 
@@ -206,7 +182,7 @@
 					"numoutlets" : 4,
 					"outlettype" : [ "", "int", "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 49.5, 338.0, 287.0, 48.0 ],
+					"patching_rect" : [ 49.5, 371.0, 287.0, 48.0 ],
 					"text" : "/spat/serv car 1 -0.05312 0.2158 -0.249 0. 0."
 				}
 
@@ -218,7 +194,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 49.5, 255.0, 112.0, 22.0 ],
+					"patching_rect" : [ 50.0, 255.0, 129.0, 23.0 ],
 					"text" : "grainflow.spat.format"
 				}
 
@@ -302,16 +278,17 @@
 
 			}
  ],
+		"originid" : "pat-2987",
 		"dependency_cache" : [ 			{
 				"name" : "_grainflow.xyz2aed.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.format.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
@@ -319,28 +296,17 @@
  ],
 		"autosave" : 0,
 		"styles" : [ 			{
-				"name" : "Minimal",
+				"name" : "Grainflow",
 				"default" : 				{
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgfillcolor" : 					{
-						"angle" : 270.0,
-						"autogradient" : 0.0,
-						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"proportion" : 0.39,
-						"type" : "color"
-					}
-,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
-					"fontface" : [ 0 ],
-					"fontname" : [ "Lato" ],
-					"fontsize" : [ 11.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+					"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
+					"fontname" : [ "Lato Medium" ],
+					"fontsize" : [ 12.0 ],
+					"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+					"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+					"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 				}
 ,
 				"parentstyle" : "",

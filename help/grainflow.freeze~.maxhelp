@@ -2,42 +2,18 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 6,
-			"revision" : 1,
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
 		"rect" : [ 100.0, 100.0, 693.0, 788.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 11.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Lato",
-		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "Minimal",
+		"style" : "Grainflow",
 		"subpatcher_template" : "minimal",
-		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
 					"id" : "obj-11",
@@ -48,13 +24,14 @@
 					"orientation" : 1,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 17.5, 657.0, 136.0, 47.0 ],
+					"patching_rect" : [ 17.5, 639.0, 136.0, 47.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "live.gain~",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 0,
+							"parameter_osc_name" : "<default>",
 							"parameter_shortname" : "live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
@@ -73,7 +50,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 129.5, 541.0, 141.0, 24.0 ],
+					"patching_rect" : [ 141.5, 540.5, 141.0, 25.0 ],
 					"text" : "grain clock"
 				}
 
@@ -115,7 +92,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 374.0, 161.0, 237.0, 20.0 ],
+					"patching_rect" : [ 374.0, 161.0, 237.0, 21.0 ],
 					"text" : "Trigger a MIDI note to start a freeze"
 				}
 
@@ -188,7 +165,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 196.0, 130.0, 237.0, 20.0 ],
+					"patching_rect" : [ 196.0, 130.0, 237.0, 21.0 ],
 					"text" : "Play this sound file into grainflow.freeze~"
 				}
 
@@ -199,7 +176,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 74.0, 95.0, 255.0, 20.0 ],
+					"patching_rect" : [ 74.0, 95.0, 255.0, 21.0 ],
 					"text" : "Enable recording and playback"
 				}
 
@@ -212,9 +189,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 158.0, 289.5, 125.0, 46.0 ],
-					"text" : "Will not work:\nstate, forceGrainReset, travRandom, rate",
-					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
+					"patching_rect" : [ 172.75, 279.0, 129.5, 46.0 ],
+					"text" : "state, forceGrainReset, travRandom, and rate will not work"
 				}
 
 			}
@@ -226,7 +202,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 419.0, 451.0, 151.0, 37.0 ],
+					"patching_rect" : [ 431.0, 448.0, 150.0, 39.0 ],
 					"text" : "The adsr message will set the voice envelope"
 				}
 
@@ -238,9 +214,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 186.0, 576.0, 150.0, 86.0 ],
-					"text" : "The freeze can last the duration of the freeze buffer in this case 600000 ms. If it goes over the duration the buffer loops and the freeze will be overwritten.",
-					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
+					"patching_rect" : [ 202.0, 576.0, 163.0, 93.0 ],
+					"text" : "The freeze can last the duration of the freeze buffer in this case 600000 ms. If it goes over the duration the buffer loops and the freeze will be overwritten."
 				}
 
 			}
@@ -251,7 +226,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 15.0, 50.0, 558.0, 33.0 ],
+					"patching_rect" : [ 15.0, 50.0, 558.0, 35.0 ],
 					"text" : "grainflow.freeze is designed to freeze a moment in time for the duration of a midi note.\nThe freeze starts with a small granulation area and expands to freezeDepth over the freezeExpandTime. "
 				}
 
@@ -264,7 +239,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 163.5, 396.0, 148.0, 50.0 ],
+					"patching_rect" : [ 172.0, 401.0, 150.0, 54.0 ],
 					"text" : "The time it take for the freeze to reach its freeze depth"
 				}
 
@@ -278,7 +253,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 40.0, 379.5, 50.0, 22.0 ],
+					"patching_rect" : [ 40.0, 379.5, 50.0, 23.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 500 ],
@@ -286,6 +261,7 @@
 							"parameter_invisible" : 1,
 							"parameter_longname" : "number",
 							"parameter_modmode" : 0,
+							"parameter_osc_name" : "<default>",
 							"parameter_shortname" : "number",
 							"parameter_type" : 3
 						}
@@ -303,7 +279,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 40.0, 416.5, 117.0, 22.0 ],
+					"patching_rect" : [ 40.0, 416.5, 124.0, 23.0 ],
 					"text" : "freezeExpandTime $1"
 				}
 
@@ -312,11 +288,11 @@
 				"box" : 				{
 					"bubble" : 1,
 					"id" : "obj-47",
-					"linecount" : 4,
+					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 167.5, 466.0, 141.0, 63.0 ],
+					"patching_rect" : [ 158.0, 465.5, 181.0, 54.0 ],
 					"text" : "The maximum distance in ms the freeze will span after the freezeExpandTime"
 				}
 
@@ -330,7 +306,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 68.0, 444.5, 50.0, 22.0 ],
+					"patching_rect" : [ 68.0, 444.5, 50.0, 23.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
@@ -338,6 +314,7 @@
 							"parameter_invisible" : 1,
 							"parameter_longname" : "number[1]",
 							"parameter_modmode" : 0,
+							"parameter_osc_name" : "<default>",
 							"parameter_shortname" : "number[1]",
 							"parameter_type" : 3
 						}
@@ -351,11 +328,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-44",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 68.0, 481.5, 86.0, 22.0 ],
+					"patching_rect" : [ 68.0, 481.5, 86.0, 37.0 ],
 					"text" : "freezeDepth $1"
 				}
 
@@ -367,13 +345,14 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 52.5, 343.0, 150.0, 24.0 ],
+					"patching_rect" : [ 86.0, 325.0, 174.0, 25.0 ],
 					"text" : "View the internal buffer"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgmode" : 2,
 					"border" : 0,
 					"clickthrough" : 0,
@@ -392,42 +371,16 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 6,
-							"revision" : 1,
+							"major" : 9,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
 						"rect" : [ 1419.0, 728.0, 640.0, 631.0 ],
-						"bglocked" : 0,
-						"openinpresentation" : 0,
-						"default_fontsize" : 12.0,
-						"default_fontface" : 0,
-						"default_fontname" : "Arial",
-						"gridonopen" : 1,
 						"gridsize" : [ 15.0, 15.0 ],
-						"gridsnaponopen" : 1,
-						"objectsnaponopen" : 1,
-						"statusbarvisible" : 2,
-						"toolbarvisible" : 1,
-						"lefttoolbarpinned" : 0,
-						"toptoolbarpinned" : 0,
-						"righttoolbarpinned" : 0,
-						"bottomtoolbarpinned" : 0,
-						"toolbars_unpinned_last_save" : 0,
-						"tallnewobj" : 0,
-						"boxanimatetime" : 200,
-						"enablehscroll" : 1,
-						"enablevscroll" : 1,
-						"devicewidth" : 0.0,
-						"description" : "",
-						"digest" : "",
-						"tags" : "",
-						"style" : "",
-						"subpatcher_template" : "",
-						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-3",
@@ -508,6 +461,7 @@
 											"parameter_mmax" : 5000.0,
 											"parameter_mmin" : 10.0,
 											"parameter_modmode" : 0,
+											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "R",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 0
@@ -536,6 +490,7 @@
 											"parameter_longname" : "S",
 											"parameter_mmax" : 1.0,
 											"parameter_modmode" : 0,
+											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "S",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 1
@@ -562,6 +517,7 @@
 											"parameter_longname" : "D",
 											"parameter_mmax" : 1000.0,
 											"parameter_modmode" : 0,
+											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "D",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 0
@@ -591,6 +547,7 @@
 											"parameter_mmax" : 5000.0,
 											"parameter_mmin" : 10.0,
 											"parameter_modmode" : 0,
+											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "A",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 0
@@ -656,7 +613,8 @@
 								}
 
 							}
- ]
+ ],
+						"originid" : "pat-1480"
 					}
 ,
 					"patching_rect" : [ 339.0, 379.5, 205.0, 64.0 ],
@@ -667,13 +625,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-32",
-					"linecount" : 4,
+					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 374.0, 256.0, 153.0, 59.0 ],
-					"text" : "Midi notes are used to mark voices.  The velocity will translate to loudness but pitch does not matter",
-					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
+					"patching_rect" : [ 382.0, 256.0, 275.0, 50.0 ],
+					"text" : "Midi notes are used to mark voices.  The velocity will translate to loudness but pitch does not matter"
 				}
 
 			}
@@ -686,7 +643,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 14.0, 252.5, 50.0, 22.0 ]
+					"patching_rect" : [ 52.5, 247.0, 50.0, 23.0 ]
 				}
 
 			}
@@ -697,7 +654,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 14.0, 289.5, 102.0, 22.0 ],
+					"patching_rect" : [ 52.5, 284.0, 118.0, 23.0 ],
 					"text" : "windowRandom $1"
 				}
 
@@ -710,7 +667,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 83.0, 245.0, 150.0, 37.0 ],
+					"patching_rect" : [ 112.5, 238.0, 170.0, 39.0 ],
 					"text" : "most grainflow messages will work with the freeze."
 				}
 
@@ -723,7 +680,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 96.0, 202.0, 191.0, 37.0 ],
+					"patching_rect" : [ 112.0, 196.0, 174.5, 39.0 ],
 					"text" : "transpose will apply a transposition to new voices"
 				}
 
@@ -735,7 +692,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 339.0, 456.0, 75.0, 22.0 ],
+					"patching_rect" : [ 339.0, 456.0, 83.0, 23.0 ],
 					"text" : "prepend adsr"
 				}
 
@@ -747,7 +704,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 345.0, 256.0, 29.5, 22.0 ],
+					"patching_rect" : [ 345.0, 256.0, 29.5, 23.0 ],
 					"text" : "join"
 				}
 
@@ -768,13 +725,12 @@
 			}
 , 			{
 				"box" : 				{
-					"elementcolor" : [ 0.847058823529412, 0.847058823529412, 0.847058823529412, 1.0 ],
 					"id" : "obj-5",
 					"local" : 1,
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 17.5, 715.0, 45.0, 45.0 ]
+					"patching_rect" : [ 17.5, 697.0, 45.0, 45.0 ]
 				}
 
 			}
@@ -799,18 +755,19 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 14.0, 181.0, 50.0, 22.0 ]
+					"patching_rect" : [ 30.0, 175.0, 50.0, 23.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-34",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 14.0, 212.0, 74.0, 22.0 ],
+					"patching_rect" : [ 30.0, 206.0, 74.0, 37.0 ],
 					"text" : "transpose $1"
 				}
 
@@ -822,7 +779,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 17.5, 343.0, 33.0, 22.0 ],
+					"patching_rect" : [ 46.0, 326.0, 38.0, 23.0 ],
 					"text" : "open"
 				}
 
@@ -860,6 +817,37 @@
 					"patching_rect" : [ 14.0, 130.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
+					"saved_attribute_attributes" : 					{
+						"candicane2" : 						{
+							"expression" : ""
+						}
+,
+						"candicane3" : 						{
+							"expression" : ""
+						}
+,
+						"candicane4" : 						{
+							"expression" : ""
+						}
+,
+						"candicane5" : 						{
+							"expression" : ""
+						}
+,
+						"candicane6" : 						{
+							"expression" : ""
+						}
+,
+						"candicane7" : 						{
+							"expression" : ""
+						}
+,
+						"candicane8" : 						{
+							"expression" : ""
+						}
+
+					}
+,
 					"timestretch" : [ 0 ]
 				}
 
@@ -871,7 +859,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 17.5, 621.0, 157.0, 22.0 ],
+					"patching_rect" : [ 18.0, 603.0, 172.0, 23.0 ],
 					"text" : "mc.mixdown~ 1 @autogain 1"
 				}
 
@@ -883,7 +871,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 60.5, 541.0, 67.0, 22.0 ],
+					"patching_rect" : [ 61.0, 541.0, 75.0, 23.0 ],
 					"text" : "phasor~ 10"
 				}
 
@@ -897,6 +885,7 @@
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 15.0, 95.0, 24.0, 24.0 ],
+					"svg" : "",
 					"uncheckedcolor" : [ 0.847058823529412, 0.847058823529412, 0.847058823529412, 1.0 ]
 				}
 
@@ -908,7 +897,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 17.5, 576.0, 148.0, 22.0 ],
+					"patching_rect" : [ 18.0, 576.0, 163.0, 23.0 ],
 					"text" : "grainflow.freeze~ 600000 8"
 				}
 
@@ -961,7 +950,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 348.5, 535.25, 27.0, 535.25 ],
+					"midpoints" : [ 348.5, 535.25, 27.5, 535.25 ],
 					"source" : [ "obj-15", 0 ]
 				}
 
@@ -969,6 +958,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 55.5, 357.5, 27.5, 357.5 ],
 					"source" : [ "obj-22", 0 ]
 				}
 
@@ -976,6 +966,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 62.0, 312.5, 27.5, 312.5 ],
 					"source" : [ "obj-27", 0 ]
 				}
 
@@ -997,6 +988,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
+					"midpoints" : [ 39.5, 317.0, 27.5, 317.0 ],
 					"source" : [ "obj-34", 0 ]
 				}
 
@@ -1018,7 +1010,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 77.5, 520.75, 27.0, 520.75 ],
+					"midpoints" : [ 77.5, 520.75, 27.5, 520.75 ],
 					"source" : [ "obj-44", 0 ]
 				}
 
@@ -1033,7 +1025,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 49.5, 517.25, 27.0, 517.25 ],
+					"midpoints" : [ 49.5, 517.25, 27.5, 517.25 ],
 					"source" : [ "obj-49", 0 ]
 				}
 
@@ -1063,12 +1055,13 @@
 				"patchline" : 				{
 					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 354.5, 376.5, 27.0, 376.5 ],
+					"midpoints" : [ 354.5, 376.5, 27.5, 376.5 ],
 					"source" : [ "obj-8", 0 ]
 				}
 
 			}
  ],
+		"originid" : "pat-1477",
 		"parameters" : 		{
 			"obj-11" : [ "live.gain~", "live.gain~", 0 ],
 			"obj-33::obj-35" : [ "A", "A", 0 ],
@@ -1092,35 +1085,35 @@
 			}
 , 			{
 				"name" : "_grainflow.poly.freezer.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/_private",
 				"patcherrelativepath" : "../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.freeze~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.record.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow~.mxo",
-				"type" : "iLaX"
+				"name" : "grainflow~.mxe64",
+				"type" : "mx64"
 			}
  ],
 		"autosave" : 0,
@@ -1135,34 +1128,23 @@
 			}
  ],
 		"styles" : [ 			{
-				"name" : "Minimal",
+				"name" : "Grainflow",
 				"default" : 				{
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"bgfillcolor" : 					{
-						"angle" : 270.0,
-						"autogradient" : 0.0,
-						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"proportion" : 0.39,
-						"type" : "color"
-					}
-,
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontface" : [ 0 ],
-					"fontname" : [ "Futura Medium" ],
-					"fontsize" : [ 10.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+					"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
+					"fontname" : [ "Lato Medium" ],
+					"fontsize" : [ 12.0 ],
+					"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+					"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+					"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
 				"multi" : 0
 			}
- ],
-		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
+ ]
 	}
 
 }

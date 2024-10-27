@@ -2,42 +2,18 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 6,
-			"revision" : 1,
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
 		"rect" : [ 100.0, 100.0, 846.0, 655.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 11.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Lato Medium",
-		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "Minimal",
+		"style" : "Grainflow",
 		"subpatcher_template" : "minimal",
-		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
 					"fontface" : 1,
@@ -107,7 +83,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 347.0, 80.0, 90.0, 22.0 ],
+					"patching_rect" : [ 373.0, 89.0, 112.0, 23.0 ],
 					"text" : "mc.snowphasor~"
 				}
 
@@ -118,7 +94,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.0, 132.5, 275.0, 20.0 ],
+					"patching_rect" : [ 67.0, 132.5, 275.0, 21.0 ],
 					"text" : "Adjust how grain clocks are scheduled"
 				}
 
@@ -129,7 +105,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.0, 100.0, 150.0, 20.0 ],
+					"patching_rect" : [ 67.0, 100.0, 150.0, 21.0 ],
 					"text" : "Turn on the granulator"
 				}
 
@@ -141,7 +117,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 380.0, 156.0, 63.0, 22.0 ],
+					"patching_rect" : [ 380.0, 156.0, 73.0, 23.0 ],
 					"text" : "loadmess 0"
 				}
 
@@ -153,7 +129,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 438.0, 184.0, 107.999999999999972, 24.0 ],
+					"patching_rect" : [ 438.0, 184.0, 107.999999999999972, 25.0 ],
 					"text" : "Position Jitter"
 				}
 
@@ -175,6 +151,7 @@
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 0,
+							"parameter_osc_name" : "<default>",
 							"parameter_shortname" : "mc.live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
@@ -195,6 +172,7 @@
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 12.0, 98.0, 24.0, 24.0 ],
+					"svg" : "",
 					"uncheckedcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 				}
 
@@ -217,7 +195,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 41.0, 435.0, 145.0, 22.0 ],
+					"patching_rect" : [ 41.0, 435.0, 162.0, 23.0 ],
 					"text" : "grainflow.util.stereoPan~ 20"
 				}
 
@@ -229,7 +207,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 74.666666666666657, 347.0, 51.0, 22.0 ],
+					"patching_rect" : [ 75.0, 347.0, 67.0, 23.0 ],
 					"text" : "noise~"
 				}
 
@@ -241,7 +219,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 188.0, 382.0, 120.0, 22.0 ],
+					"patching_rect" : [ 188.0, 382.0, 136.0, 23.0 ],
 					"text" : "buffer~ rsphasor anton"
 				}
 
@@ -253,7 +231,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 9,
 					"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 41.0, 382.0, 120.0, 22.0 ],
+					"patching_rect" : [ 41.0, 382.0, 136.0, 23.0 ],
 					"text" : "grainflow~ rsphasor 20"
 				}
 
@@ -267,7 +245,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 380.0, 185.0, 50.0, 22.0 ]
+					"patching_rect" : [ 380.0, 185.0, 50.0, 23.0 ]
 				}
 
 			}
@@ -278,7 +256,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 340.0, 305.0, 148.0, 22.0 ],
+					"patching_rect" : [ 340.0, 305.0, 164.0, 23.0 ],
 					"text" : "routepass multichannelsignal"
 				}
 
@@ -290,7 +268,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 207.0, 156.0, 78.0, 22.0 ],
+					"patching_rect" : [ 207.0, 156.0, 88.0, 23.0 ],
 					"text" : "loadmess 125"
 				}
 
@@ -302,7 +280,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 41.0, 161.0, 72.0, 22.0 ],
+					"patching_rect" : [ 41.0, 161.0, 82.0, 23.0 ],
 					"text" : "loadmess 20"
 				}
 
@@ -314,7 +292,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 12.0, 59.0, 637.0, 33.0 ],
+					"patching_rect" : [ 12.0, 59.0, 637.0, 35.0 ],
 					"text" : "A utility that translates grain rate and grain size to the phasor overlap model used in grain flow for grain scheduling. Mc.Snowphasor~ is also a great option for generating grain clocks."
 				}
 
@@ -337,9 +315,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 259.0, 226.0, 277.0, 20.0 ],
-					"text" : "argumnents: the maximum number of grains, rate, size",
-					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
+					"patching_rect" : [ 267.0, 227.0, 310.0, 21.0 ],
+					"text" : "argumnents: the maximum number of grains, rate, size"
 				}
 
 			}
@@ -349,7 +326,7 @@
 					"maxclass" : "scope~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 340.0, 338.0, 338.0, 70.0 ],
+					"patching_rect" : [ 340.0, 365.5, 338.0, 70.0 ],
 					"range" : [ 0.0, 1.0 ]
 				}
 
@@ -361,7 +338,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 292.0, 254.0, 150.0, 24.0 ],
+					"patching_rect" : [ 302.0, 256.0, 150.0, 25.0 ],
 					"text" : "Resultant overlap"
 				}
 
@@ -375,7 +352,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 237.0, 254.0, 50.0, 22.0 ]
+					"patching_rect" : [ 247.0, 256.0, 50.0, 23.0 ]
 				}
 
 			}
@@ -386,7 +363,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 259.0, 184.0, 107.999999999999972, 24.0 ],
+					"patching_rect" : [ 259.0, 184.0, 107.999999999999972, 25.0 ],
 					"text" : "Grain Size (ms)"
 				}
 
@@ -398,7 +375,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 93.0, 184.0, 107.0, 24.0 ],
+					"patching_rect" : [ 93.0, 184.0, 107.0, 25.0 ],
 					"text" : "Grain Rate (hz)"
 				}
 
@@ -413,7 +390,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 207.0, 184.0, 50.0, 22.0 ]
+					"patching_rect" : [ 207.0, 184.0, 50.0, 23.0 ]
 				}
 
 			}
@@ -427,7 +404,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 41.0, 184.0, 50.0, 22.0 ]
+					"patching_rect" : [ 41.0, 184.0, 50.0, 23.0 ]
 				}
 
 			}
@@ -438,7 +415,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "" ],
-					"patching_rect" : [ 41.0, 225.0, 215.0, 22.0 ],
+					"patching_rect" : [ 41.0, 225.0, 225.0, 23.0 ],
 					"text" : "grainflow.util.rateSizePhasor~ 20 20 125"
 				}
 
@@ -447,14 +424,14 @@
 				"box" : 				{
 					"angle" : 270.0,
 					"background" : 1,
-					"bgcolor" : [ 1.0, 1.0, 0.890196078431372, 1.0 ],
+					"bgcolor" : [ 0.368627450980392, 0.368627450980392, 0.368627450980392, 1.0 ],
 					"id" : "obj-19",
 					"maxclass" : "panel",
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 29.5, 156.0, 526.0, 130.0 ],
-					"proportion" : 0.39
+					"patching_rect" : [ 30.0, 156.0, 540.0, 131.0 ],
+					"proportion" : 0.5
 				}
 
 			}
@@ -551,7 +528,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 1 ],
-					"midpoints" : [ 216.5, 219.5, 148.5, 219.5 ],
+					"midpoints" : [ 216.5, 219.5, 153.5, 219.5 ],
 					"source" : [ "obj-28", 0 ]
 				}
 
@@ -573,12 +550,13 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 2 ],
-					"midpoints" : [ 389.5, 218.5, 246.5, 218.5 ],
+					"midpoints" : [ 389.5, 218.5, 256.5, 218.5 ],
 					"source" : [ "obj-9", 0 ]
 				}
 
 			}
  ],
+		"originid" : "pat-268",
 		"parameters" : 		{
 			"obj-23" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
@@ -590,28 +568,28 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "grainflow.rateSizePhasor.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.rateSizePhasor~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow~.mxo",
-				"type" : "iLaX"
+				"name" : "grainflow~.mxe64",
+				"type" : "mx64"
 			}
  ],
 		"autosave" : 0,
@@ -623,36 +601,23 @@
 			}
  ],
 		"styles" : [ 			{
-				"name" : "Minimal",
+				"name" : "Grainflow",
 				"default" : 				{
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"bgfillcolor" : 					{
-						"angle" : 270.0,
-						"autogradient" : 0.0,
-						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"proportion" : 0.39,
-						"type" : "color"
-					}
-,
-					"bubble_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"elementcolor" : [ 0.796078431372549, 0.796078431372549, 0.796078431372549, 1.0 ],
-					"fontface" : [ 0 ],
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+					"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
 					"fontname" : [ "Lato Medium" ],
-					"fontsize" : [ 11.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"fontsize" : [ 12.0 ],
+					"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+					"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+					"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
 				"multi" : 0
 			}
- ],
-		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
+ ]
 	}
 
 }

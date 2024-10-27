@@ -2,51 +2,32 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 6,
-			"revision" : 1,
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 582.0, 638.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 11.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Lato Medium",
-		"gridonopen" : 1,
+		"rect" : [ 100.0, 100.0, 645.0, 638.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "Minimal",
+		"style" : "Grainflow",
 		"subpatcher_template" : "minimal",
-		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"buffername" : "1279_flow_1",
+					"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
+					"buffername" : "1672_flow_1",
+					"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+					"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 					"id" : "obj-12",
 					"maxclass" : "grainflow.waveform~",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 159.0, 370.0, 300.0, 100.0 ]
+					"patching_rect" : [ 163.0, 368.0, 432.0, 61.0 ],
+					"selectColor" : [ 0.949019607843137, 1.0, 0.0, 0.13 ],
+					"trackerColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 				}
 
 			}
@@ -59,7 +40,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 180.0, 148.5, 17.0, 17.0 ],
+					"patching_rect" : [ 180.0, 148.5, 21.0, 17.0 ],
 					"text" : "2",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textjustification" : 1
@@ -75,7 +56,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 180.0, 148.5, 16.0, 17.0 ],
+					"patching_rect" : [ 180.0, 149.0, 20.0, 17.0 ],
 					"proportion" : 0.39,
 					"shape" : 1
 				}
@@ -90,7 +71,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 44.5, 107.5, 17.0, 17.0 ],
+					"patching_rect" : [ 45.0, 107.5, 21.0, 17.0 ],
 					"text" : "1",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textjustification" : 1
@@ -106,7 +87,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 44.5, 107.5, 16.0, 17.0 ],
+					"patching_rect" : [ 45.0, 108.0, 20.0, 17.0 ],
 					"proportion" : 0.39,
 					"shape" : 1
 				}
@@ -114,22 +95,24 @@
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"id" : "obj-13",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 198.0, 147.0, 237.0, 20.0 ],
+					"patching_rect" : [ 198.0, 147.0, 241.0, 20.0 ],
 					"text" : "Play this sound file into grainflow.chorus~"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"id" : "obj-6",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 63.0, 105.0, 255.0, 20.0 ],
+					"patching_rect" : [ 63.0, 105.0, 259.0, 20.0 ],
 					"text" : "Enable the chorus"
 				}
 
@@ -150,6 +133,7 @@
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 0,
+							"parameter_osc_name" : "<default>",
 							"parameter_shortname" : "mc.live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
@@ -176,30 +160,33 @@
 , 			{
 				"box" : 				{
 					"bubble" : 1,
+					"fontname" : "Lato Medium",
 					"id" : "obj-32",
 					"linecount" : 5,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 438.0, 232.0, 142.0, 76.0 ],
+					"patching_rect" : [ 438.0, 232.0, 146.0, 76.0 ],
 					"text" : "As with other grainflow abstractions, you are able to use grainflow messages with chorus as well"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"id" : "obj-30",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 337.0, 190.0, 76.0, 22.0 ],
+					"patching_rect" : [ 337.0, 190.0, 80.0, 22.0 ],
 					"text" : "loadmess 0.1"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"format" : 6,
 					"id" : "obj-29",
 					"maxclass" : "flonum",
@@ -207,32 +194,33 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 337.0, 224.0, 50.0, 22.0 ]
+					"patching_rect" : [ 337.0, 224.0, 54.0, 22.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"id" : "obj-27",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 337.0, 259.0, 88.0, 22.0 ],
+					"patching_rect" : [ 337.0, 259.0, 92.0, 22.0 ],
 					"text" : "ampRandom $1"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"id" : "obj-22",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 188.0, 317.0, 299.0, 33.0 ],
-					"text" : "Arguments are chorus value, buffersize, and number of voices",
-					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
+					"patching_rect" : [ 188.0, 317.0, 303.0, 33.0 ],
+					"text" : "Arguments are chorus value, buffersize, and number of voices"
 				}
 
 			}
@@ -243,44 +231,47 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 36.0, 242.0, 180.0, 33.0 ],
-					"text" : "The best values for a chorus effect are between zero and one",
-					"textcolor" : [ 0.392156862745098, 0.392156862745098, 0.392156862745098, 1.0 ]
+					"patching_rect" : [ 36.0, 242.0, 184.0, 35.0 ],
+					"style" : "Grainflow",
+					"text" : "The best values for a chorus effect are between zero and one"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"id" : "obj-18",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 15.0, 186.0, 76.0, 22.0 ],
+					"patching_rect" : [ 15.0, 186.0, 80.0, 22.0 ],
 					"text" : "loadmess 0.5"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"id" : "obj-17",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1.0, 58.0, 427.0, 33.0 ],
+					"patching_rect" : [ 1.0, 58.0, 431.0, 33.0 ],
 					"text" : "A granular chorusing effect where grains are modulated in terms of rate and delay based on a single value.  Random panning is also applied."
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"fontsize" : 30.0,
 					"id" : "obj-15",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1.0, 3.0, 426.0, 42.0 ],
+					"patching_rect" : [ 1.0, 3.0, 432.0, 42.0 ],
 					"text" : "grainflow.chorus~"
 				}
 
@@ -288,17 +279,19 @@
 , 			{
 				"box" : 				{
 					"bubble" : 1,
+					"fontname" : "Lato Medium",
 					"id" : "obj-11",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 67.0, 218.0, 268.0, 24.0 ],
+					"patching_rect" : [ 67.0, 218.0, 272.0, 24.0 ],
 					"text" : "Chorus value- higher is more extreme."
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"format" : 6,
 					"id" : "obj-9",
 					"maxclass" : "flonum",
@@ -306,7 +299,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 15.0, 218.0, 50.0, 22.0 ]
+					"patching_rect" : [ 15.0, 218.0, 54.0, 22.0 ]
 				}
 
 			}
@@ -318,7 +311,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 14.0, 104.0, 24.0, 24.0 ],
+					"patching_rect" : [ 14.0, 102.0, 28.0, 28.0 ],
+					"svg" : "",
 					"uncheckedcolor" : [ 0.572549019607843, 0.572549019607843, 0.572549019607843, 1.0 ]
 				}
 
@@ -343,6 +337,7 @@
 					}
 ,
 					"followglobaltempo" : 0,
+					"fontname" : "Lato Medium",
 					"formantcorrection" : 0,
 					"id" : "obj-3",
 					"maxclass" : "playlist~",
@@ -353,21 +348,54 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 28.0, 142.0, 150.0, 30.0 ],
+					"patching_rect" : [ 28.0, 142.0, 154.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
+					"saved_attribute_attributes" : 					{
+						"candicane2" : 						{
+							"expression" : ""
+						}
+,
+						"candicane3" : 						{
+							"expression" : ""
+						}
+,
+						"candicane4" : 						{
+							"expression" : ""
+						}
+,
+						"candicane5" : 						{
+							"expression" : ""
+						}
+,
+						"candicane6" : 						{
+							"expression" : ""
+						}
+,
+						"candicane7" : 						{
+							"expression" : ""
+						}
+,
+						"candicane8" : 						{
+							"expression" : ""
+						}
+
+					}
+,
 					"timestretch" : [ 0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Lato Medium",
 					"id" : "obj-1",
+					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "multichannelsignal", "bang" ],
-					"patching_rect" : [ 14.0, 317.0, 164.0, 22.0 ],
+					"patching_rect" : [ 14.0, 317.0, 168.0, 22.0 ],
 					"text" : "grainflow.chorus~ 0.5 5000 10"
 				}
 
@@ -446,6 +474,7 @@
 
 			}
  ],
+		"originid" : "pat-812",
 		"parameters" : 		{
 			"obj-4" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
@@ -462,40 +491,40 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainFlow.live~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
+				"name" : "grainflow.chorus~.maxpat",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.chorus~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
+				"name" : "grainflow.live~.maxpat",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.record.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.waveform~.mxo",
-				"type" : "iLaX"
+				"name" : "grainflow.waveform~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
-				"name" : "grainflow~.mxo",
-				"type" : "iLaX"
+				"name" : "grainflow~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "thru.maxpat",
@@ -513,36 +542,23 @@
 			}
  ],
 		"styles" : [ 			{
-				"name" : "Minimal",
+				"name" : "Grainflow",
 				"default" : 				{
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"bgfillcolor" : 					{
-						"angle" : 270.0,
-						"autogradient" : 0.0,
-						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"proportion" : 0.39,
-						"type" : "color"
-					}
-,
-					"bubble_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"elementcolor" : [ 0.796078431372549, 0.796078431372549, 0.796078431372549, 1.0 ],
-					"fontface" : [ 0 ],
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+					"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
 					"fontname" : [ "Lato Medium" ],
-					"fontsize" : [ 11.0 ],
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"fontsize" : [ 12.0 ],
+					"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+					"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+					"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
 				"multi" : 0
 			}
- ],
-		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
+ ]
 	}
 
 }

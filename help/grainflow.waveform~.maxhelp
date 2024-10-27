@@ -2,44 +2,20 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 6,
-			"revision" : 1,
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 641.0, 848.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 11.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Lato",
-		"gridonopen" : 1,
+		"rect" : [ 100.0, 100.0, 671.0, 557.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
 		"style" : "Minimal",
 		"subpatcher_template" : "minimal",
 		"showrootpatcherontab" : 0,
 		"showontab" : 0,
-		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
 					"id" : "obj-3",
@@ -49,55 +25,33 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 6,
-							"revision" : 1,
+							"major" : 9,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 641.0, 822.0 ],
-						"bglocked" : 0,
-						"openinpresentation" : 0,
-						"default_fontsize" : 11.0,
-						"default_fontface" : 0,
-						"default_fontname" : "Lato Medium",
-						"gridonopen" : 1,
+						"rect" : [ 0.0, 26.0, 671.0, 531.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
-						"gridsnaponopen" : 1,
-						"objectsnaponopen" : 1,
-						"statusbarvisible" : 2,
-						"toolbarvisible" : 1,
-						"lefttoolbarpinned" : 0,
-						"toptoolbarpinned" : 0,
-						"righttoolbarpinned" : 0,
-						"bottomtoolbarpinned" : 0,
-						"toolbars_unpinned_last_save" : 0,
-						"tallnewobj" : 0,
-						"boxanimatetime" : 200,
-						"enablehscroll" : 1,
-						"enablevscroll" : 1,
-						"devicewidth" : 0.0,
-						"description" : "",
-						"digest" : "",
-						"tags" : "",
-						"style" : "Minimal",
+						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
 						"showontab" : 1,
-						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
-									"buffername" : "_gf.wf.help",
-									"chan" : 1,
+									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
+									"buffername" : "_help_grainBuf1",
+									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-7",
 									"maxclass" : "grainflow.waveform~",
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 290.0, 291.0, 300.0, 100.0 ],
-									"selection" : [ 0.302833333309585, 0.520500000023749 ],
-									"triangleColor" : [ 0.986251711845398, 0.00723597407341, 0.02742300927639, 1.0 ]
+									"patching_rect" : [ 290.0, 291.0, 300.0, 60.0 ],
+									"selectColor" : [ 0.949019607843137, 1.0, 0.0, 0.13 ],
+									"trackerColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 								}
 
 							}
@@ -120,6 +74,7 @@
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
 											"parameter_modmode" : 0,
+											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "mc.live.gain~",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -141,42 +96,18 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 8,
-											"minor" : 6,
-											"revision" : 1,
+											"major" : 9,
+											"minor" : 0,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "box",
 										"rect" : [ 696.0, 436.0, 640.0, 480.0 ],
-										"bglocked" : 0,
-										"openinpresentation" : 0,
-										"default_fontsize" : 10.0,
-										"default_fontface" : 0,
-										"default_fontname" : "Futura Medium",
-										"gridonopen" : 1,
 										"gridsize" : [ 15.0, 15.0 ],
-										"gridsnaponopen" : 1,
-										"objectsnaponopen" : 1,
-										"statusbarvisible" : 2,
-										"toolbarvisible" : 1,
-										"lefttoolbarpinned" : 0,
-										"toptoolbarpinned" : 0,
-										"righttoolbarpinned" : 0,
-										"bottomtoolbarpinned" : 0,
-										"toolbars_unpinned_last_save" : 0,
-										"tallnewobj" : 0,
-										"boxanimatetime" : 200,
-										"enablehscroll" : 1,
-										"enablevscroll" : 1,
-										"devicewidth" : 0.0,
-										"description" : "",
-										"digest" : "",
-										"tags" : "",
 										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
-										"assistshowspatchername" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-92",
@@ -187,42 +118,18 @@
 													"patcher" : 													{
 														"fileversion" : 1,
 														"appversion" : 														{
-															"major" : 8,
-															"minor" : 6,
-															"revision" : 1,
+															"major" : 9,
+															"minor" : 0,
+															"revision" : 0,
 															"architecture" : "x64",
 															"modernui" : 1
 														}
 ,
 														"classnamespace" : "box",
 														"rect" : [ 165.0, 245.0, 640.0, 480.0 ],
-														"bglocked" : 0,
-														"openinpresentation" : 0,
-														"default_fontsize" : 10.0,
-														"default_fontface" : 0,
-														"default_fontname" : "Futura Medium",
-														"gridonopen" : 1,
 														"gridsize" : [ 15.0, 15.0 ],
-														"gridsnaponopen" : 1,
-														"objectsnaponopen" : 1,
-														"statusbarvisible" : 2,
-														"toolbarvisible" : 1,
-														"lefttoolbarpinned" : 0,
-														"toptoolbarpinned" : 0,
-														"righttoolbarpinned" : 0,
-														"bottomtoolbarpinned" : 0,
-														"toolbars_unpinned_last_save" : 0,
-														"tallnewobj" : 0,
-														"boxanimatetime" : 200,
-														"enablehscroll" : 1,
-														"enablevscroll" : 1,
-														"devicewidth" : 0.0,
-														"description" : "",
-														"digest" : "",
-														"tags" : "",
 														"style" : "Minimal",
 														"subpatcher_template" : "minimal",
-														"assistshowspatchername" : 0,
 														"boxes" : [ 															{
 																"box" : 																{
 																	"id" : "obj-2",
@@ -257,42 +164,18 @@
 																	"patcher" : 																	{
 																		"fileversion" : 1,
 																		"appversion" : 																		{
-																			"major" : 8,
-																			"minor" : 6,
-																			"revision" : 1,
+																			"major" : 9,
+																			"minor" : 0,
+																			"revision" : 0,
 																			"architecture" : "x64",
 																			"modernui" : 1
 																		}
 ,
 																		"classnamespace" : "box",
 																		"rect" : [ 86.0, 91.0, 640.0, 480.0 ],
-																		"bglocked" : 0,
-																		"openinpresentation" : 0,
-																		"default_fontsize" : 10.0,
-																		"default_fontface" : 0,
-																		"default_fontname" : "Futura Medium",
-																		"gridonopen" : 1,
 																		"gridsize" : [ 15.0, 15.0 ],
-																		"gridsnaponopen" : 1,
-																		"objectsnaponopen" : 1,
-																		"statusbarvisible" : 2,
-																		"toolbarvisible" : 1,
-																		"lefttoolbarpinned" : 0,
-																		"toptoolbarpinned" : 0,
-																		"righttoolbarpinned" : 0,
-																		"bottomtoolbarpinned" : 0,
-																		"toolbars_unpinned_last_save" : 0,
-																		"tallnewobj" : 0,
-																		"boxanimatetime" : 200,
-																		"enablehscroll" : 1,
-																		"enablevscroll" : 1,
-																		"devicewidth" : 0.0,
-																		"description" : "",
-																		"digest" : "",
-																		"tags" : "",
 																		"style" : "Minimal",
 																		"subpatcher_template" : "minimal",
-																		"assistshowspatchername" : 0,
 																		"boxes" : [ 																			{
 																				"box" : 																				{
 																					"id" : "obj-72",
@@ -421,6 +304,7 @@
 
 																			}
  ],
+																		"originid" : "pat-452",
 																		"styles" : [ 																			{
 																				"name" : "Minimal",
 																				"default" : 																				{
@@ -454,14 +338,11 @@
 ,
 																	"patching_rect" : [ 139.0, 74.0, 120.0, 21.0 ],
 																	"saved_object_attributes" : 																	{
-																		"description" : "",
-																		"digest" : "",
 																		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 																		"fontname" : "Futura Medium",
 																		"fontsize" : 10.0,
 																		"globalpatchername" : "",
-																		"style" : "Minimal",
-																		"tags" : ""
+																		"style" : "Minimal"
 																	}
 ,
 																	"text" : "p resetonmodechange"
@@ -703,6 +584,7 @@
 
 															}
  ],
+														"originid" : "pat-450",
 														"styles" : [ 															{
 																"name" : "Minimal",
 																"default" : 																{
@@ -736,14 +618,11 @@
 ,
 													"patching_rect" : [ 224.666666666666515, 156.0, 62.0, 21.0 ],
 													"saved_object_attributes" : 													{
-														"description" : "",
-														"digest" : "",
 														"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 														"fontname" : "Futura Medium",
 														"fontsize" : 10.0,
 														"globalpatchername" : "",
-														"style" : "Minimal",
-														"tags" : ""
+														"style" : "Minimal"
 													}
 ,
 													"text" : "p traversal"
@@ -895,6 +774,7 @@
 
 											}
  ],
+										"originid" : "pat-448",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -926,16 +806,13 @@
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 									}
 ,
-									"patching_rect" : [ 11.0, 143.0, 70.0, 22.0 ],
+									"patching_rect" : [ 11.0, 143.0, 74.0, 23.0 ],
 									"saved_object_attributes" : 									{
-										"description" : "",
-										"digest" : "",
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 										"fontname" : "Futura Medium",
 										"fontsize" : 10.0,
 										"globalpatchername" : "",
-										"style" : "Minimal",
-										"tags" : ""
+										"style" : "Minimal"
 									}
 ,
 									"text" : "p granulator"
@@ -945,10 +822,11 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-139",
+									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 54.0, 453.0, 20.0 ],
+									"patching_rect" : [ 5.0, 54.0, 453.0, 19.0 ],
 									"text" : "There are many attributes you can use to customize the look of grainflow.waveform~"
 								}
 
@@ -960,7 +838,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 6.0, 430.0, 42.0 ],
+									"patching_rect" : [ 5.0, 6.0, 430.0, 41.0 ],
 									"text" : "grainflow.waveform~"
 								}
 
@@ -972,7 +850,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 37.0, 110.0, 150.0, 24.0 ],
+									"patching_rect" : [ 37.0, 110.0, 151.0, 25.0 ],
 									"text" : "Turn on the granulator"
 								}
 
@@ -986,42 +864,18 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 8,
-											"minor" : 6,
-											"revision" : 1,
+											"major" : 9,
+											"minor" : 0,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "box",
 										"rect" : [ 838.0, 407.0, 640.0, 480.0 ],
-										"bglocked" : 0,
-										"openinpresentation" : 0,
-										"default_fontsize" : 10.0,
-										"default_fontface" : 0,
-										"default_fontname" : "Futura Medium",
-										"gridonopen" : 1,
 										"gridsize" : [ 15.0, 15.0 ],
-										"gridsnaponopen" : 1,
-										"objectsnaponopen" : 1,
-										"statusbarvisible" : 2,
-										"toolbarvisible" : 1,
-										"lefttoolbarpinned" : 0,
-										"toptoolbarpinned" : 0,
-										"righttoolbarpinned" : 0,
-										"bottomtoolbarpinned" : 0,
-										"toolbars_unpinned_last_save" : 0,
-										"tallnewobj" : 0,
-										"boxanimatetime" : 200,
-										"enablehscroll" : 1,
-										"enablevscroll" : 1,
-										"devicewidth" : 0.0,
-										"description" : "",
-										"digest" : "",
-										"tags" : "",
 										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
-										"assistshowspatchername" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-2",
@@ -1227,6 +1081,7 @@
 
 											}
  ],
+										"originid" : "pat-468",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -1258,16 +1113,13 @@
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 									}
 ,
-									"patching_rect" : [ 571.0, 401.0, 65.0, 22.0 ],
+									"patching_rect" : [ 571.0, 401.0, 75.0, 23.0 ],
 									"saved_object_attributes" : 									{
-										"description" : "",
-										"digest" : "",
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 										"fontname" : "Futura Medium",
 										"fontsize" : 10.0,
 										"globalpatchername" : "",
-										"style" : "Minimal",
-										"tags" : ""
+										"style" : "Minimal"
 									}
 ,
 									"text" : "p parseclick"
@@ -1280,7 +1132,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 290.0, 427.0, 102.0, 22.0 ],
+									"patching_rect" : [ 290.0, 427.0, 112.0, 23.0 ],
 									"text" : "s _gf.wf.help.select"
 								}
 
@@ -1304,7 +1156,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 290.0, 401.0, 107.0, 22.0 ],
+									"patching_rect" : [ 290.0, 401.0, 117.0, 23.0 ],
 									"text" : "route selection"
 								}
 
@@ -1318,6 +1170,7 @@
 									"outlettype" : [ "int" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 11.0, 110.0, 24.0, 24.0 ],
+									"svg" : "",
 									"uncheckedcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 								}
 
@@ -1331,7 +1184,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 290.0, 111.0, 150.0, 22.0 ]
+									"patching_rect" : [ 290.0, 111.0, 160.0, 23.0 ]
 								}
 
 							}
@@ -1344,7 +1197,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 290.0, 137.0, 150.0, 22.0 ]
+									"patching_rect" : [ 290.0, 137.0, 160.0, 23.0 ]
 								}
 
 							}
@@ -1357,7 +1210,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 470.0, 216.0, 150.0, 22.0 ]
+									"patching_rect" : [ 470.0, 216.0, 160.0, 23.0 ]
 								}
 
 							}
@@ -1370,7 +1223,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 290.0, 216.0, 150.0, 22.0 ]
+									"patching_rect" : [ 290.0, 216.0, 160.0, 23.0 ]
 								}
 
 							}
@@ -1383,7 +1236,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 290.0, 249.0, 150.0, 22.0 ]
+									"patching_rect" : [ 290.0, 249.0, 160.0, 23.0 ]
 								}
 
 							}
@@ -1396,7 +1249,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 83.0, 143.0, 172.0, 22.0 ]
+									"patching_rect" : [ 95.0, 143.0, 182.0, 23.0 ]
 								}
 
 							}
@@ -1409,7 +1262,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 470.0, 137.0, 150.0, 22.0 ]
+									"patching_rect" : [ 470.0, 137.0, 160.0, 23.0 ]
 								}
 
 							}
@@ -1422,7 +1275,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 470.0, 105.0, 150.0, 22.0 ]
+									"patching_rect" : [ 470.0, 105.0, 160.0, 23.0 ]
 								}
 
 							}
@@ -1435,7 +1288,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 290.0, 163.0, 150.0, 22.0 ]
+									"patching_rect" : [ 290.0, 163.0, 160.0, 23.0 ]
 								}
 
 							}
@@ -1457,7 +1310,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 92.5, 177.0, 211.0, 177.0, 211.0, 276.0, 299.5, 276.0 ],
+									"midpoints" : [ 104.5, 177.0, 211.0, 177.0, 211.0, 276.0, 299.5, 276.0 ],
 									"source" : [ "obj-11", 0 ]
 								}
 
@@ -1552,36 +1405,25 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 71.5, 177.0, 209.0, 177.0, 209.0, 276.0, 299.5, 276.0 ],
+									"midpoints" : [ 75.5, 177.0, 209.0, 177.0, 209.0, 276.0, 299.5, 276.0 ],
 									"source" : [ "obj-9", 1 ]
 								}
 
 							}
  ],
+						"originid" : "pat-446",
 						"styles" : [ 							{
-								"name" : "Minimal",
+								"name" : "Grainflow",
 								"default" : 								{
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"bgfillcolor" : 									{
-										"angle" : 270.0,
-										"autogradient" : 0.0,
-										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"proportion" : 0.39,
-										"type" : "color"
-									}
-,
-									"bubble_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"elementcolor" : [ 0.796078431372549, 0.796078431372549, 0.796078431372549, 1.0 ],
-									"fontface" : [ 0 ],
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+									"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
 									"fontname" : [ "Lato Medium" ],
-									"fontsize" : [ 11.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontsize" : [ 12.0 ],
+									"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+									"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+									"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -1592,13 +1434,8 @@
 ,
 					"patching_rect" : [ 13.0, 38.0, 87.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"description" : "",
-						"digest" : "",
-						"fontname" : "Lato Medium",
-						"fontsize" : 11.0,
 						"globalpatchername" : "",
-						"style" : "Minimal",
-						"tags" : ""
+						"style" : "Grainflow"
 					}
 ,
 					"text" : "p Customization"
@@ -1614,52 +1451,33 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 6,
-							"revision" : 1,
+							"major" : 9,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 641.0, 822.0 ],
-						"bglocked" : 0,
-						"openinpresentation" : 0,
-						"default_fontsize" : 11.0,
-						"default_fontface" : 0,
-						"default_fontname" : "Lato Medium",
-						"gridonopen" : 1,
+						"rect" : [ 0.0, 26.0, 671.0, 531.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
-						"gridsnaponopen" : 1,
-						"objectsnaponopen" : 1,
-						"statusbarvisible" : 2,
-						"toolbarvisible" : 1,
-						"lefttoolbarpinned" : 0,
-						"toptoolbarpinned" : 0,
-						"righttoolbarpinned" : 0,
-						"bottomtoolbarpinned" : 0,
-						"toolbars_unpinned_last_save" : 0,
-						"tallnewobj" : 0,
-						"boxanimatetime" : 200,
-						"enablehscroll" : 1,
-						"enablevscroll" : 1,
-						"devicewidth" : 0.0,
-						"description" : "",
-						"digest" : "",
-						"tags" : "",
-						"style" : "Minimal",
+						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
 						"showontab" : 1,
-						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
-									"buffername" : "_gf.wf.help2",
+									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
+									"buffername" : "_help_grainBuf1",
+									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-1",
 									"maxclass" : "grainflow.waveform~",
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 95.0, 271.0, 303.0, 100.0 ]
+									"patching_rect" : [ 95.0, 271.0, 272.0, 81.0 ],
+									"selectColor" : [ 0.949019607843137, 1.0, 0.0, 0.13 ],
+									"trackerColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 								}
 
 							}
@@ -1673,7 +1491,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 411.0, 208.0, 194.0, 91.0 ],
+									"patching_rect" : [ 411.0, 208.0, 198.0, 97.0 ],
 									"text" : "You can change the quality of the displayed buffer using maxBufferDrawSamples.  This sets the maximum number of samples used to represent the buffer."
 								}
 
@@ -1686,7 +1504,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 426.0, 86.0, 153.0, 90.0 ],
+									"patching_rect" : [ 426.0, 86.0, 157.0, 97.0 ],
 									"text" : "A bang can be used to tell grainflow to redraw the buffer image. This should only be used in live granulation and is rather expensive."
 								}
 
@@ -1701,42 +1519,18 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 8,
-											"minor" : 6,
-											"revision" : 1,
+											"major" : 9,
+											"minor" : 0,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "box",
 										"rect" : [ 1472.0, 642.0, 1085.0, 597.0 ],
-										"bglocked" : 0,
-										"openinpresentation" : 0,
-										"default_fontsize" : 10.0,
-										"default_fontface" : 0,
-										"default_fontname" : "Futura Medium",
-										"gridonopen" : 1,
 										"gridsize" : [ 15.0, 15.0 ],
-										"gridsnaponopen" : 1,
-										"objectsnaponopen" : 1,
-										"statusbarvisible" : 2,
-										"toolbarvisible" : 1,
-										"lefttoolbarpinned" : 0,
-										"toptoolbarpinned" : 0,
-										"righttoolbarpinned" : 0,
-										"bottomtoolbarpinned" : 0,
-										"toolbars_unpinned_last_save" : 0,
-										"tallnewobj" : 0,
-										"boxanimatetime" : 200,
-										"enablehscroll" : 1,
-										"enablevscroll" : 1,
-										"devicewidth" : 0.0,
-										"description" : "",
-										"digest" : "",
-										"tags" : "",
 										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
-										"assistshowspatchername" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-41",
@@ -2024,6 +1818,7 @@
 
 											}
  ],
+										"originid" : "pat-472",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -2055,15 +1850,12 @@
  ]
 									}
 ,
-									"patching_rect" : [ 20.0, 200.0, 52.0, 22.0 ],
+									"patching_rect" : [ 20.0, 200.0, 60.0, 23.0 ],
 									"saved_object_attributes" : 									{
-										"description" : "",
-										"digest" : "",
 										"fontname" : "Futura Medium",
 										"fontsize" : 10.0,
 										"globalpatchername" : "",
-										"style" : "Minimal",
-										"tags" : ""
+										"style" : "Minimal"
 									}
 ,
 									"text" : "p grains"
@@ -2098,12 +1890,14 @@
 											"parameter_longname" : "toggle",
 											"parameter_mmax" : 1,
 											"parameter_modmode" : 0,
+											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "toggle",
 											"parameter_type" : 2
 										}
 
 									}
 ,
+									"svg" : "",
 									"varname" : "toggle"
 								}
 
@@ -2115,7 +1909,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 352.0, 137.0, 64.0, 22.0 ],
+									"patching_rect" : [ 352.0, 137.0, 68.0, 23.0 ],
 									"text" : "qmetro 33"
 								}
 
@@ -2130,7 +1924,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 123.0, 141.0, 159.0, 65.0 ],
+									"patching_rect" : [ 123.0, 141.0, 165.0, 69.0 ],
 									"text" : "Adjusting the frame rate will reduce the frequency of drawing calls"
 								}
 
@@ -2143,7 +1937,8 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 20.0, 128.5, 27.0, 27.0 ]
+									"patching_rect" : [ 20.0, 128.5, 27.0, 27.0 ],
+									"svg" : ""
 								}
 
 							}
@@ -2154,7 +1949,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 12.0, 47.0, 434.0, 33.0 ],
+									"patching_rect" : [ 12.0, 47.0, 434.0, 32.0 ],
 									"text" : "grainflow.waveform~ can strain your CPU as the jsui api is not incredibly efficent.  There are some tools to help you though! "
 								}
 
@@ -2166,7 +1961,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 12.0, -1.0, 552.0, 42.0 ],
+									"patching_rect" : [ 12.0, -1.0, 552.0, 41.0 ],
 									"text" : "grainflow.waveform~ Performance"
 								}
 
@@ -2177,7 +1972,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 95.0, 442.5, 108.0, 22.0 ],
+									"patching_rect" : [ 95.0, 442.5, 114.0, 23.0 ],
 									"text" : "s _gf.wf.help.select"
 								}
 
@@ -2189,7 +1984,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 95.0, 412.0, 86.0, 22.0 ],
+									"patching_rect" : [ 95.0, 412.0, 92.0, 23.0 ],
 									"text" : "route selection"
 								}
 
@@ -2201,7 +1996,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "float", "bang" ],
-									"patching_rect" : [ 327.0, 400.0, 176.0, 22.0 ],
+									"patching_rect" : [ 327.0, 400.0, 182.0, 23.0 ],
 									"text" : "buffer~ _gf.wf.help2 @size 1000"
 								}
 
@@ -2215,7 +2010,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 95.0, 112.0, 141.0, 22.0 ]
+									"patching_rect" : [ 95.0, 112.0, 147.0, 23.0 ]
 								}
 
 							}
@@ -2228,7 +2023,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 352.0, 184.0, 153.0, 22.0 ]
+									"patching_rect" : [ 352.0, 184.0, 157.0, 23.0 ]
 								}
 
 							}
@@ -2297,30 +2092,19 @@
 
 							}
  ],
+						"originid" : "pat-470",
 						"styles" : [ 							{
-								"name" : "Minimal",
+								"name" : "Grainflow",
 								"default" : 								{
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"bgfillcolor" : 									{
-										"angle" : 270.0,
-										"autogradient" : 0.0,
-										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"proportion" : 0.39,
-										"type" : "color"
-									}
-,
-									"bubble_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"elementcolor" : [ 0.796078431372549, 0.796078431372549, 0.796078431372549, 1.0 ],
-									"fontface" : [ 0 ],
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+									"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
 									"fontname" : [ "Lato Medium" ],
-									"fontsize" : [ 11.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontsize" : [ 12.0 ],
+									"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+									"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+									"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -2331,13 +2115,8 @@
 ,
 					"patching_rect" : [ 13.0, 68.0, 80.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"description" : "",
-						"digest" : "",
-						"fontname" : "Lato Medium",
-						"fontsize" : 11.0,
 						"globalpatchername" : "",
-						"style" : "Minimal",
-						"tags" : ""
+						"style" : "Grainflow"
 					}
 ,
 					"text" : "p Performance"
@@ -2353,43 +2132,19 @@
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
-							"major" : 8,
-							"minor" : 6,
-							"revision" : 1,
+							"major" : 9,
+							"minor" : 0,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 641.0, 822.0 ],
-						"bglocked" : 0,
-						"openinpresentation" : 0,
-						"default_fontsize" : 11.0,
-						"default_fontface" : 0,
-						"default_fontname" : "Lato Medium",
-						"gridonopen" : 1,
+						"rect" : [ 100.0, 126.0, 671.0, 531.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
-						"gridsnaponopen" : 1,
-						"objectsnaponopen" : 1,
-						"statusbarvisible" : 2,
-						"toolbarvisible" : 1,
-						"lefttoolbarpinned" : 0,
-						"toptoolbarpinned" : 0,
-						"righttoolbarpinned" : 0,
-						"bottomtoolbarpinned" : 0,
-						"toolbars_unpinned_last_save" : 0,
-						"tallnewobj" : 0,
-						"boxanimatetime" : 200,
-						"enablehscroll" : 1,
-						"enablevscroll" : 1,
-						"devicewidth" : 0.0,
-						"description" : "",
-						"digest" : "",
-						"tags" : "",
-						"style" : "Minimal",
+						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
 						"showontab" : 1,
-						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-15",
@@ -2397,7 +2152,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 221.0, 156.0, 313.0, 72.0 ],
+									"patching_rect" : [ 221.0, 156.0, 297.0, 78.0 ],
 									"text" : "The interaction mode for the waveform.\nScrub -> click and drag to change selected position\nSelection -> click and drag to select a range\nLoop -> click and drag to move a selection on the x axis and the size changes on the y axis."
 								}
 
@@ -2408,23 +2163,25 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 216.0, 122.0, 199.0, 20.0 ],
+									"patching_rect" : [ 216.0, 122.0, 199.0, 19.0 ],
 									"text" : "The buffer the waveform will draw"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "_gf.wf.help",
-									"chan" : 1,
+									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
+									"buffername" : "_help_grainBuf1",
+									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-7",
 									"maxclass" : "grainflow.waveform~",
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 185.0, 313.0, 300.0, 100.0 ],
-									"selection" : [ 0.227833333309584, 0.395500000023748 ],
-									"showTriangles" : 1
+									"patching_rect" : [ 185.0, 313.0, 310.0, 78.0 ],
+									"selectColor" : [ 0.949019607843137, 1.0, 0.0, 0.13 ],
+									"trackerColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 								}
 
 							}
@@ -2447,6 +2204,7 @@
 											"parameter_mmax" : 6.0,
 											"parameter_mmin" : -70.0,
 											"parameter_modmode" : 0,
+											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "mc.live.gain~",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 4
@@ -2468,42 +2226,18 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 8,
-											"minor" : 6,
-											"revision" : 1,
+											"major" : 9,
+											"minor" : 0,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "box",
 										"rect" : [ 696.0, 436.0, 640.0, 480.0 ],
-										"bglocked" : 0,
-										"openinpresentation" : 0,
-										"default_fontsize" : 10.0,
-										"default_fontface" : 0,
-										"default_fontname" : "Futura Medium",
-										"gridonopen" : 1,
 										"gridsize" : [ 15.0, 15.0 ],
-										"gridsnaponopen" : 1,
-										"objectsnaponopen" : 1,
-										"statusbarvisible" : 2,
-										"toolbarvisible" : 1,
-										"lefttoolbarpinned" : 0,
-										"toptoolbarpinned" : 0,
-										"righttoolbarpinned" : 0,
-										"bottomtoolbarpinned" : 0,
-										"toolbars_unpinned_last_save" : 0,
-										"tallnewobj" : 0,
-										"boxanimatetime" : 200,
-										"enablehscroll" : 1,
-										"enablevscroll" : 1,
-										"devicewidth" : 0.0,
-										"description" : "",
-										"digest" : "",
-										"tags" : "",
 										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
-										"assistshowspatchername" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-92",
@@ -2514,42 +2248,18 @@
 													"patcher" : 													{
 														"fileversion" : 1,
 														"appversion" : 														{
-															"major" : 8,
-															"minor" : 6,
-															"revision" : 1,
+															"major" : 9,
+															"minor" : 0,
+															"revision" : 0,
 															"architecture" : "x64",
 															"modernui" : 1
 														}
 ,
 														"classnamespace" : "box",
 														"rect" : [ 165.0, 245.0, 640.0, 480.0 ],
-														"bglocked" : 0,
-														"openinpresentation" : 0,
-														"default_fontsize" : 10.0,
-														"default_fontface" : 0,
-														"default_fontname" : "Futura Medium",
-														"gridonopen" : 1,
 														"gridsize" : [ 15.0, 15.0 ],
-														"gridsnaponopen" : 1,
-														"objectsnaponopen" : 1,
-														"statusbarvisible" : 2,
-														"toolbarvisible" : 1,
-														"lefttoolbarpinned" : 0,
-														"toptoolbarpinned" : 0,
-														"righttoolbarpinned" : 0,
-														"bottomtoolbarpinned" : 0,
-														"toolbars_unpinned_last_save" : 0,
-														"tallnewobj" : 0,
-														"boxanimatetime" : 200,
-														"enablehscroll" : 1,
-														"enablevscroll" : 1,
-														"devicewidth" : 0.0,
-														"description" : "",
-														"digest" : "",
-														"tags" : "",
 														"style" : "Minimal",
 														"subpatcher_template" : "minimal",
-														"assistshowspatchername" : 0,
 														"boxes" : [ 															{
 																"box" : 																{
 																	"id" : "obj-2",
@@ -2584,42 +2294,18 @@
 																	"patcher" : 																	{
 																		"fileversion" : 1,
 																		"appversion" : 																		{
-																			"major" : 8,
-																			"minor" : 6,
-																			"revision" : 1,
+																			"major" : 9,
+																			"minor" : 0,
+																			"revision" : 0,
 																			"architecture" : "x64",
 																			"modernui" : 1
 																		}
 ,
 																		"classnamespace" : "box",
 																		"rect" : [ 86.0, 91.0, 640.0, 480.0 ],
-																		"bglocked" : 0,
-																		"openinpresentation" : 0,
-																		"default_fontsize" : 10.0,
-																		"default_fontface" : 0,
-																		"default_fontname" : "Futura Medium",
-																		"gridonopen" : 1,
 																		"gridsize" : [ 15.0, 15.0 ],
-																		"gridsnaponopen" : 1,
-																		"objectsnaponopen" : 1,
-																		"statusbarvisible" : 2,
-																		"toolbarvisible" : 1,
-																		"lefttoolbarpinned" : 0,
-																		"toptoolbarpinned" : 0,
-																		"righttoolbarpinned" : 0,
-																		"bottomtoolbarpinned" : 0,
-																		"toolbars_unpinned_last_save" : 0,
-																		"tallnewobj" : 0,
-																		"boxanimatetime" : 200,
-																		"enablehscroll" : 1,
-																		"enablevscroll" : 1,
-																		"devicewidth" : 0.0,
-																		"description" : "",
-																		"digest" : "",
-																		"tags" : "",
 																		"style" : "Minimal",
 																		"subpatcher_template" : "minimal",
-																		"assistshowspatchername" : 0,
 																		"boxes" : [ 																			{
 																				"box" : 																				{
 																					"id" : "obj-72",
@@ -2748,6 +2434,7 @@
 
 																			}
  ],
+																		"originid" : "pat-496",
 																		"styles" : [ 																			{
 																				"name" : "Minimal",
 																				"default" : 																				{
@@ -2781,14 +2468,11 @@
 ,
 																	"patching_rect" : [ 139.0, 74.0, 120.0, 21.0 ],
 																	"saved_object_attributes" : 																	{
-																		"description" : "",
-																		"digest" : "",
 																		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 																		"fontname" : "Futura Medium",
 																		"fontsize" : 10.0,
 																		"globalpatchername" : "",
-																		"style" : "Minimal",
-																		"tags" : ""
+																		"style" : "Minimal"
 																	}
 ,
 																	"text" : "p resetonmodechange"
@@ -3030,6 +2714,7 @@
 
 															}
  ],
+														"originid" : "pat-494",
 														"styles" : [ 															{
 																"name" : "Minimal",
 																"default" : 																{
@@ -3063,14 +2748,11 @@
 ,
 													"patching_rect" : [ 224.666666666666515, 156.0, 62.0, 21.0 ],
 													"saved_object_attributes" : 													{
-														"description" : "",
-														"digest" : "",
 														"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 														"fontname" : "Futura Medium",
 														"fontsize" : 10.0,
 														"globalpatchername" : "",
-														"style" : "Minimal",
-														"tags" : ""
+														"style" : "Minimal"
 													}
 ,
 													"text" : "p traversal"
@@ -3222,6 +2904,7 @@
 
 											}
  ],
+										"originid" : "pat-492",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -3253,16 +2936,13 @@
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 									}
 ,
-									"patching_rect" : [ 11.0, 290.0, 70.0, 22.0 ],
+									"patching_rect" : [ 11.0, 290.0, 76.0, 23.0 ],
 									"saved_object_attributes" : 									{
-										"description" : "",
-										"digest" : "",
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 										"fontname" : "Futura Medium",
 										"fontsize" : 10.0,
 										"globalpatchername" : "",
-										"style" : "Minimal",
-										"tags" : ""
+										"style" : "Minimal"
 									}
 ,
 									"text" : "p granulator"
@@ -3276,7 +2956,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 54.0, 453.0, 46.0 ],
+									"patching_rect" : [ 5.0, 54.0, 486.0, 50.0 ],
 									"text" : "grainflow.waveform is a jsui gui that visualizes grains to aid in designing sounds. grainflow.waveform~ has various visual customizations as well as performance optimization features."
 								}
 
@@ -3288,7 +2968,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 6.0, 430.0, 42.0 ],
+									"patching_rect" : [ 5.0, 6.0, 430.0, 41.0 ],
 									"text" : "grainflow.waveform~"
 								}
 
@@ -3300,7 +2980,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 37.0, 257.0, 150.0, 24.0 ],
+									"patching_rect" : [ 37.0, 257.0, 150.0, 23.0 ],
 									"text" : "Turn on the granulator"
 								}
 
@@ -3314,42 +2994,18 @@
 									"patcher" : 									{
 										"fileversion" : 1,
 										"appversion" : 										{
-											"major" : 8,
-											"minor" : 6,
-											"revision" : 1,
+											"major" : 9,
+											"minor" : 0,
+											"revision" : 0,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "box",
 										"rect" : [ 838.0, 407.0, 640.0, 480.0 ],
-										"bglocked" : 0,
-										"openinpresentation" : 0,
-										"default_fontsize" : 10.0,
-										"default_fontface" : 0,
-										"default_fontname" : "Futura Medium",
-										"gridonopen" : 1,
 										"gridsize" : [ 15.0, 15.0 ],
-										"gridsnaponopen" : 1,
-										"objectsnaponopen" : 1,
-										"statusbarvisible" : 2,
-										"toolbarvisible" : 1,
-										"lefttoolbarpinned" : 0,
-										"toptoolbarpinned" : 0,
-										"righttoolbarpinned" : 0,
-										"bottomtoolbarpinned" : 0,
-										"toolbars_unpinned_last_save" : 0,
-										"tallnewobj" : 0,
-										"boxanimatetime" : 200,
-										"enablehscroll" : 1,
-										"enablevscroll" : 1,
-										"devicewidth" : 0.0,
-										"description" : "",
-										"digest" : "",
-										"tags" : "",
 										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
-										"assistshowspatchername" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-2",
@@ -3555,6 +3211,7 @@
 
 											}
  ],
+										"originid" : "pat-510",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -3586,16 +3243,13 @@
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 									}
 ,
-									"patching_rect" : [ 466.0, 423.0, 65.0, 22.0 ],
+									"patching_rect" : [ 476.0, 412.0, 76.0, 23.0 ],
 									"saved_object_attributes" : 									{
-										"description" : "",
-										"digest" : "",
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
 										"fontname" : "Futura Medium",
 										"fontsize" : 10.0,
 										"globalpatchername" : "",
-										"style" : "Minimal",
-										"tags" : ""
+										"style" : "Minimal"
 									}
 ,
 									"text" : "p parseclick"
@@ -3608,7 +3262,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 185.0, 449.0, 102.0, 22.0 ],
+									"patching_rect" : [ 185.0, 449.0, 113.0, 23.0 ],
 									"text" : "s _gf.wf.help.select"
 								}
 
@@ -3632,7 +3286,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 185.0, 423.0, 95.0, 22.0 ],
+									"patching_rect" : [ 185.0, 423.0, 106.0, 23.0 ],
 									"text" : "route selection"
 								}
 
@@ -3646,6 +3300,7 @@
 									"outlettype" : [ "int" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 11.0, 257.0, 24.0, 24.0 ],
+									"svg" : "",
 									"uncheckedcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ]
 								}
 
@@ -3657,7 +3312,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "float", "bang" ],
-									"patching_rect" : [ 387.0, 459.0, 150.0, 22.0 ],
+									"patching_rect" : [ 387.0, 459.0, 161.0, 23.0 ],
 									"text" : "buffer~ _gf.wf.help anton.aif"
 								}
 
@@ -3671,7 +3326,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 8.0, 165.0, 205.0, 22.0 ]
+									"patching_rect" : [ 8.0, 165.0, 210.0, 23.0 ]
 								}
 
 							}
@@ -3684,7 +3339,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 8.0, 121.0, 201.0, 22.0 ]
+									"patching_rect" : [ 8.0, 121.0, 206.0, 23.0 ]
 								}
 
 							}
@@ -3700,7 +3355,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-7", 0 ],
-									"midpoints" : [ 17.5, 227.5, 194.5, 227.5 ],
+									"midpoints" : [ 17.5, 228.5, 194.5, 228.5 ],
 									"source" : [ "obj-12", 0 ]
 								}
 
@@ -3755,30 +3410,19 @@
 
 							}
  ],
+						"originid" : "pat-490",
 						"styles" : [ 							{
-								"name" : "Minimal",
+								"name" : "Grainflow",
 								"default" : 								{
-									"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"bgfillcolor" : 									{
-										"angle" : 270.0,
-										"autogradient" : 0.0,
-										"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-										"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-										"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"proportion" : 0.39,
-										"type" : "color"
-									}
-,
-									"bubble_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"editing_bgcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-									"elementcolor" : [ 0.796078431372549, 0.796078431372549, 0.796078431372549, 1.0 ],
-									"fontface" : [ 0 ],
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+									"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
 									"fontname" : [ "Lato Medium" ],
-									"fontsize" : [ 11.0 ],
-									"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+									"fontsize" : [ 12.0 ],
+									"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+									"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+									"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 								}
 ,
 								"parentstyle" : "",
@@ -3789,13 +3433,8 @@
 ,
 					"patching_rect" : [ 13.0, 11.0, 55.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"description" : "",
-						"digest" : "",
-						"fontname" : "Lato Medium",
-						"fontsize" : 11.0,
 						"globalpatchername" : "",
-						"style" : "Minimal",
-						"tags" : ""
+						"style" : "Grainflow"
 					}
 ,
 					"text" : "p General"
@@ -3804,6 +3443,7 @@
 			}
  ],
 		"lines" : [  ],
+		"originid" : "pat-444",
 		"parameters" : 		{
 			"obj-1::obj-6" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"obj-2::obj-34" : [ "toggle", "toggle", 0 ],
@@ -3817,46 +3457,46 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "grainflow.record.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.sahPhasor.gendsp",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/code",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.phasor~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.record~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "~/Documents/Max 8/Packages/grainflow/patchers",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.waveform~.mxo",
-				"type" : "iLaX"
+				"name" : "grainflow.waveform~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
-				"name" : "grainflow~.mxo",
-				"type" : "iLaX"
+				"name" : "grainflow~.mxe64",
+				"type" : "mx64"
 			}
  ],
 		"autosave" : 0,

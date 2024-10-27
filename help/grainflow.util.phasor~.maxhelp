@@ -2,42 +2,18 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 1,
-			"revision" : 8,
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 604.0, 480.0 ],
-		"bglocked" : 0,
-		"openinpresentation" : 0,
-		"default_fontsize" : 11.0,
-		"default_fontface" : 0,
-		"default_fontname" : "Lato",
-		"gridonopen" : 1,
+		"rect" : [ 100.0, 100.0, 597.0, 480.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
-		"gridsnaponopen" : 1,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
-		"style" : "Minimal",
+		"style" : "Grainflow",
 		"subpatcher_template" : "minimal",
-		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
 					"elementcolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
@@ -46,7 +22,7 @@
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 345.0, 337.0, 45.0, 45.0 ]
+					"patching_rect" : [ 345.0, 364.5, 45.0, 45.0 ]
 				}
 
 			}
@@ -58,7 +34,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 375.0, 77.0, 190.0, 50.0 ],
+					"patching_rect" : [ 375.0, 77.0, 197.0, 54.0 ],
 					"text" : "Sah mode will only change the frequency of the phasor on a new cycle"
 				}
 
@@ -69,7 +45,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 388.0, 215.0, 150.0, 20.0 ],
+					"patching_rect" : [ 388.0, 215.0, 157.0, 21.0 ],
 					"text" : "mode 2 is fold"
 				}
 
@@ -90,12 +66,15 @@
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "toggle",
 							"parameter_mmax" : 1,
+							"parameter_modmode" : 0,
+							"parameter_osc_name" : "<default>",
 							"parameter_shortname" : "toggle",
 							"parameter_type" : 2
 						}
 
 					}
 ,
+					"svg" : "",
 					"uncheckedcolor" : [ 0.592156862745098, 0.592156862745098, 0.592156862745098, 1.0 ],
 					"varname" : "toggle"
 				}
@@ -108,7 +87,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 345.0, 133.0, 69.0, 22.0 ],
+					"patching_rect" : [ 345.0, 133.0, 76.0, 23.0 ],
 					"text" : "sahMode $1"
 				}
 
@@ -120,7 +99,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.0, 203.0, 43.0, 22.0 ],
+					"patching_rect" : [ 20.0, 203.0, 52.0, 23.0 ],
 					"text" : "set 0.5"
 				}
 
@@ -132,7 +111,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 20.0, 168.0, 34.0, 22.0 ],
+					"patching_rect" : [ 20.0, 168.0, 43.0, 23.0 ],
 					"text" : "reset"
 				}
 
@@ -143,7 +122,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 388.0, 189.0, 150.0, 20.0 ],
+					"patching_rect" : [ 388.0, 189.0, 157.0, 21.0 ],
 					"text" : "mode 1 is warp"
 				}
 
@@ -155,7 +134,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 334.0, 215.0, 46.0, 22.0 ],
+					"patching_rect" : [ 334.0, 215.0, 53.0, 23.0 ],
 					"text" : "mode 2"
 				}
 
@@ -167,7 +146,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 334.0, 189.0, 46.0, 22.0 ],
+					"patching_rect" : [ 334.0, 189.0, 53.0, 23.0 ],
 					"text" : "mode 1"
 				}
 
@@ -179,7 +158,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 18.0, 98.0, 66.0, 22.0 ],
+					"patching_rect" : [ 18.0, 98.0, 90.0, 23.0 ],
 					"text" : "loadmess 1"
 				}
 
@@ -191,7 +170,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 130.0, 187.0, 66.0, 22.0 ],
+					"patching_rect" : [ 148.0, 189.0, 81.5, 23.0 ],
 					"text" : "loadmess 1"
 				}
 
@@ -203,7 +182,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 184.0, 222.0, 101.0, 24.0 ],
+					"patching_rect" : [ 202.0, 224.0, 101.0, 24.0 ],
 					"text" : "high bound"
 				}
 
@@ -219,7 +198,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 130.0, 222.0, 49.0, 22.0 ]
+					"patching_rect" : [ 148.0, 224.0, 49.0, 22.0 ]
 				}
 
 			}
@@ -230,7 +209,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 121.0, 155.0, 149.0, 24.0 ],
+					"patching_rect" : [ 121.0, 155.0, 91.0, 25.0 ],
 					"text" : "low bound"
 				}
 
@@ -282,7 +261,7 @@
 					"maxclass" : "scope~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 20.0, 349.0, 287.0, 112.0 ],
+					"patching_rect" : [ 20.0, 331.0, 287.0, 112.0 ],
 					"range" : [ 0.0, 1.0 ]
 				}
 
@@ -318,7 +297,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
-					"patching_rect" : [ 20.0, 301.0, 129.0, 22.0 ],
+					"patching_rect" : [ 20.0, 301.0, 146.0, 23.0 ],
 					"text" : "grainflow.util.phasor~ 1"
 				}
 
@@ -412,6 +391,7 @@
 
 			}
  ],
+		"originid" : "pat-304",
 		"parameters" : 		{
 			"obj-20" : [ "toggle", "toggle", 0 ],
 			"parameterbanks" : 			{
@@ -422,50 +402,39 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "grainflow.util.phasor~.maxpat",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/patchers/util",
-				"patcherrelativepath" : "../patchers/util",
-				"type" : "JSON",
+				"name" : "grainflow.sahPhasor.gendsp",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/code",
+				"patcherrelativepath" : "../code",
+				"type" : "gDSP",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.sahPhasor.gendsp",
-				"bootpath" : "D:/Documents/Max 8/Packages/grainflow/code",
-				"patcherrelativepath" : "../code",
-				"type" : "gDSP",
+				"name" : "grainflow.util.phasor~.maxpat",
+				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
+				"patcherrelativepath" : "../patchers/util",
+				"type" : "JSON",
 				"implicit" : 1
 			}
  ],
 		"autosave" : 0,
 		"styles" : [ 			{
-				"name" : "Minimal",
+				"name" : "Grainflow",
 				"default" : 				{
-					"fontsize" : [ 10.0 ],
-					"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
-					"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
-					"fontface" : [ 0 ],
-					"bgfillcolor" : 					{
-						"type" : "color",
-						"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-						"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
-						"proportion" : 0.39,
-						"autogradient" : 0.0
-					}
-,
-					"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+					"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
+					"fontname" : [ "Lato Medium" ],
+					"fontsize" : [ 12.0 ],
+					"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+					"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+					"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
 				"multi" : 0
 			}
- ],
-		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
+ ]
 	}
 
 }
