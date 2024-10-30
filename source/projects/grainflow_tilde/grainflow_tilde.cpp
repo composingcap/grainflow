@@ -357,7 +357,7 @@ void grainflow_tilde::refresh_linked_attribute()
 /// <param name="index"></param>
 /// <param name="count"></param>
 /// <returns></returns>
-long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
+long grainflow_tilde::simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 {
 	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde>*)(x);
 	return ob->m_min_object.get_max_grains();
@@ -370,7 +370,7 @@ long simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 /// <param name="index"></param>
 /// <param name="count"></param>
 /// <returns></returns>
-long simplemc_inputchanged(c74::max::t_object* x, long g, long count)
+long grainflow_tilde::simplemc_inputchanged(c74::max::t_object* x, long g, long count)
 {
 	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde>*)(x);
 	// auto chan_number = ob->m_min_object.GetMaxGrains(); //We should check for bonus channels and handle it

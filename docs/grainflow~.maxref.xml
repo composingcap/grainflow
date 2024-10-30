@@ -57,13 +57,13 @@
 		</method>
 
 		<method name='trav'>
-			<digest>DEPRICATED the amound grains are delayed in ms </digest>
-			<description>DEPRICATED the amound grains are delayed in ms </description>
+			<digest>DEPRECATED the amount grains are delayed in ms </digest>
+			<description>DEPRECATED the amount grains are delayed in ms </description>
 		</method>
 
 		<method name='travRandom'>
-			<digest>DEPRICATED the amound grains are delayed in ms </digest>
-			<description>DEPRICATED the amound grains are delayed in ms </description>
+			<digest>DEPRECATED the amount grains are delayed in ms </digest>
+			<description>DEPRECATED the amount grains are delayed in ms </description>
 		</method>
 
 		<method name='windowBuffer'>
@@ -72,8 +72,8 @@
 		</method>
 
 		<method name='travOffset'>
-			<digest>DEPRICATED message to set the amound grains are delayed in ms </digest>
-			<description>DEPRICATED message to set the amound grains are delayed in ms </description>
+			<digest>DEPRECATED message to set the amount grains are delayed in ms </digest>
+			<description>DEPRECATED message to set the amount grains are delayed in ms </description>
 		</method>
 
 		<method name='streamTarget'>
@@ -92,13 +92,13 @@
 		</method>
 
 		<method name='windowOffsetRandom'>
-			<digest>DEPRICATED message for setting the window offset attribute </digest>
-			<description>DEPRICATED message for setting the window offset attribute </description>
+			<digest>DEPRECATED message for setting the window offset attribute </digest>
+			<description>DEPRECATED message for setting the window offset attribute </description>
 		</method>
 
 		<method name='streamSet'>
-			<digest>Sets the number of stream and asigns each grain to a stream depending on the mode</digest>
-			<description>Sets the number of stream and asigns each grain to a stream depending on the mode. auto: rotate grains around max grains. per: grains are assigned to streams in chunks. random: grains are assigned to random streams. </description>
+			<digest>Sets the number of stream and assigns each grain to a stream depending on the mode</digest>
+			<description>Sets the number of stream and assigns each grain to a stream depending on the mode. auto: rotate grains around max grains. per: grains are assigned to streams in chunks. random: grains are assigned to random streams. </description>
 		</method>
 
 		<method name='nstreams'>
@@ -122,8 +122,8 @@
 		</method>
 
 		<method name='randomrange'>
-			<digest>picks a randomvalue between two points for each parameter </digest>
-			<description>picks a randomvalue between two points for each parameter </description>
+			<digest>picks a random value between two points for each parameter </digest>
+			<description>picks a random value between two points for each parameter </description>
 		</method>
 
 		<method name='streamRandomrange'>
@@ -151,7 +151,7 @@
 			<description>sets the channel of grains with a certain channel. Should be used with the g message </description>
 		</method>
 
-		<method name='gchan'>
+		<method name='g_chan'>
 			<digest>sets an attribute of message for all grains assigned to a buffer channel </digest>
 			<description>sets an attribute of message for all grains assigned to a buffer channel </description>
 		</method>
@@ -164,6 +164,11 @@
 		<method name='rateMode'>
 			<digest>sets  the delay mode</digest>
 			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='glissonMode'>
+			<digest>sets  the window mode</digest>
+			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
 		</method>
 
 		<method name='env'>
@@ -189,6 +194,11 @@
 		<method name='delayBuffer'>
 			<digest>sets the buffer for delay modes 1 and 2 </digest>
 			<description>sets the buffer for delay modes 1 and 2 </description>
+		</method>
+
+		<method name='glissonBuffer'>
+			<digest>sets the buffer for glisson modes 1 and 2 </digest>
+			<description>sets the buffer for glisson modes 1 and 2 </description>
 		</method>
 
 		<method name='done'>
@@ -221,6 +231,11 @@
 		<attribute name='rateRandom' get='1' set='1' type='float64' size='1' >
 			<digest>Adds a unipolar random amount to the playback rate on each grains start</digest>
 			<description>Adds a unipolar random amount to the playback rate on each grains start. </description>
+		</attribute>
+
+		<attribute name='glissonBufferPositionRandom' get='1' set='1' type='float64' size='1' >
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
 		</attribute>
 
 		<attribute name='rateOffset' get='1' set='1' type='float64' size='1' >
@@ -288,14 +303,39 @@
 			<description>A unipolar random amount added to the glissonSt value. Determined at the start of each grain. </description>
 		</attribute>
 
+		<attribute name='delayOffset' get='1' set='1' type='float64' size='1' >
+			<digest>An offset from the traversal phasor in milliseconds based on the index of each grain </digest>
+			<description>An offset from the traversal phasor in milliseconds based on the index of each grain </description>
+		</attribute>
+
+		<attribute name='glissonBufferPosition' get='1' set='1' type='float64' size='1' >
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</attribute>
+
+		<attribute name='envPositionRandom' get='1' set='1' type='float64' size='1' >
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</attribute>
+
+		<attribute name='liveMode' get='1' set='1' type='long' size='1' >
+			<digest>removes samplerate correction from a buffers samplerate</digest>
+			<description>removes samplerate correction from a buffers samplerate. This is useful with live granulation if a buffer is created them Max's samplerate changes. </description>
+		</attribute>
+
+		<attribute name='glissonBufferPositionOffset' get='1' set='1' type='float64' size='1' >
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</attribute>
+
 		<attribute name='spaceOffset' get='1' set='1' type='float64' size='1' >
-			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
-			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
+			<digest>the amount of empty space at the end of each grains as a ratio of the total grain size </digest>
+			<description>the amount of empty space at the end of each grains as a ratio of the total grain size </description>
 		</attribute>
 
 		<attribute name='direction' get='1' set='1' type='float64' size='1' >
-			<digest>The probabilty a grain will play forwards or backwards</digest>
-			<description>The probabilty a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards </description>
+			<digest>The probability a grain will play forwards or backwards</digest>
+			<description>The probability a grain will play forwards or backwards. 1: always forwards, 0: 50% chance forwards or backwards, -1: always backwards </description>
 		</attribute>
 
 		<attribute name='delay' get='1' set='1' type='float64' size='1' >
@@ -306,11 +346,6 @@
 		<attribute name='delayRandom' get='1' set='1' type='float64' size='1' >
 			<digest>A unipolar random offset from the traversal phasor in milliseconds</digest>
 			<description>A unipolar random offset from the traversal phasor in milliseconds. Determined at the start of each grain </description>
-		</attribute>
-
-		<attribute name='delayOffset' get='1' set='1' type='float64' size='1' >
-			<digest>An offset from the traversal phasor in milliseconds based on the index of each grain </digest>
-			<description>An offset from the traversal phasor in milliseconds based on the index of each grain </description>
 		</attribute>
 
 		<attribute name='window' get='1' set='1' type='float64' size='1' >
@@ -329,13 +364,13 @@
 		</attribute>
 
 		<attribute name='space' get='1' set='1' type='float64' size='1' >
-			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
-			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
+			<digest>the amount of empty space at the end of each grains as a ratio of the total grain size </digest>
+			<description>the amount of empty space at the end of each grains as a ratio of the total grain size </description>
 		</attribute>
 
 		<attribute name='spaceRandom' get='1' set='1' type='float64' size='1' >
-			<digest>the amound of emty space at the end of each grains as a ratio of the total grain size </digest>
-			<description>the amound of emty space at the end of each grains as a ratio of the total grain size </description>
+			<digest>the amount of empty space at the end of each grains as a ratio of the total grain size </digest>
+			<description>the amount of empty space at the end of each grains as a ratio of the total grain size </description>
 		</attribute>
 
 		<attribute name='bufChans' get='1' set='1' type='long' size='1' >
@@ -381,16 +416,6 @@
 		<attribute name='voices' get='1' set='1' type='long' size='1' >
 			<digest>the maximum number of voices/grains</digest>
 			<description>the maximum number of voices/grains. You will need to restart audio after setting this. </description>
-		</attribute>
-
-		<attribute name='envPositionRandom' get='1' set='1' type='float64' size='1' >
-			<digest>sets the 2D envelope position </digest>
-			<description>sets the 2D envelope position </description>
-		</attribute>
-
-		<attribute name='liveMode' get='1' set='1' type='long' size='1' >
-			<digest>removes samplerate correction from a buffers samplerate</digest>
-			<description>removes samplerate correction from a buffers samplerate. This is useful with live granulation if a buffer is created them Max's samplerate changes. </description>
 		</attribute>
 
 		<attribute name='nEnvelopes' get='1' set='1' type='float64' size='1' >
