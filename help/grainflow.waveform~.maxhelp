@@ -41,7 +41,7 @@
 						"boxes" : [ 							{
 								"box" : 								{
 									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
-									"buffername" : "_help_grainBuf1",
+									"buffername" : "_gf.wf.help",
 									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
 									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-7",
@@ -106,7 +106,6 @@
 										"classnamespace" : "box",
 										"rect" : [ 696.0, 436.0, 640.0, 480.0 ],
 										"gridsize" : [ 15.0, 15.0 ],
-										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
 										"boxes" : [ 											{
 												"box" : 												{
@@ -304,7 +303,7 @@
 
 																			}
  ],
-																		"originid" : "pat-452",
+																		"originid" : "pat-952",
 																		"styles" : [ 																			{
 																				"name" : "Minimal",
 																				"default" : 																				{
@@ -339,8 +338,6 @@
 																	"patching_rect" : [ 139.0, 74.0, 120.0, 21.0 ],
 																	"saved_object_attributes" : 																	{
 																		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-																		"fontname" : "Futura Medium",
-																		"fontsize" : 10.0,
 																		"globalpatchername" : "",
 																		"style" : "Minimal"
 																	}
@@ -584,7 +581,7 @@
 
 															}
  ],
-														"originid" : "pat-450",
+														"originid" : "pat-950",
 														"styles" : [ 															{
 																"name" : "Minimal",
 																"default" : 																{
@@ -616,11 +613,9 @@
 														"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 													}
 ,
-													"patching_rect" : [ 224.666666666666515, 156.0, 62.0, 21.0 ],
+													"patching_rect" : [ 225.0, 156.0, 69.0, 22.0 ],
 													"saved_object_attributes" : 													{
 														"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-														"fontname" : "Futura Medium",
-														"fontsize" : 10.0,
 														"globalpatchername" : "",
 														"style" : "Minimal"
 													}
@@ -636,7 +631,7 @@
 													"numinlets" : 0,
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
-													"patching_rect" : [ 51.0, 152.0, 93.0, 21.0 ],
+													"patching_rect" : [ 51.0, 152.0, 100.0, 22.0 ],
 													"text" : "r _gf.hrlp.wf.togf"
 												}
 
@@ -647,8 +642,8 @@
 													"maxclass" : "newobj",
 													"numinlets" : 2,
 													"numoutlets" : 2,
-													"outlettype" : [ "multichannelsignal", "" ],
-													"patching_rect" : [ 50.0, 292.0, 151.0, 21.0 ],
+													"outlettype" : [ "multichannelsignal", "list" ],
+													"patching_rect" : [ 50.0, 292.0, 158.0, 22.0 ],
 													"text" : "grainflow.util.stereoPan~ 25"
 												}
 
@@ -660,7 +655,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 50.0, 113.0, 67.0, 21.0 ],
+													"patching_rect" : [ 50.0, 113.0, 74.0, 22.0 ],
 													"text" : "phasor~ 10"
 												}
 
@@ -672,7 +667,7 @@
 													"numinlets" : 4,
 													"numoutlets" : 9,
 													"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-													"patching_rect" : [ 51.0, 213.0, 138.0, 21.0 ],
+													"patching_rect" : [ 51.0, 213.0, 145.0, 22.0 ],
 													"text" : "grainflow~ _gf.wf.help 25"
 												}
 
@@ -718,8 +713,7 @@
 										"lines" : [ 											{
 												"patchline" : 												{
 													"destination" : [ "obj-27", 1 ],
-													"order" : 0,
-													"source" : [ "obj-20", 1 ]
+													"source" : [ "obj-20", 2 ]
 												}
 
 											}
@@ -733,7 +727,6 @@
 , 											{
 												"patchline" : 												{
 													"destination" : [ "obj-8", 0 ],
-													"order" : 1,
 													"source" : [ "obj-20", 1 ]
 												}
 
@@ -774,45 +767,14 @@
 
 											}
  ],
-										"originid" : "pat-448",
-										"styles" : [ 											{
-												"name" : "Minimal",
-												"default" : 												{
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"bgfillcolor" : 													{
-														"angle" : 270.0,
-														"autogradient" : 0.0,
-														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"proportion" : 0.39,
-														"type" : "color"
-													}
-,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontface" : [ 0 ],
-													"fontname" : [ "Futura Medium" ],
-													"fontsize" : [ 10.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
-												}
-,
-												"parentstyle" : "",
-												"multi" : 0
-											}
- ],
+										"originid" : "pat-948",
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 									}
 ,
 									"patching_rect" : [ 11.0, 143.0, 74.0, 23.0 ],
 									"saved_object_attributes" : 									{
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-										"fontname" : "Futura Medium",
-										"fontsize" : 10.0,
-										"globalpatchername" : "",
-										"style" : "Minimal"
+										"globalpatchername" : ""
 									}
 ,
 									"text" : "p granulator"
@@ -826,7 +788,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 54.0, 453.0, 19.0 ],
+									"patching_rect" : [ 5.0, 54.0, 453.0, 35.0 ],
 									"text" : "There are many attributes you can use to customize the look of grainflow.waveform~"
 								}
 
@@ -838,7 +800,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 6.0, 430.0, 41.0 ],
+									"patching_rect" : [ 5.0, 6.0, 430.0, 42.0 ],
 									"text" : "grainflow.waveform~"
 								}
 
@@ -884,7 +846,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 107.0, 264.0, 50.0, 21.0 ],
-													"text" : "0.38"
+													"text" : "0.3"
 												}
 
 											}
@@ -1081,7 +1043,7 @@
 
 											}
  ],
-										"originid" : "pat-468",
+										"originid" : "pat-960",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -1116,8 +1078,6 @@
 									"patching_rect" : [ 571.0, 401.0, 75.0, 23.0 ],
 									"saved_object_attributes" : 									{
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-										"fontname" : "Futura Medium",
-										"fontsize" : 10.0,
 										"globalpatchername" : "",
 										"style" : "Minimal"
 									}
@@ -1411,7 +1371,7 @@
 
 							}
  ],
-						"originid" : "pat-446",
+						"originid" : "pat-946",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -1432,7 +1392,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 13.0, 38.0, 87.0, 22.0 ],
+					"patching_rect" : [ 13.0, 38.0, 90.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"globalpatchername" : "",
 						"style" : "Grainflow"
@@ -1467,7 +1427,7 @@
 						"boxes" : [ 							{
 								"box" : 								{
 									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
-									"buffername" : "_help_grainBuf1",
+									"buffername" : "_gf.wf.help2",
 									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
 									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-1",
@@ -1529,7 +1489,6 @@
 										"classnamespace" : "box",
 										"rect" : [ 1472.0, 642.0, 1085.0, 597.0 ],
 										"gridsize" : [ 15.0, 15.0 ],
-										"style" : "Minimal",
 										"subpatcher_template" : "minimal",
 										"boxes" : [ 											{
 												"box" : 												{
@@ -1538,7 +1497,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "multichannelsignal" ],
-													"patching_rect" : [ 51.0, 332.0, 61.0, 21.0 ],
+													"patching_rect" : [ 51.0, 332.0, 74.0, 22.0 ],
 													"text" : "mc.*~ 0.3"
 												}
 
@@ -1549,8 +1508,8 @@
 													"maxclass" : "newobj",
 													"numinlets" : 2,
 													"numoutlets" : 2,
-													"outlettype" : [ "multichannelsignal", "" ],
-													"patching_rect" : [ 50.0, 294.0, 151.0, 21.0 ],
+													"outlettype" : [ "multichannelsignal", "list" ],
+													"patching_rect" : [ 50.0, 294.0, 164.0, 22.0 ],
 													"text" : "grainflow.util.stereoPan~ 50"
 												}
 
@@ -1562,7 +1521,7 @@
 													"numinlets" : 6,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 739.0, 269.0, 106.0, 21.0 ],
+													"patching_rect" : [ 739.0, 269.0, 119.0, 22.0 ],
 													"text" : "scale~ -1 1 0.2 0.5"
 												}
 
@@ -1574,7 +1533,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 674.0, 256.0, 29.5, 21.0 ],
+													"patching_rect" : [ 674.0, 256.0, 43.0, 22.0 ],
 													"text" : "*~"
 												}
 
@@ -1586,7 +1545,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 752.0, 238.0, 68.0, 21.0 ],
+													"patching_rect" : [ 752.0, 238.0, 81.0, 22.0 ],
 													"text" : "cycle~ 0.32"
 												}
 
@@ -1598,7 +1557,7 @@
 													"numinlets" : 6,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 670.0, 194.0, 111.0, 21.0 ],
+													"patching_rect" : [ 670.0, 194.0, 124.0, 22.0 ],
 													"text" : "scale~ -1 1 200 800"
 												}
 
@@ -1610,7 +1569,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 653.0, 167.0, 62.0, 21.0 ],
+													"patching_rect" : [ 653.0, 167.0, 75.0, 22.0 ],
 													"text" : "cycle~ 0.1"
 												}
 
@@ -1622,7 +1581,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 2,
 													"outlettype" : [ "signal", "" ],
-													"patching_rect" : [ 678.5, 318.0, 182.0, 21.0 ],
+													"patching_rect" : [ 679.0, 318.0, 195.0, 22.0 ],
 													"text" : "grainflow.util.record~ _gf.wf.help2"
 												}
 
@@ -1634,7 +1593,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 673.0, 225.0, 42.0, 21.0 ],
+													"patching_rect" : [ 673.0, 225.0, 55.0, 22.0 ],
 													"text" : "cycle~"
 												}
 
@@ -1646,7 +1605,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 116.0, 147.0, 67.0, 21.0 ],
+													"patching_rect" : [ 116.0, 147.0, 80.0, 22.0 ],
 													"text" : "phasor~ 10"
 												}
 
@@ -1658,7 +1617,7 @@
 													"numinlets" : 4,
 													"numoutlets" : 9,
 													"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-													"patching_rect" : [ 50.0, 194.0, 248.0, 21.0 ],
+													"patching_rect" : [ 50.0, 194.0, 261.0, 22.0 ],
 													"text" : "grainflow~ _gf.wf.help2 50 @delayRandom 900"
 												}
 
@@ -1704,8 +1663,7 @@
 										"lines" : [ 											{
 												"patchline" : 												{
 													"destination" : [ "obj-40", 1 ],
-													"order" : 0,
-													"source" : [ "obj-1", 1 ]
+													"source" : [ "obj-1", 2 ]
 												}
 
 											}
@@ -1719,7 +1677,6 @@
 , 											{
 												"patchline" : 												{
 													"destination" : [ "obj-44", 0 ],
-													"order" : 1,
 													"source" : [ "obj-1", 1 ]
 												}
 
@@ -1818,44 +1775,12 @@
 
 											}
  ],
-										"originid" : "pat-472",
-										"styles" : [ 											{
-												"name" : "Minimal",
-												"default" : 												{
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"bgfillcolor" : 													{
-														"angle" : 270.0,
-														"autogradient" : 0.0,
-														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"proportion" : 0.39,
-														"type" : "color"
-													}
-,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-													"elementcolor" : [ 0.647058823529412, 0.647058823529412, 0.647058823529412, 1.0 ],
-													"fontface" : [ 0 ],
-													"fontname" : [ "Futura Medium" ],
-													"fontsize" : [ 10.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
-												}
-,
-												"parentstyle" : "",
-												"multi" : 0
-											}
- ]
+										"originid" : "pat-964"
 									}
 ,
 									"patching_rect" : [ 20.0, 200.0, 60.0, 23.0 ],
 									"saved_object_attributes" : 									{
-										"fontname" : "Futura Medium",
-										"fontsize" : 10.0,
-										"globalpatchername" : "",
-										"style" : "Minimal"
+										"globalpatchername" : ""
 									}
 ,
 									"text" : "p grains"
@@ -1949,7 +1874,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 12.0, 47.0, 434.0, 32.0 ],
+									"patching_rect" : [ 12.0, 47.0, 434.0, 35.0 ],
 									"text" : "grainflow.waveform~ can strain your CPU as the jsui api is not incredibly efficent.  There are some tools to help you though! "
 								}
 
@@ -1961,7 +1886,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 12.0, -1.0, 552.0, 41.0 ],
+									"patching_rect" : [ 12.0, -1.0, 552.0, 42.0 ],
 									"text" : "grainflow.waveform~ Performance"
 								}
 
@@ -2092,7 +2017,7 @@
 
 							}
  ],
-						"originid" : "pat-470",
+						"originid" : "pat-962",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -2113,7 +2038,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 13.0, 68.0, 80.0, 22.0 ],
+					"patching_rect" : [ 13.0, 68.0, 81.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"globalpatchername" : "",
 						"style" : "Grainflow"
@@ -2163,7 +2088,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 216.0, 122.0, 199.0, 19.0 ],
+									"patching_rect" : [ 216.0, 122.0, 199.0, 21.0 ],
 									"text" : "The buffer the waveform will draw"
 								}
 
@@ -2171,16 +2096,18 @@
 , 							{
 								"box" : 								{
 									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
-									"buffername" : "_help_grainBuf1",
+									"buffername" : "_gf.wf.help",
 									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
 									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-7",
 									"maxclass" : "grainflow.waveform~",
+									"mode" : 1,
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 185.0, 313.0, 310.0, 78.0 ],
 									"selectColor" : [ 0.949019607843137, 1.0, 0.0, 0.13 ],
+									"selection" : [ 0.161290322580645, 0.31390322585395 ],
 									"trackerColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 								}
 
@@ -2236,8 +2163,9 @@
 										"classnamespace" : "box",
 										"rect" : [ 696.0, 436.0, 640.0, 480.0 ],
 										"gridsize" : [ 15.0, 15.0 ],
-										"style" : "Minimal",
+										"style" : "Grainflow",
 										"subpatcher_template" : "minimal",
+										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-92",
@@ -2434,7 +2362,7 @@
 
 																			}
  ],
-																		"originid" : "pat-496",
+																		"originid" : "pat-980",
 																		"styles" : [ 																			{
 																				"name" : "Minimal",
 																				"default" : 																				{
@@ -2469,8 +2397,6 @@
 																	"patching_rect" : [ 139.0, 74.0, 120.0, 21.0 ],
 																	"saved_object_attributes" : 																	{
 																		"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-																		"fontname" : "Futura Medium",
-																		"fontsize" : 10.0,
 																		"globalpatchername" : "",
 																		"style" : "Minimal"
 																	}
@@ -2714,7 +2640,7 @@
 
 															}
  ],
-														"originid" : "pat-494",
+														"originid" : "pat-978",
 														"styles" : [ 															{
 																"name" : "Minimal",
 																"default" : 																{
@@ -2746,11 +2672,9 @@
 														"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ]
 													}
 ,
-													"patching_rect" : [ 224.666666666666515, 156.0, 62.0, 21.0 ],
+													"patching_rect" : [ 225.0, 156.0, 72.0, 23.0 ],
 													"saved_object_attributes" : 													{
 														"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-														"fontname" : "Futura Medium",
-														"fontsize" : 10.0,
 														"globalpatchername" : "",
 														"style" : "Minimal"
 													}
@@ -2766,7 +2690,7 @@
 													"numinlets" : 0,
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
-													"patching_rect" : [ 51.0, 152.0, 93.0, 21.0 ],
+													"patching_rect" : [ 51.0, 152.0, 103.0, 23.0 ],
 													"text" : "r _gf.hrlp.wf.togf"
 												}
 
@@ -2777,8 +2701,8 @@
 													"maxclass" : "newobj",
 													"numinlets" : 2,
 													"numoutlets" : 2,
-													"outlettype" : [ "multichannelsignal", "" ],
-													"patching_rect" : [ 50.0, 292.0, 151.0, 21.0 ],
+													"outlettype" : [ "multichannelsignal", "list" ],
+													"patching_rect" : [ 50.0, 292.0, 161.0, 23.0 ],
 													"text" : "grainflow.util.stereoPan~ 25"
 												}
 
@@ -2790,7 +2714,7 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "signal" ],
-													"patching_rect" : [ 50.0, 113.0, 67.0, 21.0 ],
+													"patching_rect" : [ 50.0, 113.0, 77.0, 23.0 ],
 													"text" : "phasor~ 10"
 												}
 
@@ -2802,7 +2726,7 @@
 													"numinlets" : 4,
 													"numoutlets" : 9,
 													"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-													"patching_rect" : [ 51.0, 213.0, 138.0, 21.0 ],
+													"patching_rect" : [ 51.0, 213.0, 148.0, 23.0 ],
 													"text" : "grainflow~ _gf.wf.help 25"
 												}
 
@@ -2848,8 +2772,7 @@
 										"lines" : [ 											{
 												"patchline" : 												{
 													"destination" : [ "obj-27", 1 ],
-													"order" : 0,
-													"source" : [ "obj-20", 1 ]
+													"source" : [ "obj-20", 2 ]
 												}
 
 											}
@@ -2863,7 +2786,6 @@
 , 											{
 												"patchline" : 												{
 													"destination" : [ "obj-8", 0 ],
-													"order" : 1,
 													"source" : [ "obj-20", 1 ]
 												}
 
@@ -2904,29 +2826,19 @@
 
 											}
  ],
-										"originid" : "pat-492",
+										"originid" : "pat-976",
 										"styles" : [ 											{
-												"name" : "Minimal",
+												"name" : "Grainflow",
 												"default" : 												{
-													"accentcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"bgcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"bgfillcolor" : 													{
-														"angle" : 270.0,
-														"autogradient" : 0.0,
-														"color" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-														"color1" : [ 0.65098, 0.666667, 0.662745, 1.0 ],
-														"color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-														"proportion" : 0.39,
-														"type" : "color"
-													}
-,
-													"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"elementcolor" : [ 0.999999, 0.999974, 0.999991, 1.0 ],
-													"fontface" : [ 0 ],
-													"fontname" : [ "Futura Medium" ],
-													"fontsize" : [ 10.0 ],
-													"selectioncolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-													"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
+													"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+													"color" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
+													"editing_bgcolor" : [ 0.333333333333333, 0.333333333333333, 0.333333333333333, 1.0 ],
+													"fontname" : [ "Lato Medium" ],
+													"fontsize" : [ 12.0 ],
+													"locked_bgcolor" : [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
+													"syntax_attrargcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+													"syntax_attributecolor" : [ 0.807843137254902, 1.0, 0.784313725490196, 1.0 ],
+													"syntax_objectcolor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 												}
 ,
 												"parentstyle" : "",
@@ -2939,10 +2851,8 @@
 									"patching_rect" : [ 11.0, 290.0, 76.0, 23.0 ],
 									"saved_object_attributes" : 									{
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-										"fontname" : "Futura Medium",
-										"fontsize" : 10.0,
 										"globalpatchername" : "",
-										"style" : "Minimal"
+										"style" : "Grainflow"
 									}
 ,
 									"text" : "p granulator"
@@ -2968,7 +2878,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 6.0, 430.0, 41.0 ],
+									"patching_rect" : [ 5.0, 6.0, 430.0, 42.0 ],
 									"text" : "grainflow.waveform~"
 								}
 
@@ -2980,7 +2890,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 37.0, 257.0, 150.0, 23.0 ],
+									"patching_rect" : [ 37.0, 257.0, 150.0, 25.0 ],
 									"text" : "Turn on the granulator"
 								}
 
@@ -3014,7 +2924,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 107.0, 264.0, 50.0, 21.0 ],
-													"text" : "0.28"
+													"text" : "0.16129"
 												}
 
 											}
@@ -3211,7 +3121,7 @@
 
 											}
  ],
-										"originid" : "pat-510",
+										"originid" : "pat-986",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -3246,8 +3156,6 @@
 									"patching_rect" : [ 476.0, 412.0, 76.0, 23.0 ],
 									"saved_object_attributes" : 									{
 										"editing_bgcolor" : [ 0.956862745098039, 0.956862745098039, 0.956862745098039, 1.0 ],
-										"fontname" : "Futura Medium",
-										"fontsize" : 10.0,
 										"globalpatchername" : "",
 										"style" : "Minimal"
 									}
@@ -3410,7 +3318,7 @@
 
 							}
  ],
-						"originid" : "pat-490",
+						"originid" : "pat-974",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -3431,7 +3339,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 13.0, 11.0, 55.0, 22.0 ],
+					"patching_rect" : [ 13.0, 11.0, 57.0, 21.0 ],
 					"saved_object_attributes" : 					{
 						"globalpatchername" : "",
 						"style" : "Grainflow"
@@ -3443,7 +3351,7 @@
 			}
  ],
 		"lines" : [  ],
-		"originid" : "pat-444",
+		"originid" : "pat-944",
 		"parameters" : 		{
 			"obj-1::obj-6" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"obj-2::obj-34" : [ "toggle", "toggle", 0 ],
@@ -3484,11 +3392,8 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow.util.stereopan~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "grainflow.waveform~.mxe64",

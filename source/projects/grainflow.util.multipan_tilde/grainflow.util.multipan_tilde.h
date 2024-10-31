@@ -12,7 +12,7 @@ constexpr size_t INTERNALBLOCK = 16;
 using namespace c74::min;
 using namespace Grainflow;
 
-class grainflow_util_stereopan_tilde : public object<grainflow_util_stereopan_tilde>, public mc_operator<>
+class grainflow_util_multipan_tilde : public object<grainflow_util_multipan_tilde>, public mc_operator<>
 {
 public:
 	MIN_DESCRIPTION{"An easy way to pan grains generated with grainflow."};
@@ -22,11 +22,11 @@ public:
 
 private:
 	double oneOverSamplerate = 1;
-	unique_ptr<gf_panner<INTERNALBLOCK, gf_pan_mode::stereo>> panner_;
+	unique_ptr<gf_panner<INTERNALBLOCK, gf_pan_mode::unipolar>> panner_;
 
 public:
 	int input_chans = 1;
-
+	int output_channels_value = 2;
 #pragma region MAX_IO
 	inlet<> grains{this, "(multichannelsignal) grains", "multichannelsignal"};
 	inlet<> grain_states{this, "(multichannelsignal) grain_states", "multichannelsignal"};
@@ -39,8 +39,8 @@ public:
 #pragma region DSP
 #pragma region DSP
 
-	grainflow_util_stereopan_tilde();
-	~grainflow_util_stereopan_tilde();
+	grainflow_util_multipan_tilde();
+	~grainflow_util_multipan_tilde();
 	void operator()(audio_bundle input, audio_bundle output);
 	static long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 	static long simplemc_output(c74::max::t_object* x, long g, long count);
@@ -49,8 +49,15 @@ public:
 #pragma endregion
 
 #pragma region MAX_ARGS
-
-
+	argument<int> output_channels{
+		this,
+		"output channels",
+		"The number of output channels",
+		[this](const c74::min::atom& arg)
+		{
+			output_channels_value = static_cast<int>(arg);
+		}
+	};
 #pragma endregion
 
 
@@ -131,11 +138,7 @@ public:
 			{
 				auto pos = panner_->get_positions();
 				atoms output;
-				output.resize(pos.size());
-				for (auto i = 0; i < pos.size(); ++i)
-				{
-					output[i] = pos[i] * 2.0f - 1.0f;
-				}
+				output.assign(pos.begin(), pos.end());
 				positions.send(output);
 			}
 

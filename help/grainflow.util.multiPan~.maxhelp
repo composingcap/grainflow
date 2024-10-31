@@ -10,11 +10,27 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 434.0, 657.0 ],
+		"rect" : [ 100.0, 100.0, 470.0, 657.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"style" : "Grainflow",
 		"subpatcher_template" : "minimal",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-39",
+					"maxclass" : "multislider",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 237.0, 500.0, 166.0, 83.0 ],
+					"setminmax" : [ 0.0, 7.0 ],
+					"size" : 5,
+					"spacing" : 5,
+					"thickness" : 4
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"fontface" : 1,
 					"fontname" : "Lato",
@@ -156,7 +172,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 178.0, 314.5, 168.0, 35.0 ],
+					"patching_rect" : [ 178.0, 314.5, 169.0, 35.0 ],
 					"text" : "Or select an tween amount to quantize to"
 				}
 
@@ -170,7 +186,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 118.0, 320.0, 50.0, 20.0 ]
+					"patching_rect" : [ 118.0, 320.0, 50.0, 23.0 ]
 				}
 
 			}
@@ -228,7 +244,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 68.0, 88.5, 150.0, 18.0 ],
+					"patching_rect" : [ 68.0, 88.5, 150.0, 21.0 ],
 					"text" : "Start the granulator"
 				}
 
@@ -239,7 +255,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 17.0, 56.0, 407.0, 18.0 ],
+					"patching_rect" : [ 17.0, 56.0, 407.0, 21.0 ],
 					"text" : "Equal power circular panning for any number of outputs"
 				}
 
@@ -430,7 +446,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "bang" ],
-					"patching_rect" : [ 167.0, 399.0, 164.0, 23.0 ],
+					"patching_rect" : [ 193.0, 399.0, 164.0, 23.0 ],
 					"text" : "buffer~ _gf.multipan jongly"
 				}
 
@@ -438,12 +454,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-3",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 4,
 					"numoutlets" : 9,
 					"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 21.333333333333343, 399.0, 132.0, 37.0 ],
+					"patching_rect" : [ 21.0, 399.0, 147.0, 23.0 ],
 					"text" : "grainflow~ _gf.multipan 5"
 				}
 
@@ -454,7 +469,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 2,
-					"outlettype" : [ "multichannelsignal", "" ],
+					"outlettype" : [ "multichannelsignal", "list" ],
 					"patching_rect" : [ 21.0, 456.0, 157.0, 23.0 ],
 					"text" : "grainflow.util.multiPan~ 8"
 				}
@@ -465,6 +480,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-39", 0 ],
+					"source" : [ "obj-1", 1 ]
 				}
 
 			}
@@ -561,7 +583,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 1 ],
-					"midpoints" : [ 59.083333333333343, 434.5, 168.5, 434.5 ],
+					"midpoints" : [ 62.5, 434.5, 168.5, 434.5 ],
 					"source" : [ "obj-3", 2 ]
 				}
 
@@ -581,7 +603,7 @@
 
 			}
  ],
-		"originid" : "pat-242",
+		"originid" : "pat-13",
 		"parameters" : 		{
 			"obj-2" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
@@ -592,11 +614,8 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "grainflow.util.multiPan~.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow.util.multipan~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "grainflow~.mxe64",
