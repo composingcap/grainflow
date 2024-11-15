@@ -21,7 +21,6 @@ namespace Grainflow
 			try
 			{
 				const buffer_lock<> sample_lock(*buffer);
-
 				if (!sample_lock.valid()) return;
 				if (buffer_info == nullptr) return;
 				buffer_info->buffer_frames = static_cast<int>(sample_lock.frame_count());
@@ -90,6 +89,45 @@ namespace Grainflow
 			}
 		};
 
+		static void write_buffer(buffer_reference* buffer, const int channel, const double* samples, double* __restrict scratch,
+			const int start_position, const float overdub, const int size)
+		{
+			if (buffer == nullptr) return;
+			buffer_lock<> sample_lock(*buffer);
+			if (!sample_lock.valid()) return;
+			const int frames = static_cast<int>(sample_lock.frame_count());
+			int channels = static_cast<int>(sample_lock.channel_count());
+			if (channels <= 0) return;
+			auto write_channel = channel % channels;
+			auto is_segmented = (start_position + size) >= frames;
+			auto use_overdub = overdub >= 0.0001f;
+			if (overdub >= 1) return;
+
+			if (use_overdub) {
+				for (int i = 0; i < size; i++) {
+					scratch[i] = sample_lock[(start_position + i) * channels + channel] * overdub;
+				}
+			}
+			else {
+				memset(scratch, 0.0, sizeof(double) * size);
+			}
+
+			if (!is_segmented) {
+				for (int i = 0; i < size; i++) {
+					sample_lock[(start_position + i) * channels + channel] = samples[i] * (1-overdub) + scratch[i];
+				}
+				return;
+			}
+			auto first_chunk = (start_position + size) - frames;
+			for (int i = 0; i < size-first_chunk; i++) {
+				sample_lock[(start_position + i) * channels + channel] = samples[i] * (1 - overdub) + scratch[i];
+			}
+			for (int i = first_chunk; i < size; i++) {
+				sample_lock[(i) * channels + channel] = samples[i] * (1 - overdub) + scratch[i];
+			}
+		};
+
+
 		static void sample_envelope(buffer_reference* buffer, const bool use_default, const int n_envelopes,
 		                            const float env2d_pos, double* __restrict samples,
 		                            const double* __restrict grain_clock, const int size)
@@ -141,6 +179,7 @@ namespace Grainflow
 			_bufferReader.sample_envelope = max_buffer_reader::sample_envelope;
 			_bufferReader.update_buffer_info = max_buffer_reader::update_buffer_info;
 			_bufferReader.sample_param_buffer = max_buffer_reader::sample_param_buffer;
+			_bufferReader.write_buffer = max_buffer_reader::write_buffer;
 			return _bufferReader;
 		}
 	};
