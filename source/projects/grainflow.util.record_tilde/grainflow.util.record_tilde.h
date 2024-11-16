@@ -16,10 +16,10 @@ using namespace Grainflow;
 class grainflow_util_record_tilde : public object<grainflow_util_record_tilde>, public mc_operator<>
 {
 public:
-	MIN_DESCRIPTION{"An easy way to pan grains generated with grainflow."};
+	MIN_DESCRIPTION{"A simple buffer recorder intended to be used with grainflow"};
 	MIN_TAGS{"granulation, msp, grainflow"};
 	MIN_AUTHOR{"Christopher Poovey"};
-	MIN_RELATED{"grainflow.util.multipan~,""grainflow.spatpan~"};
+	MIN_RELATED{"grainflow~,""grainflow.live~"};
 
 private:
 	double oneOverSamplerate = 1;
@@ -27,19 +27,19 @@ private:
 	float write_position_ms = 0;
 	float write_position_norm = 0;
 	gf_buffer_info buffer_info;
-	std::unique_ptr<buffer_reference> target_buffer_;
+	buffer_reference* target_buffer_;
 	gf_i_buffer_reader<buffer_reference> buffer_reader_ = max_buffer_reader::get_max_buffer_reader();
 	gf_io_config config;
 	mutex mutex_;
 	std::array<double, INTERNALBLOCK> temp_;
 
 public:
-	int input_chans = 1;
+	std::array<int,2> input_chans = { 1,0 };
 
 #pragma region MAX_IO
-	inlet<> intput_signal{this, "(multichannelsignal) input signal", "multichannelsignal"};
-
-	outlet<> traversal{this, "(multichannel) normalized position in buffer", "multichannelsignal"};
+	inlet<> input_signal{this, "(multichannelsignal) input signal", "multichannelsignal"};
+	inlet<> sync_signal{ this, "(signal) sync signal", "signal" };
+	outlet<> traversal{this, "(signal) normalized position in buffer", "signal"};
 	outlet<> dump{this, "dump", "list"};
 
 
@@ -171,7 +171,9 @@ public:
 		this,
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
+
 			internal_update.delay(12.5);
+			std::lock_guard<std::mutex> lock(mutex_);
 			dump.send({ "recordHead", write_position_norm });
 			dump.send({ "recordHeadMs", write_position_ms});
 			return {};
