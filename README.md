@@ -52,7 +52,7 @@ You must have [cmake](https://cmake.org/) and Visual Studio (Windows) or Xcode (
 Open a terminal window in the directory you would like to place grainflow.
 If you would like to place grainflow in you Max Packages directory, make sure to remove any other grainflow folder.
 ```
-git clone https://github.com/composingcap/grainflow.git -b f/external --recursive
+git clone https://github.com/composingcap/grainflow.git --recursive
 ```
 ### Building grainflow externals 
 #### Windows:
