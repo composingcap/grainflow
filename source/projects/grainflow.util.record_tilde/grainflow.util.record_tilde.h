@@ -3,6 +3,7 @@
 #include "gfUtils.h"
 #include "gfPanner.h"
 #include "maxBufferReader.h"
+#include <gfRecord.h>
 #include <mutex>
 #include <atomic>
 #include  <cmath>
@@ -23,16 +24,11 @@ public:
 
 private:
 	double oneOverSamplerate = 1;
-	int write_position = 0;
-	float write_position_ms = 0;
-	float write_position_norm = 0;
-	gf_buffer_info buffer_info;
 	buffer_reference* target_buffer_;
-	gf_i_buffer_reader<buffer_reference> buffer_reader_ = max_buffer_reader::get_max_buffer_reader();
-	gf_io_config config;
+	gf_i_buffer_reader<buffer_reference> buffer_reader_;
 	mutex mutex_;
 	std::array<double, INTERNALBLOCK> temp_;
-
+	std::unique_ptr<gfRecorder<buffer_reference, INTERNALBLOCK>> recorder_;
 public:
 	std::array<int,2> input_chans = { 1,0 };
 
@@ -77,7 +73,7 @@ public:
 		"setup",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			config.livemode = true;
+			
 			return {};
 		}
 	};
@@ -171,11 +167,10 @@ public:
 		this,
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-
 			internal_update.delay(12.5);
 			std::lock_guard<std::mutex> lock(mutex_);
-			dump.send({ "recordHead", write_position_norm });
-			dump.send({ "recordHeadMs", write_position_ms});
+			dump.send({ "recordHead", recorder_->write_position_norm()});
+			dump.send({ "recordHeadMs", recorder_->write_position_ms()});
 			return {};
 		}
 	};

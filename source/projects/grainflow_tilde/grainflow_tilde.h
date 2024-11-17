@@ -6,8 +6,9 @@
 #include "gfGrainCollection.h"
 #include "maxBufferReader.h"
 
-constexpr size_t internal_block = 16;
-
+namespace {
+	constexpr size_t internal_block = 16;
+}
 using namespace c74::min;
 using namespace Grainflow;
 

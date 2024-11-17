@@ -13,14 +13,14 @@ using namespace Grainflow;
 grainflow_util_record_tilde::grainflow_util_record_tilde()
 {
 	target_buffer_ = new buffer_reference(this);
+	recorder_ = std::make_unique<gfRecorder<buffer_reference, INTERNALBLOCK>>(max_buffer_reader::get_max_buffer_reader());
 	internal_update.delay(33);
 }
 
 grainflow_util_record_tilde::~grainflow_util_record_tilde()
 {
-	std::lock_guard<std::mutex> lock(mutex_);
+	recorder_.release();
 	delete target_buffer_;
-
 }
 #pragma region DSP
 
@@ -28,26 +28,15 @@ void grainflow_util_record_tilde::operator()(audio_bundle input, audio_bundle ou
 {
 	std::lock_guard<std::mutex> lock(mutex_);
 	auto channels = input_chans[0];
-	bool sync = sync_signal.has_signal_connection();
 	auto frames = input.frame_count();
-	auto blocks = frames / INTERNALBLOCK;
-	auto input_samples = input.samples();
-	auto output_samples = output.samples();
 	
-	if (!state) {
-		for (int b = 0; b < blocks; ++b) {
-			for (int i = 0; i < INTERNALBLOCK; ++i) {
-				output_samples[0][b * INTERNALBLOCK + i] = static_cast<float>(write_position) / buffer_info.buffer_frames;
-			}
-		}
-		return;
-	}
+	auto input_samples = input.samples();
+	auto output_samples = output.samples()[0];
+
 
 	if (target_buffer_ == nullptr) return;
-
 	auto buffer = target_buffer_;
 	buffer_lock<> samples(*buffer);
-
 	if (!samples.valid()) {
 		auto bname = buffer->name();
 		buffer->set(" ");
@@ -55,34 +44,18 @@ void grainflow_util_record_tilde::operator()(audio_bundle input, audio_bundle ou
 		return;
 	}
 
-
-	buffer_reader_.update_buffer_info(buffer, config, &buffer_info);
-
-
+	bool sync = sync_signal.has_signal_connection();
+	double time_override = 0;
 	if (sync) {
-		write_position = gf_utils::mod(input_samples[channels][0],1) * buffer_info.buffer_frames;
+		time_override = input_samples[channels][0];
 	}
+	recorder_->sync = sync;
+	recorder_->freeze = freeze;
+	recorder_->overdub = overdub;
+	recorder_->samplerate = samplerate();
+	recorder_->state = state;
 
-	if (buffer_info.buffer_frames == 0) return;
-	for (int b = 0; b < blocks; ++b) {
-		for (int c = 0; c < channels; ++c) {
-			buffer_reader_.write_buffer(buffer, c, &(input_samples[c][b * INTERNALBLOCK]), temp_.data(), write_position, overdub, INTERNALBLOCK);
-		}
-
-		if (!freeze) {
-			for (int i = 0; i < INTERNALBLOCK; ++i) {
-				output_samples[0][b * INTERNALBLOCK + i] = static_cast<float>((write_position + i) % buffer_info.buffer_frames) / buffer_info.buffer_frames;
-			}
-			write_position_norm = static_cast<float>((write_position + INTERNALBLOCK) % buffer_info.buffer_frames) / buffer_info.buffer_frames;
-			write_position_ms = (write_position + INTERNALBLOCK) * 1000 / samplerate();
-		}
-		else {
-			for (int i = 0; i < INTERNALBLOCK; ++i) {
-				output_samples[0][b * INTERNALBLOCK + i] = write_position_norm;
-			}
-		}
-		write_position = (write_position + INTERNALBLOCK) % buffer_info.buffer_frames;
-	}
+	recorder_->process(input_samples, time_override, buffer, frames, channels, output_samples);
 	samples.dirty();
 
 }
