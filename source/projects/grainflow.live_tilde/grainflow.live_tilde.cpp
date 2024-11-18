@@ -19,6 +19,7 @@ int grainflow_live_tilde::get_max_grains() const { return grain_collection_ != n
 
 
 void grainflow_live_tilde::generate_internal_buffer(int length_ms, int channels) {
+	std::lock_guard<std::mutex> lock(mutex_);
 	destroy_internal_buffer();
 	using namespace c74::max;
 	auto name = symbol_unique();
@@ -45,7 +46,7 @@ void grainflow_live_tilde::resize_buffer(int length_ms, int channels) {
 		generate_internal_buffer(length_ms, channels);
 		return;
 	};
-
+	std::lock_guard<std::mutex> lock(mutex_);
 	t_atom args[2];
 	atom_setlong(&args[0], static_cast<t_atom_long>(length_ms));
 	atom_setlong(&args[1], static_cast<t_atom_long>(channels));	
