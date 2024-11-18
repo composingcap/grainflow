@@ -167,10 +167,14 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			internal_update.delay(12.5);
-			std::lock_guard<std::mutex> lock(mutex_);
-			dump.send({ "recordHead", recorder_->write_position_norm()});
-			dump.send({ "recordHeadMs", recorder_->write_position_ms()});
+			double pos_norm;
+			double pos_samps;
+			double pos_ms;
+			recorder_->get_position(pos_samps, pos_norm, pos_ms);
+			dump.send({ "recordHead", pos_norm });
+			dump.send({ "recordHeadMs", pos_ms });
 			return {};
+		
 		}
 	};
 #pragma endregion

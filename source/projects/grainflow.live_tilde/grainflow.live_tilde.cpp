@@ -404,8 +404,13 @@ void grainflow_live_tilde::output_all_grain_info()
 		if (state)
 		{
 			output_grain_info("buf", buffer_name);
-			output_grain_info("recordHeadMs", { recorder_->write_position_ms() });
-			output_grain_info("recordHead", { recorder_->write_position_norm() });
+			double pos_norm;
+			double pos_samps;
+			double pos_ms;
+			recorder_->get_position(pos_samps, pos_norm, pos_ms);
+			output_grain_info("recordHead", { pos_norm });
+			output_grain_info("recordHeadMs", { pos_ms });
+
 		}
 		has_record_update_ = false;
 	}
