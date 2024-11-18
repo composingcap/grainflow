@@ -6,8 +6,8 @@
 
 <c74object name='grainflow.util.record~' category='granulation,  msp,  grainflow'>
 
-	<digest>An easy way to pan grains generated with grainflow</digest>
-	<description>An easy way to pan grains generated with grainflow. </description>
+	<digest>A simple buffer recorder intended to be used with grainflow </digest>
+	<description>A simple buffer recorder intended to be used with grainflow </description>
 
 
 	<!--METADATA-->
@@ -46,6 +46,11 @@
 			<description></description>
 		</method>
 
+		<method name='set'>
+			<digest>Choose a named buffer~ from which to read</digest>
+			<description>Choose a named buffer~ from which to read. </description>
+		</method>
+
 	</methodlist>
 
 
@@ -79,8 +84,8 @@
 	<!--RELATED-->
 
 	<seealsolist>
-		<seealso name='grainflow.util.multipan~' />
-		<seealso name='grainflow.spatpan~' />
+		<seealso name='grainflow~' />
+		<seealso name='grainflow.live~' />
 	</seealsolist>
 
 
