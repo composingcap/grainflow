@@ -17,7 +17,6 @@ include_directories(
 	"${C74_INCLUDES}"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../common"
-	"${CMAKE_CURRENT_SOURCE_DIR}/../grainflow_tilde"
 )
 
 

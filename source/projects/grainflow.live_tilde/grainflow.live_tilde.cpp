@@ -196,7 +196,7 @@ void grainflow_live_tilde::try_set_attribute_or_message(const string& name, cons
 
 void grainflow_live_tilde::output_grain_info(string name, const atoms& data)
 {
-	auto mess = atoms({std::move(name)});
+	auto mess = atoms(atom{std::move(name)});
 	for (int g = 0; g < std::min(static_cast<int>(data.size()), static_cast<int>(n_grains)); g++)
 	{
 		mess.push_back(data[g]);
@@ -238,13 +238,13 @@ void grainflow_live_tilde::setup_inputs(gf_io_config& io_config, const int* inpu
 
 void grainflow_live_tilde::grain_info_reset()
 {
-	output_grain_info("grainState", {0});
-	output_grain_info("grainPosition", {0});
-	output_grain_info("grainWindow", {0});
-	output_grain_info("grainAmp", {0});
-	output_grain_info("grainProgress", {0});
-	output_grain_info("grainBufferChannel", {0});
-	output_grain_info("grainStreamChannel", {0});
+	output_grain_info("grainState", atoms(atom{0}));
+	output_grain_info("grainPosition", atoms(atom{0}));
+	output_grain_info("grainWindow", atoms(atom{0}));
+	output_grain_info("grainAmp", atoms(atom{0}));
+	output_grain_info("grainProgress", atoms(atom{0}));
+	output_grain_info("grainBufferChannel", atoms(atom{0}));
+	output_grain_info("grainStreamChannel", atoms(atom{0}));
 }
 
 
@@ -347,7 +347,7 @@ void grainflow_live_tilde::init()
 		env->set(env_arg_);
 
 		if (buffer_arg_value_.type() == message_type::symbol_argument) {
-			buffer_name.set({ buffer_arg_ });
+			buffer_name.set(atoms(atom{buffer_arg_}));
 			buffer_is_internal_ = false;
 		}
 		else {
@@ -367,7 +367,7 @@ void grainflow_live_tilde::reinit(int grains)
 	grain_collection_ = std::make_unique<gf_grain_collection<buffer_reference, internal_block>>(max_buffer_reader::get_max_buffer_reader(), grains);
 	auto maxGrains = grains;
 	if (n_grains > maxGrains) n_grains = maxGrains;
-	if (auto_overlap) this->try_set_attribute_or_message("windowOffset", atoms{1.0f / n_grains});
+	if (auto_overlap) this->try_set_attribute_or_message("windowOffset", atoms(atom{1.0f / n_grains}));
 	m_grain_state_.resize(maxGrains);
 	m_grain_progress_.resize(maxGrains);
 	m_grain_playhead_.resize(maxGrains);
@@ -409,8 +409,8 @@ void grainflow_live_tilde::output_all_grain_info()
 			double pos_samps;
 			double pos_ms;
 			recorder_->get_position(pos_samps, pos_norm, pos_ms);
-			output_grain_info("recordHead", { pos_norm });
-			output_grain_info("recordHeadMs", { pos_ms });
+			output_grain_info("recordHead", atoms(atom{pos_norm}));
+			output_grain_info("recordHeadMs", atoms(atom{pos_ms}));
 
 		}
 		has_record_update_ = false;
