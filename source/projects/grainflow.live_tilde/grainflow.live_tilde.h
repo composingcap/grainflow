@@ -6,6 +6,7 @@
 #include "gfGrainCollection.h"
 #include "maxBufferReader.h"
 #include<gfRecord.h>
+#include <algorithm>
 
 namespace {
 	constexpr size_t internal_block = 16;
@@ -209,7 +210,9 @@ public:
 			samplerate_ = samplerate();
 			//grain_collection_->samplerate = samplerate_;
 			one_over_samplerate_ = 1.0f / samplerate_;
+			auto _temp_is_internal = buffer_is_internal_;
 			buffer_name.set(buffer_name);
+			buffer_is_internal_ = _temp_is_internal;
 			return {};
 		}
 	};
@@ -224,6 +227,9 @@ public:
 			if (name.empty()) return{ symbol{} };
 			buffer_->set(name);
 			buffer_ref_message(name, gf_buffers::buffer);
+			buffer_lock<> samples(*buffer_);
+			buf_chans.set({ samples.channel_count() });
+			buffer_is_internal_ = false;
 			return {name};
 			}},
 		getter {
@@ -1071,9 +1077,12 @@ public:
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
 				if (grain_collection_ == nullptr)return args;
-				const int chans = args[0];
+				if (buffer_ == nullptr) return args;
+				int chans = args[0];
+				buffer_lock<> samples(*buffer_);
+				chans = std::max(chans, static_cast<int>(samples.channel_count()));
 				grain_collection_->channels_set_interleaved(chans);
-				return args;
+				return { chans };
 			}
 		},
 		category{"Grainflow Settings"},
