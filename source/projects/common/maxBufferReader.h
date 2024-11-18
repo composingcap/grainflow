@@ -104,8 +104,15 @@ namespace Grainflow
 			if (overdub >= 1) return;
 
 			if (use_overdub) {
-				for (int i = 0; i < size; i++) {
-					scratch[i] = sample_lock[(start_position + i) * channels + channel] * overdub;
+				if (!is_segmented) {
+					for (int i = 0; i < size; i++) {
+						scratch[i] = sample_lock[(start_position + i) * channels + channel] * overdub;
+					}
+				}
+				else {
+					for (int i = 0; i < size; i++) {
+						scratch[i] = sample_lock[((start_position + i) * channels + channel)%frames] * overdub;
+					}
 				}
 			}
 			else {
@@ -119,12 +126,10 @@ namespace Grainflow
 				return;
 			}
 			auto first_chunk = (start_position + size) - frames;
-			for (int i = 0; i < size-first_chunk; i++) {
-				sample_lock[(start_position + i) * channels + channel] = samples[i] * (1 - overdub) + scratch[i];
+			for (int i = 0; i < size; i++) {
+				sample_lock[((start_position + i) * channels + channel)%frames] = samples[i] * (1 - overdub) + scratch[i];
 			}
-			for (int i = first_chunk; i < size; i++) {
-				sample_lock[(i) * channels + channel] = samples[i] * (1 - overdub) + scratch[i];
-			}
+
 		};
 
 
