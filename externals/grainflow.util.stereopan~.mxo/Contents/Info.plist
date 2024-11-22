@@ -12,13 +12,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>grainflow.waveform~</string>
+	<string>grainflow.util.stereopan~</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.acme.grainflow-waveform-</string>
+	<string>com.acme.grainflow-util-stereopan-</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLongVersionString</key>
-	<string>grainflow.waveform~ 2.1.0 - Copyright (c) 1974 Acme Inc</string>
+	<string>grainflow.util.stereopan~ 2.1.0 - Copyright (c) 1974 Acme Inc</string>
 	<key>CFBundlePackageType</key>
 	<string>iLaX</string>
 	<key>CFBundleShortVersionString</key>

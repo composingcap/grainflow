@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 9,
 			"minor" : 0,
-			"revision" : 0,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -28,7 +28,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -328,7 +328,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -432,7 +432,7 @@
 
 											}
  ],
-										"originid" : "pat-124",
+										"originid" : "pat-26",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -1085,7 +1085,7 @@
 
 							}
  ],
-						"originid" : "pat-122",
+						"originid" : "pat-24",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-57", "obj-56" ]
 							}
@@ -1141,7 +1141,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1274,7 +1274,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1420,7 +1420,7 @@
 
 											}
  ],
-										"originid" : "pat-130",
+										"originid" : "pat-32",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -1745,7 +1745,7 @@
 
 							}
  ],
-						"originid" : "pat-128",
+						"originid" : "pat-30",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-29", "obj-35" ]
 							}
@@ -1794,7 +1794,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2304,7 +2304,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
+									"outlettype" : [ "multichannelsignal", "list" ],
 									"patching_rect" : [ 20.0, 625.0, 129.0, 37.0 ],
 									"text" : "grainflow.util.stereoPan~"
 								}
@@ -2666,7 +2666,7 @@
 
 							}
  ],
-						"originid" : "pat-132",
+						"originid" : "pat-34",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-16", "obj-15" ]
 							}
@@ -2733,7 +2733,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -3531,7 +3531,7 @@
 
 							}
  ],
-						"originid" : "pat-142",
+						"originid" : "pat-36",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-1", "obj-15" ]
 							}
@@ -3586,7 +3586,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -4044,7 +4044,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
+									"outlettype" : [ "multichannelsignal", "list" ],
 									"patching_rect" : [ 19.0, 695.0, 149.333333333333314, 23.0 ],
 									"text" : "grainflow.util.stereoPan~"
 								}
@@ -4362,7 +4362,7 @@
 
 							}
  ],
-						"originid" : "pat-144",
+						"originid" : "pat-38",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -4405,13 +4405,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 822.0 ],
+						"rect" : [ 100.0, 126.0, 1146.0, 822.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -4597,7 +4597,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -4735,7 +4735,7 @@
 
 											}
  ],
-										"originid" : "pat-156",
+										"originid" : "pat-42",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -4851,7 +4851,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -4979,7 +4979,7 @@
 
 											}
  ],
-										"originid" : "pat-166",
+										"originid" : "pat-52",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -5512,7 +5512,7 @@
 
 							}
  ],
-						"originid" : "pat-154",
+						"originid" : "pat-40",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-5", "obj-1" ]
 							}
@@ -5564,7 +5564,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -6379,7 +6379,7 @@
 
 							}
  ],
-						"originid" : "pat-168",
+						"originid" : "pat-54",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-25", "obj-35" ]
 							}
@@ -6437,13 +6437,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 1146.0, 822.0 ],
+						"rect" : [ 0.0, 26.0, 1146.0, 822.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -7176,7 +7176,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
+									"outlettype" : [ "multichannelsignal", "list" ],
 									"patching_rect" : [ 8.0, 679.0, 159.0, 23.0 ],
 									"text" : "grainflow.util.stereoPan~"
 								}
@@ -7346,7 +7346,7 @@
 
 							}
  ],
-						"originid" : "pat-170",
+						"originid" : "pat-56",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-29", "obj-35" ]
 							}
@@ -7403,7 +7403,7 @@
 			}
  ],
 		"lines" : [  ],
-		"originid" : "pat-120",
+		"originid" : "pat-22",
 		"parameters" : 		{
 			"obj-103::obj-102" : [ "number[5]", "number[5]", 0 ],
 			"obj-103::obj-31" : [ "number[4]", "number[4]", 0 ],
@@ -7453,11 +7453,8 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.util.stereoPan~.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers",
-				"patcherrelativepath" : "../patchers",
-				"type" : "JSON",
-				"implicit" : 1
+				"name" : "grainflow.util.stereopan~.mxe64",
+				"type" : "mx64"
 			}
 , 			{
 				"name" : "grainflow.waveform~.mxe64",

@@ -2,10 +2,10 @@
 #include <c74_min.h>
 #include <mutex>
 #include <map>
-#include "gfUtils.h"
-#include "gfGrainCollection.h"
+#include <gfUtils.h>
+#include <gfGrainCollection.h>
 #include "maxBufferReader.h"
-#include<gfRecord.h>
+#include <gfRecord.h>
 #include <algorithm>
 
 namespace {
@@ -256,7 +256,7 @@ public:
 		description{"Determines if grainflow.live should output grains"},
 	};
 
-	attribute<float> overdub{ this, "overdub", 0.0,
+	attribute<number> overdub{ this, "overdub", 0.0,
 	category{"Grainflow Live Settings"},
 	description{"How much the previous contented is mixed with new content"},
 	};
