@@ -44,6 +44,7 @@ namespace Grainflow
 
 		static bool sample_param_buffer(buffer_reference* buffer, gf_param* param, const int grain_id)
 		{
+			std::random_device rd;
 			if (param->mode == gf_buffer_mode::normal || buffer == nullptr)
 			{
 				return false;
@@ -59,11 +60,10 @@ namespace Grainflow
 				frame = grain_id % frames;
 			}
 			else if (param->mode == gf_buffer_mode::buffer_random)
-			{
-				std::random_device rd;
+			{				
 				frame = (rd() % frames);
 			}
-			param->value = param_buf.lookup(frame, 0);
+			param->value = param_buf.lookup(frame, 0) + param->random*(rd() % 10000)*0.0001 + param->offset*grain_id;
 			return true;
 		}
 
