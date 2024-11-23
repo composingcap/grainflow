@@ -29,7 +29,6 @@ grainflow_tilde::~grainflow_tilde()
 
 void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 {
-	if (const auto lock_available = lock.try_lock(); !lock_available) return;
 	//This is a hack to get around some wierd ordering issues when playing the first frame when the number of voices has changed
 	max_grains_this_frame = std::min(static_cast<int>(output.channel_count() / 8), grain_collection_->grains());
 	const auto current_grains = clamp(static_cast<int>(n_grains), 0, max_grains_this_frame);
@@ -49,7 +48,6 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 
 	if (!state)
 	{
-		lock.unlock();
 		return;
 	}
 
@@ -70,7 +68,6 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 		has_update_ = true;
 	}
 
-	lock.unlock();
 }
 
 #pragma endregion
@@ -116,9 +113,10 @@ void grainflow_tilde::try_set_attribute_or_message(const string& name, const ato
 	return;
 }
 
-void grainflow_tilde::output_grain_info(string name, const atoms& data)
+void grainflow_tilde::output_grain_info(symbol name, const atoms& data)
 {
-	auto mess = atoms({std::move(name)});
+	auto mess = atoms();
+	mess.push_back(name);
 	for (int g = 0; g < std::min(static_cast<int>(data.size()), static_cast<int>(n_grains)); g++)
 	{
 		mess.push_back(data[g]);
@@ -269,7 +267,6 @@ void grainflow_tilde::init()
 
 void grainflow_tilde::reinit(int grains)
 {
-	lock.lock();
 	grain_collection_.release();
 	grain_collection_ = std::make_unique<gf_grain_collection<buffer_reference, internal_block>>(buffer_reader_, grains);
 	auto maxGrains = grains;
@@ -283,7 +280,6 @@ void grainflow_tilde::reinit(int grains)
 	m_grain_stream_channel_.resize(maxGrains);
 	m_grain_buffer_channel_.resize(maxGrains);
 	init();
-	lock.unlock();
 }
 
 void grainflow_tilde::refresh_all_attributes()

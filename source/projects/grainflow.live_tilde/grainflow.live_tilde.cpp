@@ -19,7 +19,7 @@ int grainflow_live_tilde::get_max_grains() const { return grain_collection_ != n
 
 
 void grainflow_live_tilde::generate_internal_buffer(int length_ms, int channels) {
-	std::lock_guard<std::mutex> lock(mutex_);
+	//std::lock_guard<std::mutex> lock(mutex_);
 	destroy_internal_buffer();
 	using namespace c74::max;
 	auto name = symbol_unique();
@@ -46,7 +46,7 @@ void grainflow_live_tilde::resize_buffer(int length_ms, int channels) {
 		generate_internal_buffer(length_ms, channels);
 		return;
 	};
-	std::lock_guard<std::mutex> lock(mutex_);
+	//std::lock_guard<std::mutex> lock(mutex_);
 	t_atom args[2];
 	atom_setlong(&args[0], static_cast<t_atom_long>(length_ms));
 	atom_setlong(&args[1], static_cast<t_atom_long>(channels));	
@@ -94,7 +94,8 @@ bool grainflow_live_tilde::check_and_update_buffer(const int channels) {
 
 void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 {
-	std::lock_guard<std::mutex> lock(mutex_);
+	audio_thread_busy_ = true;
+	//std::lock_guard<std::mutex> lock(mutex_);
 	auto channels = input_chans[0];
 	auto frames = input.frame_count();
 	auto input_samples = input.samples();
@@ -147,7 +148,7 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 		}
 		has_update_ = true;
 	}
-
+	audio_thread_busy_ = false;
 
 }
 
@@ -194,9 +195,10 @@ void grainflow_live_tilde::try_set_attribute_or_message(const string& name, cons
 	return;
 }
 
-void grainflow_live_tilde::output_grain_info(string name, const atoms& data)
+void grainflow_live_tilde::output_grain_info(symbol name, const atoms& data)
 {
-	auto mess = atoms(atom{std::move(name)});
+	auto mess = atoms();
+	mess.push_back(name);
 	for (int g = 0; g < std::min(static_cast<int>(data.size()), static_cast<int>(n_grains)); g++)
 	{
 		mess.push_back(data[g]);
@@ -399,8 +401,7 @@ void grainflow_live_tilde::refresh_named_attributes(const std::string& name)
 
 void grainflow_live_tilde::output_all_grain_info()
 {
-	std::lock_guard<std::mutex> lock(mutex_);
-
+	if (audio_thread_busy_) return;
 	if (has_record_update_) {
 		if (state)
 		{
@@ -427,7 +428,6 @@ void grainflow_live_tilde::output_all_grain_info()
 			output_grain_info("grainProgress", m_grain_progress_);
 			output_grain_info("grainBufferChannel", m_grain_buffer_channel_);
 			output_grain_info("grainStreamChannel", m_grain_stream_channel_);
-
 
 		}
 	}

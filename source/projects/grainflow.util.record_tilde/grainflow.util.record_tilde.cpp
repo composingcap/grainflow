@@ -26,7 +26,6 @@ grainflow_util_record_tilde::~grainflow_util_record_tilde()
 
 void grainflow_util_record_tilde::operator()(audio_bundle input, audio_bundle output)
 {
-	std::lock_guard<std::mutex> lock(mutex_);
 	auto channels = input_chans[0];
 	auto frames = input.frame_count();
 	

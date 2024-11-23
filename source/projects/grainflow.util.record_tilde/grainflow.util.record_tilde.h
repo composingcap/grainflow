@@ -26,7 +26,6 @@ private:
 	double oneOverSamplerate = 1;
 	buffer_reference* target_buffer_;
 	gf_i_buffer_reader<buffer_reference> buffer_reader_;
-	mutex mutex_;
 	std::unique_ptr<gfRecorder<buffer_reference, INTERNALBLOCK>> recorder_;
 public:
 	std::array<int,2> input_chans = { 1,0 };

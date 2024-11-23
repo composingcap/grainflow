@@ -65,7 +65,6 @@ private:
 public:
 	int input_chans[4] = {0, 0, 0, 0};
 	int max_grains_this_frame = 0;
-	std::mutex lock;
 
 #pragma region MAX_IO
 	inlet<> grain_clock{this, "(multichannelsignal) phasor input", "multichannelsignal"};
@@ -99,7 +98,7 @@ public:
 	auto init() -> void;
 	void reinit(int grains);
 	void use_default_envelope(bool state, int target = 0);
-	void output_grain_info(string name, const atoms& data);
+	void output_grain_info(symbol name, const atoms& data);
 	void setup_outputs(gf_io_config& io_config, double** outputs) const;
 	static void setup_inputs(gf_io_config& io_config, const int* input_channels, double** inputs);
 	void refresh_linked_attribute();
@@ -191,14 +190,12 @@ public:
 		"dspsetup",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			this->lock.lock();
 			buffer_refresh(gf_buffers::buffer); // This is needed so grainflow live can load buffers correctly.
 			samplerate_ = samplerate();
 			grain_collection_->samplerate = samplerate_;
 			one_over_samplerate_ = 1.0f / samplerate_;
 
 
-			this->lock.unlock();
 			return {};
 		}
 	};

@@ -51,6 +51,8 @@ private:
 	atoms m_grain_stream_channel_;
 	atoms m_grain_buffer_channel_;
 
+	bool audio_thread_busy_;
+
 	c74::min::atom buffer_arg_value_;
 
 	buffer_reference* buffer_ = nullptr;
@@ -114,7 +116,7 @@ public:
 	auto init() -> void;
 	void reinit(int grains);
 	void use_default_envelope(bool state, int target = 0);
-	void output_grain_info(string name, const atoms& data);
+	void output_grain_info(symbol name, const atoms& data);
 	void setup_outputs(gf_io_config& io_config, double** outputs) const;
 	static void setup_inputs(gf_io_config& io_config, const int* input_channels, double** inputs, double** traveral_phasor);
 	void refresh_linked_attribute();
@@ -205,7 +207,7 @@ public:
 		"dspsetup",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			std::lock_guard<std::mutex> lock(mutex);
+			//std::lock_guard<std::mutex> lock(mutex);
 			buffer_refresh(gf_buffers::buffer); // This is needed so grainflow live can load buffers correctly.
 			samplerate_ = samplerate();
 			//grain_collection_->samplerate = samplerate_;
