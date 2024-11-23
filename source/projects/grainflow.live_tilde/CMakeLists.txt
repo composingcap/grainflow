@@ -30,6 +30,7 @@ set(SOURCE_FILES
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfGrainCollection.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfEnvelopes.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../common/maxBufferReader.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../common/grainflowBase.h"
 
 )
 

@@ -13,7 +13,8 @@ using namespace Grainflow;
 grainflow_util_record_tilde::grainflow_util_record_tilde()
 {
 	target_buffer_ = new buffer_reference(this);
-	recorder_ = std::make_unique<gfRecorder<buffer_reference, INTERNALBLOCK>>(max_buffer_reader::get_max_buffer_reader());
+	recorder_ = std::make_unique<gfRecorder<buffer_reference, INTERNALBLOCK>>(
+		max_buffer_reader::get_max_buffer_reader());
 	internal_update.delay(33);
 }
 
@@ -28,7 +29,7 @@ void grainflow_util_record_tilde::operator()(audio_bundle input, audio_bundle ou
 {
 	auto channels = input_chans[0];
 	auto frames = input.frame_count();
-	
+
 	auto input_samples = input.samples();
 	auto output_samples = output.samples()[0];
 
@@ -36,7 +37,8 @@ void grainflow_util_record_tilde::operator()(audio_bundle input, audio_bundle ou
 	if (target_buffer_ == nullptr) return;
 	auto buffer = target_buffer_;
 	buffer_lock<> samples(*buffer);
-	if (!samples.valid()) {
+	if (!samples.valid())
+	{
 		auto bname = buffer->name();
 		buffer->set(" ");
 		buffer->set(bname);
@@ -45,7 +47,8 @@ void grainflow_util_record_tilde::operator()(audio_bundle input, audio_bundle ou
 
 	bool sync = sync_signal.has_signal_connection();
 	double time_override = 0;
-	if (sync) {
+	if (sync)
+	{
 		time_override = input_samples[channels][0];
 	}
 	recorder_->sync = sync;
@@ -56,11 +59,9 @@ void grainflow_util_record_tilde::operator()(audio_bundle input, audio_bundle ou
 
 	recorder_->process(input_samples, time_override, buffer, frames, channels, output_samples);
 	samples.dirty();
-
 }
 
 #pragma endregion
-
 
 
 #pragma region MAX_API_EX
