@@ -1528,13 +1528,13 @@ public:
 			switch (grain_collection_->stream_param_set(reflection_string, stream_target, value))
 			{
 			case GF_RETURN_CODE::GF_PARAM_NOT_FOUND:
-				cout << stderr << "Parameter " << reflection_string << " not found";
+				this->cerr << "Parameter " << reflection_string << " not found";
 				break;
 			case GF_RETURN_CODE::GF_ERR:
-				cout << stderr << "Stream not found";
+				this->cerr << "Stream not found";
 				break;
 			default:
-				cout << stderr << "Bad Return Code";
+				this->cerr << "Bad Return Code";
 			}
 			refresh_named_attributes(reflection_string);
 			return {};
@@ -1569,7 +1569,7 @@ public:
 				;
 				res
 				!= GF_RETURN_CODE::GF_SUCCESS)
-				cout << stderr << "Parameter " << reflection_string << " not found" <<
+				this->cerr << "Parameter " << reflection_string << " not found" <<
 					"\n";
 			refresh_named_attributes(reflection_string);
 			return args;
@@ -1604,7 +1604,7 @@ public:
 			if (const auto res = grain_collection_->grain_param_func(reflection_string, &gf_utils::random_range, low,
 			                                                         high);
 				res != GF_RETURN_CODE::GF_SUCCESS)
-				cout << stderr << "Parameter " << reflection_string << " not found" <<
+				this->cerr << "Parameter " << reflection_string << " not found" <<
 					"\n";
 			refresh_named_attributes(reflection_string);
 			return args;
@@ -1638,7 +1638,7 @@ public:
 			if (const auto res = grain_collection_->grain_param_func(reflection_string, &gf_utils::lerp, low, high); res
 				!=
 				GF_RETURN_CODE::GF_SUCCESS)
-				cout << stderr << "Parameter " << reflection_string << " not found" << "\n";
+				this->cerr << "Parameter " << reflection_string << " not found" << "\n";
 			refresh_named_attributes(reflection_string);
 			return args;
 		}
@@ -1687,7 +1687,7 @@ public:
 			const float value = args[2];
 			if (const auto res = grain_collection_->channel_param_set(chan, reflection_string, value); res !=
 				GF_RETURN_CODE::GF_SUCCESS)
-				cout << stderr << "Parameter " << reflection_string << " not found" << "\n";
+				this->cerr << "Parameter " << reflection_string << " not found" << "\n";
 			refresh_named_attributes(reflection_string);
 			return {};
 		}

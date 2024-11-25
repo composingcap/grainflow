@@ -150,7 +150,7 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 	recorder_->process(input_samples, 0, buffer_, frames, channels, traversal_phasor_);
 
 	max_grains_this_frame = std::min(static_cast<int>(output.channel_count() / 8), grain_collection_->grains());
-	if (recorder_->state) has_record_update_ = true;
+	if (state) has_record_update_ = true;
 	const auto current_grains = clamp(static_cast<int>(n_grains), 0, max_grains_this_frame);
 	io_config_.livemode = true;
 	setup_inputs(io_config_, input_chans, input.samples(), &traversal_phasor_);
@@ -164,8 +164,10 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 	{
 		memset(output.samples()[g], static_cast<double>(0), sizeof(double) * io_config_.block_size);
 	}
-	if (!play) return;
-	if (!state)return;
+	if (!play || !state){
+		audio_thread_busy_=false;
+		return;
+	}
 
 	grain_collection_->process(io_config_);
 	update_grain_data(io_config_, max_grains_this_frame);
@@ -217,12 +219,8 @@ void grainflow_live_tilde::event_update()
 		if (state)
 		{
 			output_grain_info("buf", buffer_name, data_outlet);
-			double pos_norm;
-			double pos_samps;
-			double pos_ms;
-			recorder_->get_position(pos_samps, pos_norm, pos_ms);
-			output_grain_info("recordHead", atoms(atom{pos_norm}), data_outlet);
-			output_grain_info("recordHeadMs", atoms(atom{pos_ms}), data_outlet);
+			output_grain_info("recordHead", atoms{atom{recorder_->write_position_norm}}, data_outlet);
+			output_grain_info("recordHeadMs", atoms{atom{recorder_->write_position_ms}}, data_outlet);
 		}
 		has_record_update_ = false;
 	}
