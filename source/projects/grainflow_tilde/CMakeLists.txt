@@ -23,14 +23,6 @@ include_directories(
 set(SOURCE_FILES
 	${PROJECT_NAME}.cpp
 	${PROJECT_NAME}.h
-	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfGrain.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfParam.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfUtils.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfIBufferReader.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfGrainCollection.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/../../GrainflowLib/include/gfEnvelopes.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/../common/maxBufferReader.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/../common/grainflowBase.h"
 )
 
 

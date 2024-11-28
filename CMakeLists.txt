@@ -38,6 +38,8 @@ if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/source/min-lib/CMakeLists.txt")
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source/min-lib)
 endif ()
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source/GrainflowLib)
+
 
 # Generate a project for every folder in the "source/projects" folder
 SUBDIRLIST(PROJECT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/source/projects)
