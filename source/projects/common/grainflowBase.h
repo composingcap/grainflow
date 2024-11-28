@@ -1164,6 +1164,7 @@ public:
 			{
 				if (grain_collection_ == nullptr) return {0};
 				grain_collection_->set_active_grains((int)args[0]);
+				window_offset.touch();
 				return {grain_collection_->active_grains()};
 			}
 		},
