@@ -6,7 +6,7 @@
 using namespace c74::min;
 using namespace c74::min::ui;
 
-class grainflow_spatview : public object<grainflow_spatview>, public ui_operator<300, 100>
+class grainflow_waveform_tilde : public object<grainflow_waveform_tilde>, public ui_operator<300, 100>
 {
 private:
 	buffer_reference m_buffer{this};
@@ -32,7 +32,7 @@ public:
 	outlet<> output{this, "(list) grainInfo"};
 	outlet<> output2{this, "(list) click info"};
 
-	grainflow_spatview(const atoms& args = {})
+	grainflow_waveform_tilde(const atoms& args = {})
 		: ui_operator::ui_operator{this, args}
 	{
 		m_timer.delay(40);
@@ -328,8 +328,8 @@ public:
 		this, "selectColor", {color{1, 1, 0, 0.5}}, title{"Select Color"},
 		description{"changes color of the selection range"}
 	};
-	attribute<float> m_vzoom{
-		this, "vZoom", {1}, title{"Vertical Zoom"}, description{"Increases the Y scale of the waveform"}
+	attribute<number> m_vzoom{
+		this, "vZoom", 1, title{"Vertical Zoom"}, description{"Increases the Y scale of the waveform"}
 	};
 
 	message<> setup{
@@ -547,4 +547,4 @@ private:
 	number recordHead = -1;
 };
 
-MIN_EXTERNAL(grainflow_spatview);
+MIN_EXTERNAL(grainflow_waveform_tilde);
