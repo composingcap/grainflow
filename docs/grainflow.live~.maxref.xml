@@ -24,9 +24,9 @@
 
 	<objarglist>
 
-		<objarg name='buffer size in ms or the name of a refrence buffer' optional='1'>
-			<digest>the size of the internal buffer in ms or the name of an interanl buffer </digest>
-			<description>the size of the internal buffer in ms or the name of an interanl buffer </description>
+		<objarg name='buffer-size-or-buffer' optional='1'>
+			<digest>the size of the internal buffer in ms or the name of a buffer </digest>
+			<description>the size of the internal buffer in ms or the name of a buffer </description>
 		</objarg>
 
 		<objarg name='number-of-grains' optional='1' type='int'>
@@ -46,44 +46,9 @@
 
 	<methodlist>
 
-		<method name='g'>
-			<digest>sends a message to a single grain </digest>
-			<description>sends a message to a single grain </description>
-		</method>
-
-		<method name='int'>
-			<digest>enables and disables the granulator </digest>
-			<description>enables and disables the granulator </description>
-		</method>
-
-		<method name='trav'>
-			<digest>DEPRECATED the amount grains are delayed in ms </digest>
-			<description>DEPRECATED the amount grains are delayed in ms </description>
-		</method>
-
-		<method name='travRandom'>
-			<digest>DEPRECATED the amount grains are delayed in ms </digest>
-			<description>DEPRECATED the amount grains are delayed in ms </description>
-		</method>
-
-		<method name='windowBuffer'>
-			<digest>sets the buffer for window modes 1 and 2 </digest>
-			<description>sets the buffer for window modes 1 and 2 </description>
-		</method>
-
-		<method name='travOffset'>
-			<digest>DEPRECATED message to set the amount grains are delayed in ms </digest>
-			<description>DEPRECATED message to set the amount grains are delayed in ms </description>
-		</method>
-
-		<method name='streamTarget'>
-			<digest>messages will target grains assigned to this stream </digest>
-			<description>messages will target grains assigned to this stream </description>
-		</method>
-
-		<method name='target'>
-			<digest>sends a message to a single grain </digest>
-			<description>sends a message to a single grain </description>
+		<method name='set'>
+			<digest>Choose a named buffer~ from which to read</digest>
+			<description>Choose a named buffer~ from which to read. </description>
 		</method>
 
 		<method name='rateBuffer'>
@@ -91,19 +56,99 @@
 			<description>sets the buffer for rate modes 1 and 2 </description>
 		</method>
 
-		<method name='windowOffsetRandom'>
-			<digest>DEPRECATED message for setting the window offset attribute </digest>
-			<description>DEPRECATED message for setting the window offset attribute </description>
+		<method name='delayBuffer'>
+			<digest>sets the buffer for delay modes 1 and 2 </digest>
+			<description>sets the buffer for delay modes 1 and 2 </description>
 		</method>
 
-		<method name='set'>
-			<digest>Choose a named buffer~ from which to read</digest>
-			<description>Choose a named buffer~ from which to read. </description>
+		<method name='env2D'>
+			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
+			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
 		</method>
 
-		<method name='streamSet'>
-			<digest>Sets the number of stream and assigns each grain to a stream depending on the mode</digest>
-			<description>Sets the number of stream and assigns each grain to a stream depending on the mode. auto: rotate grains around max grains. per: grains are assigned to streams in chunks. random: grains are assigned to random streams. </description>
+		<method name='windowBuffer'>
+			<digest>sets the buffer for window modes 1 and 2 </digest>
+			<description>sets the buffer for window modes 1 and 2 </description>
+		</method>
+
+		<method name='buf'>
+			<digest>sets the granulation buffer </digest>
+			<description>sets the granulation buffer </description>
+		</method>
+
+		<method name='env'>
+			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
+			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
+		</method>
+
+		<method name='glissonMode'>
+			<digest>sets  the window mode</digest>
+			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='windowMode'>
+			<digest>sets  the window mode</digest>
+			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='rateMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='glissonBuffer'>
+			<digest>sets the buffer for glisson modes 1 and 2 </digest>
+			<description>sets the buffer for glisson modes 1 and 2 </description>
+		</method>
+
+		<method name='bufChan'>
+			<digest>sets the channel of grains with a certain channel</digest>
+			<description>sets the channel of grains with a certain channel. Should be used with the g message </description>
+		</method>
+
+		<method name='delayMode'>
+			<digest>sets  the delay mode</digest>
+			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
+		</method>
+
+		<method name='g_chan'>
+			<digest>sets an attribute of message for all grains assigned to a buffer channel </digest>
+			<description>sets an attribute of message for all grains assigned to a buffer channel </description>
+		</method>
+
+		<method name='stream'>
+			<digest>sets an attribute or message for all grains in a stream </digest>
+			<description>sets an attribute or message for all grains in a stream </description>
+		</method>
+
+		<method name='streamSpread'>
+			<digest>will create evenly spaced values between each number based on streams </digest>
+			<description>will create evenly spaced values between each number based on streams </description>
+		</method>
+
+		<method name='randomrange'>
+			<digest>picks a random value between two points for each parameter </digest>
+			<description>picks a random value between two points for each parameter </description>
+		</method>
+
+		<method name='done'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='streamTarget'>
+			<digest>messages will target grains assigned to this stream </digest>
+			<description>messages will target grains assigned to this stream </description>
+		</method>
+
+		<method name='env2DPosition'>
+			<digest>sets the 2D envelope position </digest>
+			<description>sets the 2D envelope position </description>
+		</method>
+
+		<method name='travOffset'>
+			<digest>DEPRECATED message to set the amount grains are delayed in ms </digest>
+			<description>DEPRECATED message to set the amount grains are delayed in ms </description>
 		</method>
 
 		<method name='nstreams'>
@@ -111,9 +156,39 @@
 			<description>Sets the number of streams </description>
 		</method>
 
-		<method name='stream'>
-			<digest>sets an attribute or message for all grains in a stream </digest>
-			<description>sets an attribute or message for all grains in a stream </description>
+		<method name='int'>
+			<digest>enables and disables the granulator </digest>
+			<description>enables and disables the granulator </description>
+		</method>
+
+		<method name='windowOffsetRandom'>
+			<digest>DEPRECATED message for setting the window offset attribute </digest>
+			<description>DEPRECATED message for setting the window offset attribute </description>
+		</method>
+
+		<method name='target'>
+			<digest>sends a message to a single grain </digest>
+			<description>sends a message to a single grain </description>
+		</method>
+
+		<method name='g'>
+			<digest>sends a message to a single grain </digest>
+			<description>sends a message to a single grain </description>
+		</method>
+
+		<method name='streamSet'>
+			<digest>Sets the number of stream and assigns each grain to a stream depending on the mode</digest>
+			<description>Sets the number of stream and assigns each grain to a stream depending on the mode. auto: rotate grains around max grains. per: grains are assigned to streams in chunks. random: grains are assigned to random streams. </description>
+		</method>
+
+		<method name='spread'>
+			<digest>spread a parameter {1} by between values {2} and {3} </digest>
+			<description>spread a parameter {1} by between values {2} and {3} </description>
+		</method>
+
+		<method name='travRandom'>
+			<digest>DEPRECATED the amount grains are delayed in ms </digest>
+			<description>DEPRECATED the amount grains are delayed in ms </description>
 		</method>
 
 		<method name='deviate'>
@@ -126,89 +201,14 @@
 			<description>will deviate any parameter based on streams </description>
 		</method>
 
-		<method name='randomrange'>
-			<digest>picks a random value between two points for each parameter </digest>
-			<description>picks a random value between two points for each parameter </description>
+		<method name='trav'>
+			<digest>DEPRECATED the amount grains are delayed in ms </digest>
+			<description>DEPRECATED the amount grains are delayed in ms </description>
 		</method>
 
 		<method name='streamRandomrange'>
 			<digest>will deviate any parameter based on streams </digest>
 			<description>will deviate any parameter based on streams </description>
-		</method>
-
-		<method name='spread'>
-			<digest>spread a parameter {1} by between values {2} and {3} </digest>
-			<description>spread a parameter {1} by between values {2} and {3} </description>
-		</method>
-
-		<method name='streamSpread'>
-			<digest>will create evenly spaced values between each number based on streams </digest>
-			<description>will create evenly spaced values between each number based on streams </description>
-		</method>
-
-		<method name='windowMode'>
-			<digest>sets  the window mode</digest>
-			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='bufChan'>
-			<digest>sets the channel of grains with a certain channel</digest>
-			<description>sets the channel of grains with a certain channel. Should be used with the g message </description>
-		</method>
-
-		<method name='g_chan'>
-			<digest>sets an attribute of message for all grains assigned to a buffer channel </digest>
-			<description>sets an attribute of message for all grains assigned to a buffer channel </description>
-		</method>
-
-		<method name='delayMode'>
-			<digest>sets  the delay mode</digest>
-			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='rateMode'>
-			<digest>sets  the delay mode</digest>
-			<description>sets  the delay mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='glissonMode'>
-			<digest>sets  the window mode</digest>
-			<description>sets  the window mode. 0 = normal, 1 = read from buffer based on grain index, 2 = read from buffer randomly </description>
-		</method>
-
-		<method name='env'>
-			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
-			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
-		</method>
-
-		<method name='buf'>
-			<digest>sets the granulation buffer </digest>
-			<description>sets the granulation buffer </description>
-		</method>
-
-		<method name='env2D'>
-			<digest>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </digest>
-			<description>sets the envelope buffer with a second argument defining the number of envelopes in the buffer </description>
-		</method>
-
-		<method name='env2DPosition'>
-			<digest>sets the 2D envelope position </digest>
-			<description>sets the 2D envelope position </description>
-		</method>
-
-		<method name='delayBuffer'>
-			<digest>sets the buffer for delay modes 1 and 2 </digest>
-			<description>sets the buffer for delay modes 1 and 2 </description>
-		</method>
-
-		<method name='glissonBuffer'>
-			<digest>sets the buffer for glisson modes 1 and 2 </digest>
-			<description>sets the buffer for glisson modes 1 and 2 </description>
-		</method>
-
-		<method name='done'>
-			<digest></digest>
-			<description></description>
 		</method>
 
 	</methodlist>
@@ -343,6 +343,11 @@
 			<description>A unipolar random amount added to the glissonSt value. Determined at the start of each grain. </description>
 		</attribute>
 
+		<attribute name='liveMode' get='1' set='1' type='long' size='1' >
+			<digest>removes samplerate correction from a buffers samplerate</digest>
+			<description>removes samplerate correction from a buffers samplerate. This is useful with live granulation if a buffer is created them Max's samplerate changes. </description>
+		</attribute>
+
 		<attribute name='loopMode' get='1' set='1' type='float64' size='1' >
 			<digest>how the loops is handled by each grain</digest>
 			<description>how the loops is handled by each grain. 0: ignore the loop. 1: wrap 2: fold </description>
@@ -358,7 +363,7 @@
 			<description>the number of active grains </description>
 		</attribute>
 
-		<attribute name='overdub' get='1' set='1' type='float32' size='1' >
+		<attribute name='overdub' get='1' set='1' type='float64' size='1' >
 			<digest>How much the previous contented is mixed with new content </digest>
 			<description>How much the previous contented is mixed with new content </description>
 		</attribute>

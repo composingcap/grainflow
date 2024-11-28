@@ -85,8 +85,8 @@ public:
 #pragma region MAX_ARGS
 	argument<anything> buffer_arg{
 		this,
-		"buffer size in ms or the name of a refrence buffer",
-		"the size of the internal buffer in ms or the name of an interanl buffer",
+		"buffer-size-or-buffer",
+		"the size of the internal buffer in ms or the name of a buffer",
 		[this](const c74::min::atom& arg)
 		{
 			buffer_arg_value_ = arg;

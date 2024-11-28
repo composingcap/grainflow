@@ -200,7 +200,7 @@ void grainflow_live_tilde::setup_inputs(gf_io_config& io_config, const int* inpu
 
 	// These variable indicate the starting indices of each mc parameter
 	const auto grain_clock_ch = input_audio_chans;
-	const auto fm_ch = grain_clock_ch + io_config.traversal_phasor_chans;
+	const auto fm_ch = grain_clock_ch + io_config.grain_clock_chans;
 	const auto am_ch = fm_ch + io_config.fm_chans;
 
 	io_config.grain_clock = &inputs[grain_clock_ch];
