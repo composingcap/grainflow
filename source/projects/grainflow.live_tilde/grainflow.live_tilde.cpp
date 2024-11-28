@@ -151,7 +151,6 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 
 	max_grains_this_frame = std::min(static_cast<int>(output.channel_count() / 8), grain_collection_->grains());
 	if (state) has_record_update_ = true;
-	const auto current_grains = clamp(static_cast<int>(n_grains), 0, max_grains_this_frame);
 	io_config_.livemode = true;
 	setup_inputs(io_config_, input_chans, input.samples(), &traversal_phasor_);
 	setup_outputs(io_config_, output.samples());
@@ -214,9 +213,10 @@ void grainflow_live_tilde::setup_inputs(gf_io_config& io_config, const int* inpu
 void grainflow_live_tilde::event_update()
 {
 	if (audio_thread_busy_) return;
+	if (n_grains <= 0) return;
 	if (has_record_update_)
 	{
-		if (state)
+		if (state) 
 		{
 			output_grain_info("buf", buffer_name, data_outlet);
 			output_grain_info("recordHead", atoms{atom{recorder_->write_position_norm}}, data_outlet);
