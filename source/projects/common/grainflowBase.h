@@ -999,18 +999,18 @@ public:
 
 	};
 
-	attribute<number> density{
+	attribute<vector<number>> density{
 		this,
 		"density",
-		1,
+		{1},
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				if (grain_collection_ == nullptr)return args;
-				grain_collection_->set_density(target_, args[0]);
+				set_grain_params(args, gf_param_name::density, gf_param_type::base);	
 				return args;
 			}
 		},
+		getter{[this]() -> atoms { return get_grain_params(gf_param_name::density, gf_param_type::base); }},
 		description{"the probability a grain will play"},
 		category{"Time | Volume"},
 		order{4},
