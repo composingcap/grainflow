@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 9,
 			"minor" : 0,
-			"revision" : 0,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 183.0, 112.0, 682.0, 694.0 ],
+		"rect" : [ 183.0, 112.0, 682.0, 564.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"style" : "Minimal",
 		"subpatcher_template" : "minimal",
@@ -27,13 +27,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 682.0, 668.0 ],
+						"rect" : [ 0.0, 26.0, 682.0, 538.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -645,7 +645,7 @@
 
 							}
  ],
-						"originid" : "pat-10",
+						"originid" : "pat-114",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -685,13 +685,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 682.0, 668.0 ],
+						"rect" : [ 0.0, 26.0, 682.0, 538.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -724,7 +724,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1156,7 +1156,7 @@
 
 											}
  ],
-										"originid" : "pat-14",
+										"originid" : "pat-118",
 										"styles" : [ 											{
 												"name" : "Minimal",
 												"default" : 												{
@@ -1229,7 +1229,7 @@
 
 							}
  ],
-						"originid" : "pat-12",
+						"originid" : "pat-116",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -1271,13 +1271,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 183.0, 138.0, 682.0, 668.0 ],
+						"rect" : [ 0.0, 26.0, 682.0, 538.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -1429,7 +1429,7 @@
 
 							}
  ],
-						"originid" : "pat-16",
+						"originid" : "pat-120",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -1469,13 +1469,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 682.0, 668.0 ],
+						"rect" : [ 0.0, 26.0, 682.0, 538.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -1868,7 +1868,7 @@
 
 							}
  ],
-						"originid" : "pat-18",
+						"originid" : "pat-122",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -1908,13 +1908,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 682.0, 668.0 ],
+						"rect" : [ 183.0, 138.0, 682.0, 538.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -1954,7 +1954,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 414.467592592592609, 300.0, 18.0 ],
+									"patching_rect" : [ 182.0, 417.0, 300.0, 18.0 ],
 									"text" : "Stereo sustain effect"
 								}
 
@@ -1968,7 +1968,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 409.268518518518476, 160.0, 29.398148148148152 ],
+									"patching_rect" : [ 15.0, 412.0, 160.0, 29.398148148148152 ],
 									"text" : "grainflow.sustain~"
 								}
 
@@ -1980,7 +1980,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 442.666666666666629, 300.0, 30.0 ],
+									"patching_rect" : [ 182.0, 446.0, 300.0, 30.0 ],
 									"text" : "An interface to allow for easy control of multiple instances of grainflow"
 								}
 
@@ -1991,7 +1991,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 376.768518518518476, 300.0, 18.0 ],
+									"patching_rect" : [ 182.0, 380.0, 300.0, 18.0 ],
 									"text" : "A wavelet-like synthesizer created through granulation"
 								}
 
@@ -2002,7 +2002,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 344.870370370370324, 300.0, 18.0 ],
+									"patching_rect" : [ 182.0, 348.0, 300.0, 18.0 ],
 									"text" : "A granular chorus effect"
 								}
 
@@ -2013,7 +2013,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 312.972222222222172, 300.0, 18.0 ],
+									"patching_rect" : [ 182.0, 316.0, 300.0, 18.0 ],
 									"text" : "A granular sampler"
 								}
 
@@ -2024,7 +2024,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 281.074074074074019, 300.0, 18.0 ],
+									"patching_rect" : [ 182.0, 284.0, 300.0, 18.0 ],
 									"text" : "A tool for creating granular snapshots"
 								}
 
@@ -2035,7 +2035,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 249.175925925925867, 300.0, 18.0 ],
+									"patching_rect" : [ 182.0, 252.0, 300.0, 18.0 ],
 									"text" : "A basic granular harmonizer"
 								}
 
@@ -2047,7 +2047,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 211.277777777777715, 311.0, 30.0 ],
+									"patching_rect" : [ 149.0, 157.0, 311.0, 30.0 ],
 									"text" : "A live implementation of grainflow that allows for granulation of live input"
 								}
 
@@ -2060,7 +2060,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 15.0, 490.166666666666515, 74.0, 20.0 ],
+									"patching_rect" : [ 15.0, 493.0, 74.0, 20.0 ],
 									"text" : "prepend help"
 								}
 
@@ -2073,7 +2073,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 15.0, 515.0, 49.0, 20.0 ],
+									"patching_rect" : [ 15.0, 518.0, 49.0, 20.0 ],
 									"text" : "pcontrol"
 								}
 
@@ -2087,7 +2087,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 339.870370370370324, 160.0, 26.0 ],
+									"patching_rect" : [ 15.0, 343.0, 160.0, 26.0 ],
 									"text" : "grainflow.chorus~"
 								}
 
@@ -2101,7 +2101,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 276.074074074074019, 160.0, 26.0 ],
+									"patching_rect" : [ 15.0, 279.0, 160.0, 26.0 ],
 									"text" : "grainflow.freeze~"
 								}
 
@@ -2115,7 +2115,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 444.666666666666629, 160.0, 26.0 ],
+									"patching_rect" : [ 15.0, 448.0, 160.0, 26.0 ],
 									"text" : "grainflow.streams~"
 								}
 
@@ -2129,21 +2129,21 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 371.768518518518476, 160.0, 29.398148148148152 ],
+									"patching_rect" : [ 15.0, 375.0, 160.0, 29.398148148148152 ],
 									"text" : "grainflow.scrubSynth~"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"fontsize" : 11.0,
+									"fontsize" : 16.0,
 									"id" : "obj-18",
 									"maxclass" : "textbutton",
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 212.277777777777743, 160.0, 26.0 ],
+									"patching_rect" : [ 15.0, 155.0, 119.0, 34.0 ],
 									"text" : "grainflow.live~"
 								}
 
@@ -2157,7 +2157,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 307.972222222222172, 160.0, 26.0 ],
+									"patching_rect" : [ 15.0, 311.0, 160.0, 26.0 ],
 									"text" : "grainflow.synth~"
 								}
 
@@ -2171,7 +2171,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 15.0, 244.175925925925867, 160.0, 26.0 ],
+									"patching_rect" : [ 15.0, 247.0, 160.0, 26.0 ],
 									"text" : "grainflow.harmonize~"
 								}
 
@@ -2183,7 +2183,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 5.0, 177.0, 250.0, 26.0 ],
+									"patching_rect" : [ 15.0, 210.0, 250.0, 26.0 ],
 									"text" : "Grainflow Abstractions:"
 								}
 
@@ -2251,7 +2251,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 383.171296296296191, 24.5, 383.171296296296191 ],
+									"midpoints" : [ 95.0, 386.171296296296191, 24.5, 386.171296296296191 ],
 									"source" : [ "obj-15", 1 ]
 								}
 
@@ -2260,7 +2260,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 415.069444444444343, 24.5, 415.069444444444343 ],
+									"midpoints" : [ 95.0, 418.069444444444343, 24.5, 418.069444444444343 ],
 									"source" : [ "obj-17", 1 ]
 								}
 
@@ -2269,7 +2269,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 367.222222222222115, 24.5, 367.222222222222115 ],
+									"midpoints" : [ 74.5, 367.222222222222115, 24.5, 367.222222222222115 ],
 									"source" : [ "obj-18", 1 ]
 								}
 
@@ -2278,7 +2278,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 448.666666666666572, 24.5, 448.666666666666572 ],
+									"midpoints" : [ 95.0, 451.666666666666572, 24.5, 451.666666666666572 ],
 									"source" : [ "obj-19", 1 ]
 								}
 
@@ -2287,7 +2287,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 483.416666666666572, 24.5, 483.416666666666572 ],
+									"midpoints" : [ 95.0, 486.416666666666572, 24.5, 486.416666666666572 ],
 									"source" : [ "obj-20", 1 ]
 								}
 
@@ -2296,7 +2296,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 399.120370370370267, 24.5, 399.120370370370267 ],
+									"midpoints" : [ 95.0, 402.120370370370267, 24.5, 402.120370370370267 ],
 									"source" : [ "obj-21", 1 ]
 								}
 
@@ -2305,7 +2305,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 95.0, 431.01851851851842, 24.5, 431.01851851851842 ],
+									"midpoints" : [ 95.0, 434.01851851851842, 24.5, 434.01851851851842 ],
 									"source" : [ "obj-29", 1 ]
 								}
 
@@ -2335,7 +2335,7 @@
 
 							}
  ],
-						"originid" : "pat-20",
+						"originid" : "pat-124",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -2398,7 +2398,7 @@
 			}
  ],
 		"lines" : [  ],
-		"originid" : "pat-8",
+		"originid" : "pat-112",
 		"dependency_cache" : [  ],
 		"autosave" : 0,
 		"styles" : [ 			{
