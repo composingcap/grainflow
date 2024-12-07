@@ -1152,6 +1152,12 @@ public:
 		description{"Automatically sets windowOffset based on the number of grains when nGrains is changed"},
 		category{"Grainflow Settings"},
 		order{2},
+		setter{ [this] (const c74::min::atoms& args, const int inlet)->c74::min::atoms
+		{
+			if (grain_collection_ == nullptr) return args;
+			grain_collection_->set_auto_overlap(static_cast<int>(args[0]) > 0);
+			return args;
+		}}
 
 	};
 
@@ -1164,7 +1170,7 @@ public:
 			{
 				if (grain_collection_ == nullptr) return {0};
 				grain_collection_->set_active_grains((int)args[0]);
-				window_offset.touch();
+				if (auto_overlap) window_offset.touch();
 				return {grain_collection_->active_grains()};
 			}
 		},
