@@ -161,6 +161,11 @@
 			<description>changes the selection triangles </description>
 		</attribute>
 
+		<attribute name='vZoom' get='1' set='1' type='float64' size='1' >
+			<digest>Increases the Y scale of the waveform </digest>
+			<description>Increases the Y scale of the waveform </description>
+		</attribute>
+
 		<attribute name='waveformColor' get='1' set='1' type='float64' size='1' >
 			<digest>Changes the color of the waveform </digest>
 			<description>Changes the color of the waveform </description>

@@ -35,7 +35,7 @@ add_library(
 )
 set(RELFLAGS )
 if (MSVC)
-set(RELFLAGS /Oi /O2 /Ot /Ob2 /GL /GT /LTGT)
+set(RELFLAGS /Oi /O2 /Ot /Ob2 /GL /GT)
 endif()
 if(APPLE)
 set(RELFLAGS -Ofast)
