@@ -5,12 +5,14 @@ import json
 from getpass import getpass
 import platform
 import sys
+import re
 
 
 keystorePath = "./.secrets/keystore.json"
 paths_to_remove = ["/build", "/source", "/CMakeLists.txt", "/create_release.py", "/.git", "/.gitmodules", "/.gitignore", "/.vscode", "/.gitattributes"]
 paths_to_include  = ["/code", "/data", "/docs", "/help", "/javascript", "/jsui", "/externals", "/media", "/misc", "/patchers", "/extras", "/icon.png", "/license.txt", "/README.md", "/package-info.json"]
-externals = ["grainflow~", "grainflow.spatview~", "grainflow.waveform~"]
+externals = []
+mac_externals = []
 
 generator = "-G Xcode" if (platform.system() == "Darwin") else ""
 
@@ -45,13 +47,18 @@ def macos_codesign():
         shutil.rmtree(dest)
     os.mkdir(dest)
 
-    pw = getpass("System password")
-    for external in externals:
-        ex_path = f'./externals/{external}.mxo'
-        cmd = f'echo {pw} | sudo codesign -s {macoskey} --options runtime --timestamp --force --deep  -f {ex_path}'
+    externals = os.listdir("./externals")
+    mac_externals =  [ s for s in externals if re.search(r"\.mxo$", s) ]
+
+
+    print(mac_externals)
+    if (len(mac_externals) <= 0): return 
+    for external in mac_externals:
+        ex_path = f'./externals/{external}'
+        cmd = f'sudo codesign -s {macoskey} --options runtime --timestamp --force --deep  -f {ex_path}'
         p = subprocess.Popen(cmd, shell=True)  
         p.wait()
-        shutil.copytree(ex_path, dest + f'/{external}.mxo')
+        shutil.copytree(ex_path, dest + f'/{external}')
         
 
         
@@ -70,8 +77,8 @@ def macos_codesign():
     cmd = f'xcrun notarytool wait --keychain-profile grainflow {submissionid}'
     p = subprocess.Popen(cmd, shell=True)  
     p.wait()
-    for external in externals:
-        shutil.rmtree(f'./externals/{external}.mxo')
+    for external in mac_externals:
+        shutil.rmtree(f'./externals/{external}')
     shutil.unpack_archive(archive+".zip", "./externals")
     mac_staple()
     shutil.rmtree(dest)
@@ -81,6 +88,8 @@ def package_release():
     src = "./"
     dest = "./release"
     archive = "./grainflow"
+    externals = os.listdir("./externals")
+
     if os.path.isdir(dest):
         shutil.rmtree(dest)
     if os.path.isfile(archive+".maxpack"):  
@@ -128,16 +137,20 @@ def reposition_max_patches(dir, x, y):
 
 def mac_staple():
     if (platform.system() != "Darwin"): return
-    for external in externals:
-        cmd = f'xcrun stapler staple ./externals/{external}.mxo'
+    externals = os.listdir("./externals")
+    mac_externals =  [ s for s in externals if re.search(r"\.mxo$", s) ]
+    for external in mac_externals:
+        cmd = f'xcrun stapler staple ./externals/{external}'
         p = subprocess.Popen(cmd, shell=True)
         p.wait()  
 
 def mac_validate():
     if (platform.system() != "Darwin"): return
-    for external in externals:
-        print(f"===== {external}.mxo ======")
-        cmd = f'codesign -dv --verbose=4 ./externals/{external}.mxo'
+    externals = os.listdir("./externals")
+    mac_externals =  [ s for s in externals if re.search(r"\.mxo$", s) ]
+    for external in mac_externals:
+        print(f"===== {external} ======")
+        cmd = f'codesign -dv --verbose=4 ./externals/{external}'
         p = subprocess.Popen(cmd, shell=True)  
         p.wait()
         print("\n")
