@@ -111,7 +111,7 @@ namespace Grainflow
 				}
 				else {
 					for (int i = 0; i < size; i++) {
-						scratch[i] = sample_lock[((start_position + i) * channels + channel)%frames] * overdub;
+						scratch[i] = sample_lock[(((start_position + i) % frames) * channels + channel)] * overdub;
 					}
 				}
 			}
@@ -127,7 +127,7 @@ namespace Grainflow
 			}
 			auto first_chunk = (start_position + size) - frames;
 			for (int i = 0; i < size; i++) {
-				sample_lock[((start_position + i) * channels + channel)%frames] = samples[i] * (1 - overdub) + scratch[i];
+				sample_lock[(((start_position + i)% frames) * channels + channel)] = samples[i] * (1 - overdub) + scratch[i];
 			}
 
 		};
