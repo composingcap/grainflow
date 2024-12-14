@@ -27,6 +27,7 @@ private:
 	bool audio_thread_busy_;
 	c74::min::atom buffer_arg_value_;
 
+
 	buffer_reference* buffer_ = nullptr;
 	c74::max::t_object* buffer_object_handle_ = nullptr;
 
@@ -111,7 +112,8 @@ public:
 		"(optional) the initial envelope buffer for all grains",
 		[this](const c74::min::atom& arg)
 		{
-			this->try_call("env", arg);
+			env_arg_ = static_cast<string>(arg);
+			return arg;
 		}
 	};
 

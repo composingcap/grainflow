@@ -87,7 +87,8 @@ public:
 		"(optional) the initial envelope buffer for all grains",
 		[this](const c74::min::atom& arg)
 		{
-			this->try_call("env", arg);
+			env_arg_ = static_cast<string>(arg);
+			return arg;
 		}
 	};
 

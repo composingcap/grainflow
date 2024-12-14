@@ -83,6 +83,8 @@ protected:
 			auto buf = grain_collection_->get_grain(g)->get_buffer(gf_buffers::buffer);
 			buf->set(buffer_arg_);
 		}
+\
+
 		grain_collection_->samplerate = samplerate_;
 	}
 
