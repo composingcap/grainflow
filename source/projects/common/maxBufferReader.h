@@ -14,32 +14,24 @@ namespace Grainflow
 	class max_buffer_reader
 	{
 	public:
-		static void update_buffer_info(buffer_reference* buffer, const gf_io_config& io_config,
+		static bool update_buffer_info(buffer_reference* buffer, const gf_io_config& io_config,
 		                               gf_buffer_info* buffer_info)
 		{
-			if (buffer == nullptr) return;
-			try
-			{
-				const buffer_lock<> sample_lock(*buffer);
-				if (!sample_lock.valid()) return;
-				if (buffer_info == nullptr) return;
-				buffer_info->buffer_frames = static_cast<int>(sample_lock.frame_count());
-				buffer_info->one_over_buffer_frames = 1.0f / static_cast<float>(buffer_info->buffer_frames);
-				buffer_info->one_over_samplerate = 1 / sample_lock.samplerate();
+			if (buffer == nullptr) return false;
+			buffer_lock<> sample_lock(*buffer);
+			if (!sample_lock.valid()) return false;
+			if (buffer_info == nullptr) return false;
+			buffer_info->buffer_frames = static_cast<int>(sample_lock.frame_count());
+			buffer_info->one_over_buffer_frames = 1.0f / static_cast<float>(buffer_info->buffer_frames);
+			buffer_info->one_over_samplerate = 1 / sample_lock.samplerate();
 
-				buffer_info->samplerate = static_cast<int>(sample_lock.samplerate());
-				buffer_info->sample_rate_adjustment = !io_config.livemode
+			buffer_info->samplerate = static_cast<int>(sample_lock.samplerate());
+			buffer_info->sample_rate_adjustment = !io_config.livemode
 					                                      ? static_cast<float>(sample_lock.samplerate() * buffer_info->
 						                                      one_over_samplerate)
 					                                      : 1;
-				buffer_info->n_channels = static_cast<int>(sample_lock.channel_count());
-			}
-			catch (...)
-			{
-				//Occasionally the min api does not read a buffer correctly when it is deleted and this causes crash. We check for this and set the pointer to null 
-				buffer->set("");
-				buffer = nullptr;
-			}
+			buffer_info->n_channels = static_cast<int>(sample_lock.channel_count());
+			return true;
 		}
 
 		static bool sample_param_buffer(buffer_reference* buffer, gf_param* param, const int grain_id)
