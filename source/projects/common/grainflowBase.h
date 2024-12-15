@@ -113,18 +113,16 @@ protected:
 	void reinit(const int grains)
 	{
 		grain_collection_.release();
-		grain_collection_ = std::make_unique<gf_grain_collection<buffer_reference, internal_block>>(
-			buffer_reader_, grains);
-		auto maxGrains = grains;
-		if (n_grains > maxGrains) n_grains = maxGrains;
+		max_grains_ = grains;
+		if (n_grains > max_grains_) n_grains = max_grains_;
 		if (auto_overlap) this->try_set_attribute_or_message("windowOffset", atoms{1.0f / n_grains});
-		m_grain_state_.resize(maxGrains);
-		m_grain_progress_.resize(maxGrains);
-		m_grain_playhead_.resize(maxGrains);
-		m_grain_amp_.resize(maxGrains);
-		m_grain_envelope_.resize(maxGrains);
-		m_grain_stream_channel_.resize(maxGrains);
-		m_grain_buffer_channel_.resize(maxGrains);
+		m_grain_state_.resize(max_grains_);
+		m_grain_progress_.resize(max_grains_);
+		m_grain_playhead_.resize(max_grains_);
+		m_grain_amp_.resize(max_grains_);
+		m_grain_envelope_.resize(max_grains_);
+		m_grain_stream_channel_.resize(max_grains_);
+		m_grain_buffer_channel_.resize(max_grains_);
 		init();
 	}
 
@@ -1008,7 +1006,7 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				set_grain_params(args, gf_param_name::density, gf_param_type::base);	
+				set_grain_params(args, gf_param_name::density, gf_param_type::base);
 				return args;
 			}
 		},
@@ -1154,12 +1152,14 @@ public:
 		description{"Automatically sets windowOffset based on the number of grains when nGrains is changed"},
 		category{"Grainflow Settings"},
 		order{2},
-		setter{ [this] (const c74::min::atoms& args, const int inlet)->c74::min::atoms
-		{
-			if (grain_collection_ == nullptr) return args;
-			grain_collection_->set_auto_overlap(static_cast<int>(args[0]) > 0);
-			return args;
-		}}
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (grain_collection_ == nullptr) return args;
+				grain_collection_->set_auto_overlap(static_cast<int>(args[0]) > 0);
+				return args;
+			}
+		}
 
 	};
 
