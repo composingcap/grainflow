@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 9,
 			"minor" : 0,
-			"revision" : 0,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -27,13 +27,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 895.0, 535.0 ],
+						"rect" : [ 0.0, 26.0, 895.0, 535.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -147,7 +147,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -252,7 +252,7 @@
 
 											}
  ],
-										"originid" : "pat-1561"
+										"originid" : "pat-26"
 									}
 ,
 									"patching_rect" : [ 151.0, 304.0, 109.0, 23.0 ],
@@ -418,7 +418,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 13.0, 391.0, 41.0 ],
+									"patching_rect" : [ 15.0, 13.0, 391.0, 42.0 ],
 									"text" : "Animated Transform"
 								}
 
@@ -589,7 +589,7 @@
 
 							}
  ],
-						"originid" : "pat-1559",
+						"originid" : "pat-24",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -631,18 +631,28 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 0,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 895.0, 535.0 ],
+						"rect" : [ 100.0, 126.0, 895.0, 535.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
 						"showontab" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "mc.ezdac~",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 30.0, 413.0, 45.0, 45.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-7",
 									"maxclass" : "grainflow.spatview~",
@@ -676,7 +686,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 721.5, 56.0, 145.5, 38.0 ],
+									"patching_rect" : [ 721.5, 56.0, 145.5, 40.0 ],
 									"text" : "scale the soundfield"
 								}
 
@@ -690,7 +700,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 534.5, 53.0, 145.5, 51.0 ],
+									"patching_rect" : [ 534.5, 53.0, 145.5, 54.0 ],
 									"text" : "rotate the soundfield with normalized values"
 								}
 
@@ -704,7 +714,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 341.5, 53.0, 145.5, 51.0 ],
+									"patching_rect" : [ 341.5, 53.0, 145.5, 54.0 ],
 									"text" : "Translate the soundfield by x y z coordinates"
 								}
 
@@ -733,7 +743,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 0,
+											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -838,7 +848,7 @@
 
 											}
  ],
-										"originid" : "pat-1641"
+										"originid" : "pat-106"
 									}
 ,
 									"patching_rect" : [ 64.0, 311.0, 109.0, 23.0 ],
@@ -871,7 +881,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 828.0, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 828.0, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -884,7 +894,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 787.0, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 787.0, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -897,7 +907,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 740.0, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 740.0, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -922,7 +932,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 641.0, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 641.0, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -935,7 +945,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 599.333333333333371, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 599.333333333333371, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -948,7 +958,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 557.666666666666742, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 557.666666666666742, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -973,7 +983,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 468.0, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 468.0, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -986,7 +996,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 418.0, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 418.0, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -999,7 +1009,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 368.0, 205.0, 39.0, 21.0 ]
+									"patching_rect" : [ 368.0, 205.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -1036,7 +1046,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 828.0, 103.0, 39.0, 21.0 ],
+									"patching_rect" : [ 828.0, 103.0, 39.0, 23.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 1.0 ],
@@ -1064,7 +1074,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 787.0, 103.0, 39.0, 21.0 ],
+									"patching_rect" : [ 787.0, 103.0, 39.0, 23.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 1.0 ],
@@ -1092,7 +1102,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 746.0, 103.0, 39.0, 21.0 ],
+									"patching_rect" : [ 746.0, 103.0, 39.0, 23.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 1.0 ],
@@ -1132,7 +1142,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 641.0, 103.0, 39.0, 21.0 ]
+									"patching_rect" : [ 641.0, 103.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -1145,7 +1155,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 599.333333333333371, 103.0, 39.0, 21.0 ]
+									"patching_rect" : [ 599.333333333333371, 103.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -1158,7 +1168,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 557.666666666666742, 103.0, 39.0, 21.0 ]
+									"patching_rect" : [ 557.666666666666742, 103.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -1183,7 +1193,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 468.0, 103.0, 39.0, 21.0 ]
+									"patching_rect" : [ 468.0, 103.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -1196,7 +1206,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 418.0, 103.0, 39.0, 21.0 ]
+									"patching_rect" : [ 418.0, 103.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -1209,7 +1219,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 368.0, 103.0, 39.0, 21.0 ]
+									"patching_rect" : [ 368.0, 103.0, 39.0, 23.0 ]
 								}
 
 							}
@@ -1222,17 +1232,6 @@
 									"outlettype" : [ "multichannelsignal" ],
 									"patching_rect" : [ 30.0, 359.0, 73.0, 23.0 ],
 									"text" : "mc.stereo~"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-15",
-									"local" : 1,
-									"maxclass" : "ezdac~",
-									"numinlets" : 2,
-									"numoutlets" : 0,
-									"patching_rect" : [ 30.0, 401.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -1304,7 +1303,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 7.0, 9.0, 391.0, 41.0 ],
+									"patching_rect" : [ 7.0, 9.0, 391.0, 42.0 ],
 									"text" : "grainflow.spat.transform"
 								}
 
@@ -1315,7 +1314,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 7.0, 56.0, 311.0, 19.0 ],
+									"patching_rect" : [ 7.0, 56.0, 311.0, 21.0 ],
 									"text" : "Apply a transformation to a grain's spatial coordinates."
 								}
 
@@ -1370,7 +1369,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-15", 0 ],
+									"destination" : [ "obj-9", 0 ],
 									"source" : [ "obj-16", 0 ]
 								}
 
@@ -1585,7 +1584,7 @@
 
 							}
  ],
-						"originid" : "pat-1639",
+						"originid" : "pat-104",
 						"styles" : [ 							{
 								"name" : "Grainflow",
 								"default" : 								{
@@ -1618,7 +1617,7 @@
 			}
  ],
 		"lines" : [  ],
-		"originid" : "pat-1557",
+		"originid" : "pat-22",
 		"parameters" : 		{
 			"obj-8::obj-30" : [ "number[2]", "number[2]", 0 ],
 			"obj-8::obj-31" : [ "number[1]", "number[1]", 0 ],
