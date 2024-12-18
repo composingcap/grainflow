@@ -241,12 +241,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-62",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 558.0, 65.0, 56.0, 37.0 ],
+					"patching_rect" : [ 558.0, 65.0, 67.0, 23.0 ],
 					"text" : "loadbang"
 				}
 
@@ -374,12 +373,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-38",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 226.5, 119.0, 56.0, 37.0 ],
+					"patching_rect" : [ 235.0, 121.0, 78.0, 23.0 ],
 					"text" : "loadbang"
 				}
 
@@ -931,7 +929,7 @@
 
 			}
  ],
-		"originid" : "pat-6",
+		"originid" : "pat-23",
 		"parameters" : 		{
 			"obj-69" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
