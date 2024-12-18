@@ -1,49 +1,32 @@
-# Grainflow 2 
-Grainflow 2.0 improves on the original grainflow by implementing grainflow code into a much more efficient Max external created using the Min API.
+Grainflow is a powerful granulation tool build for Max designed to be as flexible as possible to allow for rapid experimentation with granulation. Grainflow is a synchronous and sample accurate granulator that is scheduled entirely on Max's audio thread while offering a toolkit of vast customization. 
 
-The external is single threaded (rather than multithreaded in a poly~) which means grainflow instances can be placed in a poly for multithreaded management. This also means grainflow is now suitable for using in Max for Live.
 
-This update also has externals for grainflow.waveform~ and grainflow.spatview~ with much more performant external version replacing the previous jsui versions.
+## Key Features
+- Multichannel soundfile and live granulation
+- Control of grains using mc signals
+- Use custom envelopes including 2D buffers
+- Per grain spatialization in both circular and 3D panning 
+- Graphical tools to help visualize grains on a waveform and in 3D spatialization 
+- A suite of prebuilt granular effects that can be dropped in to patches or used as a reference
+- Per grain attribute control that acts similar to the MC system  
 
 ## Installation 
 1. Download this repo or the latest preview [release](https://github.com/composingcap/grainflow/releases)
 2. (Optional) If you are using the repo rather a release, you should [build](#buidling-from-source) the externals for your platform
 3. Unzip it and place it in your Max/Packages folder
 
+## Advanced Features 
+- Set delay, window placement, and pitch as banks using buffers
+- Support for grouping grains into streams
+- Set grain level loop points 
+- Set glisson curves using Max buffers 
+- Provides detailed grain information 
 
-## Features
-✔️ Soundfile granulation\
-✔️ Live granulation\
-✔️ Control of grains using mc signals\
-✔️ Get information about ech grain using via lists and multichannel signals\
-✔️ Set delay, window placement, and pitch using buffers\
-✔️ Support for granulating different buffer channels per grain\
-✔️ Support for granulating different buffers with each grain\
-✔️ Support for grouping grains into streams\
-✔️ 2D envelope buffers \
-✔️ Replace Grainflow.Spatview~ with an external \
-✔️ Replace Grainflow.Waveform~ with an external \
-✔️ The ability to set loop points per grain 
-
-### Removed features
-✖️ The ability to manually trigger grains (alternate solution available) \
-✖️ The ability to store configurations in dictionaries
-
-### Planned Features
-- External of `grainflow.live~`. This will allow for 0 latency between input and granulation. Currently a signal vector of delay is needed. 
-- External version of `grainflow.moddial` 
-
-## Migrating old code
-For the most part, grainflow code *should* be more or less the same in this new version. There are a few names that have been changed and some that have been removed.
-The documentation has not yet been updated to reflect these changes.
-- Delay should be used instead of trav. 
-- Trav global has been removed (use delay)
-- Env2D has been folded into the general envelope reading. You should now specify the `env` message with a number of envelope. 
-- Env2DPosition is now EnvPosition
-- Windows are now places with the window message (`windowOffset`, `windowOffsetRandom`)
-
-
-## Buidling from source
+## How to contribute
+Grainflow is open to contributions both in terms of Max examples, abstractions, and help file improvements as well as help with the C++ codebase in `./source` and the [GrainflowLib](https://github.com/composingcap/GrainflowLib) repository. \
+Additionally, please post any feature requests to [Issues](https://github.com/composingcap/grainflow/issues) or the Grainflow Discord. \
+We are also happy to assist in implementation of GrainflowLib outside of Max and am planning to target other platforms as I have time. 
+## Building from source
 Building from source is the best way to ensure you get the most up-to-date changes
 
 Currently grainflow has only ben tested on Windows 11 and Mac OS 14
@@ -55,6 +38,7 @@ If you would like to place grainflow in you Max Packages directory, make sure to
 git clone https://github.com/composingcap/grainflow.git --recursive
 ```
 ### Building grainflow externals 
+
 #### Windows:
 *Windows builds should use the MSVC compiler*
 ```
@@ -71,5 +55,27 @@ cd ./grainflow
 mkdir ./build
 cd build
 cmake ../ -G Xcode
-cmake --build . --config Release
+cmake --build 
 ```
+
+### With python:
+This build script should work on most platforms. You may also sign externals with an apple developer ID and create a MaxPack. 
+#### build
+```
+python3 ./create_release.py build
+```
+#### code sign and notarize  
+*this requires an apple developer ID*
+1. create a json keystore `./.secrets/keystore.json`
+2. add your developer key as `developer_team_code`
+3. run:
+```
+python3 ./create_release.py sign
+```
+4. copy the submission ID when prompted 
+
+#### pack
+```
+python3 ./create_release.py pack
+```
+
