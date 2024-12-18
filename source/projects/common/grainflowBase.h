@@ -1857,6 +1857,12 @@ public:
 		"sets the buffer for glisson modes 1 and 2",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
+			if (args.size() < 1)
+			{
+				buffer_ref_message(" ", gf_buffers::glisson_buffer);
+				grain_message(0, gf_param_name::glisson_rows, gf_param_type::value);
+				return {};
+			}
 			const auto b_name = static_cast<string>(args[0]);
 			buffer_ref_message(b_name, gf_buffers::glisson_buffer);
 			if (args.size() < 2)
@@ -1889,7 +1895,7 @@ public:
 			event_update();
 			internal_update.delay(33);
 			return {};
-		}
+		},
 	};
 #pragma endregion
 };
