@@ -83,18 +83,22 @@ public:
 	{
 		for (int g = 0; g < grainStates.size(); g++)
 		{
-			if ((float)grainStates[g] < 0.01) continue;
+			if (static_cast<float>(grainStates[g]) < 0.01) continue;
 			if (g >= grainWindows.size())continue;
 			if (g >= grainPositions.size()) continue;
 			if (g >= grainAmps.size()) continue;
+			if (m_channel > 0 && (g >= grainBufferChannel.size() || static_cast<int>(grainBufferChannel[g]) !=
+				m_channel))
+				continue;
 
 			float pos = (float)grainPositions[g];
 			float scale = (float)grainWindows[g];
-			float amp = (float)grainAmps[g] + ((float)(rand() % 2000) - 1000) * 0.001 * m_dotVJitter;
+			float amp = static_cast<float>(grainAmps[g]) + (static_cast<float>(rand() % 2000) - 1000) * 0.001 *
+				m_dotVJitter;
 
 			scale *= t.height() * 0.05 * m_dotScale;
 			if (scale < 0.01) continue;
-			float b = (float)g / grainStates.size();
+			float b = static_cast<float>(g) / grainStates.size();
 			float a = 1 - b;
 			ellipse<fill>{
 				t,
@@ -505,6 +509,17 @@ public:
 		}
 	};
 
+	message<> grain_bchan{
+		this,
+		"grainBufferChannel",
+		"Sets the channel of each grain",
+		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
+		{
+			grainBufferChannel = args;
+			return {};
+		}
+	};
+
 	timer<timer_options::defer_delivery> m_timer{
 		this,
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
@@ -541,6 +556,7 @@ private:
 	atoms grainWindows;
 	atoms grainAmps;
 	atoms grainStates;
+	atoms grainBufferChannel;
 	numbers trianglePosition{0, 0};
 	numbers m_anchor{};
 	number m_range_delta{1.0};

@@ -231,8 +231,8 @@ protected:
 				m_grain_playhead_[g] = io_config_.grain_playhead[g][0];
 				m_grain_amp_[g] = io_config_.grain_amp[g][0];
 				m_grain_envelope_[g] = io_config_.grain_envelope[g][0];
-				m_grain_stream_channel_[g] = io_config_.grain_stream_channel[g][0];
 				m_grain_buffer_channel_[g] = io_config_.grain_buffer_channel[g][0];
+				m_grain_stream_channel_[g] = io_config_.grain_stream_channel[g][0];
 			}
 			has_update_ = true;
 		}
@@ -1686,7 +1686,7 @@ public:
 
 	message<> g_chan{
 		this,
-		"g_chan",
+		"chan",
 		"sets an attribute of message for all grains assigned to a buffer channel",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
