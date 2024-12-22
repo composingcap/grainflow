@@ -39,6 +39,7 @@ protected:
 	atoms m_grain_amp_;
 	atoms m_grain_stream_channel_;
 	atoms m_grain_buffer_channel_;
+	dict m_grain_dict{symbol(true)};
 
 	outlet<>* data_outlet = nullptr;
 
@@ -281,6 +282,16 @@ private:
 				output_grain_info("grainProgress", m_grain_progress_, max_outlet);
 				output_grain_info("grainBufferChannel", m_grain_buffer_channel_, max_outlet);
 				output_grain_info("grainStreamChannel", m_grain_stream_channel_, max_outlet);
+				m_grain_dict.clear();
+				m_grain_dict.setArray("grainState", m_grain_state_);
+				m_grain_dict.setArray("grainPosition", m_grain_playhead_);
+				m_grain_dict.setArray("grainWindow", m_grain_envelope_);
+				m_grain_dict.setArray("grainAmp", m_grain_amp_);
+				m_grain_dict.setArray("grainProgress", m_grain_progress_);
+				m_grain_dict.setArray("grainBufferChannel", m_grain_buffer_channel_);
+				m_grain_dict.setArray("grainStreamChannel", m_grain_stream_channel_);
+
+				output_grain_info("grainInfo", atoms{"dictionary", m_grain_dict.name()}, max_outlet);
 			}
 		}
 	}
