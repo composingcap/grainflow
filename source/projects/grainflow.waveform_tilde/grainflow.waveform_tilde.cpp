@@ -11,6 +11,15 @@ class grainflow_waveform_tilde : public object<grainflow_waveform_tilde>, public
 private:
 	buffer_reference m_buffer{this};
 	std::vector<float> bufferDisplay;
+	atoms grainPositions;
+	atoms grainWindows;
+	atoms grainAmps;
+	atoms grainStates;
+	atoms grainBufferChannel;
+	numbers trianglePosition{0, 0};
+	numbers m_anchor{};
+	number m_range_delta{1.0};
+	number recordHead = -1;
 
 public:
 	enum class waveformMode : int
@@ -465,60 +474,47 @@ public:
 		}
 	};
 
-	message<> grainpos{
+
+	message<> grain_info{
 		this,
-		"grainPosition",
-		"sets the positions of the grain dots",
+		"grainInfo",
+		"dictionary of grainInfo",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
 		{
-			grainPositions = args;
+			if (args.size() < 2) return {};
+			if (args[0].type() != message_type::symbol_argument) return {};
+			if (static_cast<symbol>(args[0]) != "dictionary") return {};
+			dict d;
+			d.register_as(static_cast<symbol>(args[1]));
+			auto keys = d.getKeys();
+			for (int i = 0; i < d.keyCount(); ++i)
+			{
+				auto key = keys[i]->s_name;
+				if (strcmp(key, "grainState") == 0)
+				{
+					grainStates = d[key];
+				}
+				else if (strcmp(key, "grainAmp") == 0)
+				{
+					grainAmps = d[key];
+				}
+				else if (strcmp(key, "grainPosition") == 0)
+				{
+					grainPositions = d[key];
+				}
+				else if (strcmp(key, "grainWindow") == 0)
+				{
+					grainWindows = d[key];
+				}
+				else if (strcmp(key, "grainBufferChannel") == 0)
+				{
+					grainBufferChannel = d[key];
+				}
+			}
 			return {};
 		}
 	};
 
-	message<> grain_win{
-		this,
-		"grainWindow",
-		"sets the size of the grain dots",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			grainWindows = args;
-			return {};
-		}
-	};
-
-	message<> grain_state{
-		this,
-		"grainState",
-		"sets if the grain dots should draw at all",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			grainStates = args;
-			return {};
-		}
-	};
-
-	message<> grain_amp{
-		this,
-		"grainAmp",
-		"sets the vertical position of the grain dots",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			grainAmps = args;
-			return {};
-		}
-	};
-
-	message<> grain_bchan{
-		this,
-		"grainBufferChannel",
-		"Sets the channel of each grain",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			grainBufferChannel = args;
-			return {};
-		}
-	};
 
 	timer<timer_options::defer_delivery> m_timer{
 		this,
@@ -552,15 +548,6 @@ public:
 	};
 
 private:
-	atoms grainPositions;
-	atoms grainWindows;
-	atoms grainAmps;
-	atoms grainStates;
-	atoms grainBufferChannel;
-	numbers trianglePosition{0, 0};
-	numbers m_anchor{};
-	number m_range_delta{1.0};
-	number recordHead = -1;
 };
 
 MIN_EXTERNAL(grainflow_waveform_tilde);
