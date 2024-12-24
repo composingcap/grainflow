@@ -141,12 +141,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-45",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 304.5, 493.0, 93.0, 23.0 ],
+					"patching_rect" : [ 305.0, 493.0, 103.0, 23.0 ],
 					"text" : "mc.onepole~ 15"
 				}
 
@@ -620,7 +619,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-29", 2 ],
-					"midpoints" : [ 314.0, 542.0, 113.166666666666671, 542.0 ],
+					"midpoints" : [ 314.5, 542.0, 113.166666666666671, 542.0 ],
 					"source" : [ "obj-45", 0 ]
 				}
 
@@ -696,7 +695,7 @@
 
 			}
  ],
-		"originid" : "pat-290",
+		"originid" : "pat-13",
 		"parameters" : 		{
 			"obj-12" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{

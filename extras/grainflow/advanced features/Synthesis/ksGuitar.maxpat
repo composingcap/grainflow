@@ -58,12 +58,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-43",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 9.5, 571.0, 67.0, 23.0 ],
+					"patching_rect" : [ 10.0, 571.0, 73.0, 23.0 ],
 					"text" : "loadmess 1"
 				}
 
@@ -199,7 +198,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 229.5, 326.0, 88.0, 23.0 ],
+					"patching_rect" : [ 229.5, 326.0, 88.0, 37.0 ],
 					"text" : "loadmess 5000"
 				}
 
@@ -304,12 +303,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-64",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 303.5, 542.0, 56.0, 23.0 ],
+					"patching_rect" : [ 304.0, 542.0, 69.5, 23.0 ],
 					"text" : "loadbang"
 				}
 
@@ -390,12 +388,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-44",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 86.5, 458.0, 303.0, 23.0 ],
+					"patching_rect" : [ 87.0, 458.0, 311.0, 23.0 ],
 					"text" : "mc.mixdown~ 6 @linearpanmode 1 @pancontrolmode 1"
 				}
 
@@ -451,12 +448,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-30",
-					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 9.5, 803.0, 92.0, 23.0 ],
+					"patching_rect" : [ 10.0, 803.0, 106.0, 23.0 ],
 					"text" : "mc.mixdown~ 2"
 				}
 
@@ -554,7 +550,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 9,
 					"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 86.5, 209.0, 137.0, 23.0 ],
+					"patching_rect" : [ 86.5, 209.0, 137.0, 37.0 ],
 					"text" : "grainflow~ pastaSauce 4"
 				}
 
@@ -721,7 +717,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-39", 1 ],
-					"midpoints" : [ 96.0, 511.0, 57.5, 511.0 ],
+					"midpoints" : [ 96.5, 511.0, 57.5, 511.0 ],
 					"order" : 1,
 					"source" : [ "obj-44", 0 ]
 				}
@@ -820,7 +816,7 @@
 
 			}
  ],
-		"originid" : "pat-12",
+		"originid" : "pat-17",
 		"parameters" : 		{
 			"obj-12" : [ "mc.live.gain~", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
