@@ -186,8 +186,8 @@ void grainflow_live_tilde::setup_outputs(gf_io_config& io_config, double** outpu
 	io_config.grain_playhead = &outputs[3 * max_grains_this_frame];
 	io_config.grain_amp = &outputs[4 * max_grains_this_frame];
 	io_config.grain_envelope = &outputs[5 * max_grains_this_frame];
+	io_config.grain_buffer_channel = &outputs[6 * max_grains_this_frame];
 	io_config.grain_stream_channel = &outputs[7 * max_grains_this_frame];
-	io_config.grain_buffer_channel = &outputs[8 * max_grains_this_frame];
 }
 
 void grainflow_live_tilde::setup_inputs(gf_io_config& io_config, const int* input_channels, double** inputs,
