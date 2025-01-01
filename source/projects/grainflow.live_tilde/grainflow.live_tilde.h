@@ -76,8 +76,8 @@ public:
 	grainflow_live_tilde();
 	~grainflow_live_tilde() override;
 	void operator()(audio_bundle input, audio_bundle output);
-	void setup_outputs(gf_io_config& io_config, double** outputs) const;
-	static void setup_inputs(gf_io_config& io_config, const int* input_channels, double** inputs,
+	void setup_outputs(gf_io_config<>& io_config, double** outputs) const;
+	static void setup_inputs(gf_io_config<>& io_config, const int* input_channels, double** inputs,
 	                         double** traveral_phasor);
 
 

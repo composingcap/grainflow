@@ -46,7 +46,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 }
 
 
-void grainflow_tilde::setup_outputs(gf_io_config& io_config, double** outputs) const
+void grainflow_tilde::setup_outputs(gf_io_config<>& io_config, double** outputs) const
 {
 	// Outputs are constant because they are based on the max grain count
 	io_config.grain_output = &outputs[0 * max_grains_this_frame];
@@ -59,7 +59,7 @@ void grainflow_tilde::setup_outputs(gf_io_config& io_config, double** outputs) c
 	io_config.grain_stream_channel = &outputs[7 * max_grains_this_frame];
 }
 
-void grainflow_tilde::setup_inputs(gf_io_config& io_config, const int* input_channels, double** inputs)
+void grainflow_tilde::setup_inputs(gf_io_config<>& io_config, const int* input_channels, double** inputs)
 {
 	io_config.grain_clock_chans = input_channels[0];
 	io_config.traversal_phasor_chans = input_channels[1];

@@ -53,8 +53,8 @@ public:
 
 	void operator()(audio_bundle input, audio_bundle output);
 	void init() override;
-	void setup_outputs(gf_io_config& io_config, double** outputs) const;
-	static void setup_inputs(gf_io_config& io_config, const int* input_channels, double** inputs);
+	void setup_outputs(gf_io_config<>& io_config, double** outputs) const;
+	static void setup_inputs(gf_io_config<>& io_config, const int* input_channels, double** inputs);
 
 
 #pragma endregion

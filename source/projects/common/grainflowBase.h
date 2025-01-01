@@ -129,7 +129,7 @@ protected:
 
 
 	bool has_update_;
-	gf_io_config io_config_;
+	gf_io_config<> io_config_;
 
 
 	void grain_message(float value, gf_param_name param, gf_param_type type)
@@ -220,7 +220,7 @@ protected:
 		max_outlet->send(mess);
 	}
 
-	void update_grain_data(gf_io_config& config, const int max_grains)
+	void update_grain_data(gf_io_config<>& config, const int max_grains)
 	{
 		if (!has_update_)
 		{
@@ -257,11 +257,14 @@ private:
 		if (target > 0)
 		{
 			grain_collection_->get_grain(target - 1)->use_default_envelope = state;
+			if (state) grain_collection_->get_grain(target - 1)->get_buffer(gf_buffers::envelope)->set("");
+
 			return;
 		}
 		for (int g = 0; g < grain_collection_->grains(); g++)
 		{
-			grain_collection_->get_grain(g)->use_default_envelope = state;
+			grain_collection_->get_grain(g)->use_default_envelope = state;;
+			if (state) grain_collection_->get_grain(g)->get_buffer(gf_buffers::envelope)->set("");
 			// To access ir must be converted to the correct type
 		}
 	}

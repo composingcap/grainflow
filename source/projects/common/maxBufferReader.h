@@ -14,13 +14,13 @@ namespace Grainflow
 	class max_buffer_reader
 	{
 	public:
-		static bool update_buffer_info(buffer_reference* buffer, const gf_io_config& io_config,
+		static bool update_buffer_info(buffer_reference* buffer, const gf_io_config<>& io_config,
 		                               gf_buffer_info* buffer_info)
 		{
 			if (buffer == nullptr) return false;
 			buffer_lock<> sample_lock(*buffer);
 			if (!sample_lock.valid()) return false;
-			if (buffer_info == nullptr) return false;
+			if (buffer_info == nullptr) return true;
 			buffer_info->buffer_frames = static_cast<int>(sample_lock.frame_count());
 			buffer_info->one_over_buffer_frames = 1.0f / static_cast<float>(buffer_info->buffer_frames);
 			buffer_info->one_over_samplerate = 1 / sample_lock.samplerate();
