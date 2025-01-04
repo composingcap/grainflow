@@ -4411,7 +4411,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 1146.0, 822.0 ],
+						"rect" : [ 0.0, 26.0, 1146.0, 822.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -6443,7 +6443,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 822.0 ],
+						"rect" : [ 100.0, 126.0, 1146.0, 822.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
