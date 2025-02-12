@@ -156,7 +156,7 @@
 			<description>sets the channel of grains with a certain channel. Should be used with the g message </description>
 		</method>
 
-		<method name='g_chan'>
+		<method name='chan'>
 			<digest>sets an attribute of message for all grains assigned to a buffer channel </digest>
 			<description>sets an attribute of message for all grains assigned to a buffer channel </description>
 		</method>

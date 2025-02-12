@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 93.0, 100.0, 618.0, 696.0 ],
+		"rect" : [ 549.0, 263.0, 616.0, 691.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"style" : "Minimal",
 		"subpatcher_template" : "minimal",
@@ -33,7 +33,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 618.0, 670.0 ],
+						"rect" : [ 0.0, 26.0, 616.0, 665.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -659,7 +659,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 618.0, 670.0 ],
+						"rect" : [ 0.0, 26.0, 616.0, 665.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
@@ -1688,12 +1688,104 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 93.0, 126.0, 618.0, 670.0 ],
+						"rect" : [ 549.0, 289.0, 616.0, 665.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"style" : "Grainflow",
 						"subpatcher_template" : "minimal",
 						"showontab" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-41",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 173.0, 390.0, 17.0, 17.0 ],
+									"text" : "4",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-42",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 173.0, 390.0, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-40",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 136.0, 387.0, 29.5, 23.0 ],
+									"text" : "8"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-31",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 136.0, 412.0, 105.0, 23.0 ],
+									"text" : "expr (1/$f1)*1000"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-30",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 136.0, 434.0, 54.0, 23.0 ],
+									"text" : "delay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-27",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 250.0, 406.0, 302.0, 35.0 ],
+									"text" : "To avoid this you can add a delay equal to the grainsize  whenever you freeze or stop recording"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-24",
+									"linecount" : 4,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 211.0, 324.0, 302.0, 64.0 ],
+									"text" : "Note when you stop recording or freeze playback, grains will start from the position the record head was stopped or frozen. This means grains will \"overflow\" beyond the recoded buffer. ",
+									"textcolor" : [ 1.0, 0.564705882352941, 0.564705882352941, 1.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"attr" : "delayRandom",
 									"displaymode" : 2,
@@ -1716,7 +1808,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 204.0, 295.5, 17.0, 17.0 ],
+									"patching_rect" : [ 185.0, 263.0, 17.0, 17.0 ],
 									"text" : "3",
 									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 									"textjustification" : 1
@@ -1732,7 +1824,7 @@
 									"mode" : 0,
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 204.0, 295.5, 16.0, 17.0 ],
+									"patching_rect" : [ 185.0, 263.0, 16.0, 17.0 ],
 									"proportion" : 0.39,
 									"shape" : 1
 								}
@@ -1745,7 +1837,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 230.0, 289.5, 307.0, 64.0 ],
+									"patching_rect" : [ 211.0, 257.0, 307.0, 64.0 ],
 									"text" : "You can control recording and playback seperatly.\nfreeze: keeps recoding and freezes the playhead\nrec: starts and stops recording. Will freeze the playhead\nplay: starts and stops playback"
 								}
 
@@ -1796,7 +1888,7 @@
 , 							{
 								"box" : 								{
 									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
-									"buffername" : "u919000503",
+									"buffername" : "u687000420",
 									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
 									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-2",
@@ -1804,7 +1896,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 182.0, 459.0, 354.0, 60.0 ],
+									"patching_rect" : [ 182.0, 515.0, 354.0, 60.0 ],
 									"selectColor" : [ 0.949019607843137, 1.0, 0.0, 0.13 ],
 									"trackerColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ]
 								}
@@ -1816,7 +1908,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 153.0, 416.0, 230.0, 21.0 ],
+									"patching_rect" : [ 153.0, 472.0, 230.0, 21.0 ],
 									"text" : "Args: buffer-length max-grains"
 								}
 
@@ -1828,7 +1920,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 45.0, 375.0, 61.0, 23.0 ],
+									"patching_rect" : [ 45.0, 430.0, 61.0, 23.0 ],
 									"text" : "phasor~ 8"
 								}
 
@@ -1840,7 +1932,7 @@
 									"maxclass" : "mc.ezdac~",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 9.0, 562.0, 45.0, 45.0 ]
+									"patching_rect" : [ 9.0, 618.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -1924,7 +2016,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "multichannelsignal", "list" ],
-									"patching_rect" : [ 9.0, 463.0, 152.0, 23.0 ],
+									"patching_rect" : [ 9.0, 519.0, 152.0, 23.0 ],
 									"text" : "grainflow.util.stereoPan~"
 								}
 
@@ -1963,7 +2055,7 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 9.0, 489.0, 115.0, 47.0 ],
+									"patching_rect" : [ 9.0, 545.0, 115.0, 47.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[1]",
@@ -2095,7 +2187,7 @@
 									"numinlets" : 4,
 									"numoutlets" : 9,
 									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-									"patching_rect" : [ 9.0, 415.0, 127.0, 23.0 ],
+									"patching_rect" : [ 9.0, 471.0, 127.0, 23.0 ],
 									"text" : "grainflow.live~ 5000 8"
 								}
 
@@ -2164,7 +2256,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-37", 1 ],
-									"midpoints" : [ 45.5, 448.5, 151.5, 448.5 ],
+									"midpoints" : [ 45.5, 504.5, 151.5, 504.5 ],
 									"source" : [ "obj-1", 2 ]
 								}
 
@@ -2224,8 +2316,29 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"source" : [ "obj-30", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-30", 0 ],
+									"source" : [ "obj-31", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-20", 0 ],
 									"source" : [ "obj-37", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-31", 0 ],
+									"source" : [ "obj-40", 0 ]
 								}
 
 							}
@@ -2265,6 +2378,9 @@
 							}
 , 							{
 								"boxes" : [ "obj-17", "obj-16" ]
+							}
+, 							{
+								"boxes" : [ "obj-42", "obj-41" ]
 							}
  ],
 						"styles" : [ 							{

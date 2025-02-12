@@ -6946,7 +6946,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 3.0, 48.5, 560.0, 35.0 ],
-									"text" : "grainflow~ is a super flexible sample accurate granular engine built with mc and gen~.  This patcher show its most basic use as a simple sound file granulator.  For more detail see the \"Detailed Usage\" tab."
+									"text" : "grainflow~ is a super flexible sample accurate granular engine.  This patcher show its most basic use as a simple sound file granulator.  For more detail see the \"Detailed Usage\" tab."
 								}
 
 							}
