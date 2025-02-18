@@ -27,16 +27,16 @@ private:
 
 	double oneOverSamplerate = 1;
 	unique_ptr<gf_spat_pan<INTERNALBLOCK, double>> panner_;
+	dict output_dict{symbol(true)};
 
 public:
 	int input_chans = 1;
-	int output_channels_value = 2;
+	int output_channels_value = 1;
 #pragma region MAX_IO
 	inlet<> grains{this, "(multichannelsignal) grains", "multichannelsignal"};
-	inlet<> grain_states{this, "(multichannelsignal) grain_states", "multichannelsignal"};
 
 	outlet<> output{this, "(multichannel) panned grains", "multichannelsignal"};
-	outlet<> positions{this, "list of pan positions", "list"};
+	outlet<> info{this, "(dictionary) grain and speaker info", "dictionary"};
 
 
 #pragma endregion
@@ -44,25 +44,34 @@ public:
 
 	grainflow_util_spatpan_tilde();
 	~grainflow_util_spatpan_tilde();
-	void config_from_dictionary(atoms args, int inlet);
+	void config_from_dictionary(dict& config);
+	void speakers_from_dict(dict& speakerDict);
 	void operator()(audio_bundle input, audio_bundle output);
 	static long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 	static long simplemc_output(c74::max::t_object* x, long g, long count);
 
 #pragma endregion
 
-
-#pragma region MAX_ARGS
-	argument<int> output_channels{
+	timer<timer_options::defer_delivery> output_data{
 		this,
-		"output channels",
-		"The number of output channels",
-		[this](const c74::min::atom& arg)
+		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			output_channels_value = static_cast<int>(arg);
+			if (panner_ != nullptr)
+			{
+				auto peaks = panner_->get_peakamps();
+				if (!peaks.empty())
+				{
+					output_dict.setArray("speakerAmps", atoms(peaks.begin(), peaks.end()));
+					//Add grain Amps
+					//Add grainPositions
+					//Add SpeakerPositions
+					info.send({"dictionary", output_dict.name()});
+				}
+			}
+			output_data.delay(33);
+			return {};
 		}
 	};
-#pragma endregion
 
 
 #pragma region MAX_MESSAGES
@@ -73,6 +82,7 @@ public:
 		"setup",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
+			output_data.delay(0);
 			return {};
 		}
 	};
@@ -128,6 +138,12 @@ public:
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
 				if (dummy() || panner_ == nullptr) { return args; }
+				if (args.size() < 1)
+				{
+					panner_->clear_speaker_position();
+					output_channels_value = 1;
+					return {0};
+				}
 				panner_->clear_speaker_position();
 				for (int i = 0; i < args.size() / 3; ++i)
 				{
@@ -138,6 +154,7 @@ public:
 					panner_->set_speaker_position(i, pos);
 				}
 				panner_->recalculate_all_gains();
+				output_channels_value = args.size() / 3;
 				return args;
 			}
 		}
@@ -263,6 +280,19 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			panner_->clear_source_positions();
+			return args;
+		}
+	};
+
+
+	message<> m_dictionary{
+		this,
+		"dictionary",
+		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+		{
+			if (dummy() || panner_ == nullptr) { return args; }
+			dict config{args[0]};
+			config_from_dictionary(config);
 			return args;
 		}
 	};
