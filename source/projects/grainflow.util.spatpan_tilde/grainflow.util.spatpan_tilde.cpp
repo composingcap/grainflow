@@ -32,8 +32,104 @@ void grainflow_util_spatpan_tilde::operator()(audio_bundle input, audio_bundle o
 #pragma endregion
 
 
-void grainflow_util_spatpan_tilde::config_from_dictionary(atoms args, int inlet)
+void grainflow_util_spatpan_tilde::config_from_dictionary(dict& config)
 {
+	if (!config.valid()) { return; }
+	if (config.keyCount() <= 0) { return; }
+	auto entryRef = config.at("speakers");
+	if (!entryRef.empty())
+	{
+		auto speakersDictAtom = *entryRef.begin();
+		dict speakerDict(speakersDictAtom);
+		speakers_from_dict(speakerDict);
+	}
+	entryRef = config.at("falloffDistance");
+	if (!entryRef.empty())
+	{
+		if (entryRef.begin()->a_type == c74::max::A_FLOAT)
+		{
+			a_distance_thresh = entryRef.begin()->a_w.w_float;
+		}
+		else if (entryRef.begin()->a_type == c74::max::A_LONG)
+		{
+			a_distance_thresh = entryRef.begin()->a_w.w_long;
+		}
+	}
+	entryRef = config.at("falloffCurve");
+	if (!entryRef.empty())
+	{
+		if (entryRef.begin()->a_type == c74::max::A_FLOAT)
+		{
+			a_exponent = entryRef.begin()->a_w.w_float;
+		}
+		else if (entryRef.begin()->a_type == c74::max::A_LONG)
+		{
+			a_exponent = entryRef.begin()->a_w.w_long;
+		}
+	}
+	entryRef = config.at("dimmask");
+	if (!entryRef.empty())
+	{
+		atoms dim_mask;
+		for (auto& entry : entryRef)
+		{
+			if (entry.a_type == c74::max::A_FLOAT)
+			{
+				dim_mask.push_back(entry.a_w.w_float);
+			}
+			else if (entry.a_type == c74::max::A_LONG)
+			{
+				dim_mask.push_back(entry.a_w.w_long);
+			}
+			if (dim_mask.size() > 0) { a_dim_mask.set(dim_mask); }
+		}
+	}
+}
+
+void grainflow_util_spatpan_tilde::speakers_from_dict(dict& speakerDict)
+{
+	std::vector<std::array<float, 3>> speakerPositions;
+	speakerPositions.resize(speakerDict.keyCount());
+	for (int i = 0; i < speakerDict.keyCount(); ++i)
+	{
+		auto speakerKey = speakerDict.getKeys()[i];
+		auto entry = speakerDict.at(speakerKey);
+		int dim = 0;
+		string keyString(speakerKey->s_name);
+		//Check if it can be a number
+		if (std::find_if(keyString.begin(), keyString.end(), [](unsigned char c) { return !std::isdigit(c); })
+			!= keyString.end())
+		{
+			continue;
+		}
+		int idx = std::stoi(keyString);
+		if (idx >= speakerPositions.size()) { continue; }
+		for (auto& num : entry)
+		{
+			if (num.a_type == c74::max::A_FLOAT)
+			{
+				speakerPositions[idx][dim] = num.a_w.w_float;
+			}
+			else if (num.a_type == c74::max::A_LONG)
+			{
+				speakerPositions[idx][dim] = num.a_w.w_long;
+			}
+
+			++dim;
+			if (dim >= 3) break;
+		}
+	}
+	atoms speakersArg;
+	speakersArg.resize(speakerPositions.size() * 3);
+	for (int i = 0; i < speakerPositions.size(); ++i)
+	{
+		speakersArg[i * 3] = speakerPositions[i][0];
+		speakersArg[i * 3 + 1] = speakerPositions[i][1];
+		speakersArg[i * 3 + 2] = speakerPositions[i][2];
+	}
+	if (speakersArg.empty()) return;
+	a_speakers.set(speakersArg);
+	a_speakers.touch();
 }
 
 
