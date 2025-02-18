@@ -19,6 +19,7 @@ grainflow_util_spatpan_tilde::~grainflow_util_spatpan_tilde()
 {
 	panner_.release();
 }
+
 #pragma region DSP
 
 void grainflow_util_spatpan_tilde::operator()(audio_bundle input, audio_bundle output)
@@ -29,6 +30,11 @@ void grainflow_util_spatpan_tilde::operator()(audio_bundle input, audio_bundle o
 }
 
 #pragma endregion
+
+
+void grainflow_util_spatpan_tilde::config_from_dictionary(atoms args, int inlet)
+{
+}
 
 
 #pragma region MAX_API_EX

@@ -13,6 +13,7 @@ constexpr size_t INTERNALBLOCK = 16;
 using namespace c74::min;
 using namespace Grainflow;
 
+
 class grainflow_util_spatpan_tilde : public object<grainflow_util_spatpan_tilde>, public mc_operator<>
 {
 public:
@@ -22,6 +23,8 @@ public:
 	MIN_RELATED{"grainflow.util.multipan~,""grainflow.spatpan~"};
 
 private:
+	enum_map spat_pan_mode_range = {"vbap", "dbap"};
+
 	double oneOverSamplerate = 1;
 	unique_ptr<gf_spat_pan<INTERNALBLOCK, double>> panner_;
 
@@ -38,10 +41,10 @@ public:
 
 #pragma endregion
 #pragma region DSP
-#pragma region DSP
 
 	grainflow_util_spatpan_tilde();
 	~grainflow_util_spatpan_tilde();
+	void config_from_dictionary(atoms args, int inlet);
 	void operator()(audio_bundle input, audio_bundle output);
 	static long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 	static long simplemc_output(c74::max::t_object* x, long g, long count);
@@ -94,28 +97,150 @@ public:
 		"dspsetup",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
+			if (dummy()) { return {}; }
 			oneOverSamplerate = 1 / samplerate();
+			if (panner_ != nullptr) panner_->recalculate_all_gains(true);
 			return {};
 		}
 	};
 
-	message<> m_setSpeakerPosition{
-		this,
-		"speakerPositions",
-		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
-		{
-			panner_->clear_speaker_position();
-			for (int i = 0; i < args.size() / 3; ++i)
+	attribute<spat_pan_mode> a_mode{
+		this, "mode", spat_pan_mode::vbap, spat_pan_mode_range,
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				auto pos = std::array<float, 3>{
-					(float)args[0 + i * 3], (float)args[1 + i * 3], (float)args[2 + i * 3]
-				};
-				panner_->set_speaker_position(i, pos);
+				if (dummy() || panner_ == nullptr) { return args; }
+				panner_->pan_mode = args[0];
+				panner_->recalculate_all_gains();
+				return args;
 			}
-			panner_->recalculate_all_gains();
-			return {};
+		},
+		description{
+			"Panning algorithm used to determine gains. vbap selects the top N speakers and evenly pans between them. dpab also selects the top N speakers, but adjusts volume based on distance"
 		}
 	};
+
+	attribute<vector<number>> a_speakers{
+		this,
+		"speakerPositions",
+		{0},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (dummy() || panner_ == nullptr) { return args; }
+				panner_->clear_speaker_position();
+				for (int i = 0; i < args.size() / 3; ++i)
+				{
+					auto pos = std::array<float, 3>{
+						static_cast<float>(args[0 + i * 3]), static_cast<float>(args[1 + i * 3]),
+						static_cast<float>(args[2 + i * 3])
+					};
+					panner_->set_speaker_position(i, pos);
+				}
+				panner_->recalculate_all_gains();
+				return args;
+			}
+		}
+	};
+
+	attribute<int> a_n_speakers{
+		this,
+		"speakersPerSource",
+		3,
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (dummy() || panner_ == nullptr) { return args; }
+				auto val = std::max(0, static_cast<int>(args[0]));
+				if (val == panner_->n_speakers) { return {val}; }
+				panner_->n_speakers = val;
+				panner_->recalculate_all_gains();
+				return {val};
+			}
+		},
+		getter{
+			[this]()-> atoms
+			{
+				if (dummy() || panner_ == nullptr) { return {3}; }
+				return {panner_->n_speakers};
+			}
+		},
+		description{"maximum number of speakers that can receive signal from a single source"}
+	};
+
+	attribute<number> a_distance_thresh{
+		this,
+		"distanceThreshold",
+		2,
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (dummy() || panner_ == nullptr) { return args; }
+				auto val = std::max(0.0, static_cast<number>(args[0]));
+				if (std::abs(val - panner_->distance_thresh) < 0.00001) { return {val}; }
+				panner_->distance_thresh = val;
+				panner_->recalculate_all_gains();
+				return {val};
+			}
+		},
+		getter{
+
+			[this]()-> atoms
+			{
+				if (dummy() || panner_ == nullptr) { return {2}; }
+				return {panner_->distance_thresh};
+			}
+		},
+		description{"the maximum distance where a source can be rendered by a speaker"}
+	};
+
+	attribute<number> a_exponent{
+		this,
+		"exponent",
+		0,
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (dummy() || panner_ == nullptr) { return args; }
+				auto val = gf_utils::pitch_to_rate(static_cast<float>(args[0]) * 12.0f);
+				if (std::abs(val - panner_->exponent) < 0.00001) { return args; }
+				panner_->exponent = val;
+				panner_->recalculate_all_gains();
+				return args;
+			}
+		},
+		getter{
+			[this]()-> atoms
+			{
+				if (dummy() || panner_ == nullptr) { return {0}; }
+				return {gf_utils::round(gf_utils::rate_to_pitch(panner_->exponent) / 12.0, 0.0001)};
+			}
+		},
+		description{"an exponent determining the falloff curve. 0 is linear"},
+	};
+
+	attribute<vector<number>> a_dim_mask{
+		this,
+		"dimMask",
+		{1, 1, 1},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (dummy() || panner_ == nullptr) { return args; }
+				std::array<float, 3> mask = {0, 0, 0};
+				const int arg_count = args.size();
+				for (int i = 0; i < std::min(arg_count, 3); ++i)
+				{
+					mask[i] = std::clamp(static_cast<float>(args[i]), 0.0f, 1.0f);
+				}
+
+
+				panner_->dim_mask = mask;
+				return {mask[0], mask[1], mask[2]};
+			}
+		}
+	};
+
 
 	message<> m_setSourcePosition{
 		this,
@@ -123,9 +248,12 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			if (args.size() < 3) { return args; }
-			auto pos = std::array<float, 3>{(float)args[1], (float)args[2], (float)args[3]};
+			auto pos = std::array<float, 3>{
+				static_cast<float>(args[1]), static_cast<float>(args[2]), static_cast<float>(args[3])
+			};
 			panner_->set_source_position((int)args[0], pos);
-			return {};
+
+			return args;
 		}
 	};
 
@@ -135,7 +263,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			panner_->clear_source_positions();
-			return {};
+			return args;
 		}
 	};
 
