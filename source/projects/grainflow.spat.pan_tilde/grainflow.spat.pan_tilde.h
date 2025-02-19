@@ -14,7 +14,7 @@ using namespace c74::min;
 using namespace Grainflow;
 
 
-class grainflow_util_spatpan_tilde : public object<grainflow_util_spatpan_tilde>, public mc_operator<>
+class grainflow_spat_pan_tilde : public object<grainflow_spat_pan_tilde>, public mc_operator<>
 {
 public:
 	MIN_DESCRIPTION{"An easy way to pan grains generated with grainflow."};
@@ -42,13 +42,14 @@ public:
 #pragma endregion
 #pragma region DSP
 
-	grainflow_util_spatpan_tilde();
-	~grainflow_util_spatpan_tilde();
+	grainflow_spat_pan_tilde();
+	~grainflow_spat_pan_tilde();
 	void config_from_dictionary(dict& config);
 	void speakers_from_dict(dict& speakerDict);
 	void operator()(audio_bundle input, audio_bundle output);
 	static long simplemc_inputchanged(c74::max::t_object* x, long g, long count);
 	static long simplemc_output(c74::max::t_object* x, long g, long count);
+	atoms output_dictionary(const c74::min::atoms& args, const int inlet);
 
 #pragma endregion
 
@@ -56,20 +57,7 @@ public:
 		this,
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			if (panner_ != nullptr)
-			{
-				auto peaks = panner_->get_peakamps();
-				if (!peaks.empty())
-				{
-					output_dict.setArray("speakerAmps", atoms(peaks.begin(), peaks.end()));
-					//Add grain Amps
-					//Add grainPositions
-					//Add SpeakerPositions
-					info.send({"dictionary", output_dict.name()});
-				}
-			}
-			output_data.delay(33);
-			return {};
+			return output_dictionary(args, inlet);
 		}
 	};
 
@@ -132,7 +120,7 @@ public:
 
 	attribute<vector<number>> a_speakers{
 		this,
-		"speakerPositions",
+		"speakers",
 		{0},
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms

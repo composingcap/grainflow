@@ -32,6 +32,7 @@ private:
 	float clickPosition[2] = {0, 0};
 	float centerPosition[3] = {0, 0, 0};
 	int region = 0;
+	float m_falloffDistance = 1;
 
 public:
 	MIN_DESCRIPTION{"Visualize Grainflow spatialization"};
@@ -39,8 +40,8 @@ public:
 	MIN_AUTHOR{"Christopher Poovey"};
 	MIN_RELATED{""};
 
-	inlet<> input{this, "(list) input messages"};
-	outlet<> output{this, "(list) info"};;
+	inlet<> input{this, "(list) visualisation dictionary"};
+	outlet<> output{this, "(list) info"};
 
 	grainflow_spatview_tilde(const atoms& args = {})
 		: ui_operator::ui_operator{this, args}
@@ -135,33 +136,36 @@ public:
 		}
 	};
 
-	void ParseGrainAmps(atoms amps)
+	void ParseGrainAmps(const atoms& amps)
 	{
-		if (amps.size() < 1) return;
+		if (amps.empty()) return;
 		for (int i = 0; i < amps.size(); i++)
 		{
 			if (auto search = grains.find(i); search != grains.end())
 			{
-				search->second.size = (float)amps[i];
+				search->second.size = static_cast<float>(amps[i]);
 			}
 		}
 		return;
 	}
 
-	void parsePosition(atoms args)
+	void setGrainPosition(const int idx, const atoms& xyz)
 	{
-		if (args.size() < 4) return;
-		int idx = (int)args[0];
+		if (xyz.size() < 3) return;
 		if (grains.find(idx) == grains.end())
 		{
 			grainIndices.push_back(idx);
+			VisualGrain g;
+			g.x = static_cast<float>(xyz[0]);
+			g.y = static_cast<float>(xyz[1]);
+			g.z = static_cast<float>(xyz[2]);
+			g.size = 0;
+			grains[idx] = g;
+			return;
 		}
-		VisualGrain g;
-		g.x = (float)args[1];
-		g.y = (float)args[2];
-		g.z = (float)args[3];
-		grains[idx] = g;
-		return;
+		grains[idx].x = static_cast<float>(xyz[0]);
+		grains[idx].y = static_cast<float>(xyz[1]);
+		grains[idx].z = static_cast<float>(xyz[2]);
 	}
 
 	void ParseVizInfo(string dictName)
@@ -172,29 +176,55 @@ public:
 		{
 			auto name = keys[i];
 
-			if (strcmp(name->s_name, "xyz") == 0)
+			if (strcmp(name->s_name, "grainPositions") == 0)
 			{
-				dict grainPos = (atom)vizDict[name];
+				dict grainPos = static_cast<atom>(vizDict[name]);
 				auto subkeys = grainPos.getKeys();
 				for (int j = 0; j < grainPos.keyCount(); j++)
 				{
-					int idx = std::stoi(subkeys[j]->s_name) - 1;
+					int idx = std::stoi(subkeys[j]->s_name);
 					if (idx > grainPos.keyCount() || idx < 0) continue;
 					atoms xyz = grainPos[subkeys[j]];
 					if (xyz.size() < 3) continue;
-					parsePosition(atoms{idx, xyz[0], xyz[1], xyz[2]});
+					setGrainPosition(idx, xyz);
 				}
 			}
-			if (strcmp(name->s_name, "grainAmp") == 0)
+			if (strcmp(name->s_name, "grainAmps") == 0)
 			{
 				ParseGrainAmps(vizDict[name]);
 			}
 
-			if (strcmp(name->s_name, "setSpeakerAmps") == 0)
+			if (strcmp(name->s_name, "speakerAmps") == 0)
 			{
 				m_speakerAmps = vizDict[name];
 			}
+			if (strcmp(name->s_name, "speakerPositions") == 0)
+			{
+				dict speakerPos = static_cast<atom>(vizDict[name]);
+				auto subkeys = speakerPos.getKeys();
+				speakerPositions_.resize(speakerPos.keyCount() * 3);
+				for (int j = 0; j < speakerPos.keyCount(); j++)
+				{
+					int idx = std::stoi(subkeys[j]->s_name);
+					if (idx > speakerPos.keyCount() || idx < 0) continue;
+					atoms xyz = speakerPos[subkeys[j]];
+					if (xyz.size() < 3) continue;
+					setSpeakerPosition(idx, xyz);
+				}
+				m_speakerPositions = speakerPositions_;
+			}
+			if (strcmp(name->s_name, "distanceThreshold") == 0)
+			{
+				m_falloffDistance = static_cast<atom>(vizDict[name]);
+			}
 		};
+	}
+
+	void setSpeakerPosition(int idx, atoms xyz)
+	{
+		speakerPositions_[idx * 3] = static_cast<float>(xyz[0]);
+		speakerPositions_[idx * 3 + 1] = static_cast<float>(xyz[1]);
+		speakerPositions_[idx * 3 + 2] = static_cast<float>(xyz[2]);
 	}
 
 
@@ -268,6 +298,20 @@ public:
 		DrawUi(t, 1.25f);
 	}
 
+	void clickToCenter(target t)
+	{
+		float h = 1 / t.height();
+		if (region == 0)
+		{
+			centerPosition[0] = clamp((clickPosition[0] * h - 0.5f) * 4, -2.0f, 2.0f);
+			centerPosition[1] = clamp((1 - (clickPosition[1]) * h - 0.5f) * 4, -2.0f, 2.0f);
+		}
+		else
+		{
+			centerPosition[0] = clamp(((clickPosition[0]) * h - 1.8f) * 4, -2.0f, 2.0f);
+			centerPosition[2] = clamp((1 - (clickPosition[1]) * h - 0.5f) * 4, -2.0f, 2.0f);
+		}
+	}
 
 	message<> paint{
 		this,
@@ -332,20 +376,6 @@ public:
 		}
 	};
 
-	void clickToCenter(target t)
-	{
-		float h = 1 / t.height();
-		if (region == 0)
-		{
-			centerPosition[0] = clamp((clickPosition[0] * h - 0.5f) * 4, -2.0f, 2.0f);
-			centerPosition[1] = clamp((1 - (clickPosition[1]) * h - 0.5f) * 4, -2.0f, 2.0f);
-		}
-		else
-		{
-			centerPosition[0] = clamp(((clickPosition[0]) * h - 1.8f) * 4, -2.0f, 2.0f);
-			centerPosition[2] = clamp((1 - (clickPosition[1]) * h - 0.5f) * 4, -2.0f, 2.0f);
-		}
-	}
 
 	attribute<vector<double>> m_speakerPositions{
 		this,
@@ -355,21 +385,6 @@ public:
 		description{"Speaker positions in a list of XYZ coordinates"}
 	};
 
-	attribute<vector<double>> m_dimmask{
-		this,
-		"dimmask",
-		{1, 1, 0},
-		title{"dim mask"},
-		description{"A mask for what dimentions are used in spatialization"}
-	};
-
-	attribute<number> m_falloffCurve{
-		this,
-		"falloffCurve",
-		-1,
-		title{"falloff curve"},
-		description{"Used in grainflow.span.pan~ to control the falloff curve for the distance panning"}
-	};
 
 	attribute<bool> m_showCenter{
 		this,
@@ -379,15 +394,6 @@ public:
 		description{"Enables/Disables the center handle"}
 	};
 
-	attribute<number> m_falloffDistance{
-		this,
-		"falloffDistance",
-		1.5,
-		title{"falloff distance"},
-		description{
-			"Used in grainflow.span.pan~ to control the the distance a sound will be put into a speaker for distance based panning"
-		}
-	};
 
 	attribute<color> m_speakerZoneColor{
 		this,
@@ -449,128 +455,14 @@ public:
 
 	message<> vizInfo{
 		this,
-		"vizInfo",
+		"anything",
 		"Dictionary of grain visualization information generated by grainflow.spat.pan~",
 		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
 		{
-			if (args.size() < 2) return {};
-			if (((string)args[0]).compare("dictionary") > 0) return {};
-			ParseVizInfo((string)args[1]);
-			return {};
-		}
-	};
-
-
-	message<> pos{
-		this,
-		"pos",
-		"grain positions for an individual grain in the format of (index x y z)",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			parsePosition(args);
-			return {};
-		}
-	};
-
-	message<> xyz{
-		this,
-		"xyz",
-		"grain positions for an individual grain in the format of (index x y z)",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			parsePosition(args);
-			return {};
-		}
-	};
-
-	message<> grainAmps{
-		this,
-		"grainAmp",
-		"set grain amplitudes in the format of grain value",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			ParseGrainAmps(args);
-			return {};
-		}
-	};
-
-	message<> speakers{
-		this,
-		"speakers",
-		"Sets speakers using a dictionary",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			if (args.empty()) return {};
-			if (args[0].type() == message_type::symbol_argument)
-			{
-				if (strcmp(static_cast<string>(args[0]).c_str(), "dictionary") != 0) return {};
-				speakerDict.register_as((string)args[1]);
-				auto keys = speakerDict.getKeys();
-				for (int i = 0; i < speakerDict.keyCount(); i++)
-				{
-					auto name = keys[i];
-
-					if (strcmp(name->s_name, "speakers") == 0)
-					{
-						dict speakers = static_cast<atom>(speakerDict[name]);
-						if (!speakers.valid()) continue;
-						const auto subkeys = speakers.getKeys();
-						speakerPositions_.resize(speakers.keyCount() * 3);
-						for (int j = 0; j < speakers.keyCount(); j++)
-						{
-							atoms e = speakers[subkeys[j]];
-							const int idx = std::stoi(subkeys[j]->s_name) - 1;
-							if (idx > speakers.keyCount() || idx < 0) continue;
-							speakerPositions_[idx * 3] = e[0];
-							speakerPositions_[idx * 3 + 1] = e.size() > 1 ? static_cast<float>(e[1]) : 0;
-							speakerPositions_[idx * 3 + 2] = e.size() > 2 ? static_cast<float>(e[2]) : 0;
-						}
-						m_speakerPositions.set(speakerPositions_);
-						continue;
-					};
-					if (strcmp(name->s_name, "dimmask") == 0)
-					{
-						m_dimmask.set(speakerDict[name]);
-						continue;
-					}
-					if (strcmp(name->s_name, "falloffDistance") == 0)
-					{
-						m_falloffDistance = speakerDict[name];
-					}
-					if (strcmp(name->s_name, "falloffCurve") == 0)
-					{
-						m_falloffCurve = speakerDict[name];
-					}
-				}
-			}
-			else if (args[0].type() == message_type::float_argument || args[0].type() == message_type::int_argument)
-			{
-				m_speakerPositions = args;
-			}
-
-			return {};
-		}
-	};
-
-	message<> speakerAmp{
-		this,
-		"setSpeakerAmps",
-		"set speaker amplitudes for display in the format speaker value",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			if (args.size() < 1) return {};
-			m_speakerAmps = args;
-			return {};
-		}
-	};
-
-	message<> any{
-		this,
-		"anything",
-		"",
-		[this](const c74::min::atoms& args, const int inlet) -> c74::min::atoms
-		{
-			return {};
+			if (args.size() < 2) return args;
+			if (static_cast<string>(args[0]) != ("dictionary")) return args;
+			ParseVizInfo(args[1]);
+			return args;
 		}
 	};
 
