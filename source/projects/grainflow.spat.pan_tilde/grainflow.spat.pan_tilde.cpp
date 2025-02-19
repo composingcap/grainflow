@@ -5,24 +5,24 @@
 ///
 ///
 ///
-#include "grainflow.util.spatpan_tilde.h"
+#include "grainflow.spat.pan_tilde.h"
 
 using namespace c74::min;
 using namespace Grainflow;
 
-grainflow_util_spatpan_tilde::grainflow_util_spatpan_tilde()
+grainflow_spat_pan_tilde::grainflow_spat_pan_tilde()
 {
 	panner_ = std::make_unique<gf_spat_pan<INTERNALBLOCK, double>>();
 }
 
-grainflow_util_spatpan_tilde::~grainflow_util_spatpan_tilde()
+grainflow_spat_pan_tilde::~grainflow_spat_pan_tilde()
 {
 	panner_.release();
 }
 
 #pragma region DSP
 
-void grainflow_util_spatpan_tilde::operator()(audio_bundle input, audio_bundle output)
+void grainflow_spat_pan_tilde::operator()(audio_bundle input, audio_bundle output)
 {
 	output.clear();
 	panner_->process(input.samples(), output.samples(), input.channel_count(), output.channel_count(),
@@ -32,7 +32,7 @@ void grainflow_util_spatpan_tilde::operator()(audio_bundle input, audio_bundle o
 #pragma endregion
 
 
-void grainflow_util_spatpan_tilde::config_from_dictionary(dict& config)
+void grainflow_spat_pan_tilde::config_from_dictionary(dict& config)
 {
 	if (!config.valid()) { return; }
 	if (config.keyCount() <= 0) { return; }
@@ -86,7 +86,7 @@ void grainflow_util_spatpan_tilde::config_from_dictionary(dict& config)
 	}
 }
 
-void grainflow_util_spatpan_tilde::speakers_from_dict(dict& speakerDict)
+void grainflow_spat_pan_tilde::speakers_from_dict(dict& speakerDict)
 {
 	std::vector<std::array<float, 3>> speakerPositions;
 	speakerPositions.resize(speakerDict.keyCount());
@@ -142,21 +142,21 @@ void grainflow_util_spatpan_tilde::speakers_from_dict(dict& speakerDict)
 /// <param name="index"></param>
 /// <param name="count"></param>
 /// <returns></returns>
-long grainflow_util_spatpan_tilde::simplemc_inputchanged(c74::max::t_object* x, long ch, long count)
+long grainflow_spat_pan_tilde::simplemc_inputchanged(c74::max::t_object* x, long ch, long count)
 {
 	if (ch != 0) return 1;
-	minwrap<grainflow_util_spatpan_tilde>* ob = reinterpret_cast<minwrap<grainflow_util_spatpan_tilde>*>(x);
+	minwrap<grainflow_spat_pan_tilde>* ob = reinterpret_cast<minwrap<grainflow_spat_pan_tilde>*>(x);
 
 	int chans = count > 0 ? count : 1;
 	ob->m_min_object.input_chans = chans; // Tells us how many channels are in each inlet
 	return chans;
 }
 
-long grainflow_util_spatpan_tilde::simplemc_output(c74::max::t_object* x, long ch, long count)
+long grainflow_spat_pan_tilde::simplemc_output(c74::max::t_object* x, long ch, long count)
 {
-	minwrap<grainflow_util_spatpan_tilde>* ob = reinterpret_cast<minwrap<grainflow_util_spatpan_tilde>*>(x);
+	minwrap<grainflow_spat_pan_tilde>* ob = reinterpret_cast<minwrap<grainflow_spat_pan_tilde>*>(x);
 	return ob->m_min_object.output_channels_value;
 }
 #pragma endregion
 
-MIN_EXTERNAL(grainflow_util_spatpan_tilde);
+MIN_EXTERNAL(grainflow_spat_pan_tilde);

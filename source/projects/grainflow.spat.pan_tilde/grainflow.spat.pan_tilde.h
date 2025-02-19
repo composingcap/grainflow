@@ -14,7 +14,7 @@ using namespace c74::min;
 using namespace Grainflow;
 
 
-class grainflow_util_spatpan_tilde : public object<grainflow_util_spatpan_tilde>, public mc_operator<>
+class grainflow_spat_pan_tilde : public object<grainflow_spat_pan_tilde>, public mc_operator<>
 {
 public:
 	MIN_DESCRIPTION{"An easy way to pan grains generated with grainflow."};
@@ -42,8 +42,8 @@ public:
 #pragma endregion
 #pragma region DSP
 
-	grainflow_util_spatpan_tilde();
-	~grainflow_util_spatpan_tilde();
+	grainflow_spat_pan_tilde();
+	~grainflow_spat_pan_tilde();
 	void config_from_dictionary(dict& config);
 	void speakers_from_dict(dict& speakerDict);
 	void operator()(audio_bundle input, audio_bundle output);
@@ -58,13 +58,30 @@ public:
 		{
 			if (panner_ != nullptr)
 			{
-				auto peaks = panner_->get_peakamps();
-				if (!peaks.empty())
+				std::vector<float> speakerAmps;
+				std::vector<float> grainAmps;
+				std::map<int, std::array<float, 3>> speakerPositions;
+				std::map<int, std::array<float, 3>> grainPositions;
+
+				panner_->get_data_outputs(speakerAmps, grainAmps, speakerPositions, grainPositions);
+				if (!speakerAmps.empty())
 				{
-					output_dict.setArray("speakerAmps", atoms(peaks.begin(), peaks.end()));
-					//Add grain Amps
-					//Add grainPositions
-					//Add SpeakerPositions
+					output_dict.setArray("speakerAmps", atoms(speakerAmps.begin(), speakerAmps.end()));
+					output_dict.setArray("grainAmps", atoms(grainAmps.begin(), grainAmps.end()));
+					dict grainPositionsDict;
+					dict speakerPositionsDict;
+					for (auto& entry : grainPositions)
+					{
+						grainPositionsDict.setArray(
+							entry.first, atoms(entry.second.begin(), entry.second.end()));
+					}
+					for (auto& entry : speakerPositions)
+					{
+						speakerPositionsDict.setArray(
+							entry.first, atoms(entry.second.begin(), entry.second.end()));
+					}
+					output_dict["grainPositions"] = grainPositionsDict;
+					output_dict["speakerPositions"] = speakerPositionsDict;
 					info.send({"dictionary", output_dict.name()});
 				}
 			}
