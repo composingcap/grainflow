@@ -130,6 +130,22 @@ public:
 		description{"The distance grains can pan from the center"},
 	};
 
+		attribute<number> quantize{
+		this,
+		"quantize",
+		0.0,
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (args.empty()) return args;
+				if (panner_ == nullptr) return args;
+				panner_->pan_quantization = static_cast<float>(args[0]);
+				return args;
+			}
+		},
+		description{"A speaker division grains will lock to"},
+	};
+
 	timer<timer_options::defer_delivery> internal_update{
 		this,
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
