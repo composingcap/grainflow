@@ -161,6 +161,25 @@ public:
 		description{"should the output buffer position be frozen?"},
 	};
 
+	attribute<vector<number>> recordRange{
+		this, "recRange", {0.0f,1.0f},
+		description{"Determines to write loop"},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms{
+				atoms fixedArgs = {
+					args.empty() ? 0.0f : std::clamp(static_cast<float>(args[0]), 0.0f, 1.0f),
+					args.size() < 2 ? 1.0f : std::clamp(static_cast<float>(args[1]), 0.0f, 1.0f),
+				};
+				if(recorder_ != nullptr){
+					recorder_->recRange[0].store(static_cast<float>(fixedArgs[0]));
+					recorder_->recRange[1].store(static_cast<float>(fixedArgs[1]));
+				}
+				return fixedArgs;
+			}
+
+		}
+	};
+
 	timer<timer_options::defer_delivery> internal_update{
 		this,
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
