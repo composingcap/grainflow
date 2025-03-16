@@ -152,19 +152,24 @@ atoms grainflow_spat_pan_tilde::output_dictionary(const c74::min::atoms& args, c
 		panner_->get_data_outputs(speakerAmps, grainAmps, speakerPositions, grainPositions);
 		if (!speakerAmps.empty())
 		{
-			output_dict.setArray("speakerAmps", atoms(speakerAmps.begin(), speakerAmps.end()));
-			output_dict.setArray("grainAmps", atoms(grainAmps.begin(), grainAmps.end()));
+			outputTmp_.assign(speakerAmps.begin(), speakerAmps.end());
+			output_dict.setArray("speakerAmps", outputTmp_);
+			outputTmp_.assign(grainAmps.begin(), grainAmps.end());
+			output_dict.setArray("grainAmps", outputTmp_);
+
 			dict grainPositionsDict;
 			dict speakerPositionsDict;
 			for (auto& entry : grainPositions)
 			{
+				outputTmp_.assign(entry.second.begin(), entry.second.end());
 				grainPositionsDict.setArray(
-					entry.first, atoms(entry.second.begin(), entry.second.end()));
+					entry.first, outputTmp_);
 			}
 			for (auto& entry : speakerPositions)
 			{
+				outputTmp_.assign(entry.second.begin(), entry.second.end());
 				speakerPositionsDict.setArray(
-					entry.first, atoms(entry.second.begin(), entry.second.end()));
+					entry.first, outputTmp_);
 			}
 			output_dict["grainPositions"] = grainPositionsDict;
 			output_dict["speakerPositions"] = speakerPositionsDict;
