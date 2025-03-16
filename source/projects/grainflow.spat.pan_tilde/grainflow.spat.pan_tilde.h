@@ -28,6 +28,7 @@ private:
 	double oneOverSamplerate = 1;
 	unique_ptr<gf_spat_pan<INTERNALBLOCK, double>> panner_;
 	dict output_dict{symbol(true)};
+	atoms outputTmp_;
 
 public:
 	int input_chans = 1;
