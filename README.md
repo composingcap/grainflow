@@ -56,7 +56,7 @@ cd ./grainflow
 mkdir ./build
 cd build
 cmake ../ -G Xcode
-cmake --build 
+cmake --build .
 ```
 
 ### With python:
