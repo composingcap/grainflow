@@ -77,9 +77,8 @@ namespace Grainflow
 				const auto position = positions[i];
 				const auto frame = static_cast<int>(position);
 				const auto tween = position - frame;
-				samples[i] = sample_lock[frame * channels + chan] * (1 - tween) + sample_lock[((frame + 1) * ((frame +
-						1)
-					< frames) * channels + chan)] * tween;
+				const bool isLastFrame = frame >= (frames-1);
+				samples[i] = sample_lock[frame * channels + chan] * (1 - tween) + sample_lock[((frame + 1) * !isLastFrame * channels + chan)] * tween;
 			}
 		};
 
