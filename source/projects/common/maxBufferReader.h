@@ -61,25 +61,28 @@ namespace Grainflow
 		}
 
 		static void sample_buffer(buffer_reference* buffer, const int channel, double* __restrict samples,
-		                          const double* positions,
-		                          const int size)
+		                          const double* positions, 
+		                          const int size, const float lower_bound, const float upper_bound)
 		{
 			if (buffer == nullptr) return;
 			buffer_lock<> sample_lock(*buffer);
 			if (!sample_lock.valid()) return;
 			if (positions[0] != positions[0]) return;
-			const int frames = static_cast<int>(sample_lock.frame_count());
+			const int max_frame = static_cast<int>(sample_lock.frame_count())-1;
+			const int lower_frame = max_frame * lower_bound;
+			const int upper_frame = max_frame * upper_bound;
+			if (upper_frame == lower_frame) return;
 			int channels = static_cast<int>(sample_lock.channel_count());
 			channels = std::max(channels, 1);
 			const auto chan = channel % channels;
 			for (int i = 0; i < size; i++)
 			{
 				const auto position = positions[i];
-				const auto frame = static_cast<int>(position);
-				const auto tween = position - frame;
-				samples[i] = sample_lock[frame * channels + chan] * (1 - tween) + sample_lock[((frame + 1) * ((frame +
-						1)
-					< frames) * channels + chan)] * tween;
+				const auto first_frame = static_cast<int>(position);
+				const auto tween = position - first_frame;
+				const bool frame_overflow = first_frame >= upper_frame;
+				const int second_frame = (first_frame + 1) * !frame_overflow + lower_frame * frame_overflow;
+				samples[i] = sample_lock[first_frame * channels + chan] * (1 - tween) + sample_lock[second_frame * channels + chan] * tween;
 			}
 		};
 
@@ -90,6 +93,7 @@ namespace Grainflow
 			if (buffer == nullptr) return;
 			buffer_lock<> sample_lock(*buffer);
 			if (!sample_lock.valid()) return;
+			sample_lock.dirty();
 			const int frames = static_cast<int>(sample_lock.frame_count());
 			int channels = static_cast<int>(sample_lock.channel_count());
 			if (channels <= 0) return;
