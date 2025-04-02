@@ -27,12 +27,13 @@ private:
 	buffer_reference* target_buffer_;
 	gf_i_buffer_reader<buffer_reference> buffer_reader_;
 	std::unique_ptr<gfRecorder<buffer_reference, INTERNALBLOCK>> recorder_;
+
 public:
-	std::array<int,2> input_chans = { 1,0 };
+	std::array<int, 2> input_chans = {1, 0};
 
 #pragma region MAX_IO
 	inlet<> input_signal{this, "(multichannelsignal) input signal", "multichannelsignal"};
-	inlet<> sync_signal{ this, "(signal) sync signal", "signal" };
+	inlet<> sync_signal{this, "(signal) sync signal", "signal"};
 	outlet<> traversal{this, "(signal) normalized position in buffer", "signal"};
 	outlet<> dump{this, "dump", "list"};
 
@@ -51,13 +52,13 @@ public:
 
 #pragma region MAX_ARGS
 	argument<int> buffer_name_arg{
-	this,
-	"buffer-name",
-	"the buffer to record to",
-	[this](const c74::min::atom& arg)
-	{
-		buffer.set({arg});
-	}
+		this,
+		"buffer-name",
+		"the buffer to record to",
+		[this](const c74::min::atom& arg)
+		{
+			buffer.set({arg});
+		}
 	};
 
 #pragma endregion
@@ -71,7 +72,6 @@ public:
 		"setup",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			
 			return {};
 		}
 	};
@@ -102,13 +102,13 @@ public:
 	};
 
 	message<> int_mess{
-	this,
-	"int",
-	[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
-	{
-		state.set({(static_cast<int>(args[0]) > 0)});
-		return{};
-	}
+		this,
+		"int",
+		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+		{
+			state.set({(static_cast<int>(args[0]) > 0)});
+			return {};
+		}
 	};
 
 	message<> buf_mess{
@@ -117,7 +117,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			buffer.set(args);
-			return{};
+			return {};
 		}
 	};
 
@@ -153,14 +153,13 @@ public:
 	};
 
 
-
 	attribute<bool> freeze{
-	this,
-	"freeze",
-	0,
+		this,
+		"freeze",
+		0,
 		description{"should the output buffer position be frozen?"},
 	};
-
+#ifdef Experimental
 	attribute<vector<number>> recordRange{
 		this, "recRange", {0.0f,1.0f},
 		description{"Determines to write loop"},
@@ -176,9 +175,9 @@ public:
 				}
 				return fixedArgs;
 			}
-
 		}
 	};
+#endif
 
 	timer<timer_options::defer_delivery> internal_update{
 		this,
@@ -189,10 +188,9 @@ public:
 			double pos_samps;
 			double pos_ms;
 			recorder_->get_position(pos_samps, pos_norm, pos_ms);
-			dump.send({ "recordHead", pos_norm });
-			dump.send({ "recordHeadMs", pos_ms });
+			dump.send({"recordHead", pos_norm});
+			dump.send({"recordHeadMs", pos_ms});
 			return {};
-		
 		}
 	};
 #pragma endregion

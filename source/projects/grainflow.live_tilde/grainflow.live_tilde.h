@@ -159,7 +159,8 @@ public:
 		category{"Grainflow Live Settings"},
 		description{"Determines if grainflow.live is recording"},
 	};
-
+#ifdef Experimental
+	//recordRange does not work well currently and will need some effort to make it work correctly
 	attribute<vector<number>> recordRange{
 		this, "recRange", {0.0f,1.0f},
 		category{"Grainflow Live Settings"},
@@ -179,6 +180,7 @@ public:
 
 		}
 	};
+#endif
 
 	attribute<bool> play{
 		this, "play", true,

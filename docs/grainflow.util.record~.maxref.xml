@@ -73,6 +73,11 @@
 			<description>The amount of the old samples that will be mixed in with the new samples </description>
 		</attribute>
 
+		<attribute name='recRange' get='1' set='1' type='float64' size='1' >
+			<digest>Determines to write loop </digest>
+			<description>Determines to write loop </description>
+		</attribute>
+
 		<attribute name='state' get='1' set='1' type='long' size='1' >
 			<digest>state of the recorder </digest>
 			<description>state of the recorder </description>
