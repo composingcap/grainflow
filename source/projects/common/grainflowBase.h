@@ -1272,7 +1272,7 @@ public:
 				if (args.empty()) return {};
 				if (grain_collection_ == nullptr) return args;
 
-				if (args[0] == grain_collection_->grains()) return {};
+				if (args[0] == grain_collection_->grains()) return args;
 				int grains = args[0];
 				if (grains < 1) return {grain_collection_->grains()};
 				reinit(grains);
