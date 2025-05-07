@@ -86,9 +86,37 @@ namespace Grainflow
 			}
 		};
 
+		static void read_buffer(buffer_reference* buffer, int channel, double* __restrict samples, int start_sample,
+			const int size)
+		{
+			if (buffer == nullptr) return;
+			buffer_lock<> sample_lock(*buffer);
+			if (!sample_lock.valid()) return;
+
+			const int frames = static_cast<int>(sample_lock.frame_count());
+			int channels = static_cast<int>(sample_lock.channel_count());
+			if (channels <= 0) return;
+			auto write_channel = channel % channels;
+			auto is_segmented = (start_sample + size) >= frames;
+
+			if (!is_segmented)
+			{
+				for (int i = 0; i < size; i++)
+				{
+					samples[i] = sample_lock[(start_sample + i) * channels + channel];
+				}
+			}
+			else
+			{
+				for (int i = 0; i < size; i++)
+				{
+					samples[i] = sample_lock[(((start_sample + i) % frames) * channels + channel)];
+				}
+			}
+		}
+
 		static void write_buffer(buffer_reference* buffer, const int channel, const double* samples,
-		                         double* __restrict scratch,
-		                         const int start_position, const float overdub, const int size)
+			const int start_position, const int size)
 		{
 			if (buffer == nullptr) return;
 			buffer_lock<> sample_lock(*buffer);
@@ -99,44 +127,19 @@ namespace Grainflow
 			if (channels <= 0) return;
 			auto write_channel = channel % channels;
 			auto is_segmented = (start_position + size) >= frames;
-			auto use_overdub = overdub >= 0.0001f;
-			if (overdub >= 1) return;
-
-			if (use_overdub)
-			{
-				if (!is_segmented)
-				{
-					for (int i = 0; i < size; i++)
-					{
-						scratch[i] = sample_lock[(start_position + i) * channels + channel] * overdub;
-					}
-				}
-				else
-				{
-					for (int i = 0; i < size; i++)
-					{
-						scratch[i] = sample_lock[(((start_position + i) % frames) * channels + channel)] * overdub;
-					}
-				}
-			}
-			else
-			{
-				memset(scratch, 0.0, sizeof(double) * size);
-			}
 
 			if (!is_segmented)
 			{
 				for (int i = 0; i < size; i++)
 				{
-					sample_lock[(start_position + i) * channels + channel] = samples[i] * (1 - overdub) + scratch[i];
+					sample_lock[(start_position + i) * channels + channel] = samples[i];
 				}
 				return;
 			}
 			auto first_chunk = (start_position + size) - frames;
 			for (int i = 0; i < size; i++)
 			{
-				sample_lock[(((start_position + i) % frames) * channels + channel)] = samples[i] * (1 - overdub) +
-					scratch[i];
+				sample_lock[(((start_position + i) % frames) * channels + channel)] = samples[i];
 			}
 		};
 
@@ -193,6 +196,7 @@ namespace Grainflow
 			_bufferReader.update_buffer_info = max_buffer_reader::update_buffer_info;
 			_bufferReader.sample_param_buffer = max_buffer_reader::sample_param_buffer;
 			_bufferReader.write_buffer = max_buffer_reader::write_buffer;
+			_bufferReader.read_buffer = max_buffer_reader::read_buffer;
 			return _bufferReader;
 		}
 	};

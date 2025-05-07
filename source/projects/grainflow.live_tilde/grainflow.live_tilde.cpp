@@ -144,7 +144,7 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 	if (!check_and_update_buffer(channels))return;
 
 	recorder_->freeze = freeze;
-	recorder_->overdub = overdub;
+	recorder_->overdub = std::clamp(overdub.get(), 0.0, 1.0);
 	recorder_->samplerate = samplerate_;
 	recorder_->state = state && record;
 	recorder_->process(input_samples, 0, buffer_, frames, channels, traversal_phasor_);
