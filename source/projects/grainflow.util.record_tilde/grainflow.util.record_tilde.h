@@ -138,6 +138,41 @@ public:
 		description{"target buffer"},
 	};
 
+	attribute<vector<number>> od_filters{
+		this,
+		"overdubFilters",
+		{0.0},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (dummy())
+				{
+					return {0.0};
+				}
+				int n_filters = args.size() / 3;
+				if (n_filters < 1)
+				{
+					return {0.0};
+				}
+				atoms output_args;
+				output_args.reserve(n_filters * 3);
+				recorder_->set_n_filters(n_filters);
+				for (int i = 0; i < n_filters; ++i)
+				{
+					const float freq = std::clamp<float>(args[0 + i * 3], 0.0f, samplerate() * 0.5f);
+					const float q = std::clamp<float>(args[1 + i * 3], 0.001f, 10000);
+					const float dub = std::clamp<float>(args[2 + i * 3], 0.0f, 1.0);
+					recorder_->set_filter_params(i, freq, q, dub);
+					output_args.emplace_back(freq);
+					output_args.emplace_back(q);
+					output_args.emplace_back(dub);
+				}
+				return output_args;
+			}
+		},
+		description{"filter bands in freq q overdub"},
+	};
+
 	attribute<number> overdub{
 		this,
 		"overdub",

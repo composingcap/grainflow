@@ -81,6 +81,7 @@ long grainflow_util_record_tilde::simplemc_inputchanged(c74::max::t_object* x, l
 	if (ch >= ob->m_min_object.input_chans.size()) return 1;
 	int chans = count > 0 ? count : 1;
 	ob->m_min_object.input_chans[ch] = chans; // Tells us how many channels are in each inlet
+	ob->m_min_object.recorder_->set_n_filter_channels(chans);
 	return chans;
 }
 

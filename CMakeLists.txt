@@ -1,12 +1,10 @@
 cmake_minimum_required(VERSION 3.19)
 project(Grainflow)
 set(CMAKE_OSX_ARCHITECTURES x86_64;arm64)
-enable_testing()
 
+set(BUILD_TEST OFF)
+set(BUILD_EXPERIMENTAL OFF)
 string(REGEX REPLACE "(.*)/" "" THIS_PACKAGE_NAME "${CMAKE_CURRENT_SOURCE_DIR}")
-
-
-
 
 if (APPLE)
     if (${CMAKE_GENERATOR} MATCHES "Xcode")
@@ -50,5 +48,27 @@ foreach (project_dir ${PROJECT_DIRS})
     endif ()
 endforeach ()
 
+
+if (BUILD_TEST) 
+    message("Test externals enabled.")
+    SUBDIRLIST(PROJECT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/source/test_projects)
+    foreach (project_dir ${PROJECT_DIRS})
+        if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/source/test_projects/${project_dir}/CMakeLists.txt")
+            message("Generating: ${project_dir}")
+            add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source/test_projects/${project_dir})
+        endif ()
+    endforeach ()
+endif ()
+
+if (BUILD_EXPERIMENTAL) 
+    message("Experimental externals enabled.")
+    SUBDIRLIST(PROJECT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/source/experimental_projects)
+    foreach (project_dir ${PROJECT_DIRS})
+        if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/source/experimental_projects/${project_dir}/CMakeLists.txt")
+            message("Generating: ${project_dir}")
+            add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source/experimental_projects/${project_dir})
+        endif ()
+    endforeach ()
+endif ()
 # Comment the line below if you want automatic cmake regneration enabled
 set(CMAKE_SUPPRESS_REGENERATION true)

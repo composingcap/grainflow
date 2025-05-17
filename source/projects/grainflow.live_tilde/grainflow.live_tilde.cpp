@@ -254,6 +254,10 @@ long grainflow_live_tilde::simplemc_inputchanged(c74::max::t_object* x, long g, 
 {
 	minwrap<grainflow_live_tilde>* ob = (minwrap<grainflow_live_tilde>*)(x);
 	ob->m_min_object.input_chans[g] = count > 0 ? count : 1; // Tells us how many channels are in each inlet
+	if (g == 0)
+	{
+		ob->m_min_object.recorder_->set_n_filter_channels(count);
+	}
 	return false;
 }
 #pragma endregion
