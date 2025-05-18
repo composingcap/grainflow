@@ -174,6 +174,10 @@ public:
 				int n_filters = args.size() / 3;
 				if (n_filters < 1)
 				{
+					if (recorder_ == nullptr){
+						return {0.0};
+					}
+					recorder_->set_n_filters(0);
 					return {0.0};
 				}
 				atoms output_args;
