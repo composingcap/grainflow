@@ -186,7 +186,27 @@ namespace Grainflow
 					env2 *
 					size_per_envelope + frame) % frames] * fade;
 			}
+
 		};
+
+		static void clear_buffer(buffer_reference* buffer){
+			buffer_lock<> samples(*buffer);
+			if (!samples.valid()){
+				return;
+			}
+			int size = samples.frame_count() * samples.channel_count();
+			for (int i = 0; i <  size / 16; ++i){
+				int base = i*16;
+				for (int j = 0; j < 16; ++j){
+					samples[base+j] = 0.0;
+				}
+			}
+			int truncated = (size/16)*16;
+			int remain = size - truncated;
+			for (int i = 0; i < remain; ++i){
+				samples[truncated+i] = 0;
+			}
+		}
 
 		static gf_i_buffer_reader<buffer_reference> get_max_buffer_reader()
 		{
@@ -197,6 +217,7 @@ namespace Grainflow
 			_bufferReader.sample_param_buffer = max_buffer_reader::sample_param_buffer;
 			_bufferReader.write_buffer = max_buffer_reader::write_buffer;
 			_bufferReader.read_buffer = max_buffer_reader::read_buffer;
+			_bufferReader.clear_buffer = max_buffer_reader::clear_buffer;
 			return _bufferReader;
 		}
 	};

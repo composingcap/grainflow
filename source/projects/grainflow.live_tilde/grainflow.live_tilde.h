@@ -193,11 +193,22 @@ public:
 					output_args.emplace_back(q);
 					output_args.emplace_back(dub);
 				}
+				recorder_->pre_process_filters();
 				return output_args;
 			}
 		},
 		category{"Grainflow Live Settings"},
 		description{"filter bands in freq q overdub"},
+	};
+
+	message<> m_clear{this, "clear" ,"clears the internal buffer",[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+		{
+			if (buffer_ == nullptr){
+				return args;
+			}
+			recorder_->clear(buffer_);
+			return args;
+		},
 	};
 #ifdef Experimental
 	//recordRange does not work well currently and will need some effort to make it work correctly

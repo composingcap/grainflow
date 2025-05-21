@@ -4,17 +4,624 @@
 		"appversion" : 		{
 			"major" : 9,
 			"minor" : 0,
-			"revision" : 2,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1042.0, 277.0, 616.0, 748.0 ],
+		"rect" : [ 100.0, 100.0, 599.0, 748.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"showrootpatcherontab" : 0,
 		"showontab" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 0,
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 9,
+							"minor" : 0,
+							"revision" : 4,
+							"architecture" : "x64",
+							"modernui" : 1
+						}
+,
+						"classnamespace" : "box",
+						"rect" : [ 100.0, 126.0, 599.0, 722.0 ],
+						"gridsize" : [ 15.0, 15.0 ],
+						"showontab" : 1,
+						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-41",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 9.0, 93.0, 562.0, 20.0 ],
+									"text" : "Filters are sorted by descending Q and are applied in series to the residual output of the previous filter"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-36",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 79.0, 237.0, 410.0, 20.0 ],
+									"text" : "overdubFilters are a list of tripplets [ { center-frequency q overdub } ]"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-33",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 336.0, 211.0, 150.0, 20.0 ],
+									"text" : "Set up overdub filters"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-30",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 312.0, 213.0, 17.0, 17.0 ],
+									"text" : "3",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-31",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 312.0, 213.0, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-27",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 238.0, 355.0, 247.0, 20.0 ],
+									"text" : "Clear the internall buffer"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-26",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 199.0, 354.0, 35.0, 22.0 ],
+									"text" : "clear"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-17",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 159.0, 318.0, 17.0, 17.0 ],
+									"text" : "4",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-18",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 159.0, 318.0, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-15",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 87.0, 283.0, 73.0, 22.0 ],
+									"text" : "loadmess 0."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-14",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 87.0, 316.0, 58.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-11",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 187.0, 316.0, 247.0, 20.0 ],
+									"text" : "Set the overdub for the residual"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-7",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 9.0, 53.0, 582.0, 33.0 ],
+									"text" : "Grainflow is able to set spectral regions for overdubbing. Each overdubFilter is a bandpass filter that is applied to both the input and read read buffer. "
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 87.0, 347.0, 77.0, 22.0 ],
+									"text" : "overdub $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-3",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patching_rect" : [ 79.0, 441.0, 67.0, 22.0 ],
+									"text" : "phasor~ 8"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-6",
+									"local" : 1,
+									"maxclass" : "mc.ezdac~",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 9.0, 604.0, 45.0, 45.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-38",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 163.0, 170.0, 17.0, 17.0 ],
+									"text" : "2",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-39",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 163.0, 170.0, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 1,
+									"fontname" : "Lato",
+									"fontsize" : 9.0,
+									"id" : "obj-35",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 40.0, 131.0, 17.0, 17.0 ],
+									"text" : "1",
+									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+									"textjustification" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+									"id" : "obj-29",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 40.0, 131.0, 16.0, 17.0 ],
+									"proportion" : 0.39,
+									"shape" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-13",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 182.0, 166.0, 247.0, 20.0 ],
+									"text" : "Play this sound file into grainflow.live~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-37",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "multichannelsignal", "list" ],
+									"patching_rect" : [ 9.0, 516.0, 143.0, 22.0 ],
+									"text" : "grainflow.util.stereoPan~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-5",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 67.0, 131.0, 255.0, 20.0 ],
+									"text" : "Enable recording and playback"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-8",
+									"maxclass" : "toggle",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 9.0, 131.0, 24.0, 24.0 ],
+									"svg" : ""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-20",
+									"lastchannelcount" : 2,
+									"maxclass" : "mc.live.gain~",
+									"numinlets" : 1,
+									"numoutlets" : 4,
+									"orientation" : 1,
+									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
+									"parameter_enable" : 1,
+									"patching_rect" : [ 9.0, 544.0, 115.0, 47.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_longname" : "mc.live.gain~[4]",
+											"parameter_mmax" : 6.0,
+											"parameter_mmin" : -70.0,
+											"parameter_modmode" : 0,
+											"parameter_osc_name" : "<default>",
+											"parameter_shortname" : "mc.live.gain~",
+											"parameter_type" : 0,
+											"parameter_unitstyle" : 4
+										}
+
+									}
+,
+									"varname" : "mc.live.gain~[1]"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 30.0,
+									"id" : "obj-21",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 9.0, 9.0, 311.0, 40.0 ],
+									"text" : "Banded Sustain"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"basictuning" : 440,
+									"clipheight" : 27.0,
+									"data" : 									{
+										"clips" : [ 											{
+												"absolutepath" : "anton.aif",
+												"filename" : "anton.aif",
+												"filekind" : "audiofile",
+												"id" : "u284005016",
+												"selection" : [ 0.0, 1.0 ],
+												"loop" : 1,
+												"content_state" : 												{
+													"originallengthms" : [ 0.0 ],
+													"speed" : [ 1.0 ],
+													"formantcorrection" : [ 0 ],
+													"formant" : [ 1.0 ],
+													"originaltempo" : [ 120.0 ],
+													"pitchshift" : [ 1.0 ],
+													"pitchcorrection" : [ 0 ],
+													"originallength" : [ 0.0, "ticks" ],
+													"basictuning" : [ 440 ],
+													"slurtime" : [ 0.0 ],
+													"quality" : [ "basic" ],
+													"timestretch" : [ 0 ],
+													"mode" : [ "basic" ],
+													"followglobaltempo" : [ 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"followglobaltempo" : 0,
+									"formantcorrection" : 0,
+									"id" : "obj-19",
+									"maxclass" : "playlist~",
+									"mode" : "basic",
+									"numinlets" : 1,
+									"numoutlets" : 5,
+									"originallength" : [ 0.0, "ticks" ],
+									"originaltempo" : 120.0,
+									"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 25.0, 166.0, 135.0, 28.0 ],
+									"pitchcorrection" : 0,
+									"quality" : "basic",
+									"saved_attribute_attributes" : 									{
+										"candicane2" : 										{
+											"expression" : ""
+										}
+,
+										"candicane3" : 										{
+											"expression" : ""
+										}
+,
+										"candicane4" : 										{
+											"expression" : ""
+										}
+,
+										"candicane5" : 										{
+											"expression" : ""
+										}
+,
+										"candicane6" : 										{
+											"expression" : ""
+										}
+,
+										"candicane7" : 										{
+											"expression" : ""
+										}
+,
+										"candicane8" : 										{
+											"expression" : ""
+										}
+
+									}
+,
+									"timestretch" : [ 0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-1",
+									"maxclass" : "newobj",
+									"numinlets" : 4,
+									"numoutlets" : 9,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"patching_rect" : [ 9.0, 470.0, 230.0, 22.0 ],
+									"text" : "grainflow.live~ 250 8 @delayRandom 200"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bubble" : 1,
+									"id" : "obj-10",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 987.0, 328.0, 120.0, 37.0 ],
+									"text" : "This one uses multiple bands"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-4",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 53.0, 210.0, 251.0, 22.0 ],
+									"text" : "overdubFilters 500 1 0.8 800 4 0.5 1200 8 0.9"
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-37", 1 ],
+									"midpoints" : [ 71.25, 503.5, 142.5, 503.5 ],
+									"source" : [ "obj-1", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-37", 0 ],
+									"source" : [ "obj-1", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 0 ],
+									"source" : [ "obj-14", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-14", 0 ],
+									"source" : [ "obj-15", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 34.5, 291.0, 18.5, 291.0 ],
+									"source" : [ "obj-19", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"source" : [ "obj-20", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 208.5, 432.6640625, 18.5, 432.6640625 ],
+									"source" : [ "obj-26", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 1 ],
+									"source" : [ "obj-3", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-20", 0 ],
+									"source" : [ "obj-37", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 62.5, 373.5, 18.5, 373.5 ],
+									"source" : [ "obj-4", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"source" : [ "obj-8", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"midpoints" : [ 96.5, 419.12890625, 18.5, 419.12890625 ],
+									"source" : [ "obj-9", 0 ]
+								}
+
+							}
+ ],
+						"originid" : "pat-32",
+						"boxgroups" : [ 							{
+								"boxes" : [ "obj-39", "obj-38" ]
+							}
+, 							{
+								"boxes" : [ "obj-29", "obj-35" ]
+							}
+, 							{
+								"boxes" : [ "obj-31", "obj-30" ]
+							}
+, 							{
+								"boxes" : [ "obj-18", "obj-17" ]
+							}
+ ]
+					}
+,
+					"patching_rect" : [ 286.0, 13.0, 108.0, 22.0 ],
+					"presentation_linecount" : 3,
+					"saved_object_attributes" : 					{
+						"globalpatchername" : ""
+					}
+,
+					"text" : "p \"banded sustain\""
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-2",
 					"maxclass" : "newobj",
@@ -25,182 +632,35 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 2,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1042.0, 303.0, 616.0, 722.0 ],
+						"rect" : [ 0.0, 26.0, 599.0, 722.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
-									"id" : "obj-24",
-									"maxclass" : "newobj",
-									"numinlets" : 0,
+									"id" : "obj-27",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 167.0, 372.0, 247.0, 20.0 ],
+									"text" : "Clear the internall buffer"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-26",
+									"maxclass" : "message",
+									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patcher" : 									{
-										"fileversion" : 1,
-										"appversion" : 										{
-											"major" : 9,
-											"minor" : 0,
-											"revision" : 2,
-											"architecture" : "x64",
-											"modernui" : 1
-										}
-,
-										"classnamespace" : "box",
-										"rect" : [ 59.0, 107.0, 1000.0, 780.0 ],
-										"gridsize" : [ 15.0, 15.0 ],
-										"boxes" : [ 											{
-												"box" : 												{
-													"bubble" : 1,
-													"id" : "obj-10",
-													"linecount" : 2,
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 483.0, 196.0, 120.0, 38.0 ],
-													"text" : "This one uses multiple bands"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"id" : "obj-9",
-													"maxclass" : "message",
-													"numinlets" : 2,
-													"numoutlets" : 1,
-													"outlettype" : [ "" ],
-													"patching_rect" : [ 149.0, 204.0, 318.0, 22.0 ],
-													"presentation_linecount" : 2,
-													"text" : "overdubFilters 500 1 0.8 1500 2 0.5 3000 3 0.7, overdub 0"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"bubble" : 1,
-													"id" : "obj-8",
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 324.0, 165.0, 331.0, 24.0 ],
-													"text" : "This on turns off the overdub at 5000 hz"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"id" : "obj-6",
-													"maxclass" : "message",
-													"numinlets" : 2,
-													"numoutlets" : 1,
-													"outlettype" : [ "" ],
-													"patching_rect" : [ 97.0, 166.0, 225.0, 22.0 ],
-													"presentation_linecount" : 2,
-													"text" : "overdubFilters 5000 0.77 0., overdub 0.9"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"bubble" : 1,
-													"id" : "obj-5",
-													"linecount" : 3,
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 253.0, 102.0, 331.0, 52.0 ],
-													"text" : "This sets a bandpass filter at 500 hz with a Q of 2 to an overdub factor of 0.9.\nThe overall overdub is set to 0."
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"id" : "obj-24",
-													"linecount" : 2,
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 364.0, 25.0, 302.0, 34.0 ],
-													"presentation_linecount" : 2,
-													"text" : "Note when when these regions overlap, you may get infinite feedback!",
-													"textcolor" : [ 1.0, 0.564705882352941, 0.564705882352941, 1.0 ]
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"id" : "obj-7",
-													"linecount" : 4,
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 44.5, 25.0, 311.0, 62.0 ],
-													"presentation_linecount" : 2,
-													"text" : "The overbub filters attribute allows you to control the overdub amount within a certain frequency range. The global overdub will apply to everything outside of these filters"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"id" : "obj-26",
-													"maxclass" : "message",
-													"numinlets" : 2,
-													"numoutlets" : 1,
-													"outlettype" : [ "" ],
-													"patching_rect" : [ 40.0, 117.0, 198.0, 22.0 ],
-													"text" : "overdubFilters 500 5 0.9, overdub 0"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"comment" : "",
-													"id" : "obj-1",
-													"index" : 1,
-													"maxclass" : "outlet",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 44.5, 295.0, 30.0, 30.0 ]
-												}
-
-											}
- ],
-										"lines" : [ 											{
-												"patchline" : 												{
-													"destination" : [ "obj-1", 0 ],
-													"source" : [ "obj-26", 0 ]
-												}
-
-											}
-, 											{
-												"patchline" : 												{
-													"destination" : [ "obj-1", 0 ],
-													"source" : [ "obj-6", 0 ]
-												}
-
-											}
-, 											{
-												"patchline" : 												{
-													"destination" : [ "obj-1", 0 ],
-													"source" : [ "obj-9", 0 ]
-												}
-
-											}
- ],
-										"originid" : "pat-23"
-									}
-,
-									"patching_rect" : [ 203.0, 350.0, 95.0, 22.0 ],
-									"saved_object_attributes" : 									{
-										"globalpatchername" : ""
-									}
-,
-									"text" : "p overdubFilters"
+									"patching_rect" : [ 128.0, 371.0, 35.0, 22.0 ],
+									"text" : "clear"
 								}
 
 							}
@@ -211,7 +671,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 140.0, 405.5, 20.0, 20.0 ],
+									"patching_rect" : [ 140.0, 462.0, 20.0, 20.0 ],
 									"text" : "!",
 									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"textjustification" : 1
@@ -227,7 +687,7 @@
 									"mode" : 0,
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 141.928374618291855, 407.428374618291855, 16.0, 17.0 ],
+									"patching_rect" : [ 142.0, 464.0, 16.0, 17.0 ],
 									"proportion" : 0.39,
 									"shape" : 1
 								}
@@ -302,7 +762,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 182.0, 227.5, 418.0, 34.0 ],
+									"patching_rect" : [ 182.0, 227.5, 418.0, 33.0 ],
 									"text" : "We need a random delay that is close to the size of the entire buffer. We need to leave at least a signal vecor of space to avoid clicks."
 								}
 
@@ -339,7 +799,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 156.0, 299.0, 247.0, 34.0 ],
+									"patching_rect" : [ 156.0, 299.0, 247.0, 33.0 ],
 									"text" : "The amount of overdub will determine how sustained our sound is"
 								}
 
@@ -351,7 +811,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 9.0, 53.0, 582.0, 62.0 ],
+									"patching_rect" : [ 9.0, 53.0, 582.0, 60.0 ],
 									"text" : "This is an example of a sustain effect that can be created using grainflow.live~. \nThe effect is created by randomly sampling a small buffer that is overwritten using overdubbing so that some of the old sound remains in the buffer when new sounds are added.  \nThis kind of sustain effect is great for long or infintie reverbs and has no risk of uncontrolable feedback."
 								}
 
@@ -387,7 +847,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 162.0, 399.5, 233.0, 34.0 ],
+									"patching_rect" : [ 162.0, 456.0, 233.0, 33.0 ],
 									"text" : "We must use a small buffer size for this effect to work"
 								}
 
@@ -411,7 +871,7 @@
 									"maxclass" : "mc.ezdac~",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 9.0, 537.0, 45.0, 45.0 ]
+									"patching_rect" : [ 9.0, 593.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -507,7 +967,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "multichannelsignal", "list" ],
-									"patching_rect" : [ 9.0, 449.0, 143.0, 22.0 ],
+									"patching_rect" : [ 9.0, 505.0, 143.0, 22.0 ],
 									"text" : "grainflow.util.stereoPan~"
 								}
 
@@ -546,7 +1006,7 @@
 									"orientation" : 1,
 									"outlettype" : [ "multichannelsignal", "", "float", "list" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 9.0, 477.0, 115.0, 47.0 ],
+									"patching_rect" : [ 9.0, 533.0, 115.0, 47.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_longname" : "mc.live.gain~[3]",
@@ -572,7 +1032,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 9.0, 9.0, 311.0, 41.0 ],
+									"patching_rect" : [ 9.0, 9.0, 311.0, 40.0 ],
 									"text" : "Sustain"
 								}
 
@@ -666,7 +1126,7 @@
 									"numinlets" : 4,
 									"numoutlets" : 9,
 									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-									"patching_rect" : [ 9.0, 403.0, 121.0, 22.0 ],
+									"patching_rect" : [ 9.0, 459.0, 121.0, 22.0 ],
 									"text" : "grainflow.live~ 250 8"
 								}
 
@@ -675,7 +1135,7 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-37", 1 ],
-									"midpoints" : [ 44.0, 436.5, 142.5, 436.5 ],
+									"midpoints" : [ 44.0, 492.5, 142.5, 492.5 ],
 									"source" : [ "obj-1", 2 ]
 								}
 
@@ -726,7 +1186,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
-									"source" : [ "obj-24", 0 ]
+									"source" : [ "obj-26", 0 ]
 								}
 
 							}
@@ -768,7 +1228,7 @@
 
 							}
  ],
-						"originid" : "pat-13",
+						"originid" : "pat-6",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-39", "obj-38" ]
 							}
@@ -787,7 +1247,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 213.0, 62.0, 57.0, 22.0 ],
+					"patching_rect" : [ 207.0, 13.0, 57.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"globalpatchername" : ""
 					}
@@ -807,13 +1267,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 2,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 616.0, 722.0 ],
+						"rect" : [ 0.0, 26.0, 599.0, 722.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -854,7 +1314,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 192.0, 305.0, 258.0, 62.0 ],
+									"patching_rect" : [ 192.0, 305.0, 258.0, 60.0 ],
 									"text" : "You may also need to add a small amount of random delay to avoid phase issues that are introduced when applying large amounts of transposition. "
 								}
 
@@ -897,7 +1357,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 134.0, 236.0, 259.0, 62.0 ],
+									"patching_rect" : [ 134.0, 236.0, 259.0, 60.0 ],
 									"text" : "When you adjust trasposition rate, you are changing how quickly a grain plays. This means you need to delay your grains by the grain size each octave increase in pitch."
 								}
 
@@ -921,7 +1381,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 11.0, 51.0, 563.0, 75.0 ],
+									"patching_rect" : [ 11.0, 51.0, 563.0, 74.0 ],
 									"text" : "This is an example of how you can use grainflow.live~ as a harmonizer.  \nBecause grainulation overlaps and adds small snippets of a sound, we can play individual grains faster or slower to change the pitch of the sound without changing the what we hear as as the playback speed.\nThe one thing we must remember is that we cannot read samples that exist in the future, so when we transpose up, we must also add some delay."
 								}
 
@@ -972,7 +1432,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 288.0, 471.0, 155.5, 38.0 ],
+									"patching_rect" : [ 288.0, 471.0, 155.5, 37.0 ],
 									"text" : "Gets minimum delay in ms"
 								}
 
@@ -989,7 +1449,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 2,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1256,7 +1716,7 @@
 
 											}
  ],
-										"originid" : "pat-17"
+										"originid" : "pat-14"
 									}
 ,
 									"patching_rect" : [ 192.0, 457.0, 77.0, 22.0 ],
@@ -1288,7 +1748,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 204.0, 416.0, 260.0, 38.0 ],
+									"patching_rect" : [ 204.0, 416.0, 260.0, 37.0 ],
 									"text" : "Pitches in semitones as a multichannel signal"
 								}
 
@@ -1497,7 +1957,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 11.0, 7.0, 311.0, 41.0 ],
+									"patching_rect" : [ 11.0, 7.0, 311.0, 40.0 ],
 									"text" : "Harmonization"
 								}
 
@@ -1730,7 +2190,7 @@
 
 							}
  ],
-						"originid" : "pat-15",
+						"originid" : "pat-12",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-29", "obj-35" ]
 							}
@@ -1757,13 +2217,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 2,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 616.0, 722.0 ],
+						"rect" : [ 0.0, 26.0, 599.0, 722.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -1840,7 +2300,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 250.0, 406.0, 302.0, 34.0 ],
+									"patching_rect" : [ 250.0, 406.0, 302.0, 33.0 ],
 									"text" : "To avoid this you can add a delay equal to the grainsize  whenever you freeze or stop recording"
 								}
 
@@ -1852,7 +2312,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 211.0, 324.0, 302.0, 62.0 ],
+									"patching_rect" : [ 211.0, 324.0, 302.0, 60.0 ],
 									"text" : "Note when you stop recording or freeze playback, grains will start from the position the record head was stopped or frozen. This means grains will \"overflow\" beyond the recoded buffer. ",
 									"textcolor" : [ 1.0, 0.564705882352941, 0.564705882352941, 1.0 ]
 								}
@@ -1910,7 +2370,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 211.0, 257.0, 307.0, 62.0 ],
+									"patching_rect" : [ 211.0, 257.0, 307.0, 60.0 ],
 									"text" : "You can control recording and playback seperatly.\nfreeze: keeps recoding and freezes the playhead\nrec: starts and stops recording. Will freeze the playhead\nplay: starts and stops playback"
 								}
 
@@ -1953,7 +2413,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 230.0, 178.0, 237.0, 34.0 ],
+									"patching_rect" : [ 230.0, 178.0, 237.0, 33.0 ],
 									"text" : "Adjust the delay and delay random parameters"
 								}
 
@@ -1961,7 +2421,7 @@
 , 							{
 								"box" : 								{
 									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
-									"buffername" : "u477000456",
+									"buffername" : "u110000636",
 									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
 									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-2",
@@ -2154,7 +2614,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 9.0, 56.0, 496.0, 34.0 ],
+									"patching_rect" : [ 9.0, 56.0, 496.0, 33.0 ],
 									"text" : "An easy to use live implementation of grainflow~.  This abstraction creates an internal buffer, records to it, and keeps the granulator in sync."
 								}
 
@@ -2166,7 +2626,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 9.0, 9.0, 311.0, 41.0 ],
+									"patching_rect" : [ 9.0, 9.0, 311.0, 40.0 ],
 									"text" : "grainflow.live~"
 								}
 
@@ -2439,7 +2899,7 @@
 
 							}
  ],
-						"originid" : "pat-19",
+						"originid" : "pat-16",
 						"boxgroups" : [ 							{
 								"boxes" : [ "obj-39", "obj-38" ]
 							}
@@ -2469,10 +2929,11 @@
 			}
  ],
 		"lines" : [  ],
-		"originid" : "pat-11",
+		"originid" : "pat-4",
 		"parameters" : 		{
 			"obj-1::obj-20" : [ "mc.live.gain~[2]", "mc.live.gain~", 0 ],
 			"obj-2::obj-20" : [ "mc.live.gain~[3]", "mc.live.gain~", 0 ],
+			"obj-3::obj-20" : [ "mc.live.gain~[4]", "mc.live.gain~", 0 ],
 			"obj-47::obj-20" : [ "mc.live.gain~[1]", "mc.live.gain~", 0 ],
 			"parameterbanks" : 			{
 
@@ -2488,16 +2949,16 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.live~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.live~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
-				"name" : "grainflow.util.stereopan~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.util.stereopan~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
-				"name" : "grainflow.waveform~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.waveform~.mxo",
+				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0
