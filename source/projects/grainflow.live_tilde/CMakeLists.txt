@@ -42,6 +42,7 @@ endif()
 target_compile_options(${PROJECT_NAME} PRIVATE
 "$<$<CONFIG:Release>:${RELFLAGS}>"
 )
+#target_compile_definitions(${PROJECT_NAME} PRIVATE INTERNAL_VIBRATO)
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
 
