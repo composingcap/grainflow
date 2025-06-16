@@ -479,7 +479,7 @@ public:
 		order{3},
 	};
 
-#ifdef INTERNAL_VIBRATO
+
 	attribute<vector<number>> vibratoRate{
 		this,
 		"vibratoRate",
@@ -501,6 +501,48 @@ public:
 		category{"Pitch | Rate"},
 		order{3},
 	};
+	attribute<vector<number>> vibratoRateRandom{
+		this,
+		"vibratoRateRandom",
+		{0},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				return set_grain_params(args, gf_param_name::vibrato_rate, gf_param_type::random);
+				return args;
+			}
+		},
+		getter{
+			[this]() -> atoms
+			{
+				return get_grain_params(gf_param_name::vibrato_rate, gf_param_type::random);
+			}
+		},
+		description{"Adds a unipolar random amount to the playback rate on each grains start."},
+		category{"Pitch | Rate"},
+		order{3},
+	};
+	attribute<vector<number>> vibratoRateOffset{
+		this,
+		"vibratoRateOffset",
+		{0},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				return set_grain_params(args, gf_param_name::vibrato_rate, gf_param_type::offset);
+				return args;
+			}
+		},
+		getter{
+			[this]() -> atoms
+			{
+				return get_grain_params(gf_param_name::vibrato_rate, gf_param_type::offset);
+			}
+		},
+		description{"Adds a unipolar random amount to the playback rate on each grains start."},
+		category{"Pitch | Rate"},
+		order{3},
+	};
 	attribute<vector<number>> vibratoDepth{
 		this,
 		"vibratoDepth",
@@ -516,7 +558,6 @@ public:
 			[this]() -> atoms
 			{
 				auto res = get_grain_params(gf_param_name::vibrato_depth, gf_param_type::base);
-				for (int i = 0; i < res.size(); i++) { res[i] = (atom)(gf_utils::rate_to_pitch((float)res[i])); }
 				return res;
 			}
 		},
@@ -524,7 +565,51 @@ public:
 		category{"Pitch | Rate"},
 		order{3},
 	};
-#endif
+	attribute<vector<number>> vibratoDepthRandom{
+		this,
+		"vibratoDepthRandom",
+		{0},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				set_grain_params(args, gf_param_name::vibrato_depth, gf_param_type::random);
+				return args;
+			}
+		},
+		getter{
+			[this]() -> atoms
+			{
+				auto res = get_grain_params(gf_param_name::vibrato_depth, gf_param_type::random);
+				return res;
+			}
+		},
+		description{"Adds an amount to the playback rate based on the grains index."},
+		category{"Pitch | Rate"},
+		order{3},
+	};
+	attribute<vector<number>> vibratoDepthOffset{
+		this,
+		"vibratoDepthOffset",
+		{0},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				set_grain_params(args, gf_param_name::vibrato_depth, gf_param_type::offset);
+				return args;
+			}
+		},
+		getter{
+			[this]() -> atoms
+			{
+				auto res = get_grain_params(gf_param_name::vibrato_depth, gf_param_type::offset);
+				return res;
+			}
+		},
+		description{"Adds an amount to the playback rate based on the grains index."},
+		category{"Pitch | Rate"},
+		order{3},
+	};
+
 
 	attribute<vector<number>> transpose{
 		this,
