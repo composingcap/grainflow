@@ -130,7 +130,7 @@ public:
 				if (buffer_ == nullptr) return {symbol{}};
 				if (name.empty()) return {symbol{}};
 				buffer_->set(name);
-				buffer_ref_message(name, gf_buffers::buffer);
+				buffer_ref_message({name}, gf_buffers::buffer);
 				buffer_lock<> samples(*buffer_);
 				buf_chans.set({samples.channel_count()});
 				buffer_is_internal_ = false;
@@ -174,7 +174,8 @@ public:
 				int n_filters = args.size() / 3;
 				if (n_filters < 1)
 				{
-					if (recorder_ == nullptr){
+					if (recorder_ == nullptr)
+					{
 						return {0.0};
 					}
 					recorder_->set_n_filters(0);
@@ -201,9 +202,12 @@ public:
 		description{"filter bands in freq q overdub"},
 	};
 
-	message<> m_clear{this, "clear" ,"clears the internal buffer",[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+	message<> m_clear{
+		this, "clear", "clears the internal buffer",
+		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			if (buffer_ == nullptr){
+			if (buffer_ == nullptr)
+			{
 				return args;
 			}
 			recorder_->clear(buffer_);

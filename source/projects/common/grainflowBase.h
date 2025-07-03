@@ -147,10 +147,20 @@ protected:
 		grain_collection_->param_set(target_, param, type, value);
 	}
 
-	void buffer_ref_message(const string& buffer_name, const gf_buffers type)
+	void buffer_ref_message(const atoms& buffer_names, const gf_buffers type)
 	{
-		if (buffer_name.empty())
+		if (buffer_names.size() > 1)
+		{
+			for (int g = 0; g < grain_collection_->grains(); g++)
+			{
+				auto buffer_name = static_cast<std::string>(buffer_names[g % buffer_names.size()]);
+				auto buf = grain_collection_->get_grain(g)->get_buffer(type);
+				buf->set("");
+				buf->set(buffer_name);
+			}
 			return;
+		}
+		auto buffer_name = static_cast<std::string>(buffer_names[0]);
 
 		if (target_ > 0)
 		{
@@ -1910,14 +1920,23 @@ public:
 				use_default_envelope(true, target_);
 				return {};
 			}
-			buffer_ref_message(b_name, gf_buffers::envelope);
 			use_default_envelope(false, target_);
 			if (args.size() < 2)
 			{
+				buffer_ref_message({b_name}, gf_buffers::envelope);
 				grain_message(1, gf_param_name::n_envelopes, gf_param_type::value);
 				return {};
 			}
-			grain_message((int)args[1], gf_param_name::n_envelopes, gf_param_type::value);
+			if (args[1].a_type == c74::max::A_FLOAT)
+			{
+				for (int i = 0; i < args.size() / 2; ++i)
+				{
+					grain_message((int)args[i * 2 + 1], gf_param_name::n_envelopes, gf_param_type::value);
+					buffer_ref_message({args[i * 2]}, gf_buffers::envelope);
+				}
+				return {};
+			}
+			buffer_ref_message(args, gf_buffers::envelope);
 
 			return {};
 		}
@@ -1953,8 +1972,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			if (grain_collection_ == nullptr)return args;
-			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, gf_buffers::buffer);
+			buffer_ref_message(args, gf_buffers::buffer);
 			auto b = grain_collection_->get_buffer(gf_buffers::buffer);
 			if (b != nullptr && data_outlet != nullptr) { data_outlet->send({"buf", b->name()}); };
 			return {};
@@ -1967,8 +1985,7 @@ public:
 		"sets the buffer for delay modes 1 and 2",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, gf_buffers::delay_buffer);
+			buffer_ref_message(args, gf_buffers::delay_buffer);
 			return {};
 		}
 	};
@@ -1979,8 +1996,7 @@ public:
 		"sets the buffer for window modes 1 and 2",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, gf_buffers::window_buffer);
+			buffer_ref_message(args, gf_buffers::window_buffer);
 			return {};
 		}
 	};
@@ -1992,7 +2008,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, gf_buffers::rate_buffer);
+			buffer_ref_message(args, gf_buffers::rate_buffer);
 			return {};
 		}
 	};
@@ -2005,18 +2021,27 @@ public:
 		{
 			if (args.size() < 1)
 			{
-				buffer_ref_message(" ", gf_buffers::glisson_buffer);
+				buffer_ref_message({" "}, gf_buffers::glisson_buffer);
 				grain_message(0, gf_param_name::glisson_rows, gf_param_type::value);
 				return {};
 			}
 			const auto b_name = static_cast<string>(args[0]);
-			buffer_ref_message(b_name, gf_buffers::glisson_buffer);
 			if (args.size() < 2)
 			{
+				buffer_ref_message(args, gf_buffers::glisson_buffer);
 				grain_message(1, gf_param_name::glisson_rows, gf_param_type::value);
 				return {};
 			}
-			grain_message((int)args[1], gf_param_name::glisson_rows, gf_param_type::value);
+			if (args[1].a_type == c74::max::A_FLOAT)
+			{
+				for (int i = 0; i < args.size() / 2; ++i)
+				{
+					grain_message((int)args[i * 2 + 1], gf_param_name::n_envelopes, gf_param_type::value);
+					buffer_ref_message({args[i * 2]}, gf_buffers::envelope);
+				}
+				return {};
+			}
+			buffer_ref_message({b_name}, gf_buffers::glisson_buffer);
 			return {};
 		}
 	};
