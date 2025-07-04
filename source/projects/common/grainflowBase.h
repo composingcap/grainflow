@@ -1107,11 +1107,11 @@ public:
 		setter{
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
-				if (static_cast<float>(args[0]) >= 1)
-				{
-					return set_grain_params({0.999}, gf_param_name::space, gf_param_type::base);
+				auto fixed_args = args;
+				for (int i = 0; i < fixed_args.size(); ++i){
+					fixed_args[i] = std::min<float>(0.999, fixed_args[i]);
 				}
-				return set_grain_params(args, gf_param_name::space, gf_param_type::base);
+				return set_grain_params(fixed_args, gf_param_name::space, gf_param_type::base);
 			}
 		},
 		getter{[this]() -> atoms { return get_grain_params(gf_param_name::space, gf_param_type::base); }},
