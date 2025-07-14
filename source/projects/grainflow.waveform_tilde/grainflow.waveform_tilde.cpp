@@ -395,8 +395,8 @@ public:
 			});
 			switch (m_mode)
 			{
+			case (waveformMode::enum_count):
 			case (waveformMode::scrub):
-
 				break;
 			case (waveformMode::selection):
 				m_selection[0] = x / e.target().width();
@@ -409,7 +409,9 @@ public:
 				m_selection[1] = (x / e.target().width()) + width * 0.5;
 				output.send(atoms{"selection", (double)m_selection[0], (double)m_selection[1]});
 				break;
+
 			}
+
 
 			return {};
 		},
@@ -433,6 +435,8 @@ public:
 
 			switch (m_mode)
 			{
+			case (waveformMode::enum_count):
+				break;
 			case (waveformMode::scrub):
 				break;
 			case (waveformMode::selection):
@@ -445,9 +449,9 @@ public:
 				auto center = m_selection[0] + width * 0.5 + (x / e.target().width());
 				m_selection[0] = fmod(((center - width * 0.5)), 2.0);
 				m_selection[1] = fmod(((center + width * 0.5)), 2.0);
-
 				output.send(atoms{"selection", (double)m_selection[0], (double)m_selection[1]});
 				break;
+
 			}
 
 			auto dist = std::min(1.0, abs(m_selection[0] - m_selection[1]));
