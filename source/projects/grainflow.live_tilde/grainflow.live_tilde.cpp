@@ -240,7 +240,8 @@ void grainflow_live_tilde::event_update()
 long grainflow_live_tilde::simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 {
 	minwrap<grainflow_live_tilde>* ob = (minwrap<grainflow_live_tilde>*)(x);
-	return ob->m_min_object.get_max_grains();
+	int grains = ob->m_min_object.get_max_grains();
+	return std::max(grains, 1);
 }
 
 /// <summary>

@@ -29,7 +29,7 @@ protected:
 	int stream_target_ = 0;
 	int channel_target_ = 0;
 	int n_streams_ = 0;
-	int max_grains_;
+	int max_grains_ = 2;
 
 
 	atoms m_grain_state_;

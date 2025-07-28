@@ -100,7 +100,8 @@ void grainflow_tilde::max_class_setup(const atoms& args)
 long grainflow_tilde::simplemc_multichanneloutputs(c74::max::t_object* x, long g, long count)
 {
 	minwrap<grainflow_tilde>* ob = (minwrap<grainflow_tilde>*)(x);
-	return ob->m_min_object.get_max_grains();
+	int grains = ob->m_min_object.get_max_grains();
+	return std::max(grains, 1);
 }
 
 /// <summary>
