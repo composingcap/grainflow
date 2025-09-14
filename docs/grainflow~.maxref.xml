@@ -413,6 +413,36 @@
 			<description>Adds a unipolar random amount to each grains transposition when a grain starts </description>
 		</attribute>
 
+		<attribute name='vibratoDepth' get='1' set='1' type='float64' size='1' >
+			<digest>Adds an amount to the playback rate based on the grains index</digest>
+			<description>Adds an amount to the playback rate based on the grains index. </description>
+		</attribute>
+
+		<attribute name='vibratoDepthOffset' get='1' set='1' type='float64' size='1' >
+			<digest>Adds an amount to the playback rate based on the grains index</digest>
+			<description>Adds an amount to the playback rate based on the grains index. </description>
+		</attribute>
+
+		<attribute name='vibratoDepthRandom' get='1' set='1' type='float64' size='1' >
+			<digest>Adds an amount to the playback rate based on the grains index</digest>
+			<description>Adds an amount to the playback rate based on the grains index. </description>
+		</attribute>
+
+		<attribute name='vibratoRate' get='1' set='1' type='float64' size='1' >
+			<digest>Adds a unipolar random amount to the playback rate on each grains start</digest>
+			<description>Adds a unipolar random amount to the playback rate on each grains start. </description>
+		</attribute>
+
+		<attribute name='vibratoRateOffset' get='1' set='1' type='float64' size='1' >
+			<digest>Adds a unipolar random amount to the playback rate on each grains start</digest>
+			<description>Adds a unipolar random amount to the playback rate on each grains start. </description>
+		</attribute>
+
+		<attribute name='vibratoRateRandom' get='1' set='1' type='float64' size='1' >
+			<digest>Adds a unipolar random amount to the playback rate on each grains start</digest>
+			<description>Adds a unipolar random amount to the playback rate on each grains start. </description>
+		</attribute>
+
 		<attribute name='voices' get='1' set='1' type='long' size='1' >
 			<digest>the maximum number of voices/grains</digest>
 			<description>the maximum number of voices/grains. You will need to restart audio after setting this. </description>
