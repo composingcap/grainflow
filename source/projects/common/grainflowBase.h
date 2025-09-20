@@ -18,6 +18,7 @@ class grainflow_base : public object<T>, public mc_operator<>
 protected:
 	std::unique_ptr<gf_grain_collection<buffer_reference, internal_block>> grain_collection_;
 	gf_i_buffer_reader<buffer_reference> buffer_reader_;
+	std::vector<buffer_reference*> buffer_refrences;
 
 	string buffer_arg_;
 	string env_arg_;
@@ -43,6 +44,7 @@ protected:
 
 	outlet<>* data_outlet = nullptr;
 
+	
 	virtual void event_update()
 	{
 		output_all_grain_info(data_outlet);
@@ -55,19 +57,28 @@ protected:
 
 	virtual void setup_dsp()
 	{
-		buffer_refresh(gf_buffers::buffer); // This is needed so grainflow live can load buffers correctly.
+		//buffer_refresh(gf_buffers::buffer); // This is needed so grainflow live can load buffers correctly.
 		samplerate_ = samplerate();
 		grain_collection_->samplerate = samplerate_;
 		one_over_samplerate_ = 1.0f / samplerate_;
 	};
 
+	void clear_buffer_refs(std::vector<buffer_reference*>& refs){
+		for (auto& ref : refs){
+			delete ref;
+		}
+		refs.clear();
+	}
 	void setup_buffers()
 	{
+		auto* ref = new buffer_reference(this, nullptr, false);
+		ref->set(buffer_arg_);
+		buffer_refrences.push_back(ref);
+		grain_collection_->set_buffer_collection(gf_buffers::buffer, buffer_refrences);
 		for (int g = 0; g < grain_collection_->grains(); g++)
 		{
 			grain_collection_->get_grain(g)->set_index(g);
-			grain_collection_->get_grain(g)->set_buffer(gf_buffers::buffer,
-			                                            (new buffer_reference(this, nullptr, false)));
+
 			grain_collection_->get_grain(g)->set_buffer(gf_buffers::envelope,
 			                                            (new buffer_reference(this, nullptr, false)));
 			grain_collection_->get_grain(g)->
@@ -81,8 +92,6 @@ protected:
 
 			auto env = grain_collection_->get_grain(g)->get_buffer(gf_buffers::envelope);
 			env->set(env_arg_);
-			auto buf = grain_collection_->get_grain(g)->get_buffer(gf_buffers::buffer);
-			buf->set(buffer_arg_);
 		}
 \
 
@@ -259,6 +268,7 @@ protected:
 		output_grain_info("grainProgress", {0}, data_outlet);
 		output_grain_info("grainBufferChannel", {0}, data_outlet);
 		output_grain_info("grainStreamChannel", {0}, data_outlet);
+		output_grain_info("grainBufferIndex", {0}, data_outlet);
 	}
 
 private:
@@ -303,6 +313,7 @@ private:
 				m_grain_dict.setArray("grainProgress", m_grain_progress_);
 				m_grain_dict.setArray("grainBufferChannel", m_grain_buffer_channel_);
 				m_grain_dict.setArray("grainStreamChannel", m_grain_stream_channel_);
+				m_grain_dict.setArray("grainBufferIndex", m_grain_stream_channel_);
 
 				output_grain_info("grainInfo", atoms{"dictionary", m_grain_dict.name()}, max_outlet);
 			}
@@ -1291,7 +1302,7 @@ public:
 		getter{
 			[this]() -> atoms
 			{
-				auto amps = get_grain_params(gf_param_name::amplitude, gf_param_type::offset);;
+				auto amps = get_grain_params(gf_param_name::amplitude, gf_param_type::offset);
 				for (auto& amp : amps)
 				{
 					amp = std::max(1.0f - static_cast<float>(amp), 0.0f);
@@ -1386,7 +1397,64 @@ public:
 				return args;
 			}
 		},
-		category{"Grainflow Settings"},
+		category{"Buffer Settings"},
+		order{2},
+	};
+
+	attribute<vector<int>> buffer_index{
+		this,
+		"bufferIndex",
+		{0},
+		description{"The buffer index selected by each grain"},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::base);
+			}
+		},
+			getter{
+				[this]() -> atoms {
+					return get_grain_params(gf_param_name::buffer_index, gf_param_type::base);
+				}
+			},
+		category{"Buffer Settings"},
+		order{2},
+	};
+
+	attribute<vector<int>> buffer_index_offset{
+		this,
+		"bufferIndexOffset",
+		{0},
+		description{"The buffer index selected by each grain"},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::offset);
+			}},
+			getter{
+				[this]() -> atoms {return get_grain_params(gf_param_name::buffer_index, gf_param_type::offset);}
+			},
+		category{"Buffer Settings"},
+		order{2},
+	};
+
+		attribute<vector<int>> buffer_index_random{
+		this,
+		"bufferIndexRandom",
+		{0},
+		description{"The buffer index selected by each grain"},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::random);
+			}
+			},
+			getter{
+				[this]() -> atoms {
+					return get_grain_params(gf_param_name::buffer_index, gf_param_type::random);
+				}
+			},
+		category{"Buffer Settings"},
 		order{2},
 	};
 
@@ -1407,7 +1475,7 @@ public:
 				return {mode};
 			},
 		},
-		category{"Grainflow Settings"},
+		category{"Buffer Settings"},
 	};
 
 	attribute<int> voices{
@@ -1977,11 +2045,21 @@ public:
 		"sets the granulation buffer",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
+
 			if (grain_collection_ == nullptr)return args;
-			buffer_ref_message(args, gf_buffers::buffer);
-			auto b = grain_collection_->get_buffer(gf_buffers::buffer);
-			if (b != nullptr && data_outlet != nullptr) { data_outlet->send({"buf", b->name()}); };
-			return {};
+			std::vector<buffer_reference*> new_buffer_refrences;
+			new_buffer_refrences.reserve(args.size());
+			for(auto& arg : args){
+				auto* ref = new buffer_reference(this, nullptr, false);
+				ref->set(static_cast<std::string>(arg));
+				new_buffer_refrences.push_back(ref);
+			}
+			grain_collection_->set_buffer_collection(gf_buffers::buffer, new_buffer_refrences);
+			clear_buffer_refs(buffer_refrences); //Clear old refs after swap
+			buffer_refrences = new_buffer_refrences;
+			
+			{ data_outlet->send({"buf", buffer_refrences[0]->name()}); };
+			return args;
 		}
 	};
 

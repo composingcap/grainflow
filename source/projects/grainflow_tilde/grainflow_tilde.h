@@ -48,6 +48,8 @@ public:
 	outlet<> envelope{this, "(multichannel) grainEnvelope", "multichannelsignal"};
 	outlet<> channel{this, "(multichannel) channel", "multichannelsignal"};
 	outlet<> stream{this, "(multichannel) stream", "multichannelsignal"};
+	outlet<> buffer_index_outlet{this, "(multichannel) buffer index", "multichannelsignal"};
+
 #pragma endregion
 #pragma region DSP
 

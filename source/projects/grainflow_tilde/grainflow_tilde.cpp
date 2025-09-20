@@ -40,7 +40,7 @@ void grainflow_tilde::operator()(audio_bundle input, audio_bundle output)
 	{
 		return;
 	}
-
+	
 	grain_collection_->process(io_config_);
 	update_grain_data(io_config_, max_grains_this_frame);
 }
@@ -57,6 +57,7 @@ void grainflow_tilde::setup_outputs(gf_io_config<>& io_config, double** outputs)
 	io_config.grain_envelope = &outputs[5 * max_grains_this_frame];
 	io_config.grain_buffer_channel = &outputs[6 * max_grains_this_frame];
 	io_config.grain_stream_channel = &outputs[7 * max_grains_this_frame];
+	io_config.buffer_index = &outputs[8*max_grains_this_frame];
 }
 
 void grainflow_tilde::setup_inputs(gf_io_config<>& io_config, const int* input_channels, double** inputs)
