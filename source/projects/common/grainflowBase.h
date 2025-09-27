@@ -1,5 +1,6 @@
 #pragma once
 #include <c74_min.h>
+#include "gfParam.h"
 #include "gfUtils.h"
 #include "gfGrainCollection.h"
 #include "maxBufferReader.h"
@@ -57,11 +58,29 @@ protected:
 
 	virtual void setup_dsp()
 	{
-		//buffer_refresh(gf_buffers::buffer); // This is needed so grainflow live can load buffers correctly.
+		buffer_collection_refresh(); // This is needed so grainflow live can load buffers correctly.
 		samplerate_ = samplerate();
 		grain_collection_->samplerate = samplerate_;
 		one_over_samplerate_ = 1.0f / samplerate_;
 	};
+
+	atoms set_buffers_by_name(const atoms& args){
+		if (grain_collection_ == nullptr)return args;
+					std::vector<buffer_reference*> new_buffer_refrences;
+					new_buffer_refrences.reserve(args.size());
+					bool first = true;
+					for(auto& arg : args){
+						auto* ref = new buffer_reference(this, nullptr, false);
+						ref->set(static_cast<std::string>(arg));
+						new_buffer_refrences.push_back(ref);
+					}
+					grain_collection_->set_buffer_collection(gf_buffers::buffer, new_buffer_refrences);
+					clear_buffer_refs(buffer_refrences); //Clear old refs after swap
+					buffer_refrences = new_buffer_refrences;
+					
+					{ data_outlet->send({"buf", buffer_refrences[0]->name()}); };
+					return args;
+	}
 
 	void clear_buffer_refs(std::vector<buffer_reference*>& refs){
 		for (auto& ref : refs){
@@ -122,7 +141,8 @@ protected:
 
 	void reinit(const int grains)
 	{
-		grain_collection_.release();
+		auto* old_grain_collection = grain_collection_.release();
+		delete old_grain_collection;
 		max_grains_ = grains;
 		if (n_grains > max_grains_) n_grains = max_grains_;
 		if (auto_overlap) this->try_set_attribute_or_message("windowOffset", atoms{1.0f / n_grains});
@@ -369,17 +389,14 @@ private:
 	/// <summary>
 /// Forces a refresh of a type of buffer.
 /// </summary>
-	void buffer_refresh(const gf_buffers type)
+	void buffer_collection_refresh()
 	{
-		if (grain_collection_ == nullptr) return;
-		for (int g = 0; g < grain_collection_->grains(); g++)
-		{
-			const auto buf = grain_collection_->get_grain(g)->get_buffer(type);
-			// To access ir must be converted to the correct type
-			const auto name = buf->name();
-			buf->set("");
-			buf->set(name);
+		for (auto* ref : buffer_refrences){
+			auto name = ref->name();
+			ref->set("");
+			ref->set(name);
 		}
+		
 	};
 
 public:
@@ -1401,62 +1418,6 @@ public:
 		order{2},
 	};
 
-	attribute<vector<int>> buffer_index{
-		this,
-		"bufferIndex",
-		{0},
-		description{"The buffer index selected by each grain"},
-		setter{
-			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
-			{
-				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::base);
-			}
-		},
-			getter{
-				[this]() -> atoms {
-					return get_grain_params(gf_param_name::buffer_index, gf_param_type::base);
-				}
-			},
-		category{"Buffer Settings"},
-		order{2},
-	};
-
-	attribute<vector<int>> buffer_index_offset{
-		this,
-		"bufferIndexOffset",
-		{0},
-		description{"The buffer index selected by each grain"},
-		setter{
-			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
-			{
-				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::offset);
-			}},
-			getter{
-				[this]() -> atoms {return get_grain_params(gf_param_name::buffer_index, gf_param_type::offset);}
-			},
-		category{"Buffer Settings"},
-		order{2},
-	};
-
-		attribute<vector<int>> buffer_index_random{
-		this,
-		"bufferIndexRandom",
-		{0},
-		description{"The buffer index selected by each grain"},
-		setter{
-			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
-			{
-				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::random);
-			}
-			},
-			getter{
-				[this]() -> atoms {
-					return get_grain_params(gf_param_name::buffer_index, gf_param_type::random);
-				}
-			},
-		category{"Buffer Settings"},
-		order{2},
-	};
 
 
 	attribute<int> chan_mode{
@@ -1605,7 +1566,7 @@ public:
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
 			state = static_cast<int>(args[0]) >= 1;
-			//o_grainInfo.send(atoms{ "buf", grainInfo[0].GetBuffer(GFBuffers::buffer)->name() });
+			data_outlet->send(atoms{ "buf", grain_collection_->get_buffer(gf_buffers::buffer, 0)->name() });
 			return {};
 		}
 	};
@@ -2045,23 +2006,12 @@ public:
 		"sets the granulation buffer",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-
-			if (grain_collection_ == nullptr)return args;
-			std::vector<buffer_reference*> new_buffer_refrences;
-			new_buffer_refrences.reserve(args.size());
-			for(auto& arg : args){
-				auto* ref = new buffer_reference(this, nullptr, false);
-				ref->set(static_cast<std::string>(arg));
-				new_buffer_refrences.push_back(ref);
-			}
-			grain_collection_->set_buffer_collection(gf_buffers::buffer, new_buffer_refrences);
-			clear_buffer_refs(buffer_refrences); //Clear old refs after swap
-			buffer_refrences = new_buffer_refrences;
+			set_buffers_by_name(args);
 			
-			{ data_outlet->send({"buf", buffer_refrences[0]->name()}); };
-			return args;
 		}
 	};
+
+
 
 	message<> delay_buffer{
 		this,

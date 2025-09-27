@@ -28,7 +28,6 @@ private:
 	c74::min::atom buffer_arg_value_;
 
 
-	buffer_reference* buffer_ = nullptr;
 	c74::max::t_object* buffer_object_handle_ = nullptr;
 
 	std::unique_ptr<gfRecorder<buffer_reference, internal_block>> recorder_;;
@@ -127,21 +126,20 @@ public:
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
 				auto name = static_cast<symbol>(args[0]);
-				if (buffer_ == nullptr) return {symbol{}};
-				if (name.empty()) return {symbol{}};
-				buffer_->set(name);
-				buffer_ref_message({name}, gf_buffers::buffer);
-				buffer_lock<> samples(*buffer_);
-				buf_chans.set({samples.channel_count()});
-				buffer_is_internal_ = false;
-				return {name};
+				if (name != buffer_name){
+					return set_buffers_by_name({name});
+				}
 			}
 		},
 		getter{
 			[this]()-> atoms
 			{
-				if (buffer_ == nullptr) return {symbol{}};
-				return {buffer_->name()};
+				if (buffer_refrences.empty()){
+					return {""};
+				}
+				else{
+					return {buffer_refrences[0]->name()};
+				}
 			}
 		},
 		category{"Grainflow Live Settings"},
@@ -206,11 +204,11 @@ public:
 		this, "clear", "clears the internal buffer",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			if (buffer_ == nullptr)
+			if (buffer_refrences.empty())
 			{
 				return args;
 			}
-			recorder_->clear(buffer_);
+			recorder_->clear(buffer_refrences[0]);
 			return args;
 		},
 	};

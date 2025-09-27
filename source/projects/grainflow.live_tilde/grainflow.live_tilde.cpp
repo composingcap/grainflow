@@ -15,7 +15,6 @@ using namespace Grainflow;
 
 grainflow_live_tilde::grainflow_live_tilde()
 {
-	buffer_ = new buffer_reference(this);
 	recorder_ = std::make_unique<gfRecorder<buffer_reference, internal_block>>(
 		max_buffer_reader::get_max_buffer_reader());
 	internal_update.delay(33);
@@ -24,7 +23,8 @@ grainflow_live_tilde::grainflow_live_tilde()
 grainflow_live_tilde::~grainflow_live_tilde()
 {
 	destroy_internal_buffer();
-	delete buffer_;
+	auto rec = recorder_.release();
+	delete rec;
 	delete traversal_phasor_;
 }
 
@@ -46,10 +46,10 @@ void grainflow_live_tilde::init()
 
 void grainflow_live_tilde::setup_dsp()
 {
-	grainflow_base::setup_dsp();
 	auto _temp_is_internal = buffer_is_internal_;
-	buffer_name.set(buffer_name);
 	buffer_is_internal_ = _temp_is_internal;
+	grainflow_base::setup_dsp();
+
 }
 
 void grainflow_live_tilde::max_class_setup(const atoms& args)
@@ -73,7 +73,7 @@ auto grainflow_live_tilde::generate_internal_buffer(const int length_ms, const i
 	atom_setlong(&args[1], length_ms);
 	atom_setlong(&args[2], channels);
 	buffer_object_handle_ = static_cast<t_object*>(c74::max::object_new_typed(CLASS_BOX, gensym("buffer~"), 3, args));
-	buffer_name = name;
+	buffer_name.set({name});
 }
 
 void grainflow_live_tilde::destroy_internal_buffer()
@@ -103,8 +103,8 @@ void grainflow_live_tilde::resize_buffer(const int length_ms, const int channels
 
 bool grainflow_live_tilde::check_and_update_buffer(const int channels)
 {
-	if (buffer_ == nullptr) return false;
-	auto buffer = buffer_;
+	if (buffer_refrences.empty()) return false;
+	auto buffer = buffer_refrences[0];
 	buffer_lock<> samples(*buffer);
 	if (!samples.valid())
 	{
@@ -134,6 +134,7 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 	const auto channels = input_chans[0];
 	const auto frames = input.frame_count();
 	const auto input_samples = input.samples();
+	output.clear();
 
 	if (input.frame_count() != block_size_)
 	{
@@ -142,15 +143,14 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 		traversal_phasor_ = new double[block_size_];
 	}
 	if (!check_and_update_buffer(channels))return;
-
 	recorder_->freeze = freeze;
 	recorder_->overdub = std::clamp(overdub.get(), 0.0, 1.0);
 	recorder_->samplerate = samplerate_;
 	recorder_->state = state && record;
-	recorder_->process(input_samples, 0, buffer_, frames, channels, traversal_phasor_);
+	recorder_->process(input_samples, 0, buffer_refrences[0], frames, channels, traversal_phasor_);
 
 	max_grains_this_frame = std::min(static_cast<int>(output.channel_count() / 8), grain_collection_->grains());
-	if (state) has_record_update_ = true;
+	if (state) {has_record_update_ = true;}
 	io_config_.livemode = true;
 	setup_inputs(io_config_, input_chans, input.samples(), &traversal_phasor_);
 	setup_outputs(io_config_, output.samples());
@@ -159,18 +159,15 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 	// Clear unused channels or we will get garbage
 	io_config_.block_size = output.frame_count();
 	io_config_.samplerate = samplerate_;
-	for (int g = 0; g < output.channel_count(); g++)
-	{
-		memset(output.samples()[g], static_cast<double>(0), sizeof(double) * io_config_.block_size);
-	}
+	
 	if (!play || !state)
 	{
 		audio_thread_busy_ = false;
 		return;
 	}
-
 	grain_collection_->process(io_config_);
-	update_grain_data(io_config_, max_grains_this_frame);
+	
+	//update_grain_data(io_config_, max_grains_this_frame);
 	audio_thread_busy_ = false;
 }
 
@@ -188,6 +185,7 @@ void grainflow_live_tilde::setup_outputs(gf_io_config<>& io_config, double** out
 	io_config.grain_envelope = &outputs[5 * max_grains_this_frame];
 	io_config.grain_buffer_channel = &outputs[6 * max_grains_this_frame];
 	io_config.grain_stream_channel = &outputs[7 * max_grains_this_frame];
+	io_config.buffer_index = nullptr;
 }
 
 void grainflow_live_tilde::setup_inputs(gf_io_config<>& io_config, const int* input_channels, double** inputs,

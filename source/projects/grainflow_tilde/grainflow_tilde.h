@@ -95,4 +95,61 @@ public:
 	};
 
 #pragma endregion
+
+attribute<vector<int>> buffer_index{
+		this,
+		"bufferIndex",
+		{0},
+		description{"The buffer index selected by each grain"},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::base);
+			}
+		},
+			getter{
+				[this]() -> atoms {
+					return get_grain_params(gf_param_name::buffer_index, gf_param_type::base);
+				}
+			},
+		category{"Buffer Settings"},
+		order{2},
+	};
+
+	attribute<vector<int>> buffer_index_offset{
+		this,
+		"bufferIndexOffset",
+		{0},
+		description{"The buffer index selected by each grain"},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::offset);
+			}},
+			getter{
+				[this]() -> atoms {return get_grain_params(gf_param_name::buffer_index, gf_param_type::offset);}
+			},
+		category{"Buffer Settings"},
+		order{2},
+	};
+
+		attribute<vector<int>> buffer_index_random{
+		this,
+		"bufferIndexRandom",
+		{0},
+		description{"The buffer index selected by each grain"},
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				return set_grain_params(args, gf_param_name::buffer_index, gf_param_type::random);
+			}
+			},
+			getter{
+				[this]() -> atoms {
+					return get_grain_params(gf_param_name::buffer_index, gf_param_type::random);
+				}
+			},
+		category{"Buffer Settings"},
+		order{2},
+	};
 };
