@@ -13,7 +13,7 @@ Grainflow is a powerful granulation tool build for Max designed to be as flexibl
 
 ## Installation via Precompiled Package
 *Major releases will always be avalible through the Max Package Manager, but if you like living on the edge, you can download prereleases and ci builds or build from source.* 
-1. Download the latest signed [release](https://github.com/composingcap/grainflow/releases) or **unsigned** [ci-build](https://nightly.link/composingcap/grainflow/workflows/cmake-multi-platform/master/GrainflowPackage.zip)
+1. Download the latest signed [release](https://github.com/composingcap/grainflow/releases) or **unsigned** [dev-build](https://nightly.link/composingcap/grainflow/workflows/cmake-multi-platform/dev/GrainflowPackage.zip)
 2. Unzip the package and drag **grainflow.maxpack** into any Max window or open it with Max 
 
 ## Advanced Features 
