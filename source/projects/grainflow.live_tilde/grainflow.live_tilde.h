@@ -129,6 +129,7 @@ public:
 				if (name != buffer_name){
 					return set_buffers_by_name({name});
 				}
+				return args;
 			}
 		},
 		getter{

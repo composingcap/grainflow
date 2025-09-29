@@ -238,6 +238,21 @@
 			<description>channels of the buffer associated to each grain </description>
 		</attribute>
 
+		<attribute name='bufferIndex' get='1' set='1' type='float64' size='1' >
+			<digest>The buffer index selected by each grain </digest>
+			<description>The buffer index selected by each grain </description>
+		</attribute>
+
+		<attribute name='bufferIndexOffset' get='1' set='1' type='float64' size='1' >
+			<digest>The buffer index selected by each grain </digest>
+			<description>The buffer index selected by each grain </description>
+		</attribute>
+
+		<attribute name='bufferIndexRandom' get='1' set='1' type='float64' size='1' >
+			<digest>The buffer index selected by each grain </digest>
+			<description>The buffer index selected by each grain </description>
+		</attribute>
+
 		<attribute name='chanMode' get='1' set='1' type='long' size='1' >
 			<digest>If greater than 1, channels are assigned at random </digest>
 			<description>If greater than 1, channels are assigned at random </description>
@@ -335,7 +350,7 @@
 
 		<attribute name='loopMode' get='1' set='1' type='float64' size='1' >
 			<digest>how the loops is handled by each grain</digest>
-			<description>how the loops is handled by each grain. 0: ignore the loop. 1: wrap 2: fold </description>
+			<description>how the loops is handled by each grain. 1: wrap 2: fold </description>
 		</attribute>
 
 		<attribute name='nEnvelopes' get='1' set='1' type='float64' size='1' >

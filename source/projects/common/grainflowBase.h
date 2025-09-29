@@ -2006,8 +2006,7 @@ public:
 		"sets the granulation buffer",
 		[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 		{
-			set_buffers_by_name(args);
-			
+			return set_buffers_by_name(args);
 		}
 	};
 
