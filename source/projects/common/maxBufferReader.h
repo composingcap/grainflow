@@ -4,6 +4,7 @@
 #include "gfGrain.h"
 #include "gfIBufferReader.h"
 #include "gfEnvelopes.h"
+#include "gfUtils.h"
 
 ///Provides an interface to grainflow using Max Min API
 
@@ -152,9 +153,11 @@ namespace Grainflow
 			{
 				for (int i = 0; i < size; i++)
 				{
-					const auto frame = static_cast<int>(
-						std::fmax(((std::fmin((grain_clock[i] * 1024.0), 1023.0))), 0.0));
-					samples[i] = Grainflow::gf_envelopes::hanning_envelope[frame];
+					const auto frame = grain_clock[i] * 1024;
+					const auto frame_int = static_cast<int>(frame);
+					const auto frame_plus_one  = frame_int<(1024-1) ? frame_int + 1 : 0;
+					const auto tween = frame - frame_int;
+					samples[i] = gf_utils::lerp(Grainflow::gf_envelopes::hanning_envelope[frame_int],Grainflow::gf_envelopes::hanning_envelope[frame_plus_one], tween);
 				}
 				return;
 			}
@@ -169,8 +172,11 @@ namespace Grainflow
 				for (int i = 0; i < size; i++)
 				{
 					if (!envelope_lock.valid()) return;
-					const auto frame = static_cast<int>(grain_clock[i] * frames);
-					samples[i] = envelope_lock[frame];
+					const auto frame = grain_clock[i] * frames;
+					const auto frame_int = static_cast<int>(frame);
+					const auto frame_plus_one  = frame_int<(frames-1) ? frame_int + 1 : 0;
+					const auto tween = frame - frame_int;
+					samples[i] = gf_utils::lerp(envelope_lock[frame_int], envelope_lock[frame_plus_one], tween);
 				}
 				return;
 			}

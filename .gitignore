@@ -24,3 +24,4 @@ grainflow.zip
 .secrets
 grainflow.maxpack
 externals
+.cache
