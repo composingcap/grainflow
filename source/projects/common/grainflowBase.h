@@ -1,5 +1,6 @@
 #pragma once
 #include <c74_min.h>
+#include "ext_mess.h"
 #include "gfParam.h"
 #include "gfUtils.h"
 #include "gfGrainCollection.h"
@@ -1962,7 +1963,7 @@ public:
 				grain_message(1, gf_param_name::n_envelopes, gf_param_type::value);
 				return {};
 			}
-			if (args[1].a_type == c74::max::A_FLOAT)
+			if (args[1].a_type == c74::max::A_FLOAT || args[1].a_type == c74::max::A_LONG)
 			{
 				for (int i = 0; i < args.size() / 2; ++i)
 				{

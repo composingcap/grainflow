@@ -153,7 +153,7 @@ namespace Grainflow
 			{
 				for (int i = 0; i < size; i++)
 				{
-					const auto frame = grain_clock[i] * 1024;
+					const auto frame = grain_clock[i] * 1023;
 					const auto frame_int = static_cast<int>(frame);
 					const auto frame_plus_one  = frame_int<(1024-1) ? frame_int + 1 : 0;
 					const auto tween = frame - frame_int;
@@ -171,7 +171,6 @@ namespace Grainflow
 			{
 				for (int i = 0; i < size; i++)
 				{
-					if (!envelope_lock.valid()) return;
 					const auto frame = grain_clock[i] * frames;
 					const auto frame_int = static_cast<int>(frame);
 					const auto frame_plus_one  = frame_int<(frames-1) ? frame_int + 1 : 0;
@@ -180,17 +179,22 @@ namespace Grainflow
 				}
 				return;
 			}
+
+			const int size_per_envelope = frames / n_envelopes;
+			const float env1 = gf_utils::mod(env2d_pos * n_envelopes, static_cast<float>(n_envelopes));
+			const int env1_int = static_cast<int>(env1) % n_envelopes;
+			const int env2_int = (env1_int + 1) % n_envelopes;
+			const float fade = env1 - env1_int;
+
 			for (int i = 0; i < size; i++)
 			{
-				if (!envelope_lock.valid()) return;
-				const int size_per_envelope = frames / n_envelopes;
-				const int env1 = static_cast<int>(env2d_pos * static_cast<float>(n_envelopes));
-				const int env2 = env1 + 1;
-				const float fade = env2d_pos * static_cast<float>(n_envelopes) - static_cast<float>(env1);
-				const auto frame = static_cast<int>((grain_clock[i] * size_per_envelope));
-				samples[i] = envelope_lock[(env1 * size_per_envelope + frame) % frames] * (1 - fade) + envelope_lock[(
-					env2 *
-					size_per_envelope + frame) % frames] * fade;
+				const auto frame = grain_clock[i] * size_per_envelope;
+				const auto frame_int = static_cast<int>(frame);
+				const auto frame_plus_one  = frame_int<(frames-1) ? frame_int + 1 : 0;
+				const auto tween = frame - frame_int;
+				const auto s1 = gf_utils::lerp(envelope_lock[env1_int * size_per_envelope + frame_int],  envelope_lock[env1_int * size_per_envelope + frame_plus_one], tween);
+				const auto s2 = gf_utils::lerp(envelope_lock[env2_int * size_per_envelope + frame_int],  envelope_lock[env2_int * size_per_envelope + frame_plus_one], tween);
+				samples[i] = gf_utils::lerp(s1, s2, fade);
 			}
 
 		};
