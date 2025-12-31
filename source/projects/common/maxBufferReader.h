@@ -1,7 +1,6 @@
 #pragma once
 #include <algorithm>
 #include <c74_min.h>
-#include "gfGrain.h"
 #include "gfIBufferReader.h"
 #include "gfEnvelopes.h"
 #include "gfUtils.h"
