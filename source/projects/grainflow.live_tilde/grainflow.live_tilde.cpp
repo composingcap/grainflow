@@ -8,7 +8,6 @@
 
 #include "grainflow.live_tilde.h"
 
-#include <utility>
 
 using namespace c74::min;
 using namespace Grainflow;
