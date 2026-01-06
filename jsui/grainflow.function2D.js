@@ -7,6 +7,9 @@ A 2D XYpad sequencer
 outlets = 2;
 inlets = 1;
 
+error("grainflow.function2D.js is depricated and will not receive updates or matainance")
+
+
 var functionPoints = [{"x": 0.1, "y":0.1, "state": 1},{"x": 0.9, "y":0.1, "state": 1},{"x": 0.5, "y":0.9, "state": 1}]; 
 var position = {'x' : 0, 'y' : 0};
 var pArray = [];
@@ -38,9 +41,8 @@ var framer = new Task(frame, this);
 framer.interval = 33;
 framer.repeat(); 
 function loadbang(){
-
-getattr_points();
-updateTracker();
+	getattr_points();
+	updateTracker();
 }
 
 function notifydeleted(){

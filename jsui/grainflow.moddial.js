@@ -6,6 +6,7 @@ Modulation dial
 outlets = 3;
 inlets = 3;
 inspector = 1;
+error("grainflow.moddial.js is depricated and will not be maintained in the future.")
 
 setinletassist(0, "silder value");
 setinletassist(1, "random amount");

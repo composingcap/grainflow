@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 9,
-			"minor" : 1,
-			"revision" : 0,
+			"minor" : 0,
+			"revision" : 8,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 449.0, 253.0, 1146.0, 844.0 ],
+		"rect" : [ 100.0, 100.0, 771.0, 844.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"showrootpatcherontab" : 0,
 		"showontab" : 0,
@@ -25,14 +25,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 9,
-							"minor" : 1,
-							"revision" : 0,
+							"minor" : 0,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 449.0, 279.0, 1146.0, 818.0 ],
+						"rect" : [ 0.0, 26.0, 771.0, 818.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -45,8 +45,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 117.0, 330.5, 92.0, 53.0 ],
-									"presentation_linecount" : 2,
+									"patching_rect" : [ 117.0, 330.5, 95.0, 52.0 ],
 									"text" : "Set every other buffer"
 								}
 
@@ -73,7 +72,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 54.0, 398.0, 115.0, 53.0 ],
+									"patching_rect" : [ 54.0, 398.0, 115.0, 52.0 ],
 									"text" : "default envelope is hanning"
 								}
 
@@ -97,7 +96,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 643.0, 406.0, 116.0, 34.0 ],
+									"patching_rect" : [ 643.0, 406.0, 116.0, 33.0 ],
 									"text" : "it can be randomized as well!"
 								}
 
@@ -136,7 +135,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 603.0, 248.0, 140.0, 48.0 ],
+									"patching_rect" : [ 603.0, 248.0, 140.0, 47.0 ],
 									"text" : "Control what buffer is sampled  using the envPositioin message"
 								}
 
@@ -179,7 +178,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 373.0, 413.0, 162.0, 62.0 ],
+									"patching_rect" : [ 373.0, 413.0, 162.0, 60.0 ],
 									"text" : "Load the buffer with a second argumnet that is the number of envelopes in the 2D envelope"
 								}
 
@@ -253,7 +252,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 383.0, 321.0, 156.0, 34.0 ],
+									"patching_rect" : [ 383.0, 321.0, 156.0, 33.0 ],
 									"text" : "Generate the 2D envelope from preexisting buffers"
 								}
 
@@ -265,7 +264,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 402.0, 268.0, 156.0, 34.0 ],
+									"patching_rect" : [ 402.0, 268.0, 156.0, 33.0 ],
 									"text" : "Create a buffer to hold the 2D envelope"
 								}
 
@@ -321,7 +320,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 113.0, 142.0, 117.0, 38.0 ],
+									"patching_rect" : [ 113.0, 142.0, 117.0, 37.0 ],
 									"text" : "Switch between these envelopes"
 								}
 
@@ -351,8 +350,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 9,
-											"minor" : 1,
-											"revision" : 0,
+											"minor" : 0,
+											"revision" : 8,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -505,7 +504,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 238.0, 332.0, 125.0, 50.0 ],
+									"patching_rect" : [ 238.0, 332.0, 125.0, 49.0 ],
 									"text" : "2DEnvelope pluck fatpluck hanning blackman triangle"
 								}
 
@@ -674,7 +673,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 565.0, 621.0, 111.0, 38.0 ],
+									"patching_rect" : [ 565.0, 621.0, 111.0, 37.0 ],
 									"text" : "Grain windows as a signal"
 								}
 
@@ -736,7 +735,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 22.0, 54.0, 310.0, 48.0 ],
+									"patching_rect" : [ 22.0, 54.0, 310.0, 47.0 ],
 									"text" : "Grainflow provides two methods of eneveloping grains.\n1.) Reading a buffer as an envelope\n2.) Reading a buffer as a collection of envelopes"
 								}
 
@@ -748,7 +747,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 10.0, 487.0, 41.0 ],
+									"patching_rect" : [ 18.0, 10.0, 487.0, 40.0 ],
 									"text" : "grainflow~ Envelopes"
 								}
 
@@ -805,8 +804,8 @@
 									"id" : "obj-52",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 22.0, 556.5, 175.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf1 4"
 								}
@@ -993,7 +992,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-2", 0 ],
-									"midpoints" : [ 148.5, 588.5, 212.0, 588.5, 212.0, 545.5, 230.5, 545.5 ],
+									"midpoints" : [ 135.5, 588.5, 212.0, 588.5, 212.0, 545.5, 230.5, 545.5 ],
 									"source" : [ "obj-52", 6 ]
 								}
 
@@ -1080,14 +1079,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 9,
-							"minor" : 1,
-							"revision" : 0,
+							"minor" : 0,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 818.0 ],
+						"rect" : [ 0.0, 26.0, 771.0, 818.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -1097,7 +1096,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.375, 91.0, 502.25, 34.0 ],
+									"patching_rect" : [ 10.375, 91.0, 502.25, 33.0 ],
 									"text" : "Keep in mind this is not the ideal way to use grainflow, but is avalible if you need to trigger grains via events",
 									"textcolor" : [ 0.482352941176471, 0.482352941176471, 0.482352941176471, 1.0 ]
 								}
@@ -1195,7 +1194,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 284.0, 231.0, 150.0, 52.0 ],
+									"patching_rect" : [ 284.0, 231.0, 150.0, 51.0 ],
 									"text" : "You must set window offset to 0 or you will get unexpected results"
 								}
 
@@ -1211,8 +1210,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 9,
-											"minor" : 1,
-											"revision" : 0,
+											"minor" : 0,
+											"revision" : 8,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1506,8 +1505,8 @@
 									"id" : "obj-52",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 16.0, 297.0, 178.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf1 5"
 								}
@@ -1520,7 +1519,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 54.0, 503.0, 34.0 ],
+									"patching_rect" : [ 10.0, 54.0, 503.0, 33.0 ],
 									"text" : "As of grainflow version 2.0 the trigger message has been removed from grainflow. The patch presents the new way to approach triggering grains."
 								}
 
@@ -1532,7 +1531,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 6.0, 503.0, 41.0 ],
+									"patching_rect" : [ 10.0, 6.0, 503.0, 40.0 ],
 									"text" : "grainflow~ Triggered Grains"
 								}
 
@@ -1642,14 +1641,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 9,
-							"minor" : 1,
-							"revision" : 0,
+							"minor" : 0,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 818.0 ],
+						"rect" : [ 0.0, 26.0, 771.0, 818.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -1702,7 +1701,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 317.0, 609.0, 264.0, 34.0 ],
+									"patching_rect" : [ 317.0, 609.0, 264.0, 33.0 ],
 									"text" : "You can also use the stream output index to do things to the grains after they are created"
 								}
 
@@ -1741,11 +1740,10 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-46",
-									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 67.499999999999943, 321.0, 276.0, 34.0 ],
+									"patching_rect" : [ 68.0, 321.0, 312.0, 20.0 ],
 									"text" : "Control grain parameters through their assigned stream"
 								}
 
@@ -1879,7 +1877,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 403.0, 201.0, 231.0, 38.0 ],
+									"patching_rect" : [ 403.0, 201.0, 231.0, 37.0 ],
 									"text" : "Manually set a stream number of streams (used for deviate and spread)"
 								}
 
@@ -1892,7 +1890,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 327.0, 211.0, 68.0, 36.0 ],
+									"patching_rect" : [ 327.0, 211.0, 68.0, 35.0 ],
 									"text" : "nstreams $1"
 								}
 
@@ -1906,7 +1904,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 192.0, 258.0, 148.0, 38.0 ],
+									"patching_rect" : [ 192.0, 258.0, 148.0, 37.0 ],
 									"text" : "Manually set a stream number to a grain"
 								}
 
@@ -1949,7 +1947,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 606.0, 156.0, 122.0, 38.0 ],
+									"patching_rect" : [ 606.0, 156.0, 122.0, 37.0 ],
 									"text" : "Random sets streams randomly"
 								}
 
@@ -1963,7 +1961,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 363.0, 155.0, 132.0, 38.0 ],
+									"patching_rect" : [ 363.0, 155.0, 132.0, 37.0 ],
 									"text" : "Per sets a chunk of grains per stream"
 								}
 
@@ -1977,7 +1975,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 138.0, 156.0, 119.0, 38.0 ],
+									"patching_rect" : [ 138.0, 156.0, 119.0, 37.0 ],
 									"text" : "Auto interleaves grains"
 								}
 
@@ -1990,7 +1988,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 495.0, 155.5, 111.0, 36.0 ],
+									"patching_rect" : [ 495.0, 155.5, 111.0, 35.0 ],
 									"text" : "streamSet random 4"
 								}
 
@@ -2003,7 +2001,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 270.0, 156.0, 87.0, 36.0 ],
+									"patching_rect" : [ 270.0, 156.0, 87.0, 35.0 ],
 									"text" : "streamSet per 2"
 								}
 
@@ -2016,7 +2014,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 39.0, 156.0, 93.0, 36.0 ],
+									"patching_rect" : [ 39.0, 156.0, 93.0, 35.0 ],
 									"text" : "streamSet auto 4"
 								}
 
@@ -2029,7 +2027,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 319.0, 364.0, 190.0, 38.0 ],
+									"patching_rect" : [ 319.0, 364.0, 190.0, 37.0 ],
 									"text" : "Set any grainflow parameter for every grain in the stream"
 								}
 
@@ -2114,7 +2112,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 420.0, 93.0, 306.0, 48.0 ],
+									"patching_rect" : [ 420.0, 93.0, 306.0, 47.0 ],
 									"text" : "stream set allows you to set up streams using the \"auto\", \"per\", \"random\" or by setting streams manually with a number"
 								}
 
@@ -2138,7 +2136,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 10.0, 487.0, 41.0 ],
+									"patching_rect" : [ 18.0, 10.0, 487.0, 40.0 ],
 									"text" : "grainflow~ Streams"
 								}
 
@@ -2151,7 +2149,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "multichannelsignal", "list" ],
-									"patching_rect" : [ 20.0, 625.0, 129.0, 36.0 ],
+									"patching_rect" : [ 20.0, 625.0, 129.0, 35.0 ],
 									"text" : "grainflow.util.stereoPan~"
 								}
 
@@ -2279,8 +2277,8 @@
 									"id" : "obj-2",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 20.0, 580.0, 277.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf1 8 @delayRandom 500"
 								}
@@ -2296,36 +2294,6 @@
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 253.0, 493.0, 289.0, 22.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"angle" : 270.0,
-									"background" : 1,
-									"bgcolor" : [ 0.462745098039216, 0.462745098039216, 0.462745098039216, 1.0 ],
-									"id" : "obj-47",
-									"maxclass" : "panel",
-									"mode" : 0,
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 41.0, 343.0, 695.0, 186.0 ],
-									"proportion" : 0.5
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"angle" : 270.0,
-									"background" : 1,
-									"bgcolor" : [ 0.463, 0.463, 0.463, 1.0 ],
-									"id" : "obj-42",
-									"maxclass" : "panel",
-									"mode" : 0,
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 39.0, 152.0, 697.0, 166.0 ],
-									"proportion" : 0.5
 								}
 
 							}
@@ -2378,7 +2346,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-34", 1 ],
-									"midpoints" : [ 94.0, 613.0, 139.5, 613.0 ],
+									"midpoints" : [ 86.833333333333343, 613.0, 139.5, 613.0 ],
 									"source" : [ "obj-2", 2 ]
 								}
 
@@ -2541,14 +2509,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 9,
-							"minor" : 1,
-							"revision" : 0,
+							"minor" : 0,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 818.0 ],
+						"rect" : [ 0.0, 26.0, 771.0, 818.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -2620,7 +2588,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 390.0, 471.0, 348.0, 34.0 ],
+									"patching_rect" : [ 390.0, 471.0, 348.0, 33.0 ],
 									"text" : "You can retain channel spatialization using the buffer channel outlet"
 								}
 
@@ -2741,7 +2709,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 57.0, 513.0, 48.0 ],
+									"patching_rect" : [ 18.0, 57.0, 513.0, 47.0 ],
 									"text" : "The bufChans message allows grainflow to automatically assign channels to a given grain voice. The bufChan message can be used for manual assigment.  ChanMode 1 allows for random channel sampleing."
 								}
 
@@ -2816,7 +2784,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 147.0, 271.5, 218.0, 52.0 ],
+									"patching_rect" : [ 147.0, 271.5, 218.0, 51.0 ],
 									"text" : "chanMode 0 will use an assigned channel and chanMode 1 will select a random channel per grain"
 								}
 
@@ -2829,7 +2797,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 509.0, 215.0, 190.0, 52.0 ],
+									"patching_rect" : [ 509.0, 215.0, 190.0, 51.0 ],
 									"text" : "Channels can be set manually using the bufChan message using grain targeting"
 								}
 
@@ -2842,7 +2810,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 406.0, 512.0, 242.0, 34.0 ],
+									"patching_rect" : [ 406.0, 512.0, 242.0, 33.0 ],
 									"text" : "The waveform display is able to filter grains via an associated channel number"
 								}
 
@@ -2902,7 +2870,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 10.0, 487.0, 41.0 ],
+									"patching_rect" : [ 18.0, 10.0, 487.0, 40.0 ],
 									"text" : "grainflow~ Buffer Channels"
 								}
 
@@ -2951,7 +2919,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 113.333333333333258, 179.75, 229.0, 52.0 ],
+									"patching_rect" : [ 113.333333333333258, 179.75, 229.0, 51.0 ],
 									"text" : "Use the bufChans attribute have grainflow automatically interlieve grains voices to the number of tracks"
 								}
 
@@ -3126,25 +3094,10 @@
 									"id" : "obj-2",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 33.0, 391.0, 277.5, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf1 8 @delayRandom 500"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"angle" : 270.0,
-									"background" : 1,
-									"bgcolor" : [ 0.463, 0.463, 0.463, 1.0 ],
-									"id" : "obj-12",
-									"maxclass" : "panel",
-									"mode" : 0,
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 16.0, 167.5, 699.0, 160.5 ],
-									"proportion" : 0.39
 								}
 
 							}
@@ -3189,7 +3142,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"midpoints" : [ 268.6875, 429.5, 283.5, 429.5 ],
+									"midpoints" : [ 243.555555555555543, 429.5, 283.5, 429.5 ],
 									"order" : 0,
 									"source" : [ "obj-2", 7 ]
 								}
@@ -3199,7 +3152,7 @@
 								"patchline" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"destination" : [ "obj-18", 0 ],
-									"midpoints" : [ 74.8125, 519.0, 290.5, 519.0 ],
+									"midpoints" : [ 71.222222222222229, 519.0, 290.5, 519.0 ],
 									"order" : 1,
 									"source" : [ "obj-2", 1 ]
 								}
@@ -3215,7 +3168,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-40", 0 ],
-									"midpoints" : [ 268.6875, 440.5, 205.5, 440.5 ],
+									"midpoints" : [ 243.555555555555543, 440.5, 205.5, 440.5 ],
 									"order" : 1,
 									"source" : [ "obj-2", 7 ]
 								}
@@ -3225,7 +3178,7 @@
 								"patchline" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"destination" : [ "obj-5", 0 ],
-									"midpoints" : [ 74.8125, 568.5, 290.5, 568.5 ],
+									"midpoints" : [ 71.222222222222229, 568.5, 290.5, 568.5 ],
 									"order" : 0,
 									"source" : [ "obj-2", 1 ]
 								}
@@ -3365,14 +3318,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 9,
-							"minor" : 1,
-							"revision" : 0,
+							"minor" : 0,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 818.0 ],
+						"rect" : [ 0.0, 26.0, 771.0, 818.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -3385,7 +3338,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 474.0, 506.0, 125.0, 53.0 ],
+									"patching_rect" : [ 474.0, 506.0, 125.0, 52.0 ],
 									"text" : "You can also replace the envelope"
 								}
 
@@ -3410,7 +3363,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 174.0, 316.0, 293.0, 38.0 ],
+									"patching_rect" : [ 174.0, 316.0, 293.0, 37.0 ],
 									"text" : "Add a glissando with the endpoint n semitones higher than the starting transposition"
 								}
 
@@ -3592,7 +3545,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.75, 50.0, 588.0, 34.0 ],
+									"patching_rect" : [ 10.75, 50.0, 588.0, 33.0 ],
 									"text" : "This patch shows some more (but certainly not all) attributes of grainflow. All of these attributes have been formatted to be a single number, but they can also be set per grain. "
 								}
 
@@ -3600,7 +3553,7 @@
 , 							{
 								"box" : 								{
 									"bgColor" : [ 0.27843137254902, 0.27843137254902, 0.27843137254902, 1.0 ],
-									"buffername" : "_help_grainBuf1",
+									"buffername" : "_help_grainBuf2",
 									"dotColor" : [ 0.470588235294118, 1.0, 0.403921568627451, 1.0 ],
 									"dotColorSecondary" : [ 0.184313725490196, 0.396078431372549, 0.16078431372549, 1.0 ],
 									"id" : "obj-15",
@@ -3622,7 +3575,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 243.0, 447.0, 198.0, 38.0 ],
+									"patching_rect" : [ 243.0, 447.0, 198.0, 37.0 ],
 									"text" : "Will adust the amplitude with a signal- great for AM"
 								}
 
@@ -3711,7 +3664,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 308.0, 587.0, 152.0, 52.0 ],
+									"patching_rect" : [ 308.0, 587.0, 152.0, 51.0 ],
 									"text" : "This patch chord contains data about each grain"
 								}
 
@@ -3758,7 +3711,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 164.0, 615.0, 133.0, 62.0 ],
+									"patching_rect" : [ 164.0, 615.0, 133.0, 60.0 ],
 									"text" : "Each grain has its own channel.  This is convienent for bussing and panning."
 								}
 
@@ -3780,8 +3733,8 @@
 									"id" : "obj-52",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 19.0, 540.0, 175.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf2 4"
 								}
@@ -3834,7 +3787,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 6.0, 503.0, 41.0 ],
+									"patching_rect" : [ 10.0, 6.0, 503.0, 40.0 ],
 									"text" : "grainflow~ Detailed Usage"
 								}
 
@@ -4097,7 +4050,7 @@
 								"patchline" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"destination" : [ "obj-15", 0 ],
-									"midpoints" : [ 48.0, 577.0, 301.5, 577.0 ],
+									"midpoints" : [ 45.833333333333329, 577.0, 301.5, 577.0 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -4105,7 +4058,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-3", 1 ],
-									"midpoints" : [ 67.5, 598.5, 158.833333333333314, 598.5 ],
+									"midpoints" : [ 63.166666666666664, 598.5, 158.833333333333314, 598.5 ],
 									"source" : [ "obj-52", 2 ]
 								}
 
@@ -4157,14 +4110,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 9,
-							"minor" : 1,
-							"revision" : 0,
+							"minor" : 0,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 818.0 ],
+						"rect" : [ 100.0, 126.0, 771.0, 818.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"title" : "Param Buffers",
@@ -4206,7 +4159,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 82.0, 183.0, 248.0, 34.0 ],
+									"patching_rect" : [ 82.0, 183.0, 248.0, 33.0 ],
 									"text" : "Edit values to be put into the parameter buffers"
 								}
 
@@ -4249,7 +4202,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 145.0, 141.0, 165.0, 34.0 ],
+									"patching_rect" : [ 145.0, 141.0, 165.0, 33.0 ],
 									"text" : "Set the correct modes to use param buffers"
 								}
 
@@ -4331,8 +4284,8 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 420.0, 358.0, 89.0, 48.0 ],
-									"text" : "converts to travMode is in ms"
+									"patching_rect" : [ 420.0, 358.0, 89.0, 47.0 ],
+									"text" : "converts to delayMode is in ms"
 								}
 
 							}
@@ -4347,8 +4300,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 9,
-											"minor" : 1,
-											"revision" : 0,
+											"minor" : 0,
+											"revision" : 8,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -4575,8 +4528,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 9,
-											"minor" : 1,
-											"revision" : 0,
+											"minor" : 0,
+											"revision" : 8,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -4720,11 +4673,11 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-66",
-									"linecount" : 3,
+									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 523.0, 175.5, 175.0, 48.0 ],
+									"patching_rect" : [ 523.0, 175.5, 177.0, 33.0 ],
 									"text" : "windowOffsetMode 1 and 2 will set window offsets from a buffer"
 								}
 
@@ -4775,7 +4728,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 118.0, 211.0, 161.0, 34.0 ],
+									"patching_rect" : [ 118.0, 211.0, 161.0, 33.0 ],
 									"text" : "rateMode 1 and 2 will read from a buffer"
 								}
 
@@ -4787,7 +4740,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 366.0, 211.0, 143.0, 34.0 ],
+									"patching_rect" : [ 366.0, 211.0, 143.0, 33.0 ],
 									"text" : "travMode 1 and 2 will read from a set buffer"
 								}
 
@@ -4889,7 +4842,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 48.0, 645.0, 62.0 ],
+									"patching_rect" : [ 18.0, 48.0, 645.0, 60.0 ],
 									"text" : "Buffers can be used to set tables of parameters.  Buffers are read from 0-1 by voice/maxVoices with either no or linear interpolation.  Often a mode will need to be set to use buffers instead of the standard parameter.  For these modes mode 1 often delineates random effecting the parameter value while mode 2 indicates that random values will affect the lookup position.  Mode 0 is the standard mode with no buffer lookup. "
 								}
 
@@ -4901,7 +4854,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 10.0, 487.0, 41.0 ],
+									"patching_rect" : [ 18.0, 10.0, 487.0, 40.0 ],
 									"text" : "grainflow~ Using Parameter Buffers"
 								}
 
@@ -4969,8 +4922,8 @@
 									"id" : "obj-52",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 18.0, 514.0, 179.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf1 4"
 								}
@@ -5142,7 +5095,7 @@
 								"patchline" : 								{
 									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
 									"destination" : [ "obj-2", 0 ],
-									"midpoints" : [ 47.5, 542.0, 218.5, 542.0 ],
+									"midpoints" : [ 45.277777777777779, 542.0, 218.5, 542.0 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -5232,14 +5185,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 9,
-							"minor" : 1,
-							"revision" : 0,
+							"minor" : 0,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 818.0 ],
+						"rect" : [ 0.0, 26.0, 771.0, 818.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"title" : "Mutichannel and Voices",
@@ -5250,7 +5203,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 540.0, 334.5, 190.0, 48.0 ],
+									"patching_rect" : [ 540.0, 334.5, 190.0, 47.0 ],
 									"text" : "You can also use multichannel signals for any audio input to grainflow"
 								}
 
@@ -5429,7 +5382,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 430.0, 193.5, 162.0, 48.0 ],
+									"patching_rect" : [ 430.0, 193.5, 164.0, 47.0 ],
 									"text" : "You can also use deviate an spread like with MC with any parameter!"
 								}
 
@@ -5467,7 +5420,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 566.0, 141.5, 116.0, 48.0 ],
+									"patching_rect" : [ 566.0, 141.5, 116.0, 47.0 ],
 									"text" : "Similarly, you can set each grain's amplitude as a list"
 								}
 
@@ -5510,7 +5463,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 297.0, 514.0, 215.0, 67.0 ],
+									"patching_rect" : [ 297.0, 514.0, 215.0, 66.0 ],
 									"text" : "Each mc input channel is linked to a specific grain allowing for in depth control of grains using signals"
 								}
 
@@ -5522,7 +5475,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 79.0, 100.5, 149.0, 34.0 ],
+									"patching_rect" : [ 79.0, 100.5, 149.0, 33.0 ],
 									"text" : "Turn this on to start the granulator"
 								}
 
@@ -5534,7 +5487,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 337.0, 99.5, 276.0, 48.0 ],
+									"patching_rect" : [ 337.0, 99.5, 276.0, 47.0 ],
 									"text" : "Grain followed by a voice number and a message will send that message just to that grain.\nThis changes the amplitude of grain 1"
 								}
 
@@ -5558,7 +5511,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 54.0, 581.0, 48.0 ],
+									"patching_rect" : [ 18.0, 54.0, 581.0, 47.0 ],
 									"text" : "Multichannel signals can be used along with the parameters set in the \"Basic Usage\" patch to modulate granulator at audio rate.  Channels will replicate in a standard fashion is there are less mc channels than voices."
 								}
 
@@ -5570,7 +5523,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 18.0, 10.0, 563.0, 41.0 ],
+									"patching_rect" : [ 18.0, 10.0, 563.0, 40.0 ],
 									"text" : "grainflow~ Multichannel and Voices"
 								}
 
@@ -5779,8 +5732,8 @@
 									"id" : "obj-52",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 25.0, 483.0, 427.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf1 5"
 								}
@@ -5827,7 +5780,7 @@
 							}
 , 							{
 								"box" : 								{
-									"attr" : "amp",
+									"attr" : "rate",
 									"id" : "obj-1",
 									"maxclass" : "attrui",
 									"numinlets" : 1,
@@ -5996,7 +5949,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-18", 0 ],
-									"midpoints" : [ 85.5, 549.0, 159.5, 549.0 ],
+									"midpoints" : [ 79.833333333333343, 549.0, 159.5, 549.0 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -6077,14 +6030,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 9,
-							"minor" : 1,
-							"revision" : 0,
+							"minor" : 0,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1146.0, 818.0 ],
+						"rect" : [ 0.0, 26.0, 771.0, 818.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"title" : "General Usage",
@@ -6157,7 +6110,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 524.0, 445.5, 109.0, 48.0 ],
+									"patching_rect" : [ 524.0, 445.5, 109.0, 47.0 ],
 									"text" : "Change the contents of the buffer"
 								}
 
@@ -6200,7 +6153,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 296.589843749999773, 314.0, 107.0, 48.0 ],
+									"patching_rect" : [ 296.589843749999773, 314.0, 107.0, 47.0 ],
 									"text" : "Change the probability a grain will play"
 								}
 
@@ -6236,7 +6189,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 100.332031250000057, 213.0, 82.0, 34.0 ],
+									"patching_rect" : [ 100.332031250000057, 213.0, 82.0, 33.0 ],
 									"text" : "Change the grain size"
 								}
 
@@ -6424,7 +6377,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 315.0, 371.5, 191.0, 34.0 ],
+									"patching_rect" : [ 315.0, 371.5, 191.0, 33.0 ],
 									"text" : "Change the pitch of the grains in semitones"
 								}
 
@@ -6436,7 +6389,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 186.630859374999886, 469.0, 162.0, 34.0 ],
+									"patching_rect" : [ 186.630859374999886, 469.0, 162.0, 33.0 ],
 									"text" : "arguments: buffername max-grains"
 								}
 
@@ -6504,7 +6457,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 315.0, 243.0, 288.0, 53.0 ],
+									"patching_rect" : [ 315.0, 243.0, 288.0, 52.0 ],
 									"text" : "This phasor control the traversal. As a signal, the traversal is a fraction of the buffer from 0-1"
 								}
 
@@ -6519,7 +6472,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 50.0, 308.0, 153.0, 81.0 ],
+									"patching_rect" : [ 50.0, 308.0, 153.0, 79.0 ],
 									"text" : "This phasor is the grain clock.  It determined both the size and speed at which grains are spawned "
 								}
 
@@ -6582,7 +6535,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 3.0, 48.5, 563.0, 34.0 ],
+									"patching_rect" : [ 3.0, 48.5, 563.0, 33.0 ],
 									"text" : "grainflow~ is a super flexible sample accurate granular engine.  This patcher show its most basic use as a simple sound file granulator.  For more detail see the \"Detailed Usage\" tab."
 								}
 
@@ -6670,7 +6623,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 23.332031250000057, 171.0, 90.0, 36.0 ],
+									"patching_rect" : [ 23.332031250000057, 171.0, 90.0, 35.0 ],
 									"text" : "delayRandom $1"
 								}
 
@@ -6722,7 +6675,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 174.589843749999773, 671.0, 336.0, 38.0 ],
+									"patching_rect" : [ 174.589843749999773, 671.0, 336.0, 37.0 ],
 									"text" : "Each grain has its own channel, so they need to be panned to fit your speaker set up"
 								}
 
@@ -6758,7 +6711,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 3.0, 3.0, 503.0, 41.0 ],
+									"patching_rect" : [ 3.0, 3.0, 503.0, 40.0 ],
 									"text" : "grainflow~ General Usage"
 								}
 
@@ -6768,8 +6721,8 @@
 									"id" : "obj-52",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 8.0, 475.0, 179.0, 22.0 ],
 									"text" : "grainflow~ _help_grainBuf1 8"
 								}
@@ -6899,7 +6852,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-18", 0 ],
-									"midpoints" : [ 37.5, 512.5, 176.589843749999773, 512.5 ],
+									"midpoints" : [ 35.277777777777779, 512.5, 176.589843749999773, 512.5 ],
 									"source" : [ "obj-52", 1 ]
 								}
 
@@ -6907,7 +6860,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-3", 1 ],
-									"midpoints" : [ 57.5, 519.5, 157.5, 519.5 ],
+									"midpoints" : [ 53.055555555555557, 519.5, 157.5, 519.5 ],
 									"source" : [ "obj-52", 2 ]
 								}
 
@@ -7037,43 +6990,43 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "_grainflowutil.js",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/javascript",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/javascript",
 				"patcherrelativepath" : "../javascript",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.bphasor~.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.genEnv2D.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.util.randomRangeList.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/util",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/util",
 				"patcherrelativepath" : "../patchers/util",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.util.stereopan~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.util.stereopan~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
-				"name" : "grainflow.waveform~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.waveform~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
-				"name" : "grainflow~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow~.mxo",
+				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0

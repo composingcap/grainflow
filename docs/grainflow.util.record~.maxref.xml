@@ -36,11 +36,6 @@
 
 	<methodlist>
 
-		<method name='int'>
-			<digest></digest>
-			<description></description>
-		</method>
-
 		<method name='buf'>
 			<digest></digest>
 			<description></description>
@@ -49,6 +44,11 @@
 		<method name='set'>
 			<digest>Choose a named buffer~ from which to read</digest>
 			<description>Choose a named buffer~ from which to read. </description>
+		</method>
+
+		<method name='int'>
+			<digest></digest>
+			<description></description>
 		</method>
 
 	</methodlist>
@@ -73,9 +73,9 @@
 			<description>The amount of the old samples that will be mixed in with the new samples </description>
 		</attribute>
 
-		<attribute name='recRange' get='1' set='1' type='float64' size='1' >
-			<digest>Determines to write loop </digest>
-			<description>Determines to write loop </description>
+		<attribute name='overdubFilters' get='1' set='1' type='float64' size='1' >
+			<digest>filter bands in freq q overdub </digest>
+			<description>filter bands in freq q overdub </description>
 		</attribute>
 
 		<attribute name='state' get='1' set='1' type='long' size='1' >

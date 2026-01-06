@@ -34,9 +34,9 @@
 			<description>redraws the buffer display </description>
 		</method>
 
-		<method name='set'>
-			<digest>Choose a named buffer~ from which to read</digest>
-			<description>Choose a named buffer~ from which to read. </description>
+		<method name='grainInfo'>
+			<digest>dictionary of grainInfo </digest>
+			<description>dictionary of grainInfo </description>
 		</method>
 
 		<method name='buf'>
@@ -44,34 +44,19 @@
 			<description></description>
 		</method>
 
-		<method name='grainWindow'>
-			<digest>sets the size of the grain dots </digest>
-			<description>sets the size of the grain dots </description>
+		<method name='anything'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='set'>
+			<digest>Choose a named buffer~ from which to read</digest>
+			<description>Choose a named buffer~ from which to read. </description>
 		</method>
 
 		<method name='recordHead'>
 			<digest>sets the tracker position </digest>
 			<description>sets the tracker position </description>
-		</method>
-
-		<method name='grainPosition'>
-			<digest>sets the positions of the grain dots </digest>
-			<description>sets the positions of the grain dots </description>
-		</method>
-
-		<method name='grainState'>
-			<digest>sets if the grain dots should draw at all </digest>
-			<description>sets if the grain dots should draw at all </description>
-		</method>
-
-		<method name='grainAmp'>
-			<digest>sets the vertical position of the grain dots </digest>
-			<description>sets the vertical position of the grain dots </description>
-		</method>
-
-		<method name='anything'>
-			<digest></digest>
-			<description></description>
 		</method>
 
 	</methodlist>
