@@ -166,7 +166,7 @@ void grainflow_live_tilde::operator()(audio_bundle input, audio_bundle output)
 	}
 	grain_collection_->process(io_config_);
 	
-	//update_grain_data(io_config_, max_grains_this_frame);
+	update_grain_data(io_config_, max_grains_this_frame);
 	audio_thread_busy_ = false;
 }
 

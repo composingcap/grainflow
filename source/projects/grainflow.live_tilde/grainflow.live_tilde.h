@@ -4,6 +4,7 @@
 #include <map>
 #include <gfUtils.h>
 #include <gfGrainCollection.h>
+#include "c74_min_api.h"
 #include "maxBufferReader.h"
 #include <gfRecord.h>
 #include <algorithm>
@@ -126,7 +127,7 @@ public:
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
 				auto name = static_cast<symbol>(args[0]);
-				if (name != buffer_name){
+				if (name != buffer_name.get()){
 					return set_buffers_by_name({name});
 				}
 				return args;
