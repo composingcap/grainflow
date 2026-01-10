@@ -1,11 +1,8 @@
 #pragma once
 #include <c74_min.h>
-#include <mutex>
-#include <map>
 #include <gfUtils.h>
 #include <gfGrainCollection.h>
 #include "c74_min_api.h"
-#include "maxBufferReader.h"
 #include <gfRecord.h>
 #include <algorithm>
 #include "grainflowBase.h"
