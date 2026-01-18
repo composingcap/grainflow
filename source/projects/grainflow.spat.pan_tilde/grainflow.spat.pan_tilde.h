@@ -23,7 +23,7 @@ public:
 	MIN_RELATED{"grainflow.util.multipan~,""grainflow.spatpan~"};
 
 private:
-	enum_map spat_pan_mode_range = {"vbap", "dbap"};
+	enum_map spat_pan_mode_range = {"vbap" , "dbap"};
 
 	double oneOverSamplerate = 1;
 	unique_ptr<gf_spat_pan<INTERNALBLOCK, double>> panner_;
@@ -109,13 +109,13 @@ public:
 			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
 			{
 				if (dummy() || panner_ == nullptr) { return args; }
-				panner_->pan_mode = args[0];
+				panner_->set_pan_mode(args[0]);
 				panner_->recalculate_all_gains();
 				return args;
 			}
 		},
 		description{
-			"Panning algorithm used to determine gains. vbap selects the top N speakers and evenly pans between them. dpab also selects the top N speakers, but adjusts volume based on distance"
+			"Panning algorithm used to determine gains. vbap2d uses 2D VBAP (azimuth only), vbap3d uses 3D VBAP (azimuth and elevation), dbap uses distance-based amplitude panning"
 		}
 	};
 

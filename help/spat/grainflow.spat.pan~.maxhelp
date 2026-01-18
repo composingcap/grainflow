@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 9,
 			"minor" : 0,
-			"revision" : 2,
+			"revision" : 8,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -25,7 +25,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 2,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -41,7 +41,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 167.0, 115.0, 157.0, 34.0 ],
+									"patching_rect" : [ 167.0, 115.0, 157.0, 33.0 ],
 									"text" : "Randomly places grains around a center point"
 								}
 
@@ -65,7 +65,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 13.0, 61.0, 362.0, 34.0 ],
+									"patching_rect" : [ 13.0, 61.0, 362.0, 33.0 ],
 									"text" : "Grainflow has a number of spatializers you can use to set and move grains."
 								}
 
@@ -77,7 +77,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 208.0, 313.0, 157.0, 34.0 ],
+									"patching_rect" : [ 208.0, 313.0, 157.0, 33.0 ],
 									"text" : "Transform a position over the lifespan of a grain"
 								}
 
@@ -89,7 +89,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 167.0, 255.0, 159.0, 34.0 ],
+									"patching_rect" : [ 167.0, 255.0, 159.0, 33.0 ],
 									"text" : "Move position using a rudementary physics engine"
 								}
 
@@ -101,7 +101,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 167.0, 212.0, 157.0, 34.0 ],
+									"patching_rect" : [ 167.0, 212.0, 157.0, 33.0 ],
 									"text" : "Set a position from a randomly sample volume"
 								}
 
@@ -113,7 +113,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 167.0, 169.0, 161.0, 34.0 ],
+									"patching_rect" : [ 167.0, 169.0, 161.0, 33.0 ],
 									"text" : "Set a position sampled from input signals"
 								}
 
@@ -173,21 +173,16 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 13.0, 14.0, 355.0, 41.0 ],
+									"patching_rect" : [ 13.0, 14.0, 355.0, 40.0 ],
 									"text" : "Spatializers"
 								}
 
 							}
  ],
-						"lines" : [  ],
-						"originid" : "pat-1444"
+						"lines" : [  ]
 					}
 ,
 					"patching_rect" : [ 213.0, 195.0, 81.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"globalpatchername" : ""
-					}
-,
 					"text" : "p Spatializers"
 				}
 
@@ -203,13 +198,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 2,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 935.0, 804.0 ],
+						"rect" : [ 100.0, 126.0, 935.0, 804.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -220,7 +215,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 158.0, 502.0, 375.0, 150.0 ],
-									"speakerPositions" : [ -0.4, 1.0, 0.0, 0.4, 1.0, 0.0, -1.0, 0.4, 0.0, 1.0, 0.4, 0.0, -1.0, -0.4, 0.0, 1.0, -0.4, 0.0, -0.4, -1.0, 0.0, 0.4, -1.0, 0.0 ]
+									"speakerPositions" : [ -0.400000005960464, 1.0, 0.0, 0.400000005960464, 1.0, 0.0, -1.0, 0.400000005960464, 0.0, 1.0, 0.400000005960464, 0.0, -1.0, -0.400000005960464, 0.0, 1.0, -0.400000005960464, 0.0, -0.400000005960464, -1.0, 0.0, 0.400000005960464, -1.0, 0.0 ]
 								}
 
 							}
@@ -411,7 +406,6 @@
 									"outlettype" : [ "int" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 14.0, 169.0, 24.0, 24.0 ],
-									"svg" : "",
 									"uncheckedcolor" : [ 0.501960784313725, 0.501960784313725, 0.501960784313725, 1.0 ]
 								}
 
@@ -421,8 +415,8 @@
 									"id" : "obj-9",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 14.0, 330.0, 140.0, 22.0 ],
 									"text" : "grainflow~ _spat.pan 10"
 								}
@@ -447,7 +441,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 12.0, 61.0, 554.0, 48.0 ],
+									"patching_rect" : [ 12.0, 61.0, 554.0, 47.0 ],
 									"text" : "spat.pan~ currently supports distance based panning and vector based panning. Vector based panning is much better when dealing with larger speaker arrays because it avoids weird wavefronts created in distance based panning that can reduce the size of the sweet spot. "
 								}
 
@@ -459,7 +453,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 12.0, 16.0, 355.0, 41.0 ],
+									"patching_rect" : [ 12.0, 16.0, 355.0, 40.0 ],
 									"text" : "Pan Modes"
 								}
 
@@ -471,7 +465,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 410.0, 182.0, 170.666666666666458, 24.0 ],
+									"patching_rect" : [ 474.0, 179.0, 170.666666666666458, 24.0 ],
 									"text" : "Choose a panning method"
 								}
 
@@ -508,33 +502,8 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 356.0, 212.0, 297.250000000000227, 103.0 ],
+									"patching_rect" : [ 356.0, 212.0, 297.250000000000227, 100.0 ],
 									"text" : "Distance based amplitude panning caculates the distance between each speaker and the source to determine the amplitude sent to the speaker. \n\nVector base select to top \"nspeakers\" (default 3) and pans only to those speakers based on the ratio of distance to the source. "
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-22",
-									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "int" ],
-									"patching_rect" : [ 273.0, 214.0, 34.0, 22.0 ],
-									"text" : "+ 1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-16",
-									"items" : [ "distance", "based", ",", "vector", "based" ],
-									"maxclass" : "umenu",
-									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "int", "", "" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 273.0, 182.0, 130.0, 22.0 ]
 								}
 
 							}
@@ -547,6 +516,19 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 273.0, 252.0, 79.0, 22.0 ],
 									"text" : "panMode $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"attr" : "mode",
+									"id" : "obj-3",
+									"maxclass" : "attrui",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 258.0, 180.0, 198.0, 22.0 ]
 								}
 
 							}
@@ -563,13 +545,6 @@
 								"patchline" : 								{
 									"destination" : [ "obj-8", 1 ],
 									"source" : [ "obj-13", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-22", 0 ],
-									"source" : [ "obj-16", 0 ]
 								}
 
 							}
@@ -597,13 +572,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-11", 0 ],
-									"source" : [ "obj-22", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
 									"source" : [ "obj-28", 0 ]
 								}
@@ -614,6 +582,13 @@
 									"destination" : [ "obj-4", 0 ],
 									"midpoints" : [ 282.5, 474.25, 23.5, 474.25 ],
 									"source" : [ "obj-29", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"source" : [ "obj-3", 0 ]
 								}
 
 							}
@@ -688,15 +663,10 @@
 								}
 
 							}
- ],
-						"originid" : "pat-1538"
+ ]
 					}
 ,
 					"patching_rect" : [ 205.0, 157.0, 88.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"globalpatchername" : ""
-					}
-,
 					"text" : "p \"Pan Modes\""
 				}
 
@@ -712,13 +682,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 2,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 935.0, 804.0 ],
+						"rect" : [ 0.0, 26.0, 935.0, 804.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -732,7 +702,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 2,
+											"revision" : 8,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -889,15 +859,10 @@
 												}
 
 											}
- ],
-										"originid" : "pat-1556"
+ ]
 									}
 ,
 									"patching_rect" : [ 614.0, 224.0, 75.0, 22.0 ],
-									"saved_object_attributes" : 									{
-										"globalpatchername" : ""
-									}
-,
 									"text" : "p autoswitch"
 								}
 
@@ -1019,7 +984,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 707.0, 109.5, 101.0, 38.0 ],
+									"patching_rect" : [ 707.0, 109.5, 101.0, 37.0 ],
 									"text" : "Select a speaker setup"
 								}
 
@@ -1032,7 +997,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 509.0, 456.0, 192.0, 38.0 ],
+									"patching_rect" : [ 509.0, 456.0, 192.0, 37.0 ],
 									"text" : "grainflow.spatview~ sends a center message when clicked"
 								}
 
@@ -1094,7 +1059,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 238.0, 269.0, 275.0, 52.0 ],
+									"patching_rect" : [ 238.0, 269.0, 275.0, 51.0 ],
 									"text" : "grainflow.spat has abstractions that aid in spatialization. This one generates a random point around a center point every new grain."
 								}
 
@@ -1182,7 +1147,6 @@
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[3]",
 											"parameter_modmode" : 0,
-											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "number[3]",
 											"parameter_type" : 3
 										}
@@ -1210,7 +1174,6 @@
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[2]",
 											"parameter_modmode" : 0,
-											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "number[2]",
 											"parameter_type" : 3
 										}
@@ -1238,7 +1201,6 @@
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number[1]",
 											"parameter_modmode" : 0,
-											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "number[1]",
 											"parameter_type" : 3
 										}
@@ -1345,7 +1307,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 228.0, 566.0, 188.0, 53.0 ],
+									"patching_rect" : [ 228.0, 566.0, 188.0, 52.0 ],
 									"text" : "grainflow.spatview~ is used to visualize grains in space"
 								}
 
@@ -1370,7 +1332,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 91.0, 314.0, 115.0, 38.0 ],
+									"patching_rect" : [ 91.0, 314.0, 115.0, 37.0 ],
 									"text" : "Spatialization messages"
 								}
 
@@ -1417,7 +1379,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 8.0, 355.0, 41.0 ],
+									"patching_rect" : [ 15.0, 8.0, 355.0, 40.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
 
@@ -1467,7 +1429,6 @@
 									"outlettype" : [ "int" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 19.0, 90.0, 24.0, 24.0 ],
-									"svg" : "",
 									"uncheckedcolor" : [ 0.501960784313725, 0.501960784313725, 0.501960784313725, 1.0 ]
 								}
 
@@ -1489,8 +1450,8 @@
 									"id" : "obj-9",
 									"maxclass" : "newobj",
 									"numinlets" : 4,
-									"numoutlets" : 9,
-									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
+									"numoutlets" : 10,
+									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
 									"patching_rect" : [ 45.0, 238.0, 136.0, 22.0 ],
 									"text" : "grainflow~ _spat.pan 10"
 								}
@@ -1757,15 +1718,10 @@
 								}
 
 							}
- ],
-						"originid" : "pat-1554"
+ ]
 					}
 ,
 					"patching_rect" : [ 201.0, 67.0, 61.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"globalpatchername" : ""
-					}
-,
 					"text" : "p General"
 				}
 
@@ -1781,7 +1737,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 2,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1811,7 +1767,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 350.833333333333258, 102.0, 464.0, 25.0 ],
+									"patching_rect" : [ 350.833333333333258, 102.0, 464.0, 24.0 ],
 									"text" : "Or set up speakers using messages"
 								}
 
@@ -1825,7 +1781,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 92.0, 186.5, 126.0, 67.0 ],
+									"patching_rect" : [ 92.0, 186.5, 126.0, 66.0 ],
 									"text" : "this abstraction has some premade speaker setups"
 								}
 
@@ -1852,7 +1808,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 652.0, 229.5, 226.0, 67.0 ],
+									"patching_rect" : [ 652.0, 229.5, 226.0, 66.0 ],
 									"text" : "sets a dimentional mask when computing volumes. This is useful when converting 3D spatializations to 2D"
 								}
 
@@ -1901,7 +1857,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 800.0, 144.0, 92.0, 79.0 ],
+									"patching_rect" : [ 800.0, 144.0, 92.0, 78.0 ],
 									"text" : "Speaker positions can be set with XYZ coordinates"
 								}
 
@@ -1938,7 +1894,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 435.0, 227.0, 177.0, 52.0 ],
+									"patching_rect" : [ 435.0, 227.0, 177.0, 51.0 ],
 									"text" : "The curve of the falloff.  0 is linear, 1 is exponentail, -1 is logarithmic (equal power)"
 								}
 
@@ -1951,7 +1907,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 441.0, 137.5, 144.0, 52.0 ],
+									"patching_rect" : [ 441.0, 137.5, 144.0, 51.0 ],
 									"text" : "The maximum distance at which something will sound"
 								}
 
@@ -1986,7 +1942,6 @@
 											"parameter_invisible" : 1,
 											"parameter_longname" : "number",
 											"parameter_modmode" : 0,
-											"parameter_osc_name" : "<default>",
 											"parameter_shortname" : "number",
 											"parameter_type" : 3
 										}
@@ -2028,7 +1983,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 511.5, 155.0, 34.0 ],
+									"patching_rect" : [ 15.0, 511.5, 155.0, 33.0 ],
 									"text" : "Speakers can be stored as dictionaries as well as a list"
 								}
 
@@ -2051,7 +2006,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 6.0, 355.0, 41.0 ],
+									"patching_rect" : [ 15.0, 6.0, 355.0, 40.0 ],
 									"text" : "Speaker setups"
 								}
 
@@ -2086,7 +2041,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 169.0, 105.0, 119.0, 38.0 ],
+									"patching_rect" : [ 169.0, 105.0, 119.0, 37.0 ],
 									"text" : "Select a speaker configuration"
 								}
 
@@ -2258,22 +2213,16 @@
 								}
 
 							}
- ],
-						"originid" : "pat-1572"
+ ]
 					}
 ,
 					"patching_rect" : [ 205.0, 110.0, 112.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"globalpatchername" : ""
-					}
-,
 					"text" : "p \"Speaker Setups\""
 				}
 
 			}
  ],
 		"lines" : [  ],
-		"originid" : "pat-1442",
 		"parameters" : 		{
 			"obj-54::obj-46" : [ "number", "number", 0 ],
 			"obj-55::obj-28" : [ "number[1]", "number[1]", 0 ],
@@ -2288,92 +2237,92 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "_grainflow.aed2xyz.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.snapshot~.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.spat.pointparse.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.spreadlist.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "_grainflow.xyz2aed.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/_private",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/_private",
 				"patcherrelativepath" : "../../patchers/_private",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.3dspread.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.spat.pan~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.spat.pan~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
 				"name" : "grainflow.spat.phys.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/spat/phys",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/spat/phys",
 				"patcherrelativepath" : "../../patchers/spat/phys",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.speakers.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.spirograph.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.transformOverLife.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "grainflow.spat.volume.maxpat",
-				"bootpath" : "~/Documents/Max 9/Packages/Grainflow/patchers/spat",
+				"bootpath" : "~/Documents/Max 9/Packages/grainflow/patchers/spat",
 				"patcherrelativepath" : "../../patchers/spat",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "grainflow.spatview~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow.spatview~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
-				"name" : "grainflow~.mxe64",
-				"type" : "mx64"
+				"name" : "grainflow~.mxo",
+				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0

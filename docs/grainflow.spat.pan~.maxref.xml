@@ -36,12 +36,12 @@
 			<description></description>
 		</method>
 
-		<method name='xyz'>
+		<method name='clearSources'>
 			<digest></digest>
 			<description></description>
 		</method>
 
-		<method name='clearSources'>
+		<method name='xyz'>
 			<digest></digest>
 			<description></description>
 		</method>
