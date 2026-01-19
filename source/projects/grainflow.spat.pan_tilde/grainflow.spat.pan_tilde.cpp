@@ -70,23 +70,6 @@ void grainflow_spat_pan_tilde::config_from_dictionary(dict& config)
 				a_exponent = entryRef.begin()->a_w.w_long;
 			}
 		}
-		entryRef = config.at("dimMask");
-		if (!entryRef.empty())
-		{
-			atoms dim_mask;
-			for (auto& entry : entryRef)
-			{
-				if (entry.a_type == c74::max::A_FLOAT)
-				{
-					dim_mask.push_back(entry.a_w.w_float);
-				}
-				else if (entry.a_type == c74::max::A_LONG)
-				{
-					dim_mask.push_back(entry.a_w.w_long);
-				}
-				if (dim_mask.size() > 0) { a_dim_mask.set(dim_mask); }
-			}
-		}
 	}
 	catch (...)
 	{

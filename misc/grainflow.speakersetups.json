@@ -12,8 +12,7 @@
 		}
 ,
 		"distanceThreshold" : 1.5,
-		"exponent" : -1,
-		"dimMask" : [ 1, 1, 0 ]
+		"exponent" : -1
 	}
 ,
 	"8ch double diamond" : 	{
@@ -29,8 +28,7 @@
 		}
 ,
 		"distanceThreshold" : 1,
-		"exponent" : -1,
-		"dimMask" : [ 1, 1, 0 ]
+		"exponent" : -1
 	}
 ,
 	"stereo" : 	{
@@ -40,8 +38,7 @@
 		}
 ,
 		"distanceThreshold" : 1.5,
-		"exponent" : -1,
-		"dimMask" : [ 1, 0, 0 ]
+		"exponent" : -1
 	}
 ,
 	"quad" : 	{
@@ -67,8 +64,7 @@
 		}
 ,
 		"distanceThreshold" : 1.5,
-		"exponent" : -1,
-		"dimMask" : [ 1, 1, 0 ]
+		"exponent" : -1
 	}
 ,
 	"7ch surround" : 	{
@@ -83,8 +79,7 @@
 		}
 ,
 		"distanceThreshold" : 1.5,
-		"exponent" : -1,
-		"dimMask" : [ 1, 1, 0 ]
+		"exponent" : -1
 	}
 ,
 	"16ch Stacked Stereo Pairs" : 	{
@@ -108,8 +103,7 @@
 		}
 ,
 		"distanceThreshold" : 0.75,
-		"exponent" : -1,
-		"dimMask" : [ 1, 1, 1 ]
+		"exponent" : -1
 	}
 
 }

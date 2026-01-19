@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 100.0, 100.0, 935.0, 830.0 ],
+		"rect" : [ 100.0, 100.0, 1000.0, 830.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"showrootpatcherontab" : 0,
 		"showontab" : 0,
@@ -31,7 +31,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 935.0, 804.0 ],
+						"rect" : [ 0.0, 26.0, 1000.0, 804.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -204,17 +204,101 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 126.0, 935.0, 804.0 ],
+						"rect" : [ 100.0, 126.0, 1000.0, 804.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-33",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 233.0, 480.0, 281.0, 33.0 ],
+									"text" : "exponent describes how that attinuation is applied. 0 decribes a linear falloff."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-31",
+									"linecount" : 3,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 360.0, 425.0, 277.0, 47.0 ],
+									"text" : "distance threshhold describes how far a sound can be from a speaker and be included in that speaker"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-27",
+									"linecount" : 3,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 222.0, 368.0, 404.0, 47.0 ],
+									"text" : "DBAP is less sofisticated panning method where the amount of sound sent to each speaker is determined based on the distance to that speaker. Dbap may be more tunable for artistic purposes."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 20.0,
+									"id" : "obj-23",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 222.0, 337.0, 404.0, 29.0 ],
+									"text" : "Dbap - Distance Based Amplitude Panning"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-21",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 382.0, 299.0, 250.0, 33.0 ],
+									"text" : "Spread can be used in 3D vbap setup to define how diffuse sounds should be."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-16",
+									"linecount" : 4,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 222.0, 231.0, 405.0, 60.0 ],
+									"text" : "VBAP is considered to be great for amplitude panning with large speaker arrays. In 2D, a source will pan to two speakers based on the location and in 3D it will pan to 3 speakers. grainflow.spat.pan~ will adapt to 2d or 3d vbap based on the speaker configuration's elevation. "
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontsize" : 20.0,
+									"id" : "obj-10",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 222.0, 199.0, 404.0, 29.0 ],
+									"text" : "Vbap - Vector Based Amplitude Panning"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-1",
 									"maxclass" : "grainflow.spatview~",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 158.0, 502.0, 375.0, 150.0 ],
+									"patching_rect" : [ 158.0, 622.0, 375.0, 150.0 ],
 									"speakerPositions" : [ -0.400000005960464, 1.0, 0.0, 0.400000005960464, 1.0, 0.0, -1.0, 0.400000005960464, 0.0, 1.0, 0.400000005960464, 0.0, -1.0, -0.400000005960464, 0.0, 1.0, -0.400000005960464, 0.0, -0.400000005960464, -1.0, 0.0, 0.400000005960464, -1.0, 0.0 ]
 								}
 
@@ -226,7 +310,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 189.0, 414.0, 219.0, 24.0 ],
+									"patching_rect" : [ 205.0, 534.0, 219.0, 24.0 ],
 									"text" : "Samples signals for xyz coordinates"
 								}
 
@@ -237,7 +321,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 97.0, 231.0, 105.083333333333314, 20.0 ],
+									"patching_rect" : [ 86.0, 231.0, 105.083333333333314, 20.0 ],
 									"text" : "grain frequency"
 								}
 
@@ -261,20 +345,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "clear" ],
-									"patching_rect" : [ 62.0, 448.0, 231.0, 22.0 ],
+									"patching_rect" : [ 62.0, 568.0, 231.0, 22.0 ],
 									"text" : "grainflow.spat.speakers \"8ch stereo pairs\""
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-28",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 199.0, 252.0, 74.0, 22.0 ],
-									"text" : "loadmess 3"
 								}
 
 							}
@@ -285,7 +357,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "float" ],
-									"patching_rect" : [ 14.0, 540.0, 105.0, 116.0 ]
+									"patching_rect" : [ 14.0, 651.0, 105.0, 116.0 ]
 								}
 
 							}
@@ -307,7 +379,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 125.0, 389.0, 74.0, 22.0 ],
+									"patching_rect" : [ 125.0, 509.0, 74.0, 22.0 ],
 									"text" : "cycle~ 0.65"
 								}
 
@@ -319,7 +391,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 84.0, 360.0, 67.0, 22.0 ],
+									"patching_rect" : [ 84.0, 485.5, 67.0, 22.0 ],
 									"text" : "cycle~ 0.7"
 								}
 
@@ -331,7 +403,7 @@
 									"numinlets" : 4,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 43.0, 415.0, 142.0, 22.0 ],
+									"patching_rect" : [ 43.0, 535.0, 142.0, 22.0 ],
 									"text" : "grainflow.spat.spirograph"
 								}
 
@@ -355,7 +427,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 39.0, 206.0, 77.0, 22.0 ],
+									"patching_rect" : [ 28.0, 206.0, 77.0, 22.0 ],
 									"text" : "loadmess 10"
 								}
 
@@ -369,7 +441,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 39.0, 230.0, 50.0, 22.0 ]
+									"patching_rect" : [ 28.0, 230.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -380,7 +452,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 53.0, 304.0, 48.0, 22.0 ],
+									"patching_rect" : [ 54.333333333333336, 413.0, 44.0, 22.0 ],
 									"text" : "noise~"
 								}
 
@@ -392,7 +464,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 39.0, 263.0, 73.0, 22.0 ],
+									"patching_rect" : [ 28.0, 263.0, 73.0, 22.0 ],
 									"text" : "phasor~ 10"
 								}
 
@@ -417,7 +489,7 @@
 									"numinlets" : 4,
 									"numoutlets" : 10,
 									"outlettype" : [ "multichannelsignal", "list", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal", "multichannelsignal" ],
-									"patching_rect" : [ 14.0, 330.0, 140.0, 22.0 ],
+									"patching_rect" : [ 14.0, 450.0, 140.0, 22.0 ],
 									"text" : "grainflow~ _spat.pan 10"
 								}
 
@@ -429,7 +501,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "multichannelsignal", "dictionary" ],
-									"patching_rect" : [ 14.0, 487.0, 118.0, 22.0 ],
+									"patching_rect" : [ 14.0, 607.0, 118.0, 22.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
 
@@ -465,57 +537,8 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 474.0, 179.0, 170.666666666666458, 24.0 ],
+									"patching_rect" : [ 413.0, 171.0, 170.666666666666458, 24.0 ],
 									"text" : "Choose a panning method"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-35",
-									"maxclass" : "number",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "bang" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 273.0, 284.0, 54.0, 22.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-29",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 273.0, 317.0, 131.0, 22.0 ],
-									"text" : "speakersPerSource $1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"bgcolor" : [ 0.164705882352941, 0.164705882352941, 0.164705882352941, 1.0 ],
-									"id" : "obj-27",
-									"linecount" : 7,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 356.0, 212.0, 297.250000000000227, 100.0 ],
-									"text" : "Distance based amplitude panning caculates the distance between each speaker and the source to determine the amplitude sent to the speaker. \n\nVector base select to top \"nspeakers\" (default 3) and pans only to those speakers based on the ratio of distance to the source. "
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-11",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 273.0, 252.0, 79.0, 22.0 ],
-									"text" : "panMode $1"
 								}
 
 							}
@@ -528,20 +551,51 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 258.0, 180.0, 198.0, 22.0 ]
+									"patching_rect" : [ 203.0, 172.0, 198.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"attr" : "spread",
+									"id" : "obj-22",
+									"maxclass" : "attrui",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 205.0, 299.0, 150.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"attr" : "exponent",
+									"id" : "obj-28",
+									"maxclass" : "attrui",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 205.0, 456.0, 150.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"attr" : "distanceThreshold",
+									"id" : "obj-29",
+									"maxclass" : "attrui",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 205.0, 425.0, 150.0, 22.0 ]
 								}
 
 							}
  ],
 						"lines" : [ 							{
-								"patchline" : 								{
-									"destination" : [ "obj-4", 0 ],
-									"midpoints" : [ 282.5, 473.0, 23.5, 473.0 ],
-									"source" : [ "obj-11", 0 ]
-								}
-
-							}
-, 							{
 								"patchline" : 								{
 									"destination" : [ "obj-8", 1 ],
 									"source" : [ "obj-13", 0 ]
@@ -565,14 +619,23 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-9", 0 ],
-									"midpoints" : [ 48.5, 306.75, 23.5, 306.75 ],
+									"midpoints" : [ 37.5, 306.75, 23.5, 306.75 ],
 									"source" : [ "obj-20", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-35", 0 ],
+									"destination" : [ "obj-4", 0 ],
+									"midpoints" : [ 214.5, 477.3046875, 23.5, 477.3046875 ],
+									"source" : [ "obj-22", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"midpoints" : [ 214.5, 478.01171875, 23.5, 478.01171875 ],
 									"source" : [ "obj-28", 0 ]
 								}
 
@@ -580,7 +643,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-4", 0 ],
-									"midpoints" : [ 282.5, 474.25, 23.5, 474.25 ],
+									"midpoints" : [ 214.5, 478.8125, 23.5, 478.8125 ],
 									"source" : [ "obj-29", 0 ]
 								}
 
@@ -588,6 +651,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-4", 0 ],
+									"midpoints" : [ 212.5, 479.0234375, 23.5, 479.0234375 ],
 									"source" : [ "obj-3", 0 ]
 								}
 
@@ -601,15 +665,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-29", 0 ],
-									"source" : [ "obj-35", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-1", 0 ],
-									"midpoints" : [ 122.5, 519.0, 139.5, 519.0, 139.5, 490.0, 167.5, 490.0 ],
+									"midpoints" : [ 122.5, 639.0, 139.5, 639.0, 139.5, 610.0, 167.5, 610.0 ],
 									"source" : [ "obj-4", 1 ]
 								}
 
@@ -688,7 +745,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 935.0, 804.0 ],
+						"rect" : [ 0.0, 26.0, 1000.0, 804.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -1743,7 +1800,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 935.0, 804.0 ],
+						"rect" : [ 0.0, 26.0, 1000.0, 804.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"showontab" : 1,
 						"boxes" : [ 							{
@@ -1755,20 +1812,6 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 181.0, 346.25, 472.0, 189.0 ],
 									"speakerPositions" : [ -0.4, 1.0, 0.0, 0.4, 1.0, 0.0, -1.0, 0.4, 0.0, 1.0, 0.4, 0.0, -1.0, -0.4, 0.0, 1.0, -0.4, 0.0, -0.4, -1.0, 0.0, 0.4, -1.0, 0.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontface" : 1,
-									"fontname" : "Arial",
-									"fontsize" : 16.0,
-									"id" : "obj-8",
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 350.833333333333258, 102.0, 464.0, 24.0 ],
-									"text" : "Or set up speakers using messages"
 								}
 
 							}
@@ -1795,184 +1838,6 @@
 									"outlettype" : [ "", "clear" ],
 									"patching_rect" : [ 82.0, 161.0, 135.0, 22.0 ],
 									"text" : "grainflow.spat.speakers"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"bubble" : 1,
-									"bubblepoint" : 0.1,
-									"bubbleside" : 0,
-									"id" : "obj-33",
-									"linecount" : 3,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 652.0, 229.5, 226.0, 66.0 ],
-									"text" : "sets a dimentional mask when computing volumes. This is useful when converting 3D spatializations to 2D"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-32",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 603.0, 144.0, 58.0, 22.0 ],
-									"text" : "loadbang"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-31",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 603.0, 205.5, 87.0, 22.0 ],
-									"text" : "dimMask 1 1 0"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-29",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 359.0, 207.0, 74.0, 22.0 ],
-									"text" : "loadmess -1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"bubble" : 1,
-									"id" : "obj-23",
-									"linecount" : 5,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 800.0, 144.0, 92.0, 78.0 ],
-									"text" : "Speaker positions can be set with XYZ coordinates"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-2",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 359.0, 133.5, 80.0, 22.0 ],
-									"text" : "loadmess 1.5"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-74",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 603.0, 170.5, 196.0, 22.0 ],
-									"text" : "speakers -1 1 0 1 1 0 -1 -1 0 1 -1 0"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"bubble" : 1,
-									"id" : "obj-58",
-									"linecount" : 3,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 435.0, 227.0, 177.0, 51.0 ],
-									"text" : "The curve of the falloff.  0 is linear, 1 is exponentail, -1 is logarithmic (equal power)"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"bubble" : 1,
-									"id" : "obj-52",
-									"linecount" : 3,
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 441.0, 137.5, 144.0, 51.0 ],
-									"text" : "The maximum distance at which something will sound"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"format" : 6,
-									"id" : "obj-50",
-									"maxclass" : "flonum",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "bang" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 358.833333333333258, 249.0, 50.0, 22.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"format" : 6,
-									"id" : "obj-46",
-									"maxclass" : "flonum",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "bang" ],
-									"parameter_enable" : 1,
-									"patching_rect" : [ 358.833333333333258, 157.5, 50.0, 22.0 ],
-									"saved_attribute_attributes" : 									{
-										"valueof" : 										{
-											"parameter_initial" : [ 1.0 ],
-											"parameter_initial_enable" : 1,
-											"parameter_invisible" : 1,
-											"parameter_longname" : "number",
-											"parameter_modmode" : 0,
-											"parameter_shortname" : "number",
-											"parameter_type" : 3
-										}
-
-									}
-,
-									"varname" : "number"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-44",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 359.0, 275.5, 75.0, 22.0 ],
-									"text" : "exponent $1"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-42",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 358.833333333333258, 186.5, 123.0, 22.0 ],
-									"text" : "distanceThreshold $1"
 								}
 
 							}
@@ -2018,7 +1883,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "multichannelsignal", "dictionary" ],
-									"patching_rect" : [ 82.0, 311.5, 118.0, 22.0 ],
+									"patching_rect" : [ 82.0, 291.0, 118.0, 22.0 ],
 									"text" : "grainflow.spat.pan~"
 								}
 
@@ -2071,21 +1936,6 @@
 								}
 
 							}
-, 							{
-								"box" : 								{
-									"angle" : 270.0,
-									"background" : 1,
-									"bgcolor" : [ 0.407843137254902, 0.407843137254902, 0.407843137254902, 1.0 ],
-									"id" : "obj-9",
-									"maxclass" : "panel",
-									"mode" : 0,
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 330.833333333333258, 102.0, 585.0, 226.0 ],
-									"proportion" : 0.5
-								}
-
-							}
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
@@ -2121,45 +1971,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-46", 0 ],
-									"source" : [ "obj-2", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-50", 0 ],
-									"source" : [ "obj-29", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"destination" : [ "obj-6", 0 ],
-									"midpoints" : [ 612.5, 303.0, 91.5, 303.0 ],
-									"source" : [ "obj-31", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-31", 0 ],
-									"order" : 0,
-									"source" : [ "obj-32", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-74", 0 ],
-									"order" : 1,
-									"source" : [ "obj-32", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-11", 0 ],
 									"source" : [ "obj-39", 1 ]
 								}
@@ -2167,49 +1978,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"destination" : [ "obj-6", 0 ],
-									"midpoints" : [ 368.333333333333258, 304.0, 91.5, 304.0 ],
-									"source" : [ "obj-42", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"destination" : [ "obj-6", 0 ],
-									"midpoints" : [ 368.5, 304.0, 91.5, 304.0 ],
-									"source" : [ "obj-44", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-42", 0 ],
-									"source" : [ "obj-46", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-44", 0 ],
-									"source" : [ "obj-50", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-7", 0 ],
 									"source" : [ "obj-6", 1 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"color" : [ 0.0, 0.0, 0.0, 1.0 ],
-									"destination" : [ "obj-6", 0 ],
-									"midpoints" : [ 612.5, 303.5, 91.5, 303.5 ],
-									"source" : [ "obj-74", 0 ]
 								}
 
 							}
@@ -2224,7 +1994,6 @@
  ],
 		"lines" : [  ],
 		"parameters" : 		{
-			"obj-54::obj-46" : [ "number", "number", 0 ],
 			"obj-55::obj-28" : [ "number[1]", "number[1]", 0 ],
 			"obj-55::obj-30" : [ "number[2]", "number[2]", 0 ],
 			"obj-55::obj-35" : [ "number[3]", "number[3]", 0 ],

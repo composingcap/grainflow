@@ -1,9 +1,5 @@
 #pragma once
 #include <c74_min.h>
-#include "gfUtils.h"
-#include "gfPanner.h"
-#include <mutex>
-#include <atomic>
 #include  <cmath>
 #include <vector>
 #include "gfSpat.h"
@@ -115,8 +111,33 @@ public:
 			}
 		},
 		description{
-			"Panning algorithm used to determine gains. vbap2d uses 2D VBAP (azimuth only), vbap3d uses 3D VBAP (azimuth and elevation), dbap uses distance-based amplitude panning"
+			"Panning algorithm used to determine gains. vbap uses Vector Base Amplitude Panning, dbap uses distance-based amplitude panning"
 		}
+	};
+
+	attribute<number> a_spread{
+		this,
+		"spread",
+		0,
+		setter{
+			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
+			{
+				if (dummy() || panner_ == nullptr) { return args; }
+				auto val = std::clamp(static_cast<number>(args[0]), 0.0, 360.0);
+				panner_->set_vbap_spread(static_cast<float>(val));
+				panner_->recalculate_all_gains();
+				return {val};
+			}
+		},
+		getter{
+			[this]()-> atoms
+			{
+				if (dummy() || panner_ == nullptr) { return {0}; }
+				return {panner_->get_vbap_spread()};
+			}
+		},
+		description{"(vbap 3D only) spread angle in degrees for VBAP panning. 0 = point source, higher values spread across more speakers"},
+		range{0.0, 360.0}
 	};
 
 	attribute<vector<number>> a_speakers{
@@ -149,31 +170,6 @@ public:
 		}
 	};
 
-	attribute<int> a_n_speakers{
-		this,
-		"speakersPerSource",
-		3,
-		setter{
-			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
-			{
-				if (dummy() || panner_ == nullptr) { return args; }
-				auto val = std::max(0, static_cast<int>(args[0]));
-				if (val == panner_->n_speakers) { return {val}; }
-				panner_->n_speakers = val;
-				panner_->recalculate_all_gains();
-				return {val};
-			}
-		},
-		getter{
-			[this]()-> atoms
-			{
-				if (dummy() || panner_ == nullptr) { return {3}; }
-				return {panner_->n_speakers};
-			}
-		},
-		description{"maximum number of speakers that can receive signal from a single source"}
-	};
-
 	attribute<number> a_distance_thresh{
 		this,
 		"distanceThreshold",
@@ -197,7 +193,7 @@ public:
 				return {panner_->distance_thresh};
 			}
 		},
-		description{"the maximum distance where a source can be rendered by a speaker"}
+		description{"(dbap only) the maximum distance where a source can be rendered by a speaker"}
 	};
 
 	attribute<number> a_exponent{
@@ -222,31 +218,8 @@ public:
 				return {gf_utils::round(gf_utils::rate_to_pitch(panner_->exponent) / 12.0, 0.0001)};
 			}
 		},
-		description{"an exponent determining the falloff curve. 0 is linear"},
+		description{"(dbap only) an exponent determining the falloff curve. 0 is linear"},
 	};
-
-	attribute<vector<number>> a_dim_mask{
-		this,
-		"dimMask",
-		{1, 1, 1},
-		setter{
-			[this](const c74::min::atoms& args, const int inlet)-> c74::min::atoms
-			{
-				if (dummy() || panner_ == nullptr) { return args; }
-				std::array<float, 3> mask = {0, 0, 0};
-				const int arg_count = args.size();
-				for (int i = 0; i < std::min(arg_count, 3); ++i)
-				{
-					mask[i] = std::clamp(static_cast<float>(args[i]), 0.0f, 1.0f);
-				}
-
-
-				panner_->dim_mask = mask;
-				return {mask[0], mask[1], mask[2]};
-			}
-		}
-	};
-
 
 	message<> m_setSourcePosition{
 		this,
