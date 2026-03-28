@@ -7,7 +7,6 @@
 #include <algorithm>
 #include "grainflowBase.h"
 
-
 using namespace c74::min;
 using namespace Grainflow;
 
@@ -214,7 +213,7 @@ public:
 #ifdef Experimental
 	//recordRange does not work well currently and will need some effort to make it work correctly
 	attribute<vector<number>> recordRange{
-		this, "rec_range", {0.0f,1.0f},
+		this, "recRange", {0.0f,1.0f},
 		category{"Grainflow Live Settings"},
 		description{"Determines to write loop"},
 		setter{
@@ -224,15 +223,15 @@ public:
 					args.size() < 2 ? 1.0f : std::clamp(static_cast<float>(args[1]), 0.0f, 1.0f),
 				};
 				if(recorder_ != nullptr){
-					recorder_->rec_range[0].store(static_cast<float>(fixedArgs[0]));
-					recorder_->rec_range[1].store(static_cast<float>(fixedArgs[1]));
+					recorder_->recRange[0].store(static_cast<float>(fixedArgs[0]));
+					recorder_->recRange[1].store(static_cast<float>(fixedArgs[1]));
 				}
 				return fixedArgs;
 			}
 
 		}
 	};
-#endif
+#endif 
 
 	attribute<bool> play{
 		this, "play", true,

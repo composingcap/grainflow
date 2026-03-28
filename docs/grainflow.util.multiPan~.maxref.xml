@@ -53,6 +53,11 @@
 			<description>The distance grains can pan from the center </description>
 		</attribute>
 
+		<attribute name='quantize' get='1' set='1' type='float64' size='1' >
+			<digest>A speaker division grains will lock to </digest>
+			<description>A speaker division grains will lock to </description>
+		</attribute>
+
 	</attributelist>
 
 

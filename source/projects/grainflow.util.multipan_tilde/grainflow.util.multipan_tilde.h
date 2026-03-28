@@ -130,7 +130,7 @@ public:
 		description{"The distance grains can pan from the center"},
 	};
 
-		attribute<number> quantize{
+	attribute<number> quantize{
 		this,
 		"quantize",
 		0.0,
